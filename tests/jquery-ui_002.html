@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test jquery ui</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="../contrib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!-- personal style here ? -->
+	<link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.js"></script>
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="container">
+		Test jquery-ui
+		<div id="panel" class="ui-widget-content">
+			<h1>Draggable + Resizable</h1>
+			<dl>
+				<dt>x
+				<dd id="x">?
+				<dt>y
+				<dd id="y">?
+				<dt>height
+				<dd id="height">?
+				<dt>width
+				<dd id="width">?
+				<dt>innerHeight
+				<dd id="innerHeight">?
+				<dt>innerWidth
+				<dd id="innerWidth">?
+				<dt>outerHeight
+				<dd id="outerHeight">?
+				<dt>outerWidth
+				<dd id="outerWidth">?
+			</dl>
+		</div>
+	</div>
+	
+	<script>
+		var $j = jQuery.noConflict(); // $j is now an alias to the jQuery function;
+		
+		function update_dimensions()
+		{
+			$j("dd#x"          ).text( $j("#panel").position().left );
+			$j("dd#y"          ).text( $j("#panel").position().top );
+			$j("dd#height"     ).text( $j("#panel").height() );
+			$j("dd#width"      ).text( $j("#panel").width() );
+			$j("dd#innerHeight").text( $j("#panel").innerHeight() );
+			$j("dd#innerWidth" ).text( $j("#panel").innerWidth() );
+			$j("dd#outerHeight").text( $j("#panel").outerHeight() );
+			$j("dd#outerWidth" ).text( $j("#panel").outerWidth() );
+		}
+		$j( document ).ready(function()
+		{
+			update_dimensions();
+			$j( "#panel" ).resizable({
+				resize: function( event, ui )
+				{
+					update_dimensions();
+				},
+				stop: function( event, ui )
+				{
+					//alert("Resized !");
+					update_dimensions();
+				}
+			});
+			$j( "#panel" ).draggable({
+				drag: function( event, ui )
+				{
+					update_dimensions();
+				},
+				stop: function( event, ui )
+				{
+					//alert("Dragged !");
+					update_dimensions();
+				}
+			});
+		});
+	</script>
+</body>
+</html>
