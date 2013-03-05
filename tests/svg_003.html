@@ -11,7 +11,7 @@
 	<link href="../contrib/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<!-- personal style here ? -->
 	<style>
-	svg { position: absolute; }
+	svg { position: absolute; left:0; top:0; z-index: -1;}
 	</style>
 	<link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 	
@@ -33,27 +33,85 @@
 		
 		<div id="panel" class="ui-widget-content">
 			<h3>Draggable + Resizable</h3>
-			<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+			<dl>
+				<dt>x
+				<dd id="x">?
+				<dt>y
+				<dd id="y">?
+				<dt>height
+				<dd id="height">?
+				<dt>width
+				<dd id="width">?
+				<dt>innerHeight
+				<dd id="innerHeight">?
+				<dt>innerWidth
+				<dd id="innerWidth">?
+				<dt>outerHeight
+				<dd id="outerHeight">?
+				<dt>outerWidth
+				<dd id="outerWidth">?
+			</dl>
 		</div>
 	</div>
 
 	<script>
 		var $jq = jQuery.noConflict(); // $jq is now an alias to the jQuery function;
 		
-		function drawIntro(svg)
+		function update_decoration(svg)
 		{ 
 			svg.circle(40, 40, 50, 
 				{fill: 'none', stroke: 'red', strokeWidth: 3}); 
+
 			var g = svg.group({stroke: 'black', strokeWidth: 2}); 
-			svg.line(g, 15, 40, 135, 40); 
-			svg.line(g, 40, 15, 40, 135); 
+			svg.line(g, 15, 40, 135, 40);
+			svg.line(g, 40, 15, 40, 135);
+			svg.line(g, $jq("#panel").position().left, $jq("#panel").position().top, $jq("#panel").position().left+$jq("#panel").width(), $jq("#panel").position().top); 
+		}
+
+		function update_dimensions()
+		{
+			$jq("dd#x"          ).text( $jq("#panel").position().left );
+			$jq("dd#y"          ).text( $jq("#panel").position().top );
+			$jq("dd#height"     ).text( $jq("#panel").height() );
+			$jq("dd#width"      ).text( $jq("#panel").width() );
+			$jq("dd#innerHeight").text( $jq("#panel").innerHeight() );
+			$jq("dd#innerWidth" ).text( $jq("#panel").innerWidth() );
+			$jq("dd#outerHeight").text( $jq("#panel").outerHeight() );
+			$jq("dd#outerWidth" ).text( $jq("#panel").outerWidth() );
 		}
 
 		$jq( document ).ready(function()
 		{
-			$jq( "#panel" ).resizable();
-			$jq( "#panel" ).draggable();
-			$jq( ".container" ).svg({onLoad: drawIntro});
+			$jq( ".container" ).svg({onLoad: update_decoration});
+
+			update_dimensions();
+			$jq( "#panel" ).resizable({
+				resize: function( event, ui )
+				{
+					update_dimensions();
+					update_decoration( $jq(".container").svg('get', { addTo: false } ) );
+				},
+				stop: function( event, ui )
+				{
+					//alert("Resized !");
+					update_dimensions();
+					update_decoration( $jq(".container").svg('get') );
+				}
+			});
+			$jq( "#panel" ).draggable({
+				drag: function( event, ui )
+				{
+					update_dimensions();
+					update_decoration($jq( ".container" ).svg('get') );
+				},
+				stop: function( event, ui )
+				{
+					//alert("Dragged !");
+					update_dimensions();
+					update_decoration($jq( ".container" ).svg('get') );
+				}
+			});
+
 		});
 	</script>
 </body>
