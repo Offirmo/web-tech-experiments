@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test SVG 4</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="../contrib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!-- personal style here ? -->
+	<style>
+	body
+	{
+		/* needed for correct positionning */
+		position:absolute;
+		
+		/* needed for container min-height */
+		height: 100%;
+		width: 100%;
+
+		background:url(shared/background_1280x791.png) no-repeat bottom center fixed;
+		/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
+		-webkit-background-size: cover, auto;
+		-moz-background-size: cover, auto;
+		-o-background-size: cover, auto;
+		-khtml-background-size: cover, auto;
+		background-size: cover, auto;
+	}
+	svg
+	{
+		position: absolute;
+		left:0; top:0;
+		width: 100%; heigth: 100%;
+		z-index: -1;
+	}
+	</style>
+	<link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../contrib/jquery.svg/jquery.svg.css"> 
+	<script type="text/javascript" src="../contrib/jquery.svg/jquery.svg.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="container">
+		<h1>Test SVG</h1>
+		<dl>
+			<dt>browser viewport height
+			<dd id="bvheight">?
+			<dt>browser viewport width
+			<dd id="bvwidth">?
+			<dt>HTML document height
+			<dd id="hdheight">?
+			<dt>HTML document width
+			<dd id="hdwidth">?
+		</dl>
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+		
+		<div id="panel" class="ui-widget-content">
+			<h3>Draggable + Resizable</h3>
+			<dl>
+				<dt>x
+				<dd id="x">?
+				<dt>y
+				<dd id="y">?
+				<dt>height
+				<dd id="height">?
+				<dt>width
+				<dd id="width">?
+				<dt>innerHeight
+				<dd id="innerHeight">?
+				<dt>innerWidth
+				<dd id="innerWidth">?
+				<dt>outerHeight
+				<dd id="outerHeight">?
+				<dt>outerWidth
+				<dd id="outerWidth">?
+			</dl>
+		</div>
+	</div>
+
+	<script>
+		var $jq = jQuery.noConflict(); // $jq is now an alias to the jQuery function;
+		
+		function update_global_decoration(svg)
+		{ 
+			svg.circle(40, 40, 50, 
+				{fill: 'none', stroke: 'red', strokeWidth: 3}); 
+
+			var g = svg.group({stroke: 'black', strokeWidth: 2}); 
+			svg.line(g, 15, 40, 135, 40);
+			svg.line(g, 40, 15, 40, 135);
+			
+			svg.line(g, 15, 40, 135, 40);
+			svg.line(g, 40, 15, 40, 135);
+		}
+		function update_frame_decoration(svg)
+		{ 
+			var g = svg.group({stroke: 'black', strokeWidth: 2}); 
+			svg.line(g, $jq("#panel").position().left, $jq("#panel").position().top, $jq("#panel").position().left+$jq("#panel").width(), $jq("#panel").position().top); 
+		}
+
+		function update_window_dimensions()
+		{
+			$jq("dd#bvheight"     ).text( $jq(window).height() );
+			$jq("dd#bvwidth"      ).text( $jq(window).width() );
+			$jq("dd#hdheight"     ).text( $jq(document).height() );
+			$jq("dd#hdwidth"      ).text( $jq(document).width() );
+		}
+
+		function update_dimensions()
+		{
+			$jq("dd#x"          ).text( $jq("#panel").position().left );
+			$jq("dd#y"          ).text( $jq("#panel").position().top );
+			$jq("dd#height"     ).text( $jq("#panel").height() );
+			$jq("dd#width"      ).text( $jq("#panel").width() );
+			$jq("dd#innerHeight").text( $jq("#panel").innerHeight() );
+			$jq("dd#innerWidth" ).text( $jq("#panel").innerWidth() );
+			$jq("dd#outerHeight").text( $jq("#panel").outerHeight() );
+			$jq("dd#outerWidth" ).text( $jq("#panel").outerWidth() );
+		}
+
+		$jq( document ).ready(function()
+		{
+			$jq( "body" ).svg({onLoad: update_global_decoration});
+			$jq( ".container" ).svg({onLoad: update_frame_decoration});
+
+			update_dimensions();
+			update_window_dimensions();
+		
+			$jq(window).resize(function() {
+				//resize just happened, pixels changed
+				update_window_dimensions();
+			});
+
+			$jq( "#panel" ).resizable({
+				resize: function( event, ui )
+				{
+					update_dimensions();
+					update_frame_decoration( $jq(".container").svg('get', { addTo: false } ) );
+				},
+				stop: function( event, ui )
+				{
+					//alert("Resized !");
+					update_dimensions();
+					update_frame_decoration( $jq(".container").svg('get') );
+				}
+			});
+			$jq( "#panel" ).draggable({
+				drag: function( event, ui )
+				{
+					update_dimensions();
+					update_frame_decoration($jq( ".container" ).svg('get') );
+				},
+				stop: function( event, ui )
+				{
+					//alert("Dragged !");
+					update_dimensions();
+					update_frame_decoration($jq( ".container" ).svg('get') );
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>
