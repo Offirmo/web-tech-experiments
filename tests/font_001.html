@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test font 1</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="../contrib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!-- personal style here ? -->
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<style>
+	body
+	{
+		/* needed for correct positionning */
+		position:absolute;
+		
+		/* needed for container min-height */
+		height: 100%;
+		width: 100%;
+
+		background:url(shared/background_1280x791.png) no-repeat bottom center fixed;
+		/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
+		-webkit-background-size: cover, auto;
+		-moz-background-size: cover, auto;
+		-o-background-size: cover, auto;
+		-khtml-background-size: cover, auto;
+		background-size: cover, auto;
+		
+		font-family: 'Poiret One', cursive;
+		font-size:100%;
+	}
+	section#i2
+	{
+		font-size: 30px;
+	}
+	</style>
+	<link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../contrib/jquery.svg/jquery.svg.css"> 
+	<script type="text/javascript" src="../contrib/jquery.svg/jquery.svg.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body><div class="svg_helper" id="root"></div>
+	<div class="container">
+		<section>
+			<h1>Test font 1</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+			<dl>
+				<dt>browser viewport height
+				<dd id="bvheight">?
+				<dt>browser viewport width
+				<dd id="bvwidth">?
+				<dt>HTML document height
+				<dd id="hdheight">?
+				<dt>HTML document width
+				<dd id="hdwidth">?
+			</dl>
+		</section>
+		<section id="i2" >
+			<h1>Test font (suite)</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+		</section>
+	</div>
+	
+	
+	
+	<script>
+		var $jq = jQuery.noConflict(); // $jq is now an alias to the jQuery function;
+
+		function update_window_dimensions()
+		{
+			$jq("dd#bvheight"     ).text( $jq(window).height() );
+			$jq("dd#bvwidth"      ).text( $jq(window).width() );
+			$jq("dd#hdheight"     ).text( $jq(document).height() );
+			$jq("dd#hdwidth"      ).text( $jq(document).width() );
+		}
+
+		$jq( document ).ready(function()
+		{
+			update_window_dimensions();
+		
+			$jq(window).resize(function() {
+				//resize just happened, pixels changed
+				update_window_dimensions();
+			});
+		});
+	</script>
+</body>
+</html>
