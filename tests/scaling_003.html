@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Test font 2</title>
+	<title>Test scaling 3</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
@@ -10,13 +10,14 @@
 	
 	<link href="../contrib/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<!-- personal style here ? -->
-	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans|Monda|Duru+Sans|Tauri&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
    <link href="../homebrew/bootstrap.rem.css" rel="stylesheet" media="screen">
 	<style>
 	html
       {
         /*font-size: 100%;*/
 			font-size: 20px; /* Yes I know what I do */
+
       }
 	body
 	{
@@ -34,12 +35,35 @@
 		-o-background-size: cover, auto;
 		-khtml-background-size: cover, auto;
 		background-size: cover, auto;
-		
-		font-family: 'Poiret One', cursive;
+
+			font-family: 'Monda', sans-serif;
+			/*line-height: 150%;*/
 	}
 	section#i2
 	{
 		/*font-size: 30px;*/
+	}
+	div#svg_root
+	{
+		/* needed for correct positionning */
+		position:absolute;
+		height:100%; /* needed for container min-height */
+		width:100%;
+	}
+	div#rem_compute
+	{
+		position:absolute;
+		height:10rem;
+		width:10rem;
+		background: red;
+	}
+	div#container_root
+	{
+		/* needed for correct positionning */
+		position:absolute;
+		height:100%; /* needed for container min-height */
+		width:100%;
+		border: solid 3px;
 	}
 	</style>
 	<!-- <link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
@@ -55,10 +79,10 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
-<body><div class="svg_helper" id="root"></div>
-	<div class="container">
+<body><div id="svg_root"></div><div id="rem_compute"></div>
+	<div id="container_root">
 		<section>
-			<h1>Test font 1</h1>
+			<h1>Test scaling 3</h1>
 			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
 			<dl>
 				<dt>browser viewport height
@@ -85,10 +109,23 @@
 		function scale()
 		{
 			// first compute bounding box
+			var desired_ratio = 1.6180339888; // nombre d'or
+			var h = $jq(window).height() - 6;
+			var w = $jq(window).width() - 6;
+			var viewport_ratio = w / h;
+			if(viewport_ratio > desired_ratio)
+			{
+				w = h * desired_ratio;
+			}
+			else
+			{
+				h = w / desired_ratio;
+			}
 			// (TODO)
 			// then scale
+			$jq('div#container_root').css({ "height": h.toString() + "px", "width": w.toString() + "px"});
 			//var font_size = 
-			$jq('html').css({"font-size": ($jq(window).height() / 50).toString() + "px"});
+			$jq('html').css({"font-size": (h / 50).toString() + "px"});
 		}
 
 		function update_window_dimensions()
