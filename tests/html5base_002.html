@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- html_002 template -->
+<html lang=en>
+<head>
+	<meta charset="utf-8">
+	<!-- ultra-mini css reset just to nicely display if a loading problem occurs -->
+	<title>HTML5 base 2</title>
+	<style>
+	div#safe-loading-msgs
+	{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 16px;
+		text-align: center
+	}
+	</style>
+</head>
+<body>
+	<div id="safe-loading-msgs">
+		<h1>Application X</h1>
+		<h3>Loading...</h3>
+		<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+		<p><small>Please contact …@… in case of problem.</small></p>
+	</div>
+	<div id="content">
+		<h1 id="header">HTML5 base 2</h1>
+		<p>Hello world.</p>
+	</div>
+	<script>
+		// hide the content while loading is not done
+		// (not initially hidden in case of very high pb)
+		var content_area = document.getElementById('content');
+		content_area.style.display = 'none';
+		
+		// as soon as page is loaded, swap content
+		var loading_area = document.getElementById('safe-loading-msgs');
+		loading_area.style.display = 'none';
+		content_area.style.display = 'block';
+	</script>
+</body>
+</html>

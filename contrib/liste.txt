@@ -1,7 +1,9 @@
 
 jquery   http://jquery.com/ 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
-	
+http://code.jquery.com/
+
+
 jquery ui  http://jqueryui.com/
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
 
@@ -10,3 +12,9 @@ jquery svg   http://keith-wood.name/svg.html
 
 Prototype   http://prototypejs.org/
 <script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+
+modernizr   
+yepnope.js   http://yepnopejs.com/
+
+bootstrap   
+http://webmasters.stackexchange.com/questions/25991/is-the-bootstrap-css-on-a-cdn-yet

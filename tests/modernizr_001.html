@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- js_002 template -->
+<html lang=en>
+<head>
+	<meta charset="utf-8">
+	<script>console.log("hello from top of header");</script>
+	<title>Modernizr 1</title>
+	<script src="../contrib/modernizr/modernizr-latest-dev.js"></script>
+	<script>
+		console.log("hello from header");
+	</script>
+</head>
+<body>
+	<h1 id="header">Modernizr 1</h1>
+	<p id="info">Some text should be displayed below :</p>
+	
+	<script>
+		var p1 = document.getElementsByTagName('p')[0];
+		
+		if (typeof Modernizr === 'undefined'){
+			document.body.appendChild(document.createTextNode('Error loading Modernizr !'));
+		} else
+		{
+			if (Modernizr.touch){
+				document.body.appendChild(document.createTextNode('Touch is supported !'));
+			} else {
+				document.body.appendChild(document.createTextNode('Touch is not supported...'));
+			}
+		}
+	</script>
+	<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- html_002 template -->
+<html lang=en>
+<head>
+	<meta charset="utf-8">
+	<title>Loader 1</title>
+	
+	<!-- ultra-mini css reset just to nicely display if a loading problem occurs -->
+	<style>
+	div#safe-loading-msgs
+	{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 16px;
+		text-align: center
+	}
+	</style>
+	
+	<script src="../contrib/modernizr/modernizr-latest-dev.js"></script>
+	
+</head>
+<body>
+	<div id="safe-loading-msgs">
+		<h1>Application Loader 1</h1>
+		<h3>Loading...</h3>
+		<p id="error-messages" style="color: red;"><strong>
+			<noscript>Your browser either does not support JavaScript, or has it turned off !</noscript>
+		</strong></p>
+		<p><small>Please contact …@… in case of problem.</small></p>
+	</div>
+	<script>
+		var minimalLoader = {
+			expected_rsrc_count: 0,
+			successful_rsrc_count: 0,
+			failed_rsrc_count: 0,
+			content_area: undefined,
+			loading_area: undefined,
+			on_init: function() {
+				// hide the content while loading is not done
+				// (not initially hidden in case of very high pb)
+				this.content_area = document.getElementById('content');
+				this.loading_area = document.getElementById('safe-loading-msgs');
+				this.content_area.style.display = 'none';
+			},
+			register_expected_rsrc: function(rsrc) {
+				this.expected_rsrc_count++;
+				console.log("[minimalLoader] expecting rsrc : " + rsrc);
+				return true;
+			},
+			report_missing_rsrc: function(rsrc) {
+				this.failed_rsrc_count++;
+				console.error("[minimalLoader] error loading rsrc : " + rsrc);
+				this.check_completion();
+			},
+			report_loaded_rsrc: function(rsrc) {
+				this.successful_rsrc_count++;
+				console.log("[minimalLoader] rsrc loaded : " + rsrc);
+				this.check_completion();
+			},
+			check_completion: function(rsrc) {
+				if( this.successful_rsrc_count + this.failed_rsrc_count >= this.expected_rsrc_count )
+				{
+					this.on_complete();
+				}
+			},
+			on_complete: function() {
+				// as soon as page is loaded, swap content
+				if( this.successful_rsrc_count != this.expected_rsrc_count )
+				{
+					document.getElementById('error-messages').appendChild(document.createTextNode('Error loading the page !'));
+				}
+				else
+				{
+					this.loading_area.style.display = 'none';
+					this.content_area.style.display = 'block';
+				}
+			},
+		};
+		if (typeof Modernizr === 'undefined'){
+			console.error("Error loading Modernizr !");
+		}
+		else
+		{
+			console.log("Starting rsrc load...");
+			Modernizr.load.errorTimeout = 3000; // set to x ms error timeout
+			Modernizr.load([
+				{
+					test: minimalLoader.register_expected_rsrc("jQuery"),
+					load: 'http:/­/ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js',
+					complete: function () {
+						if (!window.jQuery) {
+							minimalLoader.report_missing_rsrc("jQuery");
+						}
+						else {
+							minimalLoader.report_loaded_rsrc("jQuery");
+						}
+					}
+				},
+				{
+					test: minimalLoader.register_expected_rsrc(),
+					load: 'jquery.plugin.js',
+					complete: function () {
+						minimalLoader.report_loaded_rsrc("plugin");
+					}
+				}
+			]);
+	}
+	</script>
+	
+	<div id="content">
+		<h1 id="header">Loader 1</h1>
+		<p>Hello world.</p>
+	</div>
+	<script>
+		minimalLoader.on_init();
+	</script>
+</body>
+</html>
