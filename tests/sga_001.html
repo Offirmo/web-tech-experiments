@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- html_002 template -->
+<html lang=en>
+<head>
+	<meta charset="utf-8">
+	<title>SGA 001</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Ultra-mini css reset just to nicely display the loader
+	     Should be ultra-safe for :
+	     - old navigators like IE6
+	     - google referencement -> avoid 'blink', 'display:none' etc. at start (but ok later in script)
+	  -->
+	<style>
+	body {
+		background: black;
+		color: DarkTurquoise;
+	}
+	a {
+		color: DarkTurquoise;
+	}
+	div#mini-loader {
+		padding-top: 50px;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 14px;
+		text-align: center
+	}
+	ul#mini-loader-log {
+		color: grey;
+		font-size: 10px;
+	}
+	</style>
+	<!-- should be embedded, but for dev this is easier. -->
+	<script src="../homebrew/quartermaster/quartermaster.js"></script>
+</head>
+<body>
+
+<!-- the loader, only visible at start -->
+<div id="q-loader">
+	<h1>SGA</h1>
+	<h3 id="mini-loader-msg">Loading<span id="simple-loading-indicator">...</span> (<span id="loaded-rsrc-count">0</span>/<span id="expected-rsrc-count">1</span>)</h3>
+	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+	<ul id="mini-loader-log">
+		<!-- empty for now -->
+	</ul>
+	<p><small>Please contact <a href="mailto:xxx@gmail.com">abc@def.xyz</a> in case of problem.</small></p>
+</div>
+
+<!-- a full background SVG pane -->
+<div id="svg_root"></div>
+
+<!-- a small hidden div to help compute pixels/rem ratio -->
+<div id="rem_compute"></div>
+
+<!-- eventually, the content -->
+<div id="content">
+	<div class="container">
+		<div id="todo">
+			TODO
+		</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+	
+<script>
+
+Q.init();
+
+Q.log("Starting rsrc load...");
+
+Modernizr.load([
+	/////// Backbone
+	{
+		test: Q.register_expected_rsrc("underscore.js"),
+		//load: {'underscore.js': 'http://underscorejs.org/underscore.js' },
+		load: {'underscore.js': '../contrib/backbone/underscore.js' },
+		callback: function (url, result, key) {
+			Q.log("[Q] callback : ", url, result, key);
+			if (!window._) {
+				Q.report_missing_rsrc(key);
+			}
+			else {
+				Q.report_loaded_rsrc(key);
+			}
+		}
+	},
+	{
+		test: Q.register_expected_rsrc("backbone"),
+		//load: {'backbone': 'http://backbonejs.org/backbone.js' },
+		load: {'backbone': '../contrib/backbone/backbone.js' },
+		callback: function (url, result, key) {
+			Q.log("[Q] callback : ", url, result, key);
+			if (!window.Backbone) {
+				Q.report_missing_rsrc(key);
+			}
+			else {
+				Q.report_loaded_rsrc(key);
+			}
+		}
+	},
+	/////// jQuery
+	{
+		test: Q.register_expected_rsrc("jQuery"),
+		//load: {'jQuery': 'http://code.jquery.com/jquery-1.9.1.js' },
+		load: {'jQuery': '../contrib/jquery/jquery-1.9.1.js' },
+		callback: function (url, result, key) {
+			Q.log("[Q] callback : ", url, result, key);
+			if (!window.jQuery) {
+				Q.report_missing_rsrc(key);
+			}
+			else {
+				Q.report_loaded_rsrc(key);
+			}
+		}
+	},
+	/////// bootstrap
+	{
+		test: Q.register_expected_rsrc("bootstrap-css"),
+		//load: { 'bootstrap-css': 'http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' },
+		//load: { 'bootstrap-css': 'http://twitter.github.com/bootstrap/assets/css/bootstrap.css' },
+		load: { 'bootstrap-css': '../contrib/bootstrap/css/bootstrap.css' },
+		callback: function (url, result, key) {
+			Q.log("[Q] callback : ", url, result, key);
+			Q.test_css('span', [ 'span1' ], { 'width': '60px' }, function(match) {
+				if(match)
+				{
+					Q.report_loaded_rsrc(key);
+				}
+				else
+				{
+					Q.report_missing_rsrc(key);
+				}
+			});
+		}
+	},
+	{
+		test: Q.register_expected_rsrc("bootstrap-js"),
+		//load: {'bootstrap-js': 'http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js' },
+		//load: {'bootstrap-js': 'http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js' },
+		load: { 'bootstrap-js': '../contrib/bootstrap/js/bootstrap.js' },
+		callback: function (url, result, key) {
+			Q.log("[Q] callback : ", url, result, key);
+			if(typeof($.fn.modal) === 'undefined') // https://github.com/netdna/bootstrap-cdn/issues/111
+			{
+				Q.report_missing_rsrc(key);
+			}
+			else
+			{
+				Q.report_loaded_rsrc(key);
+			}
+		}
+	},
+	/////// misc
+	{
+		// javascript finite state machine
+		// https://github.com/jakesgordon/javascript-state-machine
+		test: Q.register_expected_rsrc("jsm-js"),
+		//load: { 'jsm-js': 'https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js' },
+		load: { 'jsm-js': '../contrib/javascript-state-machine/state-machine.js' },
+		callback: function (url, result, key) {
+			Q.report_loaded_rsrc(key);
+		}
+	},
+	{
+		// javascript customizable spinner
+		// http://fgnass.github.com/spin.js/
+		test: Q.register_expected_rsrc("spin-js"),
+		//load: { 'spin-js': 'http://fgnass.github.com/spin.js/dist/spin.js' },
+		load: { 'spin-js': '../contrib/spin.js/spin.js' },
+		callback: function (url, result, key) {
+			Q.report_loaded_rsrc(key);
+		}
+	},
+	// sga
+	{
+		test: Q.register_expected_rsrc("app-js"),
+		load: { 'app-js': 'shared/sga.js' },
+		callback: function (url, result, key) {
+			Q.report_loaded_rsrc(key);
+		}
+	},
+	{
+		test: Q.register_expected_rsrc("app-css"),
+		load: { 'app-css': 'shared/sga.css' },
+		callback: function (url, result, key) {
+			Q.report_loaded_rsrc(key);
+		}
+	}
+]);
+</script>
+</body>
+</html>
