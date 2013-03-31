@@ -1,20 +1,81 @@
+<script src="//xxx.js"></script>
 
-jquery   http://jquery.com/ 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
-http://code.jquery.com/
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+modernizr    http://modernizr.com/
+yepnope.js   http://yepnopejs.com/
+----------------------------------
+../homebrew/quartermaster/quartermaster.js
+
+
+
+Underscore.js   
+backbone.js   
+-----------------------------
+../contrib/backbone/underscore.js
+../contrib/backbone/backbone.js
+
+
+
+less   x
+---------
+../contrib/less/less.js
+
+
+jquery   http://jquery.com/
+---------------------------
+//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+//code.jquery.com/jquery-1.9.1.js
+../contrib/jquery/jquery-1.9.1.js
+
 
 
 jquery ui  http://jqueryui.com/
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+-------------------------------
+//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js
+http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css
+http://code.jquery.com/ui/1.10.1/jquery-ui.js
+../contrib/jquery.ui/themes/base/jquery-ui.css
+../contrib/jquery.ui/js/jquery-ui.js
+
 
 jquery svg   http://keith-wood.name/svg.html
+--------------------------------------------
 
+
+bootstrap   http://twitter.github.com/bootstrap/
+------------------------------------------------
+http://webmasters.stackexchange.com/questions/25991/is-the-bootstrap-css-on-a-cdn-yet
+
+http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css
+http://twitter.github.com/bootstrap/assets/css/bootstrap.css
+../contrib/bootstrap/css/bootstrap.css
+
+http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js
+http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js
+../contrib/bootstrap/js/bootstrap.js
+
+
+
+javascript finite state machine   https://github.com/jakesgordon/javascript-state-machine
+-----------------------------------------------------------------------------------------
+https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js
+../contrib/javascript-state-machine/state-machine.js
+
+
+
+javascript customizable spinner   http://fgnass.github.com/spin.js/
+-------------------------------------------------------------------
+http://fgnass.github.com/spin.js/dist/spin.js
+../contrib/spin.js/spin.js
+
+
+
+http://fonts.googleapis.com/css?family=Open+Sans|Monda|Duru+Sans|Tauri&subset=latin,latin-ext
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Prototype   http://prototypejs.org/
-<script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
-
-modernizr   
-yepnope.js   http://yepnopejs.com/
-
-bootstrap   
-http://webmasters.stackexchange.com/questions/25991/is-the-bootstrap-css-on-a-cdn-yet
+-----------------------------------
+//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js
