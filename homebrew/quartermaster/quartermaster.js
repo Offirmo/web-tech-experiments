@@ -31,6 +31,8 @@ var Q = {
 	
 	content_area: undefined,
 	loading_area: undefined,
+	resources:             {},
+	resources_callbacks:   {},
 	
 	/////// Init functions
 	
@@ -41,14 +43,21 @@ var Q = {
 		this.loading_area = document.getElementById('q-loader');
 		
 		this.show_content_(false);
-		this.show_q_(true);
+		this.show_loader_(true);
 		
 		// add other SEO unfriendly stuff
-		document.getElementById('simple-loading-indicator').style.textDecoration="blink";
+		document.getElementById('q-simple-loading-indicator').style.textDecoration="blink";
 		
 		// other inits
 		this.init_console_();
 		this.init_yepnope_();
+		this.resources["window.ready"] = {"name": "window.ready", "loaded": false};
+		this.register_expected_rsrc("window.ready");
+		this.add_rsrc_callback("jquery.js", function() {
+			$( document ).ready(function(){
+				Q.report_loaded_rsrc("window.ready");
+			});
+		});
 	},
 	show_content_: function(visible) {
 		if(visible) {
@@ -58,7 +67,7 @@ var Q = {
 			this.content_area.style.display = 'none';
 		}
 	},
-	show_q_: function(visible) {
+	show_loader_: function(visible) {
 		if(visible) {
 			this.loading_area.style.display = 'block';
 		}
@@ -100,8 +109,7 @@ var Q = {
 		// config yepnope
 		if (typeof Modernizr === 'undefined'){
 			// should never happen since we rely on it !
-			this.error("Error loading Modernizr !");
-			// TODO
+			document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
 		}
 		yepnope.errorTimeout = 3000; // set to x ms error timeout
 		// add less support http://stackoverflow.com/a/10036318/587407
@@ -118,13 +126,13 @@ var Q = {
 	/////// Utilities
 	// get style property of an element
 	// http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
-	getStyle: function(oElm, strCssRule) {
+	get_style_of_element: function(oElm, strCssRule) {
 		var strValue = "";
 		if(document.defaultView && document.defaultView.getComputedStyle){
 			strValue = document.defaultView.getComputedStyle(oElm, "").getPropertyValue(strCssRule);
 		}
 		else if(oElm.currentStyle){
-			strCssRule = strCssRule.replace(/\-(\w)/g, function (strMatch, p1){
+			strCssRule = strCssRule.replace(/\-(\w)/g, function(strMatch, p1) {
 				return p1.toUpperCase();
 			});
 			strValue = oElm.currentStyle[strCssRule];
@@ -152,19 +160,19 @@ var Q = {
 		var handle = -1;
 		var try_count = 0;
 		var Q = this;
-		var test_function = function () {
+		var test_function = function() {
 			var match = true; // so far
 			try_count++;
 			for (var key in expected_styles)
 			{
-				Q.log("[miniLoader] testing css : " + key + " = '" + expected_styles[key] + "', actual = '" + Q.getStyle(elem, key) + "'");
-				if(Q.getStyle(elem, key) === expected_styles[key])
+				Q.log("[miniLoader] testing css : " + key + " = '" + expected_styles[key] + "', actual = '" + Q.get_style_of_element(elem, key) + "'");
+				if(Q.get_style_of_element(elem, key) === expected_styles[key])
 				{
 					match = match && true;
 				}
 				else
 				{
-					Q.error("[miniLoader] css test failed : " + key + " = " + expected_styles[key] + ", actual = " + Q.getStyle(elem, key) );
+					Q.error("[miniLoader] css test failed : " + key + " = " + expected_styles[key] + ", actual = " + Q.get_style_of_element(elem, key) );
 					match = false;
 				}
 			}
@@ -180,52 +188,171 @@ var Q = {
 		// now it happens (1/3 times in local)
 		// that the css takes a few ms to apply.
 		// so we try a first time,
-		// and if it fails we program other try later
+		// and if it fails we program another try later
 		if(! test_function() )
 		{
 			this.info("CSS test failed, programming...");
 			handle = window.setInterval(test_function, 100);
 		}
 	},
-	
-	register_expected_rsrc: function(rsrc) {
+	on_load_complete: function(f) {
+		this.add_rsrc_callback("Q-load-complete", f);
+	},
+	register_expected_rsrc: function(rsrc_name) {
 		this.expected_rsrc_count++;
-		document.getElementById('expected-rsrc-count').innerHTML = this.expected_rsrc_count;
-		//this.log("[miniLoader] expecting rsrc : " + rsrc);
+		document.getElementById('q-expected-rsrc-count').innerHTML = this.expected_rsrc_count;
+		//this.log("[miniLoader] expecting rsrc : " + rsrc_name);
 		return true;
 	},
-	report_missing_rsrc: function(rsrc) {
+	report_missing_rsrc: function(rsrc_name) {
 		this.failed_rsrc_count++;
 		var new_entry = document.createElement("li");
-		new_entry.innerHTML = "Error loading rsrc : " + rsrc;
-		document.getElementById('mini-loader-log').appendChild(new_entry);
-		this.error("[miniLoader] error loading rsrc : ", rsrc);
+		new_entry.innerHTML = "Error loading rsrc : " + rsrc_name;
+		document.getElementById('q-loader-log').appendChild(new_entry);
+		this.error("[miniLoader] error loading rsrc : ", rsrc_name);
+		// has it deps ?
+		if(Q.resources_callbacks[rsrc_name] !== undefined) {
+			// fail, we,ll never be able to load everything...
+			// TODO
+		}
 		this.check_completion();
 	},
-	report_loaded_rsrc: function(rsrc) {
+	report_loaded_rsrc: function(rsrc_name) {
+		this.resources[rsrc_name].loaded = true;
 		this.successful_rsrc_count++;
 		this.content_area.style.display = 'none'; // in case it was displayed back
-		document.getElementById('loaded-rsrc-count').innerHTML = this.successful_rsrc_count;
-		this.log("[miniLoader] rsrc loaded : ", rsrc);
+		document.getElementById('q-loaded-rsrc-count').innerHTML = this.successful_rsrc_count;
+		this.log("[miniLoader] rsrc loaded : ", rsrc_name);
+		// fire potential callback
+		this.exec_rsrc_callbacks(rsrc_name);
 		this.check_completion();
 	},
 	check_completion: function(rsrc) {
-		if( this.successful_rsrc_count + this.failed_rsrc_count >= this.expected_rsrc_count )
-		{
+		if( this.successful_rsrc_count + this.failed_rsrc_count >= this.expected_rsrc_count ) {
 			this.on_complete();
 		}
 	},
 	on_complete: function() {
 		// as soon as page is loaded, swap content
-		if( this.successful_rsrc_count != this.expected_rsrc_count )
+		var success = (this.successful_rsrc_count == this.expected_rsrc_count);
+		if( !success )
 		{
-			document.getElementById('mini-loader-msg').innerHTML = 'Application failed to load.';
-			document.getElementById('mini-loader-msg').style.color = 'red';
+			document.getElementById('q-loader-msg').innerHTML = 'Application failed to load.';
+			document.getElementById('q-loader-msg').style.color = 'red';
 		}
 		else
 		{
 			this.loading_area.style.display = 'none';
 			this.content_area.style.display = 'block';
+			this.exec_rsrc_callbacks("Q-load-complete");
 		}
 	},
+	load: function(rsrc_list) {
+		for (var i = 0; i < rsrc_list.length; i++)
+		{
+			this.load_rsrc(rsrc_list[i]);
+		}
+	},
+	is_rsrc_loaded: function(rsrc_name) {
+		if(this.resources[rsrc_name] !== undefined) {
+			if(this.resources[rsrc_name].loaded) {
+				return true;
+			}
+		}
+		return false;
+	},
+	load_rsrc: function(rsrc) {
+		this.log("[miniLoader] loading :", rsrc.name);
+		var elem = this.resources[rsrc.name];
+		if(elem === undefined) {
+			// install this new expected rsrc
+			elem = rsrc;
+			elem.current_src = -1;
+			elem.loaded = false;
+			this.log("[miniLoader] creating :", rsrc.name);
+			this.resources[rsrc.name] = elem;
+			// todo check preload
+			Q.register_expected_rsrc(rsrc.name);
+			// check requirements and install callbacks
+			if(elem.require !== undefined) {
+				for (var i = 0; i < elem.require.length; i++)
+				{
+					this.add_rsrc_callback(elem.require[i], function() {
+						Q.load_rsrc({"name": rsrc.name});
+					});
+				}
+			}
+		}
+		// need load ?
+		if(!elem.loaded)
+		{
+			// requirements met ?
+			if(elem.require !== undefined) {
+				for (var i = 0; i < elem.require.length; i++)
+				{
+					if(!this.is_rsrc_loaded(elem.require[i])) {
+						this.log("[miniLoader] still waiting for dep :", elem.require[i]);
+						// todo start preload while waiting for reqs ?
+						return; // xxx
+					}
+				}
+			}
+			// if we arrive here, it means requirements are met
+			if (elem.current_src >= 0) {
+				this.log("[miniLoader] failed to load : " + elem.name + " from " + elem.src[elem.current_src]);
+			}
+			elem.current_src++;
+			if (elem.current_src >= elem.src.length)
+			{
+				// no more src => failure !
+				Q.report_missing_rsrc(elem.name);
+			}
+			else
+			{
+				this.resources[elem.name] = elem;
+				var temp = {};
+				temp[elem.name] = elem.src[elem.current_src];
+				yepnope({
+					load: temp,
+					callback: function (url, result, key) {
+						// test for successful load
+						elem.test(key, Q.rsrc_load_callback);
+					}
+				});
+			}
+		}
+		//this.resources[rsrc.name] = elem;
+	},
+	rsrc_load_callback: function(rsrc_name, success) {
+		Q.log("[miniLoader] rsrc_load_callback :", rsrc_name, success);
+		if(success) {
+			Q.report_loaded_rsrc(rsrc_name);
+		} else {
+			// try to load from next src (if any)
+			Q.load_rsrc({ "name": rsrc_name });
+		}
+	},
+	add_rsrc_callback: function(rsrc_name, f) {
+		Q.log("[miniLoader] waiting for dep :", rsrc_name);
+		if(Q.resources_callbacks[rsrc_name] === undefined) {
+			Q.resources_callbacks[rsrc_name] = [f];
+		}
+		else {
+			Q.resources_callbacks[rsrc_name].push(f);
+		}
+		if(Q.is_rsrc_loaded(rsrc_name)) {
+			f();
+		}
+	},
+	exec_rsrc_callbacks: function(rsrc_name) {
+		Q.log("[miniLoader] firing cb for dep :", rsrc_name);
+		var elem = Q.resources_callbacks[rsrc_name];
+		if(elem !== undefined) {
+			for (var i = 0; i < elem.length; i++)
+			{
+				elem[i]();
+			}
+		}
+	}
+	
 }; // Q

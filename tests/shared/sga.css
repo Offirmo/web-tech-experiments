@@ -1,3 +1,28 @@
+﻿
+.test_sga_css {
+	font-size: 33px;
+}
+
+/*q-loader reset */
+body {
+	background: black;
+	color: DarkTurquoise;
+}
+a {
+	color: DarkTurquoise;
+}
+div#q-loader {
+	padding-top: 50px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	text-align: center
+}
+ul#q-loader-log {
+	color: grey;
+	font-size: 10px;
+}
+
+
 html {
 	font-size: 20px; /* Yes I know what I do */
 }
@@ -9,7 +34,7 @@ body {
 	height: 100%;
 	width: 100%;
 
-	background:url(background_1280x791.png) no-repeat bottom center fixed;
+	background:url(background_1280x791.png) no-repeat center center fixed;
 	/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
 	-webkit-background-size: cover, auto;
 	-moz-background-size: cover, auto;
@@ -20,8 +45,7 @@ body {
 	font-family: 'Monda', sans-serif;
 }
 
-div.svg_root
-{
+div.svg_root {
 	/* needed for correct positionning */
 	position:absolute;
 	/* needed for container min-height */
