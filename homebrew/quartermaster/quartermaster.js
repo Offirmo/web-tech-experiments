@@ -25,17 +25,18 @@
 
 var Q = {
 	
-	expected_rsrc_count:   0,
-	successful_rsrc_count: 0,
-	failed_rsrc_count:     0,
+	expected_rsrc_count:   0, //< count of critical rsrcs we should load
+	successful_rsrc_count: 0, //< count of critical rsrcs we have successfully loaded
+	failed_rsrc_count:     0, //< count of critical rsrcs we have failed to load
 	
-	content_area: undefined,
-	loading_area: undefined,
-	resources:             {},
-	resources_callbacks:   {},
+	content_area: undefined, //< shortcut to the DOM element which holds the content
+	loading_area: undefined, //< shortcut to the DOM element which holds the loader
+	resources:             {}, //< list of rsrc objects we are loading
+	resources_callbacks:   {}, //< list of callbacks to fire when rsrcs are loaded
 	
 	/////// Init functions
 	
+	/////// main init func, to call first
 	init: function() {
 		// hide the content while loading is not done
 		// (not initially hidden for SEO reason)
@@ -51,14 +52,22 @@ var Q = {
 		// other inits
 		this.init_console_();
 		this.init_yepnope_();
+		
+		// we ourself need some rsrc (fast declare)
 		this.resources["window.ready"] = {"name": "window.ready", "loaded": false};
-		this.register_expected_rsrc("window.ready");
-		this.add_rsrc_callback("jquery.js", function() {
-			$( document ).ready(function(){
-				Q.report_loaded_rsrc("window.ready");
-			});
-		});
 	},
+	/////// register a callback to fire when all critical rsrc are loaded
+	on_load_complete: function(f) {
+		this.add_rsrc_callback("Q-load-complete", f);
+	},
+	/////// Load a list of rsrcs
+	load: function(rsrc_list) {
+		for (var i = 0; i < rsrc_list.length; i++)
+		{
+			this.load_rsrc(rsrc_list[i]);
+		}
+	},
+	/////// DOM manipulation
 	show_content_: function(visible) {
 		if(visible) {
 			this.content_area.style.display = 'block';
@@ -75,6 +84,7 @@ var Q = {
 			this.loading_area.style.display = 'none';
 		}
 	},
+	/////// sub_init functions
 	init_console_: function() {
 		if ( window.console && window.console.log ) {
 			// console is available
@@ -107,7 +117,7 @@ var Q = {
 	},
 	init_yepnope_: function() {
 		// config yepnope
-		if (typeof Modernizr === 'undefined'){
+		if (typeof yepnope === 'undefined'){
 			// should never happen since we rely on it !
 			document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
 		}
@@ -122,7 +132,6 @@ var Q = {
 			return resourceObj;
 		});
 	},
-	
 	/////// Utilities
 	// get style property of an element
 	// http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
@@ -142,7 +151,7 @@ var Q = {
 	// test if the given element has the expected style properties,
 	// (which may indicate successful css loading)
 	// http://stackoverflow.com/a/8122005/587407
-	test_css: function(element_name, element_classes, expected_styles, callback) {
+	test_css: function(element_name, element_classes, expected_styles, rsrc_name, callback) {
 		// create an element of given type
 		var elem = document.createElement(element_name);
 		// immediately hide it
@@ -165,14 +174,14 @@ var Q = {
 			try_count++;
 			for (var key in expected_styles)
 			{
-				Q.log("[miniLoader] testing css : " + key + " = '" + expected_styles[key] + "', actual = '" + Q.get_style_of_element(elem, key) + "'");
+				Q.log("[Q loader] testing " + rsrc_name + " css : " + key + " = '" + expected_styles[key] + "', actual = '" + Q.get_style_of_element(elem, key) + "'");
 				if(Q.get_style_of_element(elem, key) === expected_styles[key])
 				{
 					match = match && true;
 				}
 				else
 				{
-					Q.error("[miniLoader] css test failed : " + key + " = " + expected_styles[key] + ", actual = " + Q.get_style_of_element(elem, key) );
+					Q.error("[Q loader] css " + rsrc_name + " test failed (not ready yet ?) : " + key + " = " + expected_styles[key] + ", actual = " + Q.get_style_of_element(elem, key) );
 					match = false;
 				}
 			}
@@ -181,7 +190,11 @@ var Q = {
 				if (handle >= 0)
 					window.clearTimeout(handle);
 				document.body.removeChild(elem);
-				callback(match);
+				if (!match)
+					Q.error("[Q loader] giving up on css " + rsrc_name + "..." );
+				else
+					Q.error("[Q loader] css " + rsrc_name + " load success !" );
+				callback(rsrc_name, match);
 			}
 			return match;
 		}
@@ -191,17 +204,14 @@ var Q = {
 		// and if it fails we program another try later
 		if(! test_function() )
 		{
-			this.info("CSS test failed, programming...");
+			this.info("" + rsrc_name + "CSS test failed, programming...");
 			handle = window.setInterval(test_function, 100);
 		}
-	},
-	on_load_complete: function(f) {
-		this.add_rsrc_callback("Q-load-complete", f);
 	},
 	register_expected_rsrc: function(rsrc_name) {
 		this.expected_rsrc_count++;
 		document.getElementById('q-expected-rsrc-count').innerHTML = this.expected_rsrc_count;
-		//this.log("[miniLoader] expecting rsrc : " + rsrc_name);
+		//this.log("[Q loader] expecting rsrc : " + rsrc_name);
 		return true;
 	},
 	report_missing_rsrc: function(rsrc_name) {
@@ -209,30 +219,33 @@ var Q = {
 		var new_entry = document.createElement("li");
 		new_entry.innerHTML = "Error loading rsrc : " + rsrc_name;
 		document.getElementById('q-loader-log').appendChild(new_entry);
-		this.error("[miniLoader] error loading rsrc : ", rsrc_name);
+		this.error("[Q loader] error loading rsrc : ", rsrc_name);
 		// has it deps ?
 		if(Q.resources_callbacks[rsrc_name] !== undefined) {
-			// fail, we,ll never be able to load everything...
+			// has dependencies ! we'll never be able to load everything...
 			// TODO
 		}
-		this.check_completion();
+		this.check_completion_();
 	},
 	report_loaded_rsrc: function(rsrc_name) {
 		this.resources[rsrc_name].loaded = true;
 		this.successful_rsrc_count++;
 		this.content_area.style.display = 'none'; // in case it was displayed back
 		document.getElementById('q-loaded-rsrc-count').innerHTML = this.successful_rsrc_count;
-		this.log("[miniLoader] rsrc loaded : ", rsrc_name);
+		//this.log("[Q loader] rsrc loaded : ", rsrc_name);
 		// fire potential callback
 		this.exec_rsrc_callbacks(rsrc_name);
-		this.check_completion();
+		this.check_completion_();
 	},
-	check_completion: function(rsrc) {
+	/////// check if all crit rsrcs are processed (success or failure)
+	/////// and call complete func if needed
+	check_completion_: function(rsrc) {
 		if( this.successful_rsrc_count + this.failed_rsrc_count >= this.expected_rsrc_count ) {
-			this.on_complete();
+			this.on_complete_();
 		}
 	},
-	on_complete: function() {
+	/////// called when all crit rsrcs are processed (success or failure)
+	on_complete_: function() {
 		// as soon as page is loaded, swap content
 		var success = (this.successful_rsrc_count == this.expected_rsrc_count);
 		if( !success )
@@ -247,12 +260,7 @@ var Q = {
 			this.exec_rsrc_callbacks("Q-load-complete");
 		}
 	},
-	load: function(rsrc_list) {
-		for (var i = 0; i < rsrc_list.length; i++)
-		{
-			this.load_rsrc(rsrc_list[i]);
-		}
-	},
+	/////// check if given rsrc is loaded
 	is_rsrc_loaded: function(rsrc_name) {
 		if(this.resources[rsrc_name] !== undefined) {
 			if(this.resources[rsrc_name].loaded) {
@@ -261,15 +269,16 @@ var Q = {
 		}
 		return false;
 	},
+	/////// load one rsrc
 	load_rsrc: function(rsrc) {
-		this.log("[miniLoader] loading :", rsrc.name);
+		this.log("[Q Loader] trying to load rsrc : " + rsrc.name);
 		var elem = this.resources[rsrc.name];
 		if(elem === undefined) {
 			// install this new expected rsrc
 			elem = rsrc;
 			elem.current_src = -1;
 			elem.loaded = false;
-			this.log("[miniLoader] creating :", rsrc.name);
+			//this.log("[Q loader] creating :", rsrc.name);
 			this.resources[rsrc.name] = elem;
 			// todo check preload
 			Q.register_expected_rsrc(rsrc.name);
@@ -282,6 +291,15 @@ var Q = {
 					});
 				}
 			}
+			// is this rsrc jQuery ? if yes, we use it
+			// we declare this rsrc as critical since we'll be able to serve it
+			this.register_expected_rsrc("window.ready");
+			// when document is loaded (jquery style), mark this rsrc as available
+			this.add_rsrc_callback("jquery.js", function() {
+				$( document ).ready(function(){
+					Q.report_loaded_rsrc("window.ready");
+				});
+			});
 		}
 		// need load ?
 		if(!elem.loaded)
@@ -291,7 +309,7 @@ var Q = {
 				for (var i = 0; i < elem.require.length; i++)
 				{
 					if(!this.is_rsrc_loaded(elem.require[i])) {
-						this.log("[miniLoader] still waiting for dep :", elem.require[i]);
+						this.log("[Q loader] still waiting for dep :", elem.require[i]);
 						// todo start preload while waiting for reqs ?
 						return; // xxx
 					}
@@ -299,7 +317,7 @@ var Q = {
 			}
 			// if we arrive here, it means requirements are met
 			if (elem.current_src >= 0) {
-				this.log("[miniLoader] failed to load : " + elem.name + " from " + elem.src[elem.current_src]);
+				//this.log("[Q loader] failed to load : " + elem.name + " from " + elem.src[elem.current_src]);
 			}
 			elem.current_src++;
 			if (elem.current_src >= elem.src.length)
@@ -324,7 +342,7 @@ var Q = {
 		//this.resources[rsrc.name] = elem;
 	},
 	rsrc_load_callback: function(rsrc_name, success) {
-		Q.log("[miniLoader] rsrc_load_callback :", rsrc_name, success);
+		//Q.log("[Q loader] rsrc_load_callback :", rsrc_name, success);
 		if(success) {
 			Q.report_loaded_rsrc(rsrc_name);
 		} else {
@@ -333,7 +351,7 @@ var Q = {
 		}
 	},
 	add_rsrc_callback: function(rsrc_name, f) {
-		Q.log("[miniLoader] waiting for dep :", rsrc_name);
+		Q.log("[Q loader] waiting for dep :", rsrc_name);
 		if(Q.resources_callbacks[rsrc_name] === undefined) {
 			Q.resources_callbacks[rsrc_name] = [f];
 		}
@@ -345,7 +363,7 @@ var Q = {
 		}
 	},
 	exec_rsrc_callbacks: function(rsrc_name) {
-		Q.log("[miniLoader] firing cb for dep :", rsrc_name);
+		//Q.log("[Q loader] firing cb for dep :", rsrc_name);
 		var elem = Q.resources_callbacks[rsrc_name];
 		if(elem !== undefined) {
 			for (var i = 0; i < elem.length; i++)
@@ -354,5 +372,4 @@ var Q = {
 			}
 		}
 	}
-	
 }; // Q

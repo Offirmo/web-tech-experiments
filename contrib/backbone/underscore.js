@@ -1,4 +1,4 @@
-// Underscore.js 1.4.4
+﻿// Underscore.js 1.4.4
 // ===================
 
 // > http://underscorejs.org
