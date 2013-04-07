@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- js_002 template -->
+<html lang=en>
+<head>
+	<meta charset="utf-8">
+	<title>storage 001</title>
+	
+	<script src="../contrib/jquery/jquery-1.9.1.js"></script>
+	<script src="http://include.jaydata.org/jaydata.js"></script>
+</head>
+<body>
+	<h1 id="header">storage 001</h1>
+	<p>test jayData
+	<ul id="todos">
+	</ul>
+	</p>
+	
+	<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+	<script>
+	
+	//console.log("Hello world !");
+$data.Entity.extend("Todo", {
+	Id: { type: "int", key: true, computed: true },
+	Task: { type: String, required: true, maxLength: 200 },
+	DueDate: { type: Date },
+	Completed: { type: Boolean }
+});
+
+$data.EntityContext.extend("TodoDatabase", {
+	Todos: { type: $data.EntitySet, elementType: Todo }
+});
+//var todoDB = new TodoDatabase("MyTodoDatase");
+var todoDB = new TodoDatabase({ 
+    provider: 'indexedDb', databaseName: 'MyTodoDatabase'
+});
+
+todoDB.onReady(function() {
+	//console.log("todoDB ready");
+	
+	var tasks = todoDB.Todos.addMany([
+			{ Task: 'A task...' },
+		]);
+	todoDB.saveChanges(function() {
+		tasks.forEach( function(todo) { console.log("task #" + todo.Id + " saved."); });
+		});
+
+	todoDB.Todos
+		.forEach(function(todo) {
+			$('#todos')
+				.append('<li>' + todo.Task + '</li>');
+		});
+});
+
+	</script>
+</body>
+</html>

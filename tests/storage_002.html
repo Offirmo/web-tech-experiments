@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- js_002 template -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>storage 002</title>
+	
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="shared/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="shared/favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon.png" type="image/png" />
+	<!-- Apple iDevices specific -->
+	<!-- <link rel="apple-touch-icon" href="assets/nyse_logo_57x57.png" /> -->
+	<!-- MS Win7 specific -->
+	<!-- <meta name="application-name" content="CCF Client" />
+	<meta name="msapplication-tooltip" content="Client for monitoring CCF-enabled servers." />
+	<meta name="msapplication-starturl" content="http://www.todo.com/" />
+	<meta name="msapplication-task" content="name=Help;action-uri=http://www.yourweb.com/help.html;
+icon-uri=http://www.yourweb.com/help.ico"/>
+	<meta name="msapplication-task" content="name=Contact;action-uri=http://www.yourweb.com/help.html;
+icon-uri=http://www.yourweb.com/help.ico"/>
+	<meta name="msapplication-task" content="name=About;action-uri=http://www.yourweb.com/help.html;
+icon-uri=http://www.yourweb.com/help.ico"/> -->
+	
+	<script src="../contrib/json2/json2.js"></script>
+	<script src="../contrib/store.js/store.js"></script>
+	<script src="../contrib/jquery/jquery-1.9.1.js"></script>
+</head>
+<body>
+	<h1 id="header">storage 002</h1>
+	<p>test store.js
+	<ul id="list">
+	</ul>
+	</p>
+	
+	<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+	<script>
+//console.log("Hello world !");
+
+var history = [];
+
+if( !store.enabled ) {
+	document.body.appendChild(document.createTextNode('Storage is not available on this browser and/or with this serving method !'));
+} else {
+	history = store.get('history') || [];
+}
+
+history.push("a visit");
+
+if( store.enabled ) {
+	store.set('history', history);
+}
+
+history.forEach(function(item) {
+	$('#list')
+		.append('<li>' + item + '</li>');
+});
+
+	</script>
+</body>
+</html>

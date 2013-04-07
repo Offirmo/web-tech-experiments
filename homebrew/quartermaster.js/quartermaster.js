@@ -6,17 +6,40 @@
 
 /*
 <div id="q-loader">
-	<h1>CCF Client</h1>
-	<h3 id="mini-loader-msg">Loading<span id="simple-loading-indicator">...</span> (<span id="loaded-rsrc-count">0</span>/<span id="expected-rsrc-count">1</span>)</h3>
-	<noscript><p id="mini-loader-errors" style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
-	<ul id="mini-loader-log">
-	<!-- empty for now -->
+	<h1>My App</h1>
+	<h3 id="q-loader-msg">Loading<span id="q-simple-loading-indicator">...</span> (<span id="q-loaded-rsrc-count">0</span>/<span id="q-expected-rsrc-count">1</span>)</h3>
+	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+	<ul id="q-loader-log">
+		<!-- empty for now -->
 	</ul>
-	<p><small>Please contact <a href="mailto:xxx@gmail.com">xxx@gmail.com</a> in case of problem.</small></p>
+	<p><small>Please contact <a href="mailto:xxx@gmail.com">abc@def.xyz</a> in case of problem.</small></p>
 </div>
 <div id="content">
- ...
- </div> 
+...
+</div>
+<script>
+if (typeof Q === 'undefined'){
+	// should never happen since we (supposedly) embed it in the html !
+	document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
+}
+else
+{
+	Q.init();
+	Q.log("Starting rsrc load...");
+	Q.on_load_complete(function() {
+		Q.info("Starting app !");
+	});
+	Q.load([
+	/////// Backbone
+	{
+		name: "underscore.js",
+		src: [ "http://underscorejs.org/underscore.js", "../contrib/backbone/underscore.js" ],
+		test: function(key, callback) {
+			callback(key, typeof(window._) !== 'undefined');
+		}
+	}
+	]);
+*/
 /* Q is based on Modernizr :
  * Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-fontface-rgba-generatedcontent-applicationcache-draganddrop-indexeddb-localstorage-sessionstorage-websockets-websqldatabase-webworkers-inlinesvg-shiv-mq-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
@@ -193,7 +216,7 @@ var Q = {
 				if (!match)
 					Q.error("[Q loader] giving up on css " + rsrc_name + "..." );
 				else
-					Q.error("[Q loader] css " + rsrc_name + " load success !" );
+					Q.log("[Q loader] css " + rsrc_name + " load success !" );
 				callback(rsrc_name, match);
 			}
 			return match;
