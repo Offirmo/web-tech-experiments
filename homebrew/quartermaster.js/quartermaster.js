@@ -81,7 +81,7 @@ var Q = {
 	},
 	/////// register a callback to fire when all critical rsrc are loaded
 	on_load_complete: function(f) {
-		this.add_rsrc_callback("Q-load-complete", f);
+		this.add_rsrc_callback("Q-load-complete", f, "load-complete");
 	},
 	/////// Load a list of rsrcs
 	load: function(rsrc_list) {
@@ -255,7 +255,7 @@ var Q = {
 		this.successful_rsrc_count++;
 		this.content_area.style.display = 'none'; // in case it was displayed back
 		document.getElementById('q-loaded-rsrc-count').innerHTML = this.successful_rsrc_count;
-		//this.log("[Q loader] rsrc loaded : ", rsrc_name);
+		this.info("[Q loader] rsrc successfully loaded : ", rsrc_name);
 		// fire potential callback
 		this.exec_rsrc_callbacks(rsrc_name);
 		this.check_completion_();
@@ -294,7 +294,7 @@ var Q = {
 	},
 	/////// load one rsrc
 	load_rsrc: function(rsrc) {
-		this.log("[Q Loader] trying to load rsrc : " + rsrc.name);
+		//this.log("[Q Loader] trying to load rsrc : " + rsrc.name);
 		var elem = this.resources[rsrc.name];
 		if(elem === undefined) {
 			// install this new expected rsrc
@@ -310,8 +310,10 @@ var Q = {
 				for (var i = 0; i < elem.require.length; i++)
 				{
 					this.add_rsrc_callback(elem.require[i], function() {
-						Q.load_rsrc({"name": rsrc.name});
-					});
+							Q.load_rsrc({"name": rsrc.name});
+						},
+						elem.name
+					);
 				}
 			}
 			// is this rsrc jQuery ? if yes, we use it
@@ -319,10 +321,13 @@ var Q = {
 			this.register_expected_rsrc("window.ready");
 			// when document is loaded (jquery style), mark this rsrc as available
 			this.add_rsrc_callback("jquery.js", function() {
-				$( document ).ready(function(){
-					Q.report_loaded_rsrc("window.ready");
-				});
-			});
+					$( document ).ready(function(){
+						Q.report_loaded_rsrc("window.ready");
+					}
+					);
+				},
+				"window.ready"
+			);
 		}
 		// need load ?
 		if(!elem.loaded)
@@ -332,7 +337,7 @@ var Q = {
 				for (var i = 0; i < elem.require.length; i++)
 				{
 					if(!this.is_rsrc_loaded(elem.require[i])) {
-						this.log("[Q loader] still waiting for dep :", elem.require[i]);
+						this.log("[Q loader] " + elem.name + " still waiting for dep : ", elem.require[i]);
 						// todo start preload while waiting for reqs ?
 						return; // xxx
 					}
@@ -373,8 +378,9 @@ var Q = {
 			Q.load_rsrc({ "name": rsrc_name });
 		}
 	},
-	add_rsrc_callback: function(rsrc_name, f) {
-		Q.log("[Q loader] waiting for dep :", rsrc_name);
+	add_rsrc_callback: function(rsrc_name, f, src) {
+		src = src || "?";
+		Q.log("[Q loader] " + src + " is waiting for dep :", rsrc_name);
 		if(Q.resources_callbacks[rsrc_name] === undefined) {
 			Q.resources_callbacks[rsrc_name] = [f];
 		}

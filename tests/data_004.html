@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- html_003 template -->
+<!-- js_003 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>Data display 004</title>
+	
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+	
+	
+	<!-- Ultra-mini css reset just to nicely display the loader
+	     Should be ultra-safe for :
+	     - old navigators like IE6
+	     - google referencement -> avoid blink, display-none at start (but ok later in script)
+	  -->
+	<style>
+	div#q-loader
+	{
+		all:default; /* reset */
+		padding-top: 50px;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 14px;
+		text-align: center
+	}
+	ul#q-loader-log
+	{
+		color: grey;
+		font-size: 10px;
+	}
+	</style>
+	<!-- should be embedded, but for dev this is easier. -->
+	<script src="../homebrew/quartermaster.js/quartermaster.js"></script>
+	<script>
+		//console.log("hello from header");
+	</script>
+</head>
+<body>
+
+
+<div id="q-loader">
+	<h1>Test app</h1>
+	<h3 id="q-loader-msg">Loading<span id="q-simple-loading-indicator">...</span> (<span id="q-loaded-rsrc-count">0</span>/<span id="q-expected-rsrc-count">1</span>)</h3>
+	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+	<ul id="q-loader-log">
+		<!-- empty for now -->
+	</ul>
+	<p><small>Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in case of problem.</small></p>
+</div>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Data display 004</h1>
+		<p>Display of data...</p>
+		<p>Monetary values via accounting.js, appearance via bootstrap & jquery.ui, enhancement via DataTables.
+		
+		<table class="table table-condensed table-hover dataTable">
+			<thead>
+				<tr>
+					<th>Index</th>
+					<th>Stuff</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>...</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Index</th>
+					<th>stuff</th>
+				</tr>
+			</tfoot>
+		</table>
+		</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+if (typeof Q === 'undefined'){
+	// should never happen since we (supposedly) embed it in the html !
+	document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
+}
+else
+{
+	Q.init();
+	Q.log("Starting rsrc load...");
+	
+	Q.on_load_complete(function() {
+		Q.info("Starting app !");
+		init_app(); // see below
+	});
+
+	Q.load([
+	/////// jQuery
+	{
+		name: 'jquery.js',
+		src: [ /*"http://code.jquery.com/jquery-1.9.1.js",*/ "../contrib/jquery/jquery-1.9.1.js" ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery) !== 'undefined');
+		}
+	},
+	/////// bootstrap
+	{
+		name: 'bootstrap.js',
+		require: [ 'jquery.js' ],
+		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js",
+		       "http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js",*/
+			   '../contrib/bootstrap/js/bootstrap.js' ],
+		test: function (key, callback) {
+			// https://github.com/netdna/bootstrap-cdn/issues/111
+			callback(key, (typeof($) !== 'undefined') && (typeof($.fn) !== 'undefined') && (typeof($.fn.modal) !== 'undefined'));
+		}
+	},
+	{
+		name: 'bootstrap.css',
+		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
+		       "http://twitter.github.com/bootstrap/assets/css/bootstrap.css",*/
+			   '../contrib/bootstrap/css/bootstrap.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'span1' ], { 'width': '60px' }, key, callback);
+		}
+	},
+	/////// Backbone
+	{
+		name: "underscore.js",
+		src: [ /*"http://underscorejs.org/underscore.js",*/ "../contrib/backbone.js/underscore.js" ],
+		test: function(key, callback) {
+			callback(key, typeof(window._) !== 'undefined');
+		}
+	},
+	{
+		name: "backbone.js",
+		src: [ /*"http://backbonejs.org/backbone.js",*/ "../contrib/backbone.js/backbone.js" ],
+		require: [ "underscore.js", "jquery.js" ], // bb needs jQuery for some features
+		test: function(key, callback) {
+			callback(key, typeof(window.Backbone) !== 'undefined');
+		}
+	},
+	// accounting.js
+	{
+		name: 'accounting.js',
+		src: [ '../contrib/accounting.js/accounting.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.accounting) !== 'undefined');
+		}
+	},
+	/////// JSON2
+	{
+		name: "json2.js",
+		src: [ /*"http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js",*/ "../contrib/json2/json2.js" ],
+		test: function (key, callback) {
+			callback(key, typeof(window.JSON) !== 'undefined');
+		}
+	},
+	/////// store.js
+	{
+		name: "store.js",
+		src: [ "../contrib/store.js/store.js" ],
+		require: [ "json2.js" ],
+		test: function (key, callback) {
+			callback(key, typeof(window.store) !== 'undefined');
+		}
+	},
+	/////// jquery.ui
+	{
+		name: "jquery.ui.js",
+		src: [ "../contrib/jquery.ui/js/jquery-ui-1.10.2.custom.js" ],
+		require: [ "jquery.js" ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.progressbar) !== 'undefined');
+		}
+	},
+	{
+		name: "jquery.ui.css",
+		//src: [ "../contrib/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
+		src: [ "../contrib/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css" ],
+		require: [ 'bootstrap.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'ui-resizable-n' ], { 'height': '7px' }, key, callback);
+		}
+	},
+	/////// jquery.datatables.js
+	{
+		name: 'jquery.datatables.js',
+		src: [ "../contrib/jquery.datatables/jquery.datatables.js" ],
+		require: [ 'jquery.js', 'jquery.ui.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.DataTable) !== 'undefined');
+		}
+	},
+	{
+		name: "jquery.datatables.css",
+		//src: [ "../contrib/jquery.datatables/demo_table.css" ],
+		//src: [ "../contrib/jquery.datatables/demo_table_jui.css" ],
+		//src: [ "../contrib/jquery.datatables/jquery.dataTables.css" ],
+		src: [ "../contrib/jquery.datatables/jquery.dataTables_themeroller.css" ],
+		require: [ 'jquery.ui.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'dataTables_info' ], { 'padding-top': '3px' }, key, callback);
+		}
+	},
+	/////// pivot.js
+	{
+		name: 'pivot.js',
+		src: [ '../contrib/pivot.js/pivot.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.pivot) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery_pivot.js',
+		src: [ '../contrib/pivot.js/jquery_pivot.js' ],
+		require: [ 'jquery.js', 'pivot.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.pivot_display) !== 'undefined');
+		}
+	},
+	/////// misc
+	{
+		// javascript finite state machine
+		// https://github.com/jakesgordon/javascript-state-machine
+		name: "jsm.js",
+		src: [ /*"https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js",*/
+		       "../contrib/javascript-state-machine/state-machine.js" ],
+		test: function (key, callback) {
+			callback(key, typeof(window.StateMachine) !== 'undefined');
+		}
+	},
+	{
+		// javascript customizable spinner
+		// http://fgnass.github.com/spin.js/
+		name: "spin.js",
+		src: [ /*"http://fgnass.github.com/spin.js/dist/spin.js",*/ "../contrib/spin.js/spin.js" ],
+		test: function (key, callback) {
+			callback(key, typeof(window.Spinner) !== 'undefined');
+		}
+	},
+	// app
+	{
+		name: 'app.js',
+		src: [ "shared/empty.js" ],
+		require: [ 'jquery.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', 'jquery.datatables.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.empty_js_test) !== 'undefined');
+		}
+	},
+	{
+		name: "app.css",
+		src: [ "shared/empty.css" ],
+		require: [ "bootstrap.css", "jquery.datatables.css" ],
+		test: function (key, callback) {
+			Q.test_css('div', [ 'test_empty_css' ], { 'font-size': '33px' }, key, callback);
+		}
+	}
+	]);
+} // Q available
+
+	function init_app() {
+		// REM : js console demo
+		Q.log("Everything ready ! Starting app...");
+		
+		var $table_cells = $('td');
+		
+		// 4 examples of accounting usage
+		$table_cells.eq(1).text( accounting.formatMoney(12345678) );
+		$table_cells.eq(3).text( accounting.formatMoney(4999.99, "€", 2, ".", ",") );
+		$table_cells.eq(5).text( accounting.formatMoney(-500000, "£ ", 0) );
+		$table_cells.eq(7).text( accounting.formatMoney(5318008, { symbol: "GBP",  format: "%v %s" }) );
+		
+		// 
+		$('table').dataTable({
+			"sPaginationType": "full_numbers",
+			"bJQueryUI": true,
+		});
+	}
+	</script>
+</body>
+</html>

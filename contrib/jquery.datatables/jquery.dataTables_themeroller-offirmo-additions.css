@@ -1,0 +1,11 @@
+
+/* Offirmo fixes */
+.dataTables_wrapper > .ui-toolbar {
+	margin: 0px;
+}
+
+.dataTables_wrapper > .ui-toolbar input,
+.dataTables_wrapper > .ui-toolbar label,
+.dataTables_wrapper > .ui-toolbar select{
+	margin-bottom: 0px;
+}

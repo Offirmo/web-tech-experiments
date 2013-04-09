@@ -1,4 +1,4 @@
-;(function(){
+﻿;(function(){
 	var store = {},
 		win = window,
 		doc = win.document,

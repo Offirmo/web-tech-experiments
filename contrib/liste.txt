@@ -3,45 +3,16 @@
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
-modernizr    http://modernizr.com/
-yepnope.js   http://yepnopejs.com/
-----------------------------------
-../homebrew/quartermaster/quartermaster.js
+accounting.js
+-------------
+http://josscrowcroft.github.io/accounting.js
 
 
-
-Underscore.js   
 backbone.js   
+underscore.js   
 -----------------------------
 ../contrib/backbone/underscore.js
 ../contrib/backbone/backbone.js
-
-
-
-less   x
----------
-../contrib/less/less.js
-
-
-jquery   http://jquery.com/
----------------------------
-//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
-//code.jquery.com/jquery-1.9.1.js
-../contrib/jquery/jquery-1.9.1.js
-
-
-
-jquery ui  http://jqueryui.com/
--------------------------------
-//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js
-http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css
-http://code.jquery.com/ui/1.10.1/jquery-ui.js
-../contrib/jquery.ui/themes/base/jquery-ui.css
-../contrib/jquery.ui/js/jquery-ui.js
-
-
-jquery svg   http://keith-wood.name/svg.html
---------------------------------------------
 
 
 bootstrap   http://twitter.github.com/bootstrap/
@@ -57,11 +28,77 @@ http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js
 ../contrib/bootstrap/js/bootstrap.js
 
 
-
 javascript finite state machine   https://github.com/jakesgordon/javascript-state-machine
 -----------------------------------------------------------------------------------------
 https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js
 ../contrib/javascript-state-machine/state-machine.js
+
+
+jquery   http://jquery.com/
+---------------------------
+//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+//code.jquery.com/jquery-1.9.1.js
+../contrib/jquery/jquery-1.9.1.js
+
+
+jquery datatables   http://datatables.net/index
+-----------------------------------------------
+
+
+
+jquery svg   http://keith-wood.name/svg.html
+--------------------------------------------
+
+
+jquery ui  http://jqueryui.com/
+-------------------------------
+//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js
+http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css
+http://code.jquery.com/ui/1.10.1/jquery-ui.js
+../contrib/jquery.ui/themes/base/jquery-ui.css
+../contrib/jquery.ui/js/jquery-ui.js
+
+http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css
+http://code.jquery.com/jquery-1.9.1.js
+http://code.jquery.com/ui/1.10.2/jquery-ui.js
+
+jquery.ui theme for bootstrap
+https://github.com/addyosmani/jquery-ui-bootstrap/
+
+
+JSON2
+-----
+
+
+modernizr    http://modernizr.com/
+yepnope.js   http://yepnopejs.com/
+----------------------------------
+../homebrew/quartermaster/quartermaster.js
+
+
+pivot.js
+--------
+
+
+raphael
+-------
+
+
+spin.js
+-------
+
+
+store.js
+--------
+
+
+less   x
+---------
+../contrib/less/less.js
+
+
+
+
 
 
 
@@ -69,6 +106,13 @@ javascript customizable spinner   http://fgnass.github.com/spin.js/
 -------------------------------------------------------------------
 http://fgnass.github.com/spin.js/dist/spin.js
 ../contrib/spin.js/spin.js
+
+
+
+
+
+
+
 
 
 
