@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- html_003 template -->
 <!-- js_003 template -->
 <html lang='en'>
@@ -7,6 +7,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<title>JS base 003</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 	
 	<!-- favicons -->
 	<!-- For IE -->
@@ -61,7 +63,7 @@
 <div id="content">
 	<div class="container">
 		<h1 id="header">JS base 003</h1>
-		<p>Javascript enabled page 3</p>
+		<p>Javascript enabled page 3. Using Q loader, loading all libs.</p>
 		<p>(stuff is sent to firebug console)</p>
 	</div> <!-- /container -->
 </div> <!-- /content -->
@@ -79,7 +81,7 @@ else
 	Q.log("Starting rsrc load...");
 	
 	Q.on_load_complete(function() {
-		Q.info("Starting app !");
+		Q.info("Starting app...");
 		init_app(); // see below
 	});
 
@@ -113,6 +115,15 @@ else
 			Q.test_css('span', [ 'span1' ], { 'width': '60px' }, key, callback);
 		}
 	},
+	/////// bootstrap rem
+	{
+		name: 'bootstrap-rem.css',
+		require: [ 'bootstrap.css' ],
+		src: [ '../homebrew/bootstrap.rem/bootstrap.rem.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'test_bootstrap_rem' ], { 'font-size': '33px' }, key, callback);
+		}
+	},
 	/////// Backbone
 	{
 		name: 'underscore.js',
@@ -123,8 +134,8 @@ else
 	},
 	{
 		name: 'backbone.js',
-		src: [ /*"http://backbonejs.org/backbone.js",*/ '../contrib/backbone.js/backbone.js' ],
 		require: [ 'underscore.js', 'jquery.js' ], // bb needs jQuery for some features
+		src: [ /*"http://backbonejs.org/backbone.js",*/ '../contrib/backbone.js/backbone.js' ],
 		test: function(key, callback) {
 			callback(key, typeof(window.Backbone) !== 'undefined');
 		}
@@ -139,57 +150,85 @@ else
 	},
 	/////// JSON2
 	{
-		name: "json2.js",
-		src: [ /*"http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js",*/ "../contrib/json2/json2.js" ],
+		name: 'json2.js',
+		src: [ /*"http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js",*/ '../contrib/json2/json2.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.JSON) !== 'undefined');
 		}
 	},
 	/////// store.js
 	{
-		name: "store.js",
-		src: [ "../contrib/store.js/store.js" ],
-		require: [ "json2.js" ],
+		name: 'store.js',
+		require: [ 'json2.js' ],
+		src: [ '../contrib/store.js/store.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.store) !== 'undefined');
 		}
 	},
 	/////// jquery.ui
 	{
-		name: "jquery.ui.js",
-		src: [ "../contrib/jquery.ui/js/jquery-ui-1.10.2.custom.js" ],
-		require: [ "jquery.js" ],
+		name: 'jquery.ui.js',
+		require: [ 'jquery.js' ],
+		src: [ '../contrib/jquery.ui/js/jquery-ui-1.10.2.custom.js' ],
+		//src: [ '../contrib/empty/empty.js' ],
 		test: function (key, callback) {
+			//callback(key, true);
 			callback(key, typeof(window.jQuery.fn.progressbar) !== 'undefined');
 		}
 	},
 	{
-		name: "jquery.ui.css",
-		//src: [ "../contrib/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
-		src: [ "../contrib/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css" ],
+		name: 'jquery.ui.css',
 		require: [ 'bootstrap.css' ],
+		/* smoothness theme
+		src: [ "../contrib/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'ui-resizable-n' ], { 'height': '7px' }, key, callback);
+		}*/
+		/* bootstrap theme */
+		src: [ '../contrib/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'jquery-ui-theme-bootstrap-offirmo-test' ], { 'font-size': '33px' }, key, callback);
 		}
+		/* empty theme (pretend to load)
+		src: [ "../contrib/empty/empty.css" ],
+		test: function (key, callback) {
+			callback(key, true);
+		}*/
 	},
 	/////// jquery.datatables.js
 	{
 		name: 'jquery.datatables.js',
-		src: [ "../contrib/jquery.datatables/jquery.datatables.js" ],
 		require: [ 'jquery.js', 'jquery.ui.js' ],
+		src: [ '../contrib/jquery.datatables/jquery.datatables.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.jQuery.fn.DataTable) !== 'undefined');
 		}
 	},
 	{
-		name: "jquery.datatables.css",
+		name: 'jquery.datatables.css',
+		require: [ 'jquery.ui.css' ],
 		//src: [ "../contrib/jquery.datatables/demo_table.css" ],
 		//src: [ "../contrib/jquery.datatables/demo_table_jui.css" ],
 		//src: [ "../contrib/jquery.datatables/jquery.dataTables.css" ],
-		src: [ "../contrib/jquery.datatables/jquery.dataTables_themeroller.css" ],
-		require: [ 'jquery.ui.css' ],
+		src: [ '../contrib/jquery.datatables/jquery.dataTables_themeroller.css' ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'dataTables_info' ], { 'padding-top': '3px' }, key, callback);
+		}
+	},
+	/////// jquery.svg
+	{
+		name: 'jquery.svg.js',
+		require: [ 'jquery.js' ],
+		src: [ '../contrib/jquery.svg/jquery.svg.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.svg) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery.svg.css',
+		src: [ '../contrib/jquery.svg/jquery.svg.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'svg_error' ], { 'color': 'rgb(255, 0, 0)' }, key, callback);
 		}
 	},
 	/////// pivot.js
@@ -202,8 +241,8 @@ else
 	},
 	{
 		name: 'jquery_pivot.js',
-		src: [ '../contrib/pivot.js/jquery_pivot.js' ],
 		require: [ 'jquery.js', 'pivot.js', 'jquery.ui.js' ],
+		src: [ '../contrib/pivot.js/jquery_pivot.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.jQuery.fn.pivot_display) !== 'undefined');
 		}
@@ -212,9 +251,9 @@ else
 	{
 		// javascript finite state machine
 		// https://github.com/jakesgordon/javascript-state-machine
-		name: "jsm.js",
+		name: 'jsm.js',
 		src: [ /*"https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js",*/
-		       "../contrib/javascript-state-machine/state-machine.js" ],
+		       '../contrib/javascript-state-machine/state-machine.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.StateMachine) !== 'undefined');
 		}
@@ -222,8 +261,8 @@ else
 	{
 		// javascript customizable spinner
 		// http://fgnass.github.com/spin.js/
-		name: "spin.js",
-		src: [ /*"http://fgnass.github.com/spin.js/dist/spin.js",*/ "../contrib/spin.js/spin.js" ],
+		name: 'spin.js',
+		src: [ /*"http://fgnass.github.com/spin.js/dist/spin.js",*/ '../contrib/spin.js/spin.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.Spinner) !== 'undefined');
 		}
@@ -231,16 +270,16 @@ else
 	// app
 	{
 		name: 'app.js',
-		src: [ "shared/empty.js" ],
-		require: [ 'jquery.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', 'jquery.datatables.js' ],
+		require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', 'jquery.datatables.js', 'jquery.svg.js' ],
+		src: [ 'shared/empty.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.empty_js_test) !== 'undefined');
 		}
 	},
 	{
-		name: "app.css",
-		src: [ "shared/empty.css" ],
-		require: [ "bootstrap.css", "jquery.datatables.css" ],
+		name: 'app.css',
+		require: [ 'bootstrap-rem.css', 'jquery.datatables.css', 'jquery.svg.css' ],
+		src: [ 'shared/empty.css' ],
 		test: function (key, callback) {
 			Q.test_css('div', [ 'test_empty_css' ], { 'font-size': '33px' }, key, callback);
 		}

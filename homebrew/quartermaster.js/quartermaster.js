@@ -1,4 +1,4 @@
-/* Q (quartermaster)
+﻿/* Q (quartermaster)
  * is a small, compatible javascript object
  * used for loading other resources.
  * It is usually loaded first, or (even better) directly embedded.
@@ -145,6 +145,13 @@ var Q = {
 			document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
 		}
 		yepnope.errorTimeout = 3000; // set to x ms error timeout
+		// add css support http://stackoverflow.com/a/7683161/587407
+		yepnope.addPrefix( 'css', function ( resource ) {
+			// Set the force flag
+			resource.forceCSS = true;
+			//carry on
+			return resource;
+		} );
 		// add less support http://stackoverflow.com/a/10036318/587407
 		yepnope.addPrefix('less', function(resourceObj) {
 			resourceObj.forceCSS = true;
@@ -186,9 +193,12 @@ var Q = {
 		}
 		// and add it
 		document.body.appendChild(elem);
-		// now it seems that we may need a small delay before css get applied...
 		
 		// test the given properties
+		// it happens (~1/3 times in local)
+		// that the css takes a few ms to apply.
+		// so we need a function that we can try directly first
+		// and retry again later in case of failure
 		var handle = -1;
 		var try_count = 0;
 		var Q = this;
@@ -212,6 +222,7 @@ var Q = {
 			if (match === true || try_count >= 3) {
 				if (handle >= 0)
 					window.clearTimeout(handle);
+				// remove our test element from the DOM
 				document.body.removeChild(elem);
 				if (!match)
 					Q.error("[Q loader] giving up on css " + rsrc_name + "..." );
@@ -221,14 +232,12 @@ var Q = {
 			}
 			return match;
 		}
-		// now it happens (1/3 times in local)
-		// that the css takes a few ms to apply.
-		// so we try a first time,
-		// and if it fails we program another try later
+		
+		// use and program the function
 		if(! test_function() )
 		{
-			this.info("" + rsrc_name + "CSS test failed, programming...");
-			handle = window.setInterval(test_function, 100);
+			this.info("" + rsrc_name + " css test failed, programming a retry...");
+			handle = window.setInterval(test_function, 20);
 		}
 	},
 	register_expected_rsrc: function(rsrc_name) {
@@ -358,6 +367,7 @@ var Q = {
 				this.resources[elem.name] = elem;
 				var temp = {};
 				temp[elem.name] = elem.src[elem.current_src];
+				this.info("[Q loader] starting yepnope load of : ", temp);
 				yepnope({
 					load: temp,
 					callback: function (url, result, key) {

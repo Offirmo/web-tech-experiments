@@ -2,27 +2,32 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Test jquery ui</title>
+	<title>Test jquery ui 001</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link href="../contrib/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<!-- personal style here ? -->
-	<link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-	
-	<script src="../contrib/jquery/jquery-1.9.1.js"></script>
-	<link rel="stylesheet" href="../contrib/jquery.ui/themes/base/jquery-ui.css" />
-	<script src="../contrib/jquery.ui/js/jquery-ui.js"></script>
-	
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<!-- should be embedded, but for dev this is easier. -->
+	<script src="../homebrew/quartermaster.js/quartermaster.js"></script>
 </head>
 <body>
+
+<div id="q-loader">
+	<h1>Test app</h1>
+	<h3 id="q-loader-msg">Loading<span id="q-simple-loading-indicator">...</span> (<span id="q-loaded-rsrc-count">0</span>/<span id="q-expected-rsrc-count">1</span>)</h3>
+	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+	<ul id="q-loader-log">
+		<!-- empty for now -->
+	</ul>
+	<p><small>Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in case of problem.</small></p>
+</div>
+
+<div id="content">
 	<div class="container">
-		Test jquery-ui
+		<h1 id="header">Test jquery-ui 001</h1>
+		<p>Basic jquery-ui page. (+ bootstrap)</p>
+		
 		<div id="resizable" class="ui-widget-content">
 			<h3 class="ui-widget-header">Resizable</h3>
 			<dl>
@@ -40,35 +45,113 @@
 				<dd id="outerWidth">?
 			</dl>
 		</div>
-	</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+if (typeof Q === 'undefined'){
+	// should never happen since we (supposedly) embed it in the html !
+	document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
+}
+else
+{
+	Q.init();
+	Q.log("Starting rsrc load...");
 	
-	<script>
-		var $j = jQuery.noConflict(); // $j is now an alias to the jQuery function;
-		
-		function update_dimensions()
-		{
-			$j("dd#height"     ).text( $j("#resizable").height() );
-			$j("dd#width"      ).text( $j("#resizable").width() );
-			$j("dd#innerHeight").text( $j("#resizable").innerHeight() );
-			$j("dd#innerWidth" ).text( $j("#resizable").innerWidth() );
-			$j("dd#outerHeight").text( $j("#resizable").outerHeight() );
-			$j("dd#outerWidth" ).text( $j("#resizable").outerWidth() );
-		}
-		$j( document ).ready(function()
-		{
-			update_dimensions();
-			$j( "#resizable" ).resizable({
-				resize: function( event, ui )
-				{
-					update_dimensions();
-				},
-				stop: function( event, ui )
-				{
-					alert("Resized !");
-					update_dimensions();
-				}
-			});
+	
+	function update_dimensions()
+	{
+		$("dd#height"     ).text( $("#resizable").height() );
+		$("dd#width"      ).text( $("#resizable").width() );
+		$("dd#innerHeight").text( $("#resizable").innerHeight() );
+		$("dd#innerWidth" ).text( $("#resizable").innerWidth() );
+		$("dd#outerHeight").text( $("#resizable").outerHeight() );
+		$("dd#outerWidth" ).text( $("#resizable").outerWidth() );
+	}
+	
+	Q.on_load_complete(function() {
+		Q.info("Starting app...");
+		update_dimensions();
+		$( "#resizable" ).resizable({
+			resize: function( event, ui )
+			{
+				update_dimensions();
+			},
+			stop: function( event, ui )
+			{
+				alert("Resized !");
+				update_dimensions();
+			}
 		});
-	</script>
+	});
+
+	Q.load([
+	/////// jQuery
+	{
+		name: 'jquery.js',
+		src: [ /*"http://code.jquery.com/jquery-1.9.1.js",*/ '../contrib/jquery/jquery-1.9.1.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery) !== 'undefined');
+		}
+	},
+	/////// bootstrap
+	{
+		name: 'bootstrap.js',
+		require: [ 'jquery.js' ],
+		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js",
+		       "http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js",*/
+			   '../contrib/bootstrap/js/bootstrap.js' ],
+		test: function (key, callback) {
+			// https://github.com/netdna/bootstrap-cdn/issues/111
+			callback(key, (typeof($) !== 'undefined') && (typeof($.fn) !== 'undefined') && (typeof($.fn.modal) !== 'undefined'));
+		}
+	},
+	{
+		name: 'bootstrap.css',
+		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
+		       "http://twitter.github.com/bootstrap/assets/css/bootstrap.css",*/
+			   '../contrib/bootstrap/css/bootstrap.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'span1' ], { 'width': '60px' }, key, callback);
+		}
+	},
+	/////// jquery.ui
+	{
+		name: 'jquery.ui.js',
+		src: [ '../contrib/jquery.ui/js/jquery-ui-1.10.2.custom.js' ],
+		//src: [ '../contrib/empty/empty.js' ],
+		require: [ 'jquery.js' ],
+		test: function (key, callback) {
+			//callback(key, true);
+			callback(key, typeof(window.jQuery.fn.progressbar) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery.ui.css',
+		require: [ 'bootstrap.css' ],
+		/* smoothness theme */
+		src: [ "../contrib/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'ui-resizable-n' ], { 'height': '7px' }, key, callback);
+		}
+		/* bootstrap theme
+		src: [ '../contrib/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'jquery-ui-theme-bootstrap-offirmo-test' ], { 'font-size': '33px' }, key, callback);
+		} */
+		/* empty theme (pretend to load)
+		src: [ "../contrib/empty/empty.css" ],
+		test: function (key, callback) {
+			callback(key, true);
+		}*/
+	},
+	]);
+
+	$( document ).ready(function() {
+		alert("Thanks for visiting !");
+	});
+}
+</script>
+
 </body>
 </html>

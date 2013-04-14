@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
  
 <meta charset="utf-8">
-<title>Minimal Example</title>
+<title>JS Console 001</title>
  
 <h1 id="header">This is JavaScript</h1>
- 
+<p>Activate the JS console and look at it.</h1>
+
 <script>
 	console.log("hello world");
 	var bar = {name: 'kitten', status: 'playful'}
@@ -19,10 +20,10 @@
 	console.groupEnd();
 	console.trace();
 	console.dir(bar);
-    document.body.appendChild(document.createTextNode('Hello World!'));
- 
-    var h1 = document.getElementById('header'); // holds a reference to the <h1> tag
-    h1 = document.getElementsByTagName('h1')[0]; // accessing the same <h1> element
+	document.body.appendChild(document.createTextNode('Hello World from JS !'));
+
+	var h1 = document.getElementById('header'); // holds a reference to the <h1> tag
+	h1 = document.getElementsByTagName('h1')[0]; // accessing the same <h1> element
 	
 	console.assert(false);
 </script>

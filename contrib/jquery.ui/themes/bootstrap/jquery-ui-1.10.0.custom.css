@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * jQuery UI Bootstrap (0.5)
  * http://addyosmani.github.com/jquery-ui-bootstrap
  *
@@ -8,6 +8,9 @@
  * Portions copyright jQuery UI & Twitter Bootstrap
  */
 
+.jquery-ui-theme-bootstrap-offirmo-test {
+	font-size: 33px;
+}
 
 /* Layout helpers
 ----------------------------------*/
@@ -49,7 +52,7 @@
   min-height: 0; /* support: IE7 */
 }
 /* required comment for clearfix to work in Opera \*/
-* html .ui-helper-clearfix { 
+* html .jquery-ui-enabled .ui-helper-clearfix { 
   height:1%; 
 }
 
