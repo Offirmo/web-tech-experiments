@@ -10,6 +10,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<!-- favicons -->
 	<!-- For IE -->
 	<!--[if IE]>
@@ -231,6 +233,22 @@ else
 			Q.test_css('span', [ 'svg_error' ], { 'color': 'rgb(255, 0, 0)' }, key, callback);
 		}
 	},
+	/////// richui.js
+	{
+		name: 'richui.js',
+		require: [ 'jquery.svg.js' ],
+		src: [ '../homebrew/richui.js/richui.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.richui) !== 'undefined');
+		}
+	},
+	{
+		name: 'richui.css',
+		src: [ '../homebrew/richui.js/richui.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'test_richui_css' ], { 'font-size': '33px' }, key, callback);
+		}
+	},
 	/////// pivot.js
 	{
 		name: 'pivot.js',
@@ -270,7 +288,7 @@ else
 	// app
 	{
 		name: 'app.js',
-		require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', 'jquery.datatables.js', 'jquery.svg.js' ],
+		require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', 'jquery.datatables.js', 'jquery.svg.js', 'richui.js' ],
 		src: [ 'shared/empty.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.empty_js_test) !== 'undefined');
@@ -278,7 +296,7 @@ else
 	},
 	{
 		name: 'app.css',
-		require: [ 'bootstrap-rem.css', 'jquery.datatables.css', 'jquery.svg.css' ],
+		require: [ 'bootstrap-rem.css', 'jquery.datatables.css', 'jquery.svg.css', 'richui.css' ],
 		src: [ 'shared/empty.css' ],
 		test: function (key, callback) {
 			Q.test_css('div', [ 'test_empty_css' ], { 'font-size': '33px' }, key, callback);
