@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<title>Test SVG 003</title>
+	<title>richui 002</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
@@ -40,50 +40,14 @@
 		color: grey;
 		font-size: 10px;
 	}
+	.container {
+		border: black solid 3px;
+	}
 	</style>
 	<!-- should be embedded, but for dev this is easier. -->
 	<script src="../homebrew/quartermaster.js/quartermaster.js"></script>
 </head>
 <body>
-
-<div class="richui_background" id="root">
-	<table class="table table-condensed debug">
-		<tbody>
-			<tr>
-				<td>x</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>y</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>height</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>width</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>innerHeight</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>innerWidth</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>outerHeight</td>
-				<td>...</td>
-			</tr>
-			<tr>
-				<td>outerWidth</td>
-				<td>...</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
 
 <div id="q-loader">
 	<h1>Test app</h1>
@@ -96,11 +60,11 @@
 </div>
 
 <div id="content">
-	<div class="container">
-		<h1 id="header">Test SVG 003</h1>
-		<h3>Time to get serious.</h3>
-		<p>Full js stack via a loader. Start of a library. Stay tuned.</p>
-
+	<div class="container" id="app-root">
+		<h1 id="header">richui 002</h1>
+		<h3>richui.js library</h3>
+		<p>The lib starts to do stuff...</p>
+		<p><button id="richui-test-btn-background" type="button" class="btn btn-primary" data-loading-text="Changing stuff...">play with background</button></p>
 		
 	</div> <!-- /container -->
 </div> <!-- /content -->
@@ -326,6 +290,37 @@ else
 	function init_app() {
 		// REM : js console demo
 		Q.log("Everything ready ! Starting app...");
+		// richui init
+		richui.init();
+		//richui.debug_div($("#content"));
+		richui.init_background_div( {
+			bg_picture: "shared/background_1280x791.png",
+			bg_color:   "white"
+		});
+		richui.init_main_div($("#app-root"), {
+			biggest_dimension_size_in_percent_of_window: 90,
+		});
+		richui.debug_div($("#app-root"));
+		
+		// bootstrap init
+		$('.btn').button();
+		//$('.btn').button('reset'); // to undo firefox aggressive "auto completion" which is inadequate for an app such as ours
+		// custom init
+		store.set('html_tests.richui.background', "white");
+		$('#richui-test-btn-background').click(function() {
+			var background = store.get('html_tests.richui.background') || "white";
+			if (background === "white" )
+			{
+				richui.change_background_options( { bg_picture: "shared/background_1280x791_dark.png" } );
+				background = "black";
+			}
+			else
+			{
+				richui.change_background_options( { bg_picture: "shared/background_1280x791.png" } );
+				background = "white";
+			}
+			store.set('html_tests.richui.background', background);
+		});
 	}
 </script>
 

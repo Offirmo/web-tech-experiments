@@ -51,6 +51,7 @@ var Q = {
 	expected_rsrc_count:   0, //< count of critical rsrcs we should load
 	successful_rsrc_count: 0, //< count of critical rsrcs we have successfully loaded
 	failed_rsrc_count:     0, //< count of critical rsrcs we have failed to load
+	unmetable_dependency:  false, //< if failure of a rsrc to whom other rsrc depend on, set this to true
 	
 	content_area: undefined, //< shortcut to the DOM element which holds the content
 	loading_area: undefined, //< shortcut to the DOM element which holds the loader
@@ -255,7 +256,7 @@ var Q = {
 		// has it deps ?
 		if(Q.resources_callbacks[rsrc_name] !== undefined) {
 			// has dependencies ! we'll never be able to load everything...
-			// TODO
+			this.unmetable_dependency = true;
 		}
 		this.check_completion_();
 	},
@@ -272,14 +273,14 @@ var Q = {
 	/////// check if all crit rsrcs are processed (success or failure)
 	/////// and call complete func if needed
 	check_completion_: function(rsrc) {
-		if( this.successful_rsrc_count + this.failed_rsrc_count >= this.expected_rsrc_count ) {
+		if( this.successful_rsrc_count + this.failed_rsrc_count >= this.expected_rsrc_count || this.unmetable_dependency ) {
 			this.on_complete_();
 		}
 	},
 	/////// called when all crit rsrcs are processed (success or failure)
 	on_complete_: function() {
 		// as soon as page is loaded, swap content
-		var success = (this.successful_rsrc_count == this.expected_rsrc_count);
+		var success = (this.successful_rsrc_count == this.expected_rsrc_count && ! this.unmetable_dependency);
 		if( !success )
 		{
 			document.getElementById('q-loader-msg').innerHTML = 'Application failed to load.';
