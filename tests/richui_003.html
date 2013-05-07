@@ -41,8 +41,8 @@
 		font-size: 10px;
 	}
 	.container {
-		padding: 3px;
-		border: black solid 1px;
+		/*padding: 1rem;
+		border: black solid 0.1rem;*/
 	}
 	</style>
 	<!-- should be embedded, but for dev this is easier. -->
@@ -306,17 +306,24 @@ else
 		var root_element = $("#app-root");
 		var svg_plane = richui.get_svg_plane( root_element );
 		var g = svg_plane.group({fill: 'none', stroke: 'blue', strokeWidth: 1});
+		
+		//var max_x = root_element.innerWidth();
+		//var max_y = root_element.innerHeight();
+		var max_x = 1920;
+		var max_y = 1080;
+		
 		svg_plane.polyline(g,
 			[
-				[ 0,                         0 ],
-				[ root_element.innerWidth(), 0 ],
-				[ root_element.innerWidth(), root_element.innerHeight() ],
-				[ 0,                         root_element.innerHeight() ],
-				[ 0,                         0 ],
+				[ 0,     0 ],
+				[ max_x, 0 ],
+				[ max_x, max_y ],
+				[ 0,     max_y ],
+				[ 0,     0 ],
 			  ]
 		);
-		svg_plane.line( g, 0, 0, root_element.innerWidth(), root_element.innerHeight() );
-		svg_plane.line( g, 0, root_element.innerHeight(),   root_element.innerWidth(), 0 );
+		svg_plane.line( g, 0, 0, max_x, max_y );
+		svg_plane.line( g, 0, max_y, max_x, 0 );
+		
 		var g2 = svg_plane.group({fill: 'none', stroke: 'red', strokeWidth: 2});
 		svg_plane.circle(g2,  40,  40,  50); 
 		svg_plane.line(  g2,  40, -10,  40, 110 );

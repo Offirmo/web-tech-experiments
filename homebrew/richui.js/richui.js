@@ -29,6 +29,11 @@ var richui = {
 	default_rem_size_px:         20,
 	
 	
+	
+	
+	
+	
+	
 	/////// richui elements manipulation ///////
 	compute_unique_jquery_element_key: function(jquery_element) {
 		// TODO improve
@@ -61,7 +66,8 @@ var richui = {
 				auto_generated:       false, // by default
 				jquery_element:       p_jquery_element,
 				jquery_svg_element:   p_jquery_element.find("svg"), // xxx already available ?
-				svg_plane:            p_jquery_element.svg('get'),
+				svg_plane:            p_jquery_element.svg('get'), // xxx already available ?
+				//svg_base_group:       undefined, // a group from which every drawing group must inherit for scaling reason
 				z_index:              0, // default
 				
 				/////// background
@@ -119,6 +125,9 @@ var richui = {
 		jquery_element.css("position",   "absolute");
 		
 		var jquery_svg_element = richui_element.jquery_svg_element;
+		jquery_svg_element[0].setAttribute("viewBox", "0 0 " + richui_element.scaling_options.reference_owidth.toString() + " " + richui_element.scaling_options.reference_oheight.toString() );
+		jquery_svg_element[0].setAttribute("preserveAspectRatio", "xMidYMid meet" );
+
 		jquery_svg_element.css({
 			"position": "absolute",
 			"z-index":  richui_element.z_index - 1,
@@ -127,6 +136,13 @@ var richui = {
 			"left":  0
 		});
 	},
+	
+	
+	
+	
+	
+	
+	
 	
 	/////// main init func, to call first
 	init: function() {
@@ -210,6 +226,13 @@ var richui = {
 		// eventually...
 		this.schedule_refresh();
 	},
+	
+	
+	
+	
+	
+	
+	
 	/////// callbacks ///////
 	on_window_resize: function() {
 		Q.info("resize !");
@@ -390,9 +413,14 @@ var richui = {
 		
 		var ih = jquery_element.innerHeight();
 		var iw = jquery_element.innerWidth();
-
+		
+		richui_element.jquery_svg_element[0].setAttribute("width",  iw.toString() );
+		richui_element.jquery_svg_element[0].setAttribute("height", ih.toString() );
 		richui_element.jquery_svg_element.css({ "height": ih.toString() + "px", "width": iw.toString() + "px"});
 	},
+	
+	
+	
 	///////
 	debug_div: function(jquery_div_element) {
 		this.prepare_debug_div(jquery_div_element);
@@ -443,6 +471,13 @@ var richui = {
 		richui_element.debug_enabled = true;
 		this.schedule_refresh();
 	},
+	
+	
+	
+	
+	
+	
+	
 	///////
 	init_element: function( jquery_element, options, default_id, default_options ) {
 		
