@@ -312,7 +312,7 @@ else
 		var max_x = 1920;
 		var max_y = 1080;
 		
-		svg_plane.polyline(g,
+		/*svg_plane.polyline(g,
 			[
 				[ 0,     0 ],
 				[ max_x, 0 ],
@@ -322,12 +322,19 @@ else
 			  ]
 		);
 		svg_plane.line( g, 0, 0, max_x, max_y );
-		svg_plane.line( g, 0, max_y, max_x, 0 );
+		svg_plane.line( g, 0, max_y, max_x, 0 );*/
 		
-		var g2 = svg_plane.group({fill: 'none', stroke: 'red', strokeWidth: 2});
+		$.browser = {};
+		$.browser.msie = false;
+		svg_plane.load("shared/svg_1920_1080.svg", {
+			addTo: true,
+			changeSize: false // don't alter size of the svg plane
+		});
+		
+		/*var g2 = svg_plane.group({fill: 'none', stroke: 'red', strokeWidth: 2});
 		svg_plane.circle(g2,  40,  40,  50); 
 		svg_plane.line(  g2,  40, -10,  40, 110 );
-		svg_plane.line(  g2, -10,  40, 110, 40 );
+		svg_plane.line(  g2, -10,  40, 110, 40 );*/
 		
 		// bootstrap init
 		$('.btn').button();

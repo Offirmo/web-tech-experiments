@@ -276,6 +276,8 @@ var richui = {
 		/*if(! richui_element.pre_uptodate) {
 			this.refresh_pre(richui_element);
 		}*/
+		this.prepare_richui_element( richui_element ); // toreview !
+		
 		var update_done = false;
 		if(richui_element.scaling_enabled && ! richui_element.scaling_uptodate) {
 			this.refresh_scaling(richui_element);
