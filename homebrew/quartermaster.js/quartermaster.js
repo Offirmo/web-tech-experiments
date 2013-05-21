@@ -51,7 +51,7 @@ var Q = {
 	expected_rsrc_count:   0, //< count of critical rsrcs we should load
 	successful_rsrc_count: 0, //< count of critical rsrcs we have successfully loaded
 	failed_rsrc_count:     0, //< count of critical rsrcs we have failed to load
-	unmetable_dependency:  false, //< if failure of a rsrc to whom other rsrc depend on, set this to true
+	unmetable_dependency:  false, //< if failure of a rsrc whom other rsrc depend on, set this to true
 	
 	content_area: undefined, //< shortcut to the DOM element which holds the content
 	loading_area: undefined, //< shortcut to the DOM element which holds the loader

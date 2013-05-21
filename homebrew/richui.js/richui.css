@@ -9,6 +9,9 @@ html
 	/*font-size: 100%;*/
 	/*font-size: 20px; /* Yes I know what I do */
 	/*background: rgba(0,0,0,0);*/
+	
+	/* http://www.webdesignerdepot.com/2013/05/how-to-optimize-for-legibility-using-text-rendering/ */
+	text-rendering: optimizeLegibility;
 }
 body
 {

@@ -31,16 +31,41 @@
 	<style>
 	div#q-loader
 	{
-		all:default; /* reset */
-		padding-top: 50px;
-		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-size: 14px;
-		text-align: center
+		all:default !important; /* reset */
+		padding-top: 50px !important;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+		font-size: 14px !important;
+		text-align: center !important;
+		line-height: 1.25rem !important;
+	}
+	div#q-loader h1, h3
+	{
+		margin: 0.63rem 0rem !important;
+		line-height: 2.5rem !important;
+		font-weight: bold !important;
+	}
+	div#q-loader h1
+	{
+		font-size: 2.41rem !important;
+	}
+	div#q-loader h3
+	{
+		font-size: 1.54rem !important;
+	}
+	p#q-loader-contact
+	{
+		font-size: 85% !important;
+		margin: 0rem 0rem 0.63rem !important;
+	}
+	p#q-loader-contact a
+	{
+		color: rgb(0, 136, 204) !important;
+		text-decoration: none !important;
 	}
 	ul#q-loader-log
 	{
-		color: grey;
-		font-size: 10px;
+		color: grey !important;
+		font-size: 10px !important;
 	}
 	</style>
 	<!-- should be embedded, but for dev this is easier. -->
@@ -59,7 +84,8 @@
 	<ul id="q-loader-log">
 		<!-- empty for now -->
 	</ul>
-	<p><small>Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in case of problem.</small></p>
+	<p id="q-loader-contact">Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in
+		case of problem.</p>
 </div>
 
 <div id="content">
