@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_004 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>Dust.js 002</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+	
+	
+	<!-- Ultra-mini css reset just to nicely display the loader
+	     Should be ultra-safe for :
+	     - old navigators like IE6
+	     - google referencement -> avoid blink, display-none at start (but ok later in script)
+	  -->
+	<style>
+	div#q-loader
+	{
+		all:default !important; /* reset */
+		padding-top: 50px !important;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+		font-size: 14px !important;
+		text-align: center !important;
+		line-height: 1.25rem !important;
+	}
+	div#q-loader h1, h3
+	{
+		margin: 0.63rem 0rem !important;
+		line-height: 2.5rem !important;
+		font-weight: bold !important;
+	}
+	div#q-loader h1
+	{
+		font-size: 2.41rem !important;
+	}
+	div#q-loader h3
+	{
+		font-size: 1.54rem !important;
+	}
+	p#q-loader-contact
+	{
+		font-size: 85% !important;
+		margin: 0rem 0rem 0.63rem !important;
+	}
+	p#q-loader-contact a
+	{
+		color: rgb(0, 136, 204) !important;
+		text-decoration: none !important;
+	}
+	ul#q-loader-log
+	{
+		color: grey !important;
+		font-size: 10px !important;
+	}
+	</style>
+
+	<!-- js -->
+	<script src="../other_components/quartermaster.js/quartermaster.js"></script>
+	<script>
+		console.log("hello from header !");
+		main = function()
+		{
+			Q.log("Starting rsrc load...");
+
+			require(
+				[	'jquery', 'rdust!sandbox/dust_002', 'bootstrap' ],
+				function($, template) {
+					// is the window fully loaded ? seems yes.
+
+					// from https://github.com/blai/require-dust/blob/master/demo/lib/main.js
+					var data = {
+						"title": "Famous People",
+						"names" :
+						[
+							{ "name": "Larry" },
+							{ "name": "Curly" },
+							{ "name": "Moe" }
+						]
+					};
+
+					template.render(data, function(err, out) {
+						console.info(out);
+						document.getElementById('temp').innerHTML = out;
+					});
+			});
+		};
+	</script>
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+
+<div id="q-loader">
+	<h1>Test app</h1>
+	<h3 id="q-loader-msg">Loading<span id="q-simple-loading-indicator">...</span> (<span id="q-loaded-rsrc-count">0</span>/<span id="q-expected-rsrc-count">1</span>)</h3>
+	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+	<ul id="q-loader-log">
+		<!-- empty for now -->
+	</ul>
+	<p id="q-loader-contact">Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in
+		case of problem.</p>
+</div>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Dust 002</h1>
+		<p>Dust.js more advanced templating</p>
+		<p><strong>Warning : This file MUST be served via a webserver (CORS).</strong></p>
+		<div id="temp">...</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+</script>
+
+</body>
+</html>

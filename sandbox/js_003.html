@@ -68,13 +68,41 @@
 		font-size: 10px !important;
 	}
 	</style>
-	<!-- should be embedded, but for dev this is easier. -->
-	<script src="../homebrew/quartermaster.js/quartermaster.js"></script>
+
+	<!-- js -->
+	<script src="../other_components/quartermaster.js/quartermaster.js"></script>
 	<script>
-		console.log("hello from header");
+		main = function()
+		{
+			Q.log("Starting rsrc load...");
+			require(
+				[	'jquery', 'jquery.ui', 'bootstrap', 'accounting', 'spin', 'store',
+					'graphic-javascript-tree', 'javascript-state-machine'
+				],
+				function($) {
+					// is the window fully loaded ? seems yes.
+					document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:'
+						+ $.fn.jquery + ')'));
+				});
+		};
 	</script>
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+
 </head>
 <body>
+
+
+require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', /*'jquery.datatables.js'*/ 'jquery.svg.js'/*, 'richui.js'*/ ],
+src: [ 'shared/empty.js' ],
+test: function (key, callback) {
+callback(key, typeof(window.empty_js_test) !== 'undefined');
+}
+},
+{
+name: 'app.css',
+require: [ 'bootstrap-rem.css', /*'jquery.datatables.css',*/ 'jquery.svg.css'/*, 'richui.css'*/ ],
+
+
 
 
 <div id="q-loader">
@@ -97,17 +125,12 @@
 </div> <!-- /content -->
 
 <script>
-if (typeof Q === 'undefined'){
-	// should never happen since we (supposedly) embed it in the html !
-	document.getElementById('q-loader-msg').innerHTML = 'Error loading loader itself !';
-}
-else
-{
+
 	console.log("hello from body");
-	
+
 	Q.init();
 	Q.log("Starting rsrc load...");
-	
+
 	Q.on_load_complete(function() {
 		Q.info("Starting app...");
 		init_app(); // see below
@@ -117,7 +140,7 @@ else
 	/////// jQuery
 	{
 		name: 'jquery.js',
-		src: [ /*"http://code.jquery.com/jquery-1.9.1.js",*/ '../contrib/jquery/jquery-1.9.1.js' ],
+		src: [ /*"http://code.jquery.com/jquery-1.9.1.js",*/ '../bower_components/jquery/jquery.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.jQuery) !== 'undefined');
 		}
@@ -128,7 +151,7 @@ else
 		require: [ 'jquery.js' ],
 		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js",
 		       "http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js",*/
-			   '../contrib/bootstrap/js/bootstrap.js' ],
+			   '../other_components/bootstrap/js/bootstrap.js' ],
 		test: function (key, callback) {
 			// https://github.com/netdna/bootstrap-cdn/issues/111
 			callback(key, (typeof($) !== 'undefined') && (typeof($.fn) !== 'undefined') && (typeof($.fn.modal) !== 'undefined'));
@@ -138,7 +161,7 @@ else
 		name: 'bootstrap.css',
 		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
 		       "http://twitter.github.com/bootstrap/assets/css/bootstrap.css",*/
-			   '../contrib/bootstrap/css/bootstrap.css' ],
+			   '../other_components/bootstrap/css/bootstrap.css' ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'span1' ], { 'width': '60px' }, key, callback);
 		}
@@ -147,7 +170,7 @@ else
 	{
 		name: 'bootstrap-rem.css',
 		require: [ 'bootstrap.css' ],
-		src: [ '../homebrew/bootstrap.rem/bootstrap.rem.css' ],
+		src: [ '../other_components/bootstrap-rem/bootstrap-rem.css' ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'test_bootstrap_rem' ], { 'font-size': '33px' }, key, callback);
 		}
@@ -155,7 +178,7 @@ else
 	/////// Backbone
 	{
 		name: 'underscore.js',
-		src: [ /*"http://underscorejs.org/underscore.js",*/ '../contrib/backbone.js/underscore.js' ],
+		src: [ /*"http://underscorejs.org/underscore.js",*/ '../bower_components/underscore/underscore.js' ],
 		test: function(key, callback) {
 			callback(key, typeof(window._) !== 'undefined');
 		}
@@ -163,7 +186,7 @@ else
 	{
 		name: 'backbone.js',
 		require: [ 'underscore.js', 'jquery.js' ], // bb needs jQuery for some features
-		src: [ /*"http://backbonejs.org/backbone.js",*/ '../contrib/backbone.js/backbone.js' ],
+		src: [ /*"http://backbonejs.org/backbone.js",*/ '../bower_components/backbone/backbone.js' ],
 		test: function(key, callback) {
 			callback(key, typeof(window.Backbone) !== 'undefined');
 		}
@@ -171,7 +194,7 @@ else
 	// accounting.js
 	{
 		name: 'accounting.js',
-		src: [ '../contrib/accounting.js/accounting.js' ],
+		src: [ '../bower_components/accounting/accounting.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.accounting) !== 'undefined');
 		}
@@ -179,7 +202,7 @@ else
 	/////// JSON2
 	{
 		name: 'json2.js',
-		src: [ /*"http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js",*/ '../contrib/json2/json2.js' ],
+		src: [ /*"http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js",*/ '../bower_components/json2/json2.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.JSON) !== 'undefined');
 		}
@@ -188,7 +211,7 @@ else
 	{
 		name: 'store.js',
 		require: [ 'json2.js' ],
-		src: [ '../contrib/store.js/store.js' ],
+		src: [ '../bower_components/store.js/store.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.store) !== 'undefined');
 		}
@@ -197,8 +220,8 @@ else
 	{
 		name: 'jquery.ui.js',
 		require: [ 'jquery.js' ],
-		src: [ '../contrib/jquery.ui/js/jquery-ui-1.10.2.custom.js' ],
-		//src: [ '../contrib/empty/empty.js' ],
+		src: [ '../other_components/jquery.ui/js/jquery-ui.custom.js' ],
+		//src: [ '../other_components/empty/empty.js' ],
 		test: function (key, callback) {
 			//callback(key, true);
 			callback(key, typeof(window.jQuery.fn.progressbar) !== 'undefined');
@@ -208,23 +231,23 @@ else
 		name: 'jquery.ui.css',
 		require: [ 'bootstrap.css' ],
 		/* smoothness theme
-		src: [ "../contrib/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
+		src: [ "../other_components/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'ui-resizable-n' ], { 'height': '7px' }, key, callback);
 		}*/
 		/* bootstrap theme */
-		src: [ '../contrib/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css' ],
+		src: [ '../other_components/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css' ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'jquery-ui-theme-bootstrap-offirmo-test' ], { 'font-size': '33px' }, key, callback);
 		}
 		/* empty theme (pretend to load)
-		src: [ "../contrib/empty/empty.css" ],
+		src: [ "../other_components/empty/empty.css" ],
 		test: function (key, callback) {
 			callback(key, true);
 		}*/
 	},
 	/////// jquery.datatables.js
-	{
+	/*{
 		name: 'jquery.datatables.js',
 		require: [ 'jquery.js', 'jquery.ui.js' ],
 		src: [ '../contrib/jquery.datatables/jquery.datatables.js' ],
@@ -242,25 +265,25 @@ else
 		test: function (key, callback) {
 			Q.test_css('span', [ 'dataTables_info' ], { 'padding-top': '3px' }, key, callback);
 		}
-	},
+	},*/
 	/////// jquery.svg
 	{
 		name: 'jquery.svg.js',
 		require: [ 'jquery.js' ],
-		src: [ '../contrib/jquery.svg/jquery.svg.js' ],
+		src: [ '../bower_components/jquery.svg/jquery.svg.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.jQuery.fn.svg) !== 'undefined');
 		}
 	},
 	{
 		name: 'jquery.svg.css',
-		src: [ '../contrib/jquery.svg/jquery.svg.css' ],
+		src: [ '../bower_components/jquery.svg/jquery.svg.css' ],
 		test: function (key, callback) {
 			Q.test_css('span', [ 'svg_error' ], { 'color': 'rgb(255, 0, 0)' }, key, callback);
 		}
 	},
 	/////// richui.js
-	{
+	/*{
 		name: 'richui.js',
 		require: [ 'jquery.svg.js' ],
 		src: [ '../homebrew/richui.js/richui.js' ],
@@ -290,14 +313,14 @@ else
 		test: function (key, callback) {
 			callback(key, typeof(window.jQuery.fn.pivot_display) !== 'undefined');
 		}
-	},
+	},*/
 	/////// misc
 	{
 		// javascript finite state machine
 		// https://github.com/jakesgordon/javascript-state-machine
 		name: 'jsm.js',
 		src: [ /*"https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js",*/
-		       '../contrib/javascript-state-machine/state-machine.js' ],
+		       '../other_components/javascript-state-machine/state-machine.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.StateMachine) !== 'undefined');
 		}
@@ -306,7 +329,7 @@ else
 		// javascript customizable spinner
 		// http://fgnass.github.com/spin.js/
 		name: 'spin.js',
-		src: [ /*"http://fgnass.github.com/spin.js/dist/spin.js",*/ '../contrib/spin.js/spin.js' ],
+		src: [ /*"http://fgnass.github.com/spin.js/dist/spin.js",*/ '../bower_components/spin.js/spin.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.Spinner) !== 'undefined');
 		}
@@ -314,7 +337,7 @@ else
 	// app
 	{
 		name: 'app.js',
-		require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', 'jquery.datatables.js', 'jquery.svg.js', 'richui.js' ],
+		require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', /*'jquery.datatables.js'*/ 'jquery.svg.js'/*, 'richui.js'*/ ],
 		src: [ 'shared/empty.js' ],
 		test: function (key, callback) {
 			callback(key, typeof(window.empty_js_test) !== 'undefined');
@@ -322,7 +345,7 @@ else
 	},
 	{
 		name: 'app.css',
-		require: [ 'bootstrap-rem.css', 'jquery.datatables.css', 'jquery.svg.css', 'richui.css' ],
+		require: [ 'bootstrap-rem.css', /*'jquery.datatables.css',*/ 'jquery.svg.css'/*, 'richui.css'*/ ],
 		src: [ 'shared/empty.css' ],
 		test: function (key, callback) {
 			Q.test_css('div', [ 'test_empty_css' ], { 'font-size': '33px' }, key, callback);

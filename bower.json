@@ -1,8 +1,30 @@
 {
 	"name": "html_tests",
 	"version": "0.0.1",
-	"dependencies":
-	{
-		"jquery": "~1.9.1"
+	"dependencies": {
+		"accounting":         "latest",
+		"backbone":           "latest",
+		"datatables":         "latest",
+		"dustjs-linkedin":    "latest",
+		"jquery":             "latest",
+		"jquery.svg":         "latest",
+		"jqueryuibootstrap":  "latest",
+		"json2":              "latest",
+		"modernizr":          "latest",
+		"require-css":        "latest",
+		"requirejs":          "latest",
+		"requirejs-plugins":  "latest",
+		"requirejs-text":     "latest",
+		"screenfull":         "latest",
+		"spin.js":            "latest",
+		"store.js":           "latest"
+		"underscore":         "latest",
+	},
+	"devDependencies": {
+		"intern":             "latest",
+	},
+	"needBuildDeps": {
+		"bootstrap":          "latest",
+		"jquery.ui":          "latest",
 	}
 }

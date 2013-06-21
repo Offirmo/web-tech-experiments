@@ -1,0 +1,13 @@
+<header>{+pageHeader}[header from 3a]PayPal[/header]<br/>{/pageHeader}</header>
+
+<article>
+<h2>{title}</h2>
+{+bodyContent/}
+</article>
+
+<footer>{+pageFooter}
+[footer from 3a]
+	<hr>
+	<a href="/contactUs">Contact Us</a>
+[/footer]
+{/pageFooter}</footer>

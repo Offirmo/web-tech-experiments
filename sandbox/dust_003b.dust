@@ -1,0 +1,21 @@
+{! First, insert the base template as a partial !}
+{>"sandbox/dust_003a"/}
+
+{! Then populate the base template named blocks. Supply the desired bodyContent and pageFooter !}
+{<bodyContent}
+[content from 3b]
+<p>These are your current settings:</p>
+<ul>
+	<li>xxxx</li>
+	<li>yyy</li>
+</ul>
+[/content]
+{/bodyContent}
+
+{<pageFooter}
+[footer from 3b]
+<hr>
+<a href="/contactUs">About Us</a> |
+<a href="/contactUs">Contact Us</a>
+[/footer]
+{/pageFooter}
