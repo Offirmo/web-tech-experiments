@@ -1,5 +1,5 @@
 ﻿/* http://keith-wood.name/svg.html
-   SVG for jQuery v1.4.5.
+   SVG for jQuery v1.4.3.
    Written by Keith Wood (kbwood{at}iinet.com.au) August 2007.
    Dual licensed under the GPL (http://dev.jquery.com/browser/trunk/jquery/GPL-LICENSE.txt) and 
    MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. 
@@ -21,6 +21,8 @@ function SVGManager() {
 	this.local = this.regional['']; // Current localisation
 	this._uuid = new Date().getTime();
 	this._renesis = detectActiveX('RenesisX.RenesisCtrl');
+	this._svgWeb = typeof svgweb != 'undefined' ? true : false;
+	this._forceSvgWeb = function() { return typeof svgweb != 'undefined' && svgweb.config.use == 'flash' };
 }
 
 /* Determine whether a given ActiveX control is available.
@@ -83,7 +85,7 @@ $.extend(SVGManager.prototype, {
 	/* Add the SVG object to its container. */
 	_attachSVG: function(container, settings) {
 		var svg = (container.namespaceURI == this.svgNS ? container : null);
-		var container = (svg ? null : container);
+		container = (svg ? null : container);
 		if ($(container || svg).hasClass(this.markerClassName)) {
 			return;
 		}
@@ -95,34 +97,49 @@ $.extend(SVGManager.prototype, {
 		}
 		$(container || svg).addClass(this.markerClassName);
 		try {
-			if (!svg) {
-				svg = document.createElementNS(this.svgNS, 'svg');
-				svg.setAttribute('version', '1.1');
-				if (container.clientWidth > 0) {
+			if (this._forceSvgWeb()) {
+				if (!svg) this._svgWebAttachSVG(container, settings);
+			} else {
+				if (!svg) {
+					svg = document.createElementNS(this.svgNS, 'svg');
+					svg.setAttribute('version', '1.1');
 					svg.setAttribute('width', container.clientWidth);
-				}
-				if (container.clientHeight > 0) {
 					svg.setAttribute('height', container.clientHeight);
+					container.appendChild(svg);
 				}
-				container.appendChild(svg);
+				this._afterLoad(container, svg, settings || {});
 			}
-			this._afterLoad(container, svg, settings || {});
 		}
 		catch (e) {
-			if ($.browser.msie) {
+			if (this._svgWeb && svgweb.config.supported) {
+				this._svgWebAttachSVG(container, settings);
+			} else if ($.browser.msie) {
 				if (!container.id) {
 					container.id = 'svg' + (this._uuid++);
 				}
 				this._settings[container.id] = settings;
 				container.innerHTML = '<embed type="image/svg+xml" width="100%" ' +
-					'height="100%" src="' + (settings.initPath || '') + 'blank.svg" ' +
-					'pluginspage="http://www.adobe.com/svg/viewer/install/main.html"/>';
+					'height="100%" src="' + (settings.initPath || '') + 'blank.svg"/>';
 			}
 			else {
 				container.innerHTML = '<p class="svg_error">' +
 					this.local.notSupportedText + '</p>';
 			}
 		}
+	},
+	
+	/* Add the SVG object using svgweb */
+	_svgWebAttachSVG: function(container, settings) {
+		var svg = document.createElementNS(this.svgNS, 'svg');
+		svg.setAttribute('width', container.clientWidth);
+		svg.setAttribute('height', container.clientHeight);
+		
+		var svgObj = this;
+		svg.addEventListener('SVGLoad', function(evt) {
+			svgObj._svg = this;
+			svgObj._afterLoad(container, this, settings || {});
+		})
+		svgweb.appendChild(svg, container);
 	},
 
 	/* SVG callback after loading - register SVG root. */
@@ -150,7 +167,7 @@ $.extend(SVGManager.prototype, {
 
 	/* Post-processing once loaded. */
 	_afterLoad: function(container, svg, settings) {
-		var settings = settings || this._settings[container.id];
+		settings = settings || this._settings[container.id];
 		this._settings[container ? container.id : ''] = null;
 		var wrapper = new this._wrapperClass(svg, container);
 		$.data(container || svg, PROP_NAME, wrapper);
@@ -203,13 +220,6 @@ $.extend(SVGManager.prototype, {
 	   @param  extClass  (function) the extension class constructor */
 	addExtension: function(name, extClass) {
 		this._extensions.push([name, extClass]);
-	},
-
-	/* Does this node belong to SVG?
-	   @param  node  (element) the node to be tested
-	   @return  (boolean) true if an SVG node, false if not */
-	isSVGElem: function(node) {
-		return (node.nodeType == 1 && node.namespaceURI == $.svg.svgNS);
 	}
 });
 
@@ -242,29 +252,23 @@ $.extend(SVGWrapper.prototype, {
 		return this._svg;
 	},
 
-	/* Configure a SVG node.
-	   @param  node      (element, optional) the node to configure
+	/* Configure the SVG root.
 	   @param  settings  (object) additional settings for the root
 	   @param  clear     (boolean) true to remove existing attributes first,
 	                     false to add to what is already there (optional)
 	   @return  (SVGWrapper) this root */
-	configure: function(node, settings, clear) {
-		if (!node.nodeName) {
-			clear = settings;
-			settings = node;
-			node = this._svg;
-		}
+	configure: function(settings, clear) {
 		if (clear) {
-			for (var i = node.attributes.length - 1; i >= 0; i--) {
-				var attr = node.attributes.item(i);
+			for (var i = this._svg.attributes.length - 1; i >= 0; i--) {
+				var attr = this._svg.attributes.item(i);
 				if (!(attr.nodeName == 'onload' || attr.nodeName == 'version' || 
 						attr.nodeName.substring(0, 5) == 'xmlns')) {
-					node.attributes.removeNamedItem(attr.nodeName);
+					this._svg.attributes.removeNamedItem(attr.nodeName);
 				}
 			}
 		}
 		for (var attrName in settings) {
-			node.setAttribute($.svg._attrNames[attrName] || attrName, settings[attrName]);
+			this._svg.setAttribute(attrName, settings[attrName]);
 		}
 		return this;
 	},
@@ -284,10 +288,10 @@ $.extend(SVGWrapper.prototype, {
 		if (element) {
 			for (var name in settings) {
 				if (settings[name] == null) {
-					element.removeAttribute($.svg._attrNames[name] || name);
+					element.removeAttribute(name);
 				}
 				else {
-					element.setAttribute($.svg._attrNames[name] || name, settings[name]);
+					element.setAttribute(name, settings[name]);
 				}
 			}
 		}
@@ -416,7 +420,7 @@ $.extend(SVGWrapper.prototype, {
 		var args = this._args(arguments, ['script', 'type'], ['type']);
 		var node = this._makeNode(args.parent, 'script', $.extend(
 			{type: args.type || 'text/javascript'}, args.settings || {}));
-		node.appendChild(this._svg.ownerDocument.createTextNode(args.script));
+		node.appendChild(this._svg.ownerDocument.createTextNode(this._escapeXML(args.script)));
 		if (!$.browser.mozilla) {
 			$.globalEval(args.script);
 		}
@@ -500,18 +504,6 @@ $.extend(SVGWrapper.prototype, {
 			width: args.width, height: args.height}, (args.vx != null ?
 			{viewBox: args.vx + ' ' + args.vy + ' ' + args.vwidth + ' ' + args.vheight} : {}));
 		return this._makeNode(args.parent, 'pattern', $.extend(sets, args.settings || {}));
-	},
-
-	/* Add a clip path definition.
-	   @param  parent  (element) the parent node for the new element (optional)
-	   @param  id      (string) the ID for this path
-	   @param  units   (string) either 'userSpaceOnUse' (default) or 'objectBoundingBox' (optional)
-	   @return  (element) the new clipPath node */
-	clipPath: function(parent, id, units, settings) {
-		var args = this._args(arguments, ['id', 'units']);
-		args.units = args.units || 'userSpaceOnUse';
-		return this._makeNode(args.parent, 'clipPath', $.extend(
-			{id: args.id, clipPathUnits: args.units}, args.settings || {}));
 	},
 
 	/* Add a mask definition.
@@ -810,12 +802,12 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Create a shape node with the given settings. */
-	_makeNode: function(parent, name, settings) {
+	_makeNode: function(parent, nodeName, settings) {
 		parent = parent || this._svg;
-		var node = this._svg.ownerDocument.createElementNS($.svg.svgNS, name);
+		var node = this._svg.ownerDocument.createElementNS($.svg.svgNS, nodeName);
 		for (var name in settings) {
 			var value = settings[name];
-			if (value != null && value != null && 
+			if (value != null && value != null && name != 'title' && 
 					(typeof value != 'string' || value != '')) {
 				node.setAttribute($.svg._attrNames[name] || name, value);
 			}
@@ -834,7 +826,6 @@ $.extend(SVGWrapper.prototype, {
 		var args = this._args((arguments.length == 1 ? [null, parent] : arguments), ['node']);
 		var svg = this;
 		args.parent = args.parent || this._svg;
-		args.node = (args.node.jquery ? args.node : $(args.node));
 		try {
 			if ($.svg._renesis) {
 				throw 'Force traversal';
@@ -842,6 +833,7 @@ $.extend(SVGWrapper.prototype, {
 			args.parent.appendChild(args.node.cloneNode(true));
 		}
 		catch (e) {
+			args.node = (args.node.jquery ? args.node : $(args.node));
 			args.node.each(function() {
 				var child = svg._cloneAsSVG(this);
 				if (child) {
@@ -852,32 +844,7 @@ $.extend(SVGWrapper.prototype, {
 		return this;
 	},
 
-	/* Clone an existing SVG node and add it to the diagram.
-	   @param  parent  (element or jQuery) the parent node for the new node (optional)
-	   @param  node    (element) the new node to add or
-	                   (string) the jQuery selector for the node or
-	                   (jQuery collection) set of nodes to add
-	   @return  (element[]) collection of new nodes */
-	clone: function(parent, node) {
-		var svg = this;
-		var args = this._args((arguments.length == 1 ? [null, parent] : arguments), ['node']);
-		args.parent = args.parent || this._svg;
-		args.node = (args.node.jquery ? args.node : $(args.node));
-		var newNodes = [];
-		args.node.each(function() {
-			var child = svg._cloneAsSVG(this);
-			if (child) {
-				child.id = '';
-				args.parent.appendChild(child);
-				newNodes.push(child);
-			}
-		});
-		return newNodes;
-	},
-
-	/* SVG nodes must belong to the SVG namespace, so clone and ensure this is so.
-	   @param  node  (element) the SVG node to clone
-	   @return  (element) the cloned node */
+	/* SVG nodes must belong to the SVG namespace, so clone and ensure this is so. */
 	_cloneAsSVG: function(node) {
 		var newNode = null;
 		if (node.nodeType == 1) { // element
@@ -887,8 +854,7 @@ $.extend(SVGWrapper.prototype, {
 				var attr = node.attributes.item(i);
 				if (attr.nodeName != 'xmlns' && attr.nodeValue) {
 					if (attr.prefix == 'xlink') {
-						newNode.setAttributeNS($.svg.xlinkNS,
-							attr.localName || attr.baseName, attr.nodeValue);
+						newNode.setAttributeNS($.svg.xlinkNS, attr.localName, attr.nodeValue);
 					}
 					else {
 						newNode.setAttribute(this._checkName(attr.nodeName), attr.nodeValue);
@@ -942,17 +908,11 @@ $.extend(SVGWrapper.prototype, {
 	                       onLoad      (function) callback after the document has loaded,
 	                                   'this' is the container, receives SVG object and
 	                                   optional error message as a parameter
-	                       parent      (string or element or jQuery) the parent to load
-	                                   into, defaults to top-level svg element
 	   @return  (SVGWrapper) this root */
 	load: function(url, settings) {
-		settings = (typeof settings == 'boolean' ? {addTo: settings} :
-			(typeof settings == 'function' ? {onLoad: settings} :
-			(typeof settings == 'string' ? {parent: settings} : 
-			(typeof settings == 'object' && settings.nodeName ? {parent: settings} :
-			(typeof settings == 'object' && settings.jquery ? {parent: settings} :
-			settings || {})))));
-		if (!settings.parent && !settings.addTo) {
+		settings = (typeof settings == 'boolean'? {addTo: settings} :
+			(typeof settings == 'function'? {onLoad: settings} : settings || {}));
+		if (!settings.addTo) {
 			this.clear(false);
 		}
 		var size = [this._svg.getAttribute('width'), this._svg.getAttribute('height')];
@@ -992,7 +952,6 @@ $.extend(SVGWrapper.prototype, {
 					(messages.length ? messages[0] : errors[0]).firstChild.nodeValue);
 				return;
 			}
-			var parent = (settings.parent ? $(settings.parent)[0] : wrapper._svg);
 			var attrs = {};
 			for (var i = 0; i < data.documentElement.attributes.length; i++) {
 				var attr = data.documentElement.attributes.item(i);
@@ -1000,24 +959,24 @@ $.extend(SVGWrapper.prototype, {
 					attrs[attr.nodeName] = attr.nodeValue;
 				}
 			}
-			wrapper.configure(parent, attrs, !settings.parent);
+			wrapper.configure(attrs, true);
 			var nodes = data.documentElement.childNodes;
 			for (var i = 0; i < nodes.length; i++) {
 				try {
 					if ($.svg._renesis) {
 						throw 'Force traversal';
 					}
-					parent.appendChild(wrapper._svg.ownerDocument.importNode(nodes[i], true));
+					wrapper._svg.appendChild(nodes[i].cloneNode(true));
 					if (nodes[i].nodeName == 'script') {
 						$.globalEval(nodes[i].textContent);
 					}
 				}
 				catch (e) {
-					wrapper.add(parent, nodes[i]);
+					wrapper.add(null, nodes[i]);
 				}
 			}
 			if (!settings.changeSize) {
-				wrapper.configure(parent, {width: size[0], height: size[1]});
+				wrapper.configure({width: size[0], height: size[1]});
 			}
 			if (settings.onLoad) {
 				settings.onLoad.apply(wrapper._container || wrapper._svg, [wrapper]);
@@ -1108,6 +1067,14 @@ $.extend(SVGWrapper.prototype, {
 			}
 		}
 		return svgDoc;
+	},
+	
+	/* Escape reserved characters in XML. */
+	_escapeXML: function(text) {
+		text = text.replace(/&/g, '&amp;');
+		text = text.replace(/</g, '&lt;');
+		text = text.replace(/>/g, '&gt;');
+		return text;
 	}
 });
 

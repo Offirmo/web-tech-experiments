@@ -1,0 +1,9 @@
+{
+  "name": "jquery.svg",
+  "version": "0.0.0",
+  "commit": "a407434aabd0a7776077d6272df8b4c4e38d7f1c",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apendleton/jquery-svg.git"
+  }
+}

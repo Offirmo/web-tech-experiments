@@ -1,6 +1,5 @@
-﻿;(function(){
+;(function(win){
 	var store = {},
-		win = window,
 		doc = win.document,
 		localStorageName = 'localStorage',
 		namespace = '__storejs__',
@@ -74,7 +73,7 @@
 		try {
 			storageContainer = new ActiveXObject('htmlfile')
 			storageContainer.open()
-			storageContainer.write('<s' + 'cript>document.w=window</s' + 'cript><iframe src="/favicon.ico"></frame>')
+			storageContainer.write('<s' + 'cript>document.w=window</s' + 'cript><iframe src="/favicon.ico"></iframe>')
 			storageContainer.close()
 			storageOwner = storageContainer.w.frames[0].document
 			storage = storageOwner.createElement('div')
@@ -149,5 +148,5 @@
 	store.enabled = !store.disabled
 	if (typeof module != 'undefined' && module.exports) { module.exports = store }
 	else if (typeof define === 'function' && define.amd) { define(store) }
-	else { this.store = store }
-})();
+	else { win.store = store }
+})(this.window || global);
