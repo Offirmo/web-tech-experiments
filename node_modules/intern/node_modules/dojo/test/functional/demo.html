@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Demo functional testing</title>
+	</head>
+	<body>
+		<form id="testForm">
+			<input id="testInput">
+			<input id="submitButton" type="submit">
+		</form>
+		<script>
+document.getElementById('testForm').addEventListener('submit', function (event) {
+	event.preventDefault();
+	alert(document.getElementById('testInput').value);
+}, false);
+		</script>
+	</body>
+</html>
