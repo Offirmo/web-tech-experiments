@@ -1,6 +1,6 @@
 {
   "name": "backbone",
-  "version": "1.0.0",
+  "version": "0.9.10",
   "repository": {
     "type": "git",
     "url": "git://github.com/documentcloud/backbone.git"

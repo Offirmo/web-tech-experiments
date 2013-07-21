@@ -72,7 +72,4 @@
     return _.flatten(deep);
   });
 
-  JSLitmus.test('_.flatten() (shallow)', function() {
-    return _.flatten(deep, true);
-  });
 })();

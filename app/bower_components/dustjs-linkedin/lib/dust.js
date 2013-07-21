@@ -136,7 +136,8 @@ Context.wrap = function(context, name) {
     return context;
   }
   var global= {};
-  global.__template_name__ = name;
+  global.__templates__ = [];
+  global.__templates__.push(name);
   return new Context(new Stack(context), global);
 };
 
@@ -155,18 +156,43 @@ Context.prototype.get = function(key) {
   return this.global ? this.global[key] : undefined;
 };
 
+//supports dot path resolution, function wrapped apply, and searching global paths
 Context.prototype.getPath = function(cur, down) {
-  var ctx = this.stack,
-      len = down.length;
+  var ctx = this.stack, ctxThis,
+      len = down.length,      
+      tail = cur ? undefined : this.stack.tail; 
 
   if (cur && len === 0) return ctx.head;
   ctx = ctx.head;
   var i = 0;
   while(ctx && i < len) {
+  	ctxThis = ctx;
     ctx = ctx[down[i]];
     i++;
+    while (!ctx && !cur){
+        //if there was a partial match, don't search further
+    	if (i > 1) return undefined;
+    	if (tail){
+    	  ctx = tail.head;
+    	  tail = tail.tail;
+    	  i=0;
+    	} else if (!cur) {
+    	  //finally search this.global.  we set cur to true to halt after
+      	  ctx = this.global;
+      	  cur = true;
+    	  i=0;
+    	}
+    }   
   }
-  return ctx;
+  if (typeof ctx == 'function'){
+  	//wrap to preserve context 'this' see #174
+  	return function(){ 
+  	  return ctx.apply(ctxThis,arguments); 
+  	};
+  }
+  else {
+    return ctx;
+  }
 };
 
 Context.prototype.push = function(head, idx, len) {
@@ -490,6 +516,9 @@ Chunk.prototype.block = function(elem, context, bodies) {
 
 Chunk.prototype.partial = function(elem, context, params) {
   var partialContext;
+  if(context.global && context.global.__templates__){
+   context.global.__templates__.push(elem);
+  } 
   if (params){
     //put the params context second to match what section does. {.} matches the current context without parameters
     // start with an empty context
@@ -506,12 +535,19 @@ Chunk.prototype.partial = function(elem, context, params) {
   } else {
     partialContext = context;
   }
-  if (typeof elem === "function") {
-    return this.capture(elem, partialContext, function(name, chunk) {
-      dust.load(name, chunk, partialContext).end();
-    });
-  }
-  return dust.load(elem, this, partialContext);
+  var partialChunk;
+   if (typeof elem === "function") {
+     partialChunk = this.capture(elem, partialContext, function(name, chunk) {
+       dust.load(name, chunk, partialContext).end();
+     });
+   }
+   else {
+     partialChunk = dust.load(elem, this, partialContext);
+   }
+   if(context.global && context.global.__templates__) {
+    context.global.__templates__.pop();
+   }
+   return partialChunk;
 };
 
 Chunk.prototype.helper = function(name, context, bodies, params) {

@@ -21,6 +21,13 @@ $(function(){
       };
     },
 
+    // Ensure that each todo created has `title`.
+    initialize: function() {
+      if (!this.get("title")) {
+        this.set({"title": this.defaults().title});
+      }
+    },
+
     // Toggle the `done` state of this todo item.
     toggle: function() {
       this.save({done: !this.get("done")});
@@ -43,7 +50,7 @@ $(function(){
 
     // Filter down the list of all todo items that are finished.
     done: function() {
-      return this.where({done: true});
+      return this.filter(function(todo){ return todo.get('done'); });
     },
 
     // Filter down the list to only todo items that are still not finished.
@@ -59,7 +66,9 @@ $(function(){
     },
 
     // Todos are sorted by their original insertion order.
-    comparator: 'order'
+    comparator: function(todo) {
+      return todo.get('order');
+    }
 
   });
 

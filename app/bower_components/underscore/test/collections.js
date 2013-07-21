@@ -22,7 +22,7 @@ $(document).ready(function() {
     equal(answers.join(", "), 'one, two, three', 'iterating over objects works, and ignores the object prototype.');
     delete obj.constructor.prototype.four;
 
-    var answer = null;
+    answer = null;
     _.each([1, 2, 3], function(num, index, arr){ if (_.include(arr, num)) answer = true; });
     ok(answer, 'can reference the original collection from inside the iterator');
 
@@ -76,16 +76,13 @@ $(document).ready(function() {
     var sum = _.reduce([1, 2, 3], function(sum, num){ return sum + num; });
     equal(sum, 6, 'default initial value');
 
-    var prod = _.reduce([1, 2, 3, 4], function(prod, num){ return prod * num; });
-    equal(prod, 24, 'can reduce via multiplication');
-
     var ifnull;
     try {
       _.reduce(null, function(){});
     } catch (ex) {
       ifnull = ex;
     }
-    ok(ifnull instanceof TypeError, 'handles a null (without initial value) properly');
+    ok(ifnull instanceof TypeError, 'handles a null (without inital value) properly');
 
     ok(_.reduce(null, function(){}, 138) === 138, 'handles a null (with initial value) properly');
     equal(_.reduce([], function(){}, undefined), undefined, 'undefined can be passed as a special case');
@@ -108,7 +105,7 @@ $(document).ready(function() {
     } catch (ex) {
       ifnull = ex;
     }
-    ok(ifnull instanceof TypeError, 'handles a null (without initial value) properly');
+    ok(ifnull instanceof TypeError, 'handles a null (without inital value) properly');
 
     var sum = _.reduceRight({a: 1, b: 2, c: 3}, function(sum, num){ return sum + num; });
     equal(sum, 6, 'default initial value on object');
@@ -261,19 +258,6 @@ $(document).ready(function() {
     result = _.where(list, {b: 2});
     equal(result.length, 2);
     equal(result[0].a, 1);
-    
-    result = _.where(list, {a: 1}, true);
-    equal(result.b, 2, "Only get the first object matched.")
-    result = _.where(list, {a: 1}, false);
-    equal(result.length, 3);
-  });
-
-  test('findWhere', function() {
-    var list = [{a: 1, b: 2}, {a: 2, b: 2}, {a: 1, b: 3}, {a: 1, b: 4}, {a: 2, b: 4}];
-    var result = _.findWhere(list, {a: 1});
-    deepEqual(result, {a: 1, b: 2});
-    result = _.findWhere(list, {b: 4});
-    deepEqual(result, {a: 1, b: 4});
   });
 
   test('max', function() {
@@ -369,14 +353,6 @@ $(document).ready(function() {
     var grouped = _.groupBy(array);
     equal(grouped['1'].length, 2);
     equal(grouped['3'].length, 1);
-
-    var matrix = [
-      [1,2],
-      [1,3],
-      [2,3]
-    ];
-    deepEqual(_.groupBy(matrix, 0), {1: [[1,2], [1,3]], 2: [[2,3]]})
-    deepEqual(_.groupBy(matrix, 1), {2: [[1,2]], 3: [[1,3], [2,3]]})
   });
 
   test('countBy', function() {
@@ -454,7 +430,6 @@ $(document).ready(function() {
   test('size', function() {
     equal(_.size({one : 1, two : 2, three : 3}), 3, 'can compute the size of an object');
     equal(_.size([1, 2, 3]), 3, 'can compute the size of an array');
-    equal(_.size($('<div>').add('<span>').add('<span>')), 3, 'can compute the size of jQuery objects');
 
     var func = function() {
       return _.size(arguments);
@@ -462,8 +437,7 @@ $(document).ready(function() {
 
     equal(func(1, 2, 3, 4), 4, 'can test the size of the arguments object');
 
-    equal(_.size('hello'), 5, 'can compute the size of a string literal');
-    equal(_.size(new String('hello')), 5, 'can compute the size of string object');
+    equal(_.size('hello'), 5, 'can compute the size of a string');
 
     equal(_.size(null), 0, 'handles nulls');
   });
