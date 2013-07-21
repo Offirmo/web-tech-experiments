@@ -5,6 +5,7 @@
 		"accounting":         "latest",
 		"angular":            "latest",
 		"backbone":           "latest",
+		"backbone-associations":   "latest",
 		"datatables":         "latest",
 		"dustjs-linkedin":    "latest",
 		"jquery":             "latest",

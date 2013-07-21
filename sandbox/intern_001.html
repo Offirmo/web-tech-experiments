@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- html_004 template -->
+
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>intern.js 001</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+
+
+	<!-- style -->
+	<style>
+
+	</style>
+
+	<!-- js -->
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+	<script>
+		// ...
+	</script>
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">intern.js 001</h1>
+		<p>todo...</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	main = function()
+	{
+		Q.log("Starting rsrc load...");
+		require(
+		[	'jquery',
+			'bootstrap', 'backbone', 'jquery.svg', 'jquery.ui', 'accounting', 'spin', 'store',
+			'graphic-javascript-tree', 'javascript-state-machine'
+		],
+		function($) {
+			// is the window fully loaded ? seems yes.
+			document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:'
+					+ $.fn.jquery + ')'));
+		});
+	};
+</script>
+
+</body>
+</html>

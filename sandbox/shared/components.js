@@ -35,6 +35,10 @@ require.config({
 			//'http://backbonejs.org/backbone.js',
 			'bower_components/backbone/backbone'
 		],
+		'backbone-associations': [
+			//'http://backbonejs.org/backbone.js',
+			'bower_components/backbone-associations/backbone-associations'
+		],
 		'bootstrap': [
 			//'http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap',
 			//'http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap',
@@ -75,6 +79,9 @@ require.config({
 		'backbone': {
 			deps: [ 'underscore', 'jquery' ], // Note : bb needs jQuery for some features
 			exports: 'Backbone'
+		},
+		'backbone-associations': {
+			deps: [ 'backbone' ]
 		},
 		'bootstrap': {
 			deps: [ 'jquery', 'css!other_components/bootstrap/css/bootstrap' ]
