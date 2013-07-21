@@ -23,7 +23,6 @@
 		"underscore":         "latest"
 	},
 	"devDependencies": {
-		"intern":             "latest"
 	},
 	"needBuildDeps": {
 		"bootstrap":          "latest",
