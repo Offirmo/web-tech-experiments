@@ -19,6 +19,8 @@ requirejs.config({
 			'rdust': 'other_components/require-dust/require-dust'
 		}
 	},
+
+
 	/////////////////////
 	paths: {
 		// shim plugins
@@ -66,8 +68,12 @@ requirejs.config({
 		'spin': 'bower_components/spin.js/spin',
 		'graphic-javascript-tree': 'other_components/graphic-javascript-tree/ECOTree',
 		// this plugin should really be aliased 'dust' for rdust to work properly
-		'dust': 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5'
+		'dust': 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
+		'chai': 'bower_components/chai/chai',
+		'offirmo/base': 'other_components/nomrpg/base/model'
 	},
+
+
 	/////////////////////
 	shim: {
 		'jquery': {
@@ -142,8 +148,14 @@ requirejs.config({
 		'dust' : {
 			// no deps
 			exports: 'dust'
+		},
+		'chai' : {
+			// no deps
+			// exports ?
 		}
 	},
+
+
 	/////////////////////
 	config: {
 		'toto': {

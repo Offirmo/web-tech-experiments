@@ -23,6 +23,7 @@
 		"underscore":         "latest"
 	},
 	"devDependencies": {
+		"chai":               "latest"
 	},
 	"needBuildDeps": {
 		"bootstrap":          "latest",

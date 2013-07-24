@@ -1,13 +1,16 @@
 "use strict";
 
-var chai = require('chai');
-var expect = chai.expect;
-chai.should();
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+//if (typeof requirejs !== 'function') { var requirejs = require('requirejs') }
 
 describe('NamedObject', function() {
 
-	var CUT = require('../model/named_object.js');
 	var Backbone = require('backbone');
+	var chai = require('chai');
+	var CUT = require('offirmo/base/named_object');
+
+	var expect = chai.expect;
+	chai.should();
 
 	describe('instantiation', function() {
 
