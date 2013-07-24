@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mocha Tests</title>
+	<link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+</head>
+
+<body>
+
+	<div id="mocha"></div>
+
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../../node_modules/mocha/mocha.js"></script>
+<script>mocha.setup('bdd')</script>
+<script src="../other_components/nomrpg/base/spec/named_object_spec.js"></script>
+<script>
+main = function()
+{
+	console.log("Hello world...");
+
+	require(
+	['jquery',
+	 //'other_components/nomrpg/base/spec/named_object_spec.js'
+	'offirmo/base/named_object'
+	],
+	function($) {
+
+		document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+
+		//jQuery = $;
+		//mocha.checkLeaks();
+		//mocha.globals(['jQuery']);
+		mocha.run();
+
+		return undefined;
+	});
+};
+</script>
+<script src="shared/boot.js"></script>
+
+</body>
+</html>
