@@ -2,8 +2,19 @@
 	"name": "html_tests",
 	"version": "0.0.1",
 	"dependencies": {
+		"requirejs":          "latest",
+		"amdefine":           "latest",
+		
+		"accounting":         "latest",
+		"angular":            "latest",
+		"backbone":           "latest",
+		"backbone-associations":   "latest",
+		"jquery":             "latest",
+		"json2":              "latest",
+		"underscore":         "latest"
 	},
 	"devDependencies": {
-		"intern":             "latest"
+		"mocha":              "latest",
+		"chai":               "latest"
 	}
 }

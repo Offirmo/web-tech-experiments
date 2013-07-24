@@ -1,3 +1,0 @@
-define([
-	'./functional/demo'
-], function () {});
