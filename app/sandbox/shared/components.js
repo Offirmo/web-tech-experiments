@@ -70,7 +70,8 @@ requirejs.config({
 		// this plugin should really be aliased 'dust' for rdust to work properly
 		'dust': 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
 		'chai': 'bower_components/chai/chai',
-		'offirmo/base': 'other_components/nomrpg/base/model'
+		'mocha': '../node_modules/mocha/mocha',
+		'offirmo': 'other_components/offirmo'
 	},
 
 
@@ -152,6 +153,17 @@ requirejs.config({
 		'chai' : {
 			// no deps
 			// exports ?
+		},
+		'mocha' : {
+			deps: [
+				'jquery'
+			],
+			exports: 'mocha',
+			init: function (jquery) {
+				console.log('Hello from mocha shim !');
+				this.mocha.setup('bdd');
+				return this.mocha;
+			}
 		}
 	},
 

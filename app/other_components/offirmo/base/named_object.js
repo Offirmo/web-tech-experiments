@@ -1,9 +1,11 @@
 "use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
-// use the "Simplified CommonJS Wrapper" syntax
-define(function(require, exports, module){
-	var Backbone = require('backbone');
+define(
+[
+	'backbone'
+],
+function(Backbone) {
 
 	var max_denomination_size = 70;
 	var default_denomination = 'Anonymous';
