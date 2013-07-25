@@ -1,11 +1,15 @@
 /* Require.js definitions
  */
 
+console.log("starting require js config...");
+
 requirejs.config({
+
 	// base URL from which component files will be searched
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
 	// NOTE 2 : relative baseUrl base refers to the calling html !
 	baseUrl: '../',
+
 	// require.js extensions (plugins)
 	map: {
 		'*': {
@@ -46,7 +50,7 @@ requirejs.config({
 			//'http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap',
 			'other_components/bootstrap/js/bootstrap'
 		],
-		'bootstrap-rem': 'other_components/empty/empty', // no js (for now), css only
+		'bootstrap-rem': 'other_components/bootstrap-rem/bootstrap-rem',
 		'accounting': [
 			'bower_components/accounting/accounting'
 		],
@@ -66,7 +70,7 @@ requirejs.config({
 		'javascript-state-machine': 'other_components/javascript-state-machine/state-machine',
 		// javascript customizable spinner http://fgnass.github.com/spin.js/
 		'spin': 'bower_components/spin.js/spin',
-		'graphic-javascript-tree': 'other_components/graphic-javascript-tree/ECOTree',
+		'ecotree': 'other_components/ecotree/ECOTree',
 		// this plugin should really be aliased 'dust' for rdust to work properly
 		'dust': 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
 		'chai': 'bower_components/chai/chai',
@@ -142,8 +146,8 @@ requirejs.config({
 		'spin' : {
 			exports: 'Spinner'
 		},
-		'graphic-javascript-tree': {
-			deps: [ 'css!other_components/graphic-javascript-tree/ECOTree' ]
+		'ecotree': {
+			deps: [ 'css!other_components/ecotree/ECOTree' ]
 			// exports ?
 		},
 		'dust' : {
@@ -160,7 +164,7 @@ requirejs.config({
 			],
 			exports: 'mocha',
 			init: function (jquery) {
-				console.log('Hello from mocha shim !');
+				console.log('Hello from mocha shim ! Setting up mocha...');
 				this.mocha.setup('bdd');
 				return this.mocha;
 			}
@@ -175,3 +179,9 @@ requirejs.config({
 		}
 	}
 });
+
+console.log("require js config done.");
+
+// Start the main app logic.
+console.log("starting application logic...");
+window.main();

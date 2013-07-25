@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en' ng-app>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>Offirmo 001</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+	
+	
+	<!-- Ultra-mini css reset just to nicely display the loader
+	     Should be ultra-safe for :
+	     - old navigators like IE6
+	     - google referencement -> avoid blink, display-none at start (but ok later in script)
+	  -->
+	<style>
+		html {
+			font-size: 100%;
+		}
+		body {
+			padding-top: 60px; /* 60px to make the container go all the way to the bottom of the bootstrap topbar */
+		}
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+	<script src="../bower_components/angular/angular.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">Offirmo App #1</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="#about">About</a></li>
+						<li><a href="#help">Help</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#feedback">Feedback</a></li>
+								<li><a href="#credits">Credits</a></li>
+								<li><a href="#terms">Terms</a></li>
+								<li class="divider"></li>
+								<li><a href="#sources">Sources</a></li>
+								<li><a href="#debug">Debug</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!--/.nav-collapse -->
+				<div class="nav-collapse collapse pull-right">
+					<ul class="nav">
+						<li><a href="#account">You</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Select identity</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Manage identities</a></li>
+							</ul>
+						</li>
+						<li><a href="#settings">Settings</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<h1 id="header">Offirmo app 001</h1>
+		<p>Advanced javascript enabled page. Using require.js, loading all libs.</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting rsrc load...");
+		requirejs(
+		[
+			'require',
+			'bootstrap-rem',
+			'offirmo/account/offirmo_sync',
+			'offirmo/account/session'
+		],
+		function() {
+			// is the window fully loaded ? seems yes.
+			var Session = require('offirmo/account/session');
+		});
+	};
+</script>
+
+</body>
+</html>

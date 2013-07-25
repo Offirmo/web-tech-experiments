@@ -6,11 +6,11 @@
 "use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
-
-// use the "Simplified CommonJS Wrapper" syntax
-define(function(require, exports, module)
-{
-	var NamedObject = require('../../base/model/named_object');
+define(
+[
+	'offirmo/base/named_object'
+],
+function(NamedObject) {
 
 	var Identity = NamedObject.extend({
 		// TODO should link to an account

@@ -5,4 +5,6 @@
 <script src="shared/boot.js"></script>
  */
 
+console.log("Hello from boot.js !");
+
 window.main();

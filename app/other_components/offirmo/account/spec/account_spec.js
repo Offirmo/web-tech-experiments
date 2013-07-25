@@ -1,38 +1,40 @@
 "use strict";
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
-var chai = require('chai');
-var expect = chai.expect;
-chai.should();
+define(
+[
+	'chai',
+	'offirmo/account/account',
+	'offirmo/base/named_object'
+],
+function(chai, CUT, CUTParent) {
 
-describe('Account', function() {
+	var expect = chai.expect;
+	chai.should();
 
-	var CUT = require('../model/account');
+	describe('Account', function() {
+		describe('instantiation', function() {
 
-	describe('instantiation', function() {
+			it('should be instantiable', function() {
+				var out = new CUT();
 
-		it('should be instantiable', function() {
-			var out = new CUT();
+				out.should.exist;
+				out.should.be.an('object');
+			});
 
-			out.should.exist;
-			out.should.be.an('object');
-		});
+			it('should have correct inheritance', function() {
+				var out = new CUT();
 
-		it('should have correct inheritance', function() {
+				out.should.be.an.instanceof(CUT);
+				out.should.be.an.instanceof(CUTParent);
+			});
 
-			var out = new CUT();
+			it('should set default values', function() {
+				var out = new CUT();
+				//...
+			});
 
-			out.should.be.an.instanceof(CUT);
-
-			var Parent = require('../../base/model/named_object');
-			out.should.be.an.instanceof(Parent);
-		});
-
-		it('should set default values', function() {
-			var out = new CUT();
-			//...
 		});
 
 	});
-
 });
-

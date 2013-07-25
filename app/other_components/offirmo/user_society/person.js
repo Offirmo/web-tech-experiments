@@ -3,10 +3,9 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
-	'backbone',
 	'offirmo/base/named_object'
 ],
-function(Backbone, NamedObject) {
+function(NamedObject) {
 
 	var Person = NamedObject.extend({
 

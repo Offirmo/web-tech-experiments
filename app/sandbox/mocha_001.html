@@ -11,34 +11,41 @@
 	<div id="mocha"></div>
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
-<script src="../bower_components/jquery/jquery.js"></script>
 <script>
-main = function()
-{
-	console.log("Hello world...");
+	window.main = function()
+	{
+		console.log("Loading tests...");
 
-	$(document).ready(function() {
-		requirejs(
-		[
-			'jquery',
-			'mocha',
-			'offirmo/base/spec/named_object_spec',
-			'offirmo/user_society/spec/person_spec'
-		],
-		function($, mocha) {
+		//$(document).ready(function() {
+			requirejs(
+			[
+				'jquery',
+				'mocha',
+				'offirmo/base/spec/named_object_spec',
+				'offirmo/user_society/spec/person_spec',
+				'offirmo/user_society/spec/natural_person_spec',
+				'offirmo/user_society/spec/moral_person_spec',
+				'offirmo/account/spec/identity_spec',
+				'offirmo/account/spec/account_spec',
+				'offirmo/account/spec/app_spec',
+				'offirmo/account/spec/session_spec',
+				'offirmo/utils/spec/recent_and_favorites_spec'
+			],
+			function($, mocha) {
 
-			document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+				//document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
 
-			//jQuery = $;
-			//mocha.checkLeaks();
-			//mocha.globals(['jQuery']);
-			mocha.run();
-		});
-	});
+				jQuery = $;
+				mocha.checkLeaks();
+				mocha.globals(['jQuery']);
 
-};
+				console.log("Starting tests...");
+				mocha.run();
+			});
+		//});
+
+	};
 </script>
-<script src="shared/boot.js"></script>
 
 </body>
 </html>

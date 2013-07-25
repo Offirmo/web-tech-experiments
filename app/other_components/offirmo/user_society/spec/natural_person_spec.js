@@ -1,54 +1,60 @@
 "use strict";
 
-var chai = require('chai');
-var expect = chai.expect;
-chai.should();
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+//if (typeof requirejs !== 'function') { var requirejs = require('requirejs') }
 
-describe('NaturalPerson', function() {
 
-	var CUT = require('../model/natural_person.js');
+define(
+[
+	'chai',
+	'offirmo/user_society/natural_person',
+	'offirmo/user_society/person'
+],
+function(chai, CUT, CUTParent) {
 
-	describe('instantiation', function() {
+	describe('NaturalPerson', function() {
 
-		it('should be instantiable', function() {
-			var person = new CUT();
+		describe('instantiation', function() {
 
-			person.should.exist;
-			person.should.be.an('object');
+			it('should be instantiable', function() {
+				var person = new CUT();
+
+				person.should.exist;
+				person.should.be.an('object');
+			});
+
+			it('should have correct inheritance', function() {
+
+				var person = new CUT();
+
+				person.should.be.an.instanceof(CUT);
+
+				person.should.be.an.instanceof(CUTParent);
+			});
+
+			it('should set default values', function() {
+				var person = new CUT();
+				//...
+			});
+
 		});
 
-		it('should have correct inheritance', function() {
+		describe('naturalness', function() {
 
-			var person = new CUT();
+			it('should be true', function() {
+				var person = new CUT();
+				person.is_natural().should.be.true;
+			});
 
-			person.should.be.an.instanceof(CUT);
-
-			var Person = require('../model/person.js');
-			person.should.be.an.instanceof(Person);
 		});
 
-		it('should set default values', function() {
-			var person = new CUT();
-			//...
+		describe('moralness', function() {
+
+			it('should be false', function() {
+				var person = new CUT();
+				person.is_moral().should.be.false;
+			});
+
 		});
-
-	});
-
-	describe('naturalness', function() {
-
-		it('should be true', function() {
-			var person = new CUT();
-			person.is_natural().should.be.true;
-		});
-
-	});
-
-	describe('moralness', function() {
-
-		it('should be false', function() {
-			var person = new CUT();
-			person.is_moral().should.be.false;
-		});
-
 	});
 });

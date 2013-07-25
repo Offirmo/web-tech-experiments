@@ -4,15 +4,14 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/account/identity',
-	'offirmo/base/named_object'
+	'offirmo/account/session'
 ],
-function(chai, CUT, CUTParent) {
+function(chai, CUT) {
 
 	var expect = chai.expect;
 	chai.should();
 
-	describe('Identity', function() {
+	describe('Session', function() {
 
 		describe('instantiation', function() {
 
@@ -28,7 +27,7 @@ function(chai, CUT, CUTParent) {
 				var out = new CUT();
 
 				out.should.be.an.instanceof(CUT);
-				out.should.be.an.instanceof(CUTParent);
+				//out.should.be.an.instanceof(CUTParent);
 			});
 
 			it('should set default values', function() {
