@@ -8,10 +8,9 @@ define(
 [
 	'underscore',
 	'offirmo/base/named_object',
-	'offirmo/app/identity_list',
-	'restlink'
+	'offirmo/app/identity_list'
 ],
-function(_, NamedObject, IdentityList, restlink) {
+function(_, NamedObject, IdentityList) {
 
 	var security_level_standard = 'standard';
 	var security_level_high     = 'high';
@@ -39,7 +38,8 @@ function(_, NamedObject, IdentityList, restlink) {
 			console.log("Backbone.Account.sync called : " + method, options);
 
 			if(method === 'read') {
-				return restlink.GET(model);
+				throw 'Account sync read not implemented !';
+				//return restlink.GET(model);
 			}
 			else if(method === 'update') {
 				throw 'Account sync update not implemented !';

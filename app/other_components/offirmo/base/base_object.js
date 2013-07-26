@@ -35,15 +35,30 @@ function(_, Backbone) {
 				url: 'basemodel', //< (backbone) url fragment for this object (should be overriden by derived classe)
 				aggregation_parent: undefined, //< parent/owner of this object
 				                               //  important for building a correct url : parent/<id>/child/<id>
-				aggregation_parent_only_child: false, //< by default, consider there are several children like us under the parent
+				aggregation_parent_only_child: false, //< by default, consider there are
+				                                      // several children like us under the parent
+				                                      // so we'll add our id into the url
 
 				last_fetch_origin: Constants.fetch_origin_none, //< Origin of last fetch ?
 				last_server_fetch_date: undefined, //< TOREVIEW
 				cache_strategy: Constants.cache_strategy_cachable, // by default
 				cache_max_duration: undefined, // TOREVIEW
 
-				server_connection: undefined //< to detect lost connexion (and out-of-sync), TOREVIEW
+				restlink_client: undefined, //< the restlink client to which we'll sync
+
+				// attributes that should not be persisted
+				// (usually because constants or client-only)
+				attributes_serialization_blacklist: [
+					'constants', 'aggregation_parent', 'aggregation_parent_only_child',
+					'last_fetch_origin', 'last_server_fetch_date',
+					'cache_strategy', 'cache_max_duration',
+					'restlink_client'
+				]
 			};
+		},
+
+		set_restlink_client: function(client) {
+			this.set('restlink_client', client);
 		},
 
 		validate: function(attrs, options) {
