@@ -3,16 +3,36 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
-	'backbone'
+	'underscore',
+	'offirmo/base/base_object'
 ],
-function(Backbone) {
+function(_, BaseObject) {
 
 	var max_denomination_size = 70;
 	var default_denomination = 'Anonymous';
 
-	var NamedObject = Backbone.Model.extend({
+	var ParentModel = BaseObject;
+	var NamedObject = ParentModel.extend({
+
+		defaults: function(){
+			var this_class_defaults = {
+				url: 'namedobject', //< (backbone) url fragment for this object
+				denomination: default_denomination
+			};
+
+			// merge with parent's defaults if needed
+			var parent_defaults = new ParentModel().attributes;
+			return _.defaults(this_class_defaults, parent_defaults);
+		},
 
 		validate: function(attrs, options) {
+
+			// in this case, we can reuse parent validation
+			var parent_validation = (new ParentModel).validate(attrs, options);
+			if(typeof parent_validation !== 'undefined') {
+				return parent_validation;
+			}
+
 			if (attrs.denomination === undefined) {
 				return 'Must have a denomination !';
 			}
@@ -27,10 +47,11 @@ function(Backbone) {
 			}
 		},
 
-		defaults: {
-			denomination: default_denomination
+		compute_id: function() {
+			return this.get('denomination'); // TODO normalize
 		}
+
 	});
 
 	return NamedObject;
-});
+}); // requirejs module

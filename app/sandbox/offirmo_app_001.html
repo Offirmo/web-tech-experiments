@@ -23,12 +23,7 @@
 	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
 	<!-- ... -->
 	
-	
-	<!-- Ultra-mini css reset just to nicely display the loader
-	     Should be ultra-safe for :
-	     - old navigators like IE6
-	     - google referencement -> avoid blink, display-none at start (but ok later in script)
-	  -->
+
 	<style>
 		html {
 			font-size: 100%;
@@ -58,7 +53,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#">Offirmo App #1</a>
+				<a class="brand" href="#">(Offirmo App #1)</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="#about">About</a></li>
@@ -79,7 +74,7 @@
 				</div><!--/.nav-collapse -->
 				<div class="nav-collapse collapse pull-right">
 					<ul class="nav">
-						<li><a href="#account">You</a></li>
+						<li><a href="#account">(current identity)</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -110,17 +105,17 @@
 
 	window.main = function()
 	{
-		console.log("Starting rsrc load...");
+		console.log("Starting main...");
 		requirejs(
 		[
 			'require',
-			'bootstrap-rem',
-			'offirmo/account/offirmo_sync',
-			'offirmo/account/session'
+			'offirmo/account/session',
+			'bootstrap-rem'
 		],
-		function() {
+		function(require, Session) {
 			// is the window fully loaded ? seems yes.
-			var Session = require('offirmo/account/session');
+			var current_session = new Session;
+			current_session.fetch();
 		});
 	};
 </script>

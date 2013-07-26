@@ -3,17 +3,32 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
-	'backbone',
-	'underscore'
+	'underscore',
+	'offirmo/base/base_object'
 ],
-function(Backbone, _) {
+function(_, BaseObject) {
 
 	var defaults = {
 		max_recents_size:   10,
 		max_favorites_size: 10
 	};
 
-	var RecentAndFavs = Backbone.Model.extend({
+	var ParentModel = BaseObject;
+	var RecentAndFavs = ParentModel.extend({
+
+		defaults: function(){
+			var this_class_defaults = {
+				serialization_version: 1,
+				recents: [],
+				max_recents_size: defaults.max_recents_size,
+				favorites: [],
+				max_favorites_size: defaults.max_favorites_size
+			};
+
+			// merge with parent's defaults if needed
+			var parent_defaults = new ParentModel().attributes;
+			return _.defaults(this_class_defaults, parent_defaults);
+		},
 
 		add_recent: function(elem) {
 			var recents = this.get('recents');
@@ -55,16 +70,13 @@ function(Backbone, _) {
 		},
 
 		validate: function(attrs, options) {
-
-		},
-
-		defaults: function(){
-			return {
-				recents: [],
-				max_recents_size: defaults.max_recents_size,
-				favorites: [],
-				max_favorites_size: defaults.max_favorites_size
+			// in this case, we can reuse parent validation
+			var parent_validation = (new ParentModel).validate(attrs, options);
+			if(typeof parent_validation !== 'undefined') {
+				return parent_validation;
 			}
+
+			// TODO own validation
 		}
 	});
 

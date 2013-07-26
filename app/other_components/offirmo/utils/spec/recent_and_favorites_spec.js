@@ -122,11 +122,13 @@ function(chai, CUT) {
 
 		});
 
-		it('should be validated', function() {
-			var out = new CUT();
+		it('should be validated');
 
-			// o.u.t. still has its default denomination
-			//out.validate(out.attributes).should.equal('Must have a non-default denomination !');
+		describe('sync', function() {
+
+			it('should be unpersistable');
+
+			it('should be persistable');
 		});
 
 	});

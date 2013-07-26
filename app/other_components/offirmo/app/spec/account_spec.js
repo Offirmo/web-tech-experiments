@@ -4,7 +4,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/account/account',
+	'offirmo/app/account',
 	'offirmo/base/named_object'
 ],
 function(chai, CUT, CUTParent) {
@@ -17,14 +17,12 @@ function(chai, CUT, CUTParent) {
 
 			it('should be instantiable', function() {
 				var out = new CUT();
-
 				out.should.exist;
 				out.should.be.an('object');
 			});
 
 			it('should have correct inheritance', function() {
 				var out = new CUT();
-
 				out.should.be.an.instanceof(CUT);
 				out.should.be.an.instanceof(CUTParent);
 			});
@@ -33,6 +31,31 @@ function(chai, CUT, CUTParent) {
 				var out = new CUT();
 				//...
 			});
+
+		});
+
+		describe('sync', function() {
+
+			it('should generate its url correctly', function() {
+				// just testing backbone features
+				var out = new CUT();
+				out.set('denomination', 'Kevin');
+				out.compute_url().should.equal('account/Kevin');
+			});
+
+			it('should be persistable');
+
+			it('should be unpersistable', function() {
+				var out = new CUT();
+
+				// first
+				//expect(out.fetch()).to.throw('IdentityList sync : list not linked to an account !');
+
+				out.set('account_denomination', 'test account');
+				//out.fetch();
+
+			});
+
 
 		});
 

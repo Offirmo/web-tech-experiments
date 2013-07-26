@@ -6,7 +6,8 @@ test:
 		--require tests_init.js \
 		app/other_components/offirmo/base/spec/* \
 		app/other_components/offirmo/user_society/spec/* \
-		app/other_components/offirmo/account/spec/* \
-		app/other_components/offirmo/utils/spec/*
+		app/other_components/offirmo/app/spec/* \
+		app/other_components/offirmo/utils/spec/* \
+		app/other_components/offirmo/restlink/spec/*
 
 .PHONY: test
