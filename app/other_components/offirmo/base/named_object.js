@@ -39,7 +39,7 @@ function(_, BaseObject) {
 			if (attrs.denomination.length === 0) {
 				return 'Must have a non-empty denomination !';
 			}
-			if (attrs.denomination == default_denomination) {
+			if (attrs.denomination === default_denomination) {
 				return 'Must have a non-default denomination !';
 			}
 			if (attrs.denomination.length > max_denomination_size) {

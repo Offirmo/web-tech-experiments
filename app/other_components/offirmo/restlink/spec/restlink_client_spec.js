@@ -5,35 +5,29 @@ define(
 [
 	'chai',
 	'underscore',
-	'backbone',
+	'jquery',
 	'offirmo/restlink/restlink_client',
 	'offirmo/base/base_object',
-	'jquery',
-	'offirmo/restlink/response'
+	'offirmo/restlink/response',
+	'offirmo/restlink/client_adapter_base',
 ],
-function(chai, _, Backbone, CUT, BaseObject, jQuery, Response) {
+function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase) {
 
 	var expect = chai.expect;
 	chai.should();
 
-	var test_adapter = {
-		process_request: function(request) {
-			var result_deferred = jQuery.Deferred();
-			var result_promise = result_deferred.promise(); // the object we'll return
-
-			// this is a test, build a response
-			var response = Response.make_new_from_request(request, {
-				return_code: Response.constants.http_code.status_200_ok,
-				content: {
-					attr1: 34,
-					attr2: [ 'jquery' ],
-					attr3: { code: 222 }
-				}
-			});
-			result_deferred.resolve(response);
-
-			return result_promise;
-		}
+	var test_adapter = ClientAdapterBase.make_new();
+	test_adapter.resolve_request = function(request, result_deferred) {
+		// build the response
+		var response = Response.make_new_from_request(request, {
+			return_code: Response.constants.http_code.status_200_ok,
+			content: {
+				attr1: 34,
+				attr2: [ 'jquery' ],
+				attr3: { code: 222 }
+			}
+		});
+		result_deferred.resolve(response);
 	};
 
 	var TestModel = BaseObject.extend({

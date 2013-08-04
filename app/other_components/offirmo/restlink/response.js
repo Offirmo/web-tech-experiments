@@ -29,9 +29,9 @@ function(_, Backbone) {
 			status_414_client_error_request_uri_too_long: 414,
 
 			// 500 : Server error
-			status_500_server_error_internal_error: 500,
+			status_500_server_error_internal_error:  500,
 			status_501_server_error_not_implemented: 501,
-			status_507_server_error_internal_error: 507
+			status_507_server_error_internal_error:  507 // XXX
 		}
 	};
 

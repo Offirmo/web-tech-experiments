@@ -12,12 +12,13 @@ define(
 function(_, store) {
 
 	// TODO use store
+	// TODO add ability to create instances and create a default instance
 
 	var cache = {
 		internal_storage: {},
 
 		set: function(key, value){
-			console.log("cache : storing : " + key + "...");
+			//console.log("cache : storing : " + key + "...");
 			this.internal_storage[key] = value;
 		},
 

@@ -38,8 +38,11 @@ function(_, NamedObject, IdentityList) {
 			console.log("Backbone.Account.sync called : " + method, options);
 
 			if(method === 'read') {
-				throw 'Account sync read not implemented !';
-				//return restlink.GET(model);
+				var restlink = this.get('restlink');
+				if(! restlink) {
+					throw 'Account sync read error : no server link !';
+				}
+				return restlink.GET(model);
 			}
 			else if(method === 'update') {
 				throw 'Account sync update not implemented !';
