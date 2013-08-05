@@ -2,7 +2,7 @@
 .customfile-input { position: absolute; left: -999em; background: transparent; border: 0; opacity: 0; -moz-opacity: 0; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);}
 
 .customfile { cursor: pointer; width: auto; display: inline-block; position: relative; }
-.customfile.input-append .customfile-feedback { border-radius: 3px 0 0 3px;  padding-left: 25px;}
+.customfile.input-append .customfile-feedback { border-radius: 3px 0 0 3px;  }
 .customfile.input-prepend .customfile-feedback { border-radius: 0 3px 3px 0; }
 .customfile.input-prepend .add-on, .customfile.input-append .add-on{
   color:#333;
@@ -45,17 +45,3 @@
 .customfile-ext-mp3, .customfile-ext-mp4, .customfile-ext-mov, .customfile-ext-swf, .customfile-ext-wav, .customfile-ext-m4v { background-image: url(../images/icon-media.gif);}
 .customfile-ext-zip, .customfile-ext-tar, .customfile-ext-sit { background-image: url(../images/icon-zip.gif);}
 
-/**
-* fix bug position button customfile
-*/
-.input-append.customfile, .input-prepend {
-    font-size: 0;
-    margin-bottom: 5px;
-    white-space: normal;
-}
-.input-append.customfile .add-on{
-    height:20px;
-    font-size:14px;
-    line-height:18px;
-    min-width: 70px;
-}

@@ -208,7 +208,6 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
     display: inline-block;
     padding: 5px 8px;
     line-height: 1;
-    /* IE7 inline-block fix */
     *display: inline;
     *zoom: 1;
 }
@@ -272,7 +271,8 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 -------------------------------------------------- */
 
 .footer {
-    padding: 20px 0 30px 0;
+    text-align: center;
+    padding: 30px 0;
     margin-top: 70px;
     border-top: 1px solid #e5e5e5;
     background-color: #f5f5f5;
@@ -281,8 +281,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
     margin-bottom: 0;
     color: #777;
 }
-/*.footer-links {
-    text-align: center;
+.footer-links {
     margin: 10px 0;
 }
 .footer-links li {
@@ -291,7 +290,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 }
 .footer-links li:first-child {
     padding-left: 0;
-}*/
+}
 
 /* Bootstrap code examples
 -------------------------------------------------- */
@@ -391,9 +390,6 @@ form.bs-docs-example {
 .bs-docs-example-images img {
     margin: 10px;
     display: inline-block;
-    /* IE7 inline-block fix */
-    *display: inline;
-    *zoom: 1;
 }
 
 /* Tooltips */
@@ -438,9 +434,6 @@ form.bs-docs-example {
 /* Sidenav for Docs
 -------------------------------------------------- */
 
-/* Sidenav for Docs
--------------------------------------------------- */
-
 .bs-docs-sidenav {
     width: 228px;
     margin: 30px 0 0;
@@ -470,7 +463,15 @@ form.bs-docs-example {
     -moz-border-radius: 0 0 6px 6px;
     border-radius: 0 0 6px 6px;
 }
-.bs-docs-sidenav > .active > a {
+.bs-docs-sidenav > li.active > a {
+    background: #B24926; /* Old browsers */
+    background: -moz-linear-gradient(45deg,  #B24926 0%, #FAA523 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#B24926), color-stop(100%,#FAA523)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* IE10+ */
+    background: linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B24926', endColorstr='#FAA523',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     position: relative;
     z-index: 2;
     padding: 9px 15px;
@@ -479,16 +480,7 @@ form.bs-docs-example {
     -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
     box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-    background: #B24926; /* Old browsers */
-    background: -moz-linear-gradient(45deg,  #B24926 0%, #FAA523 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#B24926), color-stop(100%,#FAA523)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* IE10+ */
-    background: linear-gradient(45deg,  #B24926 0%,#FAA523 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B24926', endColorstr='#FAA523',GradientType=1 );
 }
-
 /* Chevrons */
 .bs-docs-sidenav .icon-chevron-right {
     float: right;
@@ -514,24 +506,6 @@ form.bs-docs-example {
     top: auto;
     bottom: 270px;
 }
-
-/* Responsive
--------------------------------------------------- */
-
-/* Desktop large
-------------------------- */
-@media (min-width: 1200px) {
-    .bs-docs-container {
-        max-width: 970px;
-    }
-    .bs-docs-sidenav {
-        width: 258px;
-    }
-    .bs-docs-sidenav > li > a {
-        width: 230px \9; /* Override the previous IE8-9 hack */
-    }
-}
-
 /* Desktop
 ------------------------- */
 @media (max-width: 980px) {
@@ -683,6 +657,25 @@ form.bs-docs-example {
         word-break: break-all;
     }
 
+    /* Examples: dropdowns */
+    .bs-docs-example-submenus > .pull-left {
+        float: none;
+        clear: both;
+    }
+    .bs-docs-example-submenus > .pull-left,
+    .bs-docs-example-submenus > .pull-left + .pull-left {
+        margin-left: 0;
+    }
+    .bs-docs-example-submenus p {
+        margin-bottom: 0;
+    }
+    .bs-docs-example-submenus .dropup > .dropdown-menu,
+    .bs-docs-example-submenus .dropdown > .dropdown-menu {
+        margin-bottom: 10px;
+        float: none;
+        max-width: 180px;
+    }
+
     /* Tighten up footer */
     .footer {
         padding-top: 20px;
@@ -768,25 +761,15 @@ ul#icons span.ui-icon {
 }
 
 /*Toolbar*/
-#toolbar,#toolbar-fa {
-	margin: 0;
+#toolbar {
     padding: 5px 0 5px 5px;
 }
-#repeat,#repeat-fa {
-	display: inline-block;
-    /* IE7 inline-block fix */
-    *display: inline;
-    *zoom: 1;
+/*
+* Bug chrome with toolbar and bootstrap inheritance
+*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #toolbar input{display:block;float:left;}
 }
-
-/* Split Button */
-#split-button,#split-button-fa{
-    margin-bottom:20px;
-}
-#split-button .ui-menu,#split-button-fa .ui-menu{
-    position: absolute;
-}
-
 /*Datepicker*/
 #datepicker{
     margin-bottom: 20px;
@@ -804,11 +787,21 @@ ul#icons span.ui-icon {
     margin-bottom: 20px;
 }
 
+/**
+* fix bug position button customfile
+*/
+.input-append.customfile, .input-prepend {
+    font-size: 0;
+    margin-bottom: 5px;
+    white-space: normal;
+}
+.input-append.customfile .add-on{
+    height:20px;
+    font-size:14px;
+    line-height:18px;
+    min-width: 70px;
+}
 /* Wijmo */
 #wijmo-container{
     margin-bottom: 20px;
-}
-/* gmap3 */
-#gmap3,.gmap3{
-    height: 350px;
 }

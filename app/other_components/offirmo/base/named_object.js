@@ -33,7 +33,7 @@ function(_, BaseObject) {
 				return parent_validation;
 			}
 
-			if (attrs.denomination === undefined) {
+			if (typeof attrs.denomination === 'undefined') {
 				return 'Must have a denomination !';
 			}
 			if (attrs.denomination.length === 0) {

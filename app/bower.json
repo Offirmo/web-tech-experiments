@@ -5,7 +5,6 @@
 		"accounting":         "latest",
 		"angular":            "latest",
 		"backbone":           "latest",
-		"backbone-associations":   "latest",
 		"datatables":         "latest",
 		"dustjs-linkedin":    "latest",
 		"jquery":             "latest",
@@ -28,5 +27,8 @@
 	"needBuildDeps": {
 		"bootstrap":          "latest",
 		"jquery.ui":          "latest"
+	},
+	"commentedOutDeps": {
+		"backbone-associations":   "latest"
 	}
 }

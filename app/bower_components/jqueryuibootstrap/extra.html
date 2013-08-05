@@ -2,21 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Extra with jQuery UI Bootstrap</title>
+    <title>jQuery UI Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A preview of the jQuery UI Bootstrap theme">
     <meta name="author" content="Addy Osmani">
 
     <!-- Le styles -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/custom-theme/jquery-ui-1.10.3.custom.css">
-	
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
     <link type="text/css" href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <!--[if IE 7]>
     <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
     <![endif]-->
     <!--[if lt IE 9]>
-    <link rel="stylesheet" type="text/css" href="css/custom-theme/jquery.ui.1.10.3.ie.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom-theme/jquery.ui.1.10.0.ie.css"/>
     <![endif]-->
     <link href="assets/css/docs.css" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
@@ -30,12 +29,6 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
-    <!-- jqGrid-->
-    <link rel="stylesheet" href="third-party/jqGrid/jqGrid/css/ui.jqgrid.css" />
-    <link rel="stylesheet" href="third-party/jqGrid/jqGrid.overrides.css"> 
-    <!-- end jqGrid -->
-
 
     <!-- Le fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
@@ -50,7 +43,7 @@
 
 <!-- Navbar
 ================================================== -->
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -64,14 +57,8 @@
                     <li>
                         <a href="./index.html">Home</a>
                     </li>
-                    <li>
-                        <a href="./components.html">Components</a>
-                    </li>
                     <li class="active">
                         <a href="./extra.html">Extra</a>
-                    </li>
-                    <li>
-                        <a href="./map.html">Map</a>
                     </li>
                     <li>
                         <a href="http://github.com/addyosmani/jquery-ui-bootstrap/issues">Feedback/Issues</a>
@@ -79,16 +66,6 @@
                     <li>
                         <a href="http://twitter.com/addyosmani">Contact</a>
                     </li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Select Theme <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><a tabindex="-1" href="./index.html">Default Bootstrap Theme (Non LESS'd)</a></li>
-							<li><a tabindex="-1" href="theme/united/index.html">United Theme via Bootswatch (LESS'd)</a></li>
-							<li><a tabindex="-1" href="theme/base/index.html">Default Bootstrap Theme (LESS'd)</a></li>
-						</ul>
-					</li>
                 </ul>
                 <div id="twitter-share" class="pull-right">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://addyosmani.github.com/jquery-ui-bootstrap/" data-text="A new jQuery UI Bootstrap theme" data-via="addyosmani" data-size="large">Tweet</a>
@@ -118,8 +95,6 @@
                 <li><a href="#wijmo"><i class="icon-chevron-right"></i> Wijmo</a></li>
                 <li><a href="#file-input"><i class="icon-chevron-right"></i> File input</a></li>
                 <li><a href="#date-range"><i class="icon-chevron-right"></i> Date Range</a></li>
-                <li><a href="#jqgrid"><i class="icon-chevron-right"></i> jqGrid</a></li>
-                <li><a href="#font-awesome"><i class="icon-chevron-right"></i> Font Awesome</a></li>
             </ul>
         </div>
         <div class="span9">
@@ -179,7 +154,7 @@ $('#file').customFileInput({
 </pre>
             </section>
             <!-- end file input -->
-            <!-- Date Range input -->
+            <!-- File input -->
             <section id="date-range">
                 <div class="page-header">
                     <h1>Select a Date Range with datepicker</h1>
@@ -208,172 +183,6 @@ $( "#rangeBb" ).datepicker({
 });
 </pre>
             </section>
-            <!-- end Date Range -->
-            
-            <section id="jqgrid">
-                <div class="page-header">
-                    <h1>jqGrid</h1>
-                </div>
-                <h3>Table with jqGrid</h3>
-                   
-                <div class="span9">
-                        <table id="jqGrid01"></table>
-                        <div id="jqGridPager01"></div>
-                </div><!--/span-->
- <p>&nbsp;</p>
-    <pre class="prettyprint linenums">
-// ############ jqGrid Table
-$("#jqGrid01").jqGrid({
-    data: mydata,
-    datatype: "local",
-    height: 250,
-    rowNum: 10,
-    rowList: [10,20,30],
-    colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
-    colModel:[
-        {name:'id',index:'id', width:60, sorttype:"int",search:true},
-        {name:'invdate',index:'invdate', width:90, sorttype:"date", formatter:"date"},
-        {name:'name',index:'name', width:100},
-        {name:'amount',index:'amount', width:80, align:"right",sorttype:"float", formatter:"number"},
-        {name:'tax',index:'tax', width:80, align:"right",sorttype:"float"},        
-        {name:'total',index:'total', width:80,align:"right",sorttype:"float"},        
-        {name:'note',index:'note', width:150, sortable:false}        
-    ],
-    pager: "#jqGridPager01",
-    viewrecords: true,
-    caption: "Sample jqGrid Table",
-    hidegrid:false,
-    altRows: true                
-});
-$("#jqGrid01")
-.jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-.jqGrid('setSelection', '3');
-            
-                </pre>
-                <p>&nbsp;</p>
-           </section>
-            
-            
-            <!-- File input -->
-            <section id="font-awesome">
-                <div class="page-header">
-                    <h1>Font Awesome</h1>
-                </div>
-                <h3>Toolbar with Font Awesome</h3>
-                <form class="clearfix">
-                    <div id="toolbar-fa" class="ui-toolbar ui-widget-header ui-corner-all">
-                        <button id="play-fa">Play</button>
-                        <button id="stop-fa">Stop</button>
-                        <button id="prev-fa">Prev</button>
-                        <button id="next-fa">Next</button>
-                        <input type="checkbox" id="shuffle-fa"><label for="shuffle-fa">Shuffle</label>
-
-	                    <span id="repeat-fa">
-	                        <input type="radio" id="repeat0-fa" name="repeat" checked="checked"><label for="repeat0-fa">No Repeat</label>
-	                        <input type="radio" id="repeat1-fa" name="repeat"><label for="repeat1-fa">Once</label>
-	                        <input type="radio" id="repeatall-fa" name="repeat"><label for="repeatall-fa">All</label>
-	                    </span>
-                    </div>
-                </form>
-<pre class="prettyprint linenums">
-//####### Toolbar with Font Awesome
-$("#play-fa").button({
-    text: false,
-    icons: {
-        primary: "icon-play"
-    }
-});
-$("#stop-fa").button({
-    text: false,
-    icons: {
-        primary: "icon-stop"
-    }
-});
-$("#prev-fa").button({
-    text: false,
-    icons: {
-        primary: "icon-fast-backward"
-    }
-});
-$("#next-fa").button({
-    text: false,
-    icons: {
-        primary: "icon-fast-forward"
-    }
-});
-$("#shuffle-fa").button();
-$("#repeat-fa").buttonset();
-</pre>
-                <h3>Buttons with icons (Font Awesome)</h3>
-                <p>
-                    <button id="button-with-icon-fa">Button with icon only</button>
-                    <button id="button-with-icon2-fa" class="ui-button-warning">Button with icon only</button>
-                    <button id="button-with-icon3-fa" class="ui-button-danger">Button with icon only</button>
-                </p>
-<pre class="prettyprint linenums">
-// ############ Button with icon (Font Awesome)
-$("#button-with-icon-fa" ).button({
-    icons: {
-        primary: "icon-lock"
-    },
-    text: false
-});
-$("#button-with-icon2-fa" ).button({
-    icons: {
-        primary: "icon-play"
-    },
-    text: false
-});
-$("#button-with-icon3-fa" ).button({
-    icons: {
-        primary: "icon-stop"
-    },
-    text: false
-});
-</pre>
-            <h3>Split Button (Font Awesome)</h3>
-            <div id="split-button-fa" class="clearfix">
-                <div>
-                    <button id="rerun-fa">Run last action</button>
-                    <button id="select-fa">Select an action</button>
-                </div>
-                <ul>
-                    <li><a href="#">Open...</a></li>
-                    <li><a href="#">Save</a></li>
-                    <li><a href="#">Delete</a></li>
-                </ul>
-            </div>
-<pre class="prettyprint linenums">
-// Split Button
-$( "#rerun-fa" )
-.button()
-.click(function() {
-    alert( "Running the last action" );
-})
-.next()
-.button({
-    text: false,
-    icons: {
-        primary: "ui-icon-triangle-1-s"
-    }
-})
-.click(function() {
-    var menu = $( this ).parent().next().show().position({
-        my: "left top",
-        at: "left bottom",
-        of: this
-    });
-    $( document ).one( "click", function() {
-        menu.hide();
-    });
-    return false;
-}).parent()
-.buttonset()
-.next()
-.hide()
-.menu();
-</pre>
-            </section>
             <!-- end file input -->
         </div>
     </div>
@@ -383,40 +192,24 @@ $( "#rerun-fa" )
 ================================================== -->
 <footer class="footer">
     <div class="container">
-        <div class="row">
-          <div class="span3">
-            <h3><span class="icon-envelope"></span> Contact</h3>
-            <ul class="icons">
-              <li><i class="icon-link"></i> Blog: <a class="targetblank" href="http://addyosmani.com/blog/">Addy Osmani</a></li>
-              <li><i class="icon-twitter"></i> Twitter: <a class="targetblank" href="https://twitter.com/addyosmani">@addyosmani</a></li>
-              <li><i class="icon-github"></i> Github: <a class="targetblank" href="https://github.com/addyosmani/jquery-ui-bootstrap/issues?state=open">Issues</a></li>
-            </ul>
-          </div>
-          <div class="span9">
-            <div class="span4">
-                <h3><span class="icon-group"></span> Team</h3>
-                <ul class="unstyled">
-                    <li>Lead Product Developer : <a class="targetblank" href="http://addyosmani.com/blog/" hreflang="en">Addy Osmani</a></li>
-                    <li>Chief Maintainer : <a class="targetblank" href="http://blog.aurelien-gerits.be" hreflang="fr">Aurélien Gérits</a></li>
-                </ul>
-            </div>
-            <div class="span4">
-                <h3><span class="icon-lightbulb"></span> Credits</h3>
-                <ul class="unstyled">
-                    <li>jQuery UI Bootstrap &copy; <strong class="text-info">Addy Osmani</strong> 2012 - 2013.</li>
-                    <li>Twitter Bootstrap &copy; <strong class="text-info">Twitter</strong> 2012 - 2013</li>
-                </ul>
-            </div>
-          </div>
-        </div>
+        <p>
+            jQuery UI Bootstrap &copy; Addy Osmani 2012 - 2013.
+        </p>
+        <p>
+            Twitter Bootstrap &copy; Twitter 2012 - 2013
+        </p>
+        <ul class="footer-links">
+            <li><a href="http://addyosmani.com/blog/">Blog</a></li>
+            <li class="muted">&middot;</li>
+            <li><a href="https://github.com/addyosmani/jquery-ui-bootstrap/issues?state=open">Issues</a></li>
+        </ul>
     </div>
 </footer>
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="assets/js/jquery-migrate-1.2.1.js"></script>
+<script src="assets/js/jquery-1.9.0.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/holder.js"></script>
-<script src="assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
 <script src="assets/js/google-code-prettify/prettify.js" type="text/javascript"></script>
 <script src="assets/js/docs.js" type="text/javascript"></script>
 <!-- FileInput -->
@@ -427,10 +220,6 @@ $( "#rerun-fa" )
 <script src="third-party/wijmo/jquery.mousewheel.min.js" type="text/javascript"></script>
 <script src="third-party/wijmo/jquery.wijmo-open.1.5.0.min.js" type="text/javascript"></script>
 <!--End wijmo-->
-<!--jqGrid-->
-<script src="third-party/jqGrid/jqGrid/js/i18n/grid.locale-en.js"></script>
-<script src="third-party/jqGrid/jqGrid/js/jquery.jqGrid.min.js"></script> 
-<!--end jqGrid-->
-<script src="assets/js/demo-extra.js"></script>
+<script src="assets/js/demo.js" type="text/javascript"></script>
 </body>
 </html>

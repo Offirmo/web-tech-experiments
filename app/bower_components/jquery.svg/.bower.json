@@ -1,0 +1,12 @@
+{
+  "name": "jquery.svg",
+  "homepage": "https://github.com/apendleton/jquery-svg",
+  "_release": "a407434aab",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a407434aabd0a7776077d6272df8b4c4e38d7f1c"
+  },
+  "_source": "git://github.com/apendleton/jquery-svg.git",
+  "_target": "*"
+}

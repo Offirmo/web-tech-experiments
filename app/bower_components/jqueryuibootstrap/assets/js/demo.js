@@ -1,78 +1,15 @@
 $(function () {
     //####### Buttons
-    $("button,.button,#sampleButton").button();
-    $("#btn-with-icon").button({
-        text: true,
-        icons: {
-            primary: "ui-icon-play"
-        }
-    });
+    $('button,.button,#sampleButton').button();
 
-    $("#progressbar").progressbar({
-      value: 37
-    });
-
-    $("#button-with-icon" ).button({
-      icons: {
-        primary: "ui-icon-locked"
-      },
-      text: true
-    });
-    $("#button-with-icon2" ).button({
-      icons: {
-        primary: "ui-icon-play"
-      },
-      text: true
-    });
-    $("#button-with-icon3" ).button({
-      icons: {
-        primary: "ui-icon-stop"
-      },
-      text: true
-    });
     // Buttonset
     $('#radioset').buttonset();
     $("#format").buttonset();
 
     //####### Toolbar
-	$("#play").button({
-	    text: false,
-	    icons: {
-	        primary: "ui-icon-play"
-	    }
-	});
-    $("#shuffle").button();
+    $("#play, #shuffle").button();
     $("#repeat").buttonset();
 
-    // Split button
-
-    $( "#rerun" )
-    .button()
-    .click(function() {
-        alert( "Running the last action" );
-    })
-    .next()
-    .button({
-        text: false,
-        icons: {
-            primary: "ui-icon-triangle-1-s"
-        }
-    })
-    .click(function() {
-        var menu = $( this ).parent().next().show().position({
-            my: "left top",
-            at: "left bottom",
-            of: this
-        });
-        $( document ).one( "click", function() {
-            menu.hide();
-        });
-        return false;
-    }).parent()
-    .buttonset()
-    .next()
-    .hide()
-    .menu();
     //####### Accordion
     $("#menu-collapse").accordion({
         header: "h3"
@@ -272,69 +209,31 @@ $(function () {
     //####### Tooltip
 
     $( "#tooltip" ).tooltip();
-    /**
-     * Tooltip top
-     */
-    $( "#tooltip-top" ).tooltip({
-        position: {
-            my: "center bottom-15",
-            at: "center top",
-            using: function( position, feedback ) {
-                $( this ).css( position );
-                $( "<div>" )
-                .addClass( "arrow bottom" )
-                .addClass( feedback.vertical )
-                .addClass( feedback.horizontal )
-                .appendTo( this );
-            }
+
+    // File input (using http://filamentgroup.com/lab/jquery_custom_file_input_book_designing_with_progressive_enhancement/)
+    $('#file').customFileInput({
+        button_position : 'right'
+    });
+
+    //####### Wijmo
+
+    $("#menu1").wijmenu({ trigger: ".wijmo-wijmenu-item", triggerEvent: "click" });
+
+    // Select a Date Range with datepicker
+    $( "#rangeBa" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
         }
     });
-    /**
-     * Tooltip right
-     */
-    $( "#tooltip-right" ).tooltip({
-        position: {
-            my: "left+15 left",
-            at: "right center",
-            using: function( position, feedback ) {
-                $( this ).css( position );
-                $( "<div>" )
-                .addClass( "arrow left" )
-                .addClass( feedback.vertical )
-                .addClass( feedback.horizontal )
-                .appendTo( this );
-            }
-        }
-    });
-    $( "#tooltip-left" ).tooltip({
-        position: {
-            my: "right-15 center",
-            at: "left center",
-            using: function( position, feedback ) {
-                $( this ).css( position );
-                $( "<div>" )
-                .addClass( "arrow right" )
-                .addClass( feedback.vertical )
-                .addClass( feedback.horizontal )
-                .appendTo( this );
-            }
-        }
-    });
-    /**
-     * Tooltip bottom
-     */
-    $( "#tooltip-bottom" ).tooltip({
-        position: {
-            my: "center top+15",
-            at: "center bottom",
-            using: function( position, feedback ) {
-                $( this ).css( position );
-                $( "<div>" )
-                .addClass( "arrow top" )
-                .addClass( feedback.vertical )
-                .addClass( feedback.horizontal )
-                .appendTo( this );
-            }
+    $( "#rangeBb" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBa" ).datepicker( "option", "maxDate", selectedDate );
         }
     });
 });

@@ -29,7 +29,7 @@ function(chai, CUT) {
 				out.get('max_favorites_size').should.be.within(3,100);
 			});
 
-		});
+		}); // describe feature
 
 		describe('recents', function() {
 
@@ -91,7 +91,7 @@ function(chai, CUT) {
 				out.get('recents')[0].should.equal(max_recents.toString());
 			});
 
-		});
+		}); // describe feature
 
 		describe('favorites', function() {
 
@@ -120,7 +120,7 @@ function(chai, CUT) {
 				out.get('favorites').should.include.members(['2']); // 1 has been removed
 			});
 
-		});
+		}); // describe feature
 
 		it('should be validated');
 
