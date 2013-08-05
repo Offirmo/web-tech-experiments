@@ -1,5 +1,5 @@
 /**
- * @license RequireJS text 2.0.8 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
+ * @license RequireJS text 2.0.10 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/requirejs/text for details
  */
@@ -23,7 +23,7 @@ define(['module'], function (module) {
         masterConfig = (module.config && module.config()) || {};
 
     text = {
-        version: '2.0.8',
+        version: '2.0.10',
 
         strip: function (content) {
             //Strips <?xml ...?> declarations so that external SVG and XML
@@ -176,6 +176,12 @@ define(['module'], function (module) {
                 useXhr = (masterConfig.useXhr) ||
                          text.useXhr;
 
+            // Do not load if it is an empty: url
+            if (url.indexOf('empty:') === 0) {
+                onLoad();
+                return;
+            }
+
             //Load the text. Use XHR if possible and in a browser.
             if (!hasLocation || useXhr(url, defaultProtocol, defaultHostName, defaultPort)) {
                 text.get(url, function (content) {
@@ -237,7 +243,8 @@ define(['module'], function (module) {
     if (masterConfig.env === 'node' || (!masterConfig.env &&
             typeof process !== "undefined" &&
             process.versions &&
-            !!process.versions.node)) {
+            !!process.versions.node &&
+            !process.versions['node-webkit'])) {
         //Using special require.nodeRequire, something added by r.js.
         fs = require.nodeRequire('fs');
 
