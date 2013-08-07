@@ -1,5 +1,4 @@
-/* Session
- * singleton object representing the current session
+/* Session controler for angular
  */
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
@@ -10,8 +9,7 @@ define(
 function(Session) {
 	"use strict";
 
-	Session
-	var SessionCtrl = function($scope) {
+	var SessionCtrl = function($scope, current_session) {
 
 		$scope.identities = [];
 		$scope.current_identity = undefined;

@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <!-- html_004 template -->
 <!-- js_005 template -->
-<html lang='en' ng-app>
+<html lang='en' xmlns:ng="http://angularjs.org">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -39,7 +39,6 @@
 		console.log("hello from header !");
 	</script>
 	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
-	<script src="../bower_components/angular/angular.js"></script>
 
 </head>
 <body>
@@ -103,12 +102,19 @@
 		console.log("Starting main...");
 		requirejs(
 		[
-			'require',
 			'offirmo/account/session',
+			'angular',
 			'bootstrap3'
 		],
 		function(require, Session) {
-			// is the window fully loaded ? seems yes.
+			// is the window fully loaded ? not necessarily
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['optionalModuleName']);
+			});
+
 			var current_session = new Session;
 			current_session.fetch();
 		});

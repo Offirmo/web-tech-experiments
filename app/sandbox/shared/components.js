@@ -30,6 +30,9 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// shim plugins
+		'angular': [
+			'bower_components/angular/angular'
+		],
 		'jquery': [
 			// google ?
 			//'http://code.jquery.com/jquery-1.9.1',
@@ -86,6 +89,9 @@ requirejs.config({
 
 	/////////////////////
 	shim: {
+		'angular': {
+			exports: 'angular'
+		},
 		'jquery': {
 			exports: '$'
 		},

@@ -29,13 +29,13 @@ function(chai, CUT) {
 				}
 				catch(e) {
 					var err_msg = e.toString();
-					if(   err_msg === '"status_500_server_error_internal_error" is read-only'
-					   || err_msg === "TypeError: Cannot assign to read only property \'status_500_server_error_internal_error\' of #<Object>") {
+					if(   err_msg === 'TypeError: "status_500_server_error_internal_error" is read-only'
+					   || err_msg === "TypeError: Cannot assign to read only property 'status_500_server_error_internal_error' of #<Object>") {
 						// fine
 					}
 					else {
-						err_msg.should.equal("TypeError: Cannot assign to read only property \'status_500_server_error_internal_error\' of #<Object>");
-						//err_msg.should.equal('"status_500_server_error_internal_error" is read-only');
+						//err_msg.should.equal("TypeError: Cannot assign to read only property \'status_500_server_error_internal_error\' of #<Object>");
+						err_msg.should.equal('"status_500_server_error_internal_error" is read-only');
 					}
 				}
 			});
