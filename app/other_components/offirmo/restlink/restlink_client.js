@@ -2,7 +2,6 @@
  * on a 'generic' server (distant or local)
  * with an integrated cache
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -14,6 +13,7 @@ define(
 	'offirmo/restlink/response'
 ],
 function(_, jQuery, cache, Request, Response) {
+	"use strict";
 
 	var Constants = {
 		// ...

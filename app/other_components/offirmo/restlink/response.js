@@ -1,38 +1,19 @@
 /* A REST-like response,
  * to be sent over offirmo RESTlink
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
 	'underscore',
-	'backbone'
+	'backbone',
+	'offirmo/utils/http_constants'
 ],
-function(_, Backbone) {
+function(_, Backbone, http_constants) {
+	"use strict";
 
-	// HTTP codes
 	var Constants = {
-		http_code: {
-			// 100 : informational
 
-			// 200 : success
-			status_200_ok:       200,
-			status_201_created:  201,
-
-			// 300 redirection
-
-			// 400 : Client errors
-			status_400_client_error_bad_request:          400,
-			status_404_client_error_not_found:            404,
-			status_405_client_error_method_not_allowed:   405,
-			status_414_client_error_request_uri_too_long: 414,
-
-			// 500 : Server error
-			status_500_server_error_internal_error:  500,
-			status_501_server_error_not_implemented: 501,
-			status_507_server_error_internal_error:  507 // XXX
-		}
 	};
 
 	var Response = {
@@ -42,7 +23,7 @@ function(_, Backbone) {
 			return {
 				method: undefined,
 				uri: undefined,
-				return_code: Constants.http_code.status_500_server_error_internal_error,
+				return_code: http_constants.status_codes.status_500_server_error_internal_error,
 				meta: {},
 				content: undefined
 			};

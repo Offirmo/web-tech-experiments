@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -7,6 +6,7 @@ define(
 	'offirmo/utils/http_constants'
 ],
 function(chai, CUT) {
+	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
@@ -24,11 +24,20 @@ function(chai, CUT) {
 			it('should be protected', function() {
 				var out = CUT;
 
-				var modify_prop = function() {
+				try {
 					out.status_codes.status_500_server_error_internal_error = 508;
 				}
-				modify_prop.should.throw('x');
-				modify_prop.should.throw('"status_500_server_error_internal_error" is read-only').or.throw("Cannot assign to read only property 'status_500_server_error_internal_error' of #<Object>");
+				catch(e) {
+					var err_msg = e.toString();
+					if(   err_msg === '"status_500_server_error_internal_error" is read-only'
+					   || err_msg === "TypeError: Cannot assign to read only property \'status_500_server_error_internal_error\' of #<Object>") {
+						// fine
+					}
+					else {
+						err_msg.should.equal("TypeError: Cannot assign to read only property \'status_500_server_error_internal_error\' of #<Object>");
+						//err_msg.should.equal('"status_500_server_error_internal_error" is read-only');
+					}
+				}
 			});
 
 		});

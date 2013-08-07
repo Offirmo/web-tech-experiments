@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -8,6 +7,7 @@ define(
 	'offirmo/app/identity'
 ],
 function(chai, CUT, Model) {
+	"use strict";
 
 	var expect = chai.expect;
 	chai.should();

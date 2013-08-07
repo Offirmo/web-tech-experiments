@@ -1,7 +1,6 @@
 /* Offirmo-style Backbone "sync" redefinition
  *
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -10,6 +9,7 @@ define(
 	'store'
 ],
 function(Backbone, store) {
+	"use strict";
 
 	/////// Redefines backbone REST sync method to adapt it to our case
 	// first backup the original method

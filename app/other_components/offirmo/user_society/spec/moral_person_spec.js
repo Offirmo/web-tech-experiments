@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -8,6 +7,7 @@ define(
 	'offirmo/user_society/person'
 ],
 function(chai, CUT, CUTParent) {
+	"use strict";
 
 	describe('MoralPerson', function() {
 

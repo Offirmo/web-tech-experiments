@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -7,6 +6,7 @@ define(
 	'offirmo/base/base_object'
 ],
 function(_, BaseObject) {
+	"use strict";
 
 	var max_denomination_size = 70;
 	var default_denomination = 'Anonymous';

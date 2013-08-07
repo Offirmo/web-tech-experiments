@@ -1,7 +1,6 @@
 /* Example of Offirmo object
  * (for copy/paste new objects)
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -10,6 +9,7 @@ define(
 	'offirmo/base/named_object' //'offirmo/base/base_object'
 ],
 function(_, NamedObject) {
+	"use strict";
 
 	var Constants = {
 		// ...

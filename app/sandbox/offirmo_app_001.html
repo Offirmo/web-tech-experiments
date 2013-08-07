@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" />
 	
 	<title>Offirmo 001</title>
 	<meta name="description" content="">
@@ -29,7 +30,7 @@
 			font-size: 100%;
 		}
 		body {
-			padding-top: 60px; /* 60px to make the container go all the way to the bottom of the bootstrap topbar */
+			/*padding-top: 70px; /* http://getbootstrap.com/components/#navbar-fixed-top */
 		}
 	</style>
 
@@ -45,51 +46,45 @@
 
 <div id="content">
 
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="brand" href="#">(Offirmo App #1)</a>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li><a href="#about">About</a></li>
-						<li><a href="#help">Help</a></li>
-						<li><a href="#contact">Contact</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#feedback">Feedback</a></li>
-								<li><a href="#credits">Credits</a></li>
-								<li><a href="#terms">Terms</a></li>
-								<li class="divider"></li>
-								<li><a href="#sources">Sources</a></li>
-								<li><a href="#debug">Debug</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div><!--/.nav-collapse -->
-				<div class="nav-collapse collapse pull-right">
-					<ul class="nav">
-						<li><a href="#account">(current identity)</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Select identity</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Manage identities</a></li>
-							</ul>
-						</li>
-						<li><a href="#settings">Settings</a></li>
-					</ul>
-				</div><!--/.nav-collapse -->
-			</div>
-		</div>
-	</div>
+	<div class="navbar navbar-static-top">
+		<div class="container"><!-- responsive navbar not finished : http://getbootstrap.com/components/#navbar-responsive -->
 
+			<a class="navbar-brand" href="#">(Offirmo App #1)</a>
+
+			<ul class="nav navbar-nav">
+				<li><a href="#about">About</a></li>
+				<li><a href="#help">Help</a></li>
+				<li><a href="#contact">Contact</a></li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#feedback">Feedback</a></li>
+						<li><a href="#credits">Credits</a></li>
+						<li><a href="#terms">Terms</a></li>
+						<li class="divider"></li>
+						<li><a href="#sources">Sources</a></li>
+						<li><a href="#debug">Debug</a></li>
+					</ul>
+				</li>
+
+				<li><a href="#account">(current identity)</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Select identity</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Manage identities</a></li>
+					</ul>
+				</li>
+				<li><a href="#settings">Settings</a></li>
+
+				<button type="button" class="btn btn-default navbar-btn">Sign in</button>
+				<p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+			</ul>
+
+		</div> <!-- /container -->
+	</div> <!-- /navbar -->
 
 	<div class="container">
 		<h1 id="header">Offirmo app 001</h1>
@@ -110,7 +105,7 @@
 		[
 			'require',
 			'offirmo/account/session',
-			'bootstrap-rem'
+			'bootstrap3'
 		],
 		function(require, Session) {
 			// is the window fully loaded ? seems yes.

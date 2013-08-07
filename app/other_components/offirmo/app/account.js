@@ -1,7 +1,6 @@
 /* Account
  * = account we log into, with email / password
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -11,6 +10,7 @@ define(
 	'offirmo/app/identity_list'
 ],
 function(_, NamedObject, IdentityList) {
+	"use strict";
 
 	var security_level_standard = 'standard';
 	var security_level_high     = 'high';

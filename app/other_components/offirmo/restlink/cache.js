@@ -1,7 +1,6 @@
 /* A very simple cache,
  * optionally saving to local storage (if available)
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -10,6 +9,7 @@ define(
 	'store'
 ],
 function(_, store) {
+	"use strict";
 
 	// TODO use store
 	// TODO add ability to create instances and create a default instance

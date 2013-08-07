@@ -14,6 +14,8 @@
 		"modernizr":          "latest",
 		"require-css":        "latest",
 		"requirejs":          "latest",
+		"requirejs-domready": "latest",
+		"requirejs-i18n":     "latest",
 		"requirejs-plugins":  "latest",
 		"requirejs-text":     "latest",
 		"screenfull":         "latest",

@@ -20,7 +20,9 @@ requirejs.config({
 			// an extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
 			// an extension to be able to load dust.js templates easily
-			'rdust': 'other_components/require-dust/require-dust'
+			'rdust': 'other_components/require-dust/require-dust',
+			// an extension to be able to wait for the DOM to be ready
+			'domReady': 'bower_components/requirejs-domready/domReady'
 		}
 	},
 
@@ -51,6 +53,9 @@ requirejs.config({
 			'other_components/bootstrap/js/bootstrap'
 		],
 		'bootstrap-rem': 'other_components/bootstrap-rem/bootstrap-rem',
+		'bootstrap3': [
+			'other_components/bootstrap3/js/bootstrap'
+		],
 		'accounting': [
 			'bower_components/accounting/accounting'
 		],
@@ -99,6 +104,10 @@ requirejs.config({
 		},
 		'bootstrap-rem': {
 			deps: [ 'bootstrap', 'css!other_components/bootstrap-rem/bootstrap-rem' ]
+		},
+		'bootstrap3': {
+			// js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+			deps: [ 'jquery', 'css!other_components/bootstrap3/css/bootstrap' ]
 		},
 		'accounting' : {
 			// no deps
@@ -183,5 +192,10 @@ requirejs.config({
 console.log("require js config done.");
 
 // Start the main app logic.
-console.log("starting application logic...");
-window.main();
+console.log("Waiting for DOM before starting app...");
+// not optimal but good for sharing this file amongst sandbox files
+requirejs(['domReady!'],
+function() {
+	console.log("starting application logic...");
+	window.main();
+});

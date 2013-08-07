@@ -1,7 +1,6 @@
 /* A 'base' object from which all offirmo objects will inherit
  * useful to add some utilities.
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -10,6 +9,7 @@ define(
 	'backbone'
 ],
 function(_, Backbone) {
+	"use strict";
 
 	var Constants = {
 		cache_strategy_cachable: 'cachable', //< this object is allowed to be cached

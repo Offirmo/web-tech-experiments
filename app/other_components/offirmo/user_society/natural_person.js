@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -6,6 +5,7 @@ define(
 	'offirmo/user_society/person'
 ],
 function(Person) {
+	"use strict";
 
 	var NaturalPerson = Person.extend({
 

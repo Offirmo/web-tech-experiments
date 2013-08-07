@@ -23,6 +23,7 @@
 			[
 				'jquery',
 				'mocha',
+				'domReady!',
 
 				'offirmo/base/spec/base_object_spec',
 				'offirmo/base/spec/named_object_spec',
@@ -44,7 +45,7 @@
 				'offirmo/app/spec/identity_list_spec',
 				'offirmo/app/spec/session_spec'
 			],
-			function($, mocha) {
+			function($) {
 
 				//document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
 

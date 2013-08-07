@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -6,6 +5,7 @@ define(
 	'underscore' // XXX I must fake a dependency or it doesn't work !!!
 ],
 function() {
+	"use strict";
 
 	var http_constants = {
 

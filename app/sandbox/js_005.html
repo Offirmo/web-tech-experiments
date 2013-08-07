@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
 	
 	<title>JS base 005</title>
 	<meta name="description" content="">
@@ -59,14 +60,14 @@
 	{
 		console.log("Starting rsrc load...");
 		require(
-				[	'jquery',
-					'bootstrap-rem', 'backbone', 'jquery.svg', 'jquery.datatables', 'jquery.ui', 'accounting', 'spin', 'store',
-					'ecotree', 'javascript-state-machine', 'dust'
-				],
-				function($) {
-					// is the window fully loaded ? seems yes.
-					document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
-				});
+		[	'jquery',
+			'bootstrap-rem', 'backbone', 'jquery.svg', 'jquery.datatables', 'jquery.ui', 'accounting', 'spin', 'store',
+			'ecotree', 'javascript-state-machine', 'dust'
+		],
+		function($) {
+			// is the window fully loaded ? seems yes.
+			document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+		});
 	};
 </script>
 

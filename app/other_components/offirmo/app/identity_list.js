@@ -1,7 +1,6 @@
 /* list of all available identities *for an account*
  * Ex. John Smith (home), JohnTheRoxxor (gaming)
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -12,7 +11,7 @@ define(
 	'offirmo/base/base_object'
 ],
 function(_, Backbone, Identity, BaseObject) {
-
+	"use strict";
 
 	var InnerIdentityList = Backbone.Collection.extend({
 		'model': Identity,

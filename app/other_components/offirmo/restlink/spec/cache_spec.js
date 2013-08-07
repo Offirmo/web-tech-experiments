@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 /* Warning :
@@ -11,6 +10,7 @@ define(
 	'offirmo/restlink/cache'
 ],
 function(chai, CUT) {
+	"use strict";
 
 	var expect = chai.expect;
 	chai.should();

@@ -1,7 +1,6 @@
 /* Session
  * singleton object representing the current session
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -9,6 +8,7 @@ define(
 	'offirmo/account/session'
 ],
 function(Session) {
+	"use strict";
 
 	Session
 	var SessionCtrl = function($scope) {

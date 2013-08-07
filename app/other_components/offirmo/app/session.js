@@ -1,7 +1,6 @@
 /* Session
  * singleton object representing the current session
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -12,10 +11,7 @@ define(
 	'offirmo/app/account',
 ],
 function(_, BaseObject, AppList, Account) {
-
-	var detect_current_app = function() {
-		// TODO
-	};
+	"use strict";
 
 	var ParentModel = BaseObject;
 	var Session = ParentModel.extend({
@@ -52,11 +48,11 @@ function(_, BaseObject, AppList, Account) {
 
 			if(method === 'read') {
 
-				model.get('app_list').fetch(); // this one is statically fetched from code, so it always succed (but up to date ?)
+				model.get('app_list').fetch(); // this one is statically fetched from code, so it always succeed (but up to date ?)
 
 				model.get('current_account').fetch(); // more complicated
 
-				model.set('current_app', detect_current_app());
+				model.set('current_app', AppList.detect_current_app());
 
 				model.trigger('sync', model, undefined, options);
 				return;

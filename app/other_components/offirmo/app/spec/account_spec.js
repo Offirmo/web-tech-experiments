@@ -1,4 +1,3 @@
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -8,6 +7,7 @@ define(
 	'offirmo/base/named_object'
 ],
 function(chai, CUT, CUTParent) {
+	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
@@ -48,14 +48,15 @@ function(chai, CUT, CUTParent) {
 			it('should be unpersistable', function() {
 				var out = new CUT();
 
-				// first
-				//expect(out.fetch()).to.throw('IdentityList sync : list not linked to an account !');
+				// first a bad fetch
+				expect(out.fetch()).to.throw('IdentityList sync : list not linked to an account !');
+
+				// now we need a restlink server to be able to answer
+				out.set('restlink', todo);
 
 				out.set('account_denomination', 'test account');
-				//out.fetch();
-
+				out.fetch();
 			});
-
 
 		});
 

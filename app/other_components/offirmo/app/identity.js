@@ -3,7 +3,6 @@
  * very useful for privacy
  * ex. two separate mail boxes under the same account, one for real life (John Smith), one for gaming (JohnTheRoxxor)
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -12,6 +11,7 @@ define(
 	'offirmo/base/named_object'
 ],
 function(_, NamedObject) {
+	"use strict";
 
 	var ParentModel = NamedObject;
 	var Identity = ParentModel.extend({

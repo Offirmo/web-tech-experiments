@@ -1,7 +1,6 @@
 /* Direct adapter class for a RESTlink client adapter
  * This adapter works via direct (local) function calls
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -12,6 +11,7 @@ define(
 	'offirmo/restlink/response'
 ],
 function(_, jQuery, ClientAdapterDirect, Response) {
+	"use strict";
 
 	var ServerAdapterDirect = {
 

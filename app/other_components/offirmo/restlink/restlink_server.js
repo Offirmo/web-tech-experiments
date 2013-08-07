@@ -1,7 +1,6 @@
 /* A generic REST 'server' executing REST operations
  * transport agnostic : can run on server or in client
  */
-"use strict";
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
@@ -13,6 +12,7 @@ define(
 	'offirmo/restlink/response'
 ],
 function(_, Backbone, jQuery, Request, Response) {
+	"use strict";
 
 	var Constants = {
 		// ...
