@@ -90,6 +90,7 @@ requirejs.config({
 	/////////////////////
 	shim: {
 		'angular': {
+			deps: [ 'jquery' ], // Note : angular needs jQuery for some features
 			exports: 'angular'
 		},
 		'jquery': {
