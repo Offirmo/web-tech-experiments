@@ -9,8 +9,10 @@ define(
 	'offirmo/base/base_object',
 	'offirmo/restlink/response',
 	'offirmo/restlink/client_adapter_base',
+	'offirmo/utils/http_constants',
+	'mocha'
 ],
-function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase) {
+function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -20,7 +22,7 @@ function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase) {
 	test_adapter.resolve_request = function(request, result_deferred) {
 		// build the response
 		var response = Response.make_new_from_request(request, {
-			return_code: Response.constants.http_code.status_200_ok,
+			return_code: http_constants.status_codes.status_200_ok,
 			content: {
 				attr1: 34,
 				attr2: [ 'jquery' ],

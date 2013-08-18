@@ -202,7 +202,7 @@ console.log("require js config done.");
 console.log("Waiting for DOM before starting app...");
 // not optimal but good for sharing this file amongst sandbox files
 requirejs(['domReady!'],
-function() {
-	console.log("starting application logic...");
-	window.main();
-});
+	function() {
+		console.log("starting application logic...");
+		window.main();
+	});

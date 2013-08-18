@@ -4,7 +4,8 @@ define(
 [
 	'chai',
 	'offirmo/base/example_object',
-	'offirmo/base/named_object'
+	'offirmo/base/named_object',
+	'mocha'
 ],
 function(chai, CUT, CUTParent) {
 	"use strict";

@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="fragment" content="!" />
 	
-	<title ng-bind="title">Offirmo App 001 fallback title</title>
+	<title ng-bind="title">Offirmo App 002 fallback title</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 	
@@ -41,10 +41,10 @@
 
 <div id="content">
 
-	<div class="navbar navbar-static-top">
+	<div class="navbar navbar-static-top" ng-cloak>
 		<div class="container"><!-- responsive navbar not finished : http://getbootstrap.com/components/#navbar-responsive -->
 
-			<a class="navbar-brand" href="#" ng-bind="name">(Offirmo App name fallback)</a>
+			<a class="navbar-brand" href="#" ng-bind="name">Loading...</a>
 
 			<ul class="nav navbar-nav">
 				<li><a href="#about">About</a></li>
@@ -81,7 +81,7 @@
 		</div> <!-- /container -->
 	</div> <!-- /navbar -->
 
-	<div class="container">
+	<div class="container" ng-cloak>
 		<h1 id="header" ng-bind="name">(Offirmo App name fallback)</h1>
 		<p ng-bind="snippet">(snippet fallback)</p>
 	</div> <!-- /container -->
@@ -98,16 +98,21 @@
 		requirejs(
 		[
 			'offirmo/app/session',
+			'offirmo/restlink/restlink_server',
+			'offirmo/restlink/server_adapter_direct',
 			'angular',
 			'bootstrap3'
 		],
-		function(Session) {
+		function(Session, RestlinkServer, RestlinkDirectServerAdapter) {
+
+			var current_session = new Session;
+			current_session.fetch();
 
 			var app = angular.module('App', []);
 			app.controller('AppCtrl', function($scope) {
 				$scope.scoped_angular = angular;
-				$scope.name = "Test App 001";
-				$scope.title = "Offirmo Test App 001";
+				$scope.name = "Test App 002";
+				$scope.title = "Offirmo Test App 002 : an advanced javascript single-page webapp";
 				$scope.snippet = "Advanced Offirmo javascript single-page webapp. Using require.js and angular.js.";
 			});
 
@@ -118,9 +123,6 @@
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['App']);
 			});
-
-			//var current_session = new Session;
-			//current_session.fetch();
 		});
 	};
 </script>

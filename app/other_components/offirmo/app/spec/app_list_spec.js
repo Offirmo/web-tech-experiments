@@ -4,7 +4,8 @@ define(
 [
 	'chai',
 	'offirmo/app/app_list',
-	'offirmo/app/app'
+	'offirmo/app/app',
+	'mocha'
 ],
 function(chai, CUT, App) {
 	"use strict";

@@ -23,15 +23,12 @@
 	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
 	<!-- ... -->
-	
+
 	<!-- style -->
 	<style>
-		.done-true {
-			text-decoration: line-through;
-			color: grey;
-		}
+		/* ... */
 	</style>
-	
+
 	<!-- js -->
 	<script>
 		console.log("hello from header !");
@@ -64,10 +61,7 @@
 			'bootstrap3'
 		],
 		function() {
-			console.log(angular.version);
-
 			var app = angular.module('App', []);
-
 			app.controller('AppCtrl', function($scope) {
 				$scope.title = "Angular Test App 003";
 				$scope.snippet = "Advanced javascript single-page webapp. Using require.js and angular.js.";

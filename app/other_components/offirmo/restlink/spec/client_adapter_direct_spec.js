@@ -5,9 +5,11 @@ define(
 	'chai',
 	'offirmo/restlink/client_adapter_direct',
 	'offirmo/restlink/request',
-	'offirmo/restlink/response'
+	'offirmo/restlink/response',
+	'offirmo/utils/http_constants',
+	'mocha'
 ],
-function(chai, CUT, Request, Response) {
+function(chai, CUT, Request, Response, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -42,7 +44,7 @@ function(chai, CUT, Request, Response) {
 				promise.done(function(response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
-					response.return_code.should.equal(Response.constants.http_code.status_500_server_error_internal_error);
+					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
 					response.meta.should.deep.equal({ error_msg: 'ClientAdapterDirect process_request : no linked server adapter !' });
 					expect(response.content).to.be.undefined;
 					signalAsyncTestFinished();
@@ -65,9 +67,8 @@ function(chai, CUT, Request, Response) {
 				promise.done(function(response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
-					response.return_code.should.equal(Response.constants.http_code.status_500_server_error_internal_error);
-					response.meta.should.deep.equal({ error_msg: 'ClientAdapterDirect process_request : no linked server adapter !' });
-					expect(response.content).to.be.undefined;
+					response.return_code.should.equal(http_constants.status_codes.status_200_ok);
+					response.content.should.equal("toto");
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(response){

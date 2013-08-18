@@ -4,7 +4,8 @@ define(
 [
 	'chai',
 	'offirmo/user_society/moral_person',
-	'offirmo/user_society/person'
+	'offirmo/user_society/person',
+	'mocha'
 ],
 function(chai, CUT, CUTParent) {
 	"use strict";

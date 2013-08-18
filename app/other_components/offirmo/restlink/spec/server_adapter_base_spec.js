@@ -3,21 +3,16 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'underscore',
-	'jquery',
-	'offirmo/restlink/restlink_server',
-	'offirmo/restlink/request',
-	'offirmo/restlink/response',
-	'offirmo/utils/http_constants',
+	'offirmo/restlink/server_adapter_base',
 	'mocha'
 ],
-function(chai, _, jQuery, CUT, Request, Response, http_constants) {
+function(chai, CUT) {
 	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
 
-	describe('restlink_server', function() {
+	describe('restlink base server adapter', function() {
 
 		describe('instantiation', function() {
 
@@ -29,7 +24,6 @@ function(chai, _, jQuery, CUT, Request, Response, http_constants) {
 
 			it('should set default values', function() {
 				var out = CUT.make_new();
-
 				out.is_started().should.be.false;
 			});
 
@@ -40,18 +34,10 @@ function(chai, _, jQuery, CUT, Request, Response, http_constants) {
 			it('should be able to start and stop', function() {
 				var out = CUT.make_new();
 
-				out.is_started().should.be.false;
-				out.startup();
-				out.is_started().should.be.true;
-				out.shutdown();
-				out.is_started().should.be.false;
-			});
+				var fake_server = {};
 
-			it('should properly forward start and stop to adapters', function() {
-				var out = CUT.make_new();
-
-				var test_adapter
-				out.startup();
+				out.is_started().should.be.false;
+				out.startup(fake_server);
 				out.is_started().should.be.true;
 				out.shutdown();
 				out.is_started().should.be.false;

@@ -7,9 +7,10 @@ define(
 [
 	'underscore',
 	'jquery',
-	'offirmo/restlink/response'
+	'offirmo/restlink/response',
+	'offirmo/utils/http_constants'
 ],
-function(_, jQuery, Response) {
+function(_, jQuery, Response, http_constants) {
 	"use strict";
 
 	// GET, PUT, POST, DELETE, OPTIONS, HEAD, TRACE, CONNECT
@@ -31,7 +32,7 @@ function(_, jQuery, Response) {
 				resolve_request: function(request, result_deferred) {
 					// build a response
 					var response = Response.make_new_from_request(request, {
-						return_code: Response.constants.http_code.status_501_server_error_not_implemented,
+						return_code: http_constants.status_codes.status_501_server_error_not_implemented,
 						meta: {
 							error_msg: 'ClientAdapterBase process_request is to be implemented in a derived class !'
 						}

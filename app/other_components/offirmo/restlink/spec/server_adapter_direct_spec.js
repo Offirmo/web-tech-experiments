@@ -6,13 +6,20 @@ define(
 	'jquery',
 	'offirmo/restlink/server_adapter_direct',
 	'offirmo/restlink/request',
-	'offirmo/restlink/response'
+	'offirmo/restlink/response',
+	'offirmo/utils/http_constants',
+	'mocha'
 ],
-function(chai, jQuery, CUT, Request, Response) {
+function(chai, jQuery, CUT, Request, Response, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
+
+	var request = Request.make_new();
+	request.method = 'BREW';
+	request.uri = '/stanford/teapot';
+
 
 	describe('restlink direct server adapter', function() {
 
@@ -26,21 +33,42 @@ function(chai, jQuery, CUT, Request, Response) {
 
 			it('should set default values', function() {
 				var out = CUT.make_new();
-				//...
+				out.is_started().should.be.false;
+			});
+
+		}); // describe feature
+
+		describe('startup / shutdown', function() {
+
+			it('should be able to start and stop', function() {
+				var out = CUT.make_new();
+
+				var fake_server = {};
+
+				out.is_started().should.be.false;
+				out.startup(fake_server);
+				out.is_started().should.be.true;
+				out.shutdown();
+				out.is_started().should.be.false;
 			});
 
 		}); // describe feature
 
 		describe('direct request processing', function() {
 
-			it('should fail correctly when no server', function(signalAsyncTestFinished) {
-
+			it('should fail correctly when not started', function() {
 				var out = CUT.make_new();
 
-				// need a request
-				var request = Request.make_new();
-				request.method = 'BREW';
-				request.uri = '/stanford/teapot';
+				// note : in normal usage, interface is not to be called directly but via a client.
+				// need a deferred object
+				var result_deferred = jQuery.Deferred();
+
+				// go for it
+				out.process_request(request, result_deferred);
+			});
+
+			it('should fail correctly when no server', function(signalAsyncTestFinished) {
+				var out = CUT.make_new();
 
 				// note : in normal usage, interface is not to be called directly but via a client.
 				// need a deferred object
@@ -54,7 +82,7 @@ function(chai, jQuery, CUT, Request, Response) {
 				promise.done(function(response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
-					response.return_code.should.equal(Response.constants.http_code.status_500_server_error_internal_error);
+					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
 					response.meta.should.deep.equal({ error_msg: 'ServerAdapterDirect process_request : no linked server !' });
 					expect(response.content).to.be.undefined;
 					signalAsyncTestFinished();
@@ -65,9 +93,29 @@ function(chai, jQuery, CUT, Request, Response) {
 			});
 
 			it('should work when connected to a correct server', function(signalAsyncTestFinished) {
+				var out = CUT.make_new();
 
-				// TODO
-				signalAsyncTestFinished();
+				// give it a real server
+
+				// note : in normal usage, interface is not to be called directly but via a client.
+				// need a deferred object
+				var result_deferred = jQuery.Deferred();
+
+				// go for it
+				out.process_request(request, result_deferred);
+
+				// check result
+				var promise = result_deferred.promise();
+				promise.done(function(response){
+					response.method.should.equal('BREW');
+					response.uri.should.equal('/stanford/teapot');
+					response.return_code.should.equal(http_constants.status_codes.status_200_ok);
+					response.content.should.equal('toto');
+					signalAsyncTestFinished();
+				});
+				promise.fail(function(response){
+					expect(false).to.be.ok;
+				});
 
 			});
 
@@ -79,11 +127,6 @@ function(chai, jQuery, CUT, Request, Response) {
 
 				var out = CUT.make_new();
 
-				// need a request
-				var request = Request.make_new();
-				request.method = 'BREW';
-				request.uri = '/stanford/teapot';
-
 				// normal usage : access via a client
 				var direct_client = out.make_new_client();
 
@@ -94,7 +137,7 @@ function(chai, jQuery, CUT, Request, Response) {
 				promise.done(function(response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
-					response.return_code.should.equal(Response.constants.http_code.status_500_server_error_internal_error);
+					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
 					response.meta.should.deep.equal({ error_msg: 'ServerAdapterDirect process_request : no linked server !' });
 					expect(response.content).to.be.undefined;
 					signalAsyncTestFinished();
@@ -107,6 +150,7 @@ function(chai, jQuery, CUT, Request, Response) {
 			it('should work when connected to a correct server', function(signalAsyncTestFinished) {
 
 				// TODO
+				expect(false).to.be.ok;
 				signalAsyncTestFinished();
 
 			});

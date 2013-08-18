@@ -5,9 +5,11 @@ define(
 	'chai',
 	'offirmo/restlink/client_adapter_base',
 	'offirmo/restlink/request',
-	'offirmo/restlink/response'
+	'offirmo/restlink/response',
+	'offirmo/utils/http_constants',
+	'mocha'
 ],
-function(chai, CUT, Request, Response) {
+function(chai, CUT, Request, Response, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -42,7 +44,7 @@ function(chai, CUT, Request, Response) {
 				promise.done(function(response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
-					response.return_code.should.equal(Response.constants.http_code.status_501_server_error_not_implemented);
+					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
 					response.meta.should.deep.equal({ error_msg: 'ClientAdapterBase process_request is to be implemented in a derived class !' });
 					expect(response.content).to.be.undefined;
 					signalAsyncTestFinished();

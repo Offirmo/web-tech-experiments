@@ -3,7 +3,8 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/app/session'
+	'offirmo/app/session',
+	'mocha'
 ],
 function(chai, CUT) {
 	"use strict";

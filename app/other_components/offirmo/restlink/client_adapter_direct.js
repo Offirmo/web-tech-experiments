@@ -8,9 +8,10 @@ define(
 	'underscore',
 	'jquery',
 	'offirmo/restlink/client_adapter_base',
-	'offirmo/restlink/response'
+	'offirmo/restlink/response',
+	'offirmo/utils/http_constants'
 ],
-function(_, jQuery, ClientAdapterBase, Response) {
+function(_, jQuery, ClientAdapterBase, Response, http_constants) {
 	"use strict";
 
 	var ClientAdapterDirect = {
@@ -39,7 +40,7 @@ function(_, jQuery, ClientAdapterBase, Response) {
 				resolve_request_if_no_server: function(request, result_deferred) {
 					// build a response
 					var response = Response.make_new_from_request(request, {
-						return_code: Response.constants.http_code.status_500_server_error_internal_error,
+						return_code: http_constants.status_codes.status_500_server_error_internal_error,
 						meta: {
 							error_msg: 'ClientAdapterDirect process_request : no linked server adapter !'
 						}
