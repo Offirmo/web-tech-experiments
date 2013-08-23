@@ -3,7 +3,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/restlink/restlink_server',
+	'offirmo/base/offinh/startable_object',
 	'mocha'
 ],
 function(chai, CUT) {
@@ -12,7 +12,7 @@ function(chai, CUT) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('Restlink server', function() {
+	describe('OffInh Startable Object', function() {
 
 		describe('instantiation', function() {
 
@@ -25,7 +25,6 @@ function(chai, CUT) {
 			it('should set default values', function() {
 				var out = CUT.make_new();
 				out.is_started().should.be.false;
-				out.get_denomination().should.equal("Anonymous");
 			});
 
 		}); // describe feature

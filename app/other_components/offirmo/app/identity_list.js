@@ -8,7 +8,7 @@ define(
 	'underscore',
 	'backbone',
 	'offirmo/app/identity',
-	'offirmo/base/base_object'
+	'offirmo/base/backbone/base_object'
 ],
 function(_, Backbone, Identity, BaseObject) {
 	"use strict";

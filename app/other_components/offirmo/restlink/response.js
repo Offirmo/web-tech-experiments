@@ -6,26 +6,19 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'underscore',
-	'backbone',
 	'offirmo/utils/http_constants'
 ],
-function(_, Backbone, http_constants) {
+function(_, http_constants) {
 	"use strict";
 
-	var Constants = {
-
-	};
-
 	var Response = {
-		constants: Constants,
-
 		make_new: function() {
 			return {
-				method: undefined,
-				uri: undefined,
-				return_code: http_constants.status_codes.status_500_server_error_internal_error,
-				meta: {},
-				content: undefined
+				method      : undefined,
+				uri         : undefined,
+				return_code : http_constants.status_codes.status_500_server_error_internal_error,
+				meta        : {},
+				content     : undefined
 			};
 		},
 
@@ -33,8 +26,8 @@ function(_, Backbone, http_constants) {
 			var default_response = this.make_new();
 
 			var temp_response = _.defaults({
-				method: request.method,
-				uri: request.uri
+				method : request.method,
+				uri    : request.uri
 			}, default_response);
 
 			attrs || (attrs = {});

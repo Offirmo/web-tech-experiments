@@ -7,50 +7,54 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
-	'underscore',
-	'offirmo/restlink/request',
-	'offirmo/restlink/response'
+	'underscore'
 ],
-function(_, Backbone, jQuery, Request, Response) {
+function(_) {
 	"use strict";
 
+	// http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
+	// http://javascript.crockford.com/private.html
+
+
+	////////////////////////////////////
 	var constants = {
 		// ...
 	};
 	Object.freeze(constants);
 
+
+	////////////////////////////////////
 	var defaults = {
-		////////////////////////////////////
+		started_ : false,
 		// the adapter knows its server
-		'server_' : undefined
+		server_ : undefined
 	};
 	Object.freeze(defaults);
 
-	// http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
-	// http://javascript.crockford.com/private.html
+
+	////////////////////////////////////
 	function RestlinkServerBaseAdapter() {
-		_.defaults(this,defaults );
+		_.defaults( this, defaults );
 	}
 
 	RestlinkServerBaseAdapter.prototype.constants = constants;
 	RestlinkServerBaseAdapter.prototype.startup = function(server) {
 		this.server_ = server;
+		this.started_ = true;
 	};
 	RestlinkServerBaseAdapter.prototype.shutdown = function() {
+		this.started_ = false;
 		this.server_ = undefined;
 	};
 	RestlinkServerBaseAdapter.prototype.is_started = function() {
-		return (typeof this.server_ !== 'undefined');
+		return this.started_;
 	};
 
 
-	var make_new_restlink_server_base_adapter = function() {
-		return new RestlinkServerBaseAdapter();
-	}; // make_new
-
+	////////////////////////////////////
 	return {
-		'make_new': make_new_restlink_server_base_adapter,
+		'make_new': function() { return new RestlinkServerBaseAdapter(); },
 		'constants': constants,
 		'defaults': defaults
-	};;
+	};
 }); // requirejs module

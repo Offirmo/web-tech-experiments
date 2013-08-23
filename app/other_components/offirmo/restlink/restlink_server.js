@@ -6,102 +6,69 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'underscore',
-	'backbone',
-	'jquery',
-	'offirmo/restlink/request',
-	'offirmo/restlink/response'
+	'offirmo/base/offinh/named_object',
+	'offirmo/base/offinh/startable_object'
 ],
-function(_, Backbone, jQuery, Request, Response) {
+function(_, NamedObject, StartableObject) {
 	"use strict";
-
-	var Constants = {
-		// ...
-	};
 
 	// http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
 	// http://javascript.crockford.com/private.html
-	function RestlinkServer(param) {
 
-		////////////////////////////////////
-		// the server should know its adapters
-		// to be able to transmit them some events (startup/shutdown for ex.)
-		var server_adapters = [];
-		this.add_adapter = function(adapter) {
-			server_adapters.push(adapter);
-		};
 
-		////////////////////////////////////
-		// for complexity reasons, the actual handling is in another object
-		var request_handler; // undefined
-		this.set_request_handler = function(handler) {
-			request_handler = handler;
-		};
+	////////////////////////////////////
+	var constants = {
+		// ...
+	};
+	_.defaults(constants, NamedObject.constants, StartableObject.constants);
+	Object.freeze(constants);
 
-		////////////////////////////////////
-		var is_started = false;
-		this.startup = function() {
-			is_started = true;
-		};
-		this.shutdown = function() {
-			is_started = false;
-		};
-		this.is_started = function() {
-			return is_started;
-		};
 
-		/// TOSORT
-		// routes and their associated callbacks
-		// let's use the convenient 'Router' from Backbone
-		// TODO replace with optimized version ?
-		//router: new Backbone.Router()
+	////////////////////////////////////
+	var defaults = {
+		// ...
+	};
+	_.defaults(defaults, NamedObject.defaults, StartableObject.defaults);
+	Object.freeze(defaults);
+
+
+	////////////////////////////////////
+	var methods = {
+		add_request_handler : function(route, method, handler) {
+			// TODO
+		},
+		add_rsrc_handler : function(route, method, handler) {
+			// TODO
+		},
+	};
+	_.defaults(methods, NamedObject.methods, StartableObject.methods);
+	Object.freeze(methods);
+/*
+	virtual void addAdapter(const server::IAdapterPtr& adapter);
+
+	virtual void addRsrcHandler(const server::IResourceHandlerPtr& handler, const std::string& parentRoute = "");
+
+	virtual void addRsrcHandler(const server::IResourceDeclarationPtr& handler, const std::string& parentRoute = "");
+
+	virtual void addRequestHandler(const std::string& route, const std::string& action, HandlingCallback callback);
+*/
+
+
+	////////////////////////////////////
+	function DefinedClass() {
+		_.defaults( this, defaults );
 	}
 
-	RestlinkServer.prototype.constants = Constants;
+	DefinedClass.prototype.constants = constants;
 
-	var make_new_restlink_server = function() {
-		return new RestlinkServer();
-	}; // make_new
+	_.extend(DefinedClass.prototype, methods);
 
 
-		/* Get the url matching object.
-		 * Useful for installing new handlers.
-		 */
-		//virtual SharedUrlMatcherPtr getSharedUrlMatcher() const = 0;
-
-		/* Get the action matching object.
-		 * Useful for ?
-		 */
-		//virtual SharedActionMatcherPtr getActionMatcher() const = 0;
-
-		/* Server internal interface for adapters
-		 */
-		//class IAdapterInterface
-		//{
-			/* Get the url matching object.
-			 * Useful for matching requests urls.
-			 */
-			//virtual SharedUrlMatcherPtr getSharedUrlMatcher() const = 0;
-
-			/* Generate (thread-safe) a new session.
-			 */
-			//virtual ISessionPtr createSession() = 0;
-
-			/* Release (thread-safe) a session.
-			 */
-			//virtual void terminateSession(ISession&) = 0;
-
-			/* Process (thread-safe) a generic request
-			 */
-			//virtual void onRequest(ITransaction& trans, const core::IRequest& req, IResponseWriter& responseWriter) = 0;
-		//};
-
-		/* Get the internal interface
-		 */
-		//virtual IAdapterInterfacePtr getAdapterInterface() const = 0;
-
-	var restlink_server = {
-		'make_new': make_new_restlink_server
+	////////////////////////////////////
+	return {
+		'make_new': function() { return new DefinedClass(); },
+		'constants': constants,
+		'defaults' : defaults,
+		'methods'  : methods
 	};
-
-	return restlink_server;
 }); // requirejs module

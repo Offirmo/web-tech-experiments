@@ -7,10 +7,12 @@ define(
 	'offirmo/restlink/server_adapter_direct',
 	'offirmo/restlink/request',
 	'offirmo/restlink/response',
+	//'offirmo/restlink/restlink_server',
+	'offirmo/restlink/server_internals/server_core',
 	'offirmo/utils/http_constants',
 	'mocha'
 ],
-function(chai, jQuery, CUT, Request, Response, http_constants) {
+function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -33,6 +35,7 @@ function(chai, jQuery, CUT, Request, Response, http_constants) {
 
 			it('should set default values', function() {
 				var out = CUT.make_new();
+				console.log(out);
 				out.is_started().should.be.false;
 			});
 
@@ -56,6 +59,7 @@ function(chai, jQuery, CUT, Request, Response, http_constants) {
 
 		describe('direct request processing', function() {
 
+
 			it('should fail correctly when not started', function() {
 				var out = CUT.make_new();
 
@@ -64,38 +68,30 @@ function(chai, jQuery, CUT, Request, Response, http_constants) {
 				var result_deferred = jQuery.Deferred();
 
 				// go for it
-				out.process_request(request, result_deferred);
+				var tempfn = function() { out.process_request(request, result_deferred); }
+				tempfn.should.throw(Error, "Can't process requests : this adapter is stopped.");
 			});
 
-			it('should fail correctly when no server', function(signalAsyncTestFinished) {
+
+			it('should fail correctly when no server', function() {
 				var out = CUT.make_new();
+				out.startup();
 
 				// note : in normal usage, interface is not to be called directly but via a client.
 				// need a deferred object
 				var result_deferred = jQuery.Deferred();
 
 				// go for it
-				out.process_request(request, result_deferred);
-
-				// check result
-				var promise = result_deferred.promise();
-				promise.done(function(response){
-					response.method.should.equal('BREW');
-					response.uri.should.equal('/stanford/teapot');
-					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
-					response.meta.should.deep.equal({ error_msg: 'ServerAdapterDirect process_request : no linked server !' });
-					expect(response.content).to.be.undefined;
-					signalAsyncTestFinished();
-				});
-				promise.fail(function(response){
-					expect(false).to.be.ok;
-				});
+				var tempfn = function() { out.process_request(request, result_deferred); }
+				tempfn.should.throw(Error, "Can't process requests");
 			});
+
 
 			it('should work when connected to a correct server', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
 
 				// give it a real server
+				out.startup(ServerCore.make_new());
 
 				// note : in normal usage, interface is not to be called directly but via a client.
 				// need a deferred object

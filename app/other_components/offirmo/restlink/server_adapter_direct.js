@@ -19,20 +19,18 @@ function(_, ServerBaseAdapter, ClientAdapterDirect, Response, http_constants) {
 	// inherit constants
 	var constants = _.defaults({
 		// ...
-	}, base_adapter.constants);
+	}, ServerBaseAdapter.constants);
 	Object.freeze(constants);
 
 	// inherit defaults
 	var defaults = _.defaults({
-		////////////////////////////////////
-		// the adapter knows its server
-		'server_' : undefined
-	}, base_adapter.defaults);
+		server_session_ : undefined
+	}, ServerBaseAdapter.defaults);
 	Object.freeze(defaults);
 
 
 	function RestlinkServerDirectAdapter() {
-		_.defaults(this,defaults );
+		_.defaults( this, defaults );
 	}
 
 	RestlinkServerDirectAdapter.prototype.constants = constants;
@@ -46,23 +44,35 @@ function(_, ServerBaseAdapter, ClientAdapterDirect, Response, http_constants) {
 	// direct processing call
 	RestlinkServerDirectAdapter.prototype.process_request = function(request, result_deferred) {
 		if(! this.is_started()) {
-			throw new Error("This adapter is stopped.");
+			// should never happen
+			throw new Error("Can't process requests : this adapter is stopped.");
 		}
 		else if(! this.server_) {
 			// no server ! Can't process !
-			this.resolve_request_if_no_server(request, result_deferred);
+			// should also never happen
+			throw new Error("Can't process requests : this adapter is misconfigured (no server).");
 		}
 		else {
 			this.resolve_request(request, result_deferred);
 		}
 	};
 
+	RestlinkServerDirectAdapter.prototype.ensure_server_session = function() {
+
+	};
+
 	RestlinkServerDirectAdapter.prototype.resolve_request = function(request, result_deferred) {
+
+		// first we need a session
+		this.ensure_server_session();
+
 		//TODO
 		// session ?
 		// can get the caller ?
+		throw Error("not implemented");
 	};
 
+	// TOREVIEW
 	RestlinkServerDirectAdapter.prototype.resolve_request_if_no_server = function(request, result_deferred) {
 		// build an error response
 		var response = Response.make_new_from_request(request, {
@@ -78,13 +88,10 @@ function(_, ServerBaseAdapter, ClientAdapterDirect, Response, http_constants) {
 	_.defaults(RestlinkServerDirectAdapter.prototype, Object.getPrototypeOf(base_adapter));
 
 
-	var make_new_restlink_server_direct_adapter = function() {
-		return new RestlinkServerDirectAdapter();
-	}; // make_new
 
 	return {
-		'make_new': make_new_restlink_server_direct_adapter,
+		'make_new': function() { return new RestlinkServerDirectAdapter(); },
 		'constants': constants,
 		'defaults': defaults
-	};;
+	};
 }); // requirejs module

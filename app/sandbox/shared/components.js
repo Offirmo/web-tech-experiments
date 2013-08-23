@@ -10,6 +10,9 @@ requirejs.config({
 	// NOTE 2 : relative baseUrl base refers to the calling html !
 	baseUrl: '../',
 
+	// http://requirejs.org/docs/api.html#config-enforceDefine
+	enforceDefine: false,
+
 	// require.js extensions (plugins)
 	map: {
 		'*': {

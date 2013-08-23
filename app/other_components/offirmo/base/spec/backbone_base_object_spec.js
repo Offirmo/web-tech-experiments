@@ -3,7 +3,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/base/base_object',
+	'offirmo/base/backbone/base_object',
 	'mocha'
 ],
 function(chai, CUT) {

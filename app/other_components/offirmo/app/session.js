@@ -6,7 +6,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'underscore',
-	'offirmo/base/base_object',
+	'offirmo/base/backbone/base_object',
 	'offirmo/app/app_list',
 	'offirmo/app/account',
 ],

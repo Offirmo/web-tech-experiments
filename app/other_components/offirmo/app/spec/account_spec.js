@@ -4,7 +4,7 @@ define(
 [
 	'chai',
 	'offirmo/app/account',
-	'offirmo/base/named_object',
+	'offirmo/base/backbone/named_object',
 	'mocha'
 ],
 function(chai, CUT, CUTParent) {

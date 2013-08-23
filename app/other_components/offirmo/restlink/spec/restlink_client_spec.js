@@ -6,7 +6,7 @@ define(
 	'underscore',
 	'jquery',
 	'offirmo/restlink/restlink_client',
-	'offirmo/base/base_object',
+	'offirmo/base/backbone/base_object',
 	'offirmo/restlink/response',
 	'offirmo/restlink/client_adapter_base',
 	'offirmo/utils/http_constants',

@@ -3,23 +3,22 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/base/named_object',
+	'offirmo/base/backbone/example_object',
+	'offirmo/base/backbone/named_object',
 	'mocha'
 ],
-function(chai, CUT) {
+function(chai, CUT, CUTParent) {
 	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
-	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('NamedObject', function() {
+	describe('ExampleObject', function() {
 
 		describe('instantiation', function() {
 
 			it('should be instantiable', function() {
 				var out = new CUT();
-
 				out.should.exist;
 				out.should.be.an('object');
 			});
@@ -27,19 +26,17 @@ function(chai, CUT) {
 			it('should have correct inheritance', function() {
 
 				var out = new CUT();
-
 				out.should.be.an.instanceof(CUT);
-
 				// test immediate ancestor(s)
-				// (none at this time)
+				out.should.be.an.instanceof(CUTParent);
 			});
 
 			it('should set default values', function() {
 				var out = new CUT();
-				out.get('denomination').should.exist.and.equal('Anonymous');
+				//out.get('denomination').should.exist.and.equal('Anonymous');
 			});
 
-		});
+		}); // describe feature
 
 		describe('denomination', function() {
 
@@ -95,9 +92,17 @@ function(chai, CUT) {
 			it('should generate its url correctly', function() {
 				// just testing backbone features
 				var out = new CUT();
-				out.set('denomination', 'Kevin');
-				out.compute_url().should.equal('namedobject/Kevin');
+				out.set('denomination', '123');
+				out.compute_url().should.equal('exampleobject/123');
 			});
+
+			it('should be unpersistable', function() {
+				var out = new CUT();
+
+				//expect(out.fetch()).to.throw('IdentityList sync : list not linked to an account !');
+			});
+
+			it('should be persistable');
 
 		}); // describe feature
 

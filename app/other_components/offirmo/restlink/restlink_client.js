@@ -15,7 +15,7 @@ define(
 function(_, jQuery, cache, Request, Response) {
 	"use strict";
 
-	var Constants = {
+	var constants = {
 		// ...
 	};
 
@@ -118,7 +118,7 @@ function(_, jQuery, cache, Request, Response) {
 
 	var make_new_restlink_client = function() {
 		return {
-			constants: Constants,
+			constants: constants,
 
 			client_adapter: undefined,
 
@@ -164,9 +164,7 @@ function(_, jQuery, cache, Request, Response) {
 	}; // make_new
 
 
-	var restlink_client = {
+	return {
 		'make_new': make_new_restlink_client
 	};
-
-	return restlink_client;
 }); // requirejs module

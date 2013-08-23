@@ -7,7 +7,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'underscore',
-	'offirmo/base/named_object'
+	'offirmo/base/backbone/named_object'
 ],
 function(_, NamedObject) {
 	"use strict";

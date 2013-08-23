@@ -6,19 +6,18 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'underscore',
-	'backbone',
 	'offirmo/utils/http_constants'
 ],
-function(_, Backbone, http_constants) {
+function(_, http_constants) {
 	"use strict";
 
 	var Request = {
 		make_new: function() {
 			return {
-				method: undefined,
-				uri: undefined,
-				meta: [],
-				content: undefined
+				method  : undefined,
+				uri     : undefined,
+				meta    : [],
+				content : undefined
 			};
 		}
 	};
