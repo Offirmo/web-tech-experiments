@@ -35,7 +35,7 @@ function(_, NamedObject, IdentityList) {
 		{
 			options || (options = {});
 
-			console.log("Backbone.Account.sync called : " + method, options);
+			//console.log("Backbone.Account.sync called : " + method, options);
 
 			if(method === 'read') {
 				var restlink = this.get('restlink');

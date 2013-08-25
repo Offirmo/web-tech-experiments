@@ -103,7 +103,7 @@ function(_, jQuery, cache, Request, Response) {
 			// progress
 			function(response) {
 				// TODO
-				console.log('restlink server request progress :' + response);
+				//console.log('restlink server request progress :' + response);
 			});
 		})(model, options);
 

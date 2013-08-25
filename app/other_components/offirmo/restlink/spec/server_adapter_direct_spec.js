@@ -35,7 +35,7 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 
 			it('should set default values', function() {
 				var out = CUT.make_new();
-				console.log(out);
+				//console.log(out);
 				out.is_started().should.be.false;
 			});
 

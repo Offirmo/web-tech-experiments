@@ -37,7 +37,7 @@ function(_, Backbone, Identity, BaseObject) {
 		{
 			options || (options = {});
 
-			console.log("Backbone.IdentityList.sync called : " + method, options);
+			//console.log("Backbone.IdentityList.sync called : " + method, options);
 
 			var account = model.get('account_denomination');
 			if(!_.isString(account)) {

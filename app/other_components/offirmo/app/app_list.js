@@ -54,7 +54,7 @@ function(_, Backbone, App) {
 				// reset and refill the collection
 				this.reset();
 				_.each(app_list, function(app) {
-					console.log(app);
+					//console.log(app);
 					model.push(app);
 				});
 				model.trigger('sync', model, undefined, options);

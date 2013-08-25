@@ -36,7 +36,7 @@ function(Backbone, store) {
 			}
 		}
 
-		console.log("Backbone.sync called : " + method + " on " + model);
+		//console.log("Backbone.sync called : " + method + " on " + model);
 
 		// eventually, forward to the original method
 		//return originalBackboneSync.call( this, method, model, options );

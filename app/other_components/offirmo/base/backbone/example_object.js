@@ -49,7 +49,7 @@ function(_, NamedObject) {
 		{
 			options || (options = {});
 
-			console.log("Backbone.ExampleObject.sync called : " + method, options);
+			//console.log("Backbone.ExampleObject.sync called : " + method, options);
 
 			if(method === 'read') {
 				throw 'ExampleObject sync update not implemented !';

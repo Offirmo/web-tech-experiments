@@ -44,7 +44,7 @@ function(_, BaseObject, AppList, Account) {
 		{
 			options || (options = {});
 
-			console.log("Backbone.Session.sync called : " + method, options);
+			//console.log("Backbone.Session.sync called : " + method, options);
 
 			if(method === 'read') {
 
