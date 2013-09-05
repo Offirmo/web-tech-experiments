@@ -69,7 +69,7 @@ function(chai, CUT) {
 
 			it('should work', function() {
 				xxx
-				
+
 			});
 
 		}); // describe feature
