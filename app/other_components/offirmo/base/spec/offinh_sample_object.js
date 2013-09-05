@@ -52,7 +52,7 @@ function(_) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function OffirmoSampleObject() {
 		_.defaults( this, defaults );
 		// other inits...
 		methods.init.apply(this, arguments);

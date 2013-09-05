@@ -8,9 +8,10 @@ define(
 	'underscore',
 	'jquery',
 	'offirmo/base/offinh/startable_object',
-	'offirmo/restlink/response'
+	'offirmo/restlink/server_internals/rest_target_indexed_shared_container'
+	//'offirmo/restlink/response'
 ],
-function(_, jQuery, StartableObject, Response) {
+function(_, jQuery, StartableObject, RestIndexedContainer) {
 	"use strict";
 
 
@@ -30,11 +31,17 @@ function(_, jQuery, StartableObject, Response) {
 	////////////////////////////////////
 	//defaults. = ;
 
+	methods.init = function() {
+		// init of member objects
+
 		// the server should know its adapters
 		// to be able to transmit them some events (startup/shutdown for ex.)
-	defaults.server_adapters_ = undefined;
-	// for complexity reasons, the actual handling is in another object
-	defaults.request_handler_ = undefined; // or null ?
+		this.server_adapters_ = [];
+		// for complexity reasons, the actual handling is in another object
+		this.request_handler_ = undefined; // or null ?
+		// we provide a generic rest-indexed shared container
+		this.rest_indexed_shared_container = RestIndexedContainer.make_new();
+	};
 
 
 	////////////////////////////////////
@@ -110,15 +117,14 @@ function(_, jQuery, StartableObject, Response) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function RestlinkServerCore() {
 		_.defaults( this, defaults ); // also set parent's defaults
 
 		// optional : call parent constructor (after setting our defaults)
 		//StartableObject.prototype.constructor.apply(this, arguments);
-
-		// do our own inits
-		this.server_adapters_ = [];
-	}
+		// other inits...
+		methods.init.apply(this, arguments);
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

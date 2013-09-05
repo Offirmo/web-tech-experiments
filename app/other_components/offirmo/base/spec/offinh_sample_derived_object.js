@@ -55,7 +55,7 @@ function(_, SampleObject) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function OffirmoSampleDerivedObject() {
 		_.defaults( this, defaults ); // may also set parent's defaults, depending on how we inherited
 
 		// example : call parent constructor (after setting our defaults)

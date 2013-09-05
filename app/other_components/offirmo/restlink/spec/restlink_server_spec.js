@@ -11,6 +11,7 @@ function(chai, CUT) {
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	describe('Restlink server', function() {
 
@@ -40,6 +41,46 @@ function(chai, CUT) {
 				out.is_started().should.be.true;
 				out.shutdown();
 				out.is_started().should.be.false;
+			});
+
+		}); // describe feature
+
+		describe('adapters', function() {
+
+			it('should be insertable', function() {
+				var adapter_started = false;
+				var fake_adapter = {
+					startup : function() {
+						adapter_started = true;
+					},
+					shutdown : function() {
+						adapter_started = false;
+					}
+				};
+				var out = CUT.make_new();
+
+				out.startup();
+				adapter_started.should.be.false;
+				out.add_adapter(fake_adapter);
+				adapter_started.should.be.true;
+				out.shutdown();
+				adapter_started.should.be.false;
+			});
+
+			it('should work', function() {
+				xxx
+			});
+
+		}); // describe feature
+
+		describe('request handling', function() {
+
+			it('should be configurable', function() {
+				xxx
+			});
+
+			it('should work', function() {
+				xxx
 			});
 
 		}); // describe feature

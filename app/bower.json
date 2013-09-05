@@ -24,7 +24,10 @@
 		"underscore":         "latest"
 	},
 	"devDependencies": {
-		"chai":               "latest"
+		"chai":               "latest",
+		"chai-as-promised":   "latest",
+		"chai-backbone":      "latest",
+		"sinon-chai":         "latest"
 	},
 	"needBuildDeps": {
 		"bootstrap":          "latest",

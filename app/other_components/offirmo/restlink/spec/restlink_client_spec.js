@@ -17,6 +17,7 @@ function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase, http_con
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	var test_adapter = ClientAdapterBase.make_new();
 	test_adapter.resolve_request = function(request, result_deferred) {

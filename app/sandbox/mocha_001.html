@@ -4,6 +4,8 @@
 	<title>Mocha Tests</title>
 	<link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
 	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+	<!-- <script src="../other_components/offirmo/restlink/server_internals/url_and_action_indexed_container.js"></script> -->
+
 	<!-- for scripts that have a syntax error -->
 	<!-- <script data-main="shared/components.js" src="../bower_components/offirmo/utils/spec/http_constants.js"></script> -->
 </head>
@@ -34,6 +36,7 @@
 				'offirmo/base/spec/offinh_named_object_spec',
 
 				'offirmo/utils/spec/extended_exceptions_spec',
+				'offirmo/utils/spec/fast_timestamp_spec',
 				'offirmo/utils/spec/http_constants_spec',
 				'offirmo/utils/spec/recent_and_favorites_spec',
 
@@ -52,11 +55,11 @@
 				'offirmo/restlink/spec/server_adapter_base_spec',
 				'offirmo/restlink/spec/server_adapter_direct_spec',
 				'offirmo/restlink/spec/server_internals_core_spec',
-				'offirmo/restlink/spec/server_internals_processing_context_spec',
+				'offirmo/restlink/spec/server_internals_transaction_spec',
 				'offirmo/restlink/spec/server_internals_request_handler_base_spec',
 				'offirmo/restlink/spec/server_internals_request_handler_actual_spec',
 				'offirmo/restlink/spec/server_internals_session_spec',
-				'offirmo/restlink/spec/server_internals_url_and_action_indexed_container_spec',
+				'offirmo/restlink/spec/server_internals_rest_target_indexed_container_spec',
 
 				'offirmo/app/spec/account_spec',
 				'offirmo/app/spec/app_spec',

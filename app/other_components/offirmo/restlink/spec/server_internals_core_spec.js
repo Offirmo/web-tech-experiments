@@ -9,14 +9,14 @@ define(
 	'offirmo/restlink/request',
 	'offirmo/restlink/response',
 	'offirmo/restlink/server_adapter_base',
-	'offirmo/utils/http_constants',
 	'mocha'
 ],
-function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase, http_constants) {
+function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
 	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	describe('restlink server internal core', function() {
 
@@ -68,6 +68,17 @@ function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase, http_consta
 				out.shutdown();
 				test_adapter1.is_started().should.be.false;
 				test_adapter2.is_started().should.be.false;
+			});
+
+		}); // describe feature
+
+		describe('rest-indexed shared container member', function() {
+
+			it('should be available', function() {
+				var out = CUT.make_new();
+
+				out.rest_indexed_shared_container.should.exist;
+				out.rest_indexed_shared_container.should.be.an('object');
 			});
 
 		}); // describe feature

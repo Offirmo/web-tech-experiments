@@ -13,6 +13,7 @@ function(chai, CUT, Request, http_constants) {
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	describe('restlink Response', function() {
 

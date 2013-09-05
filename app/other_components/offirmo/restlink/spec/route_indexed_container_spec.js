@@ -13,6 +13,7 @@ function(chai, _, CUT, EE) {
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	describe('route-indexed container', function() {
 
@@ -62,6 +63,22 @@ function(chai, _, CUT, EE) {
 				// id directly after root, bad
 				var tempfn = function() { out.insert("/:id", -1); }
 				tempfn.should.throw(CUT.exceptions.MalformedRouteError, "Route malformed : root can't be followed by an id !");
+			});
+
+			it('should avoid insertion conflicts', function() {
+				var out = CUT.make_new();
+
+				out.insert( "/agent",              20);
+
+				var tempfn = function() { out.insert("/agent", 30); }
+				tempfn.should.throw(EE.InvalidArgument, "Conflict : This route already has attached data !");
+				out.at("/agent").should.equal(20);
+
+				out.insert_if_not_present( "/agent", 30);
+				out.at("/agent").should.equal(20); // since already present
+
+				out.replace( "/agent", 30);
+				out.at("/agent").should.equal(30);
 			});
 
 			it('should ignore trailing slash', function() {

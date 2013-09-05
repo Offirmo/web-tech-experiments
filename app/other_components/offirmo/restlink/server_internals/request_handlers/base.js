@@ -40,14 +40,19 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 	//methods. = ;
 
 	// utilities
-	methods.resolve_with_error = function(context, request, status_code) {
+	methods.resolve_with_response = function(transaction, response) {
 		var result_deferred = jQuery.Deferred();
 
-		var response = Response.make_new_from_request(request);
-		response.return_code = status_code;
-		result_deferred.resolve(context, response);
+		result_deferred.resolve(transaction, response);
 
 		return result_deferred.promise();
+	};
+
+	methods.resolve_with_error = function(transaction, request, status_code) {
+		var response = Response.make_new_from_request(request);
+		response.return_code = status_code;
+
+		return this.resolve_with_response(transaction, response);
 	};
 
 	methods.resolve_with_not_implemented = function(context, request) {
@@ -73,10 +78,10 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 	Object.freeze(defaults);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function RestlinkRequestHandlerBase() {
 		_.defaults( this, defaults );
 		// other inits...
-	}
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

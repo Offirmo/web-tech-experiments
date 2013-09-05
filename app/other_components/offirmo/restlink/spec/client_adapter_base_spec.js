@@ -14,6 +14,7 @@ function(chai, CUT, Request, Response, http_constants) {
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	describe('restlink base client adapter', function() {
 

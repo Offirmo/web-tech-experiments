@@ -45,7 +45,7 @@ function(_) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function OffirmoNamedObject() {
 		_.defaults( this, defaults );
 		// other inits...
 	}

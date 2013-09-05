@@ -52,7 +52,7 @@ function(_) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function OffirmoStartableObject() {
 		_.defaults( this, defaults );
 		// other inits...
 	}

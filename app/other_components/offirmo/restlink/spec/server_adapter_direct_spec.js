@@ -17,6 +17,7 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 
 	var expect = chai.expect;
 	chai.should();
+	chai.Assertion.includeStack = true; // defaults to false
 
 	var request = Request.make_new();
 	request.method = 'BREW';

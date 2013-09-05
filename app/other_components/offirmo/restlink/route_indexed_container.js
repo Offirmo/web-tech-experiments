@@ -28,7 +28,7 @@ function(_, EE) {
 	constants.max_segment_count = 30;
 	constants.id_marker = ':id';
 	constants.segment_control_regexp = /\w+/; // too tight ?
-	constants.child_member_radix = "child.";
+	constants.child_member_radix = "child:";
 
 
 
@@ -137,7 +137,7 @@ function(_, EE) {
 		return current_node; // may be undefined
 	};
 
-	// read only, no creation
+	// read and write as parametered
 	methods.find_and_optionally_create_node = function(route, ids_allowed, creation_allowed) {
 
 		/// check params
@@ -256,46 +256,32 @@ function(_, EE) {
 		return match_infos.segments[match_infos.segments.length-1].internal_node;
 	};
 
-	methods.create_nodes_old = function(route) {
-		var current_node = this.root_node_;
-
-		if(route == "/") {
-			// return immediately since it wouldn't match classic segments
-			return current_node;
-		}
-
-		var segments = check_and_split_route(route);
-		if(segments.length == this.max_route_length)
-			throw new Error("Route too complex : '" + route + "'");
-
-		_.every(segments, function(segment) {
-
-			validate_segment(segment); // will throw
-
-			var node_name = compute_child_member_name(segment);
-			if( ! (node_name in current_node) ) {
-				var new_node = new node(current_node, segment);
-				if(new_node.is_id() && current_node.is_id())
-					throw new Error("Route can't have several consecutive ids !");
-
-				current_node[node_name] = new_node;
-			}
-			current_node = current_node[node_name];
-			return true; // keep looping
-		});
-
-		return current_node;
-	};
-
 	methods.insert = function(route, data) {
 		var node = this.create_nodes(route);
 
 		if(typeof node.payload_ !== 'undefined')
-			throw new EE.InvalidArgument("This route already has attached data !");
+			throw new EE.InvalidArgument("Conflict : This route already has attached data !");
 
 		node.payload_ = data;
 
-		return node.payload_; // good idea ?
+		return node.payload_; // allow immediate modification
+	};
+
+	methods.insert_if_not_present = function(route, data) {
+		var node = this.create_nodes(route);
+
+		if(typeof node.payload_ === 'undefined')
+			node.payload_ = data;
+
+		return node.payload_; // allow immediate modification
+	};
+
+	methods.replace = function(route, data) {
+		var node = this.create_nodes(route);
+
+		node.payload_ = data;
+
+		return node.payload_; // allow immediate modification
 	};
 
 	methods.at = function(route) {
@@ -315,10 +301,10 @@ function(_, EE) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function RouteIndexedContainer() {
 		_.defaults( this, defaults );
 		this.root_node_ = new node(undefined, "/"); // '/' ~discutable
-	}
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

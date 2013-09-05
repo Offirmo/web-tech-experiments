@@ -10,9 +10,11 @@ define(
 	'offirmo/restlink/server_internals/request_handlers/base',
 	'offirmo/restlink/request',
 	'offirmo/restlink/response',
+	'offirmo/restlink/route_indexed_container',
+	'offirmo/utils/extended_exceptions',
 	'offirmo/utils/http_constants'
 ],
-function(_, jQuery, BaseRequestHandler, Request, Response, http_constants) {
+function(_, jQuery, BaseRequestHandler, Request, Response, RouteIndexedContainer, EE, http_constants) {
 	"use strict";
 
 
@@ -25,6 +27,7 @@ function(_, jQuery, BaseRequestHandler, Request, Response, http_constants) {
 
 	////////////////////////////////////
 	//constants. = ;
+	constants.shared_container_key = "ActualRequestHandler";
 
 
 	////////////////////////////////////
@@ -39,12 +42,54 @@ function(_, jQuery, BaseRequestHandler, Request, Response, http_constants) {
 	//methods. = ;
 
 	// override of parent
-	methods.handle_request = function(context, request) {
-		return this.resolve_with_not_implemented(context, request);
+	methods.handle_request = function(transaction, request) {
+
+		var handled = false; // for now
+		try {
+			var match_infos = transaction.get_match_infos();
+			if(!match_infos.route_found) {
+				return this.resolve_with_error(transaction, request, http_constants.status_codes.status_404_client_error_not_found);
+			}
+			if(!match_infos.action_found) {
+				return this.resolve_with_error(transaction, request, http_constants.status_codes.status_501_server_error_not_implemented);
+			}
+			if(!match_infos.found) {
+				// should have been filtered by above tests !
+				return this.resolve_with_error(transaction, request, http_constants.status_codes.status_500_server_error_internal_error);
+			}
+			var my_data = match_infos.payload.get_and_optionally_create_data(constants.shared_container_key);
+
+			if( typeof my_data['callback'] === 'function' ) {
+				return my_data.callback(transaction, request);
+			}
+		}
+		catch(err) {
+			if (err instanceof RouteIndexedContainer.exceptions.RouteTooLongError) {
+				return this.resolve_with_error(transaction, request, http_constants.status_codes.status_414_client_error_request_uri_too_long);
+			}
+			if (err instanceof RouteIndexedContainer.exceptions.MalformedRouteError) {
+				return this.resolve_with_error(transaction, request, http_constants.status_codes.status_400_client_error_bad_request);
+			}
+			// unknown other error
+			return this.resolve_with_error(transaction, request, http_constants.status_codes.status_500_server_error_internal_error);
+		}
+
+		// not handled yet ?
+		// TODO forward to delegate instead
+		return this.resolve_with_not_implemented(transaction, request);
 	};
 
-	methods.add_callback_handler = function(route, callback) {
+	methods.add_callback_handler = function(rest_indexed_container, route, action, callback, replace_existing) {
+		if (typeof replace_existing === 'undefined') replace_existing = false;
 
+		var container = rest_indexed_container.get_bound_interface(constants.shared_container_key);
+
+		var entry = container.ensure(route, action);
+
+		if(entry.callback && !replace_existing)
+			throw EE.InvalidArgument("Conflict : a callback is already set for this REST endpoint.");
+
+		entry.callback = callback;
 	};
 
 	////////////////////////////////////
@@ -54,10 +99,10 @@ function(_, jQuery, BaseRequestHandler, Request, Response, http_constants) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	function DefinedClass() {
+	var DefinedClass = function RestlinkRequestHandlerActual() {
 		_.defaults( this, defaults );
 
-		// optional : call parent constructor (after setting our defaults)
+		// optional : call parent constructor
 		BaseRequestHandler.klass.prototype.constructor.apply(this, arguments);
 
 		// do our own inits
