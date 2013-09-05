@@ -1,4 +1,12 @@
-/* A generic object with a denomination
+/* A javascrip object
+ * Defined in "Offirmo style"
+ * A cool writing that is readable
+ * and doesn't constraint the user.
+ * (i.e. allow all kinds of inheritance)
+ *
+ * Inspired from various talks and posts about javascript objects and inheritance :
+ * http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
+ * http://javascript.crockford.com/private.html
  */
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
@@ -8,6 +16,7 @@ define(
 ],
 function(_) {
 	"use strict";
+
 
 	////////////////////////////////////
 	var constants  = {};
@@ -22,7 +31,11 @@ function(_) {
 
 	////////////////////////////////////
 	//defaults. = ;
-	defaults.denomination_ = "Anonymous";
+
+	methods.init = function() {
+		// init of member objects
+		//...
+	};
 
 
 	////////////////////////////////////
@@ -30,13 +43,7 @@ function(_) {
 
 
 	////////////////////////////////////
-	//methods.xyz = ...;
-	methods.set_denomination = function(name) {
-		this.denomination_ = name;
-	};
-	methods.get_denomination = function() {
-		return this.denomination_;
-	};
+	//methods. = ;
 
 
 	////////////////////////////////////
@@ -48,6 +55,7 @@ function(_) {
 	function DefinedClass() {
 		_.defaults( this, defaults );
 		// other inits...
+		methods.init.apply(this, arguments);
 	}
 
 	DefinedClass.prototype.constants  = constants;
@@ -58,8 +66,10 @@ function(_) {
 	////////////////////////////////////
 	return {
 		// objects are created via a factory, more future-proof
-		'make_new': function() { return new DefinedClass(); },
-		// exposing these allows inheritance
+		'make_new'   : function() { return new DefinedClass(); },
+		// but we still expose the constructor to allow class inheritance
+		'klass'      : DefinedClass,
+		// exposing these allows convenient syntax and also prototypal inheritance
 		'constants'  : constants,
 		'exceptions' : exceptions,
 		'defaults'   : defaults,

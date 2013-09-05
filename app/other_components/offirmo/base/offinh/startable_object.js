@@ -10,57 +10,66 @@ define(
 function(_) {
 	"use strict";
 
-	// http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
-	// http://javascript.crockford.com/private.html
+
+	////////////////////////////////////
+	var constants  = {};
+	var defaults   = {};
+	var exceptions = {};
+	var methods    = {};
 
 
 	////////////////////////////////////
-	var constants = {
-		// ...
+	//constants. = ;
+
+
+	////////////////////////////////////
+	//defaults. = ;
+	defaults.started_ = false;
+
+
+	////////////////////////////////////
+	//exceptions. = ;
+
+
+	////////////////////////////////////
+	//methods.xyz = ...;
+	methods.startup = function() {
+		// TODO check consistency
+		this.started_ = true;
 	};
+	methods.shutdown = function() {
+		// TODO check consistency
+		this.started_ = false;
+	};
+	methods.is_started = function() {
+		return this.started_;
+	};
+
+
+	////////////////////////////////////
 	Object.freeze(constants);
-
-
-	////////////////////////////////////
-	var defaults = {
-		started_ : false
-	};
 	Object.freeze(defaults);
-
-
-	////////////////////////////////////
-	var methods = {
-		startup : function() {
-			// TODO check consistency
-			this.started_ = true;
-		},
-		shutdown : function() {
-			// TODO check consistency
-			this.started_ = false;
-		},
-		is_started : function() {
-			return this.started_;
-		}
-	};
+	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-
-	////////////////////////////////////
 	function DefinedClass() {
 		_.defaults( this, defaults );
+		// other inits...
 	}
 
-	DefinedClass.prototype.constants = constants;
-
+	DefinedClass.prototype.constants  = constants;
+	DefinedClass.prototype.exceptions = exceptions;
 	_.extend(DefinedClass.prototype, methods);
-
 
 
 	////////////////////////////////////
 	return {
+		// objects are created via a factory, more future-proof
 		'make_new': function() { return new DefinedClass(); },
-		'constants': constants,
-		'defaults' : defaults,
-		'methods'  : methods
+		// exposing these allows inheritance
+		'constants'  : constants,
+		'exceptions' : exceptions,
+		'defaults'   : defaults,
+		'methods'    : methods
 	};
 }); // requirejs module

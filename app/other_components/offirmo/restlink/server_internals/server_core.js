@@ -6,18 +6,86 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'underscore',
-	'backbone',
 	'jquery',
+	'offirmo/base/offinh/startable_object',
 	'offirmo/restlink/response'
 ],
-function(_, Backbone, jQuery, Response) {
+function(_, jQuery, StartableObject, Response) {
 	"use strict";
 
+
+
+
 	////////////////////////////////////
-	var constants = {
-		// ...
+	var constants  = {};
+	var defaults   = {};
+	var exceptions = {};
+	var methods    = {};
+
+
+	////////////////////////////////////
+	//constants. = ;
+
+
+	////////////////////////////////////
+	//defaults. = ;
+
+		// the server should know its adapters
+		// to be able to transmit them some events (startup/shutdown for ex.)
+	defaults.server_adapters_ = undefined;
+	// for complexity reasons, the actual handling is in another object
+	defaults.request_handler_ = undefined; // or null ?
+
+
+	////////////////////////////////////
+	//exceptions. = ;
+
+
+	////////////////////////////////////
+	//methods. = ;
+
+	methods.add_adapter = function(adapter) {
+		this.server_adapters_.push(adapter);
+		if( this.is_started()) {
+			adapter.startup(this);
+		}
 	};
-	Object.freeze(constants);
+
+	methods.set_request_handler = function(handler) {
+		this.request_handler_ = handler;
+	};
+
+	// override of parent
+	methods.startup = function() {
+		// call parent
+		StartableObject.methods.startup.apply(this);
+
+		_.each(this.server_adapters_, function(adapter) {
+			adapter.startup(this);
+		});
+	};
+
+	// override of parent
+	methods.shutdown = function() {
+		_.each(this.server_adapters_, function(adapter) {
+			adapter.shutdown();
+		});
+
+		// call parent
+		StartableObject.methods.shutdown.apply(this);
+	};
+
+	methods.create_session = function() {
+		//TODO
+	};
+
+	methods.terminate_session = function(session) {
+		//TODO
+	};
+
+	methods.process_request = function(transaction, request) {
+		//TODO
+	};
 
 	/// TOSORT
 	// routes and their associated callbacks
@@ -26,70 +94,46 @@ function(_, Backbone, jQuery, Response) {
 	//router: new Backbone.Router()
 
 
+
 	////////////////////////////////////
-	var defaults = {
-		// status (start may involve opening sockets, etc.)
-		is_started_ : false,
-		// the server should know its adapters
-		// to be able to transmit them some events (startup/shutdown for ex.)
-		server_adapters_ : [],
-		// for complexity reasons, the actual handling is in another object
-		request_handler_ : undefined // or null ?
-	};
+
+	// inheritance
+
+	// prototypal inheritance from StartableObject
+	_.defaults(constants, StartableObject.constants);
+	_.defaults(defaults,  StartableObject.defaults);
+	_.defaults(methods,   StartableObject.methods);
+	// exceptions ?
+
+	Object.freeze(constants);
 	Object.freeze(defaults);
+	Object.freeze(exceptions);
+	Object.freeze(methods);
 
+	function DefinedClass() {
+		_.defaults( this, defaults ); // also set parent's defaults
 
-	////////////////////////////////////
-	function RestlinkServer() {
-		_.defaults( this, defaults );
+		// optional : call parent constructor (after setting our defaults)
+		//StartableObject.prototype.constructor.apply(this, arguments);
+
+		// do our own inits
+		this.server_adapters_ = [];
 	}
 
-	RestlinkServer.prototype.add_adapter = function(adapter) {
-		this.server_adapters_.push(adapter);
-		if( this.is_started()) {
-			adapter.startup(this);
-		}
-	};
-
-	RestlinkServer.prototype.set_request_handler = function(handler) {
-		this.request_handler_ = handler;
-	};
-
-	RestlinkServer.prototype.startup = function() {
-		this.is_started_ = true;
-		_.each(this.server_adapters_, function(adapter) {
-			adapter.startup(this);
-		});
-	};
-
-	RestlinkServer.prototype.shutdown = function() {
-		_.each(this.server_adapters_, function(adapter) {
-			adapter.shutdown();
-		});
-		this.is_started_ = false;
-	};
-
-	RestlinkServer.prototype.is_started = function() {
-		return this.is_started_;
-	};
-
-	RestlinkServer.prototype.create_session = function() {
-		//TODO
-	};
-
-	RestlinkServer.prototype.terminate_session = function(session) {
-		//TODO
-	};
-
-	RestlinkServer.prototype.process_request = function(transaction, request) {
-		//TODO
-	};
+	DefinedClass.prototype.constants  = constants;
+	DefinedClass.prototype.exceptions = exceptions;
+	_.extend(DefinedClass.prototype, methods);
 
 
 	////////////////////////////////////
 	return {
-		'make_new': function() { return new RestlinkServer(); },
-		'constants': constants,
-		'defaults' : defaults
+		'klass' : DefinedClass,
+		// objects are created via a factory, more future-proof
+		'make_new': function() { return new DefinedClass(); },
+		// exposing these allows inheritance
+		'constants'  : constants,
+		'exceptions' : exceptions,
+		'defaults'   : defaults,
+		'methods'    : methods
 	};
 }); // requirejs module
