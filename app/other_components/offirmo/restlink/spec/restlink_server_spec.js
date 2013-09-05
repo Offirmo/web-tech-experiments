@@ -45,7 +45,7 @@ function(chai, CUT) {
 
 		}); // describe feature
 
-		describe('adapters', function() {
+		describe('adapters interface', function() {
 
 			it('should be insertable', function() {
 				var adapter_started = false;
@@ -69,6 +69,7 @@ function(chai, CUT) {
 
 			it('should work', function() {
 				xxx
+				
 			});
 
 		}); // describe feature
