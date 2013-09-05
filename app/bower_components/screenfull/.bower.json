@@ -29,5 +29,6 @@
     "commit": "b91a9498dab0b179e7c3b3358a170557703f3028"
   },
   "_source": "git://github.com/sindresorhus/screenfull.js.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "screenfull"
 }

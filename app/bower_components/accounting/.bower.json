@@ -9,5 +9,6 @@
     "commit": "b14638fbec7a06cc7e87de0d7d7c8ea2a38d67f5"
   },
   "_source": "git://github.com/josscrowcroft/accounting.js.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "accounting"
 }

@@ -8,5 +8,6 @@
     "commit": "a407434aabd0a7776077d6272df8b4c4e38d7f1c"
   },
   "_source": "git://github.com/apendleton/jquery-svg.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "jquery.svg"
 }

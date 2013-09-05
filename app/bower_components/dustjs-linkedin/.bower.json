@@ -9,5 +9,6 @@
     "commit": "b040e2743b68b28fef5e6faac30a731ba343beaf"
   },
   "_source": "git://github.com/linkedin/dustjs.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "dustjs-linkedin"
 }

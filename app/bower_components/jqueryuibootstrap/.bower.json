@@ -8,5 +8,6 @@
     "commit": "57bfc05198c34d2096b8436cd45ed05017120aca"
   },
   "_source": "git://github.com/addyosmani/jquery-ui-bootstrap.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "jqueryuibootstrap"
 }

@@ -1,13 +1,14 @@
 {
   "name": "requirejs-i18n",
   "homepage": "https://github.com/requirejs/i18n",
-  "version": "2.0.3",
-  "_release": "2.0.3",
+  "version": "2.0.4",
+  "_release": "2.0.4",
   "_resolution": {
     "type": "version",
-    "tag": "2.0.3",
-    "commit": "9730c91fd9dd17b37162c768e0a79d7058ab36a6"
+    "tag": "2.0.4",
+    "commit": "3a472e9b7989c191396d9b527e782ffd376fb5d2"
   },
   "_source": "git://github.com/requirejs/i18n.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "requirejs-i18n"
 }

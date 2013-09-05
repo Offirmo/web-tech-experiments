@@ -14,5 +14,6 @@
     "commit": "e3c85b079af90814f397f80861c08d526ea063d4"
   },
   "_source": "git://github.com/marcuswestin/store.js.git",
-  "_target": "*"
+  "_target": "*",
+  "_originalSource": "store.js"
 }

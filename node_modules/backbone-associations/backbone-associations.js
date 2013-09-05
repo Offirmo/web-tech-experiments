@@ -1,5 +1,5 @@
 //
-//  Backbone-associations.js 0.5.1
+//  Backbone-associations.js 0.5.2
 //
 //  (c) 2013 Dhruva Ray, Jaynti Kanani, Persistent Systems Ltd.
 //  Backbone-associations may be freely distributed under the MIT license.
@@ -44,7 +44,7 @@
     collectionEvents = ["reset", "sort"];
 
     Backbone.Associations = {
-        VERSION:"0.5.1"
+        VERSION:"0.5.2"
     };
 
     // Backbone.AssociatedModel
@@ -159,11 +159,14 @@
                     // Merge in `options` specific to this relation.
                     relationOptions = relation.options ? _.extend({}, relation.options, options) : options;
 
+                    if ((!relatedModel) && (!collectionType))
+                        throw new Error('specify either a relatedModel or collectionType');
+
                     if (attributes[relationKey]) {
                         // Get value of attribute with relation key in `val`.
                         val = _.result(attributes, relationKey);
                         // Map `val` if a transformation function is provided.
-                        val = map ? map(val) : val;
+                        val = map ? map.call(this, val, collectionType ? collectionType : relatedModel) : val;
 
                         // If `relation.type` is `Backbone.Many`,
                         // Create `Backbone.Collection` with passed data and perform Backbone `set`.
@@ -173,10 +176,10 @@
                                 throw new Error('collectionType must inherit from Backbone.Collection');
                             }
 
-                            if (val instanceof BackboneCollection) {
+                            if (val instanceof BackboneCollection && !currVal) {
                                 data = val;
-                                // Compute whether the context is a new one after this assignment.
-                                newCtx = (currVal !== val);
+                                // Set current context as new context
+                                newCtx = true;
                             } else {
                                 // Create a new collection
                                 if (!currVal) {
@@ -188,10 +191,19 @@
                                     data._deferEvents = true;
                                 }
                                 // Use Backbone.Collection's `reset` or smart `set` method
-                                data[relationOptions.reset ? 'reset' : 'set'](val, relationOptions);
+                                data[relationOptions.reset ? 'reset' : 'set'](val instanceof BackboneCollection
+                                    ? val.models
+                                    : val, relationOptions);
                             }
 
-                        } else if (relation.type === Backbone.One && relatedModel) {
+                        } else if (relation.type === Backbone.One) {
+
+                            if (!relatedModel)
+                                throw new Error('specify a relatedModel for Backbone.One type');
+
+                            if (!(relatedModel.prototype instanceof Backbone.AssociatedModel))
+                                throw new Error('specify an AssociatedModel for Backbone.One type');
+
                             if (val instanceof AssociatedModel) {
                                 data = val;
                                 // Compute whether the context is a new one after this assignment.
@@ -215,7 +227,10 @@
                                 }
                             }
 
+                        } else {
+                            throw new Error('type attribute must be specified and have the values Backbone.One or Backbone.Many');
                         }
+
 
                         attributes[relationKey] = data;
                         relationValue = data;
@@ -332,7 +347,9 @@
 
             //Only fire for change. Not change:attribute
             if ("change" === eventType && this.get(eventPath) != args[2]) {
-                this.trigger.apply(this, ["nested-change", eventPath, args[1]]);
+                var ncargs = ["nested-change", eventPath, args[1]];
+                args[2] && ncargs.push(args[2]); //args[2] will be options if present
+                this.trigger.apply(this, ncargs);
             }
 
             // Remove `eventPath` from `_proxyCalls`,
@@ -372,8 +389,8 @@
 
         // Process all pending events after the entire object graph has been updated
         _processPendingEvents:function () {
-            if (!this.visited) {
-                this.visited = true;
+            if (!this._processedEvents) {
+                this._processedEvents = true;
 
                 this._deferEvents = false;
 
@@ -390,7 +407,7 @@
                     val && val._processPendingEvents();
                 }, this);
 
-                delete this.visited;
+                delete this._processedEvents;
             }
         },
 
@@ -408,7 +425,8 @@
 
         // The JSON representation of the model.
         toJSON:function (options) {
-            var json, aJson;
+            var json = {}, aJson;
+            json[this.idAttribute] = this.id;
             if (!this.visited) {
                 this.visited = true;
                 // Get json representation from `BackboneModel.toJSON`.
@@ -482,19 +500,22 @@
 
     //Infer the relation from the collection's parents and find the appropriate map for the passed in `models`
     var map2models = function (parents, target, models) {
-        var relation;
+        var relation, surrogate;
         //Iterate over collection's parents
         _.find(parents, function (parent) {
             //Iterate over relations
             relation = _.find(parent.relations, function (rel) {
                 return parent.get(rel.key) === target;
             }, this);
-            if (relation) return true;//break;
+            if (relation) {
+                surrogate = parent;//surrogate for transformation
+                return true;//break;
+            }
         }, this);
 
         //If we found a relation and it has a mapping function
         if (relation && relation.map) {
-            return relation.map(models)
+            return relation.map.call(surrogate, models, target);
         }
         return models;
     };

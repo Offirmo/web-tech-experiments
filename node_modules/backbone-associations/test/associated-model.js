@@ -365,6 +365,77 @@ $(document).ready(function () {
         equal(emp.get("works_for").get('number'), -1, "number has default value");
     });
 
+    test("invalid relations", 4, function () {
+        var em1 = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type1:Backbone.One, //no type specified
+                    key:'parent',
+                    relatedModel:'Node'
+                }
+            ]
+        });
+
+        try {
+            var emi1 = new em1;
+            emi1.set('parent', {id:1});
+        } catch (e) {
+            equal(e.message === "type attribute must be specified and have the values Backbone.One or Backbone.Many", true)
+        }
+
+        var em2 = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type:Backbone.Oxne, //wrong value of type
+                    key:'parent',
+                    relatedModel:'Node'
+                }
+            ]
+        });
+
+        try {
+            var em2i = new em2;
+            em2i.set('parent', {id:1});
+        } catch (e) {
+            equal(e.message === "type attribute must be specified and have the values Backbone.One or Backbone.Many", true)
+        }
+
+        var em3 = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type:Backbone.One,
+                    key:'parent',
+                    collectionType:em2//no RelatedModel specified
+                }
+            ]
+        });
+
+        try {
+            var em3i = new em3;
+            em3i.set('parent', {id:1});
+        } catch (e) {
+            equal(e.message === "specify a relatedModel for Backbone.One type", true)
+        }
+
+        var Owner = Backbone.Model.extend();
+        var House = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type:Backbone.One,
+                    key:'owner',
+                    relatedModel:Owner
+                }
+            ]
+        });
+        var owner = new Owner;
+        try {
+            new House({owner:owner});
+        } catch (e) {
+            equal(e.message === "specify an AssociatedModel for Backbone.One type", true)
+        }
+
+    });
+
     test("escape", 1, function () {
         emp.get('works_for').get("locations").at(0).set({'add1':'<a>New Address</a>'});
         equal(_.escape(emp.get('works_for').get("locations").at(0).get("add1")), '&lt;a&gt;New Address&lt;&#x2F;a&gt;', "City should be in HTML-escaped version");
@@ -748,7 +819,7 @@ $(document).ready(function () {
         emp.get('works_for.controls[0].locations').sort();
     });
 
-    test("child `nested-change`", 5, function () {
+    test("child `nested-change`", 9, function () {
         emp.get('works_for').get('locations').on('change', function () {
             ok(true, "Regular backbone change event from collections...");
         });
@@ -759,6 +830,8 @@ $(document).ready(function () {
                 ok(true, "Fired emp.works_for change:controls[0].locations[0]...");
             if (arguments[0] == "locations[0]")
                 ok(true, "Fired emp.works_for change:locations[0]...");
+            equal(arguments[2].dummy, true);
+
         });
 
         emp.on('nested-change', function () {
@@ -766,9 +839,12 @@ $(document).ready(function () {
                 ok(true, "Fired emp change:works_for.controls[0].locations[0]...");
             if (arguments[0] == "works_for.locations[0]")
                 ok(true, "Fired emp change:works_for.locations[0]...");
+
+            equal(arguments[2].dummy, true);
+
         });
 
-        emp.get('works_for').get("locations").at(0).set('zip', 94403);
+        emp.get('works_for').get("locations").at(0).set('zip', 94403, {dummy:true});
     });
 
     test("Set closure scope correctly - while setting BB Collection & Model instances directly", 5, function () {
@@ -1069,13 +1145,173 @@ $(document).ready(function () {
         equal(searchResult.get('products').length, 4, "searchResult.products.length should be 4."); //1
     });
 
+    test("Cycle save: Issue#51", 3, function () {
+        var MyApp = {
+            Models:{},
+            Context:{provinceRecords:[]}
+        };
+
+        var Models = MyApp.Models;
+
+        Models.ChildMinder = Backbone.AssociatedModel.extend({
+        });
+
+        Models.ChildrenMinders = Backbone.Collection.extend({
+            model:Models.ChildMinder
+        });
+
+        Models.Record = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type:Backbone.Many,
+                    key:'childrenMinders',
+                    collectionType:Models.ChildrenMinders
+                }
+            ],
+
+            // For demo purposes only
+            sync:function (method, model, options) {
+                var response = {};
+                if (method === 'create') {
+                    response[model.idAttribute] = counter++; // dummy id
+                } else if (method === 'update') {
+                    // Let's assume that - after success update, server sends model's json object
+                    response = model.toJSON();
+                }
+                return options.success.call(this, response);
+            }
+        });
+
+        Models.ChildMinder.relations = [];
+        Models.ChildMinder.relations.push(
+            {
+                type:Backbone.One,
+                key:'record',
+                relatedModel:Models.Record
+            }
+        );
+
+        var provinceRecord = new Models.Record({id:2, name:'test1'});
+        MyApp.Context.provinceRecords.push(provinceRecord);
+
+        var childrenMinders = new Models.ChildrenMinders([
+            new Models.ChildMinder({id:1, type:'test1', record:provinceRecord}),
+            new Models.ChildMinder({id:2, type:'test2', record:provinceRecord}),
+            new Models.ChildMinder({id:3, type:'test3', record:provinceRecord})
+        ]
+        );
+        provinceRecord.set('childrenMinders', childrenMinders);
+        provinceRecord.save();
+
+        equal(provinceRecord.get('childrenMinders').at(0).get('record') === provinceRecord, true);
+        equal(provinceRecord.get('childrenMinders') === childrenMinders, true);
+        equal(provinceRecord.get('childrenMinders').at(0) === childrenMinders.at(0), true);
+
+    });
+
+
+    test("Polymorphic associations + map: Issue#54", 9, function () {
+        var Fruit = Backbone.AssociatedModel.extend();
+        var Banana = Fruit.extend();
+        var Tomato = Fruit.extend();
+
+        var polymorphic = function (relation, attributes) {
+            var key = relation.key + '_type';
+            return attributes[key] || this.get(key);
+
+        };
+
+        var fruitStore = {};
+        fruitStore['Banana'] = [
+            new Banana({species:"Robusta", id:3}),
+            new Banana({species:"Yallaki", id:4}),
+            new Banana({species:"Genetic Modification", id:5}),
+            new Banana({species:"Organic", id:6})
+        ];
+        fruitStore['Tomato'] = [
+            new Tomato({species:"Cherry", id:3}),
+            new Tomato({species:"Regular", id:4})
+        ];
+
+
+        //Handles both an array of ids and an id
+        var lazy = function (fids, type) {
+            fids = _.isArray(fids) ? fids : [fids];
+            type = type instanceof Backbone.Collection ? type.model : type;
+            var store = function (type) {
+                if (type == Banana)
+                    return fruitStore['Banana'];
+                if (type == Tomato)
+                    return fruitStore['Tomato'];
+            }(type);
+
+            return _.map(
+                fids,
+                function (fid) {
+                    return _.findWhere(store, {id:fid});
+                }
+            );
+        };
+
+        var Oatmeal = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type:Backbone.One,
+                    key:'fruitable',
+                    relatedModel:polymorphic,
+                    map:lazy
+                }
+            ]
+        });
+
+        var aHealthyBowl = new Oatmeal({fruitable_type:Banana, fruitable:{species:"Robusta"}});
+
+        equal(aHealthyBowl.get('fruitable') instanceof Banana, true);
+        equal(aHealthyBowl.get('fruitable') instanceof Tomato, false);
+
+
+        var aHealthyBowl2 = new Oatmeal({fruitable_type:Banana, fruitable:3});
+
+        equal(aHealthyBowl2.get('fruitable') instanceof Banana, true);
+
+
+        //Test with Backbone.Many
+        var FruitExplosion = Backbone.AssociatedModel.extend({
+            relations:[
+                {
+                    type:Backbone.Many,
+                    key:'fruitable',
+                    relatedModel:polymorphic,
+                    map:lazy
+                }
+            ]
+        });
+
+        var bananaExplosion = new FruitExplosion({fruitable_type:Banana, fruitable:[3, 4]});
+        equal(bananaExplosion.get('fruitable').at(0).get('species') === "Robusta", true);
+        equal(bananaExplosion.get('fruitable').at(1).get('species') === "Yallaki", true);
+
+        bananaExplosion.get('fruitable').add([5, 6]);
+
+        equal(bananaExplosion.get('fruitable').at(2).get('species') === "Genetic Modification", true);
+        equal(bananaExplosion.get('fruitable').at(3).get('species') === "Organic", true);
+
+
+        var tomatoExplosion = new FruitExplosion({fruitable_type:Tomato, fruitable:[3, 4]});
+        equal(tomatoExplosion.get('fruitable').at(0).get('species') === "Cherry", true);
+        equal(tomatoExplosion.get('fruitable').at(1).get('species') === "Regular", true);
+
+
+    });
+
+
     test("Issue #28", 2, function () {
         var ItemModel = Backbone.AssociatedModel.extend({
             relations:[
                 {
                     type:Backbone.One,
                     key:'product',
-                    relatedModel:Backbone.AssociatedModel
+                    relatedModel:Backbone.AssociatedModel.extend()
                 }
             ],
             initialize:function () {
@@ -1131,7 +1367,7 @@ $(document).ready(function () {
 
     test("Issue  #35", 4, function () {
 
-        var FieldInputType = Backbone.Model.extend({
+        var FieldInputType = Backbone.AssociatedModel.extend({
             defaults:{
                 id:"-1",
                 type:"",
@@ -1150,7 +1386,9 @@ $(document).ready(function () {
                 {
                     type:Backbone.One,
                     key:'type',
-                    relatedModel:FieldInputType,
+                    relatedModel:function () {
+                        return  FieldInputType;
+                    },
                     map:function (id) {
                         return store.findWhere({type:id});
                     }
@@ -1300,7 +1538,49 @@ $(document).ready(function () {
         //Should not trigger event in m2.get('model1').on("change", callback) as we have a diff model1 instance
         m2.set({id:1, model1:{id:3, name:"Name3"}, version:"m2.1"});
 
+    });
 
+    test("Issue #31 nested collection", 2, function () {
+        var Node = Backbone.AssociatedModel.extend({
+            defaults:{
+                id:null,
+                value:"",
+                nodes:[]
+            },
+            relations:[
+                {
+                    type:Backbone.Many,
+                    key:"nodes",
+                    relatedModel:Backbone.Self
+                }
+            ]
+        });
+
+        var treeJson = {
+            id:0,
+            value:"0",
+            nodes:[
+                {
+                    id:1,
+                    value:"1",
+                    nodes:[
+                        {
+                            id:2,
+                            value:"2"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        var treeModel = new Node(treeJson);
+        var nodes0 = treeModel.get("nodes");
+        var nodes1 = treeModel.get("nodes[0].nodes");
+
+        ///The response from server side can update treeModel on success
+        treeModel.set(treeJson);
+        equal(nodes0 === treeModel.get("nodes"), true);
+        equal(nodes1 === treeModel.get("nodes[0].nodes"), true);
     });
 
     test("add multiple refs to the same collection", 6, function () {
@@ -1520,6 +1800,8 @@ $(document).ready(function () {
 
     test("Self-Reference `toJSON`", function () {
         var emp2 = new Employee({'fname':'emp2'});
+        emp2.idAttribute = "emp_id";
+        emp2.set('emp_id', 1);
         emp2.set({'manager':emp2});
         var rawJson = {
             "works_for":{
@@ -1531,9 +1813,10 @@ $(document).ready(function () {
             "dependents":[],
             "sex":"M",
             "age":0,
+            "emp_id":1,
             "fname":"emp2",
             "lname":"",
-            "manager":undefined
+            "manager":{emp_id:1}
         };
         deepEqual(emp2.toJSON(), rawJson, "emp2.toJSON() is identical as rawJson");
     });
@@ -1902,9 +2185,25 @@ $(document).ready(function () {
     module("Cyclic Graph", {
         setup:function () {
             node1 = new Node({name:'n1'});
+            node1.id = "n1";
             node2 = new Node({name:'n2'});
+            node2.id = "n2";
             node3 = new Node({name:'n3'});
+            node3.id = "n3";
+
         }
+    });
+
+    test("Call toJSON in cycles -  Issue#58", 1, function () {
+
+        node1.set({parent:node3, children:[node2]});
+
+        node1.on('add:children', function () {
+            var node12Json = "{\"name\":\"n1\",\"parent\":{\"name\":\"n3\"},\"children\":[{\"name\":\"n2\"},{\"name\":\"n3\"}]}";
+            equal(JSON.stringify(node1.toJSON()), node12Json);
+        });
+
+        node1.set({parent:node3, children:[node2, node3]});
     });
 
     test("set,trigger", 13, function () {
@@ -1966,20 +2265,26 @@ $(document).ready(function () {
                     "children":[
                         {
                             "name":"n2",
-                            "children":[],
-                            "parent":undefined
+                            "children":[
+                                {"id":"n1"}
+                            ],
+                            "parent":{"id":"n3"}
                         }
                     ],
-                    "parent":undefined
+                    "parent":{"id":"n1"}
                 }
             ],
             "parent":{
                 "name":"n2",
-                "children":[],
+                "children":[
+                    {"id":"n1"}
+                ],
                 "parent":{
                     "name":"n3",
-                    "children":[],
-                    "parent":undefined
+                    "children":[
+                        {"id":"n2"}
+                    ],
+                    "parent":{"id":"n1"}
                 }
             }
         };

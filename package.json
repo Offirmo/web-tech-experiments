@@ -8,13 +8,16 @@
 		"accounting":         "latest",
 		"angular":            "latest",
 		"backbone":           "latest",
-		"backbone-associations":   "latest",
+		"backbone-associations":  "latest",
 		"jquery":             "latest",
 		"json2":              "latest",
 		"underscore":         "latest"
 	},
 	"devDependencies": {
 		"mocha":              "latest",
-		"chai":               "latest"
+		"chai":               "latest",
+		"chai-as-promised":   "latest",
+		"chai-backbone":      "latest",
+		"sinon-chai":         "latest"
 	}
 }
