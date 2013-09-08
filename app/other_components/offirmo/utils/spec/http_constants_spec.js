@@ -45,6 +45,49 @@ function(chai, CUT) {
 
 		describe('methods', function() {
 
+			it('should be available', function() {
+				// at last
+				CUT.methods.should.include.keys('get', 'put', 'post', 'delete');
+			});
+
+		}); // describe feature
+
+
+
+		describe('status codes', function() {
+
+			it('should be available', function() {
+				var values = [];
+				for(var code in CUT.status_codes) {
+					values.push(CUT.status_codes[code]);
+				}
+				// at last those most used one
+				values.should.include.members([100, 200, 400, 404, 500, 501]);
+			});
+
+			it('should be correct', function() {
+				for(var code_name in CUT.status_codes) {
+					// value should be a number
+					CUT.status_codes[code_name].should.be.a.number;
+					CUT.status_codes[code_name].should.to.be.within(100, 599);
+				}
+			});
+
+
+		}); // describe feature
+
+
+
+		describe('status messages', function() {
+
+			it('should be available for each status code', function() {
+				for(var code_name in CUT.status_codes) {
+					var code = CUT.status_codes[code_name];
+					CUT.status_messages.should.include.keys(code.toString());
+					CUT.status_messages[code].should.be.a.string;
+				}
+			});
+
 
 
 		}); // describe feature

@@ -12,7 +12,7 @@ function(chai, CUT) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('fast timestamp', function() {
+	describe('Fast timestamps', function() {
 
 		describe('generation', function() {
 
@@ -26,7 +26,7 @@ function(chai, CUT) {
 
 		});
 
-		describe('diff', function() {
+		describe('comparison and elapsed time computation', function() {
 
 			it('should work', function() {
 				var t1 = CUT.get_timestamp();

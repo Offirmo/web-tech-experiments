@@ -12,7 +12,7 @@ function(chai, CUT) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('BaseObject', function() {
+	describe('Backbone BaseObject', function() {
 
 		describe('instantiation', function() {
 

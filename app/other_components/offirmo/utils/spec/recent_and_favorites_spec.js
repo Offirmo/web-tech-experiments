@@ -12,7 +12,7 @@ function(chai, CUT) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('RecentAndFavs', function() {
+	describe('Recent and favorites container', function() {
 
 		describe('instantiation', function() {
 

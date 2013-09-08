@@ -8,9 +8,10 @@ define(
 	'underscore',
 	'offirmo/base/offinh/named_object',
 	'offirmo/base/offinh/startable_object',
-	'offirmo/restlink/server_internals/server_core'
+	'offirmo/restlink/server_internals/server_core',
+	'offirmo/restlink/server_internals/request_handlers/actual',
 ],
-function(_, NamedObject, StartableObject, ServerCore) {
+function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler) {
 	"use strict";
 
 
@@ -31,6 +32,7 @@ function(_, NamedObject, StartableObject, ServerCore) {
 	methods.init = function() {
 		// init of member objects
 		this.core_ = ServerCore.make_new();
+		this.handler_built_ = false;
 	};
 
 
@@ -43,6 +45,8 @@ function(_, NamedObject, StartableObject, ServerCore) {
 
 
 	methods.startup = function() {
+		this.ensure_request_handler_();
+
 		// call parent
 		StartableObject.methods.startup.call(this);
 
@@ -59,6 +63,18 @@ function(_, NamedObject, StartableObject, ServerCore) {
 
 	methods.add_adapter = function(adapter) {
 		this.core_.add_adapter(adapter);
+	};
+
+	// to be overriden
+	methods.build_request_handler_ = function() {
+		var actual_handler = ActualRequestHandler.make_new();
+		this.core_.set_request_handler(actual_handler);
+	};
+
+	methods.ensure_request_handler_ = function() {
+		if(!this.handler_built_) {
+			this.build_request_handler_();
+		}
 	};
 
 	methods.add_request_handler = function(route, method, handler) {

@@ -1,20 +1,24 @@
 /* A generic REST 'server' executing REST operations
  * transport agnostic : can run on server or in client
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
 	'underscore',
 	'jquery',
+	'offirmo/utils/extended_exceptions',
 	'offirmo/base/offinh/startable_object',
-	'offirmo/restlink/server_internals/rest_target_indexed_shared_container'
-	//'offirmo/restlink/response'
+	'offirmo/restlink/server_internals/rest_target_indexed_shared_container',
+	'offirmo/restlink/server_internals/server_session',
+	'offirmo/restlink/server_internals/request_handlers/base'
 ],
-function(_, jQuery, StartableObject, RestIndexedContainer) {
+function(_, jQuery, EE, StartableObject, RestIndexedContainer, ServerSession, BaseRequestHandler) {
 	"use strict";
 
-
+	// to use when no request handler set
+	// shared (since no state)
+	var default_request_handler = BaseRequestHandler.make_new();
 
 
 	////////////////////////////////////
@@ -41,6 +45,8 @@ function(_, jQuery, StartableObject, RestIndexedContainer) {
 		this.request_handler_ = undefined; // or null ?
 		// we provide a generic rest-indexed shared container
 		this.rest_indexed_shared_container = RestIndexedContainer.make_new();
+		// to be able to stop them
+		this.sessions_ = [];
 	};
 
 
@@ -67,31 +73,52 @@ function(_, jQuery, StartableObject, RestIndexedContainer) {
 		// call parent
 		StartableObject.methods.startup.apply(this);
 
+		var this_ = this; // for the call below
 		_.each(this.server_adapters_, function(adapter) {
-			adapter.startup(this);
+			adapter.startup(this_);
 		});
 	};
 
 	// override of parent
 	methods.shutdown = function() {
+
+		// shutdown adapters so we won't receive new requests
 		_.each(this.server_adapters_, function(adapter) {
 			adapter.shutdown();
 		});
+
+		// also invalidate all existing sessions
+		_.each(this.sessions_, function(session) {
+			session.invalidate();
+		});
+		this.sessions_ = []; // no need to keep invalidated sessions
 
 		// call parent
 		StartableObject.methods.shutdown.apply(this);
 	};
 
 	methods.create_session = function() {
-		//TODO
+		if(!this.is_started())
+			throw new EE.IllegalStateError("Can't create new session : server is stopped !");
+		var session = ServerSession.make_new();
+		session.set_server(this);
+		this.sessions_.push(session);
+		return session;
 	};
 
 	methods.terminate_session = function(session) {
-		//TODO
+		session.invalidate();
+
+		// keep only the valid one
+		this.sessions_ = _.filter(this.sessions_, function(session){ return session.is_valid(); });
 	};
 
 	methods.process_request = function(transaction, request) {
-		//TODO
+		if(typeof this.request_handler_ === 'undefined') {
+			// quick error reply
+			return default_request_handler.resolve_with_internal_error(transaction, request, "Can't process request, Server misconfigured : no request handler set !");
+		}
+		return this.request_handler_.handle_request(transaction, request);
 	};
 
 	/// TOSORT

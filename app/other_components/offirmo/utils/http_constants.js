@@ -53,14 +53,38 @@ function() {
 			// 500 : Server error
 			status_500_server_error_internal_error:  500,
 			status_501_server_error_not_implemented: 501,
+			status_502_bad_gateway:                  502,
+			status_503_client_forbidden:             503,
 			status_504_server_error_gateway_timeout: 504,
 			status_507_insufficient_storage:         507
+		},
+
+		'status_messages': {
+			100 : "Continue",
+
+			200 : "OK",
+			201 : "Created",
+
+			400 : "Bad Request",
+			401 : "Unauthorized",
+			403 : "Forbidden",
+			404 : "Not Found",
+			405 : "Method Not Allowed",
+			414 : "Request-URI Too Long",
+
+			500 : "Internal Server Error",
+			501 : "Not Implemented",
+			502 : "Bad gateway",
+			503 : "Service unavailable",
+			504 : "Gateway Timeout",
+			507 : "Insufficient Storage"
 		}
 	};
 	Object.freeze(http_constants);
 	Object.freeze(http_constants.methods);
 	Object.freeze(http_constants.header_fields);
 	Object.freeze(http_constants.status_codes);
+	Object.freeze(http_constants.status_messages);
 
 	return http_constants;
 }); // requirejs module

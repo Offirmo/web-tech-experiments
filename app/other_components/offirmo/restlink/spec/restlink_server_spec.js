@@ -4,14 +4,21 @@ define(
 [
 	'chai',
 	'offirmo/restlink/restlink_server',
+	'offirmo/restlink/server_internals/adapters/direct',
+	'offirmo/restlink/request',
+	'offirmo/utils/http_constants',
 	'mocha'
 ],
-function(chai, CUT) {
+function(chai, CUT, DirectServerAdapter, Request, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
+
+	var test_request = Request.make_new();
+	test_request.method = 'BREW';
+	test_request.uri = '/stanford/teapot';
 
 	describe('Restlink server', function() {
 
@@ -47,7 +54,7 @@ function(chai, CUT) {
 
 		describe('adapters interface', function() {
 
-			it('should be insertable', function() {
+			it('should allow insertion and correctly propagate startup/shutdown', function() {
 				var adapter_started = false;
 				var fake_adapter = {
 					startup : function() {
@@ -67,8 +74,31 @@ function(chai, CUT) {
 				adapter_started.should.be.false;
 			});
 
-			it('should work', function() {
-				xxx
+			it('should work', function(signalAsyncTestFinished) {
+				var out = CUT.make_new();
+				// let's try the direct adapter
+				var direct_adapter = DirectServerAdapter.make_new();
+				out.add_adapter(direct_adapter);
+
+				out.startup();
+
+
+				var client = direct_adapter.new_connection();
+
+				// go for it
+				var promise = client.send_request(test_request);
+
+				// check result : should 404 but not 500
+				promise.done(function(response){
+					response.method.should.equal('BREW');
+					response.uri.should.equal('/stanford/teapot');
+					response.return_code.should.equal(http_constants.status_codes.status_404_client_error_not_found);
+					response.content.should.equal("Not Found");
+					signalAsyncTestFinished();
+				});
+				promise.fail(function(response){
+					expect(false).to.be.ok;
+				});
 
 			});
 

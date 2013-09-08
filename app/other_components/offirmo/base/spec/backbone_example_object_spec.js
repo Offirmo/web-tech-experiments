@@ -13,7 +13,7 @@ function(chai, CUT, CUTParent) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('ExampleObject', function() {
+	describe('Backbone ExampleObject', function() {
 
 		describe('instantiation', function() {
 

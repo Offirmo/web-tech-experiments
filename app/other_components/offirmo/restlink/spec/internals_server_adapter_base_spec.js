@@ -3,7 +3,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 define(
 [
 	'chai',
-	'offirmo/restlink/server_adapter_base',
+	'offirmo/restlink/server_internals/adapters/base',
 	'mocha'
 ],
 function(chai, CUT) {
@@ -13,7 +13,7 @@ function(chai, CUT) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('restlink base server adapter', function() {
+	describe('Restlink base server adapter', function() {
 
 		describe('instantiation', function() {
 
@@ -42,6 +42,15 @@ function(chai, CUT) {
 				out.is_started().should.be.true;
 				out.shutdown();
 				out.is_started().should.be.false;
+			});
+
+
+			it('should not be startable without a server', function() {
+				var out = CUT.make_new();
+
+				// go for it
+				var tempfn = function() { out.startup(undefined); };
+				tempfn.should.throw(Error, "Can't start adapter : missing server argument !");
 			});
 
 		}); // describe feature

@@ -13,7 +13,7 @@ function(chai, CUT) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('restlink server session', function() {
+	describe('Restlink server session', function() {
 
 		describe('instantiation', function() {
 

@@ -12,7 +12,7 @@ function(chai, CUT) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('OffInh Startable Object', function() {
+	describe('Startable Object', function() {
 
 		describe('instantiation', function() {
 

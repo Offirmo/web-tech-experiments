@@ -55,11 +55,11 @@ function(_, EE) {
 			if(!this.request) {
 				throw new EE.InvalidArgument("Can't compute match infos : This transaction request is unknown !");
 			}
-			else if(!this.parent_session_) {
+			else if(!this.parent_session) {
 				throw new EE.InvalidArgument("Can't compute match infos : This transaction parent session is unknown !");
 			}
 			else {
-				var server = this.parent_session_.get_server();
+				var server = this.parent_session.get_server();
 				if(!server || !server.rest_indexed_shared_container) {
 					throw new EE.InvalidArgument("Can't compute match infos : This transaction parents are not fully initialized !");
 				}

@@ -20,7 +20,7 @@ function(chai, CUT, Request, Response, http_constants) {
 	request.method = 'BREW';
 	request.uri = '/stanford/teapot';
 
-	describe('restlink base request handler', function() {
+	describe('Restlink base request handler', function() {
 
 		describe('instantiation', function() {
 
@@ -61,7 +61,7 @@ function(chai, CUT, Request, Response, http_constants) {
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
-					expect(response.content).to.be.undefined;
+					response.content.should.equals('Not Implemented');
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(context, response){
@@ -81,7 +81,7 @@ function(chai, CUT, Request, Response, http_constants) {
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_403_client_forbidden);
-					expect(response.content).to.be.undefined;
+					response.content.should.equals('Forbidden');
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(context, response){
@@ -89,12 +89,25 @@ function(chai, CUT, Request, Response, http_constants) {
 				});
 			});
 
-			it('should allow easy common errors generation', function(signalAsyncTestFinished) {
+			it('should allow easy common errors generation : not implemented', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
 
-				var promise = out.resolve_with_not_implemented({}, request);
-				promise.done(function(context, response){
+				var promise1 = out.resolve_with_not_implemented({}, request);
+				promise1.done(function(context, response){
 					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
+					signalAsyncTestFinished();
+				});
+				promise1.fail(function(context, response){
+					expect(false).to.be.ok;
+				});
+			});
+
+			it('should allow easy common errors generation : internal error', function(signalAsyncTestFinished) {
+				var out = CUT.make_new();
+
+				var promise = out.resolve_with_internal_error({}, request);
+				promise.done(function(context, response){
+					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(context, response){

@@ -17,7 +17,7 @@ function(chai, CUT) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('restlink simple cache', function() {
+	describe('Restlink simple cache', function() {
 
 		describe('instance', function() {
 

@@ -8,7 +8,7 @@ define(
 	'offirmo/restlink/server_internals/server_core',
 	'offirmo/restlink/request',
 	'offirmo/restlink/response',
-	'offirmo/restlink/server_adapter_base',
+	'offirmo/restlink/server_internals/adapters/base',
 	'mocha'
 ],
 function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
@@ -18,7 +18,11 @@ function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
+
+
 	describe('restlink server internal core', function() {
+
+
 
 		describe('instantiation', function() {
 
@@ -36,6 +40,8 @@ function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
 
 		}); // describe feature
 
+
+
 		describe('startup / shutdown', function() {
 
 			it('should work', function() {
@@ -48,7 +54,32 @@ function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
 				out.is_started().should.be.false;
 			});
 
-			it('should properly forward start and stop to adapters', function() {
+		}); // describe feature
+
+
+
+		describe('rest-indexed shared container member', function() {
+
+			it('should be available', function() {
+				var out = CUT.make_new();
+
+				out.rest_indexed_shared_container.should.exist;
+				out.rest_indexed_shared_container.should.be.an('object');
+			});
+
+		}); // describe feature
+
+
+
+		describe('adapters management', function() {
+
+			it('should allow insertion', function() {
+				var out = CUT.make_new();
+
+				out.add_adapter({});
+			});
+
+			it('should correctly propagate startup/shutdown', function() {
 				var out = CUT.make_new();
 
 				// first with an adapter added before start
@@ -70,15 +101,52 @@ function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
 				test_adapter2.is_started().should.be.false;
 			});
 
+			describe('support functions', function() {
+
+				it('should allow session creation but only when started', function() {
+					var out = CUT.make_new();
+
+					var tempfn = function() { var session = out.create_session(); };
+					tempfn.should.throw(Error, "Can't create new session : server is stopped !");
+
+					out.startup();
+					var session = out.create_session(); // OK
+					session.is_valid().should.be.true;
+				});
+
+				it('should allow session termination', function() {
+					var out = CUT.make_new();
+
+					out.startup();
+					var session = out.create_session(); // OK
+					session.is_valid().should.be.true;
+
+					out.terminate_session(session);
+					session.is_valid().should.be.false;
+				});
+
+				it('should allow handling', function() {
+
+				});
+
+			});
+
 		}); // describe feature
 
-		describe('rest-indexed shared container member', function() {
 
-			it('should be available', function() {
-				var out = CUT.make_new();
 
-				out.rest_indexed_shared_container.should.exist;
-				out.rest_indexed_shared_container.should.be.an('object');
+		describe('handler management', function() {
+
+			it('should allow insertion', function() {
+
+			});
+
+			it('should avoid conflicts', function() {
+
+			});
+
+			it('should allow customization', function() {
+
 			});
 
 		}); // describe feature

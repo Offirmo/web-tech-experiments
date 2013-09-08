@@ -52,7 +52,7 @@ function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase, http_con
 		}
 	});
 
-	describe('restlink_client', function() {
+	describe('Restlink_client', function() {
 
 		describe('instantiation', function() {
 

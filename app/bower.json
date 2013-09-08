@@ -27,6 +27,7 @@
 		"chai":               "latest",
 		"chai-as-promised":   "latest",
 		"chai-backbone":      "latest",
+		"chai-interface":     "latest",
 		"sinon-chai":         "latest"
 	},
 	"needBuildDeps": {

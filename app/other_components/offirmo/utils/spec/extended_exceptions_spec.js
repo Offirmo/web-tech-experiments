@@ -12,7 +12,7 @@ function(chai, EE) {
 	var expect = chai.expect;
 	chai.should();
 
-	describe('extended exceptions', function() {
+	describe('Extended exceptions', function() {
 
 		describe('ExtendedError (base custom error)', function() {
 

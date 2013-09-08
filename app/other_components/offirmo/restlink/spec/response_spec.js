@@ -15,7 +15,7 @@ function(chai, CUT, Request, http_constants) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('restlink Response', function() {
+	describe('Restlink Response', function() {
 
 		describe('instantiation', function() {
 

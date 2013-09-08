@@ -1,16 +1,16 @@
-/* Base adapter class for a RESTlink client adapter
- * This class is not to be used 'as is' but is to be derived.
+/* A generic RestLink server adapter
+ * useful for using different transport mechanisms.
+ * an adapter knows the linked server,
+ * and is also registered to the server so it can pass him some events
  */
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
 	'underscore',
-	'jquery',
-	'offirmo/restlink/response',
-	'offirmo/utils/http_constants'
+	'offirmo/utils/extended_exceptions'
 ],
-function(_, jQuery, Response, http_constants) {
+function(_, EE) {
 	"use strict";
 
 
@@ -24,15 +24,16 @@ function(_, jQuery, Response, http_constants) {
 	////////////////////////////////////
 	//constants. = ;
 
-	// GET, PUT, POST, DELETE, OPTIONS, HEAD, TRACE, CONNECT
-
 
 	////////////////////////////////////
 	//defaults. = ;
+	defaults.started_ = false;
 
 	methods.init = function() {
 		// init of member objects
-		//...
+
+		// the adapter knows its server
+		this.server_ = undefined;
 	};
 
 
@@ -42,43 +43,32 @@ function(_, jQuery, Response, http_constants) {
 
 	////////////////////////////////////
 	//methods. = ;
-
-	methods.process_request = function(request) {
-		var result_deferred = jQuery.Deferred();
-
-		this.resolve_request_(request, result_deferred);
-
-		return result_deferred.promise();
+	methods.startup = function(server) {
+		if(typeof server === 'undefined')
+			throw new EE.InvalidArgument("Can't start adapter : missing server argument !");
+		this.server_ = server;
+		this.started_ = true;
+	};
+	methods.shutdown = function() {
+		this.started_ = false;
+		this.server_ = undefined;
+	};
+	methods.is_started = function() {
+		return this.started_;
 	};
 
-	// this method is to be overriden
-	methods.resolve_request_ = function(request, result_deferred) {
-		// build a response
-		var response = Response.make_new_from_request(request, {
-			return_code: http_constants.status_codes.status_501_server_error_not_implemented,
-			meta: {
-				error_msg: 'ClientAdapterBase process_request is to be implemented in a derived class !'
-			}
-		});
-		result_deferred.resolve(response);
-	};
 
-	methods.disconnect = function() {
-		// TODO
-		// requests should no longer be possible
-	};
-
-		////////////////////////////////////
+	////////////////////////////////////
 	Object.freeze(constants);
 	Object.freeze(defaults);
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	var DefinedClass = function ClientAdapterBase() {
+	var DefinedClass = function RestlinkServerBaseAdapter() {
 		_.defaults( this, defaults );
 		// other inits...
 		methods.init.apply(this, arguments);
-	}
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

@@ -19,7 +19,7 @@ function(chai, CUT, Request, RestIndexedContainer) {
 	request.method = 'BREW';
 	request.uri = '/stanford/teapot';
 
-	describe('restlink server transaction', function() {
+	describe('Restlink server transaction', function() {
 
 		describe('instantiation', function() {
 
@@ -43,7 +43,7 @@ function(chai, CUT, Request, RestIndexedContainer) {
 				var out = CUT.make_new();
 
 				// the object need to be full fledged this time
-				out.parent_session_ = {
+				out.parent_session = {
 					get_server : function() {
 						return {
 							rest_indexed_shared_container: RestIndexedContainer.make_new()

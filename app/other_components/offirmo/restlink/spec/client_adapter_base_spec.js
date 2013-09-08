@@ -16,7 +16,7 @@ function(chai, CUT, Request, Response, http_constants) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('restlink base client adapter', function() {
+	describe('Restlink base client adapter', function() {
 
 		describe('instantiation', function() {
 
@@ -35,7 +35,7 @@ function(chai, CUT, Request, Response, http_constants) {
 
 		describe('request processing', function() {
 
-			it('should work', function(signalAsyncTestFinished) {
+			it('should (not ;-) work', function(signalAsyncTestFinished) {
 				var request = Request.make_new();
 				request.method = 'BREW';
 				request.uri = '/stanford/teapot';
@@ -54,6 +54,13 @@ function(chai, CUT, Request, Response, http_constants) {
 					expect(false).to.be.ok;
 				});
 			});
+
+		}); // describe feature
+
+		describe('disconnection', function() {
+
+			it('should be possible');
+			it('should prevent new requests');
 
 		}); // describe feature
 

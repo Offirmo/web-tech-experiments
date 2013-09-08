@@ -24,7 +24,11 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 	request.method = 'BREW';
 	request.uri = '/stanford/teapot';
 
-	describe('restlink actual request handler', function() {
+
+
+	describe('Restlink actual request handler', function() {
+
+
 
 		describe('instantiation', function() {
 
@@ -40,6 +44,8 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 			});
 
 		}); // describe feature
+
+
 
 		describe('request handling', function() {
 
@@ -57,7 +63,7 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 				var out = CUT.make_new();
 				var ric = RestIndexedContainer.make_new();
 				var trans = Transaction.make_new();
-				trans.parent_session_ = {
+				trans.parent_session = {
 					get_server : function() {
 						return {
 							rest_indexed_shared_container: ric
@@ -131,7 +137,7 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 				var out = CUT.make_new();
 				var ric = RestIndexedContainer.make_new();
 				var trans = Transaction.make_new();
-				trans.parent_session_ = {
+				trans.parent_session = {
 					get_server : function() {
 						return {
 							rest_indexed_shared_container: ric
@@ -145,7 +151,7 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_404_client_error_not_found);
-					expect(response.content).to.be.undefined;
+					response.content.should.equals('Not Found');
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(context, response){
@@ -157,7 +163,7 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 				var out = CUT.make_new();
 				var ric = RestIndexedContainer.make_new();
 				var trans = Transaction.make_new();
-				trans.parent_session_ = {
+				trans.parent_session = {
 					get_server : function() {
 						return {
 							rest_indexed_shared_container: ric
@@ -174,7 +180,7 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
-					expect(response.content).to.be.undefined;
+					response.content.should.equals('Not Implemented');
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(context, response){
@@ -186,6 +192,8 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 
 		}); // describe feature
 
+
+		// note : derived from parent
 		describe('utilities', function() {
 
 			it('should allow easy error generation', function(signalAsyncTestFinished) {
@@ -196,7 +204,6 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_403_client_forbidden);
-					expect(response.content).to.be.undefined;
 					signalAsyncTestFinished();
 				});
 				promise.fail(function(context, response){
