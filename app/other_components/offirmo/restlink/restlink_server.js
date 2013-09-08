@@ -10,8 +10,9 @@ define(
 	'offirmo/base/offinh/startable_object',
 	'offirmo/restlink/server_internals/server_core',
 	'offirmo/restlink/server_internals/request_handlers/actual',
+	'offirmo/restlink/server_internals/adapters/direct'
 ],
-function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler) {
+function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler, DirectServerAdapter) {
 	"use strict";
 
 
@@ -25,7 +26,6 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler) {
 	////////////////////////////////////
 	//constants. = ;
 
-
 	////////////////////////////////////
 	//defaults. = ;
 
@@ -33,6 +33,10 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler) {
 		// init of member objects
 		this.core_ = ServerCore.make_new();
 		this.handler_built_ = false;
+
+		// always the direct, for convenience
+		this.direct_adapter_ = DirectServerAdapter.make_new(); // keep a ref to it for later call
+		this.add_adapter( this.direct_adapter_ );
 	};
 
 
@@ -65,6 +69,11 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler) {
 		this.core_.add_adapter(adapter);
 	};
 
+	// convenience
+	methods.new_direct_connection = function(adapter) {
+		return this.direct_adapter_.new_connection();
+	};
+
 	// to be overriden
 	methods.build_request_handler_ = function() {
 		var actual_handler = ActualRequestHandler.make_new();
@@ -77,8 +86,8 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler) {
 		}
 	};
 
-	methods.add_request_handler = function(route, method, handler) {
-		// TODO
+	methods.add_callback_handler = function(route, method, handler, replace_existing) {
+		ActualRequestHandler.add_callback_handler(this.core_.rest_indexed_shared_container, route, method, handler, replace_existing);
 	};
 
 

@@ -1,7 +1,7 @@
 /* An object with generic start/stop methods
  * This object is meant to be prototypally inherited.
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

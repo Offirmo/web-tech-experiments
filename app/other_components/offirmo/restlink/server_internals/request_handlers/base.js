@@ -2,7 +2,7 @@
  * Meant to be inserted in a server or in a handler chain
  * can handle requests or dispatch them to other objects.
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

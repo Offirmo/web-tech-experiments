@@ -8,7 +8,7 @@
  * http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
  * http://javascript.crockford.com/private.html
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

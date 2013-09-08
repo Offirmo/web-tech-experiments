@@ -2,7 +2,7 @@
  * and storing a hash where separate entities can set stuff
  */
 
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

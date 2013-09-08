@@ -1,7 +1,7 @@
 /* Example of Offirmo object
  * (for copy/paste new objects)
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

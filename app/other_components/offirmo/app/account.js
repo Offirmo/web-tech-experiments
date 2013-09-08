@@ -1,7 +1,7 @@
 /* Account
  * = account we log into, with email / password
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

@@ -1,7 +1,7 @@
 /* The RestLink request handler
  * that actually handle requests (i.e. doesn't transfer them to other handlers)
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -80,7 +80,7 @@ function(_, jQuery, BaseRequestHandler, Request, Response, RouteIndexedContainer
 	};
 
 	methods.add_callback_handler = function(rest_indexed_container, route, action, callback, replace_existing) {
-		if (typeof replace_existing === 'undefined') replace_existing = false;
+		if (typeof replace_existing === 'undefined') { replace_existing = false; }
 
 		var container = rest_indexed_container.get_bound_interface(constants.shared_container_key);
 
@@ -107,7 +107,7 @@ function(_, jQuery, BaseRequestHandler, Request, Response, RouteIndexedContainer
 
 		// do our own inits
 		//methods.init.apply(this, arguments);
-	}
+	};
 
 	// prototype chain (class) inheritance from base
 	DefinedClass.prototype = Object.create(BaseRequestHandler.klass.prototype);
@@ -128,6 +128,9 @@ function(_, jQuery, BaseRequestHandler, Request, Response, RouteIndexedContainer
 		'constants'  : constants,
 		'exceptions' : exceptions,
 		'defaults'   : defaults,
-		'methods'    : methods
+		'methods'    : methods,
+		// class methods (should not call this of course)
+		'add_callback_handler' : methods.add_callback_handler
+
 	};
 }); // requirejs module

@@ -133,6 +133,10 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 				});
 			});
 
+			it('should control callbacks behaviour', function() {
+				add a spy on returned promise to check params type
+			});
+
 			it('should return a 404 not_found error when called on an unknown route', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
 				var ric = RestIndexedContainer.make_new();

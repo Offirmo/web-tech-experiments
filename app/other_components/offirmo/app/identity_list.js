@@ -1,7 +1,7 @@
 /* list of all available identities *for an account*
  * Ex. John Smith (home), JohnTheRoxxor (gaming)
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

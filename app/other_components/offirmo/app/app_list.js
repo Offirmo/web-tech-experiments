@@ -1,7 +1,7 @@
 /* Static list of all available offirmo apps
  * Ex. google docs, gmail, youtube, etc.
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

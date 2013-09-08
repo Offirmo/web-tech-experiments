@@ -3,7 +3,7 @@
  * very useful for privacy
  * ex. two separate mail boxes under the same account, one for real life (John Smith), one for gaming (JohnTheRoxxor)
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

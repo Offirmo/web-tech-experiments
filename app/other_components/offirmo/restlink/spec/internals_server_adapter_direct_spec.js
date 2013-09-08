@@ -84,7 +84,7 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 
 				// check result (expected error : we only configured as much)
 
-				promise.done(function(response){
+				promise.done(function(request, response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);

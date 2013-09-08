@@ -1,7 +1,7 @@
 /* Direct adapter class for a RESTlink client adapter
  * This adapter works via direct (local) function calls
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -103,7 +103,7 @@ function(_, jQuery, ServerBaseAdapter, EE) {
 
 		// other inits...
 		methods.init.apply(this, arguments);
-	}
+	};
 
 	// class inheritance via prototype chain
 	DefinedClass.prototype = Object.create(ServerBaseAdapter.klass.prototype);

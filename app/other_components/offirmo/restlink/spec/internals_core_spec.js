@@ -20,7 +20,7 @@ function(chai, _, jQuery, CUT, Request, Response, ServerAdapterBase) {
 
 
 
-	describe('restlink server internal core', function() {
+	describe('Restlink server internal core', function() {
 
 
 

@@ -3,7 +3,7 @@
  * an adapter knows the linked server,
  * and is also registered to the server so it can pass him some events
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

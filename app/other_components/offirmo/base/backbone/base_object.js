@@ -1,7 +1,7 @@
 /* A 'base' object from which all offirmo objects will inherit
  * useful to add some utilities.
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

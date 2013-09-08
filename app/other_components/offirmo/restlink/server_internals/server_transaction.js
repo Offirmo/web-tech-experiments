@@ -3,7 +3,7 @@
  * Observing handlers may store data in this transaction
  * to retrieve them later in the processing.
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

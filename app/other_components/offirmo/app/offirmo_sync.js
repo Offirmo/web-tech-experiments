@@ -1,7 +1,7 @@
 /* Offirmo-style Backbone "sync" redefinition
  *
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [

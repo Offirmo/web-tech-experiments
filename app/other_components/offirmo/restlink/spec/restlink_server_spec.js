@@ -6,10 +6,12 @@ define(
 	'offirmo/restlink/restlink_server',
 	'offirmo/restlink/server_internals/adapters/direct',
 	'offirmo/restlink/request',
+	'offirmo/restlink/response',
 	'offirmo/utils/http_constants',
+
 	'mocha'
 ],
-function(chai, CUT, DirectServerAdapter, Request, http_constants) {
+function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -22,10 +24,13 @@ function(chai, CUT, DirectServerAdapter, Request, http_constants) {
 
 	describe('Restlink server', function() {
 
+
+
 		describe('instantiation', function() {
 
 			it('should be instantiable', function() {
 				var out = CUT.make_new();
+				//noinspection BadExpressionStatementJS
 				out.should.exist;
 				out.should.be.an('object');
 			});
@@ -37,6 +42,8 @@ function(chai, CUT, DirectServerAdapter, Request, http_constants) {
 			});
 
 		}); // describe feature
+
+
 
 		describe('startup / shutdown', function() {
 
@@ -51,6 +58,8 @@ function(chai, CUT, DirectServerAdapter, Request, http_constants) {
 			});
 
 		}); // describe feature
+
+
 
 		describe('adapters interface', function() {
 
@@ -102,16 +111,63 @@ function(chai, CUT, DirectServerAdapter, Request, http_constants) {
 
 			});
 
+			it('should provide a direct adapter by default, for convenience', function(signalAsyncTestFinished) {
+				var out = CUT.make_new();
+				out.startup();
+
+				var client = out.new_direct_connection();
+
+				// go for it
+				var promise = client.send_request(test_request);
+
+				// check result : should 404 but not 500
+				promise.done(function(response){
+					response.method.should.equal('BREW');
+					response.uri.should.equal('/stanford/teapot');
+					response.return_code.should.equal(http_constants.status_codes.status_404_client_error_not_found);
+					response.content.should.equal("Not Found");
+					signalAsyncTestFinished();
+				});
+				promise.fail(function(response){
+					expect(false).to.be.ok;
+				});
+
+			});
+
 		}); // describe feature
+
+
 
 		describe('request handling', function() {
 
-			it('should be configurable', function() {
-				xxx
-			});
+			it('should be configurable and should work', function() {
+				var out = CUT.make_new();
 
-			it('should work', function() {
-				xxx
+				var teapot_BREW_callback = function(transaction, request) {
+					var response = Response.make_new_from_request(request);
+					response.return_code = http_constants.status_codes.status_400_client_error_bad_request;
+					response.content = "I'm a teapot !";
+
+					var deferred = jQuery.Deferred();
+					deferred.resolve(transaction, request, response);
+					return deferred.promise();
+				};
+
+				out.add_callback_handler("/stanford/teapot", "BREW", teapot_BREW_callback);
+
+				out.startup();
+				var client = out.new_direct_connection();
+
+				var promise = client.send_request(test_request);
+				promise.done(function(request, response){
+					response.method.should.equal("BREW");
+					response.uri.should.equal("/stanford/teapot");
+					response.return_code.should.equal(http_constants.status_codes.status_400_client_error_bad_request);
+					expect(response.content).to.equals("I'm a teapot !");
+				});
+				promise.fail(function(context, response){
+					expect(false).to.be.ok;
+				});
 			});
 
 		}); // describe feature

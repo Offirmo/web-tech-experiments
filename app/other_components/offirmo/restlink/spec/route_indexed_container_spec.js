@@ -15,7 +15,7 @@ function(chai, _, CUT, EE) {
 	chai.should();
 	chai.Assertion.includeStack = true; // defaults to false
 
-	describe('route-indexed container', function() {
+	describe('Route-indexed container', function() {
 
 		describe('instantiation', function() {
 
