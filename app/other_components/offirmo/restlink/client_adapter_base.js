@@ -30,6 +30,7 @@ function(_, jQuery, Response, http_constants) {
 	////////////////////////////////////
 	//defaults. = ;
 
+	defaults.debug_mode = true; // add controls, etc.
 	methods.init = function() {
 		// init of member objects
 		//...
@@ -60,7 +61,7 @@ function(_, jQuery, Response, http_constants) {
 				error_msg: 'ClientAdapterBase process_request is to be implemented in a derived class !'
 			}
 		});
-		result_deferred.resolve(response);
+		result_deferred.resolve(request, response);
 	};
 
 	methods.disconnect = function() {

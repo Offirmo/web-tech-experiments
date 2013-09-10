@@ -40,10 +40,10 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 	//methods. = ;
 
 	// utilities
-	methods.resolve_with_response = function(transaction, response) {
+	methods.resolve_with_response = function(transaction, request, response) {
 		var result_deferred = jQuery.Deferred();
 
-		result_deferred.resolve(transaction, response);
+		result_deferred.resolve(transaction, request, response);
 
 		return result_deferred.promise();
 	};
@@ -58,7 +58,7 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 			response.content = http_constants.status_messages[status_code];
 		}
 
-		return this.resolve_with_response(transaction, response);
+		return this.resolve_with_response(transaction, request, response);
 	};
 
 	methods.resolve_with_not_implemented = function(context, request, optional_message) {
