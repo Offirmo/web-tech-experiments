@@ -1,7 +1,7 @@
 /* A generic REST 'server' executing REST operations
  * transport agnostic : can run on server or in client
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -35,8 +35,10 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler, Dire
 		this.handler_built_ = false;
 
 		// always the direct, for convenience
-		this.direct_adapter_ = DirectServerAdapter.make_new(); // keep a ref to it for later call
-		this.add_adapter( this.direct_adapter_ );
+		var direct_adapter = DirectServerAdapter.make_new();
+		this.add_adapter( direct_adapter );
+		// we also keep a ref to it for later use
+		this.direct_adapter_ = direct_adapter;
 	};
 
 
@@ -70,7 +72,7 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler, Dire
 	};
 
 	// convenience
-	methods.new_direct_connection = function(adapter) {
+	methods.open_direct_connection = function(adapter) {
 		return this.direct_adapter_.new_connection();
 	};
 
@@ -90,6 +92,10 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler, Dire
 		ActualRequestHandler.add_callback_handler(this.core_.rest_indexed_shared_container, route, method, handler, replace_existing);
 	};
 
+	methods.add_restful_rsrc_handler = function(restful_handler, replace_existing) {
+		//todo !
+	};
+
 
 	/*
 	 virtual void addAdapter(const server::IAdapterPtr& adapter);
@@ -97,8 +103,6 @@ function(_, NamedObject, StartableObject, ServerCore, ActualRequestHandler, Dire
 	 virtual void addRsrcHandler(const server::IResourceHandlerPtr& handler, const std::string& parentRoute = "");
 
 	 virtual void addRsrcHandler(const server::IResourceDeclarationPtr& handler, const std::string& parentRoute = "");
-
-	 virtual void addRequestHandler(const std::string& route, const std::string& action, HandlingCallback callback);
 	 */
 	////////////////////////////////////
 

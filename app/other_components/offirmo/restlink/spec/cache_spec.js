@@ -1,4 +1,4 @@
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 /* Warning :
  * The cache object is a sort of global object !

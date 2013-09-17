@@ -1,4 +1,4 @@
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -63,6 +63,21 @@ function(chai, CUT, Request, http_constants) {
 				out.return_code.should.equal(http_constants.status_codes.status_400_client_error_bad_request);
 				out.meta.should.deep.equal({ 'version': 12 });
 				out.content.should.equal("I'm a teapot !");
+			});
+
+			it('should have convenient setters', function() {
+				var request = Request.make_new();
+				request.method = 'BREW';
+				request.uri = '/stanford/teapot';
+
+				// more advanced version
+				var out = CUT.make_new_from_request(request).with_status(400).with_content("Dude, I'm a teapot !").with_meta({ 'traceroute': true });
+
+				out.method.should.equal('BREW');
+				out.uri.should.equal('/stanford/teapot');
+				out.return_code.should.equal(http_constants.status_codes.status_400_client_error_bad_request);
+				out.content.should.equal("Dude, I'm a teapot !");
+				out.meta.should.deep.equal({ 'traceroute': true });
 			});
 
 		}); // describe feature

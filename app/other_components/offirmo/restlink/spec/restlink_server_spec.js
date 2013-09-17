@@ -1,4 +1,4 @@
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -115,7 +115,7 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 				var out = CUT.make_new();
 				out.startup();
 
-				var client = out.new_direct_connection();
+				var client = out.open_direct_connection();
 
 				// go for it
 				var promise = client.send_request(test_request);
@@ -156,7 +156,7 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 				out.add_callback_handler("/stanford/teapot", "BREW", teapot_BREW_callback);
 
 				out.startup();
-				var client = out.new_direct_connection();
+				var client = out.open_direct_connection();
 
 				var promise = client.send_request(test_request);
 				promise.done(function(request, response){

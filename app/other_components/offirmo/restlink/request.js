@@ -1,7 +1,7 @@
 /* A REST-like request,
  * to be sent over offirmo RESTlink
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -16,8 +16,17 @@ function(_, http_constants) {
 			return {
 				method  : undefined,
 				uri     : undefined,
-				meta    : [],
-				content : undefined
+				meta    : {},
+				content : undefined,
+				make_response: function() {
+					return {
+						method      : this.method,
+						uri         : this.uri,
+						return_code : http_constants.status_codes.status_500_server_error_internal_error,
+						meta        : {},
+						content     : undefined
+					};
+				}
 			};
 		}
 	};

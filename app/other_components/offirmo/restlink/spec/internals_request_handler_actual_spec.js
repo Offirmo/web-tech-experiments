@@ -1,4 +1,4 @@
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
@@ -134,7 +134,7 @@ function(chai, jQuery, CUT, BaseRequestHandler, RestIndexedContainer, Transactio
 			});
 
 			it('should control callbacks behaviour', function() {
-				add a spy on returned promise to check params type
+				//add a spy on returned promise to check params type
 			});
 
 			it('should return a 404 not_found error when called on an unknown route', function(signalAsyncTestFinished) {
