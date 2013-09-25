@@ -27,7 +27,7 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 
 		describe('instantiation', function() {
 
-			it('should be doable', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				out.should.exist;
 				out.should.be.an('object');
@@ -43,7 +43,7 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 
 		describe('startup / shutdown', function() {
 
-			it('should be able to start and stop', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 
 				var fake_server = {};
@@ -58,7 +58,6 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 		}); // describe feature
 
 		describe('generated client', function() {
-
 
 			it('should not be available when not started', function() {
 				var out = CUT.make_new();
@@ -84,14 +83,14 @@ function(chai, jQuery, CUT, Request, Response, ServerCore, http_constants) {
 
 				// check result (expected error : we only configured as much)
 
-				promise.done(function(request, response){
+				promise.spread(function on_success(request, response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
 					response.content.should.equal("Can't process request, Server misconfigured : no request handler set !");
 					signalAsyncTestFinished();
 				});
-				promise.fail(function(response){
+				promise.otherwise(function on_failure(){
 					expect(false).to.be.ok;
 				});
 			});

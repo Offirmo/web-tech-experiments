@@ -1,0 +1,159 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+	
+	<title>Promises 001</title>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Promises 001</h1>
+		<p>Testing promises from the when library.</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting rsrc load...");
+		require(
+		[	'jquery',
+			'when',
+			'bootstrap-rem'
+		],
+		function($, when) {
+			// is the window fully loaded ? seems yes.
+			//document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+
+			var deferred_01 = when.defer();
+			var  promise_01 = deferred_01.promise;
+			promise_01.then(function(){
+				console.log("Promise 01 fulfilled ! ", arguments);
+			},
+			function() {
+				console.error("Promise 01 rejected ! ", arguments);
+			},
+			function(update) {
+				console.info("Promise 01 progressing... ", arguments);
+			});
+			promise_01.otherwise(function() {
+				console.error("Promise 01 rejected ! (via otherwise)");
+			});
+			promise_01.ensure(function() {
+				console.log("Promise 01 fulfilled or rejected. (via ensure)");
+			});
+
+			var deferred_02 = when.defer();
+			var  promise_02 = deferred_02.promise;
+			promise_02.then(function(){
+				console.log("Promise 02 fulfilled !");
+			},
+			function() {
+				console.error("Promise 02 rejected !");
+			},
+			function(update) {
+				console.info("Promise 02 progressing...", update);
+			});
+
+			var deferred_03 = when.defer();
+			var  promise_03 = deferred_03.promise;
+			promise_03.then(function(){
+				console.log("Promise 03 fulfilled !");
+			},
+			function() {
+				console.error("Promise 03 rejected !");
+			},
+			function(update) {
+				console.info("Promise 03 progressing...", update);
+			});
+
+			var deferred_04 = when.defer();
+			var  promise_04 = deferred_04.promise;
+			promise_04.then(function(){
+				console.log("Promise 04 fulfilled !");
+			},
+			function() {
+				console.error("Promise 04 rejected !");
+			},
+			function(update) {
+				console.info("Promise 04 progressing...", update);
+			});
+
+			var joined_promise = when.join(promise_01, promise_02, promise_03, promise_04);
+			joined_promise.then(function(){
+				console.log("1…4 joined_promise fulfilled !");
+			},
+			function() {
+				console.error("1…4 joined_promise rejected !");
+			},
+			function(update) {
+				console.info("1…4 joined_promise progressing...", update);
+			});
+
+			var any_promise = when.any( [ promise_01, promise_02, promise_03, promise_04 ]);
+			any_promise.then(function(){
+				console.log("one of 1…4 promises fulfilled !");
+			},
+			function() {
+				console.error("one of 1…4 promises rejected !");
+			},
+			function(update) {
+				console.info("one of 1…4 promises progressing...", update);
+			});
+
+			var two_promise = when.some( [ promise_01, promise_02, promise_03, promise_04 ], 2);
+			two_promise.then(function(){
+				console.log("two of 1…4 promises fulfilled !");
+			},
+			function() {
+				console.error("two of 1…4 promises rejected !");
+			},
+			function(update) {
+				console.info("two of 1…4 promises progressing...", update);
+			});
+
+			promise_01.then(function(){
+				deferred_02.resolve(1122);
+			});
+
+			deferred_01.notify(1);
+
+			deferred_01.resolve(11);
+			//deferred_02.resolve(22);
+			//deferred_02.reject(-22);
+			deferred_03.resolve(33);
+			deferred_04.resolve(44);
+		});
+	};
+</script>
+
+</body>
+</html>

@@ -4,12 +4,13 @@ define(
 [
 	'chai',
 	'offirmo/restlink/server_internals/request_handlers/base',
+	'offirmo/restlink/server_internals/server_core',
 	'offirmo/restlink/request',
 	'offirmo/restlink/response',
 	'offirmo/utils/http_constants',
 	'mocha'
 ],
-function(chai, CUT, Request, Response, http_constants) {
+function(chai, CUT, ServerCore, Request, Response, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -56,15 +57,20 @@ function(chai, CUT, Request, Response, http_constants) {
 			it('should work', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
 
-				var promise = out.handle_request({}, request);
-				promise.done(function(context, response){
+				var core = ServerCore.make_new();
+				core.startup();
+				var session = core.create_session();
+				var trans = session.create_transaction(request);
+
+				var promise = trans.forward_to_handler_and_intercept_response(out);
+				promise.spread(function on_success(context, request, response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
 					response.content.should.equals('Not Implemented');
 					signalAsyncTestFinished();
 				});
-				promise.fail(function(context, response){
+				promise.otherwise(function on_failure(context, request, response){
 					expect(false).to.be.ok;
 				});
 			});
@@ -75,42 +81,69 @@ function(chai, CUT, Request, Response, http_constants) {
 
 			it('should allow easy error generation', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
+				// override default implementation
+				out.handle_request = function(transaction, request) {
+					this.resolve_with_error(transaction, request, http_constants.status_codes.status_403_client_forbidden);
+				};
 
-				var promise = out.resolve_with_error({}, request, http_constants.status_codes.status_403_client_forbidden);
-				promise.done(function(context, response){
+				var core = ServerCore.make_new();
+				core.startup();
+				var session = core.create_session();
+				var trans = session.create_transaction(request);
+
+				var promise = trans.forward_to_handler_and_intercept_response(out);
+				promise.spread(function(transaction, request, response) {
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_403_client_forbidden);
 					response.content.should.equals('Forbidden');
 					signalAsyncTestFinished();
 				});
-				promise.fail(function(context, response){
+				promise.otherwise(function(){
 					expect(false).to.be.ok;
 				});
 			});
 
 			it('should allow easy common errors generation : not implemented', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
+				// override default implementation
+				out.handle_request = function(transaction, request) {
+					this.resolve_with_not_implemented(transaction, request);
+				};
 
-				var promise1 = out.resolve_with_not_implemented({}, request);
-				promise1.done(function(context, response){
+				var core = ServerCore.make_new();
+				core.startup();
+				var session = core.create_session();
+				var trans = session.create_transaction(request);
+
+				var promise = trans.forward_to_handler_and_intercept_response(out);
+				promise.spread(function(transaction, request, response) {
 					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
 					signalAsyncTestFinished();
 				});
-				promise1.fail(function(context, response){
+				promise.otherwise(function(){
 					expect(false).to.be.ok;
 				});
 			});
 
 			it('should allow easy common errors generation : internal error', function(signalAsyncTestFinished) {
 				var out = CUT.make_new();
+				// override default implementation
+				out.handle_request = function(transaction, request) {
+					this.resolve_with_internal_error(transaction, request);
+				};
 
-				var promise = out.resolve_with_internal_error({}, request);
-				promise.done(function(context, response){
+				var core = ServerCore.make_new();
+				core.startup();
+				var session = core.create_session();
+				var trans = session.create_transaction(request);
+
+				var promise = trans.forward_to_handler_and_intercept_response(out);
+				promise.spread(function(transaction, request, response) {
 					response.return_code.should.equal(http_constants.status_codes.status_500_server_error_internal_error);
 					signalAsyncTestFinished();
 				});
-				promise.fail(function(context, response){
+				promise.otherwise(function(){
 					expect(false).to.be.ok;
 				});
 			});

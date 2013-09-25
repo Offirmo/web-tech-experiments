@@ -19,7 +19,7 @@ function(chai, CUT, Request, http_constants) {
 
 		describe('instantiation', function() {
 
-			it('should be instantiable', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				out.should.exist;
 				out.should.be.an('object');
@@ -65,7 +65,11 @@ function(chai, CUT, Request, http_constants) {
 				out.content.should.equal("I'm a teapot !");
 			});
 
-			it('should have convenient setters', function() {
+		}); // describe feature
+
+		describe('utilities', function() {
+
+			it('should provide convenient fluid setters', function() {
 				var request = Request.make_new();
 				request.method = 'BREW';
 				request.uri = '/stanford/teapot';

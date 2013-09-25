@@ -40,14 +40,6 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 	//methods. = ;
 
 	// utilities
-	methods.resolve_with_response = function(transaction, request, response) {
-		var result_deferred = jQuery.Deferred();
-
-		result_deferred.resolve(transaction, request, response);
-
-		return result_deferred.promise();
-	};
-
 	methods.resolve_with_error = function(transaction, request, status_code, optional_content) {
 		var response = Response.make_new_from_request(request);
 		response.return_code = status_code;
@@ -58,20 +50,20 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 			response.content = http_constants.status_messages[status_code];
 		}
 
-		return this.resolve_with_response(transaction, request, response);
+		transaction.respond(response);
 	};
 
-	methods.resolve_with_not_implemented = function(context, request, optional_message) {
-		return this.resolve_with_error(context, request, http_constants.status_codes.status_501_server_error_not_implemented, optional_message);
+	methods.resolve_with_not_implemented = function(transaction, request, optional_message) {
+		this.resolve_with_error(transaction, request, http_constants.status_codes.status_501_server_error_not_implemented, optional_message);
 	};
 
-	methods.resolve_with_internal_error = function(context, request, optional_message) {
-		return this.resolve_with_error(context, request, http_constants.status_codes.status_500_server_error_internal_error, optional_message);
+	methods.resolve_with_internal_error = function(transaction, request, optional_message) {
+		this.resolve_with_error(transaction, request, http_constants.status_codes.status_500_server_error_internal_error, optional_message);
 	};
 
 	// default implementation, to be overriden of course
-	methods.handle_request = function(context, request) {
-		return this.resolve_with_not_implemented(context, request);
+	methods.handle_request = function(transaction, request) {
+		this.resolve_with_not_implemented(transaction, request);
 	};
 
 

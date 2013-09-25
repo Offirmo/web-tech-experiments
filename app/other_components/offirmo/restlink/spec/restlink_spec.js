@@ -31,8 +31,8 @@ function(chai, RestlinkServer, DirectServerAdapter, http_constants) {
 				// add handlers
 				var teapot_BREW_callback = function(transaction, request) {
 					var response = Response.make_new_from_request(request)
-							.status(400)
-							.content("I'm a teapot !");
+							.with_status(400)
+							.with_content("I'm a teapot !");
 
 					transaction.reply(response);
 				};

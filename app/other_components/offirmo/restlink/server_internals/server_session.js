@@ -122,7 +122,8 @@ function(_, FastTimestamp, Transaction) {
 		{
 			new_transaction = Transaction.make_new();
 			new_transaction.parent_session = this;
-			new_transaction.request = restlink_request;
+			if( typeof restlink_request !== "undefined")
+				new_transaction.set_request(restlink_request);
 
 			// keep ref for further inspection, invalidation or timeout
 			this.transactions_.push(new_transaction);

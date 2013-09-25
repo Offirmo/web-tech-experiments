@@ -6,11 +6,11 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'jquery',
+	'when',
 	'offirmo/restlink/response',
 	'offirmo/utils/http_constants'
 ],
-function(_, jQuery, Response, http_constants) {
+function(_, when, Response, http_constants) {
 	"use strict";
 
 
@@ -45,11 +45,11 @@ function(_, jQuery, Response, http_constants) {
 	//methods. = ;
 
 	methods.process_request = function(request) {
-		var result_deferred = jQuery.Deferred();
+		var result_deferred = when.defer();
 
 		this.resolve_request_(request, result_deferred);
 
-		return result_deferred.promise();
+		return result_deferred.promise;
 	};
 
 	// this method is to be overriden
@@ -61,7 +61,7 @@ function(_, jQuery, Response, http_constants) {
 				error_msg: 'ClientAdapterBase process_request is to be implemented in a derived class !'
 			}
 		});
-		result_deferred.resolve(request, response);
+		result_deferred.resolve([request, response]);
 	};
 
 	methods.disconnect = function() {

@@ -19,7 +19,7 @@ function(chai, _, CUT, EE) {
 
 		describe('instantiation', function() {
 
-			it('should be possible', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				out.should.exist;
 				out.should.be.an('object');
@@ -70,7 +70,7 @@ function(chai, _, CUT, EE) {
 					out2.at( "/agent",     "PUT").test.should.equals(-3);
 				});
 
-				it('should not mix infos (special)', function() {
+				it('should not mix infos (bug investigation 2013/08)', function() {
 					var out_ = CUT.make_new();
 
 					var out = out_.get_bound_interface("test key 1");

@@ -20,9 +20,10 @@ function(_, http_constants) {
 				meta        : {},
 				content     : undefined,
 
-				with_status  : function(code)    { this.return_code = code; },
-				with_content : function(content) { this.content = content; },
-				with_meta    : function(meta)    { this.meta = meta; }
+				// easy setting. Note the "return this" for fluid interface
+				with_status  : function(code)    { this.return_code = code; return this; },
+				with_content : function(content) { this.content = content;  return this; },
+				with_meta    : function(meta)    { this.meta = meta;        return this; }
 			};
 		},
 

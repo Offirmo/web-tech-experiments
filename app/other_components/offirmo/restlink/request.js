@@ -18,6 +18,14 @@ function(_, http_constants) {
 				uri     : undefined,
 				meta    : {},
 				content : undefined,
+
+				// easy setting. Note the "return this" for fluid interface
+				with_method  : function(method)  { this.method  = method;  return this; },
+				with_uri     : function(uri)     { this.uri     = uri;     return this; },
+				with_content : function(content) { this.content = content; return this; },
+				with_meta    : function(meta)    { this.meta    = meta;    return this; },
+
+				// utility. Make sure to keep this in sync with response code.
 				make_response: function() {
 					return {
 						method      : this.method,

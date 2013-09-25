@@ -5,11 +5,10 @@ define(
 	'chai',
 	'offirmo/restlink/client_adapter_base',
 	'offirmo/restlink/request',
-	'offirmo/restlink/response',
 	'offirmo/utils/http_constants',
 	'mocha'
 ],
-function(chai, CUT, Request, Response, http_constants) {
+function(chai, CUT, Request, http_constants) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -20,7 +19,7 @@ function(chai, CUT, Request, Response, http_constants) {
 
 		describe('instantiation', function() {
 
-			it('should be doable', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				out.should.exist;
 				out.should.be.an('object');
@@ -42,7 +41,7 @@ function(chai, CUT, Request, Response, http_constants) {
 
 				var out = CUT.make_new();
 				var promise = out.process_request(request);
-				promise.done(function(response){
+				promise.spread(function(request, response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_501_server_error_not_implemented);
@@ -50,7 +49,7 @@ function(chai, CUT, Request, Response, http_constants) {
 					expect(response.content).to.be.undefined;
 					signalAsyncTestFinished();
 				});
-				promise.fail(function(response){
+				promise.otherwise(function(){
 					expect(false).to.be.ok;
 				});
 			});

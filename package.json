@@ -11,7 +11,8 @@
 		"backbone-associations":  "latest",
 		"jquery":             "latest",
 		"json2":              "latest",
-		"underscore":         "latest"
+		"underscore":         "latest",
+		"when":               "latest"
 	},
 	"devDependencies": {
 		"mocha":              "latest",

@@ -8,9 +8,10 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
+	'when',
 	'offirmo/utils/extended_exceptions'
 ],
-function(_, EE) {
+function(_, when, EE) {
 	"use strict";
 
 
@@ -36,9 +37,17 @@ function(_, EE) {
 		this.request        = undefined;
 		this.shared_data    = {};
 
-		// only through accessors
+		// direct access not allowed (use accessors)
+
+		// chain of deferred objects for sending the response.
+		// Allow for multiple handlers to be chained
+		// @see forward_to_handler()
+		this.deferred_chain_ = [];
 		this.match_infos_ = undefined;
 		this.is_valid_ = true;
+
+		// for security, we add a "catch all" final deferred
+
 	};
 
 
@@ -48,6 +57,12 @@ function(_, EE) {
 
 	////////////////////////////////////
 	//methods. = ;
+
+	// setter for the sake of making the request immutable
+	methods.set_request = function(request) {
+		this.request = request;
+		Object.freeze(this.request);
+	};
 
 	// result of url+action decoding
 	methods.get_match_infos = function() {
@@ -85,6 +100,31 @@ function(_, EE) {
 
 	methods.is_valid = function() {
 		return this.is_valid_;
+	};
+
+	methods.respond = function(response) {
+		var deferred = this.deferred_chain_.pop();
+		if(typeof deferred === 'undefined') {
+			// This should never happen ! (Invariant)
+			// last deferred should be the one from the adapter,
+			// which should not call respond again !
+			// We can't even send an error message since we don't know the adapter !
+			throw new EE.InvariantNotMetError("Empty deferred chain : bad handler or adapter ?");
+		}
+		deferred.resolve( [this, this.request, response] ); // repetition for convenience
+	};
+
+	methods.forward_to_handler = function(request_handler) {
+		request_handler.handle_request(this, this.request);
+	};
+
+	methods.forward_to_handler_and_intercept_response = function(request_handler) {
+		var deferred = when.defer();
+		this.deferred_chain_.push(deferred);
+
+		request_handler.handle_request(this, this.request);
+
+		return deferred.promise;
 	};
 
 	// TOREVIEW

@@ -28,7 +28,7 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 
 		describe('instantiation', function() {
 
-			it('should be instantiable', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				//noinspection BadExpressionStatementJS
 				out.should.exist;
@@ -91,24 +91,23 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 
 				out.startup();
 
-
 				var client = direct_adapter.new_connection();
 
 				// go for it
 				var promise = client.send_request(test_request);
 
 				// check result : should 404 but not 500
-				promise.done(function(response){
+				promise.then(
+				function on_success(response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_404_client_error_not_found);
 					response.content.should.equal("Not Found");
 					signalAsyncTestFinished();
-				});
-				promise.fail(function(response){
+				},
+				function on_failure(response){
 					expect(false).to.be.ok;
 				});
-
 			});
 
 			it('should provide a direct adapter by default, for convenience', function(signalAsyncTestFinished) {

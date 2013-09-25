@@ -13,15 +13,12 @@
  *    NotImplementedError
  *    UnknownEnumValueError
  *    IllegalStateError
+ *    InvariantNotMetError
  */
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 
-define(
-[
-	'underscore' // XXX I must fake a dependency or it doesn't work !!!
-],
-function() {
+define(function() {
 	"use strict";
 
 	// Note : extending js errors is not trivial at all !
@@ -124,6 +121,10 @@ function() {
 	// In other words, the application is not in an appropriate state for the
 	// requested operation.
 	extended_exceptions.IllegalStateError = create_custom_error("IllegalStateError", extended_exceptions.RuntimeError);
+	// Signals that an invariant (= stuff the should always be true) is not met
+	// This should, of course, never happen...
+	// https://en.wikipedia.org/wiki/Invariant_%28computer_science%29
+	extended_exceptions.InvariantNotMetError = create_custom_error("InvariantNotMetError", extended_exceptions.RuntimeError);
 
 
 	return extended_exceptions;

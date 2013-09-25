@@ -6,11 +6,11 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'jquery',
+	'when',
 	'offirmo/restlink/server_internals/adapters/base',
 	'offirmo/utils/extended_exceptions'
 ],
-function(_, jQuery, ServerBaseAdapter, EE) {
+function(_, when, ServerBaseAdapter, EE) {
 	"use strict";
 
 
@@ -37,17 +37,17 @@ function(_, jQuery, ServerBaseAdapter, EE) {
 				throw new EE.IllegalStateError("Can't send request : This client is disconnected !");
 			}
 
-			var client_deferred = jQuery.Deferred();
+			var client_deferred = when.defer();
 
 			var transaction = session.create_transaction(request);
 			var server_promise = server.process_request(transaction, request);
 
-			server_promise.always(function(transaction, request, response){
-				client_deferred.resolve(request, response);
+			server_promise.spread(function(transaction, request, response){
+				client_deferred.resolve([request, response]);
 				transaction.invalidate(); // done with it
 			});
 
-			return client_deferred.promise();
+			return client_deferred.promise;
 		};
 
 		this.send_long_living_request = function(request, callback) {

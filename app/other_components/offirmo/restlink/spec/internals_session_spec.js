@@ -17,7 +17,7 @@ function(chai, CUT) {
 
 		describe('instantiation', function() {
 
-			it('should be instantiable', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				out.should.exist;
 				out.should.be.an('object');

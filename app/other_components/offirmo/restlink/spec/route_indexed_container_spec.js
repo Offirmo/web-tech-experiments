@@ -19,7 +19,7 @@ function(chai, _, CUT, EE) {
 
 		describe('instantiation', function() {
 
-			it('should be possible', function() {
+			it('should work', function() {
 				var out = CUT.make_new();
 				out.should.exist;
 				out.should.be.an('object');
@@ -114,7 +114,7 @@ function(chai, _, CUT, EE) {
 				out.at("/order/98765432109876543210").should.equal(30);
 			});
 
-			it('should have limits', function() {
+			it('should enforce limits on route size', function() {
 				var out = CUT.make_new();
 
 				var tempfn = function() { out.insert("/abcdefghijklmnopqrstuvwxyzabcdef", 30); }
@@ -209,6 +209,8 @@ function(chai, _, CUT, EE) {
 				match_infos.segments[6].should.have.property('type',    'id');
 				match_infos.segments[6].should.have.property('value',   '2b');
 			});
+
+			it('should handle ill-formed requests');
 
 		}); // describe feature
 

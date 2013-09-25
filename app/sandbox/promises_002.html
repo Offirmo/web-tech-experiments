@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>Promises 002</title>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Promises 002</h1>
+		<p>Testing promises from the when library.</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting rsrc load...");
+		require(
+		[	'jquery',
+			'when',
+			'bootstrap-rem'
+		],
+		function($, when) {
+			// is the window fully loaded ? seems yes.
+			//document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+
+			var deferred_01 = when.defer();
+
+			deferred_01.resolve([1, 2, 3]);
+
+			var  promise_01 = deferred_01.promise;
+			promise_01.spread(function(p1, p2, p3) {
+				console.log("Promise 01 fulfilled ! ", arguments);
+			});
+			promise_01.otherwise(function() {
+				console.error("Promise 01 rejected ! ", arguments);
+			});
+
+			//deferred_01.reject([1, 2, 3]);
+		});
+	};
+</script>
+
+</body>
+</html>

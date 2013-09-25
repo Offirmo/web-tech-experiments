@@ -21,7 +21,8 @@
 		"screenfull":         "latest",
 		"spin.js":            "latest",
 		"store.js":           "latest",
-		"underscore":         "latest"
+		"underscore":         "latest",
+		"when":               "latest"
 	},
 	"devDependencies": {
 		"chai":               "latest",

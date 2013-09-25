@@ -6,14 +6,14 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'jquery',
+	'when',
 	'offirmo/utils/extended_exceptions',
 	'offirmo/base/offinh/startable_object',
 	'offirmo/restlink/server_internals/rest_target_indexed_shared_container',
 	'offirmo/restlink/server_internals/server_session',
 	'offirmo/restlink/server_internals/request_handlers/base'
 ],
-function(_, jQuery, EE, StartableObject, RestIndexedContainer, ServerSession, BaseRequestHandler) {
+function(_, when, EE, StartableObject, RestIndexedContainer, ServerSession, BaseRequestHandler) {
 	"use strict";
 
 	// to use when no request handler set
@@ -114,11 +114,16 @@ function(_, jQuery, EE, StartableObject, RestIndexedContainer, ServerSession, Ba
 	};
 
 	methods.process_request = function(transaction, request) {
-		if(typeof this.request_handler_ === 'undefined') {
-			// quick error reply
-			return default_request_handler.resolve_with_internal_error(transaction, request, "Can't process request, Server misconfigured : no request handler set !");
+		var handler = this.request_handler_;
+		if(typeof handler === 'undefined') {
+			// fake handler just to throw error
+			handler = {'handle_request':function(trans, req) {
+				// we use a method from the base handler
+				default_request_handler.resolve_with_internal_error(transaction, request, "Can't process request, Server misconfigured : no request handler set !");
+			}};
 		}
-		return this.request_handler_.handle_request(transaction, request);
+
+		return transaction.forward_to_handler_and_intercept_response(handler);
 	};
 
 	/// TOSORT
