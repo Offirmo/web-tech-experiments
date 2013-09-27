@@ -48,7 +48,7 @@ function(_) {
 	var DefinedClass = function OffirmoNamedObject() {
 		_.defaults( this, defaults );
 		// other inits...
-	}
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

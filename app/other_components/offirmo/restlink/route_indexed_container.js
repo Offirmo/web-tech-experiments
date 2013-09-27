@@ -62,15 +62,15 @@ function(_, EE) {
 
 	function node(parent, segment) {
 		this.segment_ = segment;
-		this.is_id_ = (segment == constants.id_marker);
+		this.is_id_ = (segment === constants.id_marker);
 		this.parent_ = parent; // beware of circular references
 		this.rank_ = typeof parent === 'undefined' ? 0 : parent.rank_ + 1;
 		this.payload_ = undefined;
 
-		this.is_id = function() { return this.is_id_; }
+		this.is_id = function() { return this.is_id_; };
 		this.has_id_child = function() {
 			return (constants.id_member_name in this);
-		}
+		};
 	}
 
 	function validate_segment(segment) {
@@ -89,7 +89,7 @@ function(_, EE) {
 	}
 
 	function check_and_split_route(route) {
-		if(route == "/") {
+		if(route === "/") {
 			return []; // empty
 		}
 
@@ -152,7 +152,7 @@ function(_, EE) {
 		/// init
 		var current_node = this.root_node_;
 		var segments = check_and_split_route(route);
-		if(segments.length == constants.max_segment_count + 1) // indicate maximum was reached
+		if(segments.length === constants.max_segment_count + 1) // indicate maximum was reached
 			throw new exceptions.MalformedRouteError("Route malformed : route too complex !");
 		var match_result = {
 			found: true, // for now, by default

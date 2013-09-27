@@ -6,15 +6,12 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'jquery',
 	'offirmo/restlink/server_internals/request_handlers/base',
-	'offirmo/restlink/request',
-	'offirmo/restlink/response',
 	'offirmo/restlink/route_indexed_container',
 	'offirmo/utils/extended_exceptions',
 	'offirmo/utils/http_constants'
 ],
-function(_, jQuery, BaseRequestHandler, Request, Response, RouteIndexedContainer, EE, http_constants) {
+function(_, BaseRequestHandler, RouteIndexedContainer, EE, http_constants) {
 	"use strict";
 
 
@@ -71,7 +68,7 @@ function(_, jQuery, BaseRequestHandler, Request, Response, RouteIndexedContainer
 				return this.resolve_with_error(transaction, request, http_constants.status_codes.status_400_client_error_bad_request);
 			}
 			// unknown other error
-			return this.resolve_with_error(transaction, request, http_constants.status_codes.status_500_server_error_internal_error);
+			return this.resolve_with_error(transaction, request, http_constants.status_codes.status_500_server_error_internal_error, err.message + "/n" + err.stack);
 		}
 
 		// not handled yet ?

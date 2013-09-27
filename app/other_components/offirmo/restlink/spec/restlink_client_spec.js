@@ -30,7 +30,7 @@ function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase, http_con
 				attr3: { code: 222 }
 			}
 		});
-		result_deferred.resolve(response);
+		result_deferred.resolve([request,response]);
 	};
 
 	var TestModel = BaseObject.extend({
@@ -51,6 +51,8 @@ function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase, http_con
 			return defaults;
 		}
 	});
+
+
 
 	describe('Restlink_client', function() {
 
@@ -82,11 +84,11 @@ function(chai, _, jQuery, CUT, BaseObject, Response, ClientAdapterBase, http_con
 				//model.set_restlink_client(out);
 
 				var promise = out.GET(model);
-				promise.fail(function(){
+				promise.otherwise(function(){
 					var success = false;
 					success.should.be.true;
 				});
-				promise.done(function(){
+				promise.then(function(){
 					model.get('attr1').should.equal(34);
 					model.get('attr2').should.deep.equal([ 'jquery' ]);
 					model.get('attr3').should.deep.equal({ code: 222 });

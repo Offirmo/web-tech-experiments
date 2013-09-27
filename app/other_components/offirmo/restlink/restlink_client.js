@@ -88,25 +88,16 @@ function(_, jQuery, cache, Request, Response) {
 		model.trigger("request", model, server_request_promise, options); // try to respect Backbone API
 
 		(function(model, options) {
-			server_request_promise.then(
-			// done
-			function(response) {
+			server_request_promise.spread(function(request, response) {
 				// call successful
 				model.set(response.content);
 				model.trigger('sync', model, response.content, options); // try to respect Backbone API
-			},
-			// fail
-			function(response) {
+			});
+			server_request_promise.otherwise(function() {
 				// TODO
 				throw 'server request nok : not implemented';
-			},
-			// progress
-			function(response) {
-				// TODO
-				//console.log('restlink server request progress :' + response);
 			});
 		})(model, options);
-
 
 		return server_request_promise;
 	};

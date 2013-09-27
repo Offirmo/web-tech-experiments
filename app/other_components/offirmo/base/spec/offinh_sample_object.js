@@ -56,7 +56,7 @@ function(_) {
 		_.defaults( this, defaults );
 		// other inits...
 		methods.init.apply(this, arguments);
-	}
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

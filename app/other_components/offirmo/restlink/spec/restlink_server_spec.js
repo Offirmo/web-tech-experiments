@@ -97,15 +97,14 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 				var promise = client.send_request(test_request);
 
 				// check result : should 404 but not 500
-				promise.then(
-				function on_success(response){
+				promise.spread(function on_success(request, response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_404_client_error_not_found);
 					response.content.should.equal("Not Found");
 					signalAsyncTestFinished();
-				},
-				function on_failure(response){
+				});
+				promise.otherwise(function on_failure(){
 					expect(false).to.be.ok;
 				});
 			});
@@ -120,14 +119,14 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 				var promise = client.send_request(test_request);
 
 				// check result : should 404 but not 500
-				promise.done(function(response){
+				promise.spread(function on_success(request, response){
 					response.method.should.equal('BREW');
 					response.uri.should.equal('/stanford/teapot');
 					response.return_code.should.equal(http_constants.status_codes.status_404_client_error_not_found);
 					response.content.should.equal("Not Found");
 					signalAsyncTestFinished();
 				});
-				promise.fail(function(response){
+				promise.otherwise(function on_failure(){
 					expect(false).to.be.ok;
 				});
 
@@ -158,13 +157,13 @@ function(chai, CUT, DirectServerAdapter, Request, Response, http_constants) {
 				var client = out.open_direct_connection();
 
 				var promise = client.send_request(test_request);
-				promise.done(function(request, response){
+				promise.spread(function on_success(request, response){
 					response.method.should.equal("BREW");
 					response.uri.should.equal("/stanford/teapot");
 					response.return_code.should.equal(http_constants.status_codes.status_400_client_error_bad_request);
 					expect(response.content).to.equals("I'm a teapot !");
 				});
-				promise.fail(function(context, response){
+				promise.otherwise(function on_failure(){
 					expect(false).to.be.ok;
 				});
 			});

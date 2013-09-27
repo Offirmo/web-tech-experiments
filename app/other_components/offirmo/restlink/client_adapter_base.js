@@ -55,7 +55,7 @@ function(_, when, Response, http_constants) {
 	// this method is to be overriden
 	methods.resolve_request_ = function(request, result_deferred) {
 		// build a response
-		var response = Response.make_new_from_request(request, {
+		var response = request.make_response({
 			return_code: http_constants.status_codes.status_501_server_error_not_implemented,
 			meta: {
 				error_msg: 'ClientAdapterBase process_request is to be implemented in a derived class !'
@@ -79,7 +79,7 @@ function(_, when, Response, http_constants) {
 		_.defaults( this, defaults );
 		// other inits...
 		methods.init.apply(this, arguments);
-	}
+	};
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;

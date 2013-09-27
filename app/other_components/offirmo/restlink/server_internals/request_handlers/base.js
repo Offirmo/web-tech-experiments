@@ -7,13 +7,10 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'jquery',
 	'offirmo/base/offinh/startable_object',
-	'offirmo/restlink/request',
-	'offirmo/restlink/response',
 	'offirmo/utils/http_constants'
 ],
-function(_, jQuery, StartableObject, Request, Response, http_constants) {
+function(_, StartableObject, http_constants) {
 	"use strict";
 
 
@@ -41,8 +38,8 @@ function(_, jQuery, StartableObject, Request, Response, http_constants) {
 
 	// utilities
 	methods.resolve_with_error = function(transaction, request, status_code, optional_content) {
-		var response = Response.make_new_from_request(request);
-		response.return_code = status_code;
+		var response = request.make_response()
+				.with_status(status_code);
 		if(typeof optional_content !== 'undefined') {
 			response.content = optional_content;
 		}

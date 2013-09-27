@@ -79,7 +79,7 @@ function(chai, CUT, ServerCore, Request, Response, RestIndexedContainer, EE) {
 
 				// test_request should now be locked
 				var tempfn = function() { out.request.method = "INFUSE"; };
-				tempfn.should.throw(Error, "Cannot assign to read only property \'method\' of #<Object>");
+				tempfn.should.throw(Error, "Cannot assign to read only property \'method\' of #<RestlinkRequest>");
 			});
 
 		}); // describe feature
