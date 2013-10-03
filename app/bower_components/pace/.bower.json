@@ -1,0 +1,14 @@
+{
+  "name": "pace",
+  "homepage": "https://github.com/HubSpot/pace",
+  "version": "0.4.13",
+  "_release": "0.4.13",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.13",
+    "commit": "09faacbf4f9e61225acba67ce045886e1cfd2202"
+  },
+  "_source": "git://github.com/HubSpot/pace.git",
+  "_target": "*",
+  "_originalSource": "pace"
+}

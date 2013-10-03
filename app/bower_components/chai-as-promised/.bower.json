@@ -1,12 +1,12 @@
 {
   "name": "chai-as-promised",
   "homepage": "https://github.com/domenic/chai-as-promised",
-  "version": "3.3.1",
-  "_release": "3.3.1",
+  "version": "4.0.0",
+  "_release": "4.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "3.3.1",
-    "commit": "498313643be7b595abd210bf2a6b4197aef8d135"
+    "tag": "4.0.0",
+    "commit": "5fe89d46ef072aa644e0a0e6a4bc03c3bad830a8"
   },
   "_source": "git://github.com/domenic/chai-as-promised.git",
   "_target": "*",

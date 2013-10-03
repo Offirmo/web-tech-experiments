@@ -1,0 +1,13 @@
+{
+  "name": "console-shim",
+  "homepage": "https://github.com/kayahr/console-shim",
+  "_release": "05b957a4b1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "05b957a4b1ea2812dc6e895ac9cf88845edb671b"
+  },
+  "_source": "git://github.com/kayahr/console-shim.git",
+  "_target": "*",
+  "_originalSource": "console-shim"
+}

@@ -17,7 +17,7 @@
 		"json2":              "latest",
 		"isotope":            "latest",
 		"modernizr":          "latest",
-		"moment.js":          "latest",
+		"momentjs":           "latest",
 		"pace":               "latest",
 		"require-css":        "latest",
 		"requirejs":          "latest",
@@ -36,7 +36,6 @@
 		"chai":               "latest",
 		"chai-as-promised":   "latest",
 		"chai-backbone":      "latest",
-		"chai-interface":     "latest",
 		"mocha":              "latest",
 		"sinon-chai":         "latest"
 	},
@@ -45,6 +44,7 @@
 	},
 	"not_in_bower": {
 		"bootstrap":          "latest",
+		"chai-interface":     "latest",
 		"jquery.ui":          "latest",
 		"bootstrap3":         "latest"
 	}
