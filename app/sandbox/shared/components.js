@@ -33,62 +33,37 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// shim plugins
-		'accounting': [
-			'bower_components/accounting/accounting'
-		],
-		'angular': [
-			'bower_components/angular/angular'
-		],
-		'backbone': [
-			//'http://backbonejs.org/backbone.js',
-			'bower_components/backbone/backbone'
-		],
-		'backbone-associations': [
-			//'http://backbonejs.org/backbone.js',
-			'bower_components/backbone-associations/backbone-associations'
-		],
-		'bootstrap': [
-			//'http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap',
-			//'http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap',
-			'other_components/bootstrap/js/bootstrap'
-		],
-		'bootstrap-rem': 'other_components/bootstrap-rem/bootstrap-rem',
-		'bootstrap3': [
-			'other_components/bootstrap3/js/bootstrap'
-		],
-		'chai': 'bower_components/chai/chai',
+		'accounting'    : 'bower_components/accounting/accounting',
+		'angular'       : 'bower_components/angular/angular',
+		'angular-isotope' : 'bower_components/angular-isotope/dist/angular-isotope',
+		'backbone'      : 'bower_components/backbone/backbone',
+		'backbone-associations': 'bower_components/backbone-associations/backbone-associations',
+		'bootstrap'     : 'other_components/bootstrap/js/bootstrap',
+		'bootstrap-rem' : 'other_components/bootstrap-rem/bootstrap-rem',
+		'bootstrap3'    : 'other_components/bootstrap3/js/bootstrap',
+		'chai'          : 'bower_components/chai/chai',
 		// this plugin should really be aliased 'dust' for rdust to work properly
-		'dust': 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
-		'ecotree': 'other_components/ecotree/ECOTree',
+		'dust'          : 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
+		'ecotree'       : 'other_components/ecotree/ECOTree',
 		// javascript finite state machine https://github.com/jakesgordon/javascript-state-machine
 		'javascript-state-machine': 'other_components/javascript-state-machine/state-machine',
-		'jquery': [
-			// google ?
-			//'http://code.jquery.com/jquery-1.9.1',
-			'bower_components/jquery/jquery'
-		],
-		'jquery.ui': 'other_components/jquery.ui/js/jquery-ui.custom',
-		'jquery.svg': 'bower_components/jquery.svg/jquery.svg',
+		'jpanelmenu'    : 'bower_components/jpanelmenu/jquery.jpanelmenu',
+		'jquery'        : 'bower_components/jquery/jquery',
+		'jquery.ui'     : 'other_components/jquery.ui/js/jquery-ui.custom',
+		'jquery.svg'    : 'bower_components/jquery.svg/jquery.svg',
 		'jquery.datatables': 'bower_components/datatables/media/js/jquery.dataTables',
 		// alternative for jquery ui
 		'jquery.datatables.ui': 'bower_components/datatables/media/js/jquery.dataTables',
-		'json2': [
-			//'http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js',
-			'bower_components/json2/json2'
-		],
-		// dev only
-		'mocha': '../node_modules/mocha/mocha',
-		'offirmo': 'other_components/offirmo',
+		'json2'         : 'bower_components/json2/json2',
+		'isotope'       : 'bower_components/isotope/jquery.isotope',
+		'mocha'         : 'bower_components/mocha/mocha', // ok since dev only ?
+		'moment'        : 'bower_components/momentjs/moment',
+		'offirmo'       : 'other_components/offirmo',
 		// javascript customizable spinner http://fgnass.github.com/spin.js/
-		'spin': 'bower_components/spin.js/spin',
-		'store': [
-			'bower_components/store.js/store'
-		],
-		'underscore': [ // TODO replace with lazy.js ?
-			//'http://underscorejs.org/underscore.js', // which version ??
-			'bower_components/underscore/underscore'
-		],
-		'when': 'bower_components/when/when'
+		'spin'          : 'bower_components/spin.js/spin',
+		'store'         : 'bower_components/store.js/store',
+		'underscore'    : 'bower_components/underscore/underscore', // TODO replace with lazy.js or LO dash ?
+		'when'          : 'bower_components/when/when'
 	},
 
 
@@ -102,6 +77,9 @@ requirejs.config({
 			deps: [ 'jquery' ], // Note : angular needs jQuery for some features
 			exports: 'angular'
 		},
+		'angular-isotope': {
+			deps: [ 'angular', 'isotope' ]
+		},
 		'backbone': {
 			deps: [ 'underscore', 'jquery' ], // Note : bb needs jQuery for some features
 			exports: 'Backbone'
@@ -110,14 +88,17 @@ requirejs.config({
 			deps: [ 'backbone' ]
 		},
 		'bootstrap': {
-			deps: [ 'jquery', 'css!other_components/bootstrap/css/bootstrap' ]
+			deps: [ 'jquery',
+			        'css!other_components/bootstrap/css/bootstrap' ]
 		},
 		'bootstrap-rem': {
-			deps: [ 'bootstrap', 'css!other_components/bootstrap-rem/bootstrap-rem' ]
+			deps: [ 'bootstrap',
+			        'css!other_components/bootstrap-rem/bootstrap-rem' ]
 		},
 		'bootstrap3': {
 			// js needs jQuery http://getbootstrap.com/getting-started/#whats-included
-			deps: [ 'jquery', 'css!other_components/bootstrap3/css/bootstrap' ]
+			deps: [ 'jquery',
+			        'css!other_components/bootstrap3/css/bootstrap' ]
 		},
 		'chai' : {
 			// no deps
@@ -133,7 +114,16 @@ requirejs.config({
 		},
 		'javascript-state-machine' : {
 			// no deps
-			// exports ?
+		},
+		'jpanelmenu' : {
+			deps: [
+				'jquery'
+			],
+			init: function ($) {
+				// http://jpanelmenu.com/
+				var jPM = $.jPanelMenu();
+				return jPM;
+			}
 		},
 		'jquery': {
 			exports: '$'
@@ -168,6 +158,11 @@ requirejs.config({
 		},
 		'json2' : {
 			// no deps
+		},
+		'isotope' : {
+			deps: [
+				'jquery'
+			]
 		},
 		'mocha' : {
 			deps: [
@@ -208,6 +203,6 @@ console.log("Waiting for DOM before starting app...");
 // not optimal but good for sharing this file amongst sandbox files
 requirejs(['domReady!'],
 	function() {
-		console.log("starting application logic...");
+		console.log("DOM ready : starting application logic...");
 		window.main();
 	});

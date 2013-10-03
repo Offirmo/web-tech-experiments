@@ -1,37 +1,32 @@
-﻿<!doctype html>
+<!doctype html>
 <!-- html_004 template -->
 <!-- js_005 template -->
-<html lang='en'>
+<html lang='en' xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
-	
-	<title>JS base 005</title>
+
+	<title>Test Bootstrap(3) 004</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
 
 	<!-- favicons -->
 	<!-- For IE -->
 	<!--[if IE]>
-	<link rel="shortcut icon" href="shared/favicon.ico" type="image/x-icon" />
-	<LINK rel="icon" href="shared/favicon.ico" type="image/ico">
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
 	<![endif]-->
 	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
 	<!-- ... -->
-	
-	
-	<!-- Ultra-mini css reset just to nicely display the loader
-	     Should be ultra-safe for :
-	     - old navigators like IE6
-	     - google referencement -> avoid blink, display-none at start (but ok later in script)
-	  -->
+
+	<!-- style -->
 	<style>
-	 /* ... */
+		/* ... */
 	</style>
 
 	<!-- js -->
@@ -39,34 +34,31 @@
 		console.log("hello from header !");
 	</script>
 	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
-
 </head>
 <body>
 
+
 <div id="content">
 	<div class="container">
-		<h1 id="header">JS base 005</h1>
-		<p>Advanced javascript enabled page. Using require.js, loading all libs.</p>
-		<p>(stuff is sent to firebug console)</p>
+
+		<h1 id="header">Test Bootstrap(3) 004</h1>
+		<p>Bootstrap 3 test </p>
+		<p><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></p>
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 <script>
-
 	console.log("hello from body !");
 
-	main = function()
+	window.main = function()
 	{
-		console.log("Starting rsrc load...");
-		require(
-		[	'jquery',
-			'bootstrap-rem', 'backbone', 'jquery.svg', 'jquery.datatables', 'jquery.ui', 'accounting', 'spin', 'store',
-			'ecotree', 'javascript-state-machine', 'dust'
+		console.log("Starting main...");
+		requirejs(
+		[
+			'bootstrap3'
 		],
-		function($) {
-			// is the window fully loaded ? seems yes.
-			document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+		function() {
 		});
 	};
 </script>

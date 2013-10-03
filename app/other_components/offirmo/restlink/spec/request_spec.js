@@ -37,13 +37,15 @@ function(chai, CUT, Response) {
 				var out = CUT.make_new()
 						.with_uri("/stanford/teapot")
 						.with_method("BREW")
-						.with_content("Do it !")
-						.with_meta({ 'traceroute': true });
+						.with_meta({ 'traceroute': true })
+						.with_content_type("text/plain")
+						.with_content("Do it !");
 
-				out.method.should.equal("BREW");
 				out.uri.should.equal("/stanford/teapot");
-				out.content.should.equal("Do it !");
+				out.method.should.equal("BREW");
 				out.meta.should.deep.equal({ 'traceroute': true });
+				out.content_type.should.equal("text/plain");
+				out.content.should.equal("Do it !");
 			});
 
 			it('should allow easy response creation', function() {

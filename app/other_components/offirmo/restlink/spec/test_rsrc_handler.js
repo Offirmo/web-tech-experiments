@@ -1,22 +1,31 @@
-/* A javascrip object
- * Defined in "Offirmo style"
- * A cool writing that is readable
- * and doesn't constraint the user.
- * (i.e. allow all kinds of inheritance)
- *
- * Inspired from various talks and posts about javascript objects and inheritance :
- * http://ericleads.com/2012/09/stop-using-constructor-functions-in-javascript/
- * http://javascript.crockford.com/private.html
+/* A RESTful resource handler for testing and example
  */
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
 	'underscore',
-	'offirmo/base/spec/offinh_sample_object',
+	'rsrc_handler_base'
 ],
-function(_, SampleObject) {
+function(_, BaseRsrcHandler) {
 	"use strict";
+
+
+	var tests = [
+		{
+			name: "test 1"
+		},
+		{
+			name: "test 2"
+		},
+		{
+			name: "test 3"
+		}
+	];
+	var test_index = {};
+	_.each(tests, function(element, index, list) {
+		test_index[element.name] = element;
+	});
 
 
 	////////////////////////////////////
@@ -33,6 +42,11 @@ function(_, SampleObject) {
 	////////////////////////////////////
 	//defaults. = ;
 
+	methods.init = function() {
+		// init of member objects
+		//...
+	};
+
 
 	////////////////////////////////////
 	//exceptions. = ;
@@ -41,40 +55,64 @@ function(_, SampleObject) {
 	////////////////////////////////////
 	//methods. = ;
 
+	// should add all rsrc ids in the list
+	// TOREVIEW efficiency if great number ?
+	methods.list_rsrcs = function() {
+		return test_index.keys();
+	};
+
+	// precondition : id is valid
+	methods.is_rsrc_existing = function() {
+		xxx
+	};
+
+	// precondition : id is valid and rsrc exists
+	methods.delete_rsrc = function() {
+		xxx
+	};
+
+	// TODO put the following content-dependent primitives in a subclass dedicated to content type !
+
+	// precondition : id is valid
+	methods.dump_rsrc_representation = function() {
+		xxx
+	};
+
+	// new rsrc id should be in the result
+	methods.create_new_rsrc = function() {
+		xxx
+	};
+
+	// precondition : id is valid and rsrc exists
+	// BEWARE OF MASS ASSIGNMENT !
+	methods.update_rsrc = function() {
+		xxx
+	};
+
 
 	////////////////////////////////////
-
-	// inheritance
-	//_.defaults(constants, SampleObject.constants); // depends how we inherit
-	//_.defaults(defaults,  SampleObject.defaults);  // depends how we inherit
-	//_.defaults(methods,   SampleObject.methods); // depends how we inherit
-	// exceptions ?
-
 	Object.freeze(constants);
 	Object.freeze(defaults);
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	var DefinedClass = function OffirmoSampleDerivedObject() {
+	var DefinedClass = function TestRsrcHandler() {
 		_.defaults( this, defaults ); // may also set parent's defaults, depending on how we inherited
 
-		// example : call parent constructor (after setting our defaults)
-		// optional depending on how we inherited
-		SampleObject.klass.prototype.constructor.apply(this, arguments);
-		// we can also call this one
-		SampleObject.methods.init.apply(this, arguments); // choice...
+		// optional : call parent ?
 
-		// do our own inits
-		//methods.init.apply(this, arguments);
+		// other inits...
+		methods.init.apply(this, arguments);
 	};
 
 	// in this case, "class" inheritance via prototype chain
-	DefinedClass.prototype = Object.create(SampleObject.klass.prototype);
+	DefinedClass.prototype = Object.create(BaseRsrcHandler.klass.prototype);
 	DefinedClass.prototype.constructor = DefinedClass;
 
 	DefinedClass.prototype.constants  = constants;
 	DefinedClass.prototype.exceptions = exceptions;
 	_.extend(DefinedClass.prototype, methods);
+
 
 
 	////////////////////////////////////

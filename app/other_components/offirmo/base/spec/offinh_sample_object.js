@@ -1,4 +1,4 @@
-/* A javascrip object
+/* A javascript object
  * Defined in "Offirmo style"
  * A cool writing that is readable
  * and doesn't constraint the user.

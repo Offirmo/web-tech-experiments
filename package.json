@@ -4,22 +4,22 @@
 	"dependencies": {
 		"requirejs":          "latest",
 		"amdefine":           "latest",
-		
 		"accounting":         "latest",
 		"angular":            "latest",
 		"backbone":           "latest",
 		"backbone-associations":  "latest",
 		"jquery":             "latest",
 		"json2":              "latest",
+		"moment":             "latest",
 		"underscore":         "latest",
 		"when":               "latest"
 	},
 	"devDependencies": {
-		"mocha":              "latest",
 		"chai":               "latest",
 		"chai-as-promised":   "latest",
 		"chai-backbone":      "latest",
 		"chai-interface":     "latest",
+		"mocha":              "latest",
 		"sinon-chai":         "latest"
 	}
 }

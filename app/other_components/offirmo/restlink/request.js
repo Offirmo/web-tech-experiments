@@ -30,10 +30,13 @@ function(_, Response, http_constants) {
 	methods.init = function() {
 		// init of member objects
 
-		this.method  = undefined;
-		this.uri     = undefined;
-		this.meta    = {};
-		this.content = undefined;
+		this.uri          = undefined;
+		this.method       = undefined;
+		// https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+		this.meta         = {};
+		// https://en.wikipedia.org/wiki/Internet_media_type
+		this.content_type = "application/json"; // default
+		this.content      = undefined;
 	};
 
 
@@ -44,10 +47,11 @@ function(_, Response, http_constants) {
 	////////////////////////////////////
 	//methods. = ;
 	// easy setting. Note the "return this" for fluid interface
-	methods.with_method  = function(method)  { this.method  = method;  return this; };
-	methods.with_uri     = function(uri)     { this.uri     = uri;     return this; };
-	methods.with_content = function(content) { this.content = content; return this; };
-	methods.with_meta    = function(meta)    { this.meta    = meta;    return this; };
+	methods.with_uri          = function(uri)          { this.uri          = uri;     return this; };
+	methods.with_method       = function(method)       { this.method       = method;  return this; };
+	methods.with_meta         = function(meta)         { this.meta         = meta;    return this; };
+	methods.with_content_type = function(content_type) { this.content_type = content_type; return this; };
+	methods.with_content      = function(content)      { this.content      = content; return this; };
 
 	// utility
 	// attributes are optional

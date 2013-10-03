@@ -4,20 +4,28 @@
 	"dependencies": {
 		"accounting":         "latest",
 		"angular":            "latest",
+		"angular-isotope":    "latest",
 		"backbone":           "latest",
+		"console-shim":       "latest",
 		"datatables":         "latest",
 		"dustjs-linkedin":    "latest",
+		"html5shiv":          "latest",
+		"jpanelmenu":         "latest",
 		"jquery":             "latest",
 		"jquery.svg":         "latest",
 		"jqueryuibootstrap":  "latest",
 		"json2":              "latest",
+		"isotope":            "latest",
 		"modernizr":          "latest",
+		"moment.js":          "latest",
+		"pace":               "latest",
 		"require-css":        "latest",
 		"requirejs":          "latest",
 		"requirejs-domready": "latest",
 		"requirejs-i18n":     "latest",
 		"requirejs-plugins":  "latest",
 		"requirejs-text":     "latest",
+		"respond":            "latest",
 		"screenfull":         "latest",
 		"spin.js":            "latest",
 		"store.js":           "latest",
@@ -29,13 +37,15 @@
 		"chai-as-promised":   "latest",
 		"chai-backbone":      "latest",
 		"chai-interface":     "latest",
+		"mocha":              "latest",
 		"sinon-chai":         "latest"
-	},
-	"needBuildDeps": {
-		"bootstrap":          "latest",
-		"jquery.ui":          "latest"
 	},
 	"commentedOutDeps": {
 		"backbone-associations":   "latest"
+	},
+	"not_in_bower": {
+		"bootstrap":          "latest",
+		"jquery.ui":          "latest",
+		"bootstrap3":         "latest"
 	}
 }

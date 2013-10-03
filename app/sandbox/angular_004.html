@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
 
-	<title ng-bind="title">Angular test 003 fallback title</title>
+	<title ng-bind="title">Angular test fallback title</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 
@@ -41,10 +41,19 @@
 <div id="content">
 	<div class="container">
 
-		<h1 id="header">Angular 003</h1>
-		<p ng-bind="snippet">Angular test 003 fallback snippet.</p>
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+		<p>Testing routing and views.</p>
 		<p>Angular version : {{scoped_angular.version.full}}</p>
 		<p>Hello {{'World'}} !</p>
+
+		<p>
+			<a class="btn btn-default" href="#">Home</a>
+			<a class="btn btn-default" href="#another">Another</a>
+			<a class="btn btn-default" href="#xyz">Inexisting</a>
+		</p>
+
+		<div ng-view></div>
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
@@ -62,11 +71,19 @@
 		],
 		function() {
 			var app = angular.module('App', []);
+
 			app.controller('AppCtrl', function($scope) {
-				$scope.title = "Angular Test App 003";
+				$scope.title = "Angular Test App 004";
 				$scope.snippet = "Advanced javascript single-page webapp. Using require.js and angular.js.";
 				$scope.scoped_angular = angular;
 			});
+
+			app.config(['$routeProvider', function($routeProvider) {
+				$routeProvider.
+					when('/', {templateUrl: 'angular_004_partial_home.html', controller: 'AppCtrl'}).
+					when('/another', {templateUrl: 'angular_004_partial_another.html', controller: 'AppCtrl'}).
+					otherwise({redirectTo: '/'});
+			}]);
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
