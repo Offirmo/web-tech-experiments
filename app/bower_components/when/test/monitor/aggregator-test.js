@@ -26,12 +26,26 @@ define('when/monitor/aggregator-test', function (require) {
 			assert.isFunction(aggregator(function(){}).PromiseStatus);
 		},
 
-		'promise': {
+		'PromiseStatus': {
 			'rejection should trigger report': function(done) {
 				aggregator(function(promises) {
-					for(var key in promises) {
+					for (var key in promises) {
 						assert.same(promises[key].reason, sentinel);
 					}
+					done();
+				}).publish(monitor);
+
+				var status = new monitor.PromiseStatus();
+				status.rejected(sentinel);
+
+				when.defer().reject(sentinel);
+			}
+		},
+
+		'promise': {
+			'rejection should trigger report': function(done) {
+				aggregator(function() {
+					assert(true);
 					done();
 				}).publish(monitor);
 
@@ -43,10 +57,8 @@ define('when/monitor/aggregator-test', function (require) {
 
 		'defer': {
 			'rejection should trigger report': function(done) {
-				aggregator(function(promises) {
-					for(var key in promises) {
-						assert.same(promises[key].reason, sentinel);
-					}
+				aggregator(function() {
+					assert(true);
 					done();
 				}).publish(monitor);
 

@@ -31,10 +31,6 @@ defaultOptions =
   # means ajax navigation has occured)
   restartOnPushState: true
  
-  # Should pace automatically restart when a Backbone route change occurs?  Can also be an
-  # array of route names.  Ignored if Backbone.js is not included on the page.
-  restartOnBackboneRoute: true
-  
   # Should we show the progress bar for every ajax request (not just regular or ajax-y page
   # navigation)? Set to false to disable.
   #
@@ -69,7 +65,7 @@ defaultOptions =
     trackMethods: ['GET']
 
     # Should we track web socket connections?
-    trackWebSockets: true
+    trackWebSockets: false
 
 now = ->
   performance?.now?() ? +new Date
@@ -193,8 +189,8 @@ class Bar
 
     if not @lastRenderedProgress or @lastRenderedProgress|0 != @progress|0
       # The whole-part of the number has changed
-      
-      el.setAttribute 'data-progress-text', "#{ @progress|0 }%"
+
+      el.children[0].setAttribute 'data-progress-text', "#{ @progress|0 }%"
 
       if @progress >= 100
         # We cap it at 99 so we can use prefix-based attribute selectors
@@ -203,7 +199,7 @@ class Bar
         progressStr = if @progress < 10 then "0" else ""
         progressStr += @progress|0
 
-      el.setAttribute 'data-progress', "#{ progressStr }"
+      el.children[0].setAttribute 'data-progress', "#{ progressStr }"
 
     @lastRenderedProgress = @progress
 
@@ -506,30 +502,6 @@ if window.history.replaceState?
     handlePushState()
 
     _replaceState.apply window.history, arguments
-
-firstLoad = true
-if options.restartOnBackboneRoute
-  # Bind in a timeout, as it's possible Backbone hasen't been
-  # included yet
-  setTimeout ->
-    return unless window.Backbone?
-   
-    Backbone.history.on 'route', (router, name) ->
-      return unless rule = options.restartOnBackboneRoute
-
-      if firstLoad
-        # We don't want to do anything on the initial route
-        firstLoad = false
-        return
-
-      if typeof rule is 'object'
-        # It's an array of route names
-        for routeName in rule when routeName is name
-          Pace.restart()
-          break
-      else
-        Pace.restart()
-  , 0
 
 SOURCE_KEYS =
   ajax: AjaxMonitor

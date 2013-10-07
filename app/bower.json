@@ -4,6 +4,8 @@
 	"dependencies": {
 		"accounting":         "latest",
 		"angular":            "latest",
+		"angular-1.1.6":      "latest",
+		"angular-latest":     "latest",
 		"angular-isotope":    "latest",
 		"backbone":           "latest",
 		"console-shim":       "latest",
@@ -18,6 +20,7 @@
 		"isotope":            "latest",
 		"modernizr":          "latest",
 		"momentjs":           "latest",
+		"onepage-scroll":     "latest",
 		"pace":               "latest",
 		"require-css":        "latest",
 		"requirejs":          "latest",

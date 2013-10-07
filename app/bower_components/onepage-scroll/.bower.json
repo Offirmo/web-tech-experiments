@@ -1,0 +1,13 @@
+{
+  "name": "onepage-scroll",
+  "homepage": "https://github.com/peachananr/onepage-scroll",
+  "_release": "96cdec116e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "96cdec116e9f98b36367ce647fa3d104d74bdb70"
+  },
+  "_source": "git://github.com/peachananr/onepage-scroll.git",
+  "_target": "*",
+  "_originalSource": "onepage-scroll"
+}

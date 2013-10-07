@@ -59,6 +59,7 @@ requirejs.config({
 		'mocha'         : 'bower_components/mocha/mocha', // ok since dev only ?
 		'moment'        : 'bower_components/momentjs/moment',
 		'offirmo'       : 'other_components/offirmo',
+		'onepage-scroll': 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		// javascript customizable spinner http://fgnass.github.com/spin.js/
 		'spin'          : 'bower_components/spin.js/spin',
 		'store'         : 'bower_components/store.js/store',
@@ -174,6 +175,12 @@ requirejs.config({
 				this.mocha.setup('bdd');
 				return this.mocha;
 			}
+		},
+		'onepage-scroll': {
+			deps: [
+				'jquery',
+				'css!bower_components/onepage-scroll/onepage-scroll'
+			]
 		},
 		'spin' : {
 			exports: 'Spinner'
