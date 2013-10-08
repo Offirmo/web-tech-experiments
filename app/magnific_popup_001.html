@@ -1,0 +1,179 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+
+	<title>Magnific popup test 001</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="misc/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="misc/favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+	
+
+	<style>
+		/* style for magnific popup */
+		.zoom-anim-dialog {
+			position: relative;
+			background: #FFF;
+			padding: 20px;
+			width: auto;
+			max-width: 500px;
+			margin: 20px auto;
+		}
+
+		/**
+		 * Fade-move animation for magnific popup
+		 */
+
+		/* at start */
+		.my-mfp-slide-bottom .zoom-anim-dialog {
+			opacity: 0;
+			-webkit-transition: all 0.2s ease-out;
+			-moz-transition: all 0.2s ease-out;
+			-o-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
+
+			-webkit-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+			-moz-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+			-ms-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+			-o-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+			transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+		}
+
+		/* animate in */
+		.my-mfp-slide-bottom.mfp-ready .zoom-anim-dialog {
+			opacity: 1;
+			-webkit-transform: translateY(0) perspective( 600px ) rotateX( 0 );
+			-moz-transform: translateY(0) perspective( 600px ) rotateX( 0 );
+			-ms-transform: translateY(0) perspective( 600px ) rotateX( 0 );
+			-o-transform: translateY(0) perspective( 600px ) rotateX( 0 );
+			transform: translateY(0) perspective( 600px ) rotateX( 0 );
+		}
+
+		/* animate out */
+		.my-mfp-slide-bottom.mfp-removing .zoom-anim-dialog {
+			opacity: 0;
+
+			-webkit-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg );
+			-moz-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg );
+			-ms-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg );
+			-o-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg );
+			transform: translateY(-10px) perspective( 600px ) rotateX( 10deg );
+		}
+
+		/* Dark overlay, start state */
+		.my-mfp-slide-bottom.mfp-bg {
+			opacity: 0;
+
+			-webkit-transition: opacity 0.3s ease-out;
+			-moz-transition: opacity 0.3s ease-out;
+			-o-transition: opacity 0.3s ease-out;
+			transition: opacity 0.3s ease-out;
+		}
+		/* animate in */
+		.my-mfp-slide-bottom.mfp-ready.mfp-bg {
+			opacity: 0.8;
+		}
+		/* animate out */
+		.my-mfp-slide-bottom.mfp-removing.mfp-bg {
+			opacity: 0;
+		}
+
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Magnific popup test 001</h1>
+		<p>Advanced javascript enabled page. Using require.js, loading all libs.</p>
+		<p><a class="popup-with-anim" href="#small-dialog-001">
+			Open with fade-slide animation
+		</a></p>
+
+		<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+		<div id="small-dialog-001" class="zoom-anim-dialog mfp-hide">
+			<h1>Dialog example</h1>
+			<p>This is dummy copy. It is not meant to be read. It has been placed here solely to demonstrate the look and feel of finished, typeset text. Only for show. He who searches for meaning here will be sorely disappointed.</p>
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting rsrc load...");
+		require(
+		[	'jquery',
+			'magnific-popup',
+			'bootstrap3'
+		],
+		function($) {
+
+			$('.popup-with-anim').magnificPopup({
+				type: 'inline',
+
+				fixedContentPos: false,
+				fixedBgPos: true,
+
+				overflowY: 'auto',
+
+				closeBtnInside: true,
+				preloader: false,
+
+				midClick: true,
+				removalDelay: 300,
+
+				mainClass: 'my-mfp-slide-bottom'
+			});
+/*
+			$('.popup-with-anim').magnificPopup({
+				type: 'inline',
+
+				fixedContentPos: false,
+				fixedBgPos: true,
+
+				overflowY: 'auto',
+
+				closeBtnInside: true,
+				preloader: false,
+
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-slide-bottom'
+			});*/
+
+		});
+	};
+</script>
+
+</body>
+</html>

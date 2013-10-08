@@ -18,6 +18,7 @@
 		"jqueryuibootstrap":  "latest",
 		"json2":              "latest",
 		"isotope":            "latest",
+		"magnific-popup":     "latest",
 		"modernizr":          "latest",
 		"momentjs":           "latest",
 		"onepage-scroll":     "latest",
@@ -30,6 +31,7 @@
 		"requirejs-text":     "latest",
 		"respond":            "latest",
 		"screenfull":         "latest",
+		"socket.io":          "latest",
 		"spin.js":            "latest",
 		"store.js":           "latest",
 		"underscore":         "latest",
@@ -43,12 +45,18 @@
 		"sinon-chai":         "latest"
 	},
 	"commentedOutDeps": {
-		"backbone-associations":   "latest"
+		"alertify.js":        "latest",
+		"backbone-associations": "latest"
 	},
 	"not_in_bower": {
 		"bootstrap":          "latest",
+		"bootstrap3":         "latest",
 		"chai-interface":     "latest",
+		"fullpage.js":        "latest",
 		"jquery.ui":          "latest",
-		"bootstrap3":         "latest"
+		"type-check":         "latest"
+	},
+	"to_test": {
+		"zepto":          "latest"
 	}
 }

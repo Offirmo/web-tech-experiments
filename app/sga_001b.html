@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en' xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">SGA 001 fallback title</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- style -->
+	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
+	<style>
+		/* ... */
+	</style>
+
+	<!-- Various shims for IE8 -->
+	<!--[if lt IE 9]>
+	<script src="bower_components/console-shim/console-shim.js"></script>
+	<script src="bower_components/html5shiv/html5shiv.js"></script>
+	<script src="bower_components/respond/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- js -->
+	<script src="bower_components/pace/pace.min.js"></script>
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="sandbox/shared/components.js" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+	<![endif]-->
+
+
+<div class="wrapper">
+	<div class="main">
+
+		<section class="page1">
+			<div class="page_container">
+				<h1>Pretty Neat Eh 1 ?</h1>
+			</div>
+		</section>
+
+		<section class="page2">
+			<div class="page_container">
+				<h1>Pretty Neat Eh 2 ?</h1>
+			</div>
+		</section>
+
+		<section class="page3">
+			<div class="page_container">
+				<h1>Pretty Neat Eh 3?</h1>
+			</div>
+		</section>
+
+	</div>
+	<a class="back" href="http://www.thepetedesign.com/#design">Back to The Pete Design</a>
+</div>
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header">Webapp 001</h1>
+		<p ng-bind="snippet">Test webapp 001</p>
+		<p>Angular version : {{scoped_angular.version.full}}</p>
+		<p>Hello {{'World'}} !</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'angular',
+			'bootstrap3'
+		],
+		function() {
+			var app = angular.module('App', []);
+			app.controller('AppCtrl', function($scope) {
+				$scope.title = "SGA 001";
+				$scope.snippet = "Advanced javascript single-page webapp. Using require.js and angular.js.";
+				$scope.scoped_angular = angular;
+			});
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			// cf.
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

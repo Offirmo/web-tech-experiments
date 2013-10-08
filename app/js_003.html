@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<!-- html_003 template -->
+<!-- js_003 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>JS base 003</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="misc/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+	
+	
+	<!-- Ultra-mini css reset just to nicely display the loader
+	     Should be ultra-safe for :
+	     - old navigators like IE6
+	     - google referencement -> avoid blink, display-none at start (but ok later in script)
+	  -->
+	<style>
+	div#q-loader
+	{
+		all:default !important; /* reset */
+		padding-top: 50px !important;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+		font-size: 14px !important;
+		text-align: center !important;
+		line-height: 1.25rem !important;
+	}
+	div#q-loader h1, h3
+	{
+		margin: 0.63rem 0rem !important;
+		line-height: 2.5rem !important;
+		font-weight: bold !important;
+	}
+	div#q-loader h1
+	{
+		font-size: 2.41rem !important;
+	}
+	div#q-loader h3
+	{
+		font-size: 1.54rem !important;
+	}
+	p#q-loader-contact
+	{
+		font-size: 85% !important;
+		margin: 0rem 0rem 0.63rem !important;
+	}
+	p#q-loader-contact a
+	{
+		color: rgb(0, 136, 204) !important;
+		text-decoration: none !important;
+	}
+	ul#q-loader-log
+	{
+		color: grey !important;
+		font-size: 10px !important;
+	}
+	</style>
+
+	<!-- js -->
+	<script src="other_components/quartermaster.js/quartermaster.js"></script>
+	<script>
+		main = function()
+		{
+			Q.log("Starting rsrc load...");
+			require(
+				[	'jquery', 'jquery.ui', 'bootstrap', 'accounting', 'spin', 'store',
+					'graphic-javascript-tree', 'javascript-state-machine'
+				],
+				function($) {
+					// is the window fully loaded ? seems yes.
+					document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:'
+						+ $.fn.jquery + ')'));
+				});
+		};
+	</script>
+	<script data-main="shared/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+
+require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', /*'jquery.datatables.js'*/ 'jquery.svg.js'/*, 'richui.js'*/ ],
+src: [ 'shared/empty.js' ],
+test: function (key, callback) {
+callback(key, typeof(window.empty_js_test) !== 'undefined');
+}
+},
+{
+name: 'app.css',
+require: [ 'bootstrap-rem.css', /*'jquery.datatables.css',*/ 'jquery.svg.css'/*, 'richui.css'*/ ],
+
+
+
+
+<div id="q-loader">
+	<h1>Test app</h1>
+	<h3 id="q-loader-msg">Loading<span id="q-simple-loading-indicator">...</span> (<span id="q-loaded-rsrc-count">0</span>/<span id="q-expected-rsrc-count">1</span>)</h3>
+	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
+	<ul id="q-loader-log">
+		<!-- empty for now -->
+	</ul>
+	<p id="q-loader-contact">Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in
+		case of problem.</p>
+</div>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">JS base 003</h1>
+		<p>Javascript enabled page 3. Using Q loader, loading all libs.</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+
+	console.log("hello from body");
+
+	Q.init();
+	Q.log("Starting rsrc load...");
+
+	Q.on_load_complete(function() {
+		Q.info("Starting app...");
+		init_app(); // see below
+	});
+
+	Q.load([
+	/////// jQuery
+	{
+		name: 'jquery.js',
+		src: [ /*"http://code.jquery.com/jquery-1.9.1.js",*/ '../bower_components/jquery/jquery.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery) !== 'undefined');
+		}
+	},
+	/////// bootstrap
+	{
+		name: 'bootstrap.js',
+		require: [ 'jquery.js' ],
+		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js",
+		       "http//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js",*/
+			   '../other_components/bootstrap/js/bootstrap.js' ],
+		test: function (key, callback) {
+			// https://github.com/netdna/bootstrap-cdn/issues/111
+			callback(key, (typeof($) !== 'undefined') && (typeof($.fn) !== 'undefined') && (typeof($.fn.modal) !== 'undefined'));
+		}
+	},
+	{
+		name: 'bootstrap.css',
+		src: [ /*"http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
+		       "http://twitter.github.com/bootstrap/assets/css/bootstrap.css",*/
+			   '../other_components/bootstrap/css/bootstrap.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'span1' ], { 'width': '60px' }, key, callback);
+		}
+	},
+	/////// bootstrap rem
+	{
+		name: 'bootstrap-rem.css',
+		require: [ 'bootstrap.css' ],
+		src: [ '../other_components/bootstrap-rem/bootstrap-rem.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'test_bootstrap_rem' ], { 'font-size': '33px' }, key, callback);
+		}
+	},
+	/////// Backbone
+	{
+		name: 'underscore.js',
+		src: [ /*"http://underscorejs.org/underscore.js",*/ '../bower_components/underscore/underscore.js' ],
+		test: function(key, callback) {
+			callback(key, typeof(window._) !== 'undefined');
+		}
+	},
+	{
+		name: 'backbone.js',
+		require: [ 'underscore.js', 'jquery.js' ], // bb needs jQuery for some features
+		src: [ /*"http://backbonejs.org/backbone.js",*/ '../bower_components/backbone/backbone.js' ],
+		test: function(key, callback) {
+			callback(key, typeof(window.Backbone) !== 'undefined');
+		}
+	},
+	// accounting.js
+	{
+		name: 'accounting.js',
+		src: [ '../bower_components/accounting/accounting.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.accounting) !== 'undefined');
+		}
+	},
+	/////// JSON2
+	{
+		name: 'json2.js',
+		src: [ /*"http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js",*/ '../bower_components/json2/json2.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.JSON) !== 'undefined');
+		}
+	},
+	/////// store.js
+	{
+		name: 'store.js',
+		require: [ 'json2.js' ],
+		src: [ '../bower_components/store.js/store.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.store) !== 'undefined');
+		}
+	},
+	/////// jquery.ui
+	{
+		name: 'jquery.ui.js',
+		require: [ 'jquery.js' ],
+		src: [ '../other_components/jquery.ui/js/jquery-ui.custom.js' ],
+		//src: [ '../other_components/empty/empty.js' ],
+		test: function (key, callback) {
+			//callback(key, true);
+			callback(key, typeof(window.jQuery.fn.progressbar) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery.ui.css',
+		require: [ 'bootstrap.css' ],
+		/* smoothness theme
+		src: [ "../other_components/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css" ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'ui-resizable-n' ], { 'height': '7px' }, key, callback);
+		}*/
+		/* bootstrap theme */
+		src: [ '../other_components/jquery.ui/themes/bootstrap/jquery-ui-1.10.0.custom.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'jquery-ui-theme-bootstrap-offirmo-test' ], { 'font-size': '33px' }, key, callback);
+		}
+		/* empty theme (pretend to load)
+		src: [ "../other_components/empty/empty.css" ],
+		test: function (key, callback) {
+			callback(key, true);
+		}*/
+	},
+	/////// jquery.datatables.js
+	/*{
+		name: 'jquery.datatables.js',
+		require: [ 'jquery.js', 'jquery.ui.js' ],
+		src: [ '../contrib/jquery.datatables/jquery.datatables.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.DataTable) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery.datatables.css',
+		require: [ 'jquery.ui.css' ],
+		//src: [ "../contrib/jquery.datatables/demo_table.css" ],
+		//src: [ "../contrib/jquery.datatables/demo_table_jui.css" ],
+		//src: [ "../contrib/jquery.datatables/jquery.dataTables.css" ],
+		src: [ '../contrib/jquery.datatables/jquery.dataTables_themeroller.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'dataTables_info' ], { 'padding-top': '3px' }, key, callback);
+		}
+	},*/
+	/////// jquery.svg
+	{
+		name: 'jquery.svg.js',
+		require: [ 'jquery.js' ],
+		src: [ '../bower_components/jquery.svg/jquery.svg.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.svg) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery.svg.css',
+		src: [ '../bower_components/jquery.svg/jquery.svg.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'svg_error' ], { 'color': 'rgb(255, 0, 0)' }, key, callback);
+		}
+	},
+	/////// richui.js
+	/*{
+		name: 'richui.js',
+		require: [ 'jquery.svg.js' ],
+		src: [ '../homebrew/richui.js/richui.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.richui) !== 'undefined');
+		}
+	},
+	{
+		name: 'richui.css',
+		src: [ '../homebrew/richui.js/richui.css' ],
+		test: function (key, callback) {
+			Q.test_css('span', [ 'test_richui_css' ], { 'font-size': '33px' }, key, callback);
+		}
+	},
+	/////// pivot.js
+	{
+		name: 'pivot.js',
+		src: [ '../contrib/pivot.js/pivot.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.pivot) !== 'undefined');
+		}
+	},
+	{
+		name: 'jquery_pivot.js',
+		require: [ 'jquery.js', 'pivot.js', 'jquery.ui.js' ],
+		src: [ '../contrib/pivot.js/jquery_pivot.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.jQuery.fn.pivot_display) !== 'undefined');
+		}
+	},*/
+	/////// misc
+	{
+		// javascript finite state machine
+		// https://github.com/jakesgordon/javascript-state-machine
+		name: 'jsm.js',
+		src: [ /*"https://github.com/jakesgordon/javascript-state-machine/raw/master/state-machine.js",*/
+		       '../other_components/javascript-state-machine/state-machine.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.StateMachine) !== 'undefined');
+		}
+	},
+	{
+		// javascript customizable spinner
+		// http://fgnass.github.com/spin.js/
+		name: 'spin.js',
+		src: [ /*"http://fgnass.github.com/spin.js/dist/spin.js",*/ '../bower_components/spin.js/spin.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.Spinner) !== 'undefined');
+		}
+	},
+	// app
+	{
+		name: 'app.js',
+		require: [ 'jquery.js', 'jquery.ui.js', 'bootstrap.js', 'backbone.js', 'accounting.js', 'jsm.js', 'spin.js', 'store.js', /*'jquery.datatables.js'*/ 'jquery.svg.js'/*, 'richui.js'*/ ],
+		src: [ 'shared/empty.js' ],
+		test: function (key, callback) {
+			callback(key, typeof(window.empty_js_test) !== 'undefined');
+		}
+	},
+	{
+		name: 'app.css',
+		require: [ 'bootstrap-rem.css', /*'jquery.datatables.css',*/ 'jquery.svg.css'/*, 'richui.css'*/ ],
+		src: [ 'shared/empty.css' ],
+		test: function (key, callback) {
+			Q.test_css('div', [ 'test_empty_css' ], { 'font-size': '33px' }, key, callback);
+		}
+	}
+	]);
+} // Q available
+
+	function init_app() {
+		// REM : js console demo
+		Q.log("Everything ready ! Starting app...");
+		
+		Q.group("console levels tests");
+			Q.log(  "console.log");
+			Q.debug("console.debug");
+			Q.info( "console.info");
+			Q.warn( "console.warn");
+			Q.error("console.error");
+		Q.groupEnd();
+		
+		var bar = {name: 'kitten', status: 'playful'}
+		Q.log(2,4,6,8,"foo",bar);
+		Q.log("%s is %d years old.", "Bob", 42);
+		Q.trace();
+		Q.dir(bar);
+		
+		Q.assert(false);
+		
+		document.body.appendChild(document.createTextNode('Hello from js code !'));
+	 
+		var h1 = document.getElementById('header'); // holds a reference to the <h1> tag
+		h1 = document.getElementsByTagName('h1')[0]; // accessing the same <h1> element
+	}
+	
+	</script>
+</body>
+</html>
