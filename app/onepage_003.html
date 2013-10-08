@@ -98,28 +98,64 @@
 			z-index: 3;
 		}
 		.main section  {
+			/* needed for correct positionning */
+			position:absolute;
+			/* needed for container min-height */
+			height: 100%;
+			width: 100%;
+
 			overflow: hidden;
 		}
 
-		.main section > img {
-			position: absolute;
-			max-width: 100%;
-			z-index: 1;
-		}
-
 		.main section.page1 {
-			background: rgb(243, 243, 243);
+			background:url(misc/background_1280x791.png) no-repeat center center;
+			/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
+			-webkit-background-size: cover, auto;
+			-moz-background-size: cover, auto;
+			-o-background-size: cover, auto;
+			-khtml-background-size: cover, auto;
+			background-size: cover, auto;
 		}
+		/*.main section.page1 > img {
+			position: center;
+			top: -300px;
+			left: 50%;
+			margin-left: -1095px;
+		}*/
 		.viewing-page-1 .back{
 			display: none;
 		}
 
 		.main section.page2 {
-			background: rgb(231, 231, 231);
+			background:url(misc/background_1280x791_dark.png) no-repeat center center;
+			/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
+			-webkit-background-size: cover, auto;
+			-moz-background-size: cover, auto;
+			-o-background-size: cover, auto;
+			-khtml-background-size: cover, auto;
+			background-size: cover, auto;
 		}
+		/*.main section.page2 > img {
+			position: absolute;
+			top: -300px;
+			left: 50%;
+			margin-left: -1095px;
+		}*/
 
 		.main section.page3 {
-			background: rgb(219, 219, 219);
+			background:url(misc/background_1280x791.png) no-repeat center center;
+			/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
+			-webkit-background-size: cover, auto;
+			-moz-background-size: cover, auto;
+			-o-background-size: cover, auto;
+			-khtml-background-size: cover, auto;
+			background-size: cover, auto;
+		}
+		.main section.page3 > img {
+			position: absolute;
+			top: -300px;
+			left: 50%;
+			margin-left: -1095px;
 		}
 
 	</style>
@@ -149,6 +185,7 @@
 	<div class="main">
 
 		<section class="page1">
+			<zimg src="misc/background_1280x791.png"/>
 			<div class="page_container">
 				<h1>T 1</h1>
 				<p>blah</p>
@@ -156,6 +193,7 @@
 		</section>
 
 		<section class="page2">
+			<zimg src="misc/background_1280x791_dark.png"/>
 			<div class="page_container">
 				<h1>T 2</h1>
 				<p>blah</p>
@@ -163,6 +201,7 @@
 		</section>
 
 		<section class="page3">
+			<zimg src="misc/background_1280x791.png"/>
 			<div class="page_container">
 				<h1>T 3</h1>
 				<p>blah</p>
