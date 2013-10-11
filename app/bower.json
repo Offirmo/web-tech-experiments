@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"accounting":         "latest",
-		"angular":            "latest",
+		"bower-angular":            "latest",
 		"angular-isotope":    "latest",
 		"backbone":           "latest",
 		"console-shim":       "latest",

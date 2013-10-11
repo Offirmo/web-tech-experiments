@@ -2,10 +2,9 @@
 	"name": "html_tests",
 	"version": "0.0.1",
 	"dependencies": {
-		"accounting":         "latest",
 		"amdefine":           "latest",
-		"angular":            "latest",
 		"backbone":           "latest",
+		"express":            "latest",
 		"jquery":             "latest",
 		"json2":              "latest",
 		"moment":             "latest",
@@ -23,6 +22,8 @@
 		"sinon-chai":         "latest"
 	},
 	"commentedOut": {
+		"accounting":         "latest",
+		"angular":            "latest",
 		"backbone-associations": "latest"
 	}
 }
