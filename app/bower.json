@@ -4,8 +4,6 @@
 	"dependencies": {
 		"accounting":         "latest",
 		"angular":            "latest",
-		"angular-1.1.6":      "latest",
-		"angular-latest":     "latest",
 		"angular-isotope":    "latest",
 		"backbone":           "latest",
 		"console-shim":       "latest",

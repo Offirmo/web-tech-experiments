@@ -141,7 +141,7 @@ requirejs.config({
 				"bootstrap-rem", // so we make sure bootstrap css are applied first
 				// Theme : select only one !
 				//"css!../contrib/jquery.ui/themes/smoothness/jquery-ui-1.10.2.custom.css", // smoothness theme
-				"css!bower_components/jqueryuibootstrap/css/custom-theme/jquery-ui-1.10.2.custom" // bootstrap theme
+				"css!bower_components/jqueryuibootstrap/css/custom-theme/jquery-ui-1.10.0.custom" // bootstrap theme
 			]
 		},
 		"jquery.svg": {
@@ -174,7 +174,7 @@ requirejs.config({
 		"magnific-popup" : {
 			deps: [
 				"jquery",
-				"css!bower_components/magnific-popup/dist/magnific-popup.css"
+				"css!bower_components/magnific-popup/dist/magnific-popup"
 			]
 		},
 		"mocha" : {

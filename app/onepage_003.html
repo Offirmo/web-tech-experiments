@@ -29,6 +29,10 @@
 	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
 	<style>
 
+		body {
+			overflow: hidden;
+		}
+
 		a {
 			text-decoration: none;
 		}
@@ -40,11 +44,11 @@
 			overflow: hidden;
 		}
 
-		.back {
+		.shortcuts {
 			position: absolute;
-			top: 0;
-			left: 0;
-			text-align: center;
+			bottom: 0px;
+			left: 0px;
+			text-align: left;
 			display: block;
 			padding: 7px;
 			width: 100%;
@@ -60,32 +64,7 @@
 			-o-transition: all 500ms ease-in-out;
 			transition: all 500ms ease-in-out;
 		}
-		.back:hover {
-			color: black;
-			background: rgba(255, 255, 255, 0.5);
-		}
-
-		.down {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			text-align: center;
-			display: block;
-			padding: 7px;
-			width: 100%;
-			box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-			background: rgba(255, 255, 255, 0.25);
-			font-weight: bold;
-			font-size: 13px;
-			color: #000;
-			-webkit-transition: all 500ms ease-in-out;
-			-moz-transition: all 500ms ease-in-out;
-			-o-transition: all 500ms ease-in-out;
-			transition: all 500ms ease-in-out;
-		}
-		.down:hover {
+		.shortcuts:hover {
 			color: black;
 			background: rgba(255, 255, 255, 0.5);
 		}
@@ -98,13 +77,14 @@
 			z-index: 3;
 		}
 		.main section  {
-			/* needed for correct positionning */
+			/* to prevent scrollbar to appear in our nice slider */
+			overflow: hidden;
+			/* needed for correct positioning */
 			position:absolute;
 			/* needed for container min-height */
 			height: 100%;
 			width: 100%;
 
-			overflow: hidden;
 		}
 
 		.main section.page1 {
@@ -116,18 +96,12 @@
 			-khtml-background-size: cover, auto;
 			background-size: cover, auto;
 		}
-		/*.main section.page1 > img {
-			position: center;
-			top: -300px;
-			left: 50%;
-			margin-left: -1095px;
-		}*/
-		.viewing-page-1 .back{
-			display: none;
+		.viewing-page-1 .shortcuts{
+			bottom: -30px; /* for animation, better to hide it this way */
 		}
 
 		.main section.page2 {
-			background:url(misc/background_1280x791_dark.png) no-repeat center center;
+			background:url(misc/background_1280x791.png) no-repeat center center;
 			/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
 			-webkit-background-size: cover, auto;
 			-moz-background-size: cover, auto;
@@ -135,12 +109,6 @@
 			-khtml-background-size: cover, auto;
 			background-size: cover, auto;
 		}
-		/*.main section.page2 > img {
-			position: absolute;
-			top: -300px;
-			left: 50%;
-			margin-left: -1095px;
-		}*/
 
 		.main section.page3 {
 			background:url(misc/background_1280x791.png) no-repeat center center;
@@ -185,7 +153,42 @@
 	<div class="main">
 
 		<section class="page1">
-			<zimg src="misc/background_1280x791.png"/>
+
+			<!-- Home navbar -->
+			<nav class="navbar navbar-default" role="navigation">
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Brand</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Presentation</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right" style="margin-right:10px"><!-- margin for the loader anim -->
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lang<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">fr</a></li>
+								<li><a href="#">en</a></li>
+								<li><a href="#">etc.</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+
+			</nav>
+
+
 			<div class="page_container">
 				<h1>T 1</h1>
 				<p>blah</p>
@@ -209,10 +212,10 @@
 		</section>
 
 	</div>
-	<div class="back">
-		<a href="#" onclick="go_back_to_top();">Back to home</a>
+	<div class="shortcuts">
+		<a href="#" onclick="go_back_to_top();">Home</a>
+		<div class="pull-right"><small>© All rights belong to their respective owners.</small></div>
 	</div>
-	<a class="down" href="#" onclick="$('.main').moveDown();">Scroll down for more info</a>
 </div>
 
 <div id="content">

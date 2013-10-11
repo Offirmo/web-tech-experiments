@@ -23,14 +23,17 @@
 	<![endif]-->
 	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
-	<!-- ... -->
-	
+	<!-- ... (see html template) ... -->
 
+
+	<!-- style -->
+	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
 	<style>
 	 /* ... */
 	</style>
 
 	<!-- js -->
+	<script src="bower_components/pace/pace.min.js"></script>
 	<script>
 		console.log("hello from header !");
 	</script>
@@ -55,21 +58,42 @@
 	main = function()
 	{
 		console.log("Starting rsrc load...");
+		// all libs so we chekc that they work !
 		require(
-		[	"jquery",
-			"bootstrap3",
-			"backbone",
-			"jquery.svg",
-			"jquery.datatables",
-			"jquery.ui",
+		[
 			"accounting",
+			"angular",
+			"angular-isotope",
+			"backbone",
+			//"backbone-associations",
+			"bootstrap",
+			"bootstrap-rem",
+			"bootstrap3",
+			"chai",
+			"dust",
+			//"ecotree",
+			"fullpage",
+			"javascript-state-machine",
+			"jpanelmenu",
+			"jquery",
+			"jquery.ui",
+			"jquery.svg",
+			//"jquery.datatables",
+			//"jquery.datatables.ui",
+			"json2",
+			"isotope",
+			"magnific-popup",
+			"mocha",
+			"moment",
+			//"offirmo",
+			"onepage-scroll",
 			"spin",
 			"store",
-			"ecotree",
-			"javascript-state-machine",
-			"dust"
+			"type-check",
+			"underscore",
+			"when"
 		],
-		function($) {
+		function() {
 			// due to how we wrote component.js, we know that document is fully loaded
 			document.body.appendChild(document.createTextNode("Hello from mainFunction ! (jQuery version:" + $.fn.jquery + ")"));
 		});
