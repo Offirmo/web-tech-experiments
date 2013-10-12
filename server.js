@@ -76,15 +76,15 @@ app.use(express.bodyParser());
 // methods with POST methods. Common boilerplate.
 app.use(express.methodOverride());
 
-app.use(app.router);
-
 // nadd locale infos + compute best
 app.use(connect_locale(supported_locales));
 
-// dir of html tests
-app.get('/', routes.index);
+app.use(app.router);
 
-app.get("/tests", express.directory("app"));
+// dir of html tests
+app.get('/index', routes.index);
+
+app.use(express.directory("app"));
 
 // test
 app.get('/hello', function(request, response) {

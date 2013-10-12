@@ -72,11 +72,12 @@
 		function() {
 			var app = angular.module('App', []);
 
-			app.controller('AppCtrl', function($scope) {
+			app.controller('AppCtrl', ['$scope', '$document', function($scope, $document) {
 				$scope.title = "Angular Test App 004";
 				$scope.snippet = "Advanced javascript single-page webapp. Using require.js and angular.js.";
 				$scope.scoped_angular = angular;
-			});
+				console.log($document.documentElement.lang);
+			}]);
 
 			app.config(['$routeProvider', function($routeProvider) {
 				$routeProvider.
