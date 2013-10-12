@@ -19,15 +19,16 @@
 		"requirejs":          "latest",
 		"socket.io":          "latest",
 		"underscore":         "latest",
-		"when":               "latest"
-	},
-	"devDependencies": {
+		"when":               "latest",
+		
 		"chai":               "latest",
 		"chai-as-promised":   "latest",
 		"chai-backbone":      "latest",
 		"chai-interface":     "latest",
 		"mocha":              "latest",
 		"sinon-chai":         "latest"
+	},
+	"devDependencies": {
 	},
 	"commentedOut": {
 		"accounting":         "latest",
