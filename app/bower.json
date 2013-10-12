@@ -5,6 +5,7 @@
 		"accounting":         "latest",
 		"angular":            "1.2.0-rc.2",
 		"angular-isotope":    "latest",
+		"angular-ui-router":  "latest",
 		"backbone":           "latest",
 		"console-shim":       "latest",
 		"datatables":         "latest",

@@ -10,6 +10,7 @@
 		"amdefine":           "latest",
 		"backbone":           "latest",
 		"connect-no-www":     "latest",
+		"ejs":                "latest",
 		"express":            "latest",
 		"jquery":             "latest",
 		"json2":              "latest",
