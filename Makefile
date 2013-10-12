@@ -10,4 +10,7 @@ test:
 		app/other_components/offirmo/utils/spec/* \
 		app/other_components/offirmo/restlink/spec/*
 
+run:
+	./run.sh
+
 .PHONY: test

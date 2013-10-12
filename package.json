@@ -1,12 +1,19 @@
 {
 	"name": "html_tests",
+	"description": "various web techs tests",
 	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node server.js"
+	},
 	"dependencies": {
 		"amdefine":           "latest",
 		"backbone":           "latest",
+		"connect-no-www":     "latest",
 		"express":            "latest",
 		"jquery":             "latest",
 		"json2":              "latest",
+		"locale":             "latest",
 		"moment":             "latest",
 		"requirejs":          "latest",
 		"socket.io":          "latest",
