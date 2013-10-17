@@ -17,7 +17,6 @@
 		"json2":              "latest",
 		"locale":             "latest",
 		"moment":             "latest",
-		"requirejs":          "latest",
 		"socket.io":          "latest",
 		"underscore":         "latest",
 		"when":               "latest",
