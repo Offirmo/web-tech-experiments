@@ -6,8 +6,6 @@
  * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
  */
 
-console.log("Hello ! " + $ + "," + jQuery);
-
 (function($) {
 	$.fn.fullpage = function(options) {
 	

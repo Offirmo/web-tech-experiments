@@ -1,10 +1,6 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
-define(
-[
-//	'underscore' // XXX I must fake a dependency or it doesn't work !!!
-],
-function() {
+define(function() {
 	"use strict";
 
 	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2FstartsWith#See%20also

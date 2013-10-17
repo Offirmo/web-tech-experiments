@@ -1,0 +1,90 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mocha Tests 002</title>
+	<link rel="stylesheet" href="bower_components/mocha/mocha.css" />
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+	<!-- for scripts that have a syntax error -->
+	<!-- <script src="../bower_components/offirmo/utils/spec/http_constants.js"></script> -->
+</head>
+
+<body>
+
+	<div id="mocha"></div>
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	window.main = function()
+	{
+		console.log("Loading tests...");
+
+		requirejs(
+		[
+			"jquery",
+			"mocha",
+			"domReady!",
+
+			"other_components/extended-exceptions.js/spec/extended_exceptions_spec",
+
+			"other_components/network-constants.js/spec/http_constants_spec",
+
+			"other_components/restlink.js/src/utils/spec/fast_timestamp_spec",
+//			"other_components/restlink.js/src/utils/spec/recent_and_favorites_spec",
+			"other_components/restlink.js/src/utils/spec/string_generics_spec.js",
+
+				"other_components/restlink.js/src/spec/route_indexed_container_spec",
+
+			"other_components/restlink.js/src/spec/cache_spec",
+			"other_components/restlink.js/src/spec/response_spec",
+			"other_components/restlink.js/src/spec/request_spec",
+
+			"other_components/restlink.js/src/spec/internals_transaction_spec",
+/*
+
+			"offirmo/base/spec/backbone_base_object_spec",
+			"offirmo/base/spec/backbone_named_object_spec",
+			"offirmo/base/spec/backbone_example_object_spec",
+
+			"offirmo/base/spec/offirmo_inheritance_spec",
+			"offirmo/base/spec/offinh_startable_object_spec",
+			"offirmo/base/spec/offinh_named_object_spec",
+
+			"offirmo/user_society/spec/person_spec",
+			"offirmo/user_society/spec/natural_person_spec",
+			"offirmo/user_society/spec/moral_person_spec",
+
+			"other_components/restlink.js/src/spec/client_adapter_base_spec",
+			"other_components/restlink.js/src/spec/restlink_client_spec",
+			"other_components/restlink.js/src/spec/restlink_server_spec",
+			"other_components/restlink.js/src/spec/internals_server_adapter_base_spec",
+			"other_components/restlink.js/src/spec/internals_server_adapter_direct_spec",
+			"other_components/restlink.js/src/spec/internals_core_spec",
+			"other_components/restlink.js/src/spec/internals_request_handler_base_spec",
+			"other_components/restlink.js/src/spec/internals_request_handler_actual_spec",
+			"other_components/restlink.js/src/spec/internals_session_spec",
+			"other_components/restlink.js/src/spec/internals_rest_target_indexed_container_spec",
+			"other_components/restlink.js/src/spec/restlink_spec",
+
+			"offirmo/app/spec/account_spec",
+			"offirmo/app/spec/app_spec",
+			"offirmo/app/spec/app_list_spec",
+			"offirmo/app/spec/identity_spec",
+			"offirmo/app/spec/identity_list_spec",
+			"offirmo/app/spec/session_spec"*/
+		],
+		function($) {
+
+			//document.body.appendChild(document.createTextNode("Hello from mainFunction ! (jQuery version:" + $.fn.jquery + ")"));
+
+			mocha.checkLeaks();
+			mocha.globals(["jQuery"]);
+
+			console.log("Starting tests...");
+			mocha.run();
+		});
+	};
+</script>
+
+</body>
+</html>

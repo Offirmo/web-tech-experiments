@@ -7,7 +7,7 @@ requirejs.config({
 
 	// base URL from which component files will be searched
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
-	// NOTE 2 : relative baseUrl base refers to the calling html !
+	// NOTE 2 : relative baseUrl base refers to *the calling html* !
 	baseUrl: "",
 
 	// http://requirejs.org/docs/api.html#config-enforceDefine
@@ -32,6 +32,12 @@ requirejs.config({
 
 	/////////////////////
 	paths: {
+		// AMD plugins (dirs or direct)
+		"extended-exceptions" : "other_components/extended-exceptions.js/extended_exceptions",
+		"jquery"              : "bower_components/jquery/jquery",
+		"network-constants"   : "other_components/network-constants.js", // dir
+		"restlink"            : "other_components/restlink.js/src", // dir
+		//"offirmo"          : "other_components/offirmo",
 		// shim plugins
 		"accounting"       : "bower_components/accounting/accounting",
 		"angular"          : "bower_components/angular/angular",
@@ -48,7 +54,6 @@ requirejs.config({
 		"fullpage"         : "other_components/fullpage/jquery.fullPage",
 		"javascript-state-machine": "other_components/javascript-state-machine/state-machine",
 		"jpanelmenu"       : "bower_components/jpanelmenu/jquery.jpanelmenu",
-		"jquery"           : "bower_components/jquery/jquery",
 		"jquery.ui"        : "other_components/jquery.ui/js/jquery-ui.custom",
 		"jquery.svg"       : "bower_components/jquery.svg/jquery.svg",
 		"jquery.datatables": "bower_components/datatables/media/js/jquery.dataTables",
@@ -58,7 +63,6 @@ requirejs.config({
 		"magnific-popup"   : "bower_components/magnific-popup/dist/jquery.magnific-popup",
 		"mocha"            : "bower_components/mocha/mocha",
 		"moment"           : "bower_components/momentjs/moment",
-		"offirmo"          : "other_components/offirmo",
 		"onepage-scroll"   : "bower_components/onepage-scroll/jquery.onepage-scroll",
 		"spin"             : "bower_components/spin.js/spin",
 		"store"            : "bower_components/store.js/store",
@@ -101,10 +105,6 @@ requirejs.config({
 			deps: [ "jquery",
 			        "css!other_components/bootstrap3/css/bootstrap" ]
 		},
-		"chai" : {
-			// no deps
-			// exports ?
-		},
 		"dust" : {
 			// no deps
 			exports: "dust"
@@ -119,9 +119,6 @@ requirejs.config({
 				"css!other_components/fullpage/jquery.fullPage"
 			]
 		},
-		"javascript-state-machine" : {
-			// no deps
-		},
 		"jpanelmenu" : {
 			deps: [
 				"jquery"
@@ -131,9 +128,6 @@ requirejs.config({
 				var jPM = $.jPanelMenu();
 				return jPM;
 			}
-		},
-		"jquery": {
-			exports: [ "$", "jQuery" ],
 		},
 		"jquery.ui": {
 			deps: [
@@ -162,9 +156,6 @@ requirejs.config({
 				"jquery.ui",
 				"css!bower_components/datatables/media/css/jquery.dataTables_themeroller"
 			]
-		},
-		"json2" : {
-			// no deps
 		},
 		"isotope" : {
 			deps: [
