@@ -7,6 +7,7 @@ var Q = require("q");
 chai.should();
 chai.use(chaiAsPromised);
 
+global.chaiAsPromised = chaiAsPromised;
 global.expect = chai.expect;
 global.AssertionError = chai.AssertionError;
 global.Assertion = chai.Assertion;

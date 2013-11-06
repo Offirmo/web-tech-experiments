@@ -158,6 +158,21 @@ This will pass any failures of the individual promise assertions up to the test 
 an `"expected promise to be fulfilled…"` message as would happen if you did
 `Q.all([…]).should.be.fulfilled.and.notify(done)`.
 
+### Customizing Output Promises
+
+By default, the promises returned by Chai as Promised's assertions are regular Chai assertion objects, extended with
+a single `then` method derived from the input promise. To change this behavior, for instance to output a promise with
+more useful sugar methods such as are found in most promise libraries, you can override
+`chaiAsPromised.transferPromiseness`. Here's an example that transfer's Q's `finally` and `done` methods:
+
+```js
+chaiAsPromised.transferPromiseness = function (assertion, promise) {
+    assertion.then = promise.then.bind(promise); // this is all you get by default
+    assertion.finally = promise.finally.bind(promise);
+    assertion.done = promise.done.bind(promise);
+};
+```
+
 ### Compatibility
 
 Chai as Promised is compatible with all promises following the [Promises/A+ specification][spec]. Notably, jQuery's
