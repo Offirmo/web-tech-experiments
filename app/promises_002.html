@@ -23,7 +23,7 @@
 	<script>
 		console.log("hello from header !");
 	</script>
-	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
 
 </head>
 <body>
@@ -53,11 +53,15 @@
 			// is the window fully loaded ? seems yes.
 			//document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
 
-			var deferred_01 = when.defer();
+			function toto() {
+				var deferred = when.defer();
 
-			deferred_01.resolve([1, 2, 3]);
+				deferred.resolve([1, 2, 3]);
 
-			var  promise_01 = deferred_01.promise;
+				return deferred.promise;
+			}
+
+			var  promise_01 = toto();
 			promise_01.spread(function(p1, p2, p3) {
 				console.log("Promise 01 fulfilled ! ", arguments);
 			});
