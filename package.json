@@ -13,7 +13,6 @@
 		"connect-no-www":     "latest",
 		"ejs":                "latest",
 		"express":            "latest",
-		"jquery":             "latest",
 		"json2":              "latest",
 		"locale":             "latest",
 		"moment":             "latest",
@@ -33,6 +32,7 @@
 	"commentedOut": {
 		"accounting":         "latest",
 		"angular":            "latest",
-		"backbone-associations": "latest"
+		"backbone-associations": "latest",
+		"jquery":             "latest"
 	}
 }
