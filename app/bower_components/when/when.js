@@ -9,7 +9,7 @@
  *
  * @author Brian Cavalier
  * @author John Hann
- * @version 2.5.1
+ * @version 2.6.0
  */
 (function(define, global) { 'use strict';
 define(function (require) {
@@ -120,6 +120,20 @@ define(function (require) {
 			function injectHandler() {
 				return resolve(onFulfilledOrRejected());
 			}
+		},
+
+		/**
+		 * Terminate a promise chain by handling the ultimate fulfillment value or
+		 * rejection reason, and assuming responsibility for all errors.  if an
+		 * error propagates out of handleResult or handleFatalError, it will be
+		 * rethrown to the host, resulting in a loud stack track on most platforms
+		 * and a crash on some.
+		 * @param {function?} handleResult
+		 * @param {function?} handleError
+		 * @returns {undefined}
+		 */
+		done: function(handleResult, handleError) {
+			this.then(handleResult, handleError).otherwise(crash);
 		},
 
 		/**
@@ -828,7 +842,7 @@ define(function (require) {
 	setTimeout = global.setTimeout;
 
 	// Allow attaching the monitor to when() if env has no console
-	monitorApi = typeof console != 'undefined' ? console : when;
+	monitorApi = typeof console !== 'undefined' ? console : when;
 
 	// Sniff "best" async scheduling option
 	// Prefer process.nextTick or MutationObserver, then check for
@@ -919,6 +933,18 @@ define(function (require) {
 
 	function identity(x) {
 		return x;
+	}
+
+	function crash(fatalError) {
+		if(typeof monitorApi.reportUnhandled === 'function') {
+			monitorApi.reportUnhandled();
+		} else {
+			enqueue(function() {
+				throw fatalError;
+			});
+		}
+
+		throw fatalError;
 	}
 
 	return when;
