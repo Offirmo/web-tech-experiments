@@ -10,8 +10,7 @@ module.exports = function(grunt) {
 
   'use strict';
 
-  var jekyllConfig = "my_setting: 'string1' \r\n"+
-"isLocal : false \r\n"+
+  var jekyllConfig = "isLocal : false \r\n"+
 "permalink: /:title/ \r\n"+
 "exclude: ['.json', '.rvmrc', '.rbenv-version', 'README.md', 'Rakefile', 'changelog.md', 'compiler.jar', 'private', 'magnific-popup.sublime-project', 'magnific-popup.sublime-workspace', '.htaccess'] \r\n"+
 "auto: true \r\n"+
@@ -170,7 +169,7 @@ module.exports = function(grunt) {
       newContents += grunt.file.read( basePath + name + '.js' ) + '\n';
       newContents += "\n/*>>"+name+"*/\n"; 
     });
-    newContents+= "})(window.jQuery || window.Zepto);";
+    newContents+= " _checkInstance(); })(window.jQuery || window.Zepto);";
 
     grunt.file.write( this.data.dest, newContents );
   });

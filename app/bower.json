@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"accounting":         "latest",
-		"angular":            "1.2.0-rc.3",
+		"angular":            "1.2.0",
 		"angular-isotope":    "latest",
 		"angular-ui-router":  "latest",
 		"backbone":           "latest",

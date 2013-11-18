@@ -4,11 +4,19 @@
 
 Fast, light and responsive lightbox plugin, for jQuery and Zepto.js.
 
-- [Documentation and getting started guide](http://dimsemenov.com/plugins/magnific-popup/documentation.html)
-- [Examples and plugin home page](http://dimsemenov.com/plugins/magnific-popup/)
-- More examples in official [CodePen collection](http://codepen.io/collection/nLcqo). Feel free to [email me](http://dimsemenov.com) more pen's with unusual usage of the script.
+- [Documentation and getting started guide](http://dimsemenov.com/plugins/magnific-popup/documentation.html).
+- [Examples and plugin home page](http://dimsemenov.com/plugins/magnific-popup/).
+- More examples in [CodePen collection](http://codepen.io/collection/nLcqo).
 
 Optionally, install via Bower: `bower install magnific-popup`.
+
+## Extensions
+
+- WordPress plugin - [under development](http://dimsemenov.com/plugins/magnific-popup/wordpress.html).
+- [Drupal module](https://drupal.org/project/magnific_popup).
+- [Ruby gem](https://rubygems.org/gems/magnific-popup-rails), `gem install magnific-popup-rails`.
+
+If you created a popup extension for something, email me and I'll add it to this list.
 
 ## Location of stuff
 
@@ -41,13 +49,17 @@ Optionally:
 
 ## Changelog
 
+### 0.9.9 (Nov 15, 2013)
+
+- Popup instance object is now available even before the first `$.fn.magnificPopup call`.
+- Methods `_onFocusIn` and `_setFocus` are now public, to allow overriding.
 
 ### 0.9.8 (Oct 26, 2013)
 
 - Added figure and figcaption elements to image markup (#233, thanks to @pjackson28).
 - To avoid "jump" of content background, gap from right side (that "replaces" the scrollbar) is added with help of `margin`, instead of `padding`, (closes #125, thanks to @chodorowicz).
-- Function that checks if the clicked element should close popup or not is now public (so it can be overriden with your own logic), e.g. `$.magnificPopup.proto._checkIfClose = function(clickedTarget) { /* your logic, return true if close, clickedTarget is the element that was clicked. */ return true; };`.
-- Working on a new module: the exact copy of native iOS gallery, with touch/zoom/pan e.t.c., will publish branch soon :)
+- Function that checks if the clicked element should close popup or not is now public (so it <a href="http://dimsemenov.com/plugins/magnific-popup/documentation.html#how_to_override_some_function_without_modifying_the_source_files">can be overridden with your own logic</a>).
+- Working on a new module: the exact copy of native fullscreen Android/iOS gallery, with touch/zoom/pan e.t.c., will publish branch soon (&copy;Blizzard).
 
 ### 0.9.7 (Oct 10, 2013)
 
