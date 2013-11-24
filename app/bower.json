@@ -3,8 +3,10 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"accounting":         "latest",
-		"angular":            "1.2.0",
+		"angular":            "latest",
 		"angular-isotope":    "latest",
+		"angular-route":      "latest",
+		"angular-route-segment": "latest",
 		"angular-ui-router":  "latest",
 		"backbone":           "latest",
 		"console-shim":       "latest",

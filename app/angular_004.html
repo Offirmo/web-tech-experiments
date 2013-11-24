@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- html_004 template -->
 <!-- js_005 template -->
-<html lang='en' xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,7 +22,7 @@
 	<![endif]-->
 	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
-	<!-- ... -->
+	<!-- ... (see html template) ... -->
 
 	<!-- style -->
 	<style>
@@ -54,6 +54,14 @@
 		</p>
 
 		<div ng-view></div>
+
+		<hr />
+		<pre>$location.path() = {{$location.path()}}</pre>
+		<pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+		<pre>$route.current.params = {{$route.current.params}}</pre>
+		<pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+		<pre>$routeParams = {{$routeParams}}</pre>
+
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
@@ -66,29 +74,31 @@
 		console.log("Starting main...");
 		requirejs(
 		[
-			'angular',
+			'angular-route',
 			'bootstrap3'
 		],
 		function() {
-			var app = angular.module('App', []);
+			var app = angular.module('App', [ "ngRoute" ]);
 
 			app.controller('AppCtrl', ['$scope', '$document', function($scope, $document) {
 				$scope.title = "Angular Test App 004";
 				$scope.snippet = "Advanced javascript single-page webapp. Using require.js and angular.js.";
 				$scope.scoped_angular = angular;
-				console.log($document.documentElement.lang);
+				//console.log($document.documentElement.lang);
 			}]);
 
-			app.config(['$routeProvider', function($routeProvider) {
+			app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 				$routeProvider.
 					when('/', {templateUrl: 'angular_004_partial_home.html', controller: 'AppCtrl'}).
 					when('/another', {templateUrl: 'angular_004_partial_another.html', controller: 'AppCtrl'}).
 					otherwise({redirectTo: '/'});
+
+				// configure html5 to get links working on jsfiddle
+				//$locationProvider.html5Mode(true);
 			}]);
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
-			// cf.
 			console.log("Bootstrapping angular...");
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['App']);

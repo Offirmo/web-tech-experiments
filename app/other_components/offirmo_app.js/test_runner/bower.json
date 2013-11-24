@@ -1,0 +1,22 @@
+{
+	"name": "offirmo_app-test-runner",
+	"version": "1.0.0",
+	"dependencies": {
+		"backbone":                "latest",
+		"base-objects.js":         "latest",
+		"chai":                    "latest",
+		"extended-exceptions.js":  "latest",
+		"json2":                   "latest",
+		"mocha":                   "latest",
+		"network-constants.js":    "latest",
+		"requirejs":               "latest",
+		"requirejs-domready":      "latest",
+		"restlink.js":             "latest",
+		"store.js":                "latest",
+		"underscore":              "latest",
+		"when":                    "latest"
+	},
+	"to_review": {
+		"json-mask":               "latest"
+	}
+}

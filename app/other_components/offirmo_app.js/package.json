@@ -1,0 +1,27 @@
+{
+	"name": "offirmo_app.js",
+	"version": "0.1.0",
+	"description": "An app base (account, identities, etc.) based on restlink. WORK IN PROGRESS",
+	"keywords": [
+		"app",
+		"browser",
+		"server"
+	],
+	"license": "public domain",
+	"author": "Offirmo <offirmo.net@gmail.com> (http://offirmo.net)",
+	"repository": {
+		"type": "git",
+		"url":  "https://github.com/Offirmo/restlink.js.git"
+	},
+	"dependencies": {
+		"base-objects.js":         "latest",
+		"extended-exceptions.js":  "latest",
+		"network-constants":       "latest",
+		"store.js":                "latest",
+		"underscore":              "latest",
+		"when":                    "latest"
+	},
+	"engines": {
+		"node": ">=0.6"
+	}
+}

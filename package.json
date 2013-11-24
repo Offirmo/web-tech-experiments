@@ -17,6 +17,7 @@
 		"locale":             "latest",
 		"moment":             "latest",
 		"socket.io":          "latest",
+		"store":              "latest",
 		"underscore":         "latest",
 		"when":               "latest",
 		
@@ -33,6 +34,7 @@
 		"accounting":         "latest",
 		"angular":            "latest",
 		"backbone-associations": "latest",
-		"jquery":             "latest"
+		"jquery":             "latest",
+		"restlink":           "latest"
 	}
 }

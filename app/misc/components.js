@@ -42,6 +42,7 @@ requirejs.config({
 		"accounting"       : "bower_components/accounting/accounting",
 		"angular"          : "bower_components/angular/angular",
 		"angular-isotope"  : "bower_components/angular-isotope/dist/angular-isotope",
+		"angular-route"    : "bower_components/angular-route/angular-route",
 		"backbone"         : "bower_components/backbone/backbone",
 		"backbone-associations": "bower_components/backbone-associations/backbone-associations",
 		"bootstrap"        : "other_components/bootstrap/js/bootstrap",
@@ -84,6 +85,9 @@ requirejs.config({
 		},
 		"angular-isotope": {
 			deps: [ "angular", "isotope" ]
+		},
+		"angular-route": {
+			deps: [ "angular" ]
 		},
 		"backbone": {
 			deps: [ "underscore", "jquery" ], // Note : bb needs jQuery for some features

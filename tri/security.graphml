@@ -99,7 +99,7 @@ login session</y:NodeLabel>
     <node id="n5">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="130.0" width="274.0" x="30.0" y="276.0"/>
+          <y:Geometry height="130.0" width="410.0" x="30.0" y="276.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="388.193359375" x="4.0" y="4.0">Notes :
@@ -121,6 +121,24 @@ login session</y:NodeLabel>
 - snooping / interception of packets
 - user leaves its computer unlocked "semi log-off"
 - password exposition : same as bank</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d5"/>
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="30.0" width="30.0" x="236.5" y="-143.0"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="10.673828125" x="9.6630859375" y="5.6494140625">8<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
