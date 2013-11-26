@@ -36,6 +36,7 @@ function(_, BaseModel) {
 		initialize: function(){
 			ParentModel.prototype.initialize.call(this);
 
+			this.url = 'app'; //< (backbone) url fragment for this object
 			//this.add_validation_fn(...);
 		}
 

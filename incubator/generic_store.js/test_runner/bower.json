@@ -3,11 +3,9 @@
 	"version": "1.0.0",
 	"dependencies": {
 		"underscore":              "latest",
-		
 		"extended-exceptions.js":  "latest",
 		"json2":                   "latest",
 		"store.js":                "latest",
-		"underscore":              "latest"
 
 		"chai":                    "latest",
 		"mocha":                   "latest",

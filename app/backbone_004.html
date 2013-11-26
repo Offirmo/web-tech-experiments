@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
 
-	<title>Backbone test 001</title>
+	<title>Backbone test 004</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 
@@ -45,7 +45,7 @@
 	<div class="container">
 		<h1 id="header">{{scoped_document.title}}</h1>
 		<p>Hello {{'World'}} !</p>
-		<p>Tests of Backbone features : base model creation.</p>
+		<p>Tests of Backbone features : model sync, adding offirmo utils.</p>
 		<p>Angular version : {{scoped_angular.version.full}}</p>
 		<p>Backbone version : todo</p>
 		<p>(stuff is sent to firebug console)</p>
@@ -62,13 +62,14 @@
 		console.log("Starting main...");
 		require(
 		[
-			"underscore",
+			//"underscore",
 			"backbone",
+			"base-objects/backbone/base_object",
 			"when",
 			"angular",
 			"bootstrap3"
 		],
-		function() {
+		function(backbone, BBBaseObject) {
 
 			var app = angular.module('App', []);
 
@@ -88,43 +89,100 @@
 			console.log("load done !");
 
 			// Test : simple backbone objects to test Model feature
-			var App = Backbone.Model.extend({
+			var App = BBBaseObject.extend({
 				constructor: function() {
 					console.log("App constructor(...) called with ", arguments);
 					console.log("App constructor begin (no attributes yet)");
-					Backbone.Model.apply(this, arguments);
+
+					BBBaseObject.apply(this, arguments);
+
 					console.log("App constructor end, name = " + this.get('name'));
 				},
 				defaults: function() {
 					console.log("App defaults(...) called with ", arguments);
 					console.log("App defaults begin, name = " + this.get('name'));
 
-					// those two modes work.
-					//return { 'name': "Backbone App 001a" };
-					this.set({ 'name': "Backbone App 001a" });
+					this.set({ 'name': "Backbone App 001" });
 
 					console.log("App defaults end, name = " + this.get('name'));
 				},
 				initialize: function() {
 					console.log("App initialize(...) called with ", arguments);
 					console.log("App initialize begin, name = " + this.get('name'));
+
+					BBBaseObject.prototype.initialize.apply(this, arguments);
+
 					console.log("App initialize end, name = " + this.get('name'));
 				},
 				custom: function() {
 					console.log("App custom(...) called with ", arguments);
 					console.log("App custom end, name = " + this.get('name'));
+				},
+				// add
+				validate: function(attributes, options) {
+					console.log("App validate(...) called with ", arguments);
+					// return nothing = ok
+				},
+				// overwrite
+				sync: function(method, model, options) {
+					console.log("App sync('"+method+"',...) called with ", arguments);
+					console.log("Sync begin - Current state : isNew = " + model.isNew() + ", id = " + model.id + ", cid = " + model.cid + ", changed = ", model.changed_attributes());
+
+					// now simulate the operations
+					if(method === "read") {
+						// pretend we recognized him and give him a server id
+						model.id = 123;
+						// pretend some data were fetched
+						this.set({ 'server_info': true });
+						this.declare_in_sync();
+					}
+					else if(method === "create") {
+						// give him a server id
+						model.id = 456;
+						this.declare_in_sync();
+					}
+					else if(method === "update") {
+						// ...
+						this.declare_in_sync();
+					}
+					else if(method === "delete") {
+						// ...
+						this.declare_in_sync();
+					}
+					else {
+						// WAT ?
+					}
+
+					console.log("Sync end - Current state : isNew = " + model.isNew() + ", id = " + model.id + ", cid = " + model.cid + ", changed = ", model.changed_attributes());
 				}
 			});
 
 			console.log("---------------");
 			var app1 = new App;
 			console.log("---------------");
-			var app2 = new App({name: "Backbone App 002"});
+			// first test the 'changed' pro
+			console.log("current  : ", app1.attributes);
+			console.log("B previous : ", app1.previousAttributes());
+			console.log("B changed  : ", app1.changedAttributes());
+			console.log("O previous : ", app1.previous_attributes());
+			console.log("O changed  : ", app1.changed_attributes());
+			app1.set("foo", "bar");
+			console.log("current  : ", app1.attributes);
+			console.log("B previous : ", app1.previousAttributes());
+			console.log("B changed  : ", app1.changedAttributes());
+			console.log("O previous : ", app1.previous_attributes());
+			console.log("O changed  : ", app1.changed_attributes());
+			app1.set({"toto": "titi", "foo": "barz"});
+			console.log("current  : ", app1.attributes);
+			console.log("B previous : ", app1.previousAttributes());
+			console.log("B changed  : ", app1.changedAttributes());
+			console.log("O previous : ", app1.previous_attributes());
+			console.log("O changed  : ", app1.changed_attributes());
 			console.log("---------------");
-			console.log(app1.get('name'));
-			console.log(app2.get('name'));
-			app1.custom();
-			app2.custom();
+			// simulate ops
+			app1.fetch();
+			app1.save();
+			app1.destroy();
 			console.log("---------------");
 			console.log("finished.");
 		});

@@ -13,7 +13,7 @@ function(_, BaseModel) {
 	"use strict";
 
 	var constants = {
-		// ...
+		latest_serialization_version: 1
 	};
 	Object.freeze(constants);
 
@@ -27,15 +27,16 @@ function(_, BaseModel) {
 			ParentModel.prototype.defaults.call(this);
 
 			this.set({
-				serialization_version: 1,
+				serialization_version: constants.latest_serialization_version,
 
-				email: undefined
+				username: "You" // todo i18n
 			});
 		},
 
 		initialize: function(){
 			ParentModel.prototype.initialize.call(this);
 
+			this.url = 'identity'; //< (backbone) url fragment for this object
 			//this.add_validation_fn(...);
 		}
 

@@ -90,18 +90,29 @@
 			// Test : simple backbone objects to test Model feature
 			var App = Backbone.Model.extend({
 				constructor: function() {
-					console.log("App constructor() called");
+					console.log("App constructor(...) called with ", arguments);
+					console.log("App constructor begin (no attributes yet)");
 					Backbone.Model.apply(this, arguments);
+					console.log("App constructor end, name = " + this.get('name'));
 				},
 				defaults: function() {
-					console.log("App defaults() called");
-					this.set( 'name', "Backbone App 001a" );
+					console.log("App defaults(...) called with ", arguments);
+					console.log("App defaults begin, name = " + this.get('name'));
+
+					// those two modes work.
+					//return { 'name': "Backbone App 001a" };
+					this.set({ 'name': "Backbone App 001a" });
+
+					console.log("App defaults end, name = " + this.get('name'));
 				},
 				initialize: function() {
-					console.log("App initialize() called");
+					console.log("App initialize(...) called with ", arguments);
+					console.log("App initialize begin, name = " + this.get('name'));
+					console.log("App initialize end, name = " + this.get('name'));
 				},
 				custom: function() {
-					console.log("App custom() called on " + this.get('name'));
+					console.log("App custom(...) called with ", arguments);
+					console.log("App custom end, name = " + this.get('name'));
 				}
 			});
 
@@ -109,32 +120,59 @@
 
 			var BetterApp = App.extend({
 				constructor: function() {
-					console.log("BetterApp constructor() called");
+					console.log("BetterApp constructor(...) called with ", arguments);
+					console.log("BetterApp constructor begin (no attributes yet)");
+
 					App.apply(this, arguments);
+
+					console.log("BetterApp constructor end, name = " + this.get('name'));
 				},
 				defaults: function() {
-					console.log("BetterApp defaults() called");
+					console.log("BetterApp defaults(...) called with ", arguments);
+					console.log("BetterApp defaults begin, name = " + this.get('name'));
+
 					App.prototype.defaults.apply(this, arguments);
+
 					this.set( 'name', "Backbone BetterApp 001c" );
+
+					console.log("BetterApp defaults end, name = " + this.get('name'));
 				},
 				initialize: function() {
-					console.log("BetterApp initialize() called");
+					console.log("BetterApp initialize(...) called with ", arguments);
+					console.log("BetterApp initialize begin, name = " + this.get('name'));
+
 					App.prototype.initialize.apply(this, arguments);
+
+					console.log("BetterApp initialize end, name = " + this.get('name'));
 				},
 				custom: function() {
+					console.log("BetterApp custom(...) called with ", arguments);
+
+					App.prototype.custom.apply(this, arguments);
+
 					console.log("BetterApp custom() called on " + this.get('name'));
 				}
 			});
-			var app1 = new App;
-			var app2 = new NotThatBetterApp;
-			var app3 = new BetterApp({name: "Backbone App 002"});
 
+
+			console.log("---------------");
+			var app1 = new App;
+			console.log("---------------");
+			var app2 = new NotThatBetterApp;
+			console.log("---------------");
+			var app3 = new BetterApp();
+			console.log("---------------");
+			var app4 = new BetterApp({name: "Backbone BetterApp 002"});
+			console.log("---------------");
 			console.log(app1.get('name'));
 			console.log(app2.get('name'));
 			console.log(app3.get('name'));
+			console.log(app4.get('name'));
 			app1.custom();
 			app2.custom();
 			app3.custom();
+			app4.custom();
+			console.log("---------------");
 			console.log("finished.");
 		});
 	};

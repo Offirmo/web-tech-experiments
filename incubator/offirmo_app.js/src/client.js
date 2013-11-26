@@ -8,9 +8,11 @@ define(
 [
 	'underscore',
 	'when',
-	'restlink/client/client'
+	'restlink/client/client',
+	'offirmo_app/common/session',
+	'offirmo_app/client/session_footprint'
 ],
-function(_, when, RestlinkClient) {
+function(_, when, RestlinkClient, Session, SessionFootPrint) {
 	"use strict";
 
 
@@ -39,8 +41,12 @@ function(_, when, RestlinkClient) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	var DefinedClass = function OffirmoAppClient(optional_local_storage) {
+	var DefinedClass = function OffirmoAppClient(restlink_client, optional_store) {
 		_.defaults( this, defaults );
+		this.restlink_ = restlink_client;
+		this.store_    = optional_store; // ok if null
+		this.session_footprint_ = SessionFootPrint.get_instance(this.store_);
+		this.session   = this.session_footprint_.get_session();
 	};
 
 	DefinedClass.prototype.constants  = constants;
@@ -51,7 +57,7 @@ function(_, when, RestlinkClient) {
 	////////////////////////////////////
 	return {
 		// objects are created via a factory, more future-proof
-		'make_new'   : function(optional_local_storage) { return new DefinedClass(optional_local_storage); },
+		'make_new'   : function(restlink_client, optional_store) { return new DefinedClass(restlink_client, optional_store); },
 		// but we still expose the constructor to allow class inheritance
 		'klass'      : DefinedClass,
 		// exposing these allows convenient syntax and also prototypal inheritance

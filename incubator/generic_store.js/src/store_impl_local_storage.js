@@ -13,8 +13,7 @@ function(_, Store) {
 
 	function get_store_facade(optional_prefix) {
 
-		if(typeof optional_prefix !== 'undefined'
-			|| optional_prefix !== "")
+		if(typeof optional_prefix !== 'undefined' && optional_prefix !== "")
 			throw new Error(); // not handled for now
 
 		// no facade for now

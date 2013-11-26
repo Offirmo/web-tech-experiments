@@ -47,8 +47,11 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 				// open a connexion to the server
 				var client_connection = restlink_server.open_direct_connection();
 
+				// create a fake local storage for test
+				var store = GenericStore.make_new("memory");
+
 				// create a client
-				var out = OffirmoAppClient.make_new(client_connection);
+				var out = OffirmoAppClient.make_new(client_connection, store);
 				// this should automatically trigger session creation / recuperation
 
 				// start working

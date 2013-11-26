@@ -47,7 +47,12 @@
 	},
 	"commentedOutDeps": {
 		"alertify.js":        "latest",
-		"backbone-associations": "latest"
+		"backbone-associations": "latest",
+		"base-objects.js",
+		"extended-exceptions.js",
+		"generic_store.js",
+		"network-constants.js",
+		"restlink.js"
 	},
 	"not_in_bower": {
 		"bootstrap":          "latest",

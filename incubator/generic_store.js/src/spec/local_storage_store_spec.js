@@ -57,6 +57,10 @@ function(chai, CUT) {
 
 				out.set("toto", "tata"); // replace
 				expect( out.get('toto') ).to.equals( 'tata' );
+
+				out.set({"mini": "wawa", "toto": "tutu"}); // multiple with replace
+				expect( out.get('mini') ).to.equals( 'wawa' );
+				expect( out.get('toto') ).to.equals( 'tutu' );
 			});
 
 			it('should be shared', function() {

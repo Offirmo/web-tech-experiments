@@ -3,16 +3,14 @@
 	"version": "1.0.0",
 	"dependencies": {
 		"underscore":              "latest",
-
 		"backbone":                "latest",
 		"base-objects.js":         "latest",
 		"extended-exceptions.js":  "latest",
-		"generic_store.js":        "latest",
 		"json2":                   "latest",
 		"network-constants.js":    "latest",
-		"restlink.js":             "latest",
-		"underscore":              "latest",
-		"when":                    "latest"
+		"store.js":                "latest",
+		"validate.js":             "latest",
+		"when":                    "latest",
 
 		"chai":                    "latest",
 		"mocha":                   "latest",
@@ -20,6 +18,8 @@
 		"requirejs-domready":      "latest"
 	},
 	"to_review": {
+		"generic_store.js":        "latest",
+		"restlink.js":             "latest",
 		"json-mask":               "latest"
 	}
 }

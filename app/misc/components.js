@@ -33,11 +33,11 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// AMD plugins (dirs or direct)
-		"extended-exceptions" : "other_components/extended-exceptions.js/extended_exceptions",
+		"base-objects"        : "../incubator/base-objects.js", // dir
+		"extended-exceptions" : "../incubator/extended-exceptions.js/extended_exceptions", // direct
 		"jquery"              : "bower_components/jquery/jquery",
-		"network-constants"   : "other_components/network-constants.js", // dir
+		"network-constants"   : "../incubator/network-constants.js", // dir
 		"restlink"            : "other_components/restlink.js/src", // dir
-		//"offirmo"          : "other_components/offirmo",
 		// shim plugins
 		"accounting"       : "bower_components/accounting/accounting",
 		"angular"          : "bower_components/angular/angular",

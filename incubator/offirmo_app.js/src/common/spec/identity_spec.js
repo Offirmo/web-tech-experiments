@@ -21,7 +21,7 @@ function(chai, _, CUT) {
 
 
 
-	describe('Offirmo App Session', function() {
+	describe('Offirmo App Identity', function() {
 
 
 		describe('instantiation', function() {

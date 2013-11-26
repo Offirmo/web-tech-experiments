@@ -38,6 +38,11 @@ function(_) {
 
 	////////////////////////////////////
 	methods.set = function(key, value){
+		if(typeof key === 'undefined') {
+			// very likely to be an error
+			throw new Error("store in memory : set() with undefined key !");
+		}
+
 		//console.log("store : storing : " + key + "...");
 		this.internal_storage_[key] = value;
 	};

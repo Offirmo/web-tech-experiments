@@ -25,10 +25,10 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// AMD plugins (dirs or direct)
-		"base-objects"        : "bower_components/base-objects.js", // dir
-		"extended-exceptions" : "bower_components/extended-exceptions.js/extended_exceptions", // direct
-		"generic_store"       : "../../../../incubator/generic_store.js/src", // dir
-		"network-constants"   : "bower_components/network-constants.js", // dir
+		"base-objects"        : "../../base-objects.js", // dir
+		"extended-exceptions" : "../../extended-exceptions.js/extended_exceptions", // direct
+		"generic_store"       : "../../generic_store.js/src", // dir
+		"network-constants"   : "../../network-constants.js", // dir
 		//"restlink"            : "bower_components/restlink.js", // dir
 		"restlink"            : "../../restlink.js/src", // dir
 		"offirmo_app"         : "../src", // dir
