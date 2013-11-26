@@ -1,5 +1,3 @@
-/* Top spec on how to use offirmo app
- */
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 
@@ -8,7 +6,7 @@ define(
 	'chai',
 	'underscore',
 
-	'offirmo_app/common/identity',
+	'offirmo_app/common/account',
 
 	'mocha'
 ],
@@ -21,7 +19,7 @@ function(chai, _, CUT) {
 
 
 
-	describe('Offirmo App Session', function() {
+	describe('Offirmo App Account', function() {
 
 
 		describe('instantiation', function() {
@@ -35,15 +33,10 @@ function(chai, _, CUT) {
 			it('should set default values', function() {
 				var out = CUT.make_new();
 				//...
+				expect(out.get('email')).to.be.undefined;
 			});
 
 		});
-
-
-		describe('more complete setup', function() {
-
-
-		}); // describe feature
 
 	}); // describe CUT
 }); // requirejs module

@@ -1,5 +1,7 @@
 .~lock.*
 .idea
 npm-debug.log
-app/other_components/offirmo_app.js/test_runner/bower_components/*
-app/other_components/offirmo_app.js/test_runner/node_modules/*
+incubator/offirmo_app.js/test_runner/bower_components/*
+incubator/offirmo_app.js/test_runner/node_modules/*
+incubator/generic_store.js/test_runner/bower_components/*
+incubator/generic_store.js/test_runner/node_modules/*

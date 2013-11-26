@@ -1,0 +1,17 @@
+{
+	"name": "generic_store-test-runner",
+	"version": "1.0.0",
+	"dependencies": {
+		"underscore":              "latest",
+		
+		"extended-exceptions.js":  "latest",
+		"json2":                   "latest",
+		"store.js":                "latest",
+		"underscore":              "latest"
+
+		"chai":                    "latest",
+		"mocha":                   "latest",
+		"requirejs":               "latest",
+		"requirejs-domready":      "latest"
+	}
+}

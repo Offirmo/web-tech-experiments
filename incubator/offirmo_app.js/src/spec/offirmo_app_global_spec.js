@@ -7,12 +7,13 @@ define(
 [
 	'chai',
 	'underscore',
+	'generic_store/generic_store',
 	'restlink/server/restlink_server',
 	'offirmo_app/server',
 	'offirmo_app/client',
 	'mocha'
 ],
-function(chai, _, RestlinkServer, OffirmoAppServer, OffirmoAppClient) {
+function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClient) {
 	"use strict";
 
 	var expect = chai.expect;

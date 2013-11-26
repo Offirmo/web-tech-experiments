@@ -1,8 +1,7 @@
-/* A client for executing REST operations on Backbone models
- * on a 'generic' server (distant or local)
- * with an integrated cache
+/* A "in memory" local storage for tests
+ * or special uses.
  */
-if (typeof define !== 'function') { var define = require('amdefine')(module); }
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
@@ -11,30 +10,42 @@ define(
 function(_) {
 	"use strict";
 
-
 	////////////////////////////////////
 	var constants  = {};
 	var defaults   = {};
 	var exceptions = {};
 	var methods    = {};
 
-
 	////////////////////////////////////
 	//constants. = ;
+
 
 	////////////////////////////////////
 	//defaults. = ;
 
-	// init fn for creating unshared member variables
 	methods.init = function() {
-		this.server_id = undefined;
+		// init of member objects
+
+		// mimic store.js API
+		this.internal_storage_ = {};
+		this.enabled = true;
 	};
+
 
 	////////////////////////////////////
 	//exceptions. = ;
 
+
 	////////////////////////////////////
-	//methods. = ;
+	methods.set = function(key, value){
+		//console.log("store : storing : " + key + "...");
+		this.internal_storage_[key] = value;
+	};
+
+	methods.get = function(key){
+		//console.log("store : accessing : " + key + "...");
+		return this.internal_storage_[key];
+	}
 
 	////////////////////////////////////
 	Object.freeze(constants);
@@ -42,7 +53,7 @@ function(_) {
 	Object.freeze(exceptions);
 	Object.freeze(methods);
 
-	var DefinedClass = function OffirmoAppSession() {
+	var DefinedClass = function InMemoryStore() {
 		_.defaults( this, defaults );
 		// other inits...
 		methods.init.apply(this, arguments);

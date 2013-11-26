@@ -1,0 +1,46 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Offirmo App Mocha Tests</title>
+	<link rel="stylesheet" href="bower_components/mocha/mocha.css" />
+	<script data-main="components.js" src="bower_components/requirejs/require.js"></script>
+
+	<!-- for scripts that have a syntax error -->
+	<!-- <script src="../src/server/response_enrichment.js"></script> -->
+</head>
+
+<body>
+
+	<div id="mocha"></div>
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	window.main = function()
+	{
+		console.log("Loading tests...");
+
+		requirejs(
+		[
+			"mocha",
+			"domReady!",
+
+			"../src/common/spec/session_spec",
+			"../src/common/spec/identity_spec",
+
+			"../src/client/spec/session_footprint_spec",
+
+			"../src/spec/client_spec",
+			"../src/spec/offirmo_app_global_spec"
+		],
+		function() {
+			mocha.checkLeaks();
+			//mocha.globals(["jQuery"]);
+
+			console.log("Starting tests...");
+			mocha.run();
+		});
+	};
+</script>
+
+</body>
+</html>

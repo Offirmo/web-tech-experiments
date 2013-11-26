@@ -1,0 +1,19 @@
+{
+	"name": "generic_store-test-runner",
+	"description": "node test runner for generic_store.js",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"underscore":              "latest",
+		"backbone":                "latest",
+		"store.js":                "latest",
+		"json2":                   "latest",
+		"extended-exceptions.js":  "latest",
+		"base-objects.js":         "latest",
+		"when":                    "latest",
+		
+		"amdefine":                "latest",
+		"chai":                    "latest",
+		"mocha":                   "latest"
+	}
+}

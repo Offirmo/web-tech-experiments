@@ -45,7 +45,7 @@
 	<div class="container">
 		<h1 id="header">{{scoped_document.title}}</h1>
 		<p>Hello {{'World'}} !</p>
-		<p>Tests of Backbone features.</p>
+		<p>Tests of Backbone features : base.</p>
 		<p>Angular version : {{scoped_angular.version.full}}</p>
 		<p>Backbone version : todo</p>
 		<p>(stuff is sent to firebug console)</p>
@@ -84,10 +84,38 @@
 				angular.bootstrap(document, ['App']);
 			});
 
-
 			// due to how we wrote component.js, we know that document is fully loaded
-
 			console.log("load done !");
+
+			// Test : simple backbone objects to test Model feature
+			var App = Backbone.Model.extend({
+				constructor: function() {
+					console.log("App constructor() called");
+					Backbone.Model.apply(this, arguments);
+				},
+				initialize: function() {
+					console.log("App initialize() called");
+				},
+				defaults: function() {
+					console.log("App defaults() called");
+
+					// those two modes work.
+					return { 'name': "Backbone App 001a" };
+					//this.set( 'name', "Backbone App 001a" );
+				},
+				custom: function() {
+					console.log("App custom() called on " + this.get('name'));
+				}
+			});
+
+			var app1 = new App;
+			var app2 = new App({name: "Backbone App 002"});
+
+			console.log(app1.get('name'));
+			console.log(app2.get('name'));
+			app1.custom();
+			app2.custom();
+			console.log("finished.");
 		});
 	};
 </script>

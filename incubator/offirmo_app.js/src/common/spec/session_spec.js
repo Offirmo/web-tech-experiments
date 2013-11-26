@@ -39,11 +39,5 @@ function(chai, _, CUT) {
 
 		});
 
-
-		describe('more complete setup', function() {
-
-
-		}); // describe feature
-
 	}); // describe CUT
 }); // requirejs module
