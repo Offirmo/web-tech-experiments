@@ -11,7 +11,7 @@ function(_, BaseModel) {
 	"use strict";
 
 	var constants = {
-		// ...
+		latest_serialization_version: 1
 	};
 	Object.freeze(constants);
 
@@ -25,7 +25,7 @@ function(_, BaseModel) {
 			ParentModel.prototype.defaults.call(this);
 
 			this.set({
-				serialization_version: 1,
+				serialization_version: constants.latest_serialization_version,
 
 				i18_name: undefined,
 				i18_description: undefined,
@@ -46,8 +46,8 @@ function(_, BaseModel) {
 	DefinedModel.constants = constants;
 
 	// generator
-	DefinedModel.make_new = function() {
-		return new DefinedModel()
+	DefinedModel.make_new = function(optional_attrs) {
+		return new DefinedModel(optional_attrs)
 	};
 
 	return DefinedModel;

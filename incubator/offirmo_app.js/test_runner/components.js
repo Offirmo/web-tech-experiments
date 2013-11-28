@@ -25,21 +25,22 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// AMD plugins (dirs or direct)
-		"base-objects"        : "../../base-objects.js", // dir
-		"extended-exceptions" : "../../extended-exceptions.js/extended_exceptions", // direct
-		"generic_store"       : "../../generic_store.js/src", // dir
-		"network-constants"   : "../../network-constants.js", // dir
+		"base-objects"             : "../../base-objects.js", // dir
+		"extended-exceptions"      : "../../extended-exceptions.js/extended_exceptions", // direct
+		"generic_store"            : "../../generic_store.js/src", // dir
+		"javascript-state-machine" : "bower_components/javascript-state-machine/state-machine",
+		"network-constants"        : "../../network-constants.js", // dir
 		//"restlink"            : "bower_components/restlink.js", // dir
-		"restlink"            : "../../restlink.js/src", // dir
-		"offirmo_app"         : "../src", // dir
+		"restlink"                 : "../../restlink.js/src", // dir
+		"offirmo_app"              : "../src", // dir
 		// shim plugins
-		"backbone"            : "bower_components/backbone/backbone",
-		"chai"                : "bower_components/chai/chai",
-		"json2"               : "bower_components/json2/json2",
-		"mocha"               : "bower_components/mocha/mocha",
-		"underscore"          : "bower_components/underscore/underscore",
-		"store"               : "bower_components/store.js/store",
-		"when"                : "bower_components/when/when"
+		"backbone"                 : "bower_components/backbone/backbone",
+		"chai"                     : "bower_components/chai/chai",
+		"json2"                    : "bower_components/json2/json2",
+		"mocha"                    : "bower_components/mocha/mocha",
+		"underscore"               : "bower_components/underscore/underscore",
+		"store"                    : "bower_components/store.js/store",
+		"when"                     : "bower_components/when/when"
 	},
 
 
@@ -48,6 +49,10 @@ requirejs.config({
 		"backbone": {
 			deps: [ "underscore" ],
 			exports: "Backbone"
+		},
+		"javascript-state-machine" : {
+			// no deps
+			exports: "StateMachine"
 		},
 		"mocha" : {
 			deps: [ ],

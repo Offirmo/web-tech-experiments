@@ -37,11 +37,14 @@ function(chai, GenericStore, Session, Identity, CUT) {
 				var out = CUT.get_instance(store);
 
 				expect( out.attributes).to.deep.equals({
-					serialization_version   : CUT.constants.latest_serialization_version,
-					u_current_session_id    : undefined,
-					u_last_user_id          : undefined,
-					u_last_username         : undefined,
-					u_serialization_version : undefined
+					serialization_version     : CUT.constants.latest_serialization_version,
+					ug_serialization_version  : undefined,
+
+					ug_last_session_id        : undefined,
+					ug_last_session_auth_data : undefined,
+					ug_last_user_login        : undefined,
+					ug_last_identity          : undefined,
+					ug_last_avatar_url        : undefined
 				});
 			});
 
@@ -49,39 +52,44 @@ function(chai, GenericStore, Session, Identity, CUT) {
 				var store = GenericStore.make_new("memory");
 
 				// pre-fill the store with data
-				store.set(CUT.constants.keys.u_serialization_version, CUT.constants.latest_serialization_version);
-				store.set(CUT.constants.keys.u_current_session_id,    1234);
-				store.set(CUT.constants.keys.u_last_username,         "toto");
-				store.set(CUT.constants.keys.u_last_user_id,          "toto@laposte.fr");
+				store.set(CUT.constants.keys.ug_serialization_version,  CUT.constants.latest_serialization_version);
+				store.set(CUT.constants.keys.ug_last_session_id,        5678);
+				store.set(CUT.constants.keys.ug_last_session_auth_data, "123456789ABCDEF");
+				store.set(CUT.constants.keys.ug_last_user_login,        "toto@toto.com");
+				store.set(CUT.constants.keys.ug_last_identity,          "Toto");
+				store.set(CUT.constants.keys.ug_last_avatar_url,        "http://www.toto.com/me.png");
 
 				var out = CUT.get_instance(store);
 				expect( out.attributes).to.deep.equals({
-					serialization_version   : CUT.constants.latest_serialization_version,
-					u_current_session_id    : 1234,
-					u_last_user_id          : "toto@laposte.fr",
-					u_last_username         : "toto",
-					u_serialization_version : 1
+					serialization_version     : CUT.constants.latest_serialization_version,
+					ug_serialization_version  : CUT.constants.latest_serialization_version,
+					ug_last_session_id        : 5678,
+					ug_last_session_auth_data : "123456789ABCDEF",
+					ug_last_user_login        : "toto@toto.com",
+					ug_last_identity          : "Toto",
+					ug_last_avatar_url        : "http://www.toto.com/me.png"
 				});
 			});
 
-			it('should retrieve a session', function() {
+			it('should retrieve session, account and identity', function() {
 				var store = GenericStore.make_new("memory");
 
 				// pre-fill the store with data
-				store.set(CUT.constants.keys.u_serialization_version, CUT.constants.latest_serialization_version);
-				store.set(CUT.constants.keys.u_current_session_id,    1234);
-				store.set(CUT.constants.keys.u_last_username,         "toto");
-				store.set(CUT.constants.keys.u_last_user_id,          "toto@laposte.fr");
+				store.set(CUT.constants.keys.ug_serialization_version,  CUT.constants.latest_serialization_version);
+				store.set(CUT.constants.keys.ug_last_session_id,        5678);
+				store.set(CUT.constants.keys.ug_last_session_auth_data, "123456789ABCDEF");
+				store.set(CUT.constants.keys.ug_last_identity,          "Toto");
+				store.set(CUT.constants.keys.ug_last_avatar_url,        "http://www.toto.com/me.png");
 
 				var out = CUT.get_instance(store);
+
 				var session = out.get_session();
-				expect( session.id ).to.equals(1234);
-				expect( session.attributes ).to.have.property('user_id', "toto@laposte.fr");
-				expect( session.attributes.current_identity_id ).to.be.undefined;
-				expect( session.current_identity.attributes).to.deep.equals({
-					serialization_version: Identity.constants.latest_serialization_version,
-					username: "toto"
-				});
+				expect( session.id ).to.equals(5678);
+				// that's all
+
+				var identity = out.get_identity();
+				expect( identity.attributes ).to.have.property('username',   "Toto");
+				expect( identity.attributes ).to.have.property('avatar_url', "http://www.toto.com/me.png");
 			});
 
 			it('should handle different serialization version');

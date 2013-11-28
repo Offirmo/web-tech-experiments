@@ -53,7 +53,7 @@ requirejs.config({
 		"dust"             : "bower_components/dustjs-linkedin/dist/dust-full-1.2.5",
 		"ecotree"          : "other_components/ecotree/ECOTree",
 		"fullpage"         : "other_components/fullpage/jquery.fullPage",
-		"javascript-state-machine": "other_components/javascript-state-machine/state-machine",
+		"javascript-state-machine": "bower_components/javascript-state-machine/state-machine",
 		"jpanelmenu"       : "bower_components/jpanelmenu/jquery.jpanelmenu",
 		"jquery.ui"        : "other_components/jquery.ui/js/jquery-ui.custom",
 		"jquery.svg"       : "bower_components/jquery.svg/jquery.svg",
@@ -122,6 +122,10 @@ requirejs.config({
 				"jquery",
 				"css!other_components/fullpage/jquery.fullPage"
 			]
+		},
+		"javascript-state-machine" : {
+			// no deps
+			exports: "StateMachine"
 		},
 		"jpanelmenu" : {
 			deps: [

@@ -5,13 +5,14 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'base-objects/backbone/base_object'
+	'base-objects/backbone/base_object',
+	'offirmo_app/common/identity'
 ],
-function(_, BaseModel) {
+function(_, BaseModel, Identity) {
 	"use strict";
 
 	var constants = {
-		// ...
+		latest_serialization_version: 1
 	};
 	Object.freeze(constants);
 
@@ -40,10 +41,11 @@ function(_, BaseModel) {
 			ParentModel.prototype.defaults.call(this);
 
 			this.set({
-				serialization_version: 1,
+				serialization_version: constants.latest_serialization_version,
 
 				email: undefined,
-				x_pwd_hash: undefined
+
+				xsg_pwd_hash: undefined
 			});
 		},
 
@@ -52,7 +54,15 @@ function(_, BaseModel) {
 
 			this.url = 'account'; //< (backbone) url fragment for this object
 			this.add_validation_fn(validate_email);
+		},
+
+		create_identity: function(optional_attrs){
+			var identity = Identity.make_new(optional_attrs);
+			identity.set("sg_account_id", this.id); // defined or not
+
+			return identity;
 		}
+
 
 	});
 
@@ -60,8 +70,8 @@ function(_, BaseModel) {
 	DefinedModel.constants = constants;
 
 	// generator
-	DefinedModel.make_new = function() {
-		return new DefinedModel()
+	DefinedModel.make_new = function(optional_attrs) {
+		return new DefinedModel(optional_attrs)
 	};
 
 	return DefinedModel;

@@ -1,4 +1,4 @@
-﻿/*
+/*
 
   Javascript State Machine Library - https://github.com/jakesgordon/javascript-state-machine
 

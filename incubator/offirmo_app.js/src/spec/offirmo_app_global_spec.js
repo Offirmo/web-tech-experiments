@@ -54,6 +54,10 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 				var out = OffirmoAppClient.make_new(client_connection, store);
 				// this should automatically trigger session creation / recuperation
 
+				// since there is no previous session, everything is default
+				expect( out.logged_in ).to.be.false;
+				expect( out.identity.get_denomination() ).to.equal("You");
+
 				// start working
 				// first we must wait for session infos to be available (if possible)
 

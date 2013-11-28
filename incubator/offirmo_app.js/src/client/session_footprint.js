@@ -10,9 +10,10 @@ define(
 	'base-objects/backbone/base_object',
 	'generic_store/generic_store', // to generate default if not provided
 	'offirmo_app/common/session',
+	'offirmo_app/common/account',
 	'offirmo_app/common/identity'
 ],
-function(_, BBBaseObject, GenericStore, Session, Identity) {
+function(_, BBBaseObject, GenericStore, Session, Account, Identity) {
 	"use strict";
 
 	////////////////////////////////////
@@ -24,19 +25,26 @@ function(_, BBBaseObject, GenericStore, Session, Identity) {
 	////////////////////////////////////
 	constants.latest_serialization_version = 1;
 	constants.keys = {
-		u_serialization_version : "serialization_version", //< kept even if manually disconnected
-		u_current_session_id    : "current_session_id",    //< current session id. undef if none/logged out
-		u_last_username         : "last_username",         //< how we should call the user, kept even if manually disconnected
-		u_last_user_id          : "last_user_id"           //< user id, kept even if manually disconnected
+		ug_serialization_version  : "serialization_version",  //< kept even if manually disconnected
+
+		ug_last_session_id        : "last_session_id",        //< current session id. undef if none/logged out
+		ug_last_session_auth_data : "last_session_auth_data", //< additional password-like data
+		                                                      //  to provide when retrieving session
+		                                                      //  to prove that we are not just testing random session ids
+		                                                      //  cleared if logged out
+		ug_last_user_login        : "last_user_login",        //< ept even if manually disconnected
+		                                                      //  useful for pre-filling a login form
+		ug_last_identity          : "last_user_id",           //< last "how should I call you", kept even if manually disconnected
+		ug_last_avatar_url        : "last_avatar_url"         //< same, kept even if manually disconnected
 	};
 
 
 	function retrieve_raw_data_snapshot(store) {
 
 		// first check serialization version
-		var current_version = store.get(constants.keys.u_serialization_version);
+		var current_version = store.get(constants.keys.ug_serialization_version);
 		if(typeof current_version !== 'undefined' && current_version !== constants.latest_serialization_version) {
-			// persisted data is of different version !
+			// persisted data is from a different version !
 			// (older or newer)
 			throw Error("TODO HANDLE");
 		}
@@ -64,11 +72,14 @@ function(_, BBBaseObject, GenericStore, Session, Identity) {
 			// model properties
 			ParentModel.prototype.defaults.apply(this, arguments);
 			this.set({
-				serialization_version   : constants.latest_serialization_version,
-				u_serialization_version : undefined,
-				u_last_username         : undefined,
-				u_last_user_id          : undefined,
-				u_current_session_id    : undefined
+				serialization_version     : constants.latest_serialization_version,
+				ug_serialization_version  : undefined, // may be different
+
+				ug_last_session_id        : undefined,
+				ug_last_session_auth_data : undefined,
+				ug_last_user_login        : undefined,
+				ug_last_identity          : undefined,
+				ug_last_avatar_url        : undefined
 			});
 		},
 
@@ -118,31 +129,50 @@ function(_, BBBaseObject, GenericStore, Session, Identity) {
 			console.log("Sync end - Current changes = ", model.changed_attributes());
 		},
 
-		// ultimately, it's the goal of this object to restore a session
+		// ultimately, it's the goal of this object to restore a session and related stuff
 		get_session: function() {
 			if(typeof this.session_ === 'undefined') {
 				var session = new Session();
-				var identity = new Identity();
-				identity.aggregation_parent = session;
 
 				// fill members
-				// u_last_user_id
-				session.set('user_id', this.get('u_last_user_id')); // ok if undefined
-				// u_current_session_id
-				var temp = this.get('u_current_session_id');
-				if(typeof temp !== 'undefined') {
-					session.id = temp;
-				}
-				// u_last_username
-				temp = this.get('u_last_username');
-				if(typeof temp !== 'undefined') {
-					identity.set('username', temp);
-					session.current_identity = identity;
-					session.set('current_identity_id', undefined);
-				}
+				session.id = this.get('ug_last_session_id'); // ok if undefined
+				// yes, that's all..
+
+				// add event listeners
+
+				// memorize
 				this.session_ = session;
 			}
 			return this.session_;
+		},
+		get_identity: function() {
+			if(typeof this.identity_ === 'undefined') {
+				var identity = new Identity();
+
+				// fill members
+				var temp;
+				temp = this.get('ug_last_identity');
+				if(typeof temp !== 'undefined') // we want to keep the default version
+					identity.set('username', temp);
+
+				temp = this.get('ug_last_avatar_url');
+				if(typeof temp !== 'undefined') // we want to keep the default version
+					identity.set('avatar_url', temp);
+
+				// add event listeners
+
+				// memorize
+				this.identity_ = identity;
+			}
+			return this.identity_;
+		},
+
+		switch_identity: function(identity) {
+			// TODO
+		},
+
+		disconnect: function() {
+			// TODO
 		}
 	});
 

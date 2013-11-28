@@ -3,7 +3,7 @@
 ## XXX BE CAREFUL
 ## THIS SCRIPT MUST ONLY BE RUN ON A COPY OF THE REPO !!!!
 
-if [[ `pwd` == "/work/www/htmt_tests" ]]; then
+if [[ `pwd` == "/work/www/html_tests" ]]; then
 	echo "are you mad ????"
 	exit 3
 fi
@@ -12,6 +12,8 @@ fi
 ## remove git data
 rm -rf .git
 
+## remove project data
+rm -rf .idea
 
 ## remove node modules (doesn't propagate to symlinks on unix, good)
 rm -rf  node_modules
