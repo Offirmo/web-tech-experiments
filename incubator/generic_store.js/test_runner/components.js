@@ -25,8 +25,8 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// AMD plugins (dirs or direct)
-		"extended-exceptions" : "bower_components/extended-exceptions.js/extended_exceptions", // direct
-		"generic_store"       : "../src", // dir
+		"extended-exceptions" : "../../extended_exceptions", // direct
+		"generic_store"       : "..", // dir
 		// shim plugins
 		"chai"                : "bower_components/chai/chai",
 		"json2"               : "bower_components/json2/json2",

@@ -27,12 +27,11 @@ requirejs.config({
 		// AMD plugins (dirs or direct)
 		"base-objects"             : "../../base-objects.js", // dir
 		"extended-exceptions"      : "../../extended-exceptions.js/extended_exceptions", // direct
-		"generic_store"            : "../../generic_store.js/src", // dir
+		"generic_store"            : "../../generic_store.js", // dir
 		"javascript-state-machine" : "bower_components/javascript-state-machine/state-machine",
 		"network-constants"        : "../../network-constants.js", // dir
-		//"restlink"            : "bower_components/restlink.js", // dir
-		"restlink"                 : "../../restlink.js/src", // dir
-		"offirmo_app"              : "../src", // dir
+		"restlink"                 : "../../restlink.js", // dir
+		"offirmo_app"              : "..", // dir
 		// shim plugins
 		"backbone"                 : "bower_components/backbone/backbone",
 		"chai"                     : "bower_components/chai/chai",

@@ -6,7 +6,7 @@
 	<script data-main="components.js" src="bower_components/requirejs/require.js"></script>
 
 	<!-- for scripts that have a syntax error -->
-	<!-- <script src="../src/server/response_enrichment.js"></script> -->
+	<!-- <script src="../server/response_enrichment.js"></script> -->
 </head>
 
 <body>
@@ -24,13 +24,13 @@
 			"mocha",
 			"domReady!",
 
-			"../src/common/spec/session_spec",
-			"../src/common/spec/identity_spec",
+			"../common/spec/session_spec",
+			"../common/spec/identity_spec",
 
-			"../src/client/spec/session_footprint_spec",
+			"../client/spec/session_footprint_spec",
 
-			"../src/spec/client_spec",
-			"../src/spec/offirmo_app_global_spec"
+			"../spec/client_spec",
+			"../spec/offirmo_app_global_spec"
 		],
 		function() {
 			mocha.checkLeaks();

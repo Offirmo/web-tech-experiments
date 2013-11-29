@@ -37,7 +37,7 @@ requirejs.config({
 		"extended-exceptions" : "../incubator/extended-exceptions.js/extended_exceptions", // direct
 		"jquery"              : "bower_components/jquery/jquery",
 		"network-constants"   : "../incubator/network-constants.js", // dir
-		"restlink"            : "other_components/restlink.js/src", // dir
+		"restlink"            : "other_components/restlink.js", // dir
 		// shim plugins
 		"accounting"       : "bower_components/accounting/accounting",
 		"angular"          : "bower_components/angular/angular",
