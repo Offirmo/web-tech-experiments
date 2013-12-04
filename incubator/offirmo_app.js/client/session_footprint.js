@@ -7,13 +7,14 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
+	'when',
 	'base-objects/backbone/base_object',
 	'generic_store/generic_store', // to generate default if not provided
 	'offirmo_app/common/session',
 	'offirmo_app/common/account',
 	'offirmo_app/common/identity'
 ],
-function(_, BBBaseObject, GenericStore, Session, Account, Identity) {
+function(_, when, BBBaseObject, GenericStore, Session, Account, Identity) {
 	"use strict";
 
 	////////////////////////////////////
@@ -32,10 +33,16 @@ function(_, BBBaseObject, GenericStore, Session, Account, Identity) {
 		                                                      //  to provide when retrieving session
 		                                                      //  to prove that we are not just testing random session ids
 		                                                      //  cleared if logged out
-		ug_last_user_login        : "last_user_login",        //< ept even if manually disconnected
-		                                                      //  useful for pre-filling a login form
+		ug_last_user_login        : "last_user_login",        //< Kept even if manually disconnected.
+		                                                      //  Useful for pre-filling a login form.
+		ug_last_account_id        : "last_account_id",        //< Uniquely identify an account.
+		                                                      //  mandatory for every other auth scheme than login/pwd
 		ug_last_identity          : "last_user_id",           //< last "how should I call you", kept even if manually disconnected
-		ug_last_avatar_url        : "last_avatar_url"         //< same, kept even if manually disconnected
+		ug_last_avatar_url        : "last_avatar_url",        //< same, kept even if manually disconnected
+
+		ug_newly_created_account_credential : "newly_created_account_credential" //< a special "password-like" credential
+		                                                      // for new accounts which still don't have user/pwd
+		                                                      // of course if this is lost, account can never be recovered...
 	};
 
 
@@ -79,7 +86,9 @@ function(_, BBBaseObject, GenericStore, Session, Account, Identity) {
 				ug_last_session_auth_data : undefined,
 				ug_last_user_login        : undefined,
 				ug_last_identity          : undefined,
-				ug_last_avatar_url        : undefined
+				ug_last_avatar_url        : undefined,
+
+				ug_newly_created_account_credential : undefined
 			});
 		},
 
@@ -97,6 +106,7 @@ function(_, BBBaseObject, GenericStore, Session, Account, Identity) {
 		sync: function(method, model, options) {
 			console.log("Footprint sync('"+method+"',...) called with ", arguments);
 			console.log("Sync begin - Current changes = ", model.changed_attributes());
+			var when_deferred = when.defer();
 
 			// now simulate the operations
 			if(method === "read") {
@@ -107,26 +117,36 @@ function(_, BBBaseObject, GenericStore, Session, Account, Identity) {
 				this.set(data);
 				// all in sync
 				this.declare_in_sync();
+				when_deferred.resolve( [model, undefined, options] );
 			}
 			else if(method === "create") {
 				// give him a server id
 				model.id = 1;
 				// TODO persist
+				console.error("TODO footprint sync");
 				this.declare_in_sync();
+				when_deferred.reject( [model, options] );
 			}
 			else if(method === "update") {
 				// TODO persist
+				console.error("TODO footprint sync");
 				this.declare_in_sync();
+				when_deferred.reject( [model, options] );
 			}
 			else if(method === "delete") {
 				// TODO do it
+				console.error("TODO footprint sync");
 				this.declare_in_sync();
+				when_deferred.reject( [model, options] );
 			}
 			else {
 				// WAT ?
+				console.error("TOHANDLE footprint sync");
+				when_deferred.reject( [model, options] );
 			}
 
 			console.log("Sync end - Current changes = ", model.changed_attributes());
+			return when_deferred.promise;
 		},
 
 		// ultimately, it's the goal of this object to restore a session and related stuff

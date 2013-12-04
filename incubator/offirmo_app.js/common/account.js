@@ -45,7 +45,8 @@ function(_, BaseModel, Identity) {
 
 				email: undefined,
 
-				xsg_pwd_hash: undefined
+				sg_newly_created_account_credential : undefined, //< only exists briefly at account creation
+				xsg_pwd_hash : undefined
 			});
 		},
 

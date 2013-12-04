@@ -12,10 +12,9 @@ define(
 	'offirmo_app/server',
 	'offirmo_app/client',
 	'offirmo_app/client/session_footprint',
-	'offirmo_app/server',
 	'mocha'
 ],
-function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClient, Footprint, Server) {
+function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClient, Footprint) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -31,7 +30,7 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 		restlink_server.set_denomination(name);
 
 		// add offirmo account handling
-		Server.make_new().register_on(restlink_server);
+		OffirmoAppServer.make_new().register_on(restlink_server);
 
 		// start the server
 		restlink_server.startup();
@@ -45,7 +44,7 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 
 		describe('simple setup', function() {
 
-			it('should work for a 1st visit', function(signalAsyncTestFinished) {
+			it('should work for a 1st visit', function(/*signalAsyncTestFinished*/) {
 
 				/////// SERVER SIDE ///////
 				// create a restlink server
@@ -61,18 +60,29 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 
 				// create a client
 				var out = OffirmoAppClient.make_new(client_connection, store);
-				// this should automatically trigger session creation / recuperation
 
-				// since there is no previous session, everything is default
-				expect( out.logged_in ).to.be.false;
-				expect( out.identity.get_denomination() ).to.equal("You");
+				// add listeners
+				out.login_state_machine.once("onenter_logged_out", function() {
+					console.log("event caught : logged out");
+
+					// since there is no previous session, everything is default
+					expect( out.logged_in ).to.be.false;
+					expect( out.identity.get_denomination() ).to.equal("You");
+
+					// go the 'account creation' path
+					out.initiate_account_creation();
+				});
+
+				out.startup();
+				// this should automatically trigger session creation / recuperation
 
 				// start working
 				// first we must wait for session infos to be available (if possible)
 
 			});
 
-			it('should work when coming back', function(signalAsyncTestFinished) {
+
+			it('should work when coming back', function(/*signalAsyncTestFinished*/) {
 
 				/////// SERVER SIDE ///////
 				// create a restlink server
@@ -103,6 +113,30 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 				// start working
 				// first we must wait for session infos to be available (if possible)
 
+			});
+
+
+			it('should work when using another machine', function(/*signalAsyncTestFinished*/) {
+
+				/////// SERVER SIDE ///////
+				// create a restlink server
+				var restlink_server = build_test_restlink_server("test01");
+
+
+				/////// CLIENT SIDE ///////
+				// open a connexion to the server
+				var client_connection = restlink_server.open_direct_connection();
+				// TODO add previous session
+
+				// create a fake local storage for test
+				var store = GenericStore.make_new("memory");
+				// populate the store with fake data from a previous visit
+				// none !
+
+				// create a client
+				var out = OffirmoAppClient.make_new(client_connection, store);
+
+				// use creds to create a session
 			});
 
 		}); // describe feature

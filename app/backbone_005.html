@@ -62,14 +62,14 @@
 		console.log("Starting main...");
 		require(
 		[
-			//"underscore",
+			"underscore",
 			"backbone",
 			"base-objects/backbone/base_object",
 			"when",
 			"angular",
 			"bootstrap3"
 		],
-		function(backbone, BBBaseObject, when) {
+		function(_, Backbone, BBBaseObject, when) {
 
 			var app = angular.module('App', []);
 
@@ -87,6 +87,14 @@
 
 			// due to how we wrote component.js, we know that document is fully loaded
 			console.log("load done !");
+
+			// Test : root object serving as dispatcher
+			var root = {};
+			_.extend(root, Backbone.Events);
+
+			root.on("init", function(){
+				console.log("init called on ", this, " with args : ", arguments);
+			});
 
 			// Test : simple backbone objects to test Model feature
 			var App = BBBaseObject.extend({
@@ -160,14 +168,13 @@
 				}
 			});
 
-			// interesting reads
-			// http://stackoverflow.com/questions/11415946/what-exactly-happens-when-you-save-a-backbone-model
-			//
 
 			console.log("---------------");
 			var app1 = new App;
 			console.log("---------------");
 			// todo
+			root.trigger("init", "hello world !");
+			root.trigger("init", "hello", "world !");
 			console.log("---------------");
 			console.log("finished.");
 		});

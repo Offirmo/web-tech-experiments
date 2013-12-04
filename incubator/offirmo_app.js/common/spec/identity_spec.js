@@ -42,6 +42,7 @@ function(chai, _, CUT, Account) {
 					sg_account_id     : undefined,
 					username          : "You",
 					sg_differentiator : undefined,
+					avatar_url        : 'anonymous.png',
 					enabled_apps      : []
 				});
 
@@ -59,6 +60,7 @@ function(chai, _, CUT, Account) {
 					sg_account_id     : "AC001",
 					username          : "Toto",
 					sg_differentiator : undefined,
+					avatar_url        : 'anonymous.png',
 					enabled_apps      : []
 				});
 
