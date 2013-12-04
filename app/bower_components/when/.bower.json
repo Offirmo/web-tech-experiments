@@ -1,12 +1,39 @@
 {
   "name": "when",
+  "main": "when.js",
+  "version": "2.7.0",
+  "description": "A lightweight Promises/A+ and when() implementation, plus other async goodies.",
+  "keywords": [
+    "Promises/A+",
+    "promises-aplus",
+    "promise",
+    "promises",
+    "deferred",
+    "deferreds",
+    "when",
+    "async",
+    "asynchronous",
+    "cujo"
+  ],
   "homepage": "https://github.com/cujojs/when",
-  "version": "2.6.0",
-  "_release": "2.6.0",
+  "authors": [
+    "Brian Cavalier <brian@hovercraftstudios.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "docs",
+    "benchmark",
+    "node_modules",
+    "bower_components",
+    "test",
+    "build"
+  ],
+  "_release": "2.7.0",
   "_resolution": {
     "type": "version",
-    "tag": "2.6.0",
-    "commit": "fb395a96744455e2e4b751779b8ad016ea1a43ee"
+    "tag": "2.7.0",
+    "commit": "5376ab7519053d57ff456fecb7a2afbc78e21f1b"
   },
   "_source": "git://github.com/cujojs/when.git",
   "_target": "*",

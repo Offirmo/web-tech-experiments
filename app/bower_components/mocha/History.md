@@ -1,3 +1,18 @@
+1.15.1 / 2013-12-03
+==================
+
+  * fix: fix uncaught changes from the last release
+
+1.15.0 / 2013-12-02
+==================
+
+  * add: `--no-exit` to prevent `process.exit()` (#1018)
+  * fix: using inline diffs (#1044)
+  * fix: show pending test details in xunit reporter (#1051)
+  * fix: faster global leak detection (#1024)
+  * fix: yui compression (#1035)
+  * fix: wrapping long lines in test results (#1030, #1031)
+  * fix: handle errors in hooks (#1043)
 
 1.14.0 / 2013-11-02
 ==================

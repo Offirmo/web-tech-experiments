@@ -1641,6 +1641,21 @@ Mocha.prototype.useColors = function(colors){
 };
 
 /**
+ * Use inline diffs rather than +/-.
+ *
+ * @param {Boolean} inlineDiffs
+ * @return {Mocha}
+ * @api public
+ */
+
+Mocha.prototype.useInlineDiffs = function(inlineDiffs) {
+  this.options.useInlineDiffs = arguments.length && inlineDiffs != undefined
+  ? inlineDiffs
+  : false;
+  return this;
+};
+
+/**
  * Set the timeout in milliseconds.
  *
  * @param {Number} timeout
@@ -1698,6 +1713,7 @@ Mocha.prototype.run = function(fn){
   if (options.globals) runner.globals(options.globals);
   if (options.growl) this._growl(runner, reporter);
   exports.reporters.Base.useColors = options.useColors;
+  exports.reporters.Base.inlineDiffs = options.useInlineDiffs;
   return runner.run(fn);
 };
 
@@ -1730,9 +1746,7 @@ var y = d * 365.25;
 module.exports = function(val, options){
   options = options || {};
   if ('string' == typeof val) return parse(val);
-  return options.long
-    ? long(val)
-    : short(val);
+  return options.long ? longFormat(val) : shortFormat(val);
 };
 
 /**
@@ -1782,7 +1796,7 @@ function parse(str) {
  * @api private
  */
 
-function short(ms) {
+function shortFormat(ms) {
   if (ms >= d) return Math.round(ms / d) + 'd';
   if (ms >= h) return Math.round(ms / h) + 'h';
   if (ms >= m) return Math.round(ms / m) + 'm';
@@ -1798,7 +1812,7 @@ function short(ms) {
  * @api private
  */
 
-function long(ms) {
+function longFormat(ms) {
   return plural(ms, d, 'day')
     || plural(ms, h, 'hour')
     || plural(ms, m, 'minute')
@@ -3961,6 +3975,10 @@ function XUnit(runner) {
     , tests = []
     , self = this;
 
+  runner.on('pending', function(test){
+    tests.push(test);
+  });
+
   runner.on('pass', function(test){
     tests.push(test);
   });
@@ -4422,9 +4440,7 @@ Runner.prototype.globalProps = function() {
 Runner.prototype.globals = function(arr){
   if (0 == arguments.length) return this._globals;
   debug('globals %j', arr);
-  utils.forEach(arr, function(arr){
-    this._globals.push(arr);
-  }, this);
+  this._globals = this._globals.concat(arr);
   return this;
 };
 
@@ -4480,10 +4496,18 @@ Runner.prototype.fail = function(test, err){
 /**
  * Fail the given `hook` with `err`.
  *
- * Hook failures (currently) hard-end due
- * to that fact that a failing hook will
- * surely cause subsequent tests to fail,
- * causing jumbled reporting.
+ * Hook failures work in the following pattern:
+ * - If bail, then exit
+ * - Failed `before` hook skips all tests in a suite and subsuites,
+ *   but jumps to corresponding `after` hook
+ * - Failed `before each` hook skips remaining tests in a 
+ *   suite and jumps to corresponding `after each` hook,
+ *   which is run only once
+ * - Failed `after` hook does not alter
+ *   execution order
+ * - Failed `after each` hook skips remaining tests in a 
+ *   suite and subsuites, but executes other `after each`
+ *   hooks
  *
  * @param {Hook} hook
  * @param {Error} err
@@ -4492,7 +4516,9 @@ Runner.prototype.fail = function(test, err){
 
 Runner.prototype.failHook = function(hook, err){
   this.fail(hook, err);
-  this.emit('end');
+  if (this.suite.bail()) {
+    this.emit('end');
+  }
 };
 
 /**
@@ -4527,7 +4553,12 @@ Runner.prototype.hook = function(name, fn){
       hook.removeAllListeners('error');
       var testError = hook.error();
       if (testError) self.fail(self.test, testError);
-      if (err) return self.failHook(hook, err);
+      if (err) {
+        self.failHook(hook, err); 
+
+        // stop executing hooks, notify callee of hook err
+        return fn(err);
+      }
       self.emit('hook end', hook);
       delete hook.ctx.currentTest;
       next(++i);
@@ -4541,7 +4572,7 @@ Runner.prototype.hook = function(name, fn){
 
 /**
  * Run hook `name` for the given array of `suites`
- * in order, and callback `fn(err)`.
+ * in order, and callback `fn(err, errSuite)`.
  *
  * @param {String} name
  * @param {Array} suites
@@ -4563,8 +4594,9 @@ Runner.prototype.hooks = function(name, suites, fn){
 
     self.hook(name, function(err){
       if (err) {
+        var errSuite = self.suite;
         self.suite = orig;
-        return fn(err);
+        return fn(err, errSuite);
       }
 
       next(suites.pop());
@@ -4652,9 +4684,36 @@ Runner.prototype.runTests = function(suite, fn){
     , tests = suite.tests.slice()
     , test;
 
-  function next(err) {
+
+  function hookErr(err, errSuite, after) {
+    // before/after Each hook for errSuite failed:
+    var orig = self.suite;
+
+    // for failed 'after each' hook start from errSuite parent,
+    // otherwise start from errSuite itself
+    self.suite = after ? errSuite.parent : errSuite;
+    
+    if (self.suite) {
+      // call hookUp afterEach
+      self.hookUp('afterEach', function(err2, errSuite2) {
+        self.suite = orig;
+        // some hooks may fail even now
+        if (err2) return hookErr(err2, errSuite2, true);
+        // report error suite
+        fn(errSuite);
+      });
+    } else {
+      // there is no need calling other 'after each' hooks 
+      self.suite = orig;
+      fn(errSuite);
+    }
+  }
+
+  function next(err, errSuite) {
     // if we bail after first err
     if (self.failures && suite._bail) return fn();
+
+    if (err) return hookErr(err, errSuite, true);
 
     // next test
     test = tests.shift();
@@ -4676,7 +4735,10 @@ Runner.prototype.runTests = function(suite, fn){
 
     // execute test and hook(s)
     self.emit('test', self.test = test);
-    self.hookDown('beforeEach', function(){
+    self.hookDown('beforeEach', function(err, errSuite){
+
+      if (err) return hookErr(err, errSuite, false);
+
       self.currentRunnable = self.test;
       self.runTest(function(err){
         test = self.test;
@@ -4719,21 +4781,35 @@ Runner.prototype.runSuite = function(suite, fn){
 
   this.emit('suite', this.suite = suite);
 
-  function next() {
+  function next(errSuite) {
+    if (errSuite) {
+      // current suite failed on a hook from errSuite
+      if (errSuite == suite) {
+        // if errSuite is current suite
+        // continue to the next sibling suite
+        return done();
+      } else {
+        // errSuite is among the parents of current suite
+        // stop execution of errSuite and all sub-suites
+        return done(errSuite);
+      }
+    }
+
     var curr = suite.suites[i++];
     if (!curr) return done();
     self.runSuite(curr, next);
   }
 
-  function done() {
+  function done(errSuite) {
     self.suite = suite;
     self.hook('afterAll', function(){
       self.emit('suite end', suite);
-      fn();
+      fn(errSuite);
     });
   }
 
-  this.hook('beforeAll', function(){
+  this.hook('beforeAll', function(err){
+    if (err) return done();
     self.runTests(suite, next);
   });
 };
