@@ -40,10 +40,8 @@ slim_bower_components()
 		rm -rf "$comp_path/restlink.js"
 	fi
 	
-	if [[ -d "$comp_path/requirejs" ]]; then
-		rm -rf $comp_path/requirejs/tests
-		rm -rf $comp_path/requirejs/dist
-		rm -rf $comp_path/requirejs/docs
+	if [[ -d "$comp_path/angular-isotope" ]]; then
+		rm -rf $comp_path/angular-isotope/demo
 	fi
 	if [[ -d "$comp_path/backbone" ]]; then
 		rm -rf $comp_path/backbone/docs
@@ -58,22 +56,26 @@ slim_bower_components()
 		rm -rf $comp_path/datatables/media/src
 		rm -rf $comp_path/datatables/media/unit-testing
 	fi
-	if [[ -d "$comp_path/angular-isotope" ]]; then
-		rm -rf $comp_path/angular-isotope/demo
-	fi
-	if [[ -d "$comp_path/underscore" ]]; then
-		rm -rf $comp_path/underscore/test
-		rm -rf $comp_path/underscore/docs
-	fi
 	if [[ -d "$comp_path/javascript-state-machine" ]]; then
 		rm -rf $comp_path/javascript-state-machine/minifier
 		rm -rf $comp_path/javascript-state-machine/test
 		rm -rf $comp_path/javascript-state-machine/demo
 	fi
+	if [[ -d "$comp_path/modernizr" ]]; then
+		rm -rf $comp_path/modernizr/test
+	fi
+	if [[ -d "$comp_path/requirejs" ]]; then
+		rm -rf $comp_path/requirejs/tests
+		rm -rf $comp_path/requirejs/dist
+		rm -rf $comp_path/requirejs/docs
+	fi
+	if [[ -d "$comp_path/underscore" ]]; then
+		rm -rf $comp_path/underscore/test
+		rm -rf $comp_path/underscore/docs
+	fi
 	if [[ -d "$comp_path/when" ]]; then
 		rm -rf $comp_path/when/test
 	fi
-
 }
 process_offirmo_module()
 {

@@ -51,6 +51,7 @@ function(_, when, StartableMixin, RestlinkClient, BBRestlinkSyncMixin, Account, 
 
 		// configure backend
 		this.account.restlink_ = this.restlink_;
+		this.account.sync_to_restlink = BBRestlinkSyncMixin.methods.sync;;
 
 		// add event listeners
 		this.account.on("sync", function() {

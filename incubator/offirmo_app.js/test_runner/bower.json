@@ -2,7 +2,7 @@
 	"name": "offirmo_app-test-runner",
 	"version": "1.0.0",
 	"dependencies": {
-		"underscore":               "latest",
+		"lodash":                   "latest",
 		"backbone":                 "latest",
 		"base-objects.js":          "latest",
 		"extended-exceptions.js":   "latest",

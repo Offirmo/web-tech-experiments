@@ -5,7 +5,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'base-objects/backbone/base_object',
+	'base-objects/backbone/base_model',
 	'offirmo_app/common/identity'
 ],
 function(_, BaseModel, Identity) {
@@ -54,7 +54,7 @@ function(_, BaseModel, Identity) {
 			ParentModel.prototype.initialize.call(this);
 
 			this.url = 'account'; //< (backbone) url fragment for this object
-			this.add_validation_fn(validate_email);
+			//this.add_validation_fn(validate_email);
 		},
 
 		create_identity: function(optional_attrs){

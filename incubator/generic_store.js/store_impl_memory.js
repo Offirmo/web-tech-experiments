@@ -5,7 +5,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(
 [
-	'underscore'
+	'lodash'
 ],
 function(_) {
 	"use strict";
@@ -38,19 +38,32 @@ function(_) {
 
 	////////////////////////////////////
 	methods.set = function(key, value){
+		//console.log("store : storing : " + key + "...");
 		if(typeof key === 'undefined') {
 			// very likely to be an error
 			throw new Error("store in memory : set() with undefined key !");
 		}
 
-		//console.log("store : storing : " + key + "...");
+		// we need to deep clone or else we would store a ref
+		// and any later modif of the source would be wrongly effective in store.
+		if(_.isObject(value))
+			value = _.cloneDeep(value); // Thank you lodash
+
 		this.internal_storage_[key] = value;
 	};
 
 	methods.get = function(key){
 		//console.log("store : accessing : " + key + "...");
-		return this.internal_storage_[key];
-	}
+
+		var value = this.internal_storage_[key];
+
+		// we need to deep clone
+		// or else the store content would be modifiable through the ref !
+		if(_.isObject(value))
+			value = _.cloneDeep(value); // Thank you lodash
+
+		return value;
+	};
 
 	////////////////////////////////////
 	Object.freeze(constants);

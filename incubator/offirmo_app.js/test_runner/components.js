@@ -17,7 +17,9 @@ requirejs.config({
 	map: {
 		'*': {
 			// an extension to be able to wait for the DOM to be ready
-			"domReady": "bower_components/requirejs-domready/domReady"
+			"domReady": "bower_components/requirejs-domready/domReady",
+			// underscore is now replaced by lodash
+			"underscore": "lodash"
 		}
 	},
 
@@ -36,8 +38,8 @@ requirejs.config({
 		"backbone"                 : "bower_components/backbone/backbone",
 		"chai"                     : "bower_components/chai/chai",
 		"json2"                    : "bower_components/json2/json2",
+		"lodash"                   : "bower_components/lodash/dist/lodash",
 		"mocha"                    : "bower_components/mocha/mocha",
-		"underscore"               : "bower_components/underscore/underscore",
 		"store"                    : "bower_components/store.js/store",
 		"when"                     : "bower_components/when/when"
 	},

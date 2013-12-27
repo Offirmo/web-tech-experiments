@@ -1,0 +1,14 @@
+{
+	"name": "network-constants-test-runner",
+	"description": "node test runner for network-constants.js",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		
+		"network-constants.js":    "latest",
+		
+		"amdefine":                "latest",
+		"chai":                    "latest",
+		"mocha":                   "latest"
+	}
+}

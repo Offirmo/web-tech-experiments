@@ -23,6 +23,10 @@ function(_, Store) {
 
 	////////////////////////////////////
 	return {
+		// objects are created via a factory, more future-proof
+		// simulate different stores via prefixing
+		'make_new'   : function(optional_prefix) { return get_store_facade(optional_prefix); },
+		// but of course local storage is unique
 		'instance'   : function() { return Store; },
 		'get_facade'   : get_store_facade
 	};

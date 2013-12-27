@@ -7,7 +7,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'underscore',
-	'base-objects/backbone/base_object'
+	'base-objects/backbone/base_model'
 ],
 function(_, BaseModel) {
 	"use strict";

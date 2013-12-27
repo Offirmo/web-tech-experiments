@@ -2,7 +2,7 @@
 	"name": "generic_store-test-runner",
 	"version": "1.0.0",
 	"dependencies": {
-		"underscore":              "latest",
+		"lodash":                  "latest",
 		"extended-exceptions.js":  "latest",
 		"json2":                   "latest",
 		"store.js":                "latest",

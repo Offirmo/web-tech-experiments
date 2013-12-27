@@ -1,7 +1,7 @@
 pace
 ====
 
-Include [pace.js](https://raw.github.com/HubSpot/pace/v0.4.15/pace.min.js) and the
+Include [pace.js](https://raw.github.com/HubSpot/pace/v0.4.16/pace.min.js) and the
 [theme](http://github.hubspot.com/pace/docs/welcome/) css of your choice on your page
 (as early as is possible), and you're done!
 
@@ -110,8 +110,8 @@ Elements
 Elements being rendered to the screen is one way for us to decide that the page has been
 rendered.  If you would like to use that source of information (not required at all),
 specify one or more selectors.  You can comma seperate the selectors to propertly handle
-error states, where the progress bar should disappear, but the element were looking for
-may never apper:
+error states, where the progress bar should disappear, but the element we are looking for
+may never appear:
 
 ```javascript
 paceOptions = {
@@ -162,6 +162,48 @@ whenever `pushState` or `replaceState` is called by default.
 
 - `Pace.stop`: Hide the progress bar and stop updating it.
 
+- `Pace.track`: Explicitly track one or more requests, see Tracking below
+
+- `Pace.ignore`: Expliticly ignore one or more requests, see Tracking below
+
+Tracking
+--------
+
+By default, Pace will show any ajax requests which begin as a part of a normal or ajax-y page load, or which last longer than
+500ms.
+
+You can disable all ajax tracking by setting `ajax` to false:
+
+```javascript
+Pace.options = {
+  ajax: false
+}
+```
+
+You can disable ajax tracking except on page navigation by setting `restartOnRequestAfter` to false:
+
+```javascript
+Pace.options = {
+  restartOnRequestAfter: false
+}
+```
+
+You can manually disable tracking for a specific request or requests by triggering them within a `Pace.ignore` callback:
+
+```javascript
+Pace.ignore(function(){
+  $.ajax(...)
+});
+```
+
+You can force the progress bar to be shown for a specific request by triggering them within a `Pace.track` callback:
+
+```javascript
+Pace.track(function(){
+  $.ajax(...)
+});
+```
+
 Dependencies
 ------------
 
@@ -183,7 +225,7 @@ Issues
 ------
 
 We have obviously not tested this on every website.  If you run into an issue, or find a way the automatic
-detection could be better, please create an Issue.  If you can include a test case, that's even better.
+detection could be better, please [create an Issue](https://github.com/HubSpot/pace/issues/new).  If you can include a test case, that's even better.
 
 Contributing
 ------------

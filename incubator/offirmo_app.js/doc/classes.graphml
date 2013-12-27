@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
-  <!--Created by yFiles for Java 2.11-->
+  <!--Created by yFiles for Java 2.10-->
   <key for="graphml" id="d0" yfiles.type="resources"/>
   <key for="port" id="d1" yfiles.type="portgraphics"/>
   <key for="port" id="d2" yfiles.type="portgeometry"/>
@@ -18,10 +18,10 @@
       <data key="d4"/>
       <data key="d6">
         <y:SVGNode>
-          <y:Geometry height="100.0" width="60.0" x="208.1875" y="126.0625"/>
+          <y:Geometry height="107.02081447963803" width="60.0" x="180.0" y="105.2656108597285"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="97.38671875" x="-18.693359375" y="104.0">user1
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="97.38671875" x="-18.693359375" y="111.02081447963803">user1
 user1@xyz.com<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -37,162 +37,24 @@ user1@xyz.com<y:LabelModel>
       </data>
     </node>
     <node id="n1">
-      <data key="d4"/>
       <data key="d6">
-        <y:SVGNode>
-          <y:Geometry height="100.0" width="60.0" x="500.4375" y="119.0625"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
+        <y:GenericNode configuration="com.yworks.flowchart.annotation">
+          <y:Geometry height="40.0" width="80.0" x="-279.0" y="-95.1875"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="98.8466796875" x="-19.42333984375" y="104.0">user2
-user2@abc.com<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:SVGNodeProperties usingVisualBounds="false"/>
-          <y:SVGModel svgBoundsPolicy="0">
-            <y:SVGContent refid="1"/>
-          </y:SVGModel>
-        </y:SVGNode>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="17.34765625" x="4.0" y="4.0">14</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Byte" name="com.yworks.flowchart.style.orientation" value="0"/>
+            <y:Property class="java.lang.Byte" name="LAYER_STYLE_PROPERTY_KEY" value="1"/>
+          </y:StyleProperties>
+        </y:GenericNode>
       </data>
     </node>
     <node id="n2">
       <data key="d4"/>
       <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="28.0" width="100.0" x="188.1875" y="357.8125"/>
-          <y:Fill color="#99CC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="custom" textColor="#000000" visible="true" width="56.0" x="22.0" y="3.0">Account<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n3">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="28.0" width="100.0" x="480.4375" y="357.8125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="custom" textColor="#000000" visible="true" width="56.0" x="22.0" y="3.0">Account<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n4">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="45.1875" width="100.0" x="265.4375" y="440.625"/>
-          <y:Fill color="#CCFFCC" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="87.103515625" x="6.4482421875" y="3.0">Identity
-"John Smith"<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n5">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="45.1875" width="100.0" x="409.8125" y="440.625"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="52.46435546875" x="23.767822265625" y="3.0">Identity
-"User2"<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n6">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="45.1875" width="100.0" x="554.1875" y="440.625"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="87.103515625" x="6.4482421875" y="3.0">Identity
-"John Smith"<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n7">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="45.1875" width="100.0" x="113.875" y="440.625"/>
-          <y:Fill color="#CCFFCC" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="35.8525390625" modelName="custom" textColor="#000000" visible="true" width="52.46435546875" x="23.767822265625" y="3.0">Identity
-"User1"<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n8">
-      <data key="d4"/>
-      <data key="d6">
         <y:UMLNoteNode>
-          <y:Geometry height="145.09375" width="464.0625" x="372.15625" y="565.265625"/>
+          <y:Geometry height="145.09375" width="464.0625" x="427.96875" y="437.453125"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="121.609375" modelName="custom" textColor="#000000" visible="true" width="432.162109375" x="15.9501953125" y="11.7421875">Identities : useful for
@@ -212,246 +74,23 @@ Problems :
         </y:UMLNoteNode>
       </data>
     </node>
-    <node id="n9">
+    <node id="n3">
+      <data key="d5"/>
       <data key="d6">
-        <y:GenericNode configuration="com.yworks.flowchart.annotation">
-          <y:Geometry height="78.4375" width="280.3125" x="698.5625" y="332.59375"/>
+        <y:GenericNode configuration="com.yworks.flowchart.process">
+          <y:Geometry height="40.0" width="80.0" x="230.0" y="400.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="260.83984375" x="4.0" y="4.0">id = email
-have a default identity (used when unknown)
-identities must be enabled for an app before use</y:NodeLabel>
-          <y:StyleProperties>
-            <y:Property class="java.lang.Byte" name="com.yworks.flowchart.style.orientation" value="0"/>
-          </y:StyleProperties>
-        </y:GenericNode>
-      </data>
-    </node>
-    <node id="n10">
-      <data key="d6">
-        <y:GenericNode configuration="com.yworks.flowchart.annotation">
-          <y:Geometry height="40.0" width="80.0" x="-279.0" y="-95.1875"/>
-          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="17.34765625" x="4.0" y="4.0">14</y:NodeLabel>
-          <y:StyleProperties>
-            <y:Property class="java.lang.Byte" name="com.yworks.flowchart.style.orientation" value="0"/>
-          </y:StyleProperties>
-        </y:GenericNode>
-      </data>
-    </node>
-    <node id="n11">
-      <data key="d6">
-        <y:GenericNode configuration="com.yworks.flowchart.annotation">
-          <y:Geometry height="40.0" width="228.75" x="698.5625" y="443.21875"/>
-          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="126.7421875" x="4.0" y="4.0">id = account id + this id</y:NodeLabel>
-          <y:StyleProperties>
-            <y:Property class="java.lang.Byte" name="com.yworks.flowchart.style.orientation" value="0"/>
-          </y:StyleProperties>
-        </y:GenericNode>
-      </data>
-    </node>
-    <node id="n12">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="28.0" width="100.0" x="-79.75" y="325.9375"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="custom" textColor="#000000" visible="true" width="53.8544921875" x="23.07275390625" y="3.0">Session<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="10.673828125" x="34.6630859375" y="10.6494140625">4<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
             </y:ModelParameter>
           </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n13">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="28.0" width="100.0" x="-79.75" y="400.1875"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="custom" textColor="#000000" visible="true" width="53.8544921875" x="23.07275390625" y="3.0">Session<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel/>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n14">
-      <data key="d6">
-        <y:GenericNode configuration="com.yworks.flowchart.annotation">
-          <y:Geometry height="40.0" width="161.25" x="-293.08333333333337" y="319.9375"/>
-          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="internal" modelPosition="tl" textColor="#000000" visible="true" width="142.7265625" x="4.0" y="4.0">multi-session is supported
-(ex. mobile + computer)</y:NodeLabel>
-          <y:StyleProperties>
-            <y:Property class="java.lang.Byte" name="com.yworks.flowchart.style.orientation" value="0"/>
-          </y:StyleProperties>
         </y:GenericNode>
       </data>
     </node>
-    <edge id="e0" source="n0" target="n2">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e1" source="n1" target="n3">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e2" source="n2" target="n4">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e3" source="n3" target="n5">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="3.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e4" source="n2" target="n7">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="3.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e5" source="n9" target="n3">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e6" source="n11" target="n6">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e7" source="n3" target="n6">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e8" source="n12" target="n2">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e9" source="n12" target="n7">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e10" source="n13" target="n2">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e11" source="n13" target="n7">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e12" source="n12" target="n14">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
   </graph>
   <data key="d0">
     <y:Resources>

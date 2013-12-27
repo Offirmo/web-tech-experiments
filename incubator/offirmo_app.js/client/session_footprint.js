@@ -8,13 +8,13 @@ define(
 [
 	'underscore',
 	'when',
-	'base-objects/backbone/base_object',
+	'base-objects/backbone/base_model',
 	'generic_store/generic_store', // to generate default if not provided
 	'offirmo_app/common/session',
 	'offirmo_app/common/account',
 	'offirmo_app/common/identity'
 ],
-function(_, when, BBBaseObject, GenericStore, Session, Account, Identity) {
+function(_, when, BaseModel, GenericStore, Session, Account, Identity) {
 	"use strict";
 
 	////////////////////////////////////
@@ -73,7 +73,7 @@ function(_, when, BBBaseObject, GenericStore, Session, Account, Identity) {
 
 	////////////////////////////////////
 	// A Backbone model, serializable
-	var ParentModel = BBBaseObject;
+	var ParentModel = BaseModel;
 	var SessionFootprintModel = ParentModel.extend({
 		defaults: function(){
 			// model properties

@@ -3,12 +3,13 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'chai',
+	'generic_store/spec/common_store_api_spec',
 
 	'generic_store/store_impl_local_storage',
 
 	'mocha'
 ],
-function(chai, CUT) {
+function(chai, should_implement_store_js_api, CUT) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -36,32 +37,15 @@ function(chai, CUT) {
 
 		}); // describe feature
 
-		describe('storage', function() {
-
-			it('should allow storage', function() {
-				var out = CUT.instance();
-
-				out.set("foo", "bar");
-				out.set("toto", "titi");
-				out.set("toto", "tata"); // replace
+		describe('', function() {
+			beforeEach(function(){
+				this.CUT = CUT;
 			});
 
-			it('should allow retrieving', function() {
-				var out = CUT.instance();
+			should_implement_store_js_api();
+		});
 
-				out.set("foo", "bar");
-				expect( out.get('foo') ).to.equals( 'bar' );
-
-				out.set("toto", "titi");
-				expect( out.get('toto') ).to.equals( 'titi' );
-
-				out.set("toto", "tata"); // replace
-				expect( out.get('toto') ).to.equals( 'tata' );
-
-				out.set({"mini": "wawa", "toto": "tutu"}); // multiple with replace
-				expect( out.get('mini') ).to.equals( 'wawa' );
-				expect( out.get('toto') ).to.equals( 'tutu' );
-			});
+		describe('implementation specifics', function() {
 
 			it('should be shared', function() {
 				var out1 = CUT.instance();
@@ -70,6 +54,7 @@ function(chai, CUT) {
 				out1.set("toto", "titi");
 				out2.set("toto", "tata"); // different value
 
+				// previous value was changed
 				expect( out1.get('toto') ).to.equals( 'tata' );
 				expect( out2.get('toto') ).to.equals( 'tata' );
 			});

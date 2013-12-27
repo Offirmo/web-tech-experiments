@@ -17,6 +17,7 @@
 		"jquery.svg":               "latest",
 		"json2":                    "latest",
 		"isotope":                  "latest",
+		"lodash":                   "latest",
 		"magnific-popup":           "latest",
 		"modernizr":                "latest",
 		"momentjs":                 "latest",
@@ -56,14 +57,16 @@
 		"restlink.js":              "latest"
 	},
 	"not_in_bower": {
-		"bootstrap":          "latest",
-		"bootstrap3":         "latest",
-		"chai-interface":     "latest",
-		"fullpage.js":        "latest",
-		"jquery.ui":          "latest",
-		"type-check":         "latest"
+		"bootstrap":                "latest",
+		"bootstrap3":               "latest",
+		"fowl":                     "latest",
+		"chai-interface":           "latest",
+		"fullpage.js":              "latest",
+		"jquery.ui":                "latest",
+		"type-check":               "latest",
+		"koa":                      "latest"
 	},
 	"to_test": {
-		"zepto":          "latest"
+		"zepto":                   "latest"
 	}
 }

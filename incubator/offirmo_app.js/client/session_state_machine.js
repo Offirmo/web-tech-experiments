@@ -68,12 +68,15 @@ function(Backbone, StateMachine, EE, Account) {
 				onenter_creating_new_account: function (event, from, to, msg) {
 					// let's go
 					this.client.reset_account(); // just in case
-					var promise = this.client.account.save(); // will trigger a create
-					promise.when(function() {
+					var account = this.client.account; // for closure + ease of manipulation
+					var promise = account.save(); // will trigger a create
+					promise.then(function() {
 						throw new EE.NotImplementedError();
 					});
 					promise.otherwise(function() {
 						// WAT ? maybe server is not responding ? (if any)
+						if(account.validationError)
+							console.error(account.validationError);
 						throw new EE.NotImplementedError();
 					});
 				},
