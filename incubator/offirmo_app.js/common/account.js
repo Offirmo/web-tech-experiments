@@ -33,31 +33,27 @@ function(_, BaseModel, Identity) {
 
 
 	var ParentModel = BaseModel;
-	var parentModel_reference_instance = new ParentModel;
+	//var parentModel_reference_instance = new ParentModel;
 
 	var DefinedModel = ParentModel.extend({
 
-		defaults: function(){
+		urlRoot: '/account', //< (backbone) url fragment for this object
+		defaults: function() {
 			ParentModel.prototype.defaults.call(this);
 
 			this.set({
-				serialization_version: constants.latest_serialization_version,
-
-				email: undefined,
-
-				sg_newly_created_account_credential : undefined, //< only exists briefly at account creation
-				xsg_pwd_hash : undefined
+				    serialization_version : constants.latest_serialization_version,
+				    email                 : undefined,
+				 sg_newly_created_account_credential : undefined, //< only exists briefly at account creation
+				xsg_pwd_hash              : undefined
 			});
 		},
 
-		initialize: function(){
+		initialize: function() {
 			ParentModel.prototype.initialize.call(this);
-
-			this.url = 'account'; //< (backbone) url fragment for this object
-			//this.add_validation_fn(validate_email);
 		},
 
-		create_identity: function(optional_attrs){
+		create_identity: function(optional_attrs) {
 			var identity = Identity.make_new(optional_attrs);
 			identity.set("sg_account_id", this.id); // defined or not
 

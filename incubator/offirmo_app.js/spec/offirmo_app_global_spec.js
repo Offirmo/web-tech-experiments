@@ -7,14 +7,16 @@ define(
 [
 	'chai',
 	'underscore',
+
 	'generic_store/generic_store',
-	'restlink/server/restlink_server',
+
 	'offirmo_app/server',
 	'offirmo_app/client',
+
 	'offirmo_app/client/session_footprint',
 	'mocha'
 ],
-function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClient, Footprint) {
+function(chai, _, GenericStore, OffirmoAppServer, OffirmoAppClient, Footprint) {
 	"use strict";
 
 	var expect = chai.expect;
@@ -23,19 +25,18 @@ function(chai, _, GenericStore, RestlinkServer, OffirmoAppServer, OffirmoAppClie
 
 
 	function build_test_restlink_server(name) {
+		// create a server persistence config
+
 		// create a restlink server
-		var restlink_server = RestlinkServer.make_new();
+		var server = OffirmoAppServer.make_new();
 
 		// give it a name for debug
-		restlink_server.set_denomination(name);
-
-		// add offirmo account handling
-		OffirmoAppServer.make_new().register_on(restlink_server);
+		server.set_denomination(name);
 
 		// start the server
-		restlink_server.startup();
+		server.startup();
 
-		return restlink_server;
+		return server;
 	}
 
 

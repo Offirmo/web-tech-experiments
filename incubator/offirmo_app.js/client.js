@@ -9,13 +9,13 @@ define(
 	'underscore',
 	'when',
 	'base-objects/mixins/startable',
-	'restlink/client/client',
-	'restlink/utils/backbone_sync_mixin',
+	//'restlink/client/client',
+	'restlink/utils/backbone_sync_to_restlink_mixin',
 	'offirmo_app/common/account',
 	'offirmo_app/client/session_state_machine',
 	'offirmo_app/client/session_footprint'
 ],
-function(_, when, StartableMixin, RestlinkClient, BBRestlinkSyncMixin, Account, SessionStateMachine, SessionFootPrint) {
+function(_, when, StartableMixin, /*RestlinkClient,*/ SyncToRestlinkMixin, Account, SessionStateMachine, SessionFootPrint) {
 	"use strict";
 
 
@@ -51,7 +51,7 @@ function(_, when, StartableMixin, RestlinkClient, BBRestlinkSyncMixin, Account, 
 
 		// configure backend
 		this.account.restlink_ = this.restlink_;
-		this.account.sync_to_restlink = BBRestlinkSyncMixin.methods.sync;;
+		this.account.sync_to_restlink = SyncToRestlinkMixin.methods.sync;;
 
 		// add event listeners
 		this.account.on("sync", function() {
@@ -117,11 +117,11 @@ function(_, when, StartableMixin, RestlinkClient, BBRestlinkSyncMixin, Account, 
 
 		// attach transactional objects to their persistence
 		this.session.restlink_client_ = restlink_client;
-		this.session.sync = BBRestlinkSyncMixin.methods.sync;
+		this.session.sync = SyncToRestlinkMixin.methods.sync;
 		this.account.restlink_client_ = restlink_client;
-		this.account.sync = BBRestlinkSyncMixin.methods.sync;
+		this.account.sync = SyncToRestlinkMixin.methods.sync;
 		this.identity.restlink_client_ = restlink_client;
-		this.identity.sync = BBRestlinkSyncMixin.methods.sync;
+		this.identity.sync = SyncToRestlinkMixin.methods.sync;
 
 		// shortcuts for convenience. Must be maintained over the life of the session.
 		this.logged_in  = false; // so far
