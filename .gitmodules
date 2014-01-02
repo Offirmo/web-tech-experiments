@@ -10,3 +10,6 @@
 [submodule "incubator/restlink.js"]
 	path = incubator/restlink.js
 	url = git@github.com:Offirmo/restlink.js.git
+[submodule "incubator/generic_store.js"]
+	path = incubator/generic_store.js
+	url = git@github.com:Offirmo/generic_store.js.git
