@@ -3,7 +3,7 @@
 
   <script>
     paceOptions = {
-      elements: false
+      elements: true
     };
   </script>
   <script src="../pace.js"></script>
@@ -25,6 +25,10 @@
         load(3100);
       });
     }, 4000);
+
+    Pace.on('hide', function(){
+      console.log('done');
+    });
 
   </script>
 </head>

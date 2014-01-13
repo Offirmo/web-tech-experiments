@@ -10,6 +10,8 @@
 		"backbone":                 "latest",
 		"console-shim":             "latest",
 		"datatables":               "latest",
+		"extended-exceptions.js":   "latest",
+		"generic_store.js":         "latest",
 		"html5shiv":                "latest",
 		"javascript-state-machine": "latest",
 		"jpanelmenu":               "latest",
@@ -21,6 +23,7 @@
 		"magnific-popup":           "latest",
 		"modernizr":                "latest",
 		"momentjs":                 "latest",
+		"network-constants.js":     "latest",
 		"onepage-scroll":           "latest",
 		"pace":                     "latest",
 		"require-css":              "latest",
@@ -50,10 +53,7 @@
 		"backbone-associations":    "latest",
 		"base-objects.js":          "latest",
 		"dustjs-linkedin":          "latest",
-		"extended-exceptions.js":   "latest",
-		"generic_store.js":         "latest",
 		"jqueryuibootstrap":        "latest",
-		"network-constants.js":     "latest",
 		"restlink.js":              "latest"
 	},
 	"not_in_bower": {

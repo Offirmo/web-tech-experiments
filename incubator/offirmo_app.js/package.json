@@ -14,10 +14,10 @@
 		"url":  "https://github.com/Offirmo/restlink.js.git"
 	},
 	"dependencies": {
-		"base-objects.js":         "latest",
-		"extended-exceptions.js":  "latest",
+		"amdefine":                "latest",
+		"base-objects":            "latest",
+		"extended-exceptions":     "latest",
 		"network-constants":       "latest",
-		"store.js":                "latest",
 		"underscore":              "latest",
 		"when":                    "latest"
 	},

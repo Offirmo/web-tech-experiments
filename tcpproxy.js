@@ -1,3 +1,6 @@
+// cf. http://www.jetbrains.com/webstorm/webhelp/run-debug-configuration-node-js-remote-debug.html#comment-900670787
+
+
 var util = require('util');
 var net = require("net");
  

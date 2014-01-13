@@ -1,11 +1,12 @@
 {
 	"name": "offirmo_app-test-runner",
-	"version": "1.0.0",
+	"version": "99.99.99",
 	"dependencies": {
 		"lodash":                   "latest",
 		"backbone":                 "latest",
 		"base-objects.js":          "latest",
 		"extended-exceptions.js":   "latest",
+		"generic_store.js":         "latest",
 		"javascript-state-machine": "latest",
 		"json2":                    "latest",
 		"network-constants.js":     "latest",

@@ -1,18 +1,9 @@
 {
 	"name": "offirmo_app-test-runner",
-	"description": "node test runner for offirmo_app.js",
-	"version": "1.0.0",
+	"description": "node test runner for offirmo_app",
+	"version": "99.99.99",
 	"private": true,
 	"dependencies": {
-		"lodash":                  "latest",
-		"backbone":                "latest",
-		"base-objects":            "latest",
-		"extended-exceptions":     "latest",
-		"json2":                   "latest",
-		"network-constants":       "latest",
-		"store.js":                "latest",
-		"when":                    "latest",
-		
 		"amdefine":                "latest",
 		"chai":                    "latest",
 		"mocha":                   "latest"
