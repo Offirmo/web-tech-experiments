@@ -3,21 +3,27 @@
 npm-debug.log
 
 incubator/base-objects.js/node_modules
-incubator/base-objects.js/test_runner/bower_components/*
-incubator/base-objects.js/test_runner/node_modules/*
+incubator/base-objects.js/test_runner/bower_components
+incubator/base-objects.js/test_runner/node_modules
 
-incubator/extended-exceptions.js/test_runner/bower_components/*
-incubator/extended-exceptions.js/test_runner/node_modules/*
+incubator/extended-exceptions.js/test_runner/bower_components
+incubator/extended-exceptions.js/test_runner/node_modules
 
 incubator/generic_store.js/node_modules
-incubator/generic_store.js/test_runner/bower_components/*
-incubator/generic_store.js/test_runner/node_modules/*
+incubator/generic_store.js/test_runner/bower_components
+incubator/generic_store.js/test_runner/node_modules
 
-incubator/network-constants.js/test_runner/bower_components/*
-incubator/network-constants.js/test_runner/node_modules/*
+incubator/network-constants.js/test_runner/bower_components
+incubator/network-constants.js/test_runner/node_modules
 
-incubator/offirmo_app.js/test_runner/bower_components/*
-incubator/offirmo_app.js/test_runner/node_modules/*
+incubator/offirmo_app.js/test_runner/bower_components
+incubator/offirmo_app.js/test_runner/node_modules
 
-incubator/restlink.js/test_runner/bower_components/*
-incubator/restlink.js/test_runner/node_modules/*
+incubator/restlink.js/test_runner/bower_components
+incubator/restlink.js/test_runner/node_modules
+
+node_modules/base-objects
+node_modules/extended-exceptions
+node_modules/generic_store
+node_modules/network-constants
+node_modules/restlink

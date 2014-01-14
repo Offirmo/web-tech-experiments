@@ -10,16 +10,13 @@
 	"dependencies": {
 		"amdefine":            "latest",
 		"backbone":            "latest",
-		"base-objects":        "latest",
 		"connect-no-www":      "latest",
 		"ejs":                 "latest",
 		"express":             "latest",
-		"extended-exceptions": "latest",
 		"locale":              "latest",
 		"localStorage":        "latest",
 		"lodash":              "latest",
 		"moment":              "latest",
-		"network-constants":   "latest",
 		"semver":              "latest",
 		"socket.io":           "latest",
 		"store":               "latest",
@@ -40,6 +37,9 @@
 		"angular":            "latest",
 		"backbone-associations": "latest",
 		"jquery":             "latest",
+		"base-objects":        "latest",
+		"extended-exceptions": "latest",
+		"network-constants":   "latest",
 		"restlink":           "latest"
 	}
 }
