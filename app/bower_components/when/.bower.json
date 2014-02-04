@@ -1,7 +1,7 @@
 {
   "name": "when",
   "main": "when.js",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "A lightweight Promises/A+ and when() implementation, plus other async goodies.",
   "keywords": [
     "Promises/A+",
@@ -29,11 +29,11 @@
     "test",
     "build"
   ],
-  "_release": "2.7.1",
+  "_release": "2.8.0",
   "_resolution": {
     "type": "version",
-    "tag": "2.7.1",
-    "commit": "8521d78551abdbc28e29a59ebf9c2684ee3d48f1"
+    "tag": "2.8.0",
+    "commit": "d79c216c62d1af28a9890741d5ed8d6bc2848a8e"
   },
   "_source": "git://github.com/cujojs/when.git",
   "_target": "*",
