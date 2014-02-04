@@ -1,0 +1,157 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>Backbone test 006</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... (see html template) ... -->
+
+
+	<!-- style -->
+	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
+	<style>
+	 /* ... */
+	</style>
+
+	<!-- js -->
+	<script src="bower_components/pace/pace.min.js"></script>
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">{{scoped_document.title}}</h1>
+		<p>Hello {{'World'}} !</p>
+		<p>Tests of Backbone features : events on standard sync</p>
+		<p>Angular version : {{scoped_angular.version.full}}</p>
+		<p>Backbone version : todo</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting main...");
+		require(
+		[
+			"underscore",
+			"backbone",
+			"when",
+			"angular",
+			"bootstrap3"
+		],
+		function(_, Backbone, when) {
+
+			var app = angular.module('App', []);
+
+			app.controller('AppCtrl', ['$scope', '$document', function($scope, $document) {
+				$scope.scoped_angular = angular;
+				$scope.scoped_document = document;
+			}]);
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+
+			// due to how we wrote component.js, we know that document is fully loaded
+			console.log("load done !");
+
+			// Test : simple backbone objects to test Model feature
+			var App = Backbone.Model.extend({
+				urlRoot: "http://192.168.56.100:8080/api/v1.0/testobject", ///api/v1.0/testobject",
+				constructor: function() {
+					// cf. http://backbonejs.org/#Model-constructor
+					console.group("Model constructor(...)");
+					console.log("Model constructor called with ", arguments);
+					console.log("Model constructor begin (no attributes yet)");
+
+					Backbone.Model.apply(this, arguments);
+
+					console.log("Model constructor end, attributes = ", this.attributes);
+					console.groupEnd();
+				},
+				defaults: function() {
+					console.group("Model defaults(...)");
+					console.log("Model defaults called with ", arguments);
+					console.log("Model defaults begin, attributes = ", this.attributes);
+
+					this.on("all", function(eventName) {
+						console.log("Event : " + eventName + ", params = ", arguments);
+					});
+
+					console.log("Model defaults end, attributes = ", this.attributes);
+					console.groupEnd();
+
+					return { 'title': "Oliver Twist" };
+				},
+				initialize: function() {
+					console.group("Model initialize(...)");
+					console.log("Model initialize(...) called with ", arguments);
+					console.log("Model initialize begin, attributes = ", this.attributes);
+
+					this.set('title', "Moby Dick");
+
+					console.log("Model initialize end, attributes = ", this.attributes);
+					console.groupEnd();
+				},
+				custom: function() {
+					console.log("Model custom(...) called with ", arguments);
+					console.log("Model custom end, attributes = ", this.attributes);
+				},
+				// add
+				validate: function(attributes, options) {
+					console.log("Model validate(...) called with ", arguments);
+					// return nothing = ok
+				}
+			});
+
+
+			console.log("---------------");
+			var app1 = new App({
+					//title: "One Thousand and One Nights",
+					author: "Scheherazade"
+				},
+				{
+					//parse: true
+				});
+			console.log("---------------");
+			app1.save();
+			console.log("---------------");
+			console.log("finished.");
+		});
+	};
+</script>
+
+</body>
+</html>

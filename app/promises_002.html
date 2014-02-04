@@ -47,7 +47,7 @@
 		require(
 		[	'jquery',
 			'when',
-			'bootstrap-rem'
+			'bootstrap3'
 		],
 		function($, when) {
 			// is the window fully loaded ? seems yes.
@@ -56,20 +56,23 @@
 			function toto() {
 				var deferred = when.defer();
 
-				deferred.resolve([1, 2, 3]);
+				//deferred.resolve( [1, 2, 3] );
+				deferred.reject(  [4, 5, 6] );
 
 				return deferred.promise;
 			}
 
-			var  promise_01 = toto();
-			promise_01.spread(function(p1, p2, p3) {
-				console.log("Promise 01 fulfilled ! ", arguments);
+			var  promise = toto();
+			promise.spread(function() {
+				console.log("Promise fulfilled ! ", arguments);
 			});
-			promise_01.otherwise(function() {
-				console.error("Promise 01 rejected ! ", arguments);
+			promise.otherwise(function() {
+				console.log("Promise rejected ! ", arguments);
+			});
+			promise.ensure(function() {
+				console.log("Promise fulfilled or rejected ! ", arguments);
 			});
 
-			//deferred_01.reject([1, 2, 3]);
 		});
 	};
 </script>

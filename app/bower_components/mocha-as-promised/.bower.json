@@ -1,0 +1,14 @@
+{
+  "name": "mocha-as-promised",
+  "homepage": "https://github.com/domenic/mocha-as-promised",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "a99352d1dcc3690d355495bafabb80f68546acd8"
+  },
+  "_source": "git://github.com/domenic/mocha-as-promised.git",
+  "_target": "*",
+  "_originalSource": "mocha-as-promised"
+}

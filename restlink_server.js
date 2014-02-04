@@ -23,6 +23,7 @@ function(RestlinkServer, RestlinkHttpAdapter, BaseModel, GenericStore, SyncToSto
 		attr2: [ 'chai', 'underscore' ],
 		attr3: { code: 543 }
 	});
+
 	SyncToStoreMixin.mixin(TestModel.prototype);
 	// set a model-wide store
 	var store = GenericStore.make_new("memory");

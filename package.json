@@ -21,25 +21,25 @@
 		"socket.io":           "latest",
 		"store":               "latest",
 		"underscore":          "latest",
-		"when":                "latest",
-
+		"when":                "latest"
+	},
+	"devDependencies": {
 		"chai":                "latest",
 		"chai-as-promised":    "latest",
 		"chai-backbone":       "latest",
 		"chai-interface":      "latest",
 		"mocha":               "latest",
-		"sinon-chai":          "latest"
-	},
-	"devDependencies": {
+		"mocha-as-promised":   "latest"
 	},
 	"commentedOut": {
-		"accounting":         "latest",
-		"angular":            "latest",
+		"accounting":          "latest",
+		"angular":             "latest",
 		"backbone-associations": "latest",
-		"jquery":             "latest",
+		"jquery":              "latest",
 		"base-objects":        "latest",
 		"extended-exceptions": "latest",
 		"network-constants":   "latest",
-		"restlink":           "latest"
+		"restlink":            "latest",
+		"sinon-chai":          "latest"
 	}
 }

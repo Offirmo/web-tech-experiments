@@ -49,7 +49,8 @@ requirejs.config({
 		"bootstrap-rem"    : "other_components/bootstrap-rem/bootstrap-rem",
 		"bootstrap3"       : "other_components/bootstrap3/js/bootstrap",
 		"chai"             : "bower_components/chai/chai",
-		// this plugin should really be aliased "dust" for rdust to work properly
+		"chai-as-promised" : "bower_components/chai-as-promised/lib/chai-as-promised",
+		// dust : this plugin should really be aliased "dust" for rdust to work properly
 		"dust"             : "bower_components/dustjs-linkedin/dist/dust-full-1.2.5",
 		"ecotree"          : "other_components/ecotree/ECOTree",
 		"fullpage"         : "other_components/fullpage/jquery.fullPage",

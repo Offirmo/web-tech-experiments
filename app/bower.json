@@ -45,6 +45,7 @@
 		"chai-as-promised":         "latest",
 		"chai-backbone":            "latest",
 		"mocha":                    "latest",
+		"mocha-as-promised":       "latest",
 		"sinon-chai":               "latest"
 	},
 	"commentedOutDeps": {

@@ -71,13 +71,13 @@ function(Backbone, StateMachine, EE, Account) {
 					var account = this.client.account; // for closure + ease of manipulation
 					var promise = account.save(); // will trigger a create
 					promise.then(function() {
-						throw new EE.NotImplementedError();
+						throw new EE.NotImplemented();
 					});
 					promise.otherwise(function() {
 						// WAT ? maybe server is not responding ? (if any)
 						if(account.validationError)
 							console.error(account.validationError);
-						throw new EE.NotImplementedError();
+						throw new EE.NotImplemented();
 					});
 				},
 				onenter_restoring_existing_session:  function (event, from, to, msg) {

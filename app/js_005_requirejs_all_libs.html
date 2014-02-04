@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+	<title>JS base 005</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="misc/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="misc/favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... (see html template) ... -->
+
+
+	<!-- style -->
+	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
+	<style>
+	 /* ... */
+	</style>
+
+	<!-- js -->
+	<script src="bower_components/pace/pace.min.js"></script>
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">JS base 005</h1>
+		<p>Advanced javascript enabled page. Using require.js, loading all libs.</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting rsrc load...");
+		// all libs so we chekc that they work !
+		require(
+		[
+			// AMD plugins (dirs or direct)
+			"base-objects",
+			"extended-exceptions",
+			"jquery",
+			"network-constants",
+			"restlink" ,
+			// shim plugins
+			"accounting",
+			"angular",
+			"angular-isotope",
+			"angular-route",
+			"backbone",
+			"backbone-associations",
+			"bootstrap",
+			"bootstrap-rem",
+			"bootstrap3",
+			"chai",
+			"dust",
+			"ecotree",
+			"fullpage",
+			"javascript-state-machine",
+			"jpanelmenu",
+			"jquery.ui",
+			"jquery.svg",
+			"jquery.datatables",
+			"jquery.datatables.ui",
+			"json2",
+			"isotope",
+			"magnific-popup",
+			"mocha",
+			"moment",
+			"onepage-scroll",
+			"spin",
+			"store",
+			"type-check",
+			"underscore",
+			"when"
+		],
+		function() {
+			// due to how we wrote component.js, we know that document is fully loaded
+			document.body.appendChild(document.createTextNode("Hello from mainFunction ! (jQuery version:" + $.fn.jquery + ")"));
+			console.log("load done !");
+		});
+	};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>Promises 005</title>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Promises 005</h1>
+		<p>Testing complicated then() case (when library).</p>
+		<p>(stuff is sent to firebug console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting rsrc load...");
+		require(
+		[	'jquery',
+			'when',
+			'bootstrap3'
+		],
+		function($, when) {
+			// is the window fully loaded ? seems yes.
+			//document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
+
+			function toto() {
+				var deferred = when.defer();
+
+				deferred.resolve( [1, 2, 3] );
+
+				return deferred.promise;
+			}
+
+			var  promise1 = toto();
+			var promise2 = promise1.then(
+					function on_success() {
+						console.log("Promise 1 fulfilled ! ", arguments);
+						console.warn("now throwing from p1 success callback...");
+						throw new Error("from success");
+					},
+					function on_failure() {
+						console.log("Promise 1 rejected ! ", arguments);
+						console.warn("now throwing from p1 failure callback...");
+						throw new Error("from failure");
+					});
+			promise1.ensure(function() {
+				console.log("Promise 1 fulfilled or rejected ! ", arguments);
+				console.warn("now throwing from p1 common callback...");
+				throw new Error("from common");
+			});
+
+			promise2.then(
+					function on_success() {
+						console.log("Promise 2 fulfilled ! ", arguments);
+					},
+					function on_failure() {
+						console.log("Promise 2 rejected ! ", arguments);
+					});
+			promise2.ensure(function() {
+				console.log("Promise 2 fulfilled or rejected ! ", arguments);
+			});
+
+		});
+	};
+</script>
+
+</body>
+</html>
