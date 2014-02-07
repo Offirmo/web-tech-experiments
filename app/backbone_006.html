@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <!-- html_004 template -->
 <!-- js_005 template -->
-<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -146,9 +146,22 @@
 					//parse: true
 				});
 			console.log("---------------");
-			app1.save();
-			console.log("---------------");
-			console.log("finished.");
+			console.log(app1.attributes);
+			var jqXhr = app1.save();
+			jqXhr.then(function() {
+				console.log("server id = " + app1.id);
+				console.log("attributes : ", app1.attributes);
+				console.log("---------------");
+				var app2 = new App();
+				app2.id = app1.id;
+				jqXhr = app2.fetch();
+				jqXhr.then(function() {
+					console.log("server id = " + app2.id);
+					console.log("attributes : ", app2.attributes);
+					console.log("---------------");
+					console.log("finished.");
+				});
+			});
 		});
 	};
 </script>

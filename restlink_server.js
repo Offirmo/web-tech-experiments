@@ -36,7 +36,8 @@ function(RestlinkServer, RestlinkHttpAdapter, BaseModel, GenericStore, SyncToSto
 	// add handlers
 	var teapot_BREW_callback = function(context, req, res) {
 		res.with_status(400)
-				.with_content("I'm a teapot !");
+			.with_content_type('text/plain')
+			.with_content("I'm a teapot !");
 
 		res.send();
 	};
