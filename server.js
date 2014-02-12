@@ -76,7 +76,7 @@ app.use(express.bodyParser());
 // methods with POST methods. Common boilerplate.
 app.use(express.methodOverride());
 
-// nadd locale infos + compute best
+// add locale infos + compute best
 app.use(connect_locale(supported_locales));
 
 app.use(app.router);
