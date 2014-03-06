@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <!-- html_004 template -->
-<!-- js_004 template -->
+<!-- js_003 template -->
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-	<title>JS test 004</title>
+	<title>Buzz test 001</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 
@@ -43,10 +43,9 @@
 
 <div id="content">
 	<div class="container">
-		<h1 id="header">JS test 004</h1>
-		<p>Advanced javascript enabled page. Using require.js and bootstrap.</p>
-		<p>Experiments about js inheritance, prototype.</p>
-		<p>(stuff is sent to firebug console)</p>
+		<h1 id="header">Buzz test 001</h1>
+		<p>Sound !</p>
+		<p id="timer"></p>
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
@@ -60,40 +59,35 @@
 		console.log("Starting rsrc load...");
 		// all libs so we chekc that they work !
 		require(
-			[
-				"underscore",
-				"backbone",
-				'bootstrap3'
-			],
-			function() {
-				// due to how we wrote component.js, we know that document is fully loaded
-				console.log("load done !");
+		[
+			"buzz",
+			"backbone",
+			'bootstrap3'
+		],
+		function(buzz) {
+			console.log("load done !");
 
-				function Object1() {
-					this.arr = 1;
-				}
-				Object1.prototype.arr = [ "Hello" ];
-				Object1.fancy_func = function() {
-					console.log('Hello !');
-				};
+			if (!buzz.isSupported()) {
+				alert("Your browser is too old, time to update!");
+			}
 
-				var out1 = new Object1;
-				console.log("Object1 instance : ", out1);
-
-				function Object2() {
-					this.arr = 2;
-				}
-				Object2.prototype = Object.create(Object1.prototype);
-				Object2.prototype.arr = Object2.prototype.arr.concat([ "world" ]);
-				//Object2.prototype.constructor = Object2; useful ?
-
-				var out2 = new Object2;
-				console.log("Object2 instance : ", out2);
-
-				var out3 = Object.create(Object2.prototype);
-				// no constructor was called...
-				console.log("Object3 instance : ", out3);
+			var mySound = new buzz.sound( "misc/Stargate Atlantis Theme", {
+				formats: [ "mp3" ],
+				preload: true,
+				autoplay: false,
+				loop: true
 			});
+			console.log(mySound);
+
+			mySound
+					.setVolume( 0 )
+					.fadeTo(25, 15000)
+					.loop()
+					.bind( "timeupdate", function() {
+						var timer = buzz.toTimer( this.getTime() );
+						document.getElementById( "timer" ).innerHTML = timer;
+					});
+		});
 	};
 </script>
 

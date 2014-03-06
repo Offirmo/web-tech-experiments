@@ -49,6 +49,7 @@ requirejs.config({
 		'bootstrap'           : 'other_components/bootstrap/js/bootstrap',
 		'bootstrap-rem'       : 'other_components/bootstrap-rem/bootstrap-rem',
 		'bootstrap3'          : 'other_components/bootstrap3/js/bootstrap',
+		'buzz'                : 'bower_components/buzz/dist/buzz',
 		'chai'                : 'bower_components/chai/chai',
 		'chai-as-promised'    : 'bower_components/chai-as-promised/lib/chai-as-promised',
 		// dust : this plugin should really be aliased 'dust' for rdust to work properly
