@@ -45,7 +45,7 @@
 	<div class="container">
 		<h1 id="header">Buzz test 001</h1>
 		<p>Sound !</p>
-		<p id="timer"></p>
+		<p id="timer"></p><a href="#" class="glyphicon glyphicon-volume-off" onclick="mute()"></a>
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
@@ -53,6 +53,8 @@
 <script>
 
 	console.log("hello from body !");
+
+	var mute;
 
 	main = function()
 	{
@@ -72,7 +74,7 @@
 			}
 
 			var mySound = new buzz.sound( "misc/Stargate Atlantis Theme", {
-				formats: [ "mp3" ],
+				formats: [ "mp3", "ogg" ],
 				preload: true,
 				autoplay: false,
 				loop: true
@@ -87,6 +89,13 @@
 						var timer = buzz.toTimer( this.getTime() );
 						document.getElementById( "timer" ).innerHTML = timer;
 					});
+
+			mute = function(){
+				console.log("mute");
+				for(var i in buzz.sounds) {
+					buzz.sounds[i].toggleMute();
+				}
+			}
 		});
 	};
 </script>
