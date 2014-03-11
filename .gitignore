@@ -21,9 +21,3 @@ incubator/offirmo_app.js/test_runner/node_modules
 
 incubator/restlink.js/test_runner/bower_components
 incubator/restlink.js/test_runner/node_modules
-
-node_modules/base-objects
-node_modules/extended-exceptions
-node_modules/generic_store
-node_modules/network-constants
-node_modules/restlink

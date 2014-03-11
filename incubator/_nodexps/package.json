@@ -1,0 +1,45 @@
+{
+	"name": "node_tests",
+	"description": "various node techs tests",
+	"author": "Offirmo <offirmo.net@gmail.com>",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"amdefine":            "latest",
+		"backbone":            "latest",
+		"connect-no-www":      "latest",
+		"ejs":                 "latest",
+		"express":             "latest",
+		"locale":              "latest",
+		"localStorage":        "latest",
+		"lodash":              "latest",
+		"moment":              "latest",
+		"semver":              "latest",
+		"socket.io":           "latest",
+		"store":               "latest",
+		"underscore":          "latest",
+		"when":                "latest"
+	},
+	"devDependencies": {
+		"chai":                "latest",
+		"chai-as-promised":    "latest",
+		"chai-backbone":       "latest",
+		"chai-interface":      "latest",
+		"mocha":               "latest",
+		"mocha-as-promised":   "latest"
+	},
+	"commentedOut": {
+		"accounting":          "latest",
+		"angular":             "latest",
+		"backbone-associations": "latest",
+		"jquery":              "latest",
+		"base-objects":        "latest",
+		"extended-exceptions": "latest",
+		"network-constants":   "latest",
+		"restlink":            "latest",
+		"sinon-chai":          "latest"
+	}
+}
