@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 
@@ -14,10 +14,10 @@ var routes = require('./routes');
 
 // middlewares
 var connect_nowww = require('connect-no-www');
-var connect_locale = require("locale");
+var connect_locale = require('locale');
 
 // misc
-var supported_locales = ["fr", "en", "en_US"];
+var supported_locales = ['fr', 'en', 'en_US'];
 
 
 
@@ -40,14 +40,14 @@ app.set('view engine', 'ejs');
 
 
 //////////// set middlewares chain ////////////
-app.use(express.logger("dev")); // connect default logger
-//app.use(connect.logger("dev")); // connect default logger
+app.use(express.logger('dev')); // connect default logger
+//app.use(connect.logger('dev')); // connect default logger
 //app.use(connect.limit('1mb')); // reject requests too big. we don't expect huge requests
 app.use(express.compress()); // gzip compression, must be as early as possible
 
 // Custom logging middleware
 app.use(function(request, response, next) {
-	console.log("* In comes a " + request.method + " to " + request.originalUrl);
+	console.log('* In comes a ' + request.method + ' to ' + request.originalUrl);
 	next();
 });
 
@@ -56,7 +56,7 @@ app.use(connect_nowww());
 // further logging
 app.use(function(request, response, next) {
 	if(request.url !== request.originalUrl) {
-		console.log("  eventually rewritten as " + request.method + " to " + request.url);
+		console.log('  eventually rewritten as ' + request.method + ' to ' + request.url);
 	}
 	next();
 });
@@ -67,7 +67,7 @@ app.use(express.favicon()); // immediately handle favicon if it's what was reque
 // immediately handle static files (if match)
 // Note : for convenience only,
 //        of course should be rather served by a front-end nginx and a CDN !
-app.use(express.static(path.join(__dirname, "app")));
+app.use(express.static(path.join(__dirname, '../../../app')));
 
 // for decoding request bodies and uploaded files
 app.use(express.bodyParser());
@@ -84,24 +84,24 @@ app.use(app.router);
 // dir of html tests
 app.get('/index', routes.index);
 
-app.use(express.directory("app"));
+app.use(express.directory('app'));
 
 // test
 app.get('/hello', function(request, response) {
-	response.setHeader("Content-Type", "text/plain");
+	response.setHeader('Content-Type', 'text/plain');
 
-	var answer = "Hello, World !";
-	answer += "Request URL: " + request.url + "\n";
-	answer += "Request type: " + request.method + "\n";
-	answer += "Request headers: " + JSON.stringify(request.headers) + "\n";
-	answer += "You asked for: " + request.headers["accept-language"] + "\n";
-	answer += "We support: " + supported_locales + "\n";
-	answer += "Our default is: " + connect_locale.Locale["default"] + "\n";
-	answer += "The best match is: " + request.locale + "\n";
-	answer += "NODE_ENV = " + process.env.NODE_ENV + "\n";
-	answer += "IP = " + request.ip + "\n";
-	answer += "IPs = " + request.ips + "\n";
-	answer += "protocol = " + request.protocol + "\n";
+	var answer = 'Hello, World !';
+	answer += 'Request URL: ' + request.url + '\n';
+	answer += 'Request type: ' + request.method + '\n';
+	answer += 'Request headers: ' + JSON.stringify(request.headers) + '\n';
+	answer += 'You asked for: ' + request.headers['accept-language'] + '\n';
+	answer += 'We support: ' + supported_locales + '\n';
+	answer += 'Our default is: ' + connect_locale.Locale['default'] + '\n';
+	answer += 'The best match is: ' + request.locale + '\n';
+	answer += 'NODE_ENV = ' + process.env.NODE_ENV + '\n';
+	answer += 'IP = ' + request.ip + '\n';
+	answer += 'IPs = ' + request.ips + '\n';
+	answer += 'protocol = ' + request.protocol + '\n';
 	response.send(answer);
 });
 

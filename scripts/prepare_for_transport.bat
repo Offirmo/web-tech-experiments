@@ -1,4 +1,6 @@
 
+cd ..
+
 :: remove git data (if any)
 rmdir .git /s /q
 

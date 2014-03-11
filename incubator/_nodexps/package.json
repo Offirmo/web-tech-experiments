@@ -13,6 +13,7 @@
 		"connect-no-www":      "latest",
 		"ejs":                 "latest",
 		"express":             "latest",
+		"hapi":                "latest",
 		"locale":              "latest",
 		"localStorage":        "latest",
 		"lodash":              "latest",
@@ -29,17 +30,19 @@
 		"chai-backbone":       "latest",
 		"chai-interface":      "latest",
 		"mocha":               "latest",
-		"mocha-as-promised":   "latest"
+		"mocha-as-promised":   "latest",
+		"sinon-chai":          "latest"
 	},
 	"commentedOut": {
 		"accounting":          "latest",
 		"angular":             "latest",
 		"backbone-associations": "latest",
-		"jquery":              "latest",
+		"jquery":              "latest"
+	},
+	"custom": {
 		"base-objects":        "latest",
 		"extended-exceptions": "latest",
 		"network-constants":   "latest",
-		"restlink":            "latest",
-		"sinon-chai":          "latest"
+		"restlink":            "latest"
 	}
 }

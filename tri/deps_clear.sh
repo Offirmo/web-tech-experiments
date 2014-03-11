@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 ## Clear all dependencies and, BTW, prepare future deps reinstall
-## by properly registering npm links
-## There is a logic behind this
+## by properly registering npm links.
+## There is a logic behind this.
 
 source deps_infos.inc.sh
 
@@ -13,12 +13,12 @@ clear_and_clean_offirmo_module()
 	
 	echo "* Registering $module_path for npm link... (this may trigger some npm downloads)"
 	cd "$module_path"
-	echo "» 'npm link'..."
+	echo "ï¿½ 'npm link'..."
 	npm link
 	cd -
 	
 	echo "* clearing deps of module $module_path..."
-	echo "» 'rm -rf ...'..."
+	echo "ï¿½ 'rm -rf ...'..."
 	rm -rf $module_path/node_modules
 	rm -rf $module_path/test_runner/node_modules
 	rm -rf $module_path/test_runner/bower_components
@@ -31,7 +31,7 @@ cd "$HTML_TESTS_PATH/.."
 pwd
 
 echo "* cleaning global deps..."
-echo "» 'rm -rf ...'..."
+echo "ï¿½ 'rm -rf ...'..."
 rm -rf html_tests/node_modules
 rm -rf html_tests/app/bower_components
 
@@ -45,12 +45,13 @@ npm install -g bower
 npm install -g npm-check-updates
 #npm install -g karma
 npm install -g mversion
+npm install -g selenium-standalone
 
 
 echo "* cleaning (potentially wrong) npm links..."
 for item in ${offirmo_npm_modules[*]}
 do
-	echo "  » rm -rf $NPM_LINKS_PATH/$item"
+	echo "  ï¿½ rm -rf $NPM_LINKS_PATH/$item"
 	rm -rf $NPM_LINKS_PATH/$item
 done
 
