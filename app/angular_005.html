@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... (see html template) ... -->
+
+	<!-- style -->
+	<style>
+		/* ... */
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+		<p>Testing routing and views.</p>
+		<p>Angular version : {{scoped_angular.version.full}}</p>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'angular',
+			'bootstrap3'
+		],
+		function() {
+			var app = angular.module('App', []);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "Angular Test 005";
+				$scope.snippet = "Testing angular promises. Stuff is sent to the console.";
+				$scope.scoped_angular = angular;
+
+				var deferred = $q.defer();
+				var internal = $q.defer();
+				$q.all([internal.promise])
+      			.then(function () {
+        	        deferred.resolve(1);
+     			 })
+				  .catch(function (err) {
+					deferred.reject(err);
+				  });
+
+		  		deferred.promise
+				.then(function() { console.log('resolved');}/*,
+				function() { console.log('rejected');}*/)
+				.catch(function() { console.log('caught');});
+
+				internal.reject('toto');
+			}]);
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

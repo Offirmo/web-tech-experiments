@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>Underscore 002</title>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">Underscore 002</h1>
+		<p>Testing _.throttle</p>
+		<p>(Data sent to console)</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+
+	console.log("hello from body !");
+
+	main = function()
+	{
+		console.log("Starting rsrc load...");
+		require(
+		[	'underscore',
+			'bootstrap3'
+		],
+		function(_) {
+
+            var text = "";
+
+            console.log("Starting test debounce...");
+            var t0 = performance.now();
+
+            function update_text(new_text) {
+                console.log("@T = " + (performance.now() - t0) + ', XXXXX update_text(' + new_text + ')');
+                text = new_text;
+                return text;
+            }
+
+            var debounced_update_text = _.debounce(update_text, 200 /* ms */);
+
+
+            for(var i = 0; i < 100; ++i) {
+                console.log("@T = " + (performance.now() - t0) + ", call #" + i, debounced_update_text(i.toString()));
+            }
+
+            _.delay(function() {
+                console.log("500ms elapsed, test done...");
+            }, 500);
+		});
+	};
+</script>
+
+</body>
+</html>
