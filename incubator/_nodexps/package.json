@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"amdefine":            "latest",
+		"async":               "latest",
 		"backbone":            "latest",
 		"connect-no-www":      "latest",
 		"ejs":                 "latest",
@@ -16,8 +17,10 @@
 		"hapi":                "latest",
 		"locale":              "latest",
 		"localStorage":        "latest",
+		"locus":               "latest",
 		"lodash":              "latest",
 		"moment":              "latest",
+		"node-mandrill":       "latest",
 		"semver":              "latest",
 		"socket.io":           "latest",
 		"store":               "latest",
@@ -25,24 +28,24 @@
 		"when":                "latest"
 	},
 	"devDependencies": {
-		"chai":                "latest",
-		"chai-as-promised":    "latest",
-		"chai-backbone":       "latest",
-		"chai-interface":      "latest",
-		"mocha":               "latest",
-		"mocha-as-promised":   "latest",
-		"sinon-chai":          "latest"
+		"chai":                  "latest",
+		"chai-as-promised":      "latest",
+		"chai-backbone":         "latest",
+		"chai-interface":        "latest",
+		"mocha":                 "latest",
+		"mocha-as-promised":     "latest",
+		"sinon-chai":            "latest"
 	},
 	"commentedOut": {
-		"accounting":          "latest",
-		"angular":             "latest",
+		"accounting":            "latest",
+		"angular":               "latest",
 		"backbone-associations": "latest",
-		"jquery":              "latest"
+		"jquery":                "latest"
 	},
 	"custom": {
-		"base-objects":        "latest",
-		"extended-exceptions": "latest",
-		"network-constants":   "latest",
-		"restlink":            "latest"
+		"base-objects":          "latest",
+		"extended-exceptions":   "latest",
+		"network-constants":     "latest",
+		"restlink":              "latest"
 	}
 }
