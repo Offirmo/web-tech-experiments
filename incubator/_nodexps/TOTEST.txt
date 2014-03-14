@@ -1,0 +1,14 @@
+
+https://waffle.io
+https://medium.com/code-adventures
+
+https://github.com/visionmedia/node-progress
+https://github.com/substack/comandante
+
+http://nodejs.org/api/stdio.html
+
+https://www.npmjs.org/package/bcrypt
+
+https://github.com/andrewrk/naught
+https://github.com/doxout/recluster
+https://github.com/verbling/kickq
