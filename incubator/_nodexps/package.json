@@ -15,6 +15,7 @@
 		"edit-google-spreadsheet": "latest",
 		"ejs":                     "latest",
 		"express":                 "latest",
+		"forky":                   "latest",
 		"hapi":                    "latest",
 		"locale":                  "latest",
 		"localStorage":            "latest",
@@ -22,11 +23,13 @@
 		"lodash":                  "latest",
 		"moment":                  "latest",
 		"node-mandrill":           "latest",
+		"node-usage":              "latest",
 		"semver":                  "latest",
 		"socket.io":               "latest",
 		"store":                   "latest",
 		"underscore":              "latest",
-		"when":                    "latest"
+		"when":                    "latest",
+		"winston":                 "latest"
 	},
 	"devDependencies": {
 		"chai":                    "latest",
@@ -35,6 +38,7 @@
 		"chai-interface":          "latest",
 		"mocha":                   "latest",
 		"mocha-as-promised":       "latest",
+		"nodemon":                 "latest",
 		"sinon-chai":              "latest"
 	},
 	"commentedOut": {
