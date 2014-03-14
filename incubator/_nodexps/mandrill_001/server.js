@@ -2,7 +2,7 @@
 
 console.log('Hello world !');
 
-var mandrill = require('node-mandrill')('ol6ErYa_xNc4zRfSxyXRXQ');
+var mandrill = require('node-mandrill')('APuBsI9glGTp_NWThbOLXg'); // this is a test key which doesn't send email
 var _ = require('underscore');
 
 

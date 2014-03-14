@@ -1,0 +1,136 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... (see html template) ... -->
+
+	<!-- style -->
+	<style>
+		/* ... */
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+		<p>Angular version : {{scoped_angular.version.full}}</p>
+
+		<div id="xyz">xyz</div>
+		hello
+		<div id="editable" contenteditable="true">
+			<h1>Inline Editing in Action!</h1>
+			<p>The "div" element that contains this text is now editable.
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'angular',
+			'ckeditor',
+			'bootstrap3'
+		],
+		function() {
+			var app = angular.module('App', []);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "CKEditor Test 004";
+				$scope.snippet = "Testing CKEditor, custom toolbar.";
+				$scope.scoped_angular = angular;
+
+				// Turn off automatic editor creation first.
+				console.log('activating CKEditor...');
+				CKEDITOR.inline( 'editable', {
+					//customConfig: ''
+					language: 'fr',
+					//skin: 'bootstrapck, /app/other_components/ckeditor-skin-bootstrapck/',
+					removeButtons: 'Cut,Copy,Paste,Anchor',
+					sharedSpaces: {
+						top: 'xyz'
+					},
+					//toolbarLocation: 'xyz',
+					sharedToolbar: {
+						"top": "article-editor-toolbar"
+					},
+					toolbar: [
+						{
+							"name": "cmslink",
+							"items": ["CmsLink"]
+						},
+						{
+							"name": "history",
+							"items": [
+								"Undo",
+								"Redo"
+							]
+						},
+						{
+							"name": "basicstyles",
+							"items": [
+								"Bold",
+								"Italic",
+								"UpperLowerSwitcher",
+								"RemoveFormat",
+								"Styles"
+							]
+						},
+						{
+							"name": "typography",
+							"items": [
+								"InvisibleCharsSwitcher"
+							]
+						}
+					]
+				});
+			}]);
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

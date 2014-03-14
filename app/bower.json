@@ -10,6 +10,7 @@
 		"angular-bootstrap":        "latest",
 		"backbone":                 "latest",
 		"buzz":                     "latest",
+		"ckeditor":                 "#basic/latest",
 		"console-shim":             "latest",
 		"datatables":               "latest",
 		"extended-exceptions.js":   "latest",

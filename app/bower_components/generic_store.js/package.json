@@ -1,0 +1,32 @@
+	{
+	"name": "generic_store",
+	"version": "0.2.0",
+	"description": "Provides an implementation of store.js in memory for testing + a wrapper around store.js for avoiding conflicts",
+	"keywords": "store, localstorage, memory",
+	"license": "public domain",
+	"author": "Offirmo",
+	"homepage": "https://github.com/Offirmo/generic_store.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Offirmo/generic_store.js.git"
+	},
+	"dependencies": {
+		"amdefine":           "~0.1",
+		"lodash":             "~2.4",
+		"store":              "~1.3",
+		"localStorage":       "~1.0"
+	},
+	"xmain": "./generic_store.js",
+	"directories": {
+		"lib": "."
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"bugs": {
+		"url": "https://github.com/Offirmo/extended-exceptions.js/issues"
+	},
+	"scripts": {
+		"test": "npm install && cd test_runner && make"
+	}
+}

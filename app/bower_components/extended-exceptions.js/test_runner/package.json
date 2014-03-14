@@ -1,0 +1,11 @@
+{
+	"name": "extended-exceptions-test-runner",
+	"description": "node test runner for extended-exceptions",
+	"version": "99.99.99",
+	"private": true,
+	"dependencies": {
+		"amdefine":                "latest",
+		"chai":                    "latest",
+		"mocha":                   "latest"
+	}
+}

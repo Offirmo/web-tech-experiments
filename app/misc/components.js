@@ -52,6 +52,7 @@ requirejs.config({
 		'buzz'                : 'bower_components/buzz/dist/buzz',
 		'chai'                : 'bower_components/chai/chai',
 		'chai-as-promised'    : 'bower_components/chai-as-promised/lib/chai-as-promised',
+		'ckeditor'            : 'bower_components/ckeditor/ckeditor',
 		// dust : this plugin should really be aliased 'dust' for rdust to work properly
 		'dust'                : 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
 		'ecotree'             : 'other_components/ecotree/ECOTree',
@@ -114,6 +115,13 @@ requirejs.config({
 			// js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 			deps: [ 'jquery',
 			        'css!other_components/bootstrap3/css/bootstrap' ]
+		},
+		'ckeditor': {
+			exports: 'CKEDITOR',
+			init: function () {
+				// base init
+				CKEDITOR.disableAutoInline = true;
+			}
 		},
 		'dust' : {
 			// no deps

@@ -1,0 +1,11 @@
+{
+	"name": "generic_store-test-runner",
+	"description": "node test runner for generic_store.js",
+	"version": "99.99.99",
+	"private": true,
+	"dependencies": {
+		"amdefine":                "latest",
+		"chai":                    "latest",
+		"mocha":                   "latest"
+	}
+}

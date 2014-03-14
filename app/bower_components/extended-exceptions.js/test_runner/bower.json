@@ -1,0 +1,10 @@
+{
+	"name": "extended-exceptions-test-runner",
+	"version": "99.99.99",
+	"dependencies": {
+		"chai":                    "latest",
+		"mocha":                   "latest",
+		"requirejs":               "latest",
+		"requirejs-domready":      "latest"
+	}
+}

@@ -1,0 +1,17 @@
+{
+  "name": "extended-exceptions.js",
+  "version": "2.0.2",
+  "description": "Easy custom js exceptions for node & browser, AMD.",
+  "keywords": [
+    "exceptions",
+    "browser",
+    "server"
+  ],
+  "license": "public domain",
+  "authors": [
+    "Offirmo <offirmo.net@gmail.com>"
+  ],
+  "homepage": "https://github.com/Offirmo/extended-exceptions.js",
+  "main": "extended_exceptions.js",
+  "dependencies": {}
+}

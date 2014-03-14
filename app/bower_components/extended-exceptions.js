@@ -1,1 +1,0 @@
-/work/www/html_tests/incubator/extended-exceptions.js

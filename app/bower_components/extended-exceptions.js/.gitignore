@@ -1,0 +1,10 @@
+
+## don't include our dependencies
+node_modules
+
+## may appear
+npm-debug.log
+
+## also don't include test runner dependencies in git.
+test_runner/bower_components/*
+test_runner/node_modules/*

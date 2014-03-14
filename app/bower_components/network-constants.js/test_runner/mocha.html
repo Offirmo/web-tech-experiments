@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Network Constants Mocha Tests</title>
+	<link rel="stylesheet" href="bower_components/mocha/mocha.css" />
+	<script data-main="components.js" src="bower_components/requirejs/require.js"></script>
+</head>
+
+<body>
+
+	<div id="mocha"></div>
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	window.main = function()
+	{
+		console.log("Loading tests...");
+
+		requirejs(
+		[
+			"mocha",
+			"domReady!",
+
+			"../spec/http_constants_spec"
+		],
+		function() {
+			mocha.checkLeaks();
+
+			console.log("Starting tests...");
+			mocha.run();
+		});
+	};
+</script>
+
+</body>
+</html>

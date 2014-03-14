@@ -3,6 +3,7 @@
 npm-debug.log
 
 incubator/_nodexps/node_modules/
+app/bower_components/
 
 incubator/base-objects.js/node_modules/
 incubator/base-objects.js/test_runner/bower_components/
