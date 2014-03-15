@@ -3,5 +3,8 @@
 	"description": "various web techs tests",
 	"author": "Offirmo <offirmo.net@gmail.com>",
 	"version": "0.0.1",
-	"private": true
+	"private": true,
+	"scripts": {
+		"install": "todo"
+	}
 }
