@@ -26,12 +26,12 @@
 		"moment":                  "latest",
 		"nconf":                   "latest",
 		"node-mandrill":           "latest",
-		"node-progress":           "latest",
-		"node-usage":              "latest",
+		"progress":                "latest",
 		"semver":                  "latest",
 		"socket.io":               "latest",
 		"store":                   "latest",
 		"underscore":              "latest",
+		"usage":                   "latest",
 		"when":                    "latest",
 		"winston":                 "latest"
 	},
@@ -41,7 +41,6 @@
 		"chai-backbone":           "latest",
 		"chai-interface":          "latest",
 		"mocha":                   "latest",
-		"mocha-as-promised":       "latest",
 		"nodemon":                 "latest",
 		"sinon-chai":              "latest"
 	},

@@ -19,6 +19,7 @@ they go into their own repo and get "submodulized".
 
 
 Private notes :
-node --debug-brk=8585 --debug restlink_server.js
+node scripts/tcpproxy.js 5858 127.0.0.1 8585 &
+node --debug-brk=8585 --debug server.js
 node --debug restlink_server.js
 node --debug server.js

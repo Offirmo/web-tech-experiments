@@ -1,4 +1,5 @@
 // just run me with `node server`
+'use strict';
 
 console.log('Hello world !');
 
@@ -51,7 +52,5 @@ Spreadsheet.load({
 		console.log(metadata);
 		// { title: 'Sheet3', rowCount: '100', colCount: '20', updated: [Date] }
 	});
-
-
 
 });
