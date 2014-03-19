@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 
 // http://fr.openclassrooms.com/informatique/cours/des-applications-ultra-rapides-avec-node-js/construire-son-serveur-http

@@ -1,4 +1,4 @@
-// just run me with `node server`
+#!/usr/bin/env node
 'use strict';
 
 // locus https://github.com/alidavut/locus
