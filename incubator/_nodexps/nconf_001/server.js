@@ -17,15 +17,19 @@ var nconf = require('nconf');
 //   2. Environment variables
 //   3. A file located at 'path/to/config.json'
 //
-nconf.argv()
-		.env()
-		.file({ file: 'config.json' });
+nconf
+	.defaults({
+		'database:port': 5983
+	})
+	.argv()
+	.env()
+	.file({ file: 'config.json' });
 
 //
 // Set a few variables on `nconf`.
 //
 nconf.set('database:host', '127.0.0.1');
-nconf.set('database:port', 5984);
+nconf.set('database:port', 5985);
 
 //
 // Get the entire database object from nconf. This will output

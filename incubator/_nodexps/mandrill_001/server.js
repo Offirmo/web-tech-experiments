@@ -3,8 +3,21 @@
 
 console.log('Hello world !');
 
-var mandrill = require('node-mandrill')('APuBsI9glGTp_NWThbOLXg'); // this is a test key which doesn't send email
 var _ = require('underscore');
+
+var nconf = require('nconf');
+var conf = new nconf.Provider();
+conf
+	.argv() // read configuration from command line
+	.env() // read configuration from environment variables
+	.defaults({});
+
+if(! conf.get('MANDRILL_API_KEY')) {
+	console.error('Please set a mandrill API key : export MANDRILL_API_KEY="..."');
+	process.exit(1);
+}
+
+var mandrill = require('node-mandrill')(conf.get('MANDRILL_API_KEY'));
 
 
 mandrill('/messages/send', {
