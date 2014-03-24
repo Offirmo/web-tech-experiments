@@ -46,3 +46,27 @@ customLevelLogger.foobar('some foobar level-ed message');
 //winston.addColors(customLevels.colors);
 
 customLevelLogger.foobar('some foobar level-ed message');
+
+
+/*
+ 'levels': {
+ 'detail': 0,
+ 'trace': 1,
+ 'debug': 2,
+ 'enter': 3,
+ 'info': 4,
+ 'warn': 5,
+ 'error': 6
+
+ levels : {
+ info    : 0,
+ emerg   : 1,
+ alert   : 2,
+ crit    : 3,
+ err     : 4,
+ warn    : 5,
+ notice  : 6,
+ debug   : 7
+ }
+
+ */

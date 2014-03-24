@@ -5,6 +5,7 @@ define(
 	'lodash',
 	'winston',
 	'prettyjson',
+	'longjohn',
 	'colors'
 ],
 function(_, winston, prettyjson) {

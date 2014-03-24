@@ -27,3 +27,6 @@ catch(e) {
 }
 
 log.timeEnd("timing example");
+
+function throwError() { throw new Error('foo') }
+setTimeout(throwError, 1000)
