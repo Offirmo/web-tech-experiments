@@ -17,6 +17,7 @@
 		"edit-google-spreadsheet": "latest",
 		"ejs":                     "latest",
 		"ent":                     "latest",
+		"exif2":                   "Yvem/node-exif",
 		"express":                 "latest",
 		"forky":                   "latest",
 		"hapi":                    "latest",
