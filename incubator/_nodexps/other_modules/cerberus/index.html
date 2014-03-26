@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cerberus - Responsive Email Patterns</title>
+    <link rel="stylesheet" href="assets/tea.css">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]--> 
+  </head>
+  <body>
+    <div id="wrapper">
+      
+      <header>
+        <hgroup>
+          <div>
+            <h1>Cerberus</h1>
+            <h2>A few simple, but solid patterns for responsive HTML emails. Even in Outlook.</h2>
+            <hr>
+          </div>
+        </hgroup>
+      </header>
+        
+      <div class="downloads">
+        <ul>
+          <li><a href="https://github.com/TedGoas/Cerberus/zipball/master">Download (ZIP)</a></li>
+          <li><a href="https://github.com/TedGoas/Cerberus/fork">Fork on GitHub</a></li>
+          <li><a href="https://github.com/TedGoas/Cerberus">View on GitHub</a></li>
+        </ul>
+      </div>
+      
+      <div class="content">
+        <blockquote>
+          <p><i>Cerberus - </i></p>
+          <p>Between desktop, mobile, and Outlook, HTML email is a three-headed dog from hell.</p>
+        </blockquote>
+
+        <hr>
+
+        <h2>A few responsive email patterns that go a long way</h2>
+        <p>Coding regular emails is hard enough by itself. Making them responsive shouldn't add to the headache. A few simple, but solid patterns are all that's needed to optimize emails for small screens.</p>
+        <h4>That's what Cerberus is.</h4>
+        <p>It's just a few responsive email patterns that go a long way. The code blocks are compartmentalized so that they may be used, reused, and nested to build an email. Everything has good email client support, including Outlook, Android, and even mobile Gmail.</p>
+        <p>There are two templates, one that relies media queries and one that does not.</p>
+        <p>I wrote <a href="http://www.tedgoas.com/blog/cerberus-responsive-email-templates/">a blog post</a> that goes into more detail on why I made this. Cerberus is <a href="https://github.com/TedGoas/Responsive-Email-XX">Responsive Email XX</a>'s successor.
+
+				<hr>
+				<h4>The Author</h4>
+				<p>
+					Made by <a href="http://www.tedgoas.com">Ted Goas</a> in scenic New Jersey, U.S. If you like chatting about email and web design, say hi!<br>
+					<a href="https://twitter.com/tedgoas" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">@TedGoas</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</p>
+				
+        <hr>
+
+	      <h3>template-default.html</h3>
+      	<div class="img">
+      		<img src="assets/wireframe-default.png" alt="Layout transformation wireframe">
+      	</div>
+      	<div class="det cf">
+	      <h4>This template relies media queries to force table columns into rows and shrinks images, all while maintaining the layout's spacing, padding, and alignment.</h4>
+      		<ul>
+      			<li class="title">Web</li>
+      			<li class="good">Gmail</li>
+      			<li class="good">Yahoo!</li>
+      			<li class="good">AOL Mail</li>
+      			<li class="good">Hotmail / Outlook.com</li>
+      			<li class="title">Desktop</li>
+      			<li class="good">Apple Mail 5/6</li>
+      			<li class="good">Outlook 2007/2010/2013</li>
+      			<li class="good">Thunderbird</li>
+      			<li class="title">Devices</li>
+      			<li class="good">iOS Mail (iPhone / iPod)</li>
+      			<li class="good">iOS Mail (iPad / iPad Mini)</li>
+      			<li class="good">Android Mail 4.3 (Nexus  &amp; HTC One)</li>
+      			<li class="derp">iOS Gmail</li>
+      			<li class="derp">Android Gmail</li>
+      			<li class="derp">Android Mail 4.4 (Nexus)</li>
+      		</ul>
+	        <p>When combined, these patterns go a long way. The HTML / CSS patterns used are supported in even the strictest email clients like Outlook and Gmail.</p>
+	        <p>The small screen layouts rely on media queries. Since some clients like mobile Gmail strip out the <code>&lt;style&gt;</code> tag, a shrunk version of the desktop layout will display instead.</p>
+	        <p>Android 4.4 (Kit Kat) Mail does not support <code>{display:block !important;}</code>, so we can't force table columns into rows. </p>
+      	</div>
+      	<div class="cta">
+	      	<a href="template-default.html" class="btn">View A Demo</a>
+				</div>
+        
+        <hr>
+
+	      <h3>template-fluid.html</h3>
+      	<div class="img">
+      		<img src="assets/wireframe-fluid.png" alt="Layout transformation wireframe">
+      	</div>
+      	<div class="det cf">
+	      <h4>This template focuses on one layout that looks good on all screen sizes. Good for when media queries aren't available to detect device size and reconfigure the layout.</h4>
+      		<ul>
+      			<li class="title">Web</li>
+      			<li class="good">Gmail</li>
+      			<li class="good">Yahoo!</li>
+      			<li class="good">AOL Mail</li>
+      			<li class="good">Hotmail / Outlook.com</li>
+      			<li class="title">Desktop</li>
+      			<li class="good">Apple Mail 5/6</li>
+      			<li class="good">Outlook 2007/2010/2013</li>
+      			<li class="good">Thunderbird</li>
+      			<li class="title">Devices</li>
+      			<li class="good">iOS Mail (iPhone / iPod)</li>
+      			<li class="good">iOS Mail (iPad / iPad Mini)</li>
+      			<li class="good">Android Mail 4.3 / 4.4 (Nexus  &amp; HTC One)</li>
+      			<li class="good">iOS Gmail</li>
+      			<li class="good">Android Gmail</li>
+      		</ul>
+	        <p>This layout uses percentage-based widths and to shrink horizontally on narrow screens. All CSS styles are inline, with the exception of a single media query to contain wide widths in Apple Mail.</p>
+	        <p>Outlook and Lotus 8 have spotty support for a layout that shrinks on narrow screens, but since they're pretty much shackled to desktop world, we can get away with a fixed-width, wide layout.</p>
+      	</div>
+      	<div class="cta">
+	      	<a href="template-fluid.html" class="btn">View A Demo</a>
+				</div>
+        
+        <hr>
+
+      <footer>
+        <p>
+          <!-- Keeping this line would be very considerate, but is not required. -->
+          <a href="https://github.com/house/tea">Tea Theme</a> created by <a href="http://twitter.com/house">Allison House</a> and adapted by <a href="http://twitter.com/tedgoas">Ted Goas</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

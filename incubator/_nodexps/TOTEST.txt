@@ -12,3 +12,5 @@ https://www.npmjs.org/package/bcrypt
 https://github.com/andrewrk/naught
 https://github.com/doxout/recluster
 https://github.com/verbling/kickq
+
+https://github.com/mattpat/node-schedule
