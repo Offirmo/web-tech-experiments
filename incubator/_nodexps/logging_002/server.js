@@ -2,6 +2,8 @@
 'use strict';
 
 var log = require('../logger')('test');
+var log2 = require('../logger')('test2');
+
 var prettyjson = require('prettyjson');
 
 console.log('Hello world !');
@@ -28,5 +30,16 @@ catch(e) {
 
 log.timeEnd("timing example");
 
-function throwError() { throw new Error('foo') }
-setTimeout(throwError, 1000)
+function throwError() {
+	var bad_circular_stuff = {};
+	bad_circular_stuff.and_we_even_have_bad_circular_data = bad_circular_stuff;
+
+	var error = new Error('something broke');
+	error.inner = new Error('some inner thing broke');
+	error.code = '500c';
+	error.severity = 'high';
+	error.bad_circular_stuff = bad_circular_stuff;
+
+	throw error;
+}
+setTimeout(throwError, 100);

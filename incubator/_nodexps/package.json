@@ -24,6 +24,7 @@
 		"hapi":                    "latest",
 		"iconv-lite":              "latest",
 		"jschardet":               "latest",
+		"json-stringify-safe":     "latest",
 		"locale":                  "latest",
 		"localStorage":            "latest",
 		"locus":                   "latest",
