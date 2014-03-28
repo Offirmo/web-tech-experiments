@@ -1,7 +1,12 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
+// http://massalabs.com/dev/2013/10/17/handling-errors-in-nodejs.html
+
+// TODO https://github.com/adamschwartz/log
+
 define(
 [
+	'path',
 	'lodash',
 	'winston',
 	'prettyjson',
@@ -9,18 +14,10 @@ define(
 	'longjohn',
 	'colors'
 ],
-function(_, winston, prettyjson, safeJsonStringify) {
+function(node_path, _, winston, prettyjson, safeJsonStringify) {
   'use strict';
 
-	var longjohn_activated = true;
-
-	// prettyjson config to render Error objects
-	var prettyjson_error_render_config = {
-		emptyArrayMsg: '(empty)', // Rendered message on empty strings
-		keysColor: 'red',
-		dashColor: 'white',
-		stringColor: 'yellow'
-	};
+	//var longjohn_activated = true;
 
 	// dedicated function to log an exception in the most readable way
 	var exception_key_align = 20;
@@ -31,12 +28,15 @@ function(_, winston, prettyjson, safeJsonStringify) {
 	}
 	function log_exception_to_console(e, subcount) {
 		try {
-			// now we can go fancy
-			subcount = subcount || 0;
-			var indent = (new Array(subcount + 1)).join('    ');
+			// safely inside a try/catch, now we can go fancy
+
+			// it happens that exceptions embed other exceptions
+			// we handle that and indent
+			subcount = subcount || 1;
+			var indent = (new Array(subcount)).join('    ');
 
 			console.error(indent + ('XXXXXXX Exception ' +
-			  (subcount ? ('(' + subcount + ') ') : '') +
+			  (subcount > 1 ? ('(' + subcount + ') ') : '') +
 			  'begin XXXXXXX').red.inverse.white.bold);
 
 			// js Error objects behave strangely
@@ -50,15 +50,16 @@ function(_, winston, prettyjson, safeJsonStringify) {
 					}
 				}
 			};
-			// safely force import common keys
+			// safely force import common keys, even if inherited
 			['name', 'message', 'fileName', 'lineNumber'].forEach(store_exception_key, this);
 			// then all immediate keys
 			Object.getOwnPropertyNames(e).forEach(store_exception_key, this);
 
+			// union put the keys we want first
 			var ordered_keys = _.union(['name', 'message', 'fileName', 'lineNumber', 'stack'], _.keys(sane_exception_data));
 			ordered_keys.forEach(function(key) {
 				if(key === 'stack') {
-					// skip it for now
+					// skip it for now, see below
 				}
 				else if(key === '__cached_trace__' || key === '__previous__') {
 					// longjohn stuff, skip it
@@ -78,12 +79,7 @@ function(_, winston, prettyjson, safeJsonStringify) {
 				}
 			});
 			// and eventually, the stack trace
-			var lined_stack = e['stack'].match(/[^\r\n]+/g);
-			console.error(indent + aligned_key('stack trace').red.bold + ' : ');
-			lined_stack.forEach(function(line, i) {
-				if(i) // skip useless first line
-					console.error(indent + line.yellow);
-			});
+			log_exception_stack_to_console(indent, e);
 		}
 		catch(e2) {
 			// safety first, we console.log the exception to be absolutely sure it's shown
@@ -93,6 +89,40 @@ function(_, winston, prettyjson, safeJsonStringify) {
 		console.error(indent + ('XXXXXXX Exception ' +
 		  (subcount ? ('(' + subcount + ') ') : '') +
 		  'end XXXXXXX').red.inverse.white.bold);
+	}
+	function log_exception_stack_to_console(indent, e) {
+		var line_splitted_stack = e['stack'].match(/[^\r\n]+/g);
+		var cwd = process.cwd();
+		console.error(indent + 'stack trace'.red.bold + (' (from '+ cwd.bold + ')').yellow);
+		line_splitted_stack.forEach(function(line, i) {
+			if(i) // skip useless first line
+				console.error(indent + format_stack_line(line, cwd));
+		});
+	}
+	function format_stack_line(line, cwd) {
+		// we want to display interesting lines in strong
+		var is_interesting = false;
+		var has_file_reference = false;
+		if(line.indexOf('(/') !== -1) {
+			// correspond to a real file
+			has_file_reference = true;
+			if(line.indexOf('node_modules') === -1) {
+				is_interesting = true;
+			}
+		}
+		if(is_interesting) {
+			line = line.yellow;
+			if(has_file_reference) {
+				// try to simplify the file name
+				var path_start = line.indexOf('(/') + 1;
+				var path_end = line.indexOf(':', path_start);
+				var absolute_path = line.slice(path_start, path_end);
+				var simpler_path = node_path.relative(cwd, absolute_path);
+				line = line.substr(0, path_start) + simpler_path.bold + line.substr(path_end);
+			}
+			return line;
+		}
+		return line.grey;
 	}
 
 	(function install_uncaughtException_handler(){

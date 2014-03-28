@@ -30,7 +30,7 @@ log.timeEnd("timing example");
 
 function throwError() {
 	var bad_circular_stuff = {};
-	bad_circular_stuff.and_we_even_have_bad_circular_data = bad_circular_stuff;
+	bad_circular_stuff.is_covered = bad_circular_stuff;
 
 	var error = new Error('something broke');
 	error.inner = new Error('some inner thing broke');
