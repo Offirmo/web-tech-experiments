@@ -4,8 +4,6 @@
 var log = require('../logger')('test');
 var log2 = require('../logger')('test2');
 
-var prettyjson = require('prettyjson');
-
 console.log('Hello world !');
 
 

@@ -96,7 +96,7 @@ function(_, winston, prettyjson, safeJsonStringify) {
 	}
 
 	(function install_uncaughtException_handler(){
-		console.log('installing uncaught handler...');
+		//console.log('installing uncaught handler...');
 		process.on('uncaughtException', function(err){
 			// log the error
 			console.error('XXXXXXX Uncaught exception XXXXXXX'.red.inverse.white.bold);
@@ -162,6 +162,7 @@ function(_, winston, prettyjson, safeJsonStringify) {
 			// additions
 			//logger.log('silly',   'Log at silly level');
 			//logger.log('verbose', 'Log at verbose level');
+			exception: log_exception_to_console,
 
 			// internals, just in case
 			logger_: logger
