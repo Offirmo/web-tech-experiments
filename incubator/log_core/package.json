@@ -1,0 +1,21 @@
+{
+  "name": "log_core",
+  "version": "0.0.1",
+  "description": "base for writing a nice logger for node and browser",
+  "main": "log_core.js",
+  "scripts": {
+    "test": "todo"
+  },
+  "keywords": [
+    "log",
+    "node",
+    "browser",
+    "color"
+  ],
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "license": "public domain",
+  "dependencies": {
+    "amdefine": "~0.1",
+    "underscore": "~1.6"
+  }
+}

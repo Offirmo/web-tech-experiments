@@ -1,0 +1,30 @@
+{
+  "name": "log_core.js",
+  "main": "log_core.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Offirmo/html_tests",
+  "authors": [
+    "Offirmo <offirmo.net@gmail.com>"
+  ],
+  "description": "base for writing a nice logger for node and browser",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "log",
+    "node",
+    "browser",
+    "color"
+  ],
+  "license": "public domain",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.6"
+  }
+}
