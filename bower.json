@@ -21,6 +21,7 @@
 		"jquery":                   "latest",
 		"jquery.svg":               "latest",
 		"json2":                    "latest",
+		"jsoneditor":               "latest",
 		"isotope":                  "latest",
 		"lodash":                   "latest",
 		"magnific-popup":           "latest",

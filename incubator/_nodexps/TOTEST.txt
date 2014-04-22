@@ -14,3 +14,7 @@ https://github.com/doxout/recluster
 https://github.com/verbling/kickq
 
 
+https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
+http://www.pintjs.com/
+http://mgcrea.github.io/angular-strap/
+

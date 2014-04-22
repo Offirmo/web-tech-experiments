@@ -64,6 +64,7 @@ requirejs.config({
 		'jquery.datatables'   : 'bower_components/datatables/media/js/jquery.dataTables',
 		'jquery.datatables.ui': 'bower_components/datatables/media/js/jquery.dataTables',
 		'json2'               : 'bower_components/json2/json2',
+		'jsoneditor'          : 'bower_components/jsoneditor/jsoneditor',
 		'isotope'             : 'bower_components/isotope/jquery.isotope',
 		'magnific-popup'      : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
 		'mocha'               : 'bower_components/mocha/mocha',
@@ -178,6 +179,13 @@ requirejs.config({
 				'jquery.ui',
 				'css!bower_components/datatables/media/css/jquery.dataTables_themeroller'
 			]
+		},
+		'jsoneditor': {
+			deps: [
+				'jquery',
+				'css!bower_components/jsoneditor/jsoneditor'
+			],
+			exports: 'jsoneditor'
 		},
 		'isotope' : {
 			deps: [
