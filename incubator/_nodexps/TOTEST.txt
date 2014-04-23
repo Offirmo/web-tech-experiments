@@ -18,3 +18,10 @@ https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-brow
 http://www.pintjs.com/
 http://mgcrea.github.io/angular-strap/
 
+
+proxyquire
+https://github.com/thlorenz/proxyquire
+
+http://mixu.net/npm_lazy/
+
+express sub-apps http://www.therightcode.net/differences-between-express-3-and-express-4/

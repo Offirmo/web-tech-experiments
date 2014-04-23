@@ -1,3 +1,1 @@
-/**
- * Created by yej on 3/26/14.
- */
+var proxyquire =  require('proxyquire')
