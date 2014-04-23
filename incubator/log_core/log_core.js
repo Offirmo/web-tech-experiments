@@ -7,20 +7,27 @@ define([
 function(_) {
 	"use strict";
 
-	// log call,
-	// with a level and tags
-	function BaseLogCall(options) {
+	var DEFAULT_LOGGER_ID  = 'main';
+	var DEFAULT_LEVEL_NAME = 'debug';
+	var DEFAULT_LEVEL_RANK = 1;
+
+
+	// A log line (= log call)
+	// with a level and optional tags
+	function BaseLogLine(options) {
 		options = options || {
 			// logger_id
 			// default_level
 			// level
 		};
 
-		this.logger_id = options.logger_id || 'main';
-		this.level = options.level || options.default_level || {name: 'debug'};
+		this.logger_id = options.logger_id || DEFAULT_LOGGER_ID;
+		this.level = options.level || options.default_level || {name: DEFAULT_LEVEL_NAME};
 		this.tags = [];
 		this.args = {};
 	}
+
+
 
 	// logger core
 	function LogCore() {
@@ -32,7 +39,7 @@ function(_) {
 
 		var log_core = this;
 		this.LogCall = function() {
-			var temp = new BaseLogCall();
+			var temp = new BaseLogLine();
 			temp.log_core = log_core;
 			return temp;
 		};

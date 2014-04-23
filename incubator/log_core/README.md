@@ -17,3 +17,22 @@ Design principles :
 * nameable, selectively activable by name
 * possible inheritance from another logger instance for config reuse
 * compatible with winston sinks (to reuse winston plugins)
+
+
+
+
+https://github.com/talyssonoc/wolverinejs
+https://github.com/tristanls/logly
+https://github.com/visionmedia/log.js
+
+Listes
+https://github.com/joyent/node/wiki/modules#logs
+http://nodetoolbox.com/categories/Logging
+
+à intégrer
+https://github.com/eldargab/easy-table
+
+Technos
+http://blog.activesphere.com/blog/2013/08/09/logging-with-colors-in-javascript-console/
+
+
