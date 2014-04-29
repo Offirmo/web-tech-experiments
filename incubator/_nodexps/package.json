@@ -36,7 +36,6 @@
 		"node-schedule":           "latest",
 		"prettyjson":              "latest",
 		"progress":                "latest",
-		"progress":                "latest",
 		"proxyquire":              "latest",
 		"socket.io":               "latest",
 		"store":                   "latest",

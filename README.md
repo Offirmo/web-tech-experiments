@@ -10,8 +10,6 @@ Various small html/css/js tests to :
 - test some libraries seen on the web
 - test some unclear documentation points
 
-(edited from prose.io)
-
 See the /app folder. Tests are named according what is tested.
 
 The /incubator folder is also the place where the prototype modules I develop live. If they prove useful,
@@ -23,3 +21,4 @@ node scripts/tcpproxy.js 5858 127.0.0.1 8585 &
 node --debug-brk=8585 --debug server.js
 node --debug restlink_server.js
 node --debug server.js
+http://prose.io/

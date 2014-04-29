@@ -25,3 +25,6 @@ https://github.com/thlorenz/proxyquire
 http://mixu.net/npm_lazy/
 
 express sub-apps http://www.therightcode.net/differences-between-express-3-and-express-4/
+
+https://github.com/sahat/hackathon-starter
+
