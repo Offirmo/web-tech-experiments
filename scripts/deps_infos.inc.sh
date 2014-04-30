@@ -1,6 +1,6 @@
 #! /bin/bash
 
-typeset var NPM_LINKS_PATH="/home/offirmo/.nave/installed/0.10.24/lib/node_modules"
+typeset var NPM_LINKS_PATH="/home/offirmo/.nave/installed/0.10.26/lib/node_modules"
 typeset var HTML_TESTS_PATH="/work/www/html_tests"
 typeset var INCUBATOR_PATH="$HTML_TESTS_PATH/incubator"
 

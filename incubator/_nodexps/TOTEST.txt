@@ -28,3 +28,7 @@ express sub-apps http://www.therightcode.net/differences-between-express-3-and-e
 
 https://github.com/sahat/hackathon-starter
 
+http://capptivate.co/
+https://www.buildwithchrome.com/
+https://famo.us/university
+
