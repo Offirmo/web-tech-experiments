@@ -23,6 +23,8 @@ they go into their own repo and get "submodulized".
 Commands
 --------
 
+`npm run i` install all
+
 TODO
 
 Private notes

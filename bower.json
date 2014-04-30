@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"accounting":               "latest",
-		"angular":                  "latest",
+		"angular":                  "~1.2",
 		"angular-isotope":          "latest",
 		"angular-route":            "latest",
 		"angular-route-segment":    "latest",
@@ -49,7 +49,7 @@
 		"chai-as-promised":         "latest",
 		"chai-backbone":            "latest",
 		"mocha":                    "latest",
-		"mocha-as-promised":       "latest",
+		"mocha-as-promised":        "latest",
 		"sinon-chai":               "latest"
 	},
 	"commentedOutDeps": {
@@ -72,6 +72,6 @@
 		"koa":                      "latest"
 	},
 	"to_test": {
-		"zepto":                   "latest"
+		"zepto":                    "latest"
 	}
 }

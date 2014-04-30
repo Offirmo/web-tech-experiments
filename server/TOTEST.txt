@@ -32,3 +32,6 @@ http://capptivate.co/
 https://www.buildwithchrome.com/
 https://famo.us/university
 
+http://feathersjs.com/?#
+http://www.html5rocks.com/en/tutorials/appcache/beginner/
+http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
