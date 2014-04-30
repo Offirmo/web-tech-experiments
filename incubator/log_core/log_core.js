@@ -5,7 +5,7 @@ define([
 	'underscore'
 ],
 function(_) {
-	"use strict";
+	'use strict';
 
 	var DEFAULT_LOGGER_ID  = 'main';
 	var DEFAULT_LEVEL_NAME = 'debug';
@@ -21,6 +21,7 @@ function(_) {
 			// level
 		};
 
+		// default values
 		this.logger_id = options.logger_id || DEFAULT_LOGGER_ID;
 		this.level = options.level || options.default_level || {name: DEFAULT_LEVEL_NAME};
 		this.tags = [];
@@ -37,8 +38,8 @@ function(_) {
 			console.log.apply(console, args);
 		};
 
-		var log_core = this;
-		this.LogCall = function() {
+		var log_core = this; // closure
+		this.LogLine = function() {
 			var temp = new BaseLogLine();
 			temp.log_core = log_core;
 			return temp;
