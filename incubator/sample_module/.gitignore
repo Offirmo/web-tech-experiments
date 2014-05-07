@@ -1,0 +1,6 @@
+
+## don't include our dependencies
+node_modules
+
+## may appear
+npm-debug.log

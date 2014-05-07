@@ -11,5 +11,12 @@
     "example"
   ],
   "author": "Offirmo offirmo.net@gmail.com",
-  "license": "public domain"
+  "license": "public domain",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2"
+  }
 }

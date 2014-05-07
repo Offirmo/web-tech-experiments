@@ -36,3 +36,5 @@ Technos
 http://blog.activesphere.com/blog/2013/08/09/logging-with-colors-in-javascript-console/
 
 
+https://developer.mozilla.org/en-US/docs/Web/API/console#Outputting_text_to_the_console
+
