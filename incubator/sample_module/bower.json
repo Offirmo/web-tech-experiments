@@ -1,0 +1,28 @@
+{
+  "name": "sample_module",
+  "version": "0.0.1",
+  "authors": [
+    "Offirmo <offirmo.net@gmail.com>"
+  ],
+  "description": "a sample module",
+  "main": "lib/index.js",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "module",
+    "example"
+  ],
+  "license": "public domain",
+  "homepage": "https://github.com/Offirmo/html_tests",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ]
+}

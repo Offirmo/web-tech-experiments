@@ -1,0 +1,15 @@
+{
+  "name": "sample_module",
+  "version": "0.0.1",
+  "description": "a sample module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "module",
+    "example"
+  ],
+  "author": "Offirmo offirmo.net@gmail.com",
+  "license": "public domain"
+}

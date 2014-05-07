@@ -19,12 +19,11 @@ http://www.pintjs.com/
 http://mgcrea.github.io/angular-strap/
 
 
-proxyquire
-https://github.com/thlorenz/proxyquire
-
 http://mixu.net/npm_lazy/
 
 express sub-apps http://www.therightcode.net/differences-between-express-3-and-express-4/
+http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
+http://blog.tompawlak.org/new-features-node-express-4
 
 https://github.com/sahat/hackathon-starter
 
@@ -35,3 +34,5 @@ https://famo.us/university
 http://feathersjs.com/?#
 http://www.html5rocks.com/en/tutorials/appcache/beginner/
 http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
+
+http://davidwalsh.name/track-errors-google-analytics
