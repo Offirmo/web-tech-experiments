@@ -22,128 +22,19 @@
 	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
 	<!-- ... -->
-	
-	
-	<!-- Ultra-mini css reset just to nicely display the loader
-	     Should be ultra-safe for :
-	     - old navigators like IE6
-	     - google referencement -> avoid blink, display-none at start (but ok later in script)
-	  -->
+
+	<!-- style -->
 	<style>
-	div#q-loader
-	{
-		all:default !important; /* reset */
-		padding-top: 50px !important;
-		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
-		font-size: 14px !important;
-		text-align: center !important;
-		line-height: 1.25rem !important;
-	}
-	div#q-loader h1, h3
-	{
-		margin: 0.63rem 0rem !important;
-		line-height: 2.5rem !important;
-		font-weight: bold !important;
-	}
-	div#q-loader h1
-	{
-		font-size: 2.41rem !important;
-	}
-	div#q-loader h3
-	{
-		font-size: 1.54rem !important;
-	}
-	p#q-loader-contact
-	{
-		font-size: 85% !important;
-		margin: 0rem 0rem 0.63rem !important;
-	}
-	p#q-loader-contact a
-	{
-		color: rgb(0, 136, 204) !important;
-		text-decoration: none !important;
-	}
-	ul#q-loader-log
-	{
-		color: grey !important;
-		font-size: 10px !important;
-	}
 	</style>
 
 	<!-- js -->
-	<script src="../other_components/quartermaster.js/quartermaster.js"></script>
 	<script>
-		//console.log("hello from header !");
-		window.main = function()
-		{
-			Q.log("Starting rsrc load...");
-
-			// use the "Simplified CommonJS Wrapper" syntax
-			// plugin is also named in this case (in-file)
-			define("app", function(require, exports, module) {
-					var $ = 	require('jquery');
-					require('bootstrap');
-					require('rdust!sandbox/dust_004h');
-					require('rdust!sandbox/dust_004f');
-					require('rdust!sandbox/dust_004c');
-					var main = require('rdust!sandbox/dust_004');
-
-					// since template compilation and application are asynchronous,
-					// we need a way for the caller to wait until DOM is set
-					var deferredTemplateApplication= $.Deferred();
-
-					// from https://github.com/blai/require-dust/blob/master/demo/lib/main.js
-					var data = {
-						"title": "Famous People",
-						"names" :
-							[
-								{ "name": "Larry" },
-								{ "name": "Curly" },
-								{ "name": "Moe" }
-							]
-					};
-
-					main.render(data, function(err, out) {
-						if(err !== null)
-							Q.error(err);
-						var contentDiv = document.getElementById('temp');
-						contentDiv.innerHTML = out;
-						// how to wait for innerHTML assignation to be done
-						// http://www.webdeveloper.com/forum/showthread.php?250355-RESOLVED-How-to-wait-for-innerHTML-assignment-to-take
-						contentDiv.onload = function() {
-							deferredTemplateApplication.resolve();
-						}
-					});
-
-					return deferredTemplateApplication.promise(); // return a more restricted promise object
-				}
-			);
-
-			require(
-				[	'app' ],
-				function() {
-					// is the window fully loaded ? seems yes.
-
-					// nothing.
-			});
-		};
+		console.log("hello from header !");
 	</script>
-	<script data-main="shared/components.js" src="../bower_components/requirejs/require.js"></script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
 
 </head>
 <body>
-
-
-<div id="q-loader">
-	<h1>Test app</h1>
-	<h3 id="q-loader-msg">Loading<span id="q-simple-loading-indicator">...</span> (<span id="q-loaded-rsrc-count">0</span>/<span id="q-expected-rsrc-count">1</span>)</h3>
-	<noscript><p style="color: red;"><strong>Your browser either does not support JavaScript, or has it turned off !</strong></p></noscript>
-	<ul id="q-loader-log">
-		<!-- empty for now -->
-	</ul>
-	<p id="q-loader-contact">Please contact <a href="mailto:offirmo.net@gmail.com">offirmo.net@gmail.com</a> in
-		case of problem.</p>
-</div>
 
 <div id="content">
 	<div class="container">
@@ -156,6 +47,50 @@
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 <script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs([
+			'jquery',
+			'rdust!sandbox/dust_004',
+			'rdust!sandbox/dust_004h',
+			'rdust!sandbox/dust_004f',
+			'rdust!sandbox/dust_004c',
+			'bootstrap'
+		],
+		function($, main) {
+				// since template compilation and application are asynchronous,
+				// we need a way for the caller to wait until DOM is set
+				var deferredTemplateApplication= $.Deferred();
+
+				// from https://github.com/blai/require-dust/blob/master/demo/lib/main.js
+				var data = {
+					"title": "Famous People",
+					"names" :
+						[
+							{ "name": "Larry" },
+							{ "name": "Curly" },
+							{ "name": "Moe" }
+						]
+				};
+
+				main.render(data, function(err, out) {
+					if(err !== null)
+						console.error(err);
+					var contentDiv = document.getElementById('temp');
+					contentDiv.innerHTML = out;
+					// how to wait for innerHTML assignation to be done
+					// http://www.webdeveloper.com/forum/showthread.php?250355-RESOLVED-How-to-wait-for-innerHTML-assignment-to-take
+					contentDiv.onload = function() {
+						deferredTemplateApplication.resolve();
+					}
+				});
+
+				return deferredTemplateApplication.promise(); // return a more restricted promise object
+			}
+		);
 
 	//console.log("hello from body !");
 

@@ -23,9 +23,13 @@ requirejs.config({
 			// an extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
 			// an extension to be able to load dust.js templates easily
-			'rdust': 'other_components/require-dust/require-dust',
+			'rdust': 'bower_components/require-dust/rdust',
+			//'rdust': 'other_components/require-dust/require-dust',
 			// an extension to be able to wait for the DOM to be ready
-			'domReady': 'bower_components/requirejs-domready/domReady'
+			'domReady': 'bower_components/requirejs-domready/domReady',
+			// transparently replace undercore with lodash
+			'underscore' : 'lodash',
+			'bootstrap3' : 'bootstrap'
 		}
 	},
 
@@ -35,7 +39,7 @@ requirejs.config({
 		// AMD plugins (dirs or direct)
 		'base-objects'        : '../incubator/base-objects.js', // dir
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
-		'jquery'              : 'bower_components/jquery/jquery',
+		'jquery'              : 'bower_components/jquery/dist/jquery',
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
 		// shim plugins
@@ -46,15 +50,15 @@ requirejs.config({
 		'angular-route'       : 'bower_components/angular-route/angular-route',
 		'backbone'            : 'bower_components/backbone/backbone',
 		'backbone-associations': 'bower_components/backbone-associations/backbone-associations',
-		'bootstrap'           : 'other_components/bootstrap/js/bootstrap',
-		'bootstrap-rem'       : 'other_components/bootstrap-rem/bootstrap-rem',
-		'bootstrap3'          : 'other_components/bootstrap3/js/bootstrap',
+		//'bootstrap-rem'       : 'other_components/bootstrap-rem/bootstrap-rem',
+		'bootstrap'           : 'bower_components/bootstrap-css/js/bootstrap',
 		'buzz'                : 'bower_components/buzz/dist/buzz',
 		'chai'                : 'bower_components/chai/chai',
 		'chai-as-promised'    : 'bower_components/chai-as-promised/lib/chai-as-promised',
 		'ckeditor'            : 'bower_components/ckeditor/ckeditor',
 		// dust : this plugin should really be aliased 'dust' for rdust to work properly
-		'dust'                : 'bower_components/dustjs-linkedin/dist/dust-full-1.2.5',
+		'dust'                : 'bower_components/dustjs-linkedin/dist/dust-full',
+		'dust-helpers'        : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'ecotree'             : 'other_components/ecotree/ECOTree',
 		'fullpage'            : 'other_components/fullpage/jquery.fullPage',
 		'javascript-state-machine': 'bower_components/javascript-state-machine/state-machine',
@@ -66,14 +70,16 @@ requirejs.config({
 		'json2'               : 'bower_components/json2/json2',
 		'jsoneditor'          : 'bower_components/jsoneditor/jsoneditor',
 		'isotope'             : 'bower_components/isotope/jquery.isotope',
+		'lodash'              : 'bower_components/lodash/dist/lodash',
 		'magnific-popup'      : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
 		'mocha'               : 'bower_components/mocha/mocha',
 		'moment'              : 'bower_components/momentjs/moment',
 		'onepage-scroll'      : 'bower_components/onepage-scroll/jquery.onepage-scroll',
+		'rdust'               : 'bower_components/require-dust/rdust',
 		'spin'                : 'bower_components/spin.js/spin',
 		'store'               : 'bower_components/store.js/store',
 		'type-check'          : 'other_components/type-check/browser/type-check',
-		'underscore'          : 'bower_components/underscore/underscore', // TODO replace with lazy.js or LO dash ?
+		//'underscore'          : 'bower_components/underscore/underscore', // TODO replace with lazy.js or LO dash ?
 		'when'                : 'bower_components/when/when'
 	},
 
@@ -105,18 +111,14 @@ requirejs.config({
 			deps: [ 'backbone' ]
 		},
 		'bootstrap': {
-			deps: [ 'jquery',
-			        'css!other_components/bootstrap/css/bootstrap' ]
-		},
-		'bootstrap-rem': {
-			deps: [ 'bootstrap',
-			        'css!other_components/bootstrap-rem/bootstrap-rem' ]
-		},
-		'bootstrap3': {
 			// js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 			deps: [ 'jquery',
-			        'css!other_components/bootstrap3/css/bootstrap' ]
+			        'css!bower_components/bootstrap-css/css/bootstrap' ]
 		},
+		/*'bootstrap-rem': {
+			deps: [ 'bootstrap',
+			        'css!other_components/bootstrap-rem/bootstrap-rem' ]
+		},*/
 		'ckeditor': {
 			exports: 'CKEDITOR',
 			init: function () {
@@ -126,6 +128,10 @@ requirejs.config({
 		},
 		'dust' : {
 			// no deps
+			exports: 'dust'
+		},
+		'dust-helpers' : {
+			deps: [ 'dust' ],
 			exports: 'dust'
 		},
 		'ecotree': {
@@ -215,6 +221,9 @@ requirejs.config({
 				'css!bower_components/onepage-scroll/onepage-scroll'
 			]
 		},
+		'rdust' : {
+			deps: [ 'dust-helpers' ]
+		},
 		'spin' : {
 			exports: 'Spinner'
 		},
@@ -222,7 +231,7 @@ requirejs.config({
 			deps: [ 'json2' ],
 			exports: 'store'
 		},
-		'underscore': {
+		'lodash': {
 			exports: '_'
 		}
 	},

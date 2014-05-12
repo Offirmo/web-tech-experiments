@@ -5,6 +5,8 @@ npm-debug.log
 client/bower_components/
 server/node_modules/
 
+incubator/node_modules/
+
 incubator/base-objects.js/node_modules/
 incubator/base-objects.js/test_runner/bower_components/
 incubator/base-objects.js/test_runner/node_modules/
@@ -24,3 +26,7 @@ incubator/offirmo_app.js/test_runner/node_modules/
 
 incubator/restlink.js/test_runner/bower_components/
 incubator/restlink.js/test_runner/node_modules/
+
+incubator/sample_module/node_modules/
+incubator/sample_module/test_runner/bower_components/
+incubator/sample_module/test_runner/node_modules/

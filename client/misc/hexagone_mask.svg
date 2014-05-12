@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="409.1405"
+   height="468.73557"
+   id="svg4686">
+  <defs
+     id="defs4688">
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter3933-4-2-3">
+      <feGaussianBlur
+         id="feGaussianBlur3935-5-7-4"
+         stdDeviation="3.1483929" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4691">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-0.4907186,0.22916738)"
+     id="layer1"
+     style="display:none">
+    <path
+       d="m 900,580 0,0 -223.20508,-13.39746 0,0 -100,-200 0,0 L 700,180 l 0,0 223.20508,13.39746 0,0 100.00002,200 0,0 z"
+       transform="matrix(0.06235406,1.0118827,-1.014067,0.06221977,540.52318,-599.01105)"
+       id="path4117-1"
+       style="fill:#000000;fill-opacity:0.08627451;stroke:none;display:inline;filter:url(#filter3933-4-2-3)" />
+    <path
+       d="m 900,580 0,0 -223.20508,-13.39746 0,0 -100,-200 0,0 L 700,180 l 0,0 223.20508,13.39746 0,0 100.00002,200 0,0 z"
+       transform="matrix(0.05929162,0.96228343,-0.96426246,0.05916995,523.50058,-560.67403)"
+       id="path4119-1"
+       style="fill:#e6cce8;fill-opacity:1;stroke:#ffffff;stroke-width:6.21702528;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
+  </g>
+  <g
+     id="layer2"
+     style="display:inline">
+    <path
+       d="m 900,580 0,0 -223.20508,-13.39746 0,0 -100,-200 0,0 L 700,180 l 0,0 223.20508,13.39746 0,0 100.00002,200 0,0 z"
+       transform="matrix(0.05929162,0.96228343,-0.96426246,0.05916995,523.00986,-560.44486)"
+       id="path4751"
+       style="fill:#000000;fill-opacity:1;stroke:none;display:inline" />
+  </g>
+</svg>

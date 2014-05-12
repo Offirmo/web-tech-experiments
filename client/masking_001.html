@@ -1,0 +1,114 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang='en' xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>Test mask 001</title>
+	<meta name="description" content="">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="misc/favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- style -->
+	<style>
+		body {
+			padding-top: 70px; /* http://getbootstrap.com/components/#navbar-fixed-top */
+			background-image:url(misc/bg.jpg);
+		}
+		.class01 {
+			border: solid 1px black;
+			position:relative;
+		}
+		#elem01 {
+			height: 200px;
+		}
+		#elem02 {
+		}
+		.alveole {
+			/*position:absolute;*/
+			float: left;
+			height: 100%;
+			top:0;
+			left:0;
+		}
+		.alveole_mask {
+			position:absolute;
+			height: 100%;
+			top:0;
+			left:0;
+		}
+		.alveole_content {
+			position:absolute;
+			height: 100%;
+			top:0;
+			left:0;
+			mask-image: url(misc/hexagone_mask.svg);
+			mask: url(misc/hexagone_mask.svg);
+			-webkit-mask: url(misc/hexagone_mask.svg) top left / cover;
+			-o-mask: url(misc/hexagone_mask.svg) top left / cover;
+			-ms-mask: url(misc/hexagone_mask.svg) top left / cover;
+
+		}
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header">Masking test 001</h1>
+		<p><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></p>
+
+		<div class="class01" id="elem01">
+			<span class="alveole">
+				<img src="misc/hexagone.svg" style="height:100%;" />
+			</span>
+			<div class="alveole_mask">
+				<img src="misc/hexagone.png" style="height:100%;" />
+			</div>
+			<div class="alveole_content">
+				<img src="misc/800px-Dawn_on_cloud_nine.jpg" style="height:100%;" />
+			</div>
+			Hello world !
+		</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'bootstrap3'
+		],
+		function() {
+		});
+	};
+</script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 {! First, insert the base template as a partial !}
-{>"sandbox/dust_003a"/}
+{>"dust_003a"/}
 
 {! Then populate the base template named blocks. Supply the desired bodyContent and pageFooter !}
 {<bodyContent}
