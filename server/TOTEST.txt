@@ -36,3 +36,8 @@ http://www.html5rocks.com/en/tutorials/appcache/beginner/
 http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
 
 http://davidwalsh.name/track-errors-google-analytics
+
+
+-- proc --
+https://github.com/geddski/grunt-release
+https://github.com/ajoslin/conventional-changelog

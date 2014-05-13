@@ -9,7 +9,7 @@ var _ = require('underscore');
 var local_ips = _.chain(require('os').networkInterfaces())
 	.flatten()
 	.filter(function(val){
-		return (val.family === 'IPv4' && val.internal === false)
+		return (val.family === 'IPv4' && val.internal === false);
 	})
 	.pluck('address')
 	.value();
