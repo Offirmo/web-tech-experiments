@@ -46,6 +46,7 @@
 		"prettyjson":              "latest",
 		"progress":                "latest",
 		"proxyquire":              "latest",
+		"response-time":           "latest",
 		"serve-favicon":           "latest",
 		"socket.io":               "latest",
 		"store":                   "latest",
