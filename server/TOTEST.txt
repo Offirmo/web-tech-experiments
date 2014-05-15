@@ -21,15 +21,10 @@ http://mgcrea.github.io/angular-strap/
 
 http://mixu.net/npm_lazy/
 
-express sub-apps http://www.therightcode.net/differences-between-express-3-and-express-4/
-http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
-http://blog.tompawlak.org/new-features-node-express-4
-
 https://github.com/sahat/hackathon-starter
 
 http://capptivate.co/
 https://www.buildwithchrome.com/
-https://famo.us/university
 
 http://feathersjs.com/?#
 http://www.html5rocks.com/en/tutorials/appcache/beginner/
@@ -37,6 +32,7 @@ http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-nod
 
 http://davidwalsh.name/track-errors-google-analytics
 
+https://github.com/dominictarr/scuttlebutt
 
 -- proc --
 https://github.com/geddski/grunt-release

@@ -3,9 +3,10 @@
 
 console.log('Hello world !');
 
+var _ = require('underscore');
+
 // http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
 // http://nodejs.org/api/os.html#os_os_networkinterfaces
-var _ = require('underscore');
 var local_ips = _.chain(require('os').networkInterfaces())
 	.flatten()
 	.filter(function(val){
