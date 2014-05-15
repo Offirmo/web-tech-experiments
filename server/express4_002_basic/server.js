@@ -79,6 +79,8 @@ app.use(cookieParser(cookie_signing_secret));
 app.use(express.static(path.join(__dirname, 'public'))); // https://github.com/expressjs/serve-static
 app.use(require('response-time')()); // https://github.com/expressjs/response-time
 
+require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
+
 /*app.use(domainMiddleware({
 	server: server,
 	killTimeout: 30000,
