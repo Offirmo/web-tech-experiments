@@ -13,6 +13,7 @@ https://github.com/andrewrk/naught
 https://github.com/doxout/recluster
 https://github.com/verbling/kickq
 
+https://github.com/primus/primus
 
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 http://www.pintjs.com/
@@ -32,8 +33,11 @@ http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-nod
 
 http://davidwalsh.name/track-errors-google-analytics
 
-https://github.com/dominictarr/scuttlebutt
+http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
 
--- proc --
+https://github.com/dominictarr/scuttlebutt
+https://github.com/Floby/shi-flo-by
+
+-- procédures --
 https://github.com/geddski/grunt-release
 https://github.com/ajoslin/conventional-changelog

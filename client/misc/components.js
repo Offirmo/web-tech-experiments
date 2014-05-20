@@ -39,6 +39,7 @@ requirejs.config({
 		// AMD plugins (dirs or direct)
 		'base-objects'        : '../incubator/base-objects.js', // dir
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
+		'famous.angular'      : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'              : 'bower_components/jquery/dist/jquery',
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
@@ -137,6 +138,11 @@ requirejs.config({
 		'ecotree': {
 			deps: [ 'css!other_components/ecotree/ECOTree' ]
 			// exports ?
+		},
+		'famous.angular': {
+			deps: [
+				'css!bower_components/famous-angular/dist/famous-angular'
+			]
 		},
 		'fullpage' : {
 			deps: [
