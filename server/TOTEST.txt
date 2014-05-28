@@ -38,6 +38,13 @@ http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
 
+-- famo.us --
+http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
+
 -- procédures --
 https://github.com/geddski/grunt-release
 https://github.com/ajoslin/conventional-changelog
+
+-- outils --
+http://eslint.org/docs/rules/valid-jsdoc.html
+http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&utm_medium=email
