@@ -22,13 +22,15 @@ var conf = new NconfProvider();
 //
 conf
 .defaults({
-	'foo': 'from_defaults'
+	'foo': 'from_defaults',
+		NODE_ENV: 'defaults'
 })
 .argv()
 .env(['NODE_ENV'])
 .file({ file: 'config.json' })
 .overrides({
-	'foo': 'from_overrides'
+	'foo': 'from_overrides',
+			NODE_ENV: 'override'
 });
 
 conf.set('foo', 'from_set');
@@ -36,5 +38,6 @@ conf.set('foo', 'from_set');
 ///////////////////////////////
 
 console.log('foo :', conf.get('foo'));
+console.log('NODE_ENV :', conf.get('NODE_ENV'));
 
 console.log('full : ' + JSON.stringify(conf.stores) );
