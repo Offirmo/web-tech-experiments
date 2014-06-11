@@ -48,3 +48,7 @@ https://github.com/ajoslin/conventional-changelog
 -- outils --
 http://eslint.org/docs/rules/valid-jsdoc.html
 http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&utm_medium=email
+
+-- debug --
+https://github.com/hansineffect/Dogerr
+https://www.npmjs.org/package/doge-debug
