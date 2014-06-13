@@ -1,4 +1,11 @@
 
+
+** google an
+https://github.com/toddmotto/flare
+http://davidwalsh.name/track-errors-google-analytics
+
+
+
 https://waffle.io
 https://medium.com/code-adventures
 
@@ -19,24 +26,20 @@ https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-brow
 http://www.pintjs.com/
 http://mgcrea.github.io/angular-strap/
 
-
-http://mixu.net/npm_lazy/
-
 https://github.com/sahat/hackathon-starter
 
 http://capptivate.co/
 https://www.buildwithchrome.com/
 
-http://feathersjs.com/?#
 http://www.html5rocks.com/en/tutorials/appcache/beginner/
 http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
 
-http://davidwalsh.name/track-errors-google-analytics
 
 http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
 
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
+
 
 -- famo.us --
 http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
@@ -52,3 +55,6 @@ http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&ut
 -- debug --
 https://github.com/hansineffect/Dogerr
 https://www.npmjs.org/package/doge-debug
+
+-- npm --
+http://mixu.net/npm_lazy/
