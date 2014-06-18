@@ -1,6 +1,6 @@
 
 
-** google an
+** google analy
 https://github.com/toddmotto/flare
 http://davidwalsh.name/track-errors-google-analytics
 
@@ -55,6 +55,12 @@ http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&ut
 -- debug --
 https://github.com/hansineffect/Dogerr
 https://www.npmjs.org/package/doge-debug
+npm debug
+http://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-function-in-node-js
+http://stackoverflow.com/questions/16697791/nodejs-get-filename-of-caller-function
+https://github.com/equiet/recognizer à intégrer !
 
 -- npm --
 http://mixu.net/npm_lazy/
+npm pkgr
+http://stackoverflow.com/questions/10232192/exec-display-stdout-live
