@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+TOREVIEW
+
 console.log('Hello world !');
 
 var _ = require('underscore');

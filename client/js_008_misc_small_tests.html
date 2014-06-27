@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- html_004 template -->
 <!-- js_003 template -->
 <html lang="en">
@@ -15,15 +15,6 @@
 	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
 
 	<!-- favicons -->
-	<!-- For IE -->
-	<!--[if IE]>
-	<link rel="shortcut icon" href="misc/favicon.ico" type="image/x-icon" />
-	<LINK rel="icon" href="misc/favicon.ico" type="image/ico">
-	<![endif]-->
-	<!-- For Modern Browsers with PNG Support -->
-	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
-	<!-- ... (see html template) ... -->
-
 
 	<!-- style -->
 	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
@@ -77,8 +68,10 @@
 			"backbone",
 			'bootstrap3'
 		],
-		function() {
+		function(_) {
 			console.log("load done !");
+
+			console.log(_.last(undefined));
 
 			test_function( [1, 2, 3], 4, 5);
 		});

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+
 TODO
 
 console.log('Hello world !');

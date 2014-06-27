@@ -48,7 +48,7 @@ requirejs.config({
 		'angular'             : 'bower_components/angular/angular',
 		'angular-isotope'     : 'bower_components/angular-isotope/dist/angular-isotope',
 		'angular-bootstrap'   : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
-		'angular-route'       : 'bower_components/angular-route/angular-route',
+		'angular-ui-router'   : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'backbone'            : 'bower_components/backbone/backbone',
 		'backbone-associations': 'bower_components/backbone-associations/backbone-associations',
 		//'bootstrap-rem'       : 'other_components/bootstrap-rem/bootstrap-rem',
@@ -101,7 +101,7 @@ requirejs.config({
 		'angular-bootstrap': {
 			deps: [ 'angular', 'bootstrap3' ]
 		},
-		'angular-route': {
+		'angular-ui-router': {
 			deps: [ 'angular' ]
 		},
 		'backbone': {
