@@ -4,11 +4,24 @@
 TOREVIEW
 
 /*
-- [ ] 404
+- [ ] 404 http://blog.safaribooksonline.com/2014/03/12/error-handling-express-js-applications/
 - [ ] handling exceptions
 - [ ] domains
 - [ ] static files
+- [ ] server runtime error
+- [ ] utm_source
+ http://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
+ http://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
+
+TODO
+sur erreur, détection accès manuel (lien externe, tapé dans la barre) ou interne (bug ! ou hack)
+
+TOTEST
+ https://github.com/moudy/project-router
+ https://github.com/michaelleeallen/reducto
+
  */
+
 
 console.log('Hello world !');
 
@@ -139,6 +152,7 @@ Changed to headersSent to match the node.js ServerResponse object. Your app like
 // 404 ?
 
 // error handling at the end
+// "Though not mandatory error-handling middleware are typically defined very last, below any other app.use() calls"
 app.use(function clientErrorHandler(err, req, res, next) {
 	if (req.xhr) {
 		res.send(500, { error: 'Something blew up!' });

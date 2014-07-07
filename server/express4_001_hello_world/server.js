@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-TOREVIEW
+// a minimal "hello world" express app
 
 console.log('Hello world !');
 
