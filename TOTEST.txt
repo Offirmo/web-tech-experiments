@@ -43,6 +43,14 @@ http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
 
+https://github.com/dreyacosta/somewhere.js JSON database
+
+storage https://github.com/ask11/storage
+
+bons modules https://github.com/spumko
+
+-- REST --
+http://feathersjs.com/
 
 -- famo.us --
 http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50

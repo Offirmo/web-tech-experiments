@@ -1,20 +1,52 @@
 #!/usr/bin/env node
 'use strict';
 
-TOREVIEW
+/** A more advanced web server
 
-/*
-- [ ] 404 http://blog.safaribooksonline.com/2014/03/12/error-handling-express-js-applications/
-- [ ] handling exceptions
-- [ ] domains
-- [ ] static files
-- [ ] server runtime error
-- [ ] utm_source
+ - [x] favicon
+ - [x] index.html
+ - [x] other pages
+ - [x] templating
+ - [x] static files
+ - [ ] 404 http://blog.safaribooksonline.com/2014/03/12/error-handling-express-js-applications/
+ - [ ] server runtime error
+ - [ ] handling exceptions (base)
+ - [x] basic logging
+advanced :
+ - [ ] domains
+ - [ ] modular routing
+ - [ ] gzip
+ - [ ] check response time
+ - [ ] timeouts
+ - [ ] check accepted types and input types
+ - [ ] utm_source
+ - [ ] sitemap
+ - [ ] advanced logging
+ - [ ] mails
+ - [ ] error reports
+ - [ ] through proxy
+ - [ ] heroku friendly
+ - [ ] cache optimisée
+ - [ ] headers minimum
+ - [ ] sécurité avancée, contrôles d'entrée
+ - [ ] filtrage des headers inutiles
+ - [ ] REST
+ - [ ] referer, analytics
+ - [ ] live reload
+ - [ ] auto reboot
+ - [ ] resource monitoring
+ - [ ] new relic ?
+ - [ ] This website does not supply ownership information.
+ - [ ] ssl avec redirection
+ - [ ] authentif
+
  http://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
  http://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
+ http://runnable.com/express
 
 TODO
 sur erreur, détection accès manuel (lien externe, tapé dans la barre) ou interne (bug ! ou hack)
+relire entièrement Reference http://expressjs.com/4x/api.html
 
 TOTEST
  https://github.com/moudy/project-router
@@ -23,7 +55,7 @@ TOTEST
  */
 
 
-console.log('Hello world !');
+console.log('\n\nHello world !');
 
 var _ = require('underscore');
 
@@ -44,38 +76,61 @@ var local_ips = _.chain(require('os').networkInterfaces())
 
 
 
-// http://expressjs.com/4x/api.html
-// http://runnable.com/express
 
-var express = require('express');
 
+
+
+
+/************************************************************************/
+// Reference http://expressjs.com/4x/api.html
 // + interesting middlewares
 // https://github.com/senchalabs/connect/blob/master/Readme.md#middleware
 // https://github.com/visionmedia/express/wiki
 // https://github.com/visionmedia/express/wiki/Migrating-from-3.x-to-4.x
 // https://github.com/visionmedia/express/wiki/New-features-in-4.x
+// https://github.com/expressjs/express-params
+
+/************************************************************************/
+var express = require('express');
 
 var path = require('path');
-var favicon = require('serve-favicon'); // https://github.com/expressjs/serve-favicon
 var logger = require('morgan');
+var favicon_server = require('serve-favicon'); // https://github.com/expressjs/serve-favicon (static-favicon is an alias)
+var method_unifier = require('method-override'); // https://github.com/expressjs/method-override
+
 var cookieParser = require('cookie-parser', { // https://github.com/expressjs/cookie-parser
 	// https://github.com/defunctzombie/node-cookie
 	secure: true
 });
-var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
 var bodyParser = require('body-parser'); // https://github.com/expressjs/body-parser
+var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
 var domainMiddleware = require('domain-middleware'); // https://github.com/expressjs/domain-middleware
 
 // non middleware modules
 var onFinished = require('finished'); // https://github.com/expressjs/finished
 
+// templating
+var templates = require('consolidate'); // always needed
+// now require all templating engines we wish to use
+var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
+
+
+
+/************ Settings ************************************************************/
+// http://expressjs.com/4x/api.html
 var app = express();
 
-app.set('view engine', 'dust');
+// defaul template engine
+app.engine('dust', templates.dust); // .dust will be rendered with...
+app.set('view engine', 'dust'); // default extension to use when omitted
+// views directory : default to /views
 
 // Because you're the type of developer who cares about this sort of thing!
-app.enable('strict routing');
-// to review
+app.enable('strict routing'); // default false
+app.enable('case sensitive routing'); // default false
+app.disable('x-powered-by'); // default true
+
+// to review : for running behind nginx or equiv.
 //app.enable('trust proxy');
 
 /*app.configure('development', function() {
@@ -85,16 +140,33 @@ app.enable('strict routing');
 	});
 });*/
 
-app.use(logger('dev'));
-app.use(favicon('../../client/misc/favicon_16x16.png'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(require('method-override')()); // https://github.com/expressjs/method-override
-app.use(cookieParser(cookie_signing_secret));
-app.use(express.static(path.join(__dirname, 'public'))); // https://github.com/expressjs/serve-static
-app.use(require('response-time')()); // https://github.com/expressjs/response-time
 
-require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
+/************************************************************************/
+app.use(logger('dev'));
+
+// Typically this middleware will come very early in your stack (maybe even first)
+// to avoid processing any other middleware if we already know the request is for /favicon.ico
+app.use(favicon_server('../../client/favicon.ico'));
+
+// then static files which doesn't require special processing
+// Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
+app.use(express.static(path.join(__dirname, 'public'))); // https://github.com/expressjs/serve-static
+app.use(express.static(path.join(__dirname, '../../client/misc'))); // https://github.com/expressjs/serve-static
+
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded());
+
+//  It is very important that this module is used before any module
+// that needs to know the method of the request
+//app.use(require('method-override')()); // https://github.com/expressjs/method-override
+
+// cookie parser better handle the cookies
+// should we need them, of course
+//app.use(cookieParser(cookie_signing_secret));
+
+//app.use(require('response-time')()); // https://github.com/expressjs/response-time
+
+//require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
 
 /*app.use(domainMiddleware({
 	server: server,
@@ -102,50 +174,59 @@ require('express-debug')(app, {/* settings */}); // https://github.com/devoidfur
 }))*/
 
 
-if (env === 'development') {
+/*if (env === 'development') {
 	app.use(errorhandler());
-}
+}*/
 
-app.get('/', function(req, res){
+
+/************************************************************************/
+// root
+/*app.get(function(req, res){
 	res.send('hello world');
 	res.send('foo');
 	onFinished(res, function (err) {
 		console.log('finished');
 	});
+});*/
+
+app.get('/page1', function (req, res) {
+	res.render('page1', { title: 'Express' });
+});
+
+app.get('/page2', function (req, res) {
+	res.render('page2', { title: 'Express' });
+});
+
+app.get('/runtime_error', function (req, res) {
+	res.send(500, { error: 'something blew up ! (thrown from code)' });
+});
+
+app.get('/sync_error', function (req, res) {
+	throw new Error('An exception thrown synchronously !');
+});
+
+app.get('/async_error', function (req, res) {
+	throw new Error('TODO An exception thrown asynchronously !');
+});
+
+app.get('/timeout', function (req, res) {
+	// do nothing and let a timeout happen (hopefully)...
+});
+app.get('/timeout/:duration_in_sec', function (req, res) {
+	var timeout = Number(req.params.duration_in_sec);
+	if(_.isNaN(timeout))
+		res.send(500, 'You must provide a number in second !');
+	else {
+		setTimeout(function() {
+			res.send(200, 'I waited ' + req.params.duration_in_sec + ' second(s).');
+		}, timeout*1000);
+	}
 });
 
 app.get('/toto/', function (req, res) {
 	res.send('/toto !');
 });
 
-app.get('/error', function (req, res) {
-	throw new Error('An error !');
-});
-
-app.get('/timeout', function (req, res) {
-	// do nothing...
-});
-
-app.use('/users/:user_id', function(req, res, next) {
-	// req.params.user_id exists here
-});
-
-app.get('/dust', function (req, res) {
-	res.render('index', { title: 'Express' });
-});
-
-/*
-eq.params
-
-Is now an object instead of an array. This will not break your app if you used the req.params[##] style for regexp routes where parameter names are not known.
-	res.locals
-
-Is no longer a function. It is a plain js object. Treat it as such.
-	res.headerSent
-
-Changed to headersSent to match the node.js ServerResponse object. Your app likely didn't use this and thus it won't be an issue.
-	req.is
-*/
 
 //app.use(require('express-slash')()); // https://github.com/ericf/express-slash
 
@@ -155,7 +236,7 @@ Changed to headersSent to match the node.js ServerResponse object. Your app like
 // "Though not mandatory error-handling middleware are typically defined very last, below any other app.use() calls"
 app.use(function clientErrorHandler(err, req, res, next) {
 	if (req.xhr) {
-		res.send(500, { error: 'Something blew up!' });
+		res.send(500, { error: 'Something blew up ! (generic handler)' });
 	} else {
 		next(err);
 	}

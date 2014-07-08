@@ -8,12 +8,25 @@
 	<p>
 		What you can do :
 		<ul>
+			<li> <a href="page1">Another page (dust template)</a> </li>
+			<li> <a href="page2">Yet another page (dust template)</a> </li>
+			<li> <a href="page404">404</a></li>
+			<li> <a href="runtime_error">Generate a runtime error</a></li>
+			<li> <a href="sync_error">Throw a synchronous error while processing</a></li>
+			<li> <a href="async_error">Throw an asynchronous error while processing</a></li>
+			<li>Timeout :
+				<ul>
+					<li> <a href="timeout/3">3 seconds</a>
+					<li> <a href="timeout/29">29 seconds</a>
+					<li> <a href="timeout/30">30 seconds</a>
+					<li> <a href="timeout/31">31 seconds</a>
+					<li> <a href="timeout/60">60 seconds</a>
+					<li> <a href="timeout/foo">foo seconds</a>
+				</ul>
+			</li>
 			<li> <a href="/foo/../../secret.txt">Try an attack</a> </li>
-			<li> <a href="404">404</a></li>
-			<li> <a href="error">Throw an error</a></li>
-			<li> <a href="timeout">Timeout</a></li>
-			<li> <a href="toto/">Avec slash</a> ou <a href="toto">sans slash</a> </li>
-			<li> <a href="dust">A dust template</a> </li>
+			<li> <a href="toto/">With correct slash</a> or <a href="toto">wrongly without slash</a> </li>
+			<li> <a href="TotO/">Bad CasE</a> or <a href="toto/">good case</a> </li>
 			<li> <a href="/express-debug">A server debug panel</a> </li>
 		</ul>
 	</p>
