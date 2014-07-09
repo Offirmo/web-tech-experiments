@@ -18,12 +18,12 @@ Design principles :
 * possible inheritance from another logger instance for config reuse
 * compatible with winston sinks (to reuse winston plugins)
 
-
-
-
 https://github.com/talyssonoc/wolverinejs
 https://github.com/tristanls/logly
 https://github.com/visionmedia/log.js
+http://strongloop.com/strongblog/compare-node-js-logging-winston-bunyan/
+https://npmjs.org/package/log4node
+https://github.com/flatiron/winston
 
 Listes
 https://github.com/joyent/node/wiki/modules#logs
@@ -31,10 +31,12 @@ http://nodetoolbox.com/categories/Logging
 
 à intégrer
 https://github.com/eldargab/easy-table
+https://github.com/krasimir/deb.js
+
+à respecter
+http://strongloop.com/strongblog/automatic-node-js-clustering-with-log-aggregation/
 
 Technos
 http://blog.activesphere.com/blog/2013/08/09/logging-with-colors-in-javascript-console/
 
-
 https://developer.mozilla.org/en-US/docs/Web/API/console#Outputting_text_to_the_console
-

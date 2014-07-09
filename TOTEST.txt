@@ -3,8 +3,10 @@
 ** google analy
 https://github.com/toddmotto/flare
 http://davidwalsh.name/track-errors-google-analytics
+http://boba.space150.com/
 
-
+https://developers.google.com/web/starter-kit/
+http://tylerhenkel.com/angular-fullstack-2-0-released/
 
 https://waffle.io
 https://medium.com/code-adventures
@@ -43,14 +45,33 @@ http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
 
-https://github.com/dreyacosta/somewhere.js JSON database
+- JSON database
+https://github.com/dreyacosta/somewhere.js
+https://github.com/arvindr21/diskDB
 
 storage https://github.com/ask11/storage
 
 bons modules https://github.com/spumko
 
+https://github.com/isaacs/node-graceful-fs
+https://github.com/thlorenz/ansicolors
+https://github.com/sparkalow/angular-truncate
+
 -- REST --
 http://feathersjs.com/
+http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
+
+client http://node-modules.com/search?q=rest+client
+https://github.com/mgonto/restangular
+https://github.com/ttezel/unio
+https://github.com/natevw/fermata
+https://github.com/cujojs/rest
+https://www.npmjs.org/package/node-rest-client
+http://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-node-js-any-curl/5643366#5643366
+
+-- logging --
+http://blog.nodejs.org/2012/03/28/service-logging-in-json-with-bunyan/
+https://medium.com/@garychambers108/b3cc6fd0dafd
 
 -- famo.us --
 http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
