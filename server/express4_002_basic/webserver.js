@@ -3,21 +3,28 @@
 
 /** A more advanced web server
 
- base :
+ base : (important client experience)
  - [x] favicon
  - [x] index.html
  - [x] other pages
  - [x] templating
  - [x] static files
- - [ ] 404 http://blog.safaribooksonline.com/2014/03/12/error-handling-express-js-applications/
- - [ ] server runtime error
- - [ ] handling sync, async and uncaught exceptions (base)
- - [x] base auto-restart : nothing to do, should be handled by the platform (ex. heroku)
+ - [x] nice 404 for pages, normal 404 for assets
+ - [x] nice server runtime error (caught exceptions)
+ - [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
+ - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
  - [x] basic logging
  advanced :
- - [ ] domains ?
+ - [ ] respond with an error even if uncaught exception (domains ? http://nodejs.org/api/domain.html)
+ https://github.com/brianc/node-domain-middleware
+ https://github.com/mathrawka/express-domain-errors
+ https://github.com/mathrawka/express-graceful-exit
+ http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
+ http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
+ https://github.com/brianc/node-okay
+ http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
  - [ ] modular routing
- - [ ] gzip
+ - [ ] compression
  - [ ] check response time
  - [ ] timeouts
  - [ ] check accepted types and input types
@@ -36,13 +43,14 @@
  - [ ] referer, analytics
  - [ ] live reload (client)
  - [x] live reload (server) nodemon !
- - [ ] cluster for efficiency and resilience to uncaught
+ - [x] cluster for efficiency and resilience to uncaught
  - [ ] resource monitoring
  - [ ] new relic ?
  - [ ] "This website does not supply ownership information."
  - [ ] ssl avec redirection
  - [ ] authentif
  - [ ] detect too busy https://hacks.mozilla.org/2013/01/building-a-node-js-server-that-wont-melt-a-node-js-holiday-season-part-5/
+ - [ ] checklist http://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
 
  http://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
  http://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
@@ -52,10 +60,13 @@ TODO
 sur erreur, détection accès manuel (lien externe, tapé dans la barre) ou interne (bug ! ou hack)
 relire entièrement Reference http://expressjs.com/4x/api.html
 
+ http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
+
 TOTEST
  https://github.com/moudy/project-router
  https://github.com/michaelleeallen/reducto
-
+ http://scotch.io/tutorials/javascript/upgrading-our-easy-node-authentication-series-to-expressjs-4-0
+ //app.use(require('express-slash')()); // https://github.com/ericf/express-slash
  */
 
 
@@ -202,7 +213,8 @@ app.get('/page2', function (req, res) {
 });
 
 app.get('/runtime_error', function (req, res) {
-	res.send(500, { error: 'something blew up ! (thrown from code)' });
+	// bad
+	res.send(500, 'something blew up ! (handled from the middleware, error handlers not used)');
 });
 
 app.get('/sync_error', function (req, res) {
@@ -220,8 +232,11 @@ app.get('/timeout', function (req, res) {
 });
 app.get('/timeout/:duration_in_sec', function (req, res) {
 	var timeout = Number(req.params.duration_in_sec);
-	if(_.isNaN(timeout))
-		res.send(500, 'You must provide a number in second !');
+	if(_.isNaN(timeout)) {
+		var err = new Error('You must provide a number in second !');
+		err.status = 500;
+		throw err;
+	}
 	else {
 		setTimeout(function() {
 			res.send(200, 'I waited ' + req.params.duration_in_sec + ' second(s).');
@@ -230,30 +245,80 @@ app.get('/timeout/:duration_in_sec', function (req, res) {
 });
 
 app.get('/toto/', function (req, res) {
-	res.send('/toto !');
+	res.send('/toto/ !');
 });
 
+// Since this is the last non-error-handling middleware use()d,
+// we assume 404, as nothing else responded.
+app.use(function(req, res, next) {
 
-//app.use(require('express-slash')()); // https://github.com/ericf/express-slash
+	// we want to explain the user what happened,
+	// provided it was really a user request...
+	res.status(404); // anyway
 
+	if(isInternalRequest(req)) {
+		// Will not be seen by the user.
+		// Respond the best we can.
+		if (req.accepts('json'))
+			return res.send({ error: 'Not found (as json)' });
+		else
+			return res.type('txt').send('Not found (as text)');
+	}
+
+	// ok, most likely a user browsing.
+	// is it a full page or just an asset ?
+	// (we don't want to costly render a template just for a missing favicon)
+	if(req.url.slice(-4).indexOf('.') !== -1) {
+		// there is a . (dot) in the last 4 chars,
+		// most likely an file extension
+		// so it must be an asset since our clean page urls don't have extensions.
+		return res.send('404'); // short answer
+	}
+
+	// eventually
+	return res.render('404', { url: req.url });
+	// if rendering fail, will go to error handler.
+});
+
+function isInternalRequest(req) {
+	return req.xhr // caller manually told us it was a xhr
+		|| (!req.accepts('html')); // most likely not a browser asset
+}
 
 /************************************************************************/
-// 404 ?
-
 // error handling at the end
-// "Though not mandatory error-handling middleware are typically defined very last, below any other app.use() calls"
-app.use(function clientErrorHandler(err, req, res, next) {
-	if (req.xhr) {
-		res.send(500, { error: 'Something blew up ! (generic handler)' });
-	} else {
-		next(err);
+// "Though not mandatory error-handling middleware are typically defined very last,
+//  below any other app.use() calls"
+// http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+app.use(function (err, req, res, next) {
+	console.log('1st error handler');
+
+	// so we have an error. Do we have a status ?
+	var status = err.status || 500;
+	// (todo validate err.status)
+	res.status(status);
+
+	if(isInternalRequest(req)) {
+		// Will not be seen by the user.
+		// Respond the best we can.
+		if (req.accepts('json'))
+			return res.send({ error: 'server error : ' + status + ' (as json)' });
+		else
+			return res.type('txt').send('server error : ' + status + ' (as text)');
 	}
-});
-// catch all
-app.use(function(err, req, res, next) {
-	console.error(err.stack);
+
+	// ok, most likely a user browsing.
+	// is it a full page or just an asset ?
+	// (we don't want to costly render a template just for a missing favicon)
+	if(req.url.slice(-4).indexOf('.') !== -1) {
+		// there is a . (dot) in the last 4 chars,
+		// most likely an file extension
+		// so it must be an asset since our clean page urls don't have extensions.
+		return res.send('error'); // short answer
+	}
+
+	// eventually
 	try {
-		res.status(500);
 		res.render('error', { error: err });
 	}
 	catch(e) {
@@ -266,21 +331,27 @@ var server;
 process.on('uncaughtException', function(err){
 	console.error('uncaught exception !', err);
 
+	setTimeout(function() {
+		console.error("Shutdown taking too long ! Forcefully quitting…");
+		// rethrow (dev)
+		throw err;
+		process.exit(2);
+	}, 30*1000);
+
 	// TODO
 	// - send a mail
 	// - send an error response to the user
 	// - send a push message to all clients for them to wait during restart
+	// - and use promises for all of that ;)
 
 	throw err;
 	// cleanly close the server (XXX doesn't work !)
 	server.close(function() {
 		console.log('closed');
-		// rethrow
+		// rethrow (dev)
 		throw err;
 		process.exit(1);  // all clear to exit
 	});
-
-
 });
 
 /************************************************************************/

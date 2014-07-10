@@ -14,18 +14,18 @@ https://medium.com/code-adventures
 https://github.com/visionmedia/node-progress
 https://github.com/substack/comandante
 
+https://datahero.com/blog/2014/05/22/node-js-preserving-data-across-async-callbacks/
+
+http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
 
 http://nodejs.org/api/stdio.html
 
 https://www.npmjs.org/package/bcrypt
 
-https://github.com/andrewrk/naught
-https://github.com/doxout/recluster
-https://github.com/verbling/kickq
+job queue https://github.com/verbling/kickq
 
 https://github.com/primus/primus
 https://github.com/primus/fortress-maximus
-
 
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 http://www.pintjs.com/
@@ -33,14 +33,8 @@ http://mgcrea.github.io/angular-strap/
 
 https://github.com/sahat/hackathon-starter
 
-http://capptivate.co/
-https://www.buildwithchrome.com/
-
 http://www.html5rocks.com/en/tutorials/appcache/beginner/
 http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
-
-
-http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
 
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
@@ -60,6 +54,7 @@ https://github.com/sparkalow/angular-truncate
 -- REST --
 http://feathersjs.com/
 http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
+http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
 
 client http://node-modules.com/search?q=rest+client
 https://github.com/mgonto/restangular

@@ -1,1 +1,3 @@
-Hello from the error template !
+Hello from the error template ! (TODO improve)
+<br/>
+Error is "{error.message}"
