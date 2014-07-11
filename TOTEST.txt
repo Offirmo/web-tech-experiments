@@ -20,6 +20,10 @@ http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
 
 http://nodejs.org/api/stdio.html
 
+-- storage
+https://github.com/louischatriot/nedb
+
+
 https://www.npmjs.org/package/bcrypt
 
 job queue https://github.com/verbling/kickq

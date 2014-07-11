@@ -26,6 +26,7 @@
 		"exif2":                   "Yvem/node-exif",
 		"express":                 "~4",
 		"express-debug":           "latest",
+		"express-livereload":      "latest",
 		"express-slash":           "latest",
 		"finished":                "latest",
 		"forky":                   "latest",

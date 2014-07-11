@@ -24,6 +24,7 @@
  https://github.com/brianc/node-okay
  http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
  - [ ] modular routing
+ - [ ] language recognition and i18n
  - [ ] compression
  - [ ] check response time
  - [ ] timeouts
@@ -41,7 +42,7 @@
  - [ ] filtrage des headers inutiles
  - [ ] REST
  - [ ] referer, analytics
- - [ ] live reload (client)
+ - [/] live reload (client) [bugs en attente]
  - [x] live reload (server) nodemon !
  - [x] cluster for efficiency and resilience to uncaught
  - [ ] resource monitoring
@@ -57,8 +58,9 @@
  http://runnable.com/express
 
 TODO
-sur erreur, détection accès manuel (lien externe, tapé dans la barre) ou interne (bug ! ou hack)
 relire entièrement Reference http://expressjs.com/4x/api.html
+
+ à relire pour valider : https://github.com/ClintH/kattegat
 
  http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
 
@@ -141,7 +143,7 @@ app.set('view engine', 'dust'); // default extension to use when omitted
 // views directory : default to /views
 
 // Because you're the type of developer who cares about this sort of thing!
-app.enable('strict routing'); // default false
+app.enable('strict routing'); // default false, TODO combine with https://github.com/ericf/express-slash
 app.enable('case sensitive routing'); // default false
 app.disable('x-powered-by'); // default true
 
@@ -157,6 +159,18 @@ app.disable('x-powered-by'); // default true
 
 
 /************************************************************************/
+// https://www.npmjs.org/package/express-livereload
+// to be set before any HTML service ?
+if(env === 'development') {
+	var livereload = require('express-livereload');
+	livereload(app, {
+		debug: true,
+		//port: 35729,
+		port: 35730,
+		watchDir: process.cwd() // and not just 'public'
+	});
+}
+
 app.use(logger('dev'));
 
 // Typically this middleware will come very early in your stack (maybe even first)
@@ -196,13 +210,6 @@ app.use(express.static(path.join(__dirname, '../../client/misc'))); // https://g
 
 /************************************************************************/
 // root
-/*app.get(function(req, res){
-	res.send('hello world');
-	res.send('foo');
-	onFinished(res, function (err) {
-		console.log('finished');
-	});
-});*/
 
 app.get('/page1', function (req, res) {
 	res.render('page1', { title: 'Express' });
