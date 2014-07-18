@@ -24,6 +24,7 @@ Design principles :
 https://github.com/talyssonoc/wolverinejs
 https://github.com/tristanls/logly
 https://github.com/visionmedia/log.js
+http://smalljs.org/logging/debug/
 
 Listes
 https://github.com/joyent/node/wiki/modules#logs
