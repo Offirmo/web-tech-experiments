@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+
+  <title>HTML 001 entities</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<h1>HTML 001 entities</h1>
+<p>Some rare, tricky entities : BELL, thin space, zero-width space, narrow non-breaking space :</p>
+<p contenteditable="true"> A very bad text :<br/>
+	NUL&#x0;SOH&#x1;STX&#x2;ETX&#x3;EOT&#x4;ENQ&#x5;ACK&#x6;BEL&#x007;BS&#x8;HT&#x9;LF&#xA;VT&#xB;FF&#xC;CR&#xD;SO&#xE;SI&#xF;<br/>
+	DLE&#x10;DC1&#x11;DC2&#x12;DC3&#x13;DC4&#x14;NAK&#x15;SYN&#x16;ETB&#x17;CAN&#x18;EM&#x19;SUB&#x1A;ESC&#x1B;FS&#x1C;GS&#x1D;RS&#x1E;US&#x1F;<br/>
+	belld&#7;bellh&#x7;bellu<br/>
+	thinspt&thinsp;thinspd&#8201;thinsph&#x2009;thinspu <br/>
+	zwsd&#8203;zwsh&#x200b;zwsu​<br/> <!-- <-- yes it really is here ! -->
+	nnbsd&#8239;nnbsh&#x202f;nnbsu <br/>
+	nbsp&#xa0;?
+	fini !
+</p>
+</body>
+</html>

@@ -1,0 +1,97 @@
+
+
+** google analy
+https://github.com/toddmotto/flare
+http://davidwalsh.name/track-errors-google-analytics
+http://boba.space150.com/
+
+https://developers.google.com/web/starter-kit/
+http://tylerhenkel.com/angular-fullstack-2-0-released/
+
+https://waffle.io
+https://medium.com/code-adventures
+
+https://github.com/visionmedia/node-progress
+https://github.com/substack/comandante
+
+https://datahero.com/blog/2014/05/22/node-js-preserving-data-across-async-callbacks/
+
+http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
+
+http://nodejs.org/api/stdio.html
+
+-- storage
+https://github.com/louischatriot/nedb
+
+
+https://www.npmjs.org/package/bcrypt
+
+job queue https://github.com/verbling/kickq
+
+https://github.com/primus/primus
+https://github.com/primus/fortress-maximus
+
+https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
+http://www.pintjs.com/
+http://mgcrea.github.io/angular-strap/
+
+https://github.com/sahat/hackathon-starter
+
+http://www.html5rocks.com/en/tutorials/appcache/beginner/
+http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
+
+https://github.com/dominictarr/scuttlebutt
+https://github.com/Floby/shi-flo-by
+
+- JSON database
+https://github.com/dreyacosta/somewhere.js
+https://github.com/arvindr21/diskDB
+
+storage https://github.com/ask11/storage
+
+bons modules https://github.com/spumko
+
+https://github.com/isaacs/node-graceful-fs
+https://github.com/thlorenz/ansicolors
+https://github.com/sparkalow/angular-truncate
+
+-- REST --
+http://feathersjs.com/
+http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
+http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
+
+client http://node-modules.com/search?q=rest+client
+https://github.com/mgonto/restangular
+https://github.com/ttezel/unio
+https://github.com/natevw/fermata
+https://github.com/cujojs/rest
+https://www.npmjs.org/package/node-rest-client
+http://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-node-js-any-curl/5643366#5643366
+
+-- logging --
+http://blog.nodejs.org/2012/03/28/service-logging-in-json-with-bunyan/
+https://medium.com/@garychambers108/b3cc6fd0dafd
+
+-- famo.us --
+http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
+
+-- procédures --
+https://github.com/geddski/grunt-release
+https://github.com/ajoslin/conventional-changelog
+
+-- outils --
+http://eslint.org/docs/rules/valid-jsdoc.html
+http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&utm_medium=email
+
+-- debug --
+https://github.com/hansineffect/Dogerr
+https://www.npmjs.org/package/doge-debug
+npm debug
+http://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-function-in-node-js
+http://stackoverflow.com/questions/16697791/nodejs-get-filename-of-caller-function
+https://github.com/equiet/recognizer à intégrer !
+
+-- npm --
+http://mixu.net/npm_lazy/
+npm pkgr
+http://stackoverflow.com/questions/10232192/exec-display-stdout-live

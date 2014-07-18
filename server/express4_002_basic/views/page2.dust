@@ -1,0 +1,7 @@
+Hello from the page 2 template !
+
+<br />
+A missing picture ! : <img src="not_existing.png" />
+
+<br />
+<a href="/">Back to home</a>

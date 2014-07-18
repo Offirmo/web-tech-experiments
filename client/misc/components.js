@@ -39,6 +39,7 @@ requirejs.config({
 		// AMD plugins (dirs or direct)
 		'base-objects'        : '../incubator/base-objects.js', // dir
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
+		'famous.angular'      : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'              : 'bower_components/jquery/dist/jquery',
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
@@ -47,7 +48,7 @@ requirejs.config({
 		'angular'             : 'bower_components/angular/angular',
 		'angular-isotope'     : 'bower_components/angular-isotope/dist/angular-isotope',
 		'angular-bootstrap'   : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
-		'angular-route'       : 'bower_components/angular-route/angular-route',
+		'angular-ui-router'   : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'backbone'            : 'bower_components/backbone/backbone',
 		'backbone-associations': 'bower_components/backbone-associations/backbone-associations',
 		//'bootstrap-rem'       : 'other_components/bootstrap-rem/bootstrap-rem',
@@ -100,7 +101,7 @@ requirejs.config({
 		'angular-bootstrap': {
 			deps: [ 'angular', 'bootstrap3' ]
 		},
-		'angular-route': {
+		'angular-ui-router': {
 			deps: [ 'angular' ]
 		},
 		'backbone': {
@@ -137,6 +138,11 @@ requirejs.config({
 		'ecotree': {
 			deps: [ 'css!other_components/ecotree/ECOTree' ]
 			// exports ?
+		},
+		'famous.angular': {
+			deps: [
+				'css!bower_components/famous-angular/dist/famous-angular'
+			]
 		},
 		'fullpage' : {
 			deps: [

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+// a minimal "hello world" express app
+
 console.log('Hello world !');
 
 var _ = require('underscore');

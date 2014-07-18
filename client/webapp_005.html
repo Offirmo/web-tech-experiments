@@ -13,8 +13,15 @@
 	<meta name="author" content="Offirmo">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
 
 	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
 	<!-- ... -->
 
@@ -29,6 +36,13 @@
 		body { padding-top: 70px; }
 	</style>
 
+	<!-- Various shims for IE8. Don't care for speed, this is IE8 -->
+	<!--[if lt IE 9]>
+	<script src="bower_components/console-shim/console-shim.js"></script>
+	<script src="bower_components/html5shiv/html5shiv.js"></script>
+	<script src="bower_components/respond/respond.min.js"></script>
+	<![endif]-->
+
 	<!-- js -->
 	<script src="bower_components/pace/pace.min.js"></script>
 	<script>
@@ -38,7 +52,7 @@
 </head>
 <body>
 
-	<!--[if lt IE 10]>
+	<!--[if lt IE 7]>
 	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
 	<![endif]-->
 

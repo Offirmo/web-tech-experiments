@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+
 TODO
 
 var compressible = require('compressible'); // https://github.com/expressjs/compressible
