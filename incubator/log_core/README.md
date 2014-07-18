@@ -21,6 +21,7 @@ Design principles :
 https://github.com/talyssonoc/wolverinejs
 https://github.com/tristanls/logly
 https://github.com/visionmedia/log.js
+http://smalljs.org/logging/debug/
 http://strongloop.com/strongblog/compare-node-js-logging-winston-bunyan/
 https://npmjs.org/package/log4node
 https://github.com/flatiron/winston
