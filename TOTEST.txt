@@ -6,6 +6,9 @@ http://davidwalsh.name/track-errors-google-analytics
 http://boba.space150.com/
 
 https://developers.google.com/web/starter-kit/
+
+http://myclabs.github.io/jquery.confirm/
+
 http://tylerhenkel.com/angular-fullstack-2-0-released/
 
 https://waffle.io
@@ -33,7 +36,6 @@ https://github.com/primus/fortress-maximus
 
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 http://www.pintjs.com/
-http://mgcrea.github.io/angular-strap/
 
 https://github.com/sahat/hackathon-starter
 
@@ -52,13 +54,40 @@ storage https://github.com/ask11/storage
 bons modules https://github.com/spumko
 
 https://github.com/isaacs/node-graceful-fs
+
+https://github.com/tholman/giflinks
+
+jeu 3D http://www.jsdb.io/view/babylon-js
+
+
+- couleurs + propres
+https://www.npmjs.org/package/chalk
 https://github.com/thlorenz/ansicolors
+
+- log gratuit en ligne ? Moyen de faire qq chose ?
+https://data.sparkfun.com/
+
+-- AngularJS --
+https://github.com/begriffs/angular-paginate-anything
+http://mgcrea.github.io/angular-strap/
 https://github.com/sparkalow/angular-truncate
+https://github.com/mgonto/restangular
+vidéos
+http://www.jsdb.io/view/mediaelement
+http://ng-video.herokuapp.com/
+http://www.jsdb.io/view/device-js
+
+- cartes
+http://developers.route360.net/
+
+-- i18n --
+https://github.com/yoshuawuyts/newspeak
 
 -- REST --
 http://feathersjs.com/
 http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
 http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
+https://github.com/mikaa123/catnap
 
 client http://node-modules.com/search?q=rest+client
 https://github.com/mgonto/restangular
