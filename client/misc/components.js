@@ -1,5 +1,6 @@
 /* Require.js definitions
  */
+'use strict';
 
 console.log('starting require js config...');
 
@@ -8,7 +9,7 @@ requirejs.config({
 	// base URL from which component files will be searched
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
 	// NOTE 2 : relative baseUrl base refers to *the calling html* !
-	baseUrl: '',
+	baseUrl: '..',
 
 	// http://requirejs.org/docs/api.html#config-enforceDefine
 	enforceDefine: false,
@@ -27,6 +28,8 @@ requirejs.config({
 			//'rdust': 'other_components/require-dust/require-dust',
 			// an extension to be able to wait for the DOM to be ready
 			'domReady': 'bower_components/requirejs-domready/domReady',
+			// an extension to lazy load angular components
+			'ngload': 'bower_components/angularAMD/ngload',
 			// transparently replace undercore with lodash
 			'underscore' : 'lodash',
 			'bootstrap3' : 'bootstrap'
@@ -49,6 +52,8 @@ requirejs.config({
 		'angular-isotope'     : 'bower_components/angular-isotope/dist/angular-isotope',
 		'angular-bootstrap'   : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
 		'angular-ui-router'   : 'bower_components/angular-ui-router/release/angular-ui-router',
+		'angular-ui-router-extras': 'bower_components/ui-router-extras/release/ct-ui-router-extras',
+		'angularAMD'          : 'bower_components/angularAMD/angularAMD',
 		'backbone'            : 'bower_components/backbone/backbone',
 		'backbone-associations': 'bower_components/backbone-associations/backbone-associations',
 		//'bootstrap-rem'       : 'other_components/bootstrap-rem/bootstrap-rem',
@@ -104,6 +109,12 @@ requirejs.config({
 		'angular-ui-router': {
 			deps: [ 'angular' ]
 		},
+		'angular-ui-router-extras': {
+			deps: [ 'angular-ui-router' ]
+		},
+		'angularAMD': {
+			deps: [ 'angular' ]
+		},
 		'backbone': {
 			deps: [ 'underscore', 'jquery' ], // Note : bb needs jQuery for some features
 			exports: 'Backbone'
@@ -116,10 +127,6 @@ requirejs.config({
 			deps: [ 'jquery',
 			        'css!bower_components/bootstrap-css/css/bootstrap' ]
 		},
-		/*'bootstrap-rem': {
-			deps: [ 'bootstrap',
-			        'css!other_components/bootstrap-rem/bootstrap-rem' ]
-		},*/
 		'ckeditor': {
 			exports: 'CKEDITOR',
 			init: function () {
@@ -221,6 +228,7 @@ requirejs.config({
 				return this.mocha;
 			}
 		},
+		'ngload': ['angularAMD'],
 		'onepage-scroll': {
 			deps: [
 				'jquery',
@@ -242,13 +250,15 @@ requirejs.config({
 		}
 	},
 
-
 	/////////////////////
 	config: {
 		'toto': {
 			size: 'large'
 		}
-	}
+	},
+
+	/////////////////////
+	deps: ['app']
 });
 
 console.log('require js config done.');

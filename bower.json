@@ -4,10 +4,10 @@
 	"dependencies": {
 		"accounting":               "latest",
 		"angular":                  "~1.3",
-		"angularAMD":               "latest",
 		"angular-isotope":          "latest",
 		"angular-ui-router":        "latest",
 		"angular-bootstrap":        "latest",
+		"angularAMD":               "latest",
 		"backbone":                 "latest",
 		"bootstrap-css":            "latest",
 		"buzz":                     "latest",
@@ -46,6 +46,7 @@
 		"socket.io":                "latest",
 		"spin.js":                  "latest",
 		"store.js":                 "latest",
+		"ui-router-extras":         "latest",
 		"underscore":               "latest",
 		"when":                     "latest"
 	},

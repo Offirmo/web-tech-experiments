@@ -31,6 +31,7 @@
 <body>
 
 <h1 id="header" ng-bind="title">Angular test fallback title</h1>
+<p ng-bind="snippet">Angular test fallback snippet.</p>
 
 <!-- ui-router magic -->
 <div id="uiview" ui-view>
@@ -57,7 +58,7 @@
 
 			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
 				$scope.title = "Angular ui-router Test 001";
-				$scope.snippet = "Testing angular ui-router.";
+				$scope.snippet = "Testing angular ui-router with simple states";
 				$scope.scoped_angular = angular;
 
 			}]);

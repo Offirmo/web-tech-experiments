@@ -5,6 +5,6 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"i": "npm install --global grunt-cli bower yo generator-famous npm-check-updates selenium-standalone; npm prune; npm update; bower prune; bower install; bower update; cd server; npm prune; npm update"
+		"i": "npm install --global grunt-cli bower yo generator-famous npm-check-updates serve; npm prune; npm update; bower prune; bower install; bower update; cd server; npm prune; npm update"
 	}
 }
