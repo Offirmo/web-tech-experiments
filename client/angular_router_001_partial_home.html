@@ -1,1 +1,13 @@
-<p>Hello from partial home.</p>
+<div id="content">
+	<div class="container">
+		<p>Hello from partial home.</p>
+
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+		<p>Angular version : {{scoped_angular.version.full}}</p>
+
+		<!-- We'll also add some navigation: -->
+		<br />
+		<a ui-sref="other">Some place else</a>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->

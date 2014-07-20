@@ -15,30 +15,29 @@
 
 	<!-- style -->
 	<style>
-		/* ... */
+		#uiview {
+			border: 1px solid red;
+		}
 	</style>
 
 	<!-- js -->
 	<script>
 		console.log("hello from header !");
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+				':35730/livereload.js"></' + 'script>');
 	</script>
 	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
+<h1 id="header" ng-bind="title">Angular test fallback title</h1>
 
-<div id="content">
-	<div class="container">
+<!-- ui-router magic -->
+<div id="uiview" ui-view>
+	Loading...
+</div>
 
-		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
-		<p ng-bind="snippet">Angular test fallback snippet.</p>
-		<p>Angular version : {{scoped_angular.version.full}}</p>
 
-		<!-- ui-router magic -->
-		<div ui-view></div>
-
-	</div> <!-- /container -->
-</div> <!-- /content -->
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 <script>
@@ -66,13 +65,17 @@
 			app.config(function($stateProvider, $urlRouterProvider) {
 				//
 				// For any unmatched url, redirect to /state1
-				$urlRouterProvider.otherwise("/state1");
+				$urlRouterProvider.otherwise("/");
 				//
 				// Now set up the states
 				$stateProvider
-				.state('state1', {
-					url: "/state1",
-					templateUrl: "angular_004_partial_home.html"
+				.state('landing', {
+					url: "/",
+					templateUrl: "angular_router_001_partial_home.html"
+				})
+				.state('other', {
+					url: "/other",
+					templateUrl: "angular_router_001_partial_another.html"
 				});
 			});
 
