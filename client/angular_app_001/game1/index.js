@@ -38,5 +38,5 @@ define(['angularAMD'], function() {
 		$stateProvider.state('game1.landing', landingState);
 	}]);
 
-	return { entryState: mainState, module: app };
+	return { mainState: mainState, module: app };
 });

@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"accounting":               "latest",
-		"angular":                  "~1.3",
+		"angular":                  "latest",
 		"angular-isotope":          "latest",
 		"angular-ui-router":        "latest",
 		"angular-bootstrap":        "latest",
@@ -11,7 +11,6 @@
 		"backbone":                 "latest",
 		"bootstrap-css":            "latest",
 		"buzz":                     "latest",
-		"ckeditor":                 "#basic/latest",
 		"console-shim":             "latest",
 		"datatables":               "latest",
 		"dustjs-linkedin":          "latest",
@@ -76,5 +75,8 @@
 	},
 	"to_test": {
 		"zepto":                    "latest"
+	},
+	"resolutions": {
+		"angular":                  "^1.2.20"
 	}
 }

@@ -36,15 +36,6 @@ define([
 
 		// register AngularAMD ngload state factory
 		$futureStateProvider.stateFactory('ngload', ngloadStateFactory);
-		function ngloadStateFactory($q, futureState) {
-			var ngloadDeferred = $q.defer();
-			require([ "ngload!" + futureState.src , 'ngload', 'angularAMD'],
-			function ngloadCallback(result, ngload, angularAMD) {
-				angularAMD.processQueue();
-				ngloadDeferred.resolve(result.entryState);
-			});
-			return ngloadDeferred.promise;
-		}
 
 		// TODO eventually : load from json
 		$futureStateProvider.addResolve(function() {
@@ -84,6 +75,16 @@ define([
 			console.log('$viewContentLoaded', arguments);
 		});
 	});
+
+	function ngloadStateFactory($q, futureState) {
+		var ngloadDeferred = $q.defer();
+		require([ "ngload!" + futureState.src , 'ngload', 'angularAMD'],
+				function ngloadCallback(result, ngload, angularAMD) {
+					angularAMD.processQueue();
+					ngloadDeferred.resolve(result.entryState);
+				});
+		return ngloadDeferred.promise;
+	}
 
 
 	// Tell angularAMD to tell angular to bootstrap our app

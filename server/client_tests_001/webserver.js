@@ -58,7 +58,7 @@ require('clarify'); // Exclude node internal calls from the stack traces
 
 var _ = require('underscore');
 
-var listening_port = process.env.PORT || 3000;
+var listening_port = process.env.PORT || 4000;
 
 
 // http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
