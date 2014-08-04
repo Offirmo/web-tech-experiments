@@ -6,6 +6,7 @@
  base : (important client experience)
  - [x] favicon
  - [x] index.html
+ - [ ] / defaults to index
  - [x] other pages
  - [x] templating
  - [x] static files
@@ -24,7 +25,7 @@
  https://github.com/brianc/node-okay
  http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
  - [ ] modular routing
- - [ ] language recognition and i18n
+ - [ ] language recognition/hinting and i18n
  - [ ] compression
  - [ ] check response time
  - [ ] timeouts

@@ -44,3 +44,10 @@ Global npm modules to install :
 npm install -g yo grunt-cli bower generator-famous
 npm install -g bower grunt-cli npm-check-updates selenium-standalone
 ```
+
+TODO docs (wikis)
+- when
+- ui-router
+- ui-router-extras
+- cheat sheet
+- famous
