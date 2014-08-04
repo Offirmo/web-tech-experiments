@@ -11,7 +11,7 @@ https://developers.google.com/web/starter-kit/
 http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
 http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
-
+https://github.com/eloone/symbol-typer
 
 https://waffle.io  issue planner linked to github
 https://medium.com/code-adventures
@@ -49,6 +49,7 @@ https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
 
 
+https://github.com/lemonde/get-set
 
 bons modules https://github.com/spumko
 
@@ -57,6 +58,9 @@ https://github.com/isaacs/node-graceful-fs
 https://github.com/tholman/giflinks
 
 jeu 3D http://www.jsdb.io/view/babylon-js
+
+-- serveur
+http://strongloop.com/
 
 
 - couleurs + propres

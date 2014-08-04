@@ -16,6 +16,7 @@
  - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
  - [x] basic logging
  advanced :
+ - [x] no cookies (fatten requests, outdated)
  - [ ] respond with an error even if uncaught exception (domains ? http://nodejs.org/api/domain.html)
  https://github.com/brianc/node-domain-middleware
  https://github.com/mathrawka/express-domain-errors
@@ -53,6 +54,9 @@
  - [ ] authentif
  - [ ] detect too busy https://hacks.mozilla.org/2013/01/building-a-node-js-server-that-wont-melt-a-node-js-holiday-season-part-5/
  - [ ] checklist http://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
+ - [ ] unit tests
+ http://javascriptplayground.com/blog/2014/07/testing-express-routes/
+ https://www.joyent.com/blog/risingstack-writing-testable-apis-the-basics
 
  http://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
  http://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
@@ -82,11 +86,11 @@ require('trace'); // activate long stack traces
 require('clarify'); // Exclude node internal calls from the stack traces
 
 var _ = require('underscore');
+var path = require('path');
 
 var listening_port = process.env.PORT || 3000;
-var cookie_signing_secret = 'optional secret string';
 
-
+// Get local IPs for display at start, ease debug with my VM
 // http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
 // http://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
@@ -111,15 +115,10 @@ var local_ips = _.chain(require('os').networkInterfaces())
 /************************************************************************/
 var express = require('express');
 
-var path = require('path');
 var logger = require('morgan');
 var favicon_server = require('serve-favicon'); // https://github.com/expressjs/serve-favicon (static-favicon is an alias)
 var method_unifier = require('method-override'); // https://github.com/expressjs/method-override
 
-var cookieParser = require('cookie-parser', { // https://github.com/expressjs/cookie-parser
-	// https://github.com/defunctzombie/node-cookie
-	secure: true
-});
 var bodyParser = require('body-parser'); // https://github.com/expressjs/body-parser
 var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
 var domainMiddleware = require('domain-middleware'); // https://github.com/expressjs/domain-middleware
@@ -128,7 +127,7 @@ var domainMiddleware = require('domain-middleware'); // https://github.com/expre
 var onFinished = require('finished'); // https://github.com/expressjs/finished
 
 // templating
-var templates = require('consolidate'); // always needed
+var consolidated_templates = require('consolidate'); // always needed
 // now require all templating engines we wish to use
 var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
 
@@ -139,7 +138,7 @@ var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust
 var app = express();
 
 // defaul template engine
-app.engine('dust', templates.dust); // .dust will be rendered with...
+app.engine('dust', consolidated_templates.dust); // .dust will be rendered with...
 app.set('view engine', 'dust'); // default extension to use when omitted
 // views directory : default to /views
 
@@ -189,10 +188,6 @@ app.use(express.static(path.join(__dirname, '../../client/misc'))); // https://g
 //  It is very important that this module is used before any module
 // that needs to know the method of the request
 //app.use(require('method-override')()); // https://github.com/expressjs/method-override
-
-// cookie parser better handle the cookies
-// should we need them, of course
-//app.use(cookieParser(cookie_signing_secret));
 
 //app.use(require('response-time')()); // https://github.com/expressjs/response-time
 
@@ -253,11 +248,49 @@ app.get('/timeout/:duration_in_sec', function (req, res) {
 });
 
 app.get('/toto/', function (req, res) {
-	res.send('/toto/ !');
+	res.send('correct /toto/ !');
 });
+
+// "catch all" default / 404 for a webapp
+// Several cases :
+// - a 404
+//   - manual, visible (user mistyped a page url, old address...)
+//   - internal (API, auto fetch of rsrc, non page-rsrc...)
+// - a correct page, but unknown from the server since will be resolved client-side by ui-router
+app.get('*', function (req, res) {
+
+	// so what ?
+	if(isInternalRequest(req)) {
+		// Will not be seen by the user.
+		// Respond the best we can.
+		res.status(404); // anyway
+		if (req.accepts('json'))
+			return res.send({ error: 'Not found (as json)' });
+		else
+			return res.type('txt').send('Not found (as text)');
+	}
+
+	// ok, most likely a user browsing.
+	// is it a full page or just an asset ?
+	// (we don't want to costly render a template just for a missing favicon)
+	if(req.url.slice(-4).indexOf('.') !== -1) {
+		// there is a . (dot) in the last 4 chars,
+		// most likely an file extension
+		// so it must be an asset since our clean page urls don't have extensions.
+		res.status(404); // anyway
+		return res.send('404'); // short answer
+	}
+
+	// OK, must be a client-side state/page
+	// answer with index, client-side will handle the rest (including true 404)
+	res.sendfile('index.html', {root: './public'});
+});
+
 
 // Since this is the last non-error-handling middleware use()d,
 // we assume 404, as nothing else responded.
+// 404 was already handled in a webapp case,
+// but we may keep this handling in case "webapp mode" is deactivated.
 app.use(function(req, res, next) {
 
 	// we want to explain the user what happened,
