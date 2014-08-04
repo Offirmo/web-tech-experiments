@@ -7,25 +7,28 @@ http://boba.space150.com/
 
 https://developers.google.com/web/starter-kit/
 
+-- client
 http://myclabs.github.io/jquery.confirm/
+http://bankfacil.github.io/vanilla-masker/
+http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
 
-http://tylerhenkel.com/angular-fullstack-2-0-released/
 
-https://waffle.io
+https://waffle.io  issue planner linked to github
 https://medium.com/code-adventures
 
 https://github.com/visionmedia/node-progress
 https://github.com/substack/comandante
 
 https://datahero.com/blog/2014/05/22/node-js-preserving-data-across-async-callbacks/
-
-http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
-
 http://nodejs.org/api/stdio.html
 
 -- storage
 https://github.com/louischatriot/nedb
+https://github.com/ask11/storage
 
+- JSON database
+https://github.com/dreyacosta/somewhere.js
+https://github.com/arvindr21/diskDB
 
 https://www.npmjs.org/package/bcrypt
 
@@ -35,7 +38,7 @@ https://github.com/primus/primus
 https://github.com/primus/fortress-maximus
 
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
-http://www.pintjs.com/
+http://www.pintjs.com/ wrapper around grunt
 
 https://github.com/sahat/hackathon-starter
 
@@ -45,11 +48,7 @@ http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-nod
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
 
-- JSON database
-https://github.com/dreyacosta/somewhere.js
-https://github.com/arvindr21/diskDB
 
-storage https://github.com/ask11/storage
 
 bons modules https://github.com/spumko
 
@@ -76,6 +75,8 @@ vidéos
 http://www.jsdb.io/view/mediaelement
 http://ng-video.herokuapp.com/
 http://www.jsdb.io/view/device-js
+http://tylerhenkel.com/angular-fullstack-2-0-released/
+http://eranhirs.github.io/jsTag/
 
 - cartes
 http://developers.route360.net/
@@ -90,9 +91,10 @@ http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express
 https://github.com/mikaa123/catnap
 
 client http://node-modules.com/search?q=rest+client
-https://github.com/mgonto/restangular
-https://github.com/ttezel/unio
-https://github.com/natevw/fermata
+
+https://github.com/mgonto/restangular  <-- for angular
+https://github.com/ttezel/unio    <-- node
+https://github.com/natevw/fermata  <-- node + browser
 https://github.com/cujojs/rest
 https://www.npmjs.org/package/node-rest-client
 http://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-node-js-any-curl/5643366#5643366

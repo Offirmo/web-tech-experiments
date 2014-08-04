@@ -29,6 +29,7 @@
 		"express-livereload":      "latest",
 		"express-slash":           "latest",
 		"finished":                "latest",
+		"fermata":                 "latest",
 		"forky":                   "latest",
 		"hapi":                    "latest",
 		"iconv-lite":              "latest",
