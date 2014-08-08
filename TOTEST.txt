@@ -12,7 +12,12 @@ http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
 http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
 https://github.com/eloone/symbol-typer
+http://font-to-width.com/
+http://fittextjs.com/
+http://hammerjs.github.io/touch-emulator/
 
+-- github
+https://gitter.im chat relié à github
 https://waffle.io  issue planner linked to github
 https://medium.com/code-adventures
 
@@ -93,9 +98,10 @@ http://feathersjs.com/
 http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
 http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
 https://github.com/mikaa123/catnap
+http://avoidwork.github.io/tenso/?utm_source=nodeweekly&utm_medium=email
 
+--- client
 client http://node-modules.com/search?q=rest+client
-
 https://github.com/mgonto/restangular  <-- for angular
 https://github.com/ttezel/unio    <-- node
 https://github.com/natevw/fermata  <-- node + browser

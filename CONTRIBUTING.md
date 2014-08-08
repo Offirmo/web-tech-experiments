@@ -1,2 +1,4 @@
 
+Respect .editorconfig
+
 Use strict mode, correctly https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
