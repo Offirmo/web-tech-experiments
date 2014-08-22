@@ -258,7 +258,7 @@ requirejs.config({
 	},
 
 	/////////////////////
-	deps: ['app']
+	//deps: ['app']
 });
 
 console.log('require js config done.');

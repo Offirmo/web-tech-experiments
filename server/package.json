@@ -8,6 +8,7 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
+		"alce":                    "latest",
 		"amdefine":                "latest",
 		"async":                   "latest",
 		"backbone":                "latest",
@@ -43,6 +44,7 @@
 		"method-override":         "latest",
 		"moment":                  "latest",
 		"morgan":                  "latest",
+		"nedb":                    "latest",
 		"nconf":                   "latest",
 		"node-mandrill":           "latest",
 		"node-schedule":           "latest",

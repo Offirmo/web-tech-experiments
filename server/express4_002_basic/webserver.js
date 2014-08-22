@@ -45,6 +45,7 @@
  - [ ] REST
  - [ ] referer, analytics
  - [/] live reload (client) [bugs en attente]
+ - [/] live reload on template pages (client)
  - [x] live reload (server) nodemon !
  - [x] cluster for efficiency and resilience to uncaught
  - [ ] resource monitoring
@@ -117,9 +118,11 @@ var express = require('express');
 
 var logger = require('morgan');
 var favicon_server = require('serve-favicon'); // https://github.com/expressjs/serve-favicon (static-favicon is an alias)
-var method_unifier = require('method-override'); // https://github.com/expressjs/method-override
+//var method_unifier = require('method-override'); // https://github.com/expressjs/method-override
 
-var bodyParser = require('body-parser'); // https://github.com/expressjs/body-parser
+//var bodyParser = require('body-parser'); // for, well, parsing body.
+                                         // mainly useful for REST (POST, PUT)
+                                         // https://github.com/expressjs/body-parser
 var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
 var domainMiddleware = require('domain-middleware'); // https://github.com/expressjs/domain-middleware
 
@@ -180,7 +183,7 @@ app.use(favicon_server('../../client/favicon.ico'));
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
 app.use(express.static(path.join(__dirname, 'public'))); // https://github.com/expressjs/serve-static
-app.use(express.static(path.join(__dirname, '../../client/misc'))); // https://github.com/expressjs/serve-static
+app.use(express.static(path.join(__dirname, '../../client'))); // https://github.com/expressjs/serve-static
 
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded());
@@ -191,7 +194,7 @@ app.use(express.static(path.join(__dirname, '../../client/misc'))); // https://g
 
 //app.use(require('response-time')()); // https://github.com/expressjs/response-time
 
-//require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
+require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
 
 /*app.use(domainMiddleware({
 	server: server,
@@ -258,6 +261,7 @@ app.get('/toto/', function (req, res) {
 //   - internal (API, auto fetch of rsrc, non page-rsrc...)
 // - a correct page, but unknown from the server since will be resolved client-side by ui-router
 app.get('*', function (req, res) {
+	console.log('fallback route triggered for url "' + req.url + '"');
 
 	// so what ?
 	if(isInternalRequest(req)) {
@@ -283,7 +287,8 @@ app.get('*', function (req, res) {
 
 	// OK, must be a client-side state/page
 	// answer with index, client-side will handle the rest (including true 404)
-	res.sendfile('index.html', {root: './public'});
+	console.log('defaulting to webapp root for url "' + req.url + '"');
+	res.sendFile('index.html', {root: './public'});
 });
 
 
