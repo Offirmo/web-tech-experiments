@@ -165,12 +165,17 @@ app.disable('x-powered-by'); // default true
 // https://www.npmjs.org/package/express-livereload
 // to be set before any HTML service ?
 if(env === 'development') {
+	// WARNING
+	// Livereload (client) has been found to slow down extremely the app at startup. (is it my computer ?)
+	// Can even cause browser timeouts on first load.
+	// Just wait a bit, refresh the page a second time and it should work.
 	var livereload = require('express-livereload');
 	livereload(app, {
 		debug: true,
 		//port: 35729,
 		port: 35730,
-		watchDir: process.cwd() // and not just 'public'
+		watchDir:  process.cwd(), // and not just 'public'
+		exclusions: [ 'bower_components', 'other_components' ]
 	});
 }
 
@@ -368,8 +373,8 @@ app.use(function (err, req, res, next) {
 		res.render('error', { error: err });
 	}
 	catch(e) {
-		console.error('The error template didn\'t work :', e);
-		res.send(500, 'Something broke and the nice error template didn\'t work !');
+		console.error('The error template didn´t work :', e);
+		res.send(500, 'Something broke and the nice error template didn´t work !');
 	}
 });
 
