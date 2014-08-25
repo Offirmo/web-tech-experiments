@@ -409,7 +409,7 @@ process.on('uncaughtException', function(err){
 /************************************************************************/
 server = app.listen(listening_port, function() {
 	_.forEach(local_ips, function(ip) {
-		console.log('Listening on http://' + ip + ':' + listening_port);
+		console.log('* Now listening on http://' + ip + ':' + listening_port);
 	});
 	console.log('(Ctrl+C to stop)');
 });

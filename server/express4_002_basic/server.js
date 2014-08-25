@@ -15,6 +15,10 @@ if(env === 'production') {
 	// https://github.com/brianc/node-forky
 	console.log('* Production env, cluster launch…');
 	var forky = require('forky');
+
+	// https://github.com/brianc/node-forky/blob/master/examples/master.js
+	forky.log = function() { console.log.apply(console, arguments) };
+
 	forky(__dirname + '/webserver.js');
 }
 else {
