@@ -302,6 +302,7 @@ app.get('*', function (req, res) {
 // 404 was already handled in a webapp case,
 // but we may keep this handling in case "webapp mode" is deactivated.
 app.use(function(req, res, next) {
+	console.log('404 handler :', req.url);
 
 	// we want to explain the user what happened,
 	// provided it was really a user request...
@@ -342,7 +343,7 @@ function isInternalRequest(req) {
 //  below any other app.use() calls"
 // http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 app.use(function (err, req, res, next) {
-	console.log('1st error handler');
+	console.log('1st error handler', err);
 
 	// so we have an error. Do we have a status ?
 	var status = err.status || 500;
