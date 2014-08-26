@@ -5,7 +5,7 @@
 
  base : (important client experience)
  - [x] favicon
- - [x] index.html
+ - [x] root page (~index.html)
  - [ ] / defaults to index
  - [x] other pages
  - [x] templating

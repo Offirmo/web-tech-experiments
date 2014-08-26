@@ -48,6 +48,7 @@
 		"nconf":                   "latest",
 		"node-mandrill":           "latest",
 		"node-schedule":           "latest",
+		"nodemon":                 "latest",
 		"prettyjson":              "latest",
 		"progress":                "latest",
 		"proxyquire":              "latest",

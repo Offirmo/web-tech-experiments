@@ -1,3 +1,18 @@
+In this test I want to launch my web server in the best way.
+
+- [ ] serve pages (obviously !)
+- [ ] resistant to caught
+- [ ] resistant to uncaught
+- [ ] uses cluster (for uncaught and perf)
+- [ ] able to send log
+- [ ] no mem leaks
+- [ ] connections timeout
+- [ ] clean exit
+- [ ] all the above works in heroku
+- [ ] livereload
+
+
+I found those tools : (in order of layer)
 
 foreman
 =======
