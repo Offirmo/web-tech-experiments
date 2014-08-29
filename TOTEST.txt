@@ -4,6 +4,8 @@
 https://github.com/toddmotto/flare
 http://davidwalsh.name/track-errors-google-analytics
 http://boba.space150.com/
+https://github.com/revolunet/angular-google-analytics
+
 
 https://developers.google.com/web/starter-kit/
 
@@ -24,6 +26,8 @@ https://github.com/eloone/symbol-typer
 http://font-to-width.com/
 http://fittextjs.com/
 http://hammerjs.github.io/touch-emulator/
+https://github.com/revolunet/angular-carousel
+http://weblinc.github.io/jquery.smoothState.js/demos/typical/about.html
 
 -- github
 https://gitter.im chat relié à github
@@ -46,6 +50,8 @@ https://github.com/arvindr21/diskDB
 https://www.npmjs.org/package/bcrypt
 
 job queue https://github.com/verbling/kickq
+
+https://github.com/asyncly/EventEmitter2
 
 https://github.com/primus/primus
 https://github.com/primus/fortress-maximus

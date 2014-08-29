@@ -3,7 +3,7 @@
 
 // a minimal server to test error handling
 
-console.log('\n*** Hello from cluster master ! ***');
+console.log('\n*** Hello from program ! ***');
 
 
 ///////////////////////////////////////////////
