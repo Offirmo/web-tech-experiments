@@ -141,6 +141,5 @@ server = app.listen(listening_port, function() {
 	console.log('(Ctrl+C to stop)');
 });
 server.on('close', function() { console.log('close event', arguments); } );
-patchEmitterForDebug(server, 'server');
 
 //process.stdin.resume();//so the program will not close instantly
