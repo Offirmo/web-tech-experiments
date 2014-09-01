@@ -28,9 +28,11 @@ Procfile       http://ddollar.github.io/foreman/#PROCFILE
 
 sends SIGTERM
 
+restart ?
+
 ```bash
 foreman start
-foreman start --procfile Procfile.dev
+foreman start --procfile Procfile.dev --env=.env.dev
 ```
 
 

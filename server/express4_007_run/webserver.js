@@ -2,23 +2,24 @@
 'use strict';
 
 // a minimal server to test error handling
+var run_infos = require('./dump_environment_infos')
+//run_infos.install_rsrc_watcher();
+//run_infos.dump_infos();
 
-console.log('\n*** Hello from program ! ***');
-
+console.error('test');
 
 ///////////////////////////////////////////////
-var util = require('util');
-
-console.log('This app entry point :', require.main.filename);
-console.log('Am I the entry point ? ' + (require.main === module));
 
 // http://stackoverflow.com/a/18087021/587407
 function patchEmitterForDebug(event_emitter, event_emitter_name) {
 	var oldEmit = event_emitter.emit;
 	event_emitter_name = event_emitter_name || '?';
-
 	event_emitter.emit = function(event_id) {
-		console.log('! intercepted event emission of "' + event_id + '" from "' + event_emitter_name + '" with arguments :', arguments);
+		if(event_id !== 'newListener') {
+			if(event_id === 'SIGINT')
+				console.error(''); // to pass the ^C which was written in console
+			console.error('! ' + event_emitter_name + '.' + event_id + ' -->' /* + ' with arguments :', arguments*/);
+		}
 		oldEmit.apply(event_emitter, arguments);
 	};
 }
@@ -26,25 +27,28 @@ function patchEmitterForDebug(event_emitter, event_emitter_name) {
 function installDebugEventWatcher(event_emitter, event_id, event_emitter_name) {
 	event_emitter_name = event_emitter_name || '?';
 	event_emitter.on(event_id, function() {
-		if(event_id === 'SIGINT')
-			console.log(''); // to pass the ^C which was written in console
-		console.log('! got event "' + event_id + '" from "' + event_emitter_name + '" with params :', arguments);
+		console.error('! --> ' + event_emitter_name + '.' + event_id /*+ '" with params :', arguments*/);
+		// those signals may only have one handler, so let's do what the original handler would have done
+		if(event_id === 'SIGHUP')
+			process.exit(128 + 1);
 		if(event_id === 'SIGINT')
 			process.exit(128 + 2);
 		if(event_id === 'SIGTERM')
 			process.exit(128 + 15);
+		if(event_id === 'SIGTSTP')
+			process.exit(128 + 20);
 	});
 }
 
 patchEmitterForDebug(process, 'process');
-installDebugEventWatcher(process, 'newListener', 'process');
-installDebugEventWatcher(process, '*', 'process');
 
+//installDebugEventWatcher(process, 'newListener', 'process');
 installDebugEventWatcher(process, 'removeListener', 'process');
 installDebugEventWatcher(process, 'exit', 'process');
 installDebugEventWatcher(process, 'uncaughtException', 'process');
 
 // unix signals, list taken from http://man7.org/linux/man-pages/man7/signal.7.html
+// node infos http://nodejs.org/api/process.html#process_signal_events
 installDebugEventWatcher(process, 'SIGHUP', 'process');
 installDebugEventWatcher(process, 'SIGINT', 'process');
 installDebugEventWatcher(process, 'SIGQUIT', 'process');
@@ -61,35 +65,11 @@ installDebugEventWatcher(process, 'SIGUSR2', 'process');
 installDebugEventWatcher(process, 'SIGCHLD', 'process');
 installDebugEventWatcher(process, 'SIGCONT', 'process');
 // SIGSTOP : installing a handler is forbidden
-installDebugEventWatcher(process, 'SIGTSTP', 'process');
+installDebugEventWatcher(process, 'SIGTSTP', 'process'); // Ctrl+Z ask for background ?
 installDebugEventWatcher(process, 'SIGTTIN', 'process');
 installDebugEventWatcher(process, 'SIGTTOU', 'process');
 
 
-
-
-console.log(process.env);
-console.log('getgid', process.getgid());
-console.log('getuid', process.getuid());
-console.log('getgroups', process.getgroups());
-console.log('process.version', process.version);
-console.log('process.versions', process.versions);
-console.log('process.config', process.config);
-console.log('process.pid', process.pid);
-console.log('process.title', process.title);
-console.log('process.arch', process.arch);
-console.log('process.platform', process.platform);
-console.log('process.maxTickDepth', process.maxTickDepth);
-console.log('process.umask()', process.umask());
-
-console.log('process.memoryUsage()', process.memoryUsage());
-console.log('process.uptime()', process.uptime());
-console.log('process.hrtime()', process.hrtime());
-
-setInterval(function() {
-	console.log('process.memoryUsage()', process.memoryUsage());
-	console.log('process.uptime()', process.uptime());
-}, 10 * 1000).unref();
 
 
 var cluster = require('cluster');
@@ -100,12 +80,7 @@ installDebugEventWatcher(cluster, 'listening', 'cluster');
 installDebugEventWatcher(cluster, 'disconnect', 'cluster');
 installDebugEventWatcher(cluster, 'exit', 'cluster');
 installDebugEventWatcher(cluster, 'setup', 'cluster');
-
-console.log('cluster.isMaster', cluster.isMaster);
-console.log('cluster.isWorker', cluster.isWorker);
 if (cluster.isWorker) {
-	console.log('I am worker #' + cluster.worker.id);
-	console.log('cluster.worker', cluster.worker);
 	patchEmitterForDebug(cluster.worker, 'cluster.worker');
 	installDebugEventWatcher(cluster.worker, 'message', 'cluster.worker');
 	installDebugEventWatcher(cluster.worker, 'online', 'cluster.worker');
@@ -115,10 +90,11 @@ if (cluster.isWorker) {
 	installDebugEventWatcher(cluster.worker, 'error', 'cluster.worker');
 }
 
-
-var os = require('os');
-console.log('os.cpus()', os.cpus());
-console.log(util.inspect(os.cpus(), { depth: null, colors: true }));
+cluster.on('exit', function(worker, code, signal) {
+	if (worker.suicide === true) {
+		console.log('Oh, it was just suicide\'  no need to worry');
+	}
+});
 
 
 ///////////////////////////////////////////////
@@ -165,3 +141,5 @@ server = app.listen(listening_port, function() {
 	console.log('(Ctrl+C to stop)');
 });
 server.on('close', function() { console.log('close event', arguments); } );
+
+//process.stdin.resume();//so the program will not close instantly
