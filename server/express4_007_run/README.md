@@ -27,6 +27,7 @@ Procfile       http://ddollar.github.io/foreman/#PROCFILE
 .foreman       http://ddollar.github.io/foreman/#DEFAULT-OPTIONS
 
 sends SIGTERM
+convert SIGIN (CtrlC) to SIGTERM
 
 restart ?
 

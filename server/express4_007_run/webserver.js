@@ -49,24 +49,48 @@ installDebugEventWatcher(process, 'uncaughtException', 'process');
 
 // unix signals, list taken from http://man7.org/linux/man-pages/man7/signal.7.html
 // node infos http://nodejs.org/api/process.html#process_signal_events
+// 1 SIGHUP "Hangup", terminate
 installDebugEventWatcher(process, 'SIGHUP', 'process');
+// 2 SIGINT Interrupt from keyboard, terminate
 installDebugEventWatcher(process, 'SIGINT', 'process');
+// 3 SIGQUIT "Quit" Quit from keyboard, terminate w core dump
 installDebugEventWatcher(process, 'SIGQUIT', 'process');
+// 4 SIGILL "Illegal instruction", terminate w core dump
 installDebugEventWatcher(process, 'SIGILL', 'process');
+// 5 SIGTRAP, "Trace/breakpoint trap", terminate w core dump
+
+// 6 SIGABRT, "Aborted", Abort signal, terminate w core dump
 installDebugEventWatcher(process, 'SIGABRT', 'process');
+// 7 SIGBUS, "Bus error", terminate w core dump
+
+// 8 SIGFPE, "Floating point exception", terminate w core dump
 installDebugEventWatcher(process, 'SIGFPE', 'process');
-// SIGKILL : installing a handler is forbidden
-installDebugEventWatcher(process, 'SIGSEGV', 'process');
-installDebugEventWatcher(process, 'SIGPIPE', 'process');
-installDebugEventWatcher(process, 'SIGALRM', 'process');
-installDebugEventWatcher(process, 'SIGTERM', 'process');
+// 9 SIGKILL "Killed"
+// (installing a handler is forbidden)
+// 10 SIGUSR1 "Hit SIGUSR1 - starting debugger agent."
 installDebugEventWatcher(process, 'SIGUSR1', 'process');
+// 11 SIGSEGV "Segmentation fault"
+installDebugEventWatcher(process, 'SIGSEGV', 'process');
+// 12 SIGUSR2 "User defined signal 2"
 installDebugEventWatcher(process, 'SIGUSR2', 'process');
+// 13 SIGPIPE ? (no effect)
+installDebugEventWatcher(process, 'SIGPIPE', 'process');
+// 14 SIGALRM "Alarm clock", terminate
+installDebugEventWatcher(process, 'SIGALRM', 'process');
+// 15 SIGTERM, terminate
+installDebugEventWatcher(process, 'SIGTERM', 'process');
+// 16 SIGSTKFLT Stack fault, terminate
+// 17 SIGCHLD ? (no effect)
 installDebugEventWatcher(process, 'SIGCHLD', 'process');
+// 18 SIGCONT ? -> no effect or unstop the process stopped by SIGSTOP
 installDebugEventWatcher(process, 'SIGCONT', 'process');
-// SIGSTOP : installing a handler is forbidden
+// 19 SIGSTOP, stop the process
+// (installing a handler is forbidden)
+// 20 SIGTSTP, stop the process
 installDebugEventWatcher(process, 'SIGTSTP', 'process'); // Ctrl+Z ask for background ?
+// 21 SIGTTIN, stop the process
 installDebugEventWatcher(process, 'SIGTTIN', 'process');
+// 22 SIGTTOU, stop the process
 installDebugEventWatcher(process, 'SIGTTOU', 'process');
 
 
