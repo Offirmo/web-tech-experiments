@@ -12,7 +12,7 @@ exports.gather_infos = gather_infos;
 exports.dump_infos = dump_infos;
 exports.install_rsrc_watcher = install_rsrc_watcher;
 
-
+// TODO identify OS
 
 var original_console = {
 	log: console.log,

@@ -1,4 +1,13 @@
 
+--to read
+http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
+http://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/
+http://googlecloudplatform.blogspot.fr/2014/08/click-to-deploy-mean-development-stack-on-google-compute-engine.html
+http://www.binpress.com/tutorial/create-a-mobile-rpg-for-beginners/1
+https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript
+http://www.truevalhalla.com/blog/ebook/
+http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
+
 
 ** google analytics
 https://github.com/toddmotto/flare
@@ -10,7 +19,7 @@ https://github.com/revolunet/angular-google-analytics
 https://developers.google.com/web/starter-kit/
 
 https://github.com/walmartlabs/ALCE
-
+https://gcanti.github.io/resources/tcomb-validation/playground/playground.html
 
 -- errors
 http://npmawesome.com/posts/2014-08-11-verror/
@@ -28,6 +37,10 @@ http://fittextjs.com/
 http://hammerjs.github.io/touch-emulator/
 https://github.com/revolunet/angular-carousel
 http://weblinc.github.io/jquery.smoothState.js/demos/typical/about.html
+http://www.google.com/design/spec/style/color.html#
+
+-- famo.us
+https://github.com/IjzerenHein/famous-kenburnscontainer
 
 -- github
 https://gitter.im chat relié à github

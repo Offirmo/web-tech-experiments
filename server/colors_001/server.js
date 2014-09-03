@@ -6,7 +6,7 @@ console.log('Hello world !');
 // example from https://github.com/Marak/colors.js/blob/master/example.js
 
 
-var colors = require('colors');
+var colors = require('colors'); // bad, use chalk
 
 //colors.mode = "browser";
 

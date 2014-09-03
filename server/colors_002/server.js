@@ -6,7 +6,9 @@ console.log('Hello world !');
 // print "special" (ASCII 128+) chars in color with their charcode
 
 var _ = require('lodash');
-var colors = require('colors');
+
+var colors = require('colors'); // bad, use chalk
+
 function log_special(text) {
 	text = '' + text;
 	_.forEach(text, function(char) {
