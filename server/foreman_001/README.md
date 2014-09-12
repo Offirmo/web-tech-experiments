@@ -3,6 +3,7 @@ foreman
 =======
 http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
 http://ddollar.github.io/foreman/
+https://github.com/ddollar/foreman
 https://devcenter.heroku.com/articles/procfile#developing-locally-with-foreman
 
 gem install foreman
@@ -19,6 +20,7 @@ restart ?
 ```bash
 foreman start
 foreman start --procfile Procfile.dev --env=.env.dev
+foreman start -c all=2
 ```
 
 totest

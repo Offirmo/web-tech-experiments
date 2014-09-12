@@ -30,3 +30,6 @@ incubator/restlink.js/test_runner/node_modules
 incubator/sample_module/node_modules
 incubator/sample_module/test_runner/bower_components
 incubator/sample_module/test_runner/node_modules
+
+incubator/node/assuming_console/node_modules
+incubator/node/pretty_signals/node_modules

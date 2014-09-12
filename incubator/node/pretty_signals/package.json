@@ -1,0 +1,26 @@
+{
+  "name": "pretty_signals",
+  "version": "0.0.1",
+  "description": "helper with unix signals",
+  "keywords": "unix, signal, server",
+  "license": "public domain",
+  "author": "Offirmo <offirmo.net@gmail.com> (http://offirmo.net)",
+  "homepage": "todo",
+  "repository": {
+    "type": "git",
+    "url": "todo"
+  },
+  "dependencies": {
+    "exit": "^0",
+    "lodash": "^2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bugs": {
+    "url": "todo"
+  },
+  "scripts": {
+    "test": "npm install && cd test_runner && make"
+  }
+}

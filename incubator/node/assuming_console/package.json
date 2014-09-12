@@ -1,0 +1,26 @@
+{
+  "name": "assuming_console",
+  "version": "0.0.1",
+  "description": "console replacement wich write origin precisely",
+  "keywords": "debug, console, process, server",
+  "license": "public domain",
+  "author": "Offirmo <offirmo.net@gmail.com> (http://offirmo.net)",
+  "homepage": "todo",
+  "repository": {
+    "type": "git",
+    "url": "todo"
+  },
+  "dependencies": {
+    "amdefine": "^0.1",
+    "lodash": "^2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bugs": {
+    "url": "todo"
+  },
+  "scripts": {
+    "test": "npm install && cd test_runner && make"
+  }
+}

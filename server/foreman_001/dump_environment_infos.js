@@ -14,42 +14,6 @@ exports.install_rsrc_watcher = install_rsrc_watcher;
 
 // TODO identify OS
 
-var original_console = {
-	log: console.log,
-	info: console.info,
-	error: console.error,
-	warn: console.warn
-};
-
-function reBindArgs(args) {
-	var prefix = '[worker #' + (cluster.worker ? cluster.worker.id : '?') + ']';
-	if(_.isString(args[0])) {
-		args[0] = prefix + ' ' + args[0];
-	}
-	else {
-		args.unshift(prefix);
-	}
-	return args;
-}
-if(cluster.isWorker && cluster.worker && cluster.worker.id) {
-	console.log('Installing console wraps for worker #' + cluster.worker.id);
-	var worker_id = cluster.worker.id;
-	console.log = function() {
-		original_console.log.apply(console, reBindArgs(arguments));
-	}
-	console.info = function() {
-		original_console.info.apply(console, reBindArgs(arguments));
-	}
-	console.error = function() {
-		original_console.error.apply(console, reBindArgs(arguments));
-	}
-	console.warn = function() {
-		original_console.warn.apply(console, reBindArgs(arguments));
-	}
-}
-
-reBindArgs('foo', 5);
-
 /** Gather this program environment infos.
  *
  * Useful for debugging.
