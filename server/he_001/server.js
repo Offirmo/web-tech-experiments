@@ -3,6 +3,7 @@
 
 console.log('Hello world !');
 
-// https://github.com/substack/node-ent
+var he = require('he');
 
-TODO et he est mieux !
+// TODO
+

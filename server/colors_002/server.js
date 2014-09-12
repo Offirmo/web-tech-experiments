@@ -3,7 +3,8 @@
 
 console.log('Hello world !');
 
-// print "special" (ASCII 128+) chars in color with their charcode
+// Test of printing "special" (ASCII 128+) chars
+// in color with their charcode
 
 var _ = require('lodash');
 

@@ -2,7 +2,7 @@
 'use strict';
 
 // a minimal server to test error handling
-var run_infos = require('./dump_environment_infos')
+var run_infos = require('./dump_environment_infos');
 //run_infos.install_rsrc_watcher();
 //run_infos.dump_infos();
 

@@ -27,7 +27,7 @@ function load_dust_template(path, name) {
 
 load_dust_template('template.html', 'demo')
 .then(function(name) {
-	console.log('* template loaded')
+	console.log('* template loaded');
 	return when_node.call(dust.render, name, {name: 'Yves', title: 'Démonstration'});
 })
 .then(function(out) {

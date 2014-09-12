@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 'use strict';
 
+// Test of better colors using chalk
+// TODO
+
 console.log('Hello world !');
 
-// TODO
 var _ = require('lodash');
 
 var chalk = require('chalk');

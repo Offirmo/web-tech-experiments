@@ -7,10 +7,10 @@ console.log('Hello world !');
 
 var dust = require('dustjs-linkedin');
 
-var compiled = dust.compile("Hello {name}!", "intro");
+var compiled = dust.compile('Hello {name}!', 'intro');
 
 dust.loadSource(compiled);
 
-dust.render("intro", {name: "Fred"}, function(err, out) {
+dust.render('intro', {name: 'Fred'}, function(err, out) {
 	console.log(out);
 });

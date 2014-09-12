@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 
+// Test of using the "colors" module.
+// !!! this module is NOT recommended (see chalk)
+
 console.log('Hello world !');
 
 // example from https://github.com/Marak/colors.js/blob/master/example.js
@@ -8,31 +11,31 @@ console.log('Hello world !');
 
 var colors = require('colors'); // bad, use chalk
 
-//colors.mode = "browser";
+//colors.mode = 'browser';
 
-var test = colors.red("hopefully colorless output");
+var test = colors.red('hopefully colorless output');
 console.log('Rainbows are fun!'.rainbow);
 console.log('So '.italic + 'are'.underline + ' styles! '.bold + 'inverse'.inverse); // styles not widely supported
 console.log('Chains are also cool.'.bold.italic.underline.red); // styles not widely supported
 //console.log('zalgo time!'.zalgo);
 console.log(test.stripColors);
-console.log("a".grey + " b".black);
-console.log("Zebras are so fun!".zebra);
+console.log('a'.grey + ' b'.black);
+console.log('Zebras are so fun!'.zebra);
 console.log('background color attack!'.black.whiteBG);
 
 //
 // Remark: .strikethrough may not work with Mac OS Terminal App
 //
-console.log("This is " + "not".strikethrough + " fun.");
+console.log('This is ' + 'not'.strikethrough + ' fun.');
 console.log(colors.rainbow('Rainbows are fun!'));
 console.log(colors.italic('So ') + colors.underline('are') + colors.bold(' styles! ') + colors.inverse('inverse')); // styles not widely supported
 console.log(colors.bold(colors.italic(colors.underline(colors.red('Chains are also cool.'))))); // styles not widely supported
 //console.log(colors.zalgo('zalgo time!'));
 console.log(colors.stripColors(test));
-console.log(colors.grey("a") + colors.black(" b"));
+console.log(colors.grey('a') + colors.black(' b'));
 
-colors.addSequencer("america", function(letter, i, exploded) {
-	if(letter === " ") return letter;
+colors.addSequencer('america', function(letter, i, exploded) {
+	if(letter === ' ') return letter;
 	switch(i%3) {
 	case 0: return letter.red;
 	case 1: return letter.white;
@@ -40,16 +43,16 @@ colors.addSequencer("america", function(letter, i, exploded) {
 	}
 });
 
-colors.addSequencer("random", (function() {
+colors.addSequencer('random', (function() {
 	var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
 
 	return function(letter, i, exploded) {
-		return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
+		return letter === ' ' ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
 	};
 })());
 
-console.log("AMERICA! F--K YEAH!".america);
-console.log("So apparently I've been to Mars, with all the little green men. But you know, I don't recall.".random);
+console.log('AMERICA! F--K YEAH!'.america);
+console.log('So apparently I’ve been to Mars, with all the little green men. But you know, I don’t recall.'.random);
 
 //
 // Custom themes
@@ -70,15 +73,15 @@ colors.setTheme({
 });
 
 // outputs red text
-console.log("this is an error".error);
+console.log('this is an error'.error);
 
 // outputs yellow text
-console.log("this is a warning".warn);
+console.log('this is a warning'.warn);
 
 // outputs grey text
-console.log("this is an input".input);
+console.log('this is an input'.input);
 
 // Load a theme from file
 colors.setTheme('./themes/winston-dark.js');
 
-console.log("this is an input".input);
+console.log('this is an input'.input);
