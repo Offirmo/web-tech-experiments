@@ -11,7 +11,8 @@ http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
 -- useful SASS
 http://ifconfig.me/
 http://whatismyip.akamai.com/
-
+http://www.jaimelesstartups.fr/lemon-way/
+https://rollbar.com/
 
 
 ** google analytics
@@ -43,6 +44,15 @@ http://hammerjs.github.io/touch-emulator/
 https://github.com/revolunet/angular-carousel
 http://weblinc.github.io/jquery.smoothState.js/demos/typical/about.html
 http://www.google.com/design/spec/style/color.html#
+https://github.com/marmelab/ng-admin
+https://github.com/nebulade/supererror
+http://putaindecode.fr/posts/js/introduction-a-reactjs/
+http://www.sitepoint.com/introducing-screen-orientation-api/
+http://airbnb.github.io/infinity/
+https://yannick.cr/posts/enforcing-coding-rules-in-your-team-with-jscs/post
+http://code.kojilabs.com/page-visibility-api/
+http://make-dev.tumblr.com/post/30013908789/time-to-remove-jquery
+
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer

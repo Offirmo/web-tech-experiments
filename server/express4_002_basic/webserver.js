@@ -12,7 +12,7 @@
  - [x] static files
  - [x] nice 404 for pages, normal 404 for assets
  - [x] nice server runtime error (caught exceptions)
- - [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
+ - [x] nice server runtime error (uncaught exceptions) (and app stay accessible !)
  - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
  - [x] basic logging
  advanced :
@@ -86,15 +86,17 @@ console.log('* env = ' + env);
 require('trace'); // activate long stack traces
 require('clarify'); // Exclude node internal calls from the stack traces
 
-var _ = require('underscore');
+var _ = require('lodash');
 var path = require('path');
 
 var listening_port = process.env.PORT || 3000;
+var KILL_TIMEOUT_S = 30;
 
 // Get local IPs for display at start, ease debug with my VM
 // http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
 // http://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
+	.values()
 	.flatten()
 	.filter(function(val){
 		return (val.family === 'IPv4' && val.internal === false);
@@ -117,14 +119,20 @@ var local_ips = _.chain(require('os').networkInterfaces())
 var express = require('express');
 
 var logger = require('morgan');
-var favicon_server = require('serve-favicon'); // https://github.com/expressjs/serve-favicon (static-favicon is an alias)
+
+var favicon_server = require('serve-favicon'); // https://github.com/expressjs/serve-favicon
+                                               // (static-favicon is an alias)
+
 //var method_unifier = require('method-override'); // https://github.com/expressjs/method-override
 
 //var bodyParser = require('body-parser'); // for, well, parsing body.
                                          // mainly useful for REST (POST, PUT)
                                          // https://github.com/expressjs/body-parser
+
 var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
+
 var domainMiddleware = require('domain-middleware'); // https://github.com/expressjs/domain-middleware
+                                                     // supposedly better than connect-domain
 
 // non middleware modules
 var onFinished = require('finished'); // https://github.com/expressjs/finished
@@ -162,6 +170,13 @@ app.disable('x-powered-by'); // default true
 
 
 /************************************************************************/
+// manual creation of the http server
+// in order to use domainMiddleware
+// cf. http://expressjs.com/4x/api.html#app.listen
+var server = require('http').createServer(app);
+
+
+/************************************************************************/
 // https://www.npmjs.org/package/express-livereload
 // to be set before any HTML service ?
 if(env === 'development') {
@@ -178,6 +193,12 @@ if(env === 'development') {
 		exclusions: [ 'bower_components', 'other_components' ]
 	});
 }
+
+// top
+app.use(domainMiddleware({
+	server: server,
+	killTimeout: KILL_TIMEOUT_S * 1000
+}));
 
 app.use(logger('dev'));
 
@@ -201,10 +222,6 @@ app.use(express.static(path.join(__dirname, '../../client'))); // https://github
 
 require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
 
-/*app.use(domainMiddleware({
-	server: server,
-	killTimeout: 30000,
-}))*/
 
 
 /*if (env === 'development') {
@@ -379,7 +396,6 @@ app.use(function (err, req, res, next) {
 	}
 });
 
-var server;
 process.on('uncaughtException', function(err){
 	console.error('uncaught exception !', err);
 
@@ -388,7 +404,7 @@ process.on('uncaughtException', function(err){
 		// rethrow (dev)
 		throw err;
 		process.exit(2);
-	}, 30*1000);
+	}, KILL_TIMEOUT_S * 1000);
 
 	// TODO
 	// - send a mail
@@ -396,7 +412,9 @@ process.on('uncaughtException', function(err){
 	// - send a push message to all clients for them to wait during restart
 	// - and use promises for all of that ;)
 
+	// debug
 	throw err;
+
 	// cleanly close the server (XXX doesn't work !)
 	server.close(function() {
 		console.log('closed');
@@ -404,12 +422,16 @@ process.on('uncaughtException', function(err){
 		throw err;
 		process.exit(1);  // all clear to exit
 	});
+
+	// need to send a msg to cluster !
 });
 
 /************************************************************************/
-server = app.listen(listening_port, function() {
+//var server = app.listen(listening_port, function() {
+server.listen(listening_port, function() {
+	console.log('* Now listening on :');
 	_.forEach(local_ips, function(ip) {
-		console.log('* Now listening on http://' + ip + ':' + listening_port);
+		console.log('  http://' + ip + ':' + listening_port);
 	});
 	console.log('(Ctrl+C to stop)');
 });
