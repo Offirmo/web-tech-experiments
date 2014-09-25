@@ -24,5 +24,5 @@ if(env === 'Production') {
 else {
 	// normal, plain launch (one instance)
 	console.log('* Non-production env, simple launch…');
-	require('./webserver.js');
+	require('./server-impl.js');
 }

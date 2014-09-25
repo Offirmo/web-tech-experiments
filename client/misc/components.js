@@ -43,7 +43,7 @@ requirejs.config({
 		'base-objects'        : '../incubator/base-objects.js', // dir
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'      : 'bower_components/famous-angular/dist/famous-angular',
-		'jquery'              : 'bower_components/jquery/dist/jquery',
+		'jquery'              : 'bower_components/jquery/jquery',
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
 		// shim plugins

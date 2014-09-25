@@ -80,29 +80,20 @@ TOTEST
 
 /************************************************************************/
 console.log('Hello world from server !');
-var env = process.env.NODE_ENV || 'development';
-console.log('* env = ' + env);
-
-require('trace'); // activate long stack traces
-require('clarify'); // Exclude node internal calls from the stack traces
 
 var _ = require('lodash');
 var path = require('path');
 
-var listening_port = process.env.PORT || 3000;
-var KILL_TIMEOUT_S = 30;
+require('trace'); // activate long stack traces
+require('clarify'); // Exclude node internal calls from the stack traces
 
-// Get local IPs for display at start, ease debug with my VM
-// http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
-// http://nodejs.org/api/os.html#os_os_networkinterfaces
-var local_ips = _.chain(require('os').networkInterfaces())
-	.values()
-	.flatten()
-	.filter(function(val){
-		return (val.family === 'IPv4' && val.internal === false);
-	})
-	.pluck('address')
-	.value();
+var config = require('./server-config');
+console.log('config :', config);
+
+var middleware = require('./server-middlewares');
+var app = require('./server-express-app');
+var utils = require('./server-utils');
+
 
 
 
@@ -116,57 +107,11 @@ var local_ips = _.chain(require('os').networkInterfaces())
 // https://github.com/expressjs/express-params
 
 /************************************************************************/
-var express = require('express');
-
-var logger = require('morgan');
-
-var favicon_server = require('serve-favicon'); // https://github.com/expressjs/serve-favicon
-                                               // (static-favicon is an alias)
-
-//var method_unifier = require('method-override'); // https://github.com/expressjs/method-override
-
-//var bodyParser = require('body-parser'); // for, well, parsing body.
-                                         // mainly useful for REST (POST, PUT)
-                                         // https://github.com/expressjs/body-parser
-
-var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
-
-var domainMiddleware = require('domain-middleware'); // https://github.com/expressjs/domain-middleware
-                                                     // supposedly better than connect-domain
-
-// non middleware modules
-var onFinished = require('finished'); // https://github.com/expressjs/finished
-
-// templating
-var consolidated_templates = require('consolidate'); // always needed
-// now require all templating engines we wish to use
-var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
 
 
+// https://github.com/expressjs/finished
+var onFinished = require('finished');
 
-/************ Settings ************************************************************/
-// http://expressjs.com/4x/api.html
-var app = express();
-
-// defaul template engine
-app.engine('dust', consolidated_templates.dust); // .dust will be rendered with...
-app.set('view engine', 'dust'); // default extension to use when omitted
-// views directory : default to /views
-
-// Because you're the type of developer who cares about this sort of thing!
-app.enable('strict routing'); // default false, TODO combine with https://github.com/ericf/express-slash
-app.enable('case sensitive routing'); // default false
-app.disable('x-powered-by'); // default true
-
-// to review : for running behind nginx or equiv.
-//app.enable('trust proxy');
-
-/*app.configure('development', function() {
-	var edt = require('express-debug'); // https://github.com/devoidfury/express-debug
-	edt(app, {
-	  // settings
-	});
-});*/
 
 
 /************************************************************************/
@@ -179,7 +124,7 @@ var server = require('http').createServer(app);
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
 // to be set before any HTML service ?
-if(env === 'development') {
+if(config.env === 'development') {
 	// WARNING
 	// Livereload (client) has been found to slow down extremely the app at startup. (is it my computer ?)
 	// Can even cause browser timeouts on first load.
@@ -195,21 +140,21 @@ if(env === 'development') {
 }
 
 // top
-app.use(domainMiddleware({
+app.use(middleware.using_domains({
 	server: server,
-	killTimeout: KILL_TIMEOUT_S * 1000
+	killTimeout: config.kill_timeout_s * 1000
 }));
 
-app.use(logger('dev'));
+app.use(middleware.logging('dev'));
 
 // Typically this middleware will come very early in your stack (maybe even first)
 // to avoid processing any other middleware if we already know the request is for /favicon.ico
-app.use(favicon_server('../../client/favicon.ico'));
+app.use(middleware.serving_favicon('../../client/favicon.ico'));
 
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
-app.use(express.static(path.join(__dirname, 'public'))); // https://github.com/expressjs/serve-static
-app.use(express.static(path.join(__dirname, '../../client'))); // https://github.com/expressjs/serve-static
+app.use(middleware.serving_static_files(path.join(__dirname, 'public')));
+app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
 
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded());
@@ -224,7 +169,9 @@ require('express-debug')(app, {/* settings */}); // https://github.com/devoidfur
 
 
 
-/*if (env === 'development') {
+/*
+var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
+if (config.env === 'development') {
 	app.use(errorhandler());
 }*/
 
@@ -404,7 +351,7 @@ process.on('uncaughtException', function(err){
 		// rethrow (dev)
 		throw err;
 		process.exit(2);
-	}, KILL_TIMEOUT_S * 1000);
+	}, config.kill_timeout_s * 1000);
 
 	// TODO
 	// - send a mail
@@ -426,12 +373,14 @@ process.on('uncaughtException', function(err){
 	// need to send a msg to cluster !
 });
 
+
+
 /************************************************************************/
 //var server = app.listen(listening_port, function() {
-server.listen(listening_port, function() {
+server.listen(config.listening_port, function() {
 	console.log('* Now listening on :');
-	_.forEach(local_ips, function(ip) {
-		console.log('  http://' + ip + ':' + listening_port);
+	_.forEach(utils.get_local_ips(), function(ip) {
+		console.log('  http://' + ip + ':' + config.listening_port);
 	});
 	console.log('(Ctrl+C to stop)');
 });
