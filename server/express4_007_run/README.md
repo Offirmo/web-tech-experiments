@@ -16,6 +16,7 @@ I found those tools : (in order of layer)
 
 foreman
 =======
+used at heroku, so mandatory use.
 http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
 http://ddollar.github.io/foreman/
 
@@ -68,3 +69,10 @@ forky
 =====
 https://github.com/brianc/node-forky
 https://github.com/brianc/node-forky/tree/master/examples
+
+
+Misc
+====
+does foreman auto restart processes ? If not :
+https://github.com/mafintosh/respawn
+

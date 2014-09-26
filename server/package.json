@@ -51,6 +51,7 @@
 		"node-mandrill":           "latest",
 		"node-schedule":           "latest",
 		"nodemon":                 "latest",
+		"okay":                    "latest",
 		"prettyjson":              "latest",
 		"progress":                "latest",
 		"proxyquire":              "latest",

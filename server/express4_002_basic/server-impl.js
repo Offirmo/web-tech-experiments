@@ -1,116 +1,24 @@
 #!/usr/bin/env node
-'use strict';
 
-/** A more advanced web server
-
- base : (important client experience)
- - [x] favicon
- - [x] root page (~index.html)
- - [ ] / defaults to index
- - [x] other pages
- - [x] templating
- - [x] static files
- - [x] nice 404 for pages, normal 404 for assets
- - [x] nice server runtime error (caught exceptions)
- - [x] nice server runtime error (uncaught exceptions) (and app stay accessible !)
- - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
- - [x] basic logging
- advanced :
- - [x] no cookies (fatten requests, outdated)
- - [ ] respond with an error even if uncaught exception (domains ? http://nodejs.org/api/domain.html)
- https://github.com/brianc/node-domain-middleware
- https://github.com/mathrawka/express-domain-errors
- https://github.com/mathrawka/express-graceful-exit
- http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
- http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
- https://github.com/brianc/node-okay
- http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
- - [ ] modular routing
- - [ ] language recognition/hinting and i18n
- - [ ] compression
- - [ ] check response time
- - [ ] timeouts
- - [ ] check accepted types and input types
- - [ ] utm_source
- - [ ] sitemap
- - [ ] advanced logging
- - [ ] mails
- - [ ] error reports
- - [ ] through proxy
- - [ ] heroku friendly
- - [ ] cache optimisée
- - [ ] headers minimum
- - [ ] sécurité avancée, contrôles d'entrée
- - [ ] filtrage des headers inutiles
- - [ ] REST
- - [ ] referer, analytics
- - [/] live reload (client) [bugs en attente]
- - [/] live reload on template pages (client)
- - [x] live reload (server) nodemon !
- - [x] cluster for efficiency and resilience to uncaught
- - [ ] resource monitoring
- - [ ] new relic ?
- - [ ] "This website does not supply ownership information."
- - [ ] ssl avec redirection
- - [ ] authentif
- - [ ] detect too busy https://hacks.mozilla.org/2013/01/building-a-node-js-server-that-wont-melt-a-node-js-holiday-season-part-5/
- - [ ] checklist http://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
- - [ ] unit tests
- http://javascriptplayground.com/blog/2014/07/testing-express-routes/
- https://www.joyent.com/blog/risingstack-writing-testable-apis-the-basics
-
- http://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
- http://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
- http://runnable.com/express
-
-TODO
-relire entièrement Reference http://expressjs.com/4x/api.html
-
- à relire pour valider : https://github.com/ClintH/kattegat
-
- http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
-
-TOTEST
- https://github.com/moudy/project-router
- https://github.com/michaelleeallen/reducto
- http://scotch.io/tutorials/javascript/upgrading-our-easy-node-authentication-series-to-expressjs-4-0
- //app.use(require('express-slash')()); // https://github.com/ericf/express-slash
+/** State of the art web server serving an advanced single-page web app
  */
+'use strict';
 
 
 /************************************************************************/
 console.log('Hello world from server !');
 
+require('./server-globals');
+
 var _ = require('lodash');
 var path = require('path');
-
-require('trace'); // activate long stack traces
-require('clarify'); // Exclude node internal calls from the stack traces
-
-var config = require('./server-config');
-console.log('config :', config);
 
 var middleware = require('./server-middlewares');
 var app = require('./server-express-app');
 var utils = require('./server-utils');
 
-
-
-
-/************************************************************************/
-// Reference http://expressjs.com/4x/api.html
-// + interesting middlewares
-// https://github.com/senchalabs/connect/blob/master/Readme.md#middleware
-// https://github.com/visionmedia/express/wiki
-// https://github.com/visionmedia/express/wiki/Migrating-from-3.x-to-4.x
-// https://github.com/visionmedia/express/wiki/New-features-in-4.x
-// https://github.com/expressjs/express-params
-
-/************************************************************************/
-
-
-// https://github.com/expressjs/finished
-var onFinished = require('finished');
+var config = require('./server-config');
+console.log('config :', config);
 
 
 
@@ -123,21 +31,18 @@ var server = require('http').createServer(app);
 
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
-// to be set before any HTML service ?
-if(config.env === 'development') {
-	// WARNING
-	// Livereload (client) has been found to slow down extremely the app at startup. (is it my computer ?)
-	// Can even cause browser timeouts on first load.
-	// Just wait a bit, refresh the page a second time and it should work.
-	var livereload = require('express-livereload');
-	livereload(app, {
-		debug: true,
-		//port: 35729,
-		port: 35730,
-		watchDir:  process.cwd(), // and not just 'public'
-		exclusions: [ 'bower_components', 'other_components' ]
-	});
-}
+// (install itself in all env except production)
+require('express-livereload')(app, {
+	// https://github.com/napcs/node-livereload#api-options
+	debug: true,
+	port: config.livereload_port,
+	watchDir:  process.cwd(), // and not just 'public'
+	exclusions: [ 'bower_components', 'other_components' ]
+});
+
+
+
+/********************************** Middlewares **************************************/
 
 // top
 app.use(middleware.using_domains({
@@ -156,6 +61,10 @@ app.use(middleware.serving_favicon('../../client/favicon.ico'));
 app.use(middleware.serving_static_files(path.join(__dirname, 'public')));
 app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
 
+// now that we've passed static data which may be CDN'd or served by a reverse proxy,
+// add the X-Response-Time header to our responses
+app.use(middleware.adding_XResponseTime_header());
+
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded());
 
@@ -163,17 +72,10 @@ app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
 // that needs to know the method of the request
 //app.use(require('method-override')()); // https://github.com/expressjs/method-override
 
-//app.use(require('response-time')()); // https://github.com/expressjs/response-time
+// "express debug toolbar"
+// https://github.com/devoidfury/express-debug
+require('express-debug')(app, {/* settings */});
 
-require('express-debug')(app, {/* settings */}); // https://github.com/devoidfury/express-debug
-
-
-
-/*
-var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
-if (config.env === 'development') {
-	app.use(errorhandler());
-}*/
 
 
 /************************************************************************/
@@ -230,10 +132,10 @@ app.get('/toto/', function (req, res) {
 //   - internal (API, auto fetch of rsrc, non page-rsrc...)
 // - a correct page, but unknown from the server since will be resolved client-side by ui-router
 app.get('*', function (req, res) {
-	console.log('fallback route triggered for url "' + req.url + '"');
+	console.log('fallback "catch all" route triggered for url "' + req.url + '"');
 
 	// so what ?
-	if(isInternalRequest(req)) {
+	if(utils.is_internal_request(req)) {
 		// Will not be seen by the user.
 		// Respond the best we can.
 		res.status(404); // anyway
@@ -257,7 +159,8 @@ app.get('*', function (req, res) {
 	// OK, must be a client-side state/page
 	// answer with index, client-side will handle the rest (including true 404)
 	console.log('defaulting to webapp root for url "' + req.url + '"');
-	res.sendFile('index.html', {root: './public'});
+	res.render('index', { title: 'Express' });
+	//res.sendFile('index.html', {root: './public'});
 });
 
 
@@ -272,7 +175,7 @@ app.use(function(req, res, next) {
 	// provided it was really a user request...
 	res.status(404); // anyway
 
-	if(isInternalRequest(req)) {
+	if(utils.is_internal_request(req)) {
 		// Will not be seen by the user.
 		// Respond the best we can.
 		if (req.accepts('json'))
@@ -296,10 +199,6 @@ app.use(function(req, res, next) {
 	// if rendering fail, will go to error handler.
 });
 
-function isInternalRequest(req) {
-	return req.xhr // caller manually told us it was a xhr
-		|| (!req.accepts('html')); // most likely not a browser asset
-}
 
 /************************************************************************/
 // error handling at the end
@@ -314,7 +213,7 @@ app.use(function (err, req, res, next) {
 	// (todo validate err.status)
 	res.status(status);
 
-	if(isInternalRequest(req)) {
+	if(utils.is_internal_request(req)) {
 		// Will not be seen by the user.
 		// Respond the best we can.
 		if (req.accepts('json'))
@@ -343,40 +242,9 @@ app.use(function (err, req, res, next) {
 	}
 });
 
-process.on('uncaughtException', function(err){
-	console.error('uncaught exception !', err);
-
-	setTimeout(function() {
-		console.error("Shutdown taking too long ! Forcefully quitting…");
-		// rethrow (dev)
-		throw err;
-		process.exit(2);
-	}, config.kill_timeout_s * 1000);
-
-	// TODO
-	// - send a mail
-	// - send an error response to the user
-	// - send a push message to all clients for them to wait during restart
-	// - and use promises for all of that ;)
-
-	// debug
-	throw err;
-
-	// cleanly close the server (XXX doesn't work !)
-	server.close(function() {
-		console.log('closed');
-		// rethrow (dev)
-		throw err;
-		process.exit(1);  // all clear to exit
-	});
-
-	// need to send a msg to cluster !
-});
-
 
 
 /************************************************************************/
-//var server = app.listen(listening_port, function() {
 server.listen(config.listening_port, function() {
 	console.log('* Now listening on :');
 	_.forEach(utils.get_local_ips(), function(ip) {

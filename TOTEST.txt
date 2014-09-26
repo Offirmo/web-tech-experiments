@@ -14,13 +14,14 @@ http://whatismyip.akamai.com/
 http://www.jaimelesstartups.fr/lemon-way/
 https://rollbar.com/
 
-
 ** google analytics
 https://github.com/toddmotto/flare
 http://davidwalsh.name/track-errors-google-analytics
 http://boba.space150.com/
 https://github.com/revolunet/angular-google-analytics
 
+
+okay https://github.com/brianc/node-okay
 
 https://developers.google.com/web/starter-kit/
 
@@ -166,6 +167,7 @@ https://github.com/ajoslin/conventional-changelog
 -- outils --
 http://eslint.org/docs/rules/valid-jsdoc.html
 http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&utm_medium=email
+https://github.com/gerhard/deliver
 
 -- debug --
 https://github.com/hansineffect/Dogerr

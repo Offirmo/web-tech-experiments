@@ -23,8 +23,9 @@
 		/*...*/
 	</style>
 
+
 	<!-- js -->
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35730/livereload.js"></' + 'script>')</script>
+	<!-- live reload script -->{LRScript}
 	<script src="bower_components/pace/pace.min.js"></script>
 	<script>
 		console.log("hello from header !");
@@ -41,6 +42,7 @@
 <p>
 	What you can do :
 <ul>
+	<li> <a href="/">Home</a>
 	<li> <a href="/page1">Another page</a> (dust template, with an image)
 	<li> <a href="/page2">Yet another page</a> (dust template, with a 404 image)
 	<li> <a href="/page404">404 as page</a> (missing page) and <a href="/404.txt">404 as rsrc</a>

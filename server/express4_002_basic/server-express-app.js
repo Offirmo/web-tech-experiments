@@ -11,7 +11,8 @@ module.exports = app;
 // templating
 var consolidated_templates = require('consolidate'); // always needed
 // now require all templating engines we wish to use
-require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
+var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
+dust.optimizers.format = function(ctx, node) { return node }; // https://github.com/linkedin/dustjs/wiki/Dust-Tutorial#controlling-whitespace-suppression
 app.engine('dust', consolidated_templates.dust); // .dust will be rendered with...
 
 // default template engine
@@ -24,6 +25,8 @@ app.enable('strict routing'); // default false, TODO combine with https://github
 app.enable('case sensitive routing'); // default false
 app.disable('x-powered-by'); // default true
 
+// REM : includes settings
+console.log('app.locals', app.locals);
 
 // to review : for running behind nginx or equiv.
 //app.enable('trust proxy');
@@ -34,3 +37,12 @@ app.disable('x-powered-by'); // default true
  // settings
  });
  });*/
+
+
+/*
+ var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler
+ if (config.env === 'development') {
+ app.use(errorhandler());
+ }*/
+
+
