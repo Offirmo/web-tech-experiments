@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
+console.log('Hello world !');
+
 // Tests on unix signals
+// create an express server,
+// then feel free to kill it at pleasure to see what happen
+
+
 // Interesting reads :
 //   http://dailyjs.com/2012/03/15/unix-node-signals/
 // Another test close to this one :
@@ -14,12 +20,11 @@
 // pid file :
 // http://blog.fgribreau.com/2012/02/snippet-cross-platform-pid-management.html
 
-console.log('Hello world !');
 
 var _ = require('lodash');
 var pretty_signals = require('../../incubator/node/pretty_signals');
 
-console.log('My pid is ', process.pid);
+console.log('\n*** My pid is ' + process.pid + ', please kill me ;) ***\n');
 
 pretty_signals.install_verbose_handlers();
 
@@ -37,7 +42,7 @@ var server = app.listen(listening_port, function() {
 	console.log('Now listening on port ' + listening_port);
 	console.log('(Ctrl+C to stop)');
 });
-server.on('close', function() { console.log('close event', arguments); } );
+server.on('close', function() { console.log('server close event', arguments); } );
 
 function installDebugEventWatcher(event_emitter, event_id, event_emitter_name) {
 	event_emitter_name = event_emitter_name || '?';

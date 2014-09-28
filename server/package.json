@@ -19,7 +19,7 @@
 		"connect-no-www":          "latest",
 		"consolidate":             "latest",
 		"cookie-parser":           "latest",
-		"domain-middleware":       "latest",
+		"domain-middleware":       "Offirmo/domain-middleware#204aae6378dbd151a20ed1e4b0875cb17ae4076b",
 		"dustjs-linkedin":         "latest",
 		"edit-google-spreadsheet": "latest",
 		"ejs":                     "latest",

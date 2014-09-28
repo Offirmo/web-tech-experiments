@@ -1,12 +1,14 @@
 'use strict';
 
+
+
 module.exports = {
 
 	// wraps handling into a domain
 	// https://github.com/expressjs/domain-middleware
 	using_domains: require('domain-middleware'),
 
-	
+
 	logging: require('morgan'),
 
 	// https://github.com/expressjs/serve-favicon
@@ -20,7 +22,6 @@ module.exports = {
 	// https://github.com/expressjs/body-parser
 
 
-
 	// https://github.com/expressjs/serve-static
 	serving_static_files: require('express').static,
 
@@ -28,5 +29,10 @@ module.exports = {
 	// adds a X-Response-Time header to responses.
 	// https://github.com/expressjs/response-time
 	adding_XResponseTime_header: require('response-time'),
+
+
+	// locale negotiation
+	// https://github.com/jed/locale
+	detecting_best_locale: require('locale'),
 
 };

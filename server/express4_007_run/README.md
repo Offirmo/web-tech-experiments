@@ -57,12 +57,16 @@ nodemon
 https://github.com/remy/nodemon/
 http://www.benjiegillam.com/2011/08/node-js-clean-restart-and-faster-development-with-nodemon/
 
+config :
+https://github.com/remy/nodemon/blob/master/doc/cli/config.txt
+https://github.com/remy/nodemon/blob/master/lib/config/defaults.js
+
 npm install -g nodemon
 
 params or package.json:main
 nodemon.json
 
-sends SIGUSR2
+sends SIGUSR2 to ask for graceful shutdown
 
 
 forky

@@ -19,10 +19,10 @@ if(env === 'Production') {
 	// https://github.com/brianc/node-forky/blob/master/examples/master.js
 	forky.log = function() { console.log.apply(console, arguments) };
 
-	forky(__dirname + '/webserver.js');
+	forky(__dirname + '/server/index');
 }
 else {
 	// normal, plain launch (one instance)
 	console.log('* Non-production env, simple launch…');
-	require('./server-impl.js');
+	require('./server/index');
 }

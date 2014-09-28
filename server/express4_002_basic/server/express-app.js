@@ -19,14 +19,17 @@ app.engine('dust', consolidated_templates.dust); // .dust will be rendered with.
 app.set('view engine', 'dust'); // default extension to use when omitted
 
 // views directory : default to /views
+app.set('views', 'server/views'); // default extension to use when omitted
+
 
 // Because you're the type of developer who cares about this sort of thing!
 app.enable('strict routing'); // default false, TODO combine with https://github.com/ericf/express-slash
 app.enable('case sensitive routing'); // default false
 app.disable('x-powered-by'); // default true
 
-// REM : includes settings
-console.log('app.locals', app.locals);
+// REM : app.locals includes settings
+var prettyjson = require('prettyjson');
+console.log('app.locals :\n', prettyjson.render(app.locals));
 
 // to review : for running behind nginx or equiv.
 //app.enable('trust proxy');

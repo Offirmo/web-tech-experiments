@@ -1,5 +1,7 @@
 npm install -g nodemon
 
+nodemon   <-- will read package.json
+
 nodemon server
 
 
@@ -91,8 +93,14 @@ https://github.com/expressjs/express-params
 https://github.com/expressjs/finished
 https://github.com/mathrawka/express-graceful-exit/blob/master/lib/graceful-exit.js
 
+https://github.com/vincentwoo/connect-no-www/blob/master/index.js
 
 Notes :
 * Livereload (client) has been found to slow down extremely the app at startup. (is it my computer ?)
   Can even cause browser timeouts on first load.
   Just wait a bit, refresh the page a second time and it should work.
+
+https://github.com/jed/locale
+http://slexaxton.github.io/Jed/
+https://hacks.mozilla.org/2013/04/localize-your-node-js-service-part-1-of-3-a-node-js-holiday-season-part-9/
+http://ejohn.org/blog/a-strategy-for-i18n-and-node/

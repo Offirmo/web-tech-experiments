@@ -3,10 +3,19 @@
  */
 'use strict';
 
-exports.install_verbose_handlers = install_verbose_handlers;
+var exit = require('exit'); // to exit with all output flushed, important.
+
+module.exports = {
+	install_verbose_handlers: install_verbose_handlers,
+	set_exit_func: function(exit_func) {
+		exit = exit_func;
+	}
+};
 
 var _ = require('lodash');
-var betterExit = require('exit'); // to exit with all output flushed, important.
+
+
+
 	// cf.
 	// https://github.com/joyent/node/issues/8329
 	// https://www.npmjs.org/package/exit
@@ -27,7 +36,7 @@ var betterExit = require('exit'); // to exit with all output flushed, important.
 var known_signals = [
 	{ linux_x86_value:  1, name: 'SIGHUP',    action: 'Term',
 	                                          msg: 'Hangup'},
-	// Ctrl+C
+	// Ctrl+C, has a default handler
 	{ linux_x86_value:  2, name: 'SIGINT',    action: 'Term',
 	                                          msg: 'Interrupt from keyboard' }, // by me, no default msg
 	{ linux_x86_value:  3, name: 'SIGQUIT',   action: 'Core',
@@ -54,6 +63,7 @@ var known_signals = [
 	                                          msg: 'Broken pipe' }, // by me, no default msg
 	{ linux_x86_value: 14, name: 'SIGALRM',   action: 'Term',
 	                                          msg: 'Alarm clock' },
+	// has a default handler
 	{ linux_x86_value: 15, name: 'SIGTERM',   action: 'Term',
 	                                          msg: 'Termination signal' }, // by me, no default msg
 	{ linux_x86_value: 16, name: 'SIGSTKFLT', action: 'Term',
@@ -91,26 +101,38 @@ var known_signals = [
 	                                          msg: 'Bad system call' },
 ];
 
+var verbose_handlers_installed = false;
+
 function install_verbose_handlers(log_signal_fn) {
+
+	if(verbose_handlers_installed)
+		throw new Error('Conflict ! Pretty signals verbose handlers already installed !');
+
 	log_signal_fn = log_signal_fn || default_log_signal;
+
 	_.forEach(known_signals, function(signal) {
-		if(signal.handler_forbidden) return;
+
+		if(signal.handler_forbidden) return; // can't install any handler for this one
+
 		(function(signal) {
 			process.on(signal.name, function() {
 				log_signal_fn(signal);
-				if(signal.action === 'Term' || signal.action === 'Core') {
-					console.log('! Exiting following signal %s with "%s" disposition...', signal.name, signal.action);
-					console.log('! Exiting with', 100 + signal.linux_x86_value);
-
-					setTimeout(function() {
-						betterExit(100 + signal.linux_x86_value);
-					}, 2000);
-				}
+				execute_signal_action(signal);
 			});
 		})(signal);
+
 	});
 }
 
 function default_log_signal(signal) {
-	console.warn('! Caught signal %s "%s"', signal.name, signal.msg);
+	console.warn('! [pretty signals] seen signal %s "%s"', signal.name, signal.msg);
+}
+
+function execute_signal_action(signal) {
+	if(signal.action === 'Term' || signal.action === 'Core') {
+		console.log('! [pretty signals] Exiting following signal %s with "%s" disposition...', signal.name, signal.action);
+		//console.log('! [pretty signals] Exiting with', 100 + signal.linux_x86_value);
+
+		exit(100 + signal.linux_x86_value);
+	}
 }

@@ -1,25 +1,25 @@
 #!/usr/bin/env node
 
-/** State of the art web server serving an advanced single-page web app
+/** State of the art web server serving an advanced AngularJS single-page web app
  */
 'use strict';
 
 
 /************************************************************************/
-console.log('Hello world from server !');
+console.log('Hello world from web server !');
 
-require('./server-globals');
+require('./globals');
 
 var _ = require('lodash');
 var path = require('path');
 
-var middleware = require('./server-middlewares');
-var app = require('./server-express-app');
-var utils = require('./server-utils');
+var middleware = require('./middlewares');
+var app = require('./express-app');
+var utils = require('./utils');
+//var logger = require('../../logger')();
 
-var config = require('./server-config');
+var config = require('./config');
 console.log('config :', config);
-
 
 
 /************************************************************************/
@@ -33,13 +33,13 @@ var server = require('http').createServer(app);
 // https://www.npmjs.org/package/express-livereload
 // (install itself in all env except production)
 require('express-livereload')(app, {
+	watchDir:  process.cwd(), // and not just 'public'
 	// https://github.com/napcs/node-livereload#api-options
 	debug: true,
 	port: config.livereload_port,
-	watchDir:  process.cwd(), // and not just 'public'
-	exclusions: [ 'bower_components', 'other_components' ]
+	exts: [ 'dust', 'html', 'css', 'js', 'png', 'gif', 'jpg' ],
+	exclusions: [ 'bower_components', 'other_components', './*' ]
 });
-
 
 
 /********************************** Middlewares **************************************/
@@ -65,6 +65,10 @@ app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
 // add the X-Response-Time header to our responses
 app.use(middleware.adding_XResponseTime_header());
 
+// detect and pick the best locale
+app.use(middleware.detecting_best_locale(config.supported_locales));
+
+
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded());
 
@@ -78,15 +82,18 @@ require('express-debug')(app, {/* settings */});
 
 
 
-/************************************************************************/
-// root
+/********************************** routes **************************************/
+
+app.get('/', function (req, res) {
+	res.render('index', { tpl: 'index', title: 'Express', lang: req.locale });
+});
 
 app.get('/page1', function (req, res) {
-	res.render('page1', { title: 'Express' });
+	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale });
 });
 
 app.get('/page2', function (req, res) {
-	res.render('page2', { title: 'Express' });
+	res.render('page2', { tpl: 'page2', title: 'Express', lang: req.locale });
 });
 
 app.get('/runtime_error', function (req, res) {
@@ -121,11 +128,24 @@ app.get('/timeout/:duration_in_sec', function (req, res) {
 	}
 });
 
+app.get("/locale_test", function(req, res) {
+	res.header("Content-Type", "text/plain");
+	res.send(
+		"You asked for: " + req.headers['accept-language'] + "\n" +
+		"We support: " + config.supported_locales + "\n" +
+		"Our default is: " + locale.Locale['default'] + "\n" +
+		"The best match is: " + req.locale + "\n"
+	);
+});
+
+
 app.get('/toto/', function (req, res) {
 	res.send('correct /toto/ !');
 });
 
-// "catch all" default / 404 for a webapp
+// "catch all" = default / 404 for a webapp
+// https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode
+// http://briantford.com/blog/angular-express
 // Several cases :
 // - a 404
 //   - manual, visible (user mistyped a page url, old address...)
@@ -159,7 +179,7 @@ app.get('*', function (req, res) {
 	// OK, must be a client-side state/page
 	// answer with index, client-side will handle the rest (including true 404)
 	console.log('defaulting to webapp root for url "' + req.url + '"');
-	res.render('index', { title: 'Express' });
+	res.render('app', { tpl: 'app', title: 'Express', lang: req.locale });
 	//res.sendFile('index.html', {root: './public'});
 });
 
@@ -195,7 +215,7 @@ app.use(function(req, res, next) {
 	}
 
 	// eventually
-	return res.render('404', { url: req.url });
+	return res.render('404', { tpl: '404', url: req.url, lang: req.locale });
 	// if rendering fail, will go to error handler.
 });
 
@@ -206,7 +226,8 @@ app.use(function(req, res, next) {
 //  below any other app.use() calls"
 // http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 app.use(function (err, req, res, next) {
-	console.log('1st error handler', err);
+	console.log('1st error handler', err, err['stack']);
+	//logger.exception(err);
 
 	// so we have an error. Do we have a status ?
 	var status = err.status || 500;
@@ -234,7 +255,7 @@ app.use(function (err, req, res, next) {
 
 	// eventually
 	try {
-		res.render('error', { error: err });
+		res.render('error', { tpl: 'error', error: err });
 	}
 	catch(e) {
 		console.error('The error template didn´t work :', e);

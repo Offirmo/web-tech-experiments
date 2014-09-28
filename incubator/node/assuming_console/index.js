@@ -4,6 +4,9 @@
  */
 'use strict';
 
+/* REM : to log in this file :
+original_console.log.call(console, 'blah blah', stuff);
+ */
 exports.install = install;
 
 var _ = require('lodash');
@@ -38,16 +41,25 @@ function rebindConsoleArgs(args) {
 		args[0] = prefix + ' ' + args[0];
 	}
 	else {
-		args.unshift(prefix);
+		// insert our prefix as 1st arg
+		// REM that args is not an array https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+		//original_console.log.call(console, 'before rebinding', args.length, args);
+
+		for(var i = args.length; i > 0; --i) {
+			args[i] = args [i - 1];
+		}
+		args[0] = prefix;
+		args.length++;
+		//original_console.log.call(console, 'after rebinding', args.length, args);
 	}
 	return args;
 }
 
 var installed = false;
-function install() {
+function install(log) {
 	if(installed) return;
 
-	console.log('Installing console wraps for ' + prefix);
+	if(log) console.log('[assuming_console] Installing console wraps for ' + prefix);
 
 	console.log = function() {
 		original_console.log.apply(console, rebindConsoleArgs(arguments));
