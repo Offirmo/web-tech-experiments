@@ -61,6 +61,9 @@ var cluster = require('cluster');
 var http = require('http');
 var forky = require('forky');
 
+// https://github.com/brianc/node-forky/blob/master/examples/master.js
+forky.log = function() { console.log.apply(console, arguments) };
+
 
 if (cluster.isMaster) {
 	console.log('Hello world from master !');
@@ -68,9 +71,6 @@ if (cluster.isMaster) {
 	// cluster launch, heroku compatible and with nice features
 	// https://github.com/brianc/node-forky
 	console.log('* Production env, cluster launch…');
-
-	// https://github.com/brianc/node-forky/blob/master/examples/master.js
-	forky.log = function() { console.log.apply(console, arguments) };
 
 	forky(__dirname + '/server');
 }
