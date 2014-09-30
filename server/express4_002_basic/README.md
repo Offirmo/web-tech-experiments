@@ -9,8 +9,8 @@ base : (important client experience)
 - [x] favicon
 - [x] root page (~index.html)
 - [ ] / defaults to index
-- [x] other/multiple pages
-- [x] templating
+- [ ] other/multiple pages
+- [ ] templating
 - [x] static files
 - [x] nice 404 for pages, normal 404 for assets
 - [x] nice server runtime error (caught exceptions)
@@ -21,11 +21,9 @@ base : (important client experience)
 
 
 advanced :
+- [ ] test routes (ping, errors...)
 - [x] no cookies (fatten requests, outdated)
 - [ ] respond with an error even if uncaught exception (domains)
-http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
-http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
-http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
 - [ ] modular routing
 - [ ] layered/splitted templating
 - [ ] language recognition/hinting and i18n
@@ -104,3 +102,8 @@ https://github.com/jed/locale
 http://slexaxton.github.io/Jed/
 https://hacks.mozilla.org/2013/04/localize-your-node-js-service-part-1-of-3-a-node-js-holiday-season-part-9/
 http://ejohn.org/blog/a-strategy-for-i18n-and-node/
+
+
+http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
+http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
+http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/

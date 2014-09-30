@@ -1,6 +1,56 @@
+/** This app shutdown sequence
+ */
 'use strict';
 
 var _ = require('lodash');
+
+var shutdown = require('../../--mini_incubator/shutdown');
+
+
+shutdown.configure({
+	// TODO
+});
+
+
+///////////////////// Set up shutdown sequence /////////////////////
+
+shutdown.add_worker_disconnect_shutdown_callback();
+
+
+// tell our cluster master we are in trouble
+shutdown.add_shutdown_callback(function(callback, context) {
+	console.log('X TODO send email', context);
+	return callback();
+});
+
+
+// send an email to admins
+shutdown.add_shutdown_callback(function(callback, context) {
+	console.log('X TODO send email', context);
+	return callback();
+});
+
+
+
+
+
+
+// add basic shutdown steps
+shutdown.add_worker_disconnect_shutdown_callback();
+
+shutdown.add_shutdown_callback(function(callback, context) {
+	console.log('X TODO send email', context);
+	return callback();
+});
+
+shutdown.add_shutdown_callback(function(callback, context) {
+	console.log('X TODO send email', context);
+	return callback();
+});
+
+
+
+
 
 module.exports = function(err) {
 	console.log('* starting graceful shutdown...');

@@ -1,3 +1,5 @@
+/** one day, I'll use a nice node config module ;)
+ */
 'use strict';
 
 var _ = require('lodash');

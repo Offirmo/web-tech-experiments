@@ -6,10 +6,7 @@
 
 
 
-
-
-
-///////////////////// Basic traces /////////////////////
+///////////////////// Basic, very important traces /////////////////////
 
 process.on('exit', function(code) {
 	console.log('* process.exit detected, about to exit with code :', code);
@@ -17,11 +14,11 @@ process.on('exit', function(code) {
 
 if(cluster.worker) cluster.worker.on('exit', function(code, signal) {
 	if( signal )
-		console.log('* I worker am killed by signal :', signal);
+		console.log('* cluster.worker.exit : I, worker am killed by signal :', signal);
 	else if( code )
-		console.log('* I worker am exited with error code :', code);
+		console.log('* cluster.worker.exit : I, worker am exited with error code :', code);
 	else
-		console.log('* I worker exit naturally.');
+		console.log('* cluster.worker.exit : I, worker exits.');
 });
 
 process.on('uncaughtException', function(err) {
@@ -32,40 +29,30 @@ process.on('uncaughtException', function(err) {
 
 ///////////////////// Activate features /////////////////////
 
+// make console calls display their originating pid
+require('../../../incubator/node/assuming_console').install();
+
 // activate long stack traces
 require('trace');
 
 // Exclude node internal calls from the stack traces
 require('clarify');
 
-// make console calls display its originating pid
-require('../../../incubator/node/assuming_console').install();
 
 
 
-///////////////////// Set up shutdown sequence /////////////////////
 
+
+///////////////////// Plug shutdown sequence /////////////////////
 var shutdown = require('../../--mini_incubator/shutdown');
-shutdown.configure({
-	// TODO
-});
 
-// add basic shutdown steps
-shutdown.add_worker_disconnect_shutdown_callback();
-
-shutdown.add_shutdown_callback(function(callback, context) {
-	console.log('X TODO send email', context);
-	return callback();
-});
-
-shutdown.add_shutdown_callback(function(callback, context) {
-	console.log('X TODO send email', context);
-	return callback();
-});
 
 process.on('uncaughtException', function(err) {
-	console.error('X uncaught exception !', err, err.stack);
+	shutdown.launch(err);
 });
+
+
+// TODO + disconnect from
 
 // clearly show what signals are received
 //require('../../../incubator/node/pretty_signals').install_verbose_handlers();
