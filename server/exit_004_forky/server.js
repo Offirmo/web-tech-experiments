@@ -62,7 +62,7 @@ var http = require('http');
 var forky = require('forky');
 
 // https://github.com/brianc/node-forky/blob/master/examples/master.js
-forky.log = function() { console.log.apply(console, arguments) };
+forky.log = function() { console.log.apply(console, arguments); };
 
 
 if (cluster.isMaster) {

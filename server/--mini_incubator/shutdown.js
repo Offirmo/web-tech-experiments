@@ -59,11 +59,11 @@ ShutdownAgent.prototype.start = function(err, exit_code, misc) {
 
 	// avoid loops
 	if(this.in_progress) {
-		console.log('! [shutdown] attempted duplicate shutdown from', (new Error).stack);
+		console.log('! [shutdown] ignored duplicate shutdown request from :', (new Error).stack);
 		return;
 	}
 	this.in_progress = true;
-	console.log('! [shutdown] start...', err, exit_code, misc);
+	console.log('* [shutdown] starting...');
 
 	// sort out params
 	if(_.isNumber(err)) {
@@ -78,8 +78,6 @@ ShutdownAgent.prototype.start = function(err, exit_code, misc) {
 	if(!misc) misc = {};
 	if(!exit_code) exit_code = this.compute_exit_code(err, misc);
 
-	console.log('! [shutdown] starting with', err, exit_code, misc);
-
 	this.execute_steps(err, exit_code, misc);
 };
 
@@ -91,11 +89,15 @@ ShutdownAgent.prototype.execute_steps = function(err, exit_code, misc) {
 
 	// wrap in setTimeout to leave time to some other async handlers to fire,
 	// for ex. the one monitoring cluster disconnect to avoid dup.
+	var this_ = this;
 	setTimeout(function() {
-		console.log('* [shutdown] starting shutdown steps...');
+		//console.log('* [shutdown] starting shutdown steps...');
 		async.parallel( shutdown_steps, function(err, results) {
-			console.log('* [shutdown] all shutdown steps finished.', err);
-			this.exit(err, exit_code, misc);
+			if(err)
+				console.log('X [shutdown] a shutdown step signaled problems !', err, results);
+			else
+				console.log('* [shutdown] all shutdown steps finished successfully :', results);
+			this_.exit(err, exit_code, misc);
 		});
 	});
 
@@ -116,23 +118,16 @@ ShutdownAgent.prototype.compute_exit_code = function (err, misc) {
 
 
 
+// one default instance (easier)
+var default_shutdown = new ShutdownAgent();
+// but still allows to create more (for tests or unknown)
+default_shutdown.klass = ShutdownAgent;
+
+module.exports = default_shutdown;
 
 
 
-module.exports = {
-
-	launch: shutdown,
-
-	// a classic
-	add_worker_disconnect_shutdown_callback: add_worker_disconnect_shutdown_callback,
-};
-
-
-
-
-
-
-
+/*
 function add_worker_disconnect_shutdown_callback() {
 	if(!cluster.worker) throw new Error('X [Shutdown] Can\'t disconnect if not a cluster worker !');
 
@@ -160,3 +155,4 @@ function add_worker_disconnect_shutdown_callback() {
 	});
 }
 
+*/

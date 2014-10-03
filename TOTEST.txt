@@ -1,4 +1,8 @@
 
+-- node advocacy
+http://codecondo.com/state-of-node-js/
+
+
 --to read
 http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
 http://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/

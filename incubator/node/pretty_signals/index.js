@@ -3,18 +3,27 @@
  */
 'use strict';
 
-var exit = require('exit'); // to exit with all output flushed, important.
 
-module.exports = {
-	install_verbose_handlers: install_verbose_handlers,
-	set_exit_func: function(exit_func) {
-		exit = exit_func;
-	}
-};
 
 var _ = require('lodash');
 
+//var exit = require('exit'); // to exit with all output flushed, important.
+var exit = function(suggested_exit_code, signal_description) {
+	process.exit(suggested_exit_code);
+};
 
+
+
+module.exports = {
+	install_verbose_handlers: install_verbose_handlers,
+
+	set_exit_function: function(exit_function) {
+		exit = exit_function;
+	},
+
+	leave_me_manage_this_signal: mark_signal_as_user_handled
+
+};
 
 	// cf.
 	// https://github.com/joyent/node/issues/8329
@@ -101,8 +110,8 @@ var known_signals = [
 	                                          msg: 'Bad system call' },
 ];
 
-var verbose_handlers_installed = false;
 
+var verbose_handlers_installed = false;
 function install_verbose_handlers(log_signal_fn) {
 
 	if(verbose_handlers_installed)
@@ -110,29 +119,51 @@ function install_verbose_handlers(log_signal_fn) {
 
 	log_signal_fn = log_signal_fn || default_log_signal;
 
-	_.forEach(known_signals, function(signal) {
+	_.forEach(known_signals, function(signal_description) {
 
-		if(signal.handler_forbidden) return; // can't install any handler for this one
+		if(signal_description.handler_forbidden) return; // can't install any handler for this one
 
 		(function(signal) {
 			process.on(signal.name, function() {
 				log_signal_fn(signal);
 				execute_signal_action(signal);
 			});
-		})(signal);
+		})(signal_description);
 
 	});
 }
 
-function default_log_signal(signal) {
-	console.warn('! [pretty signals] seen signal %s "%s"', signal.name, signal.msg);
+
+function mark_signal_as_user_handled(signal) {
+	//console.log('marking user custom for ', signal);
+	var signal_entry = _.findWhere(known_signals, {name: signal});
+	if(!signal_entry) throw new Error('[pretty signals] couldn’t find signal by name : "' + signal + '" !');
+
+	signal_entry.user_handled = true;
+	//console.log('marking user custom for ', signal_entry);
 }
 
-function execute_signal_action(signal) {
-	if(signal.action === 'Term' || signal.action === 'Core') {
-		console.log('! [pretty signals] Exiting following signal %s with "%s" disposition...', signal.name, signal.action);
-		//console.log('! [pretty signals] Exiting with', 100 + signal.linux_x86_value);
+function default_log_signal(signal) {
+	console.log('\n');
+	console.warn('* [pretty signals] seen signal %s "%s"', signal.name, signal.msg);
+}
 
-		exit(100 + signal.linux_x86_value);
+function execute_signal_action(signal_description) {
+	if(signal_description.user_handled) return; // user handle it, nothing to do.
+
+	if(signal_description.action === 'Term' || signal_description.action === 'Core') {
+		console.log('! [pretty signals] Signal %s has "%s" disposition -> exiting...',
+			signal_description.name,
+			signal_description.action
+		);
+		console.log(signal_description.user_handled);
+
+		var suggested_exit_code = 100 + signal_description.linux_x86_value;
+		if(   signal_description.name === 'SIGINT'
+		   || signal_description.name === 'SIGTERM'
+		   || signal_description.name === 'SIGUSR2')
+			suggested_exit_code = 0; // OK, normal way to exit
+
+		exit(suggested_exit_code, signal_description);
 	}
 }

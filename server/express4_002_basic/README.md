@@ -6,26 +6,35 @@ nodemon server
 
 
 base : (important client experience)
-- [x] favicon
+- [ ] base security http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
+- [x] all UTF-8
+- [x] static files
 - [x] root page (~index.html)
 - [ ] / defaults to index
 - [ ] other/multiple pages
 - [ ] templating
-- [x] static files
-- [x] nice 404 for pages, normal 404 for assets
+- [ ] server side 404
+- [ ] nice 404 for pages, normal 404 for assets
 - [x] nice server runtime error (caught exceptions)
-- [x] nice server runtime error (uncaught exceptions) (and app stay accessible !)
+- [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
+- [ ] should close OTHER pending requests on uncaught
 - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
+- [x] favicon
 - [x] basic logging
-- [ ] base security
 
 
 advanced :
+- [ ] localization +++ "speak style" (alternative localizations for the same language)
+- [ ] safari / mobile icons
+- [ ] facebook preview
+- [ ] utility pages http://www.simpleentrepreneur.com/2007/07/10/les-pages-a-ne-pas-oublier-lorsquon-cree-un-site/
+- [ ] request / domain uuid for easier logging / tracing https://github.com/appsattic/connect-uuid
 - [ ] test routes (ping, errors...)
 - [x] no cookies (fatten requests, outdated)
 - [ ] respond with an error even if uncaught exception (domains)
 - [ ] modular routing
 - [ ] layered/splitted templating
+- [ ] client side 404 for SPA !
 - [ ] language recognition/hinting and i18n
 - [ ] compression  https://github.com/expressjs/compression
 - [ ] check response time
@@ -44,7 +53,7 @@ advanced :
 - [ ] filtrage des headers inutiles
 - [ ] REST
 - [ ] referer, analytics
-- [/] live reload (client) [bugs en attente]
+- [/] live reload (client) [bugs en attente] https://github.com/intesso/connect-livereload
 - [/] live reload on template pages (client)
 - [x] live reload (server) thank you nodemon !
 - [x] cluster for efficiency and resilience to uncaught
@@ -107,3 +116,13 @@ http://ejohn.org/blog/a-strategy-for-i18n-and-node/
 http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
 http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
 http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
+http://blog.risingstack.com/node-js-security-tips/
+
+
+
+http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
+
+
+http://thejackalofjavascript.com/architecting-a-restful-node-js-app/
+
+http://offirmo.net/wiki/index.php?title=Check-list_d%27un_site_web

@@ -3,6 +3,7 @@
  */
 'use strict';
 
+var cluster = require('cluster');
 
 
 
@@ -21,9 +22,16 @@ if(cluster.worker) cluster.worker.on('exit', function(code, signal) {
 		console.log('* cluster.worker.exit : I, worker exits.');
 });
 
+if(cluster.worker) cluster.worker.on('disconnect', function() {
+	console.log('* cluster.worker.disconnect event seen.');
+});
+
 process.on('uncaughtException', function(err) {
 	console.error('X uncaught exception !', err, err.stack);
 });
+
+// trace received signals
+require('../../../incubator/node/pretty_signals').install_verbose_handlers();
 
 
 
@@ -37,39 +45,3 @@ require('trace');
 
 // Exclude node internal calls from the stack traces
 require('clarify');
-
-
-
-
-
-
-///////////////////// Plug shutdown sequence /////////////////////
-var shutdown = require('../../--mini_incubator/shutdown');
-
-
-process.on('uncaughtException', function(err) {
-	shutdown.launch(err);
-});
-
-
-// TODO + disconnect from
-
-// clearly show what signals are received
-//require('../../../incubator/node/pretty_signals').install_verbose_handlers();
-
-
-
-
-	// TODO
-	// - send an error response to the user
-
-	// cleanly close the server (XXX doesn't work !)
-	server.close(function() {
-		console.log('closed');
-		// rethrow (dev)
-		throw err;
-		process.exit(1);  // all clear to exit
-	});
-
-	// need to send a msg to cluster !
-});

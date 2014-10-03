@@ -2,32 +2,44 @@
  */
 'use strict';
 
+var cluster = require('cluster');
 var _ = require('lodash');
-
 var shutdown = require('../../--mini_incubator/shutdown');
+var pretty_signals = require('../../incubator/node/pretty_signals');
 
 
-shutdown.configure({
-	// TODO
-});
 
-
-///////////////////// Set up shutdown sequence /////////////////////
-
-shutdown.add_worker_disconnect_shutdown_callback();
+///////////////////// Build shutdown sequence /////////////////////
 
 
 // tell our cluster master we are in trouble
-shutdown.add_shutdown_callback(function(callback, context) {
-	console.log('X TODO send email', context);
-	return callback();
+// XXX if using forky, should call **forky**.disconnect
+shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
+	if(! cluster.worker)
+		return callback(undefined, 'OK : no cluster master'); // not applicable
+	if(! err)
+		return callback(undefined, 'OK : no need to tell cluster master'); // no need to tell master.
+		                                                         // It's most likely him who asked us to exit !
+
+	console.log('X Fatal error detected : signaling it to cluster master...', err);
+	cluster.worker.disconnect();
+	return callback(undefined, 'OK : cluster master signaled of our problems');
 });
 
-
 // send an email to admins
-shutdown.add_shutdown_callback(function(callback, context) {
-	console.log('X TODO send email', context);
-	return callback();
+shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
+	console.log('* sending email...', err, exit_code, misc);
+	setTimeout(function() {
+		return callback(undefined, 'OK : email to admin sent. (simulated)');
+	}, 300);
+});
+
+// do whatever other needed stuff
+shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
+	console.log('* forwarding websockets...', err, exit_code, misc);
+	setTimeout(function() {
+		return callback(undefined, 'OK : websockets forwarded. (simulated)');
+	}, 100);
 });
 
 
@@ -98,3 +110,42 @@ module.exports = function(err) {
 		}
 	}
 };
+
+
+
+
+///////////////////// Plug shutdown sequence /////////////////////
+var shutdown = require('../../--mini_incubator/shutdown');
+
+var forky = require('forky');
+// https://github.com/brianc/node-forky/blob/master/examples/master.js
+forky.log = function() { console.log.apply(console, arguments); };
+
+process.on('uncaughtException', function(err) {
+	shutdown.launch(err);
+});
+
+if(cluster.worker) cluster.worker.on('disconnect', function() {
+	shutdown.launch();
+});
+
+// TODO + signals
+// clearly show what signals are received
+//require('../../../incubator/node/pretty_signals').install_verbose_handlers();
+
+
+
+
+// TODO
+// - send an error response to the user
+
+// cleanly close the server (XXX doesn't work !)
+server.close(function() {
+	console.log('closed');
+	// rethrow (dev)
+	throw err;
+	process.exit(1);  // all clear to exit
+});
+
+// need to send a msg to cluster !
+});
