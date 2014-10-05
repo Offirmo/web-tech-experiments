@@ -17,6 +17,7 @@ var middleware = require('./middlewares');
 var app = require('./express-app');
 var utils = require('./utils');
 //var logger = require('../../logger')();
+var shutdown = require('./shutdown');
 
 var config = require('./config');
 console.log('config :', config);
@@ -47,7 +48,15 @@ require('express-livereload')(app, {
 // top
 app.use(middleware.using_domains({
 	server: server,
-	killTimeout: config.kill_timeout_s * 1000
+	killTimeout: config.kill_timeout_s * 1000,
+	onError: function onErrorDefault(req, res, next, err, options) {
+		// Must let current connection close.
+		res.setHeader('Connection', 'close');
+		next(err);
+
+		// trigger shutdown
+		shutdown.start(err);
+	}
 }));
 
 app.use(middleware.logging('dev'));
@@ -58,8 +67,8 @@ app.use(middleware.serving_favicon('../../client/favicon.ico'));
 
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
-app.use(middleware.serving_static_files(path.join(__dirname, 'public')));
-app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
+app.use(middleware.serving_static_files(path.join(__dirname, '../client')));
+app.use(middleware.serving_static_files(path.join(__dirname, '../../../client')));
 
 // now that we've passed static data which may be CDN'd or served by a reverse proxy,
 // add the X-Response-Time header to our responses
@@ -177,46 +186,19 @@ app.get('*', function (req, res) {
 	}
 
 	// OK, must be a client-side state/page
-	// answer with index, client-side will handle the rest (including true 404)
-	console.log('defaulting to webapp root for url "' + req.url + '"');
-	res.render('app', { tpl: 'app', title: 'Express', lang: req.locale });
-	//res.sendFile('index.html', {root: './public'});
-});
+	var client_side_routing = false;
+	if(client_side_routing) {
 
-
-// Since this is the last non-error-handling middleware use()d,
-// we assume 404, as nothing else responded.
-// 404 was already handled in a webapp case,
-// but we may keep this handling in case "webapp mode" is deactivated.
-app.use(function(req, res, next) {
-	console.log('404 handler :', req.url);
-
-	// we want to explain the user what happened,
-	// provided it was really a user request...
-	res.status(404); // anyway
-
-	if(utils.is_internal_request(req)) {
-		// Will not be seen by the user.
-		// Respond the best we can.
-		if (req.accepts('json'))
-			return res.send({ error: 'Not found (as json)' });
-		else
-			return res.type('txt').send('Not found (as text)');
+		// answer with index, client-side will handle the rest (including true 404)
+		console.log('defaulting to webapp root for url "' + req.url + '"');
+		res.render('app', { tpl: 'app', title: 'Express', lang: req.locale });
+		//res.sendFile('index.html', {root: './public'});
 	}
-
-	// ok, most likely a user browsing.
-	// is it a full page or just an asset ?
-	// (we don't want to costly render a template just for a missing favicon)
-	if(req.url.slice(-4).indexOf('.') !== -1) {
-		// there is a . (dot) in the last 4 chars,
-		// most likely an file extension
-		// so it must be an asset since our clean page urls don't have extensions.
-		return res.send('404'); // short answer
+	else {
+		console.log('404 page for :', req.url);
+		return res.render('404', { tpl: '404', url: req.url, lang: req.locale });
+		// if rendering fail, will go to error handler.
 	}
-
-	// eventually
-	return res.render('404', { tpl: '404', url: req.url, lang: req.locale });
-	// if rendering fail, will go to error handler.
 });
 
 

@@ -45,3 +45,11 @@ require('trace');
 
 // Exclude node internal calls from the stack traces
 require('clarify');
+
+
+
+
+
+// https://github.com/brianc/node-forky/blob/master/examples/master.js
+var forky = require('forky');
+forky.log = function() { console.log.apply(console, arguments); };

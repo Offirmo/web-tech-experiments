@@ -10,11 +10,11 @@ base : (important client experience)
 - [x] all UTF-8
 - [x] static files
 - [x] root page (~index.html)
-- [ ] / defaults to index
-- [ ] other/multiple pages
-- [ ] templating
-- [ ] server side 404
-- [ ] nice 404 for pages, normal 404 for assets
+- [x] / defaults to index
+- [x] other/multiple pages
+- [x] templating
+- [x] server side 404
+- [x] nice 404 for pages, normal 404 for assets
 - [x] nice server runtime error (caught exceptions)
 - [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
 - [ ] should close OTHER pending requests on uncaught

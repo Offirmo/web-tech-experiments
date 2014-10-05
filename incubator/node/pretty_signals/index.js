@@ -156,7 +156,6 @@ function execute_signal_action(signal_description) {
 			signal_description.name,
 			signal_description.action
 		);
-		console.log(signal_description.user_handled);
 
 		var suggested_exit_code = 100 + signal_description.linux_x86_value;
 		if(   signal_description.name === 'SIGINT'

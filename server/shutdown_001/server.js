@@ -80,6 +80,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 
 
 ///////////////////// Set up shutdown triggers /////////////////////
+var do_shutdown = shutdown.bound_start;
 
 // on uncaught
 process.on('uncaughtException', function(err) {
@@ -93,7 +94,7 @@ if(cluster.worker) cluster.worker.on('disconnect', function() {
 
 // on signal
 pretty_signals.set_exit_function(function(suggested_exit_code, signal_description) {
-	shutdown.start(undefined, suggested_exit_code, {
+	do_shutdown(undefined, suggested_exit_code, {
 		signal: signal_description.name,
 		pretty_signal_description: signal_description
 	});

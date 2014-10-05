@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- html_004 template -->
 <!-- js_005 template -->
-<!-- {tpl} dust template -->
 <html lang="{lang}" xmlns:ng="http://angularjs.org" ng-controller="LandingCtrl">
 <head>
 	<meta charset="utf-8">
@@ -19,7 +18,7 @@
 	<!-- ... -->
 
 	<!-- style -->
-	<link href="bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
+	<link href="bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" />
 	<style>
 		/*...*/
 	</style>
@@ -39,9 +38,33 @@
 <div class="container">
 
 <h3><a ui-sref="landing">Hello from <code>express4_002_basic/public/index.html</code> !</a></h3>
-<p><strong>This is the landing page, which should render quick and fast.</strong></p>
-<p>The real webapp is usually launched later : <a href="/welcome">go</a></p>
-
+<p><strong>Important note : on links below, *pages not found*, including 404 test, may not fail with a 404 since, in a webapp case, it may be a user-routed page. It's up to the client side to handle such 404. However, resources not found will correctly yield a 404. (Some heuristic is used)</strong></p>
+<p>
+	What you can do :
+<ul>
+	<li> <a href="/">Home</a>
+	<li> <a href="/page1">Another page</a> (dust template, with an image)
+	<li> <a href="/page2">Yet another page</a> (dust template, with a 404 image)
+	<li> <a href="/page404">404 as page</a> (missing page) and <a href="/404.txt">404 as rsrc</a>
+	<li> <a href="/runtime_error">Generate a runtime error</a>
+	<li> <a href="/sync_error">Throw a synchronous error while processing</a> (= caught by express)
+	<li> <a href="/async_error">Throw an asynchronous error while processing</a> (= uncaught !)
+	<li>Timeout :
+		<ul>
+			<li> <a href="/timeout/3">3 seconds</a>
+			<li> <a href="/timeout/30">30 seconds</a>
+			<li> <a href="/timeout/119">119 seconds</a>
+			<li> <a href="/timeout/120">120 seconds</a> (FF timeout)
+			<li> <a href="/timeout/121">121 seconds</a> (Chrome timeout)
+			<li> <a href="/timeout/foo">«foo» seconds</a> (cause runtime error ;)
+		</ul>
+	</li>
+	<li> <a href="/foo/../../secret.txt">Try an attack</a>
+	<li> <a href="/toto/">correctly with slash</a> or <a href="/toto">wrongly without slash</a>
+	<li> <a href="/toto/">correctly with good case</a> or <a href="/TotO/">wrongly with Bad CasE</a>
+	<li> <a href="/express-debug">A server debug panel</a>
+</ul>
+</p>
 </div>
 </div>
 
@@ -68,6 +91,7 @@
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
+			// cf.
 			console.log('Bootstrapping angular...');
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['App']);

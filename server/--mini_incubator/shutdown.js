@@ -43,6 +43,9 @@ var ShutdownAgent = function ShutdownAgent(options) {
 	if(cluster.worker) cluster.worker.once('disconnect', function() {
 		this_.seen_events['cluster.worker.disconnect'] = true;
 	});
+
+	// for convenience, provide a bounded start function
+	this.bound_start = _.bind(this.start, this);
 };
 
 // f = Function(callback, err, exit_code, misc)
@@ -125,34 +128,3 @@ default_shutdown.klass = ShutdownAgent;
 
 module.exports = default_shutdown;
 
-
-
-/*
-function add_worker_disconnect_shutdown_callback() {
-	if(!cluster.worker) throw new Error('X [Shutdown] Can\'t disconnect if not a cluster worker !');
-
-	// monitor worker status to avoid disconnecting it twice
-	var isWorkerDisconnected = false;
-	cluster.worker.on('disconnect', function() {
-		//console.log('[shutdown] seen disconnect event')
-		isWorkerDisconnected = true;
-	});
-
-	add_shutdown_step(function disconnect_worker(callback) {
-		if (isWorkerDisconnected) return callback();
-
-		try {
-			// Let close all servers, die and let the master know we're dead.
-			// The master should then will fork a new worker.
-			console.log('* [shutdown] disconnecting cluster worker...');
-			cluster.worker.disconnect();
-			return callback();
-		} catch (err) {
-			// oh well, not much we can do at this point.
-			console.error('X [shutdown] Error while disconnecting the worker !', err, err.stack);
-			return callback(err);
-		}
-	});
-}
-
-*/
