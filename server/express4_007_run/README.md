@@ -43,8 +43,8 @@ heroku
 https://devcenter.heroku.com/categories/nodejs
 https://devcenter.heroku.com/articles/nodejs-support#customizing-the-build-process
 
-60s to bind
-10s to close (SIGTERM then SIGKILL)
+60s to bind https://devcenter.heroku.com/articles/dynos#web-dynos
+10s to close (SIGTERM then SIGKILL) https://devcenter.heroku.com/articles/dynos#graceful-shutdown-with-sigterm
 use foreman
 set a few headers
 

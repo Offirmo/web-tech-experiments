@@ -14,7 +14,8 @@ var cluster = require('cluster');
 var DEFAULT_CONFIG = {
 	default_exit_code:       0, //< = no error
 	default_error_exit_code: 1, //< used on error, unless hinted otherwise
-	shutdown_timeout_ms:     10 * 1000, //< max time to shutdown before immediate (violent) kill
+	shutdown_timeout_ms:     9 * 1000, //< max time to shutdown before immediate (violent) kill
+	                                    // 10s = heroku
 };
 
 
@@ -34,6 +35,7 @@ var ShutdownAgent = function ShutdownAgent(options) {
 		'process.disconnect': false, // so far
 	};
 	var this_ = this;
+	// seen before or after ordered shutdown ?
 	process.once('exit', function() {
 		this_.seen_events['process.exit'] = true;
 	});
@@ -81,6 +83,14 @@ ShutdownAgent.prototype.start = function(err, exit_code, misc) {
 	if(!misc) misc = {};
 	if(!exit_code) exit_code = this.compute_exit_code(err, misc);
 
+	// setup a timeout
+	console.log('* [shutdown] setting a ' + this.config.shutdown_timeout_ms + 'ms security timeout...');
+	var this_ = this;
+	setTimeout(function() {
+		console.log('* [shutdown] security timeout expired : forced exit.');
+		this_.exit(err, exit_code, misc);
+	}, this.config.shutdown_timeout_ms);
+
 	this.execute_steps(err, exit_code, misc);
 };
 
@@ -100,7 +110,7 @@ ShutdownAgent.prototype.execute_steps = function(err, exit_code, misc) {
 				console.log('X [shutdown] a shutdown step signaled problems !', err, results);
 			else
 				console.log('* [shutdown] all shutdown steps finished successfully :', results);
-			this_.exit(err, exit_code, misc);
+			//this_.exit(err, exit_code, misc);
 		});
 	});
 

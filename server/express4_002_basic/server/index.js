@@ -29,6 +29,32 @@ console.log('config :', config);
 // cf. http://expressjs.com/4x/api.html#app.listen
 var server = require('http').createServer(app);
 
+server.on('request', function(request, response) {
+	console.log('* seen server.request');
+	response.once('finish', function() {
+		console.log('* seen response.finish');
+	});
+	response.once('close', function() {
+		console.log('* seen response.close');
+	});
+});
+server.on('close', function() {
+	console.log('* seen server.close');
+});
+
+// shutdown our server at exit
+var cluster = require('cluster');
+shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
+	if(cluster.worker)
+		return callback(undefined, '[Shutdown step : close server] OK : have a cluster master'); // not applicable
+
+	console.log('shutting down server...', err);
+	server.close(function() {
+		return callback(undefined, '[Shutdown step : close server] OK : server has closed.');
+	});
+	//return callback(undefined, 'OK : cluster master signaled of our problems');
+});
+
 
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
@@ -50,12 +76,13 @@ app.use(middleware.using_domains({
 	server: server,
 	killTimeout: config.kill_timeout_s * 1000,
 	onError: function onErrorDefault(req, res, next, err, options) {
-		// Must let current connection close.
-		res.setHeader('Connection', 'close');
-		next(err);
-
+		console.log('using_domains onError');
 		// trigger shutdown
 		shutdown.start(err);
+
+		// let current connection close.
+		res.setHeader('Connection', 'close');
+		next(err);
 	}
 }));
 

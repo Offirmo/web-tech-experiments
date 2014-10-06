@@ -17,7 +17,7 @@ base : (important client experience)
 - [x] nice 404 for pages, normal 404 for assets
 - [x] nice server runtime error (caught exceptions)
 - [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
-- [ ] should close OTHER pending requests on uncaught
+- [ ] should close OTHER pending requests on uncaught (or wait ?)
 - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
 - [x] favicon
 - [x] basic logging
@@ -117,7 +117,7 @@ http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sen
 http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
 http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
 http://blog.risingstack.com/node-js-security-tips/
-
+https://github.com/neoziro/express-err
 
 
 http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/

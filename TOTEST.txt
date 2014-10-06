@@ -57,6 +57,12 @@ http://airbnb.github.io/infinity/
 https://yannick.cr/posts/enforcing-coding-rules-in-your-team-with-jscs/post
 http://code.kojilabs.com/page-visibility-api/
 http://make-dev.tumblr.com/post/30013908789/time-to-remove-jquery
+http://tristanedwards.me/sweetalert
+AUTH https://github.com/sahat/satellizer
+-- client / no framework ?
+http://bitworking.org/news/2014/05/zero_framework_manifesto
+http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
+https://github.com/systemjs/systemjs
 
 
 -- famo.us
@@ -79,6 +85,7 @@ https://github.com/louischatriot/nedb
 https://github.com/ask11/storage
 https://github.com/dreyacosta/somewhere.js
 https://github.com/arvindr21/diskDB
+http://wamalaka.com/locallydb
 
 https://www.npmjs.org/package/bcrypt
 
@@ -156,6 +163,7 @@ http://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-n
 http://angularplasmid.vixis.com/index.php
 http://square.github.io/crossfilter/
 http://dailyjs.com/2014/07/17/cash/ replace jq
+http://lincolnloop.com/blog/introducing-amygdala-javascript-rest-client/
 
 -- logging --
 http://blog.nodejs.org/2012/03/28/service-logging-in-json-with-bunyan/
