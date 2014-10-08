@@ -4,7 +4,6 @@ http://codecondo.com/state-of-node-js/
 
 
 --to read
-http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
 http://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/
 http://googlecloudplatform.blogspot.fr/2014/08/click-to-deploy-mean-development-stack-on-google-compute-engine.html
 http://www.binpress.com/tutorial/create-a-mobile-rpg-for-beginners/1
@@ -25,6 +24,8 @@ http://boba.space150.com/
 https://github.com/revolunet/angular-google-analytics
 
 
+http://jekyllrb.com/
+
 okay https://github.com/brianc/node-okay
 
 https://developers.google.com/web/starter-kit/
@@ -38,35 +39,7 @@ http://npmawesome.com/posts/2014-08-11-verror/
 -- config
 https://github.com/HenrikJoreteg/getconfig/blob/master/getconfig.js
 
--- client
-http://myclabs.github.io/jquery.confirm/
-http://bankfacil.github.io/vanilla-masker/
-http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
-https://github.com/eloone/symbol-typer
-http://font-to-width.com/
-http://fittextjs.com/
-http://hammerjs.github.io/touch-emulator/
-https://github.com/revolunet/angular-carousel
-http://weblinc.github.io/jquery.smoothState.js/demos/typical/about.html
-http://www.google.com/design/spec/style/color.html#
-https://github.com/marmelab/ng-admin
-https://github.com/nebulade/supererror
-http://putaindecode.fr/posts/js/introduction-a-reactjs/
-http://www.sitepoint.com/introducing-screen-orientation-api/
-http://airbnb.github.io/infinity/
-https://yannick.cr/posts/enforcing-coding-rules-in-your-team-with-jscs/post
-http://code.kojilabs.com/page-visibility-api/
-http://make-dev.tumblr.com/post/30013908789/time-to-remove-jquery
-http://tristanedwards.me/sweetalert
-AUTH https://github.com/sahat/satellizer
--- client / no framework ?
-http://bitworking.org/news/2014/05/zero_framework_manifesto
-http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
-https://github.com/systemjs/systemjs
 
-
--- famo.us
-https://github.com/IjzerenHein/famous-kenburnscontainer
 
 -- github
 https://gitter.im chat relié à github
@@ -79,13 +52,6 @@ https://github.com/substack/comandante
 https://datahero.com/blog/2014/05/22/node-js-preserving-data-across-async-callbacks/
 http://nodejs.org/api/stdio.html
 
--- storage
-- JSON database
-https://github.com/louischatriot/nedb
-https://github.com/ask11/storage
-https://github.com/dreyacosta/somewhere.js
-https://github.com/arvindr21/diskDB
-http://wamalaka.com/locallydb
 
 https://www.npmjs.org/package/bcrypt
 
@@ -96,7 +62,6 @@ https://github.com/asyncly/EventEmitter2
 https://github.com/primus/primus
 https://github.com/primus/fortress-maximus
 
-https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 http://www.pintjs.com/ wrapper around grunt
 
 https://github.com/sahat/hackathon-starter
@@ -108,6 +73,7 @@ https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
 
 https://github.com/lemonde/get-set
+https://github.com/mariocasciaro/object-path
 
 bons modules https://github.com/spumko
 
@@ -127,21 +93,6 @@ https://github.com/thlorenz/ansicolors
 - log gratuit en ligne ? Moyen de faire qq chose ?
 https://data.sparkfun.com/
 
--- AngularJS --
-https://github.com/begriffs/angular-paginate-anything
-http://mgcrea.github.io/angular-strap/
-https://github.com/sparkalow/angular-truncate
-https://github.com/mgonto/restangular
-vidéos
-http://www.jsdb.io/view/mediaelement
-http://ng-video.herokuapp.com/
-http://www.jsdb.io/view/device-js
-http://tylerhenkel.com/angular-fullstack-2-0-released/
-http://eranhirs.github.io/jsTag/
-
-- cartes
-http://developers.route360.net/
-
 -- i18n --
 https://github.com/yoshuawuyts/newspeak
 
@@ -152,7 +103,7 @@ http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express
 https://github.com/mikaa123/catnap
 http://avoidwork.github.io/tenso/?utm_source=nodeweekly&utm_medium=email
 
---- client
+--- client REST
 client http://node-modules.com/search?q=rest+client
 https://github.com/mgonto/restangular  <-- for angular
 https://github.com/ttezel/unio    <-- node
@@ -165,21 +116,23 @@ http://square.github.io/crossfilter/
 http://dailyjs.com/2014/07/17/cash/ replace jq
 http://lincolnloop.com/blog/introducing-amygdala-javascript-rest-client/
 
+
 -- logging --
 http://blog.nodejs.org/2012/03/28/service-logging-in-json-with-bunyan/
 https://medium.com/@garychambers108/b3cc6fd0dafd
 
--- famo.us --
-http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
 
 -- procédures --
 https://github.com/geddski/grunt-release
 https://github.com/ajoslin/conventional-changelog
 
+
 -- outils --
 http://eslint.org/docs/rules/valid-jsdoc.html
 http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&utm_medium=email
 https://github.com/gerhard/deliver
+http://www.lorem-accents.com/
+
 
 -- debug --
 https://github.com/hansineffect/Dogerr
@@ -188,6 +141,7 @@ npm debug
 http://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-function-in-node-js
 http://stackoverflow.com/questions/16697791/nodejs-get-filename-of-caller-function
 https://github.com/equiet/recognizer à intégrer !
+
 
 -- npm --
 http://mixu.net/npm_lazy/

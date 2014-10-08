@@ -22,7 +22,7 @@ module.exports = shutdown;
 
 // just log the shutdown params
 shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
-	console.log('* shutdown parameters :', err, exit_code, misc ? '{...}' : undefined);
+	console.log('* [shutdown log step] shutdown parameters :', err, exit_code, misc ? '{...}' : undefined);
 	return callback(undefined, 'OK : logged.');
 });
 
@@ -44,7 +44,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 
 // send an email to admins
 shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
-	console.log('* sending email...');
+	console.log('* [shutdown mail step] sending email...');
 	setTimeout(function() {
 		return callback(undefined, 'OK : email to admin sent. (simulated)');
 	}, 300);
@@ -52,7 +52,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 
 // do whatever other needed stuff
 shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
-	console.log('* forwarding websockets...');
+	console.log('* [shutdown test step] forwarding websockets...');
 	setTimeout(function() {
 		return callback(undefined, 'OK : websockets forwarded. (simulated)');
 	}, 100);

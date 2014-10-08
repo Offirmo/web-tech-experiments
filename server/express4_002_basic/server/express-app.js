@@ -28,8 +28,8 @@ app.enable('case sensitive routing'); // default false
 app.disable('x-powered-by'); // default true
 
 // REM : app.locals includes settings
-var prettyjson = require('prettyjson');
-console.log('app.locals :\n', prettyjson.render(app.locals));
+//var prettyjson = require('prettyjson');
+//console.log('app.locals :\n', prettyjson.render(app.locals));
 
 // to review : for running behind nginx or equiv.
 //app.enable('trust proxy');

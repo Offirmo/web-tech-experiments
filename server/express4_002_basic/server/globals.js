@@ -39,6 +39,7 @@ require('../../../incubator/node/pretty_signals').install_verbose_handlers();
 
 // make console calls display their originating pid
 require('../../../incubator/node/assuming_console').install();
+console.log('Hello world from web server !');
 
 // activate long stack traces
 require('trace');

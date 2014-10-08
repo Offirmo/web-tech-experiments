@@ -6,7 +6,6 @@
 
 
 /************************************************************************/
-console.log('Hello world from web server !');
 
 require('./globals');
 
@@ -20,7 +19,7 @@ var utils = require('./utils');
 var shutdown = require('./shutdown');
 
 var config = require('./config');
-console.log('config :', config);
+console.log('[web server] config =', config);
 
 
 /************************************************************************/
@@ -46,11 +45,11 @@ server.on('close', function() {
 var cluster = require('cluster');
 shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 	if(cluster.worker)
-		return callback(undefined, '[Shutdown step : close server] OK : have a cluster master'); // not applicable
+		return callback(undefined, '[Shutdown step : close http server] OK : have a cluster master'); // not applicable
 
-	console.log('shutting down server...', err);
+	console.log('* [shutdown server step] shutting down http server...', err);
 	server.close(function() {
-		return callback(undefined, '[Shutdown step : close server] OK : server has closed.');
+		return callback(undefined, '[Shutdown step : close http server] OK : server has closed.');
 	});
 	//return callback(undefined, 'OK : cluster master signaled of our problems');
 });

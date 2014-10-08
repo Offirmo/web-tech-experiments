@@ -17,7 +17,7 @@ base : (important client experience)
 - [x] nice 404 for pages, normal 404 for assets
 - [x] nice server runtime error (caught exceptions)
 - [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
-- [ ] should close OTHER pending requests on uncaught (or wait ?)
+- [ ] should close OTHER pending requests on uncaught (or not ? or wait ?)
 - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
 - [x] favicon
 - [x] basic logging
@@ -26,7 +26,7 @@ base : (important client experience)
 advanced :
 - [ ] localization +++ "speak style" (alternative localizations for the same language)
 - [ ] safari / mobile icons
-- [ ] facebook preview
+- [ ] facebook preview / graph
 - [ ] utility pages http://www.simpleentrepreneur.com/2007/07/10/les-pages-a-ne-pas-oublier-lorsquon-cree-un-site/
 - [ ] request / domain uuid for easier logging / tracing https://github.com/appsattic/connect-uuid
 - [ ] test routes (ping, errors...)
