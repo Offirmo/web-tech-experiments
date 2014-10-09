@@ -83,13 +83,16 @@ ShutdownAgent.prototype.start = function(err, exit_code, misc) {
 	if(!misc) misc = {};
 	if(!exit_code) exit_code = this.compute_exit_code(err, misc);
 
-	// setup a timeout
+	// setup a security kill timeout
 	console.log('* [shutdown] setting a ' + this.config.shutdown_timeout_ms + 'ms security timeout...');
 	var this_ = this;
-	setTimeout(function() {
+	var kill_timeout = setTimeout(function() {
 		console.log('* [shutdown] security timeout expired : forced exit.');
 		this_.exit(err, exit_code, misc);
 	}, this.config.shutdown_timeout_ms);
+
+	// don't keep the process open just for the killer timeout.
+	kill_timeout.unref();
 
 	this.execute_steps(err, exit_code, misc);
 };

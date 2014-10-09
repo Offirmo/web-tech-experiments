@@ -15,7 +15,6 @@ var path = require('path');
 var middleware = require('./middlewares');
 var app = require('./express-app');
 var utils = require('./utils');
-//var logger = require('../../logger')();
 var shutdown = require('./shutdown');
 
 var config = require('./config');
