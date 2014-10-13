@@ -75,9 +75,12 @@ http://runnable.com/express
 
 TODO
 relire entièrement Reference http://expressjs.com/4x/api.html
+https://github.com/strongloop/express/wiki/New-features-in-4.x
 
 à relire pour valider : https://github.com/ClintH/kattegat
 
+
+-- important, with list of unbundled MW :
 http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
 
 TOTEST

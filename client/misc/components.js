@@ -9,7 +9,7 @@ requirejs.config({
 	// base URL from which component files will be searched
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
 	// NOTE 2 : relative baseUrl base refers to *the calling html* !
-	baseUrl: '..',
+	baseUrl: (self ? self.requirejs_baseurl : undefined) || '..',
 
 	// http://requirejs.org/docs/api.html#config-enforceDefine
 	enforceDefine: false,
@@ -263,12 +263,14 @@ requirejs.config({
 
 console.log('require js config done.');
 
-// Start the main app logic.
+if(typeof window !== "undefined") { // not available in a web worker for ex.
+	// Start the main app logic.
 
-// not optimal to wait for the full DOM but good for sharing this file amongst sandbox files
-console.log('Waiting for DOM before starting app...');
-requirejs(['domReady!'],
-function() {
-	console.log('DOM ready : starting application logic...');
-	window.main();
-});
+	// not optimal to wait for the full DOM but good for sharing this file amongst sandbox files
+	console.log('Waiting for DOM before starting app...');
+	requirejs(['domReady!'],
+	function () {
+		console.log('DOM ready : starting application logic...');
+		window.main();
+	});
+}

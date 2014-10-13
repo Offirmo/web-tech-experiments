@@ -1,6 +1,6 @@
 -- to read
 http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
-
+https://developers.google.com/web/fundamentals/performance/
 
 -- to test
 http://myclabs.github.io/jquery.confirm/
@@ -28,6 +28,7 @@ http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
 https://github.com/systemjs/systemjs
 
+https://github.com/jtblin/angular-chart.js
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer
@@ -58,7 +59,7 @@ https://github.com/ask11/storage
 https://github.com/dreyacosta/somewhere.js
 https://github.com/arvindr21/diskDB
 http://wamalaka.com/locallydb
-
+https://github.com/zendesk/cross-storage
 
 optim chargement https://github.com/typicode/pegasus
 
