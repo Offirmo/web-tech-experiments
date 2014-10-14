@@ -25,6 +25,8 @@ module.exports = {
 	// https://github.com/expressjs/serve-static
 	serving_static_files: require('express').static,
 
+	// https://github.com/expressjs/serve-index
+	serving_directory_listing: require('serve-index'),
 
 	// adds a X-Response-Time header to responses.
 	// https://github.com/expressjs/response-time

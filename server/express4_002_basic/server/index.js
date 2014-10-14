@@ -99,6 +99,9 @@ app.use(middleware.serving_favicon('../../client/favicon.ico'));
 app.use(middleware.serving_static_files(path.join(__dirname, '../client')));
 app.use(middleware.serving_static_files(path.join(__dirname, '../../../client')));
 
+// TOREVIEW
+//app.use('/ht', middleware.serving_directory_listing('../../client', {'icons': true}));
+
 // now that we've passed static data which may be CDN'd or served by a reverse proxy,
 // add the X-Response-Time header to our responses
 app.use(middleware.adding_XResponseTime_header());

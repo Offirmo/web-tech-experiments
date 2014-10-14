@@ -11,12 +11,6 @@ https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript
 http://www.truevalhalla.com/blog/ebook/
 http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
 
--- useful SASS
-http://ifconfig.me/
-http://whatismyip.akamai.com/
-http://www.jaimelesstartups.fr/lemon-way/
-https://rollbar.com/
-
 ** google analytics
 https://github.com/toddmotto/flare
 http://davidwalsh.name/track-errors-google-analytics
