@@ -19,7 +19,7 @@
 		"famous-angular":           "latest",
 		"generic_store.js":         "latest",
 		"html5shiv":                "latest",
-		"javascript-state-machine": "latest",
+		"javascript-state-machine": "Offirmo/javascript-state-machine#52d9e2599cd77540172eb42d8ea4719ece526af4",
 		"jpanelmenu":               "latest",
 		"jquery":                   "latest",
 		"jquery.svg":               "latest",

@@ -157,10 +157,10 @@ requirejs.config({
 				'css!other_components/fullpage/jquery.fullPage'
 			]
 		},
-		'javascript-state-machine' : {
+		/*'javascript-state-machine' : {
 			// no deps
 			exports: 'StateMachine'
-		},
+		},*/
 		'jpanelmenu' : {
 			deps: [
 				'jquery'
