@@ -6,7 +6,7 @@ http://whatismyip.akamai.com/
 http://www.jaimelesstartups.fr/lemon-way/
 https://rollbar.com/
 https://github.com/sindresorhus/is-up
+https://github.com/sindresorhus/public-ip
 http://pusher.com/
-
 https://www.olark.com
 

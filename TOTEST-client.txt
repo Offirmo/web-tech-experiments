@@ -1,3 +1,7 @@
+
+-- Thèmes dynamiques !
+http://scotch.io/tutorials/javascript/use-angularjs-and-nghref-to-grab-css-dynamically
+
 -- to read
 http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
 https://developers.google.com/web/fundamentals/performance/

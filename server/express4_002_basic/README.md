@@ -129,3 +129,6 @@ http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet
 http://thejackalofjavascript.com/architecting-a-restful-node-js-app/
 
 http://offirmo.net/wiki/index.php?title=Check-list_d%27un_site_web
+
+http://scottksmith.com/blog/2014/10/05/twitatron-building-a-production-web-app-with-node/
+
