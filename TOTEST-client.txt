@@ -38,6 +38,7 @@ https://github.com/jtblin/angular-chart.js
 https://github.com/IjzerenHein/famous-kenburnscontainer
 http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
 
+templating http://mozilla.github.io/nunjucks/
 
 -- AngularJS --
 https://github.com/begriffs/angular-paginate-anything
@@ -71,3 +72,4 @@ optim chargement https://github.com/typicode/pegasus
 -- misc
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 https://golden-layout.com/
+http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
