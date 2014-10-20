@@ -1,19 +1,31 @@
 
-//self.requirejs_baseurl = 'http://172.30.2.160:3000/';
-self.requirejs_baseurl = 'http://192.168.56.100:3000/';
+self.requirejs_baseurl = '';
 
-// https://developer.mozilla.org/en-US/docs/Web/API/WorkerLocation
-console.log('hello from webworker ! starting from : ' + self.location);
-
-// https://developer.mozilla.org/en-US/docs/Web/API/WorkerNavigator
-console.log('hello from webworker ! with : ' + JSON.stringify(self.navigator));
-
-//console.log('DaF with console ?', 'show me !');
-
-// this one will be replaced later
-self.onmessage = function(e) {
-	console.log('worker : seen message from parent while I was initializing: ', e.data); //, JSON.stringify(e));
+var debug_infos = {
+	// https://developer.mozilla.org/en-US/docs/Web/API/WorkerLocation
+	location: self.location,
+	// https://developer.mozilla.org/en-US/docs/Web/API/WorkerNavigator
+	navigator: self.navigator
 };
+
+var worker_inbox = [];
+self.onmessage = function(e) {
+	worker_inbox.push(e);
+	console.log('worker : seen message from parent :', e);
+};
+
+
+function log_obj(s, o) {
+	self.postMessage({
+		verb: 'POST',
+		url: '/debug',
+		data: {
+			message: s,
+			object: o
+		}
+	});
+}
+log_obj('debug_infos', debug_infos);
 
 self.onerror = function(e) {
 	console.log('worker : seen "error" message', arguments);

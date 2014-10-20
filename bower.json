@@ -23,6 +23,7 @@
 		"jpanelmenu":               "latest",
 		"jquery":                   "latest",
 		"jquery.svg":               "latest",
+		"json-stringify-safe":      "latest",
 		"json2":                    "latest",
 		"jsoneditor":               "latest",
 		"isotope":                  "latest",

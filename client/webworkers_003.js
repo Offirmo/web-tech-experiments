@@ -1,6 +1,5 @@
 
-//self.requirejs_baseurl = 'http://172.30.2.160:3000/';
-self.requirejs_baseurl = 'http://192.168.56.100:3000/';
+self.requirejs_baseurl = '';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/WorkerLocation
 console.log('hello from webworker ! starting from : ' + self.location);

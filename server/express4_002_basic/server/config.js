@@ -12,9 +12,9 @@ var defaults = {
 	supported_locales: [ 'en', 'fr' ],
 };
 
-var dynamic = {
+var from_env = {
 	env: process.env.NODE_ENV,
 	listening_port: process.env.PORT,
 };
 
-module.exports = _.merge({}, defaults, dynamic);
+module.exports = _.merge({}, defaults, from_env);

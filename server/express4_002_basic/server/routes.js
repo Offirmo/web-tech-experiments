@@ -25,6 +25,10 @@ router.get('/ror', function (req, res) {
 	res.render('ror/replicator', { tpl: 'ror/replicator', title: 'Rise of the replicators', lang: req.locale });
 });
 
+router.get('/r', function (req, res) {
+	res.render('ror/r', { tpl: 'ror/r', title: 'Test', lang: req.locale });
+});
+
 router.get('/runtime_error', function (req, res) {
 	// bad
 	res.send(500, 'something blew up ! (handled from the middleware, error handlers not used)');

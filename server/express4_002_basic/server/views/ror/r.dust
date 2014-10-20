@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="{lang}" xmlns:ng="http://angularjs.org" ng-controller="LandingCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>{title}</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- ... -->
+
+	<!-- style -->
+	<link href="bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+	<style>
+		/*...*/
+	</style>
+
+
+	<!-- js -->
+	<!-- live reload script -->{LRScript|s}
+	<script src="bower_components/pace/pace.min.js"></script>
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<div id="content">
+
+<h4><a ui-sref="landing">Test R</a></h4>
+
+
+</div>
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log('hello from body !');
+
+	window.main = function()
+	{
+		console.log('Starting main...');
+		requirejs(
+		[
+			'angular',
+			'angular-ui-router',
+			'angular-bootstrap'
+		],
+		function() {
+			var app = angular.module('App', ['ui.bootstrap']);
+
+			app.controller('LandingCtrl', function($scope, $document) {
+				$scope.lang = $document[0].documentElement.lang;
+				console.log($document[0].documentElement.lang);
+			});
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			// cf.
+			console.log('Bootstrapping angular...');
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+		});
+
+		var worker = new Worker('ror_worker.js');
+
+		// immediately start listening to worker
+		var worker_ready = false;
+		function send_to_worker(m) {
+			worker.postMessage(m);
+			console.log("Msg sent to worker : " + m);
+		}
+		worker.onerror = function(e) {
+			// Log the error message, including worker filename and line number
+			console.log("Error at " + e.filename + ":" + e.lineno + ": " + e.message, e);
+		};
+		worker.onmessage = function(e) {
+			console.log("Msg received from worker : " + e.data);
+			if(! worker_ready) {
+				worker_ready = true;
+				send_to_worker('Hello from page ! (This time worker will get it)');
+				send_to_worker('Hello from page, again !');
+			}
+		};
+		// too early, worker will likely not get it
+		send_to_worker('Hello from page ! BUT WORKER WONT GET IT');
+	};
+</script>
+
+</body>
+</html>
