@@ -46,6 +46,7 @@ requirejs.config({
 		'jquery'              : 'bower_components/jquery/jquery',
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
+		'webworker_helper'    : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
 		// shim plugins
 		'accounting'          : 'bower_components/accounting/accounting',
 		'angular'             : 'bower_components/angular/angular',

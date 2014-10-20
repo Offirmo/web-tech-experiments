@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">Angular test fallback title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+
+	<!-- style -->
+	<style>
+		/* ... */
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+
+</head>
+<body>
+
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+
+		<div id="log"></div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'angular',
+			'bootstrap3'
+		],
+		function() {
+			var app = angular.module('App', []);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "WW 004";
+				$scope.snippet = "Testing an advanced webworker using require.js to load libs. Stuff is sent to the console.";
+				$scope.scoped_angular = angular;
+			}]);
+
+			function log(msg) {
+				// Use a fragment: browser will only render/reflow once.
+				var fragment = document.createDocumentFragment();
+				fragment.appendChild(document.createTextNode(msg));
+				fragment.appendChild(document.createElement('br'));
+
+				document.querySelector("#log").appendChild(fragment);
+			}
+
+			var worker = new Worker('webworkers_004.js');
+			// immediately start listening to worker
+			var worker_ready = false;
+			function send_to_worker(m) {
+				worker.postMessage(m);
+				log("Msg sent to worker : " + m);
+			}
+			worker.onerror = function(e) {
+				// Log the error message, including worker filename and line number
+				console.log("Error at " + e.filename + ":" + e.lineno + ": " + e.message, e);
+			};
+			worker.onmessage = function(e) {
+				log("Msg received from worker : " + e.data);
+				if(! worker_ready) {
+					worker_ready = true;
+					send_to_worker('Hello from page !');
+				}
+			};
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

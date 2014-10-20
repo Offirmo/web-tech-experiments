@@ -1,13 +1,18 @@
 'use strict';
 
 
-
+var path = require('path');
 var express = require('express');
 var router = express.Router();
+var utils = require('./utils');
 
 
 module.exports = router;
 
+/*
+router.get('/incubator/node_and_common/webworker_helper.js', function (req, res) {
+	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
+});*/
 
 router.get('/', function (req, res) {
 	res.render('index', { tpl: 'index', title: 'Express', lang: req.locale });

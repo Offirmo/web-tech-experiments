@@ -31,14 +31,14 @@ process.on('uncaughtException', function(err) {
 });
 
 // trace received signals
-require('../../../incubator/node/pretty_signals').install_verbose_handlers();
+require('../../../incubator/node_and_common/pretty_signals').install_verbose_handlers();
 
 
 
 ///////////////////// Activate features /////////////////////
 
 // make console calls display their originating pid
-require('../../../incubator/node/assuming_console').install();
+require('../../../incubator/node_and_common/assuming_console').install();
 console.log('Hello world from web server !');
 
 // activate long stack traces

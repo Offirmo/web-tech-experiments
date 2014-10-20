@@ -5,7 +5,7 @@
 var cluster = require('cluster');
 var _ = require('lodash');
 var shutdown = require('../../--mini_incubator/shutdown');
-var pretty_signals = require('../../../incubator/node/pretty_signals');
+var pretty_signals = require('../../../incubator/node_and_common/pretty_signals');
 var forky = require('forky');
 
 

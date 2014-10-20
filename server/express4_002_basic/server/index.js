@@ -98,6 +98,8 @@ app.use(middleware.serving_favicon('../../client/favicon.ico'));
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
 app.use(middleware.serving_static_files(path.join(__dirname, '../client')));
 app.use(middleware.serving_static_files(path.join(__dirname, '../../../client')));
+app.use('/incubator',
+	middleware.serving_static_files(path.join(__dirname, '../../../incubator')));
 
 // TOREVIEW
 //app.use('/ht', middleware.serving_directory_listing('../../client', {'icons': true}));

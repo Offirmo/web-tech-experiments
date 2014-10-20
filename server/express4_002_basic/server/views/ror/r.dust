@@ -50,11 +50,13 @@
 		console.log('Starting main...');
 		requirejs(
 		[
+			'webworker_helper',
 			'angular',
 			'angular-ui-router',
 			'angular-bootstrap'
 		],
-		function() {
+		function(WebworkerHelper) {
+
 			var app = angular.module('App', ['ui.bootstrap']);
 
 			app.controller('LandingCtrl', function($scope, $document) {
@@ -84,15 +86,22 @@
 			console.log("Error at " + e.filename + ":" + e.lineno + ": " + e.message, e);
 		};
 		worker.onmessage = function(e) {
-			console.log("Msg received from worker : " + e.data);
+			//console.log("Msg received from worker : ", e.data);
+			if(e.data.url === '/log') {
+				var args = e.data.data;
+				if(_.isString(args[0]))
+					args[0] = '[log from worker] ' + args[0];
+				else
+					args.unshift('[log from worker]');
+				console.log.apply(console, args);
+				return;
+			}
+			console.error("Unknown msg received from worker : ", e.data);
 			if(! worker_ready) {
 				worker_ready = true;
-				send_to_worker('Hello from page ! (This time worker will get it)');
-				send_to_worker('Hello from page, again !');
+				send_to_worker('Hello from page !');
 			}
 		};
-		// too early, worker will likely not get it
-		send_to_worker('Hello from page ! BUT WORKER WONT GET IT');
 	};
 </script>
 
