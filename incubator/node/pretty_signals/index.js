@@ -124,7 +124,7 @@ function install_verbose_handlers(log_signal_fn) {
 		if(signal_description.handler_forbidden) return; // can't install any handler for this one
 
 		(function(signal) {
-			process.on(signal.name, function() {
+			process.once(signal.name, function() {
 				log_signal_fn(signal);
 				execute_signal_action(signal);
 			});

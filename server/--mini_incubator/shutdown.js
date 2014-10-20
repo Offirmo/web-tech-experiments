@@ -25,7 +25,8 @@ var ShutdownAgent = function ShutdownAgent(options) {
 	this.shutdown_steps = [];
 	this.exit = function(err, exit_code, misc) {
 		console.log('* [shutdown] exiting with code : ' + exit_code + '...');
-		process.exit(exit_code);
+		//process.exit(exit_code);
+		process.kill(process.pid, 'SIGUSR2');
 	};
 
 	// immediately starts watching some important events

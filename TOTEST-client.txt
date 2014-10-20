@@ -73,3 +73,4 @@ optim chargement https://github.com/typicode/pegasus
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 https://golden-layout.com/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
+http://jackf.net/bezier-clock/

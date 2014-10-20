@@ -35,13 +35,37 @@
 <body>
 
 <div id="content">
-<div class="container">
 
-<h3><a ui-sref="landing">Rise of the replicators</a></h3>
-<p>
-	Coming soon !
-</p>
+<h1><a ui-sref="landing">Rise of the replicators</a></h1>
+
+<div id="stats">
+	<h2>Stats</h2>
+	<p>
+		Coming soon !
+	</p>
 </div>
+
+<div id="commands">
+	<h2>Actions</h2>
+	<p>
+		Coming soon !
+	</p>
+</div>
+
+<div id="tech">
+	<h2>Knowledge</h2>
+	<p>
+		Coming soon !
+	</p>
+</div>
+
+<div id="console">
+	<h2>Events</h2>
+	<p>
+		Coming soon !
+	</p>
+</div>
+
 </div>
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
@@ -73,6 +97,29 @@
 				angular.bootstrap(document, ['App']);
 			});
 		});
+
+		var worker = new Worker('ror_worker.js');
+
+		// immediately start listening to worker
+		var worker_ready = false;
+		function send_to_worker(m) {
+			worker.postMessage(m);
+			console.log("Msg sent to worker : " + m);
+		}
+		worker.onerror = function(e) {
+			// Log the error message, including worker filename and line number
+			console.log("Error at " + e.filename + ":" + e.lineno + ": " + e.message, e);
+		};
+		worker.onmessage = function(e) {
+			console.log("Msg received from worker : " + e.data);
+			if(! worker_ready) {
+				worker_ready = true;
+				send_to_worker('Hello from page ! (This time worker will get it)');
+				send_to_worker('Hello from page, again !');
+			}
+		};
+		// too early, worker will likely not get it
+		send_to_worker('Hello from page ! BUT WORKER WONT GET IT');
 	};
 </script>
 

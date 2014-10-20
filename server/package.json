@@ -34,6 +34,7 @@
 		"hapi":                    "latest",
 		"he":                      "latest",
 		"iconv-lite":              "latest",
+		"javascript-state-machine": "latest",
 		"jschardet":               "latest",
 		"json-stringify-safe":     "latest",
 		"locale":                  "latest",

@@ -21,8 +21,8 @@ router.get('/page2', function (req, res) {
 	res.render('page2', { tpl: 'page2', title: 'Express', lang: req.locale });
 });
 
-router.get('/replicator', function (req, res) {
-	res.render('replicator', { tpl: 'replicator', title: 'Rise of the replicators', lang: req.locale });
+router.get('/ror', function (req, res) {
+	res.render('ror/replicator', { tpl: 'ror/replicator', title: 'Rise of the replicators', lang: req.locale });
 });
 
 router.get('/runtime_error', function (req, res) {
