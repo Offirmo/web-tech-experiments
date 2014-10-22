@@ -12,7 +12,7 @@ function(angular, _, StateMachine, WebworkerHelper, tpl) {
 	console.log('Hello from dir !');
 
 	angular
-	.module('App', [])
+	.module('App')
 	.controller('RoRClientCtrl', [
 		'$scope',
 		'$log',

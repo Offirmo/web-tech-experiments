@@ -62,7 +62,7 @@
 			// cf.
 			console.log("Bootstrapping angular...");
 			angular.element(document).ready(function() {
-				angular.bootstrap(document, ['App']);
+				angular.bootstrap(document, ['App'], {strictDi: true});
 			});
 		});
 	};

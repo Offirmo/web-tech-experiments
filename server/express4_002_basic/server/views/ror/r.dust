@@ -58,6 +58,7 @@
 			'angular-bootstrap'
 		],
 		function(WebworkerHelper, RoRClient) {
+			console.log('main require done.');
 
 			var app = angular.module('App', ['ui.bootstrap']);
 
