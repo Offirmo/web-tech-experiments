@@ -38,6 +38,7 @@
 
 <h4><a ui-sref="landing">Test R</a></h4>
 
+<ror-client></ror-client>
 
 </div>
 
@@ -51,11 +52,12 @@
 		requirejs(
 		[
 			'webworker_helper',
+			'modules/directives/ror_client/ror_client',
 			'angular',
 			'angular-ui-router',
 			'angular-bootstrap'
 		],
-		function(WebworkerHelper) {
+		function(WebworkerHelper, RoRClient) {
 
 			var app = angular.module('App', ['ui.bootstrap']);
 
