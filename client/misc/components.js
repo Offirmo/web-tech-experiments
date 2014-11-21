@@ -2,7 +2,7 @@
  */
 'use strict';
 
-console.log('starting require js config...');
+console.log('Starting require js config…');
 
 requirejs.config({
 
@@ -86,7 +86,7 @@ requirejs.config({
 		'spin'                : 'bower_components/spin.js/spin',
 		'store'               : 'bower_components/store.js/store',
 		'type-check'          : 'other_components/type-check/browser/type-check',
-		//'underscore'          : 'bower_components/underscore/underscore', // TODO replace with lazy.js or LO dash ?
+		//'underscore'  -> replaced by lodash, see above
 		'when'                : 'bower_components/when/when'
 	},
 
@@ -98,7 +98,7 @@ requirejs.config({
 			exports: 'accounting'
 		},
 		'angular': {
-			deps: [ 'jquery' ], // Note : angular needs jQuery for some features
+			deps: [ 'jquery' ], // angular has its own jQlite, but will use main jQuery if already available
 			exports: 'angular'
 		},
 		'angular-isotope': {
@@ -124,7 +124,7 @@ requirejs.config({
 			deps: [ 'backbone' ]
 		},
 		'bootstrap': {
-			// js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+			// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 			deps: [ 'jquery',
 			        'css!bower_components/bootstrap-css/css/bootstrap' ]
 		},
@@ -158,10 +158,10 @@ requirejs.config({
 				'css!other_components/fullpage/jquery.fullPage'
 			]
 		},
-		/*'javascript-state-machine' : {
+		'javascript-state-machine' : {
 			// no deps
 			exports: 'StateMachine'
-		},*/
+		},
 		'jpanelmenu' : {
 			deps: [
 				'jquery'
@@ -262,16 +262,16 @@ requirejs.config({
 	//deps: ['app']
 });
 
-console.log('require js config done.');
+console.log('require.js config done.');
 
 if(typeof window !== "undefined") { // not available in a web worker for ex.
 	// Start the main app logic.
 
 	// not optimal to wait for the full DOM but good for sharing this file amongst sandbox files
-	console.log('Waiting for DOM before starting app...');
+	console.log('Waiting for DOM before starting app…');
 	requirejs(['domReady!'],
 	function () {
-		console.log('DOM ready : starting application logic...');
+		console.log('DOM ready : starting application logic…');
 		window.main();
 	});
 }

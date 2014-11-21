@@ -142,3 +142,8 @@ https://github.com/equiet/recognizer à intégrer !
 http://mixu.net/npm_lazy/
 npm pkgr
 http://stackoverflow.com/questions/10232192/exec-display-stdout-live
+
+
+-- misc
+http://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents
+https://github.com/M6Web/HttpToStatsd

@@ -32,8 +32,11 @@ AUTH https://github.com/sahat/satellizer
 http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
 https://github.com/systemjs/systemjs
-
+http://angularjs.blogspot.fr/2014/11/using-ngaria.html
 https://github.com/jtblin/angular-chart.js
+
+-- Auth
+http://guardianjs.com/
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer

@@ -28,7 +28,7 @@
 	<!-- live reload script -->{LRScript|s}
 	<script src="bower_components/pace/pace.min.js"></script>
 	<script>
-		console.log("hello from header !");
+		console.log("Hello from header.");
 	</script>
 	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
 </head>
@@ -44,11 +44,11 @@
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 <script>
-	console.log('hello from body !');
+	console.log('Hello from body.');
 
 	window.main = function()
 	{
-		console.log('Starting main...');
+		console.log('Starting page main js...');
 		requirejs(
 		[
 			'webworker_helper',
@@ -60,7 +60,10 @@
 		function(WebworkerHelper, RoRClient) {
 			console.log('main require done.');
 
-			var app = angular.module('App', ['ui.bootstrap']);
+			var app = angular.module('App', [
+				'ui.bootstrap',
+				'ror.client'
+			]);
 
 			app.controller('LandingCtrl', function($scope, $document) {
 				$scope.lang = $document[0].documentElement.lang;

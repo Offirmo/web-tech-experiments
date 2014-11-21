@@ -11,8 +11,7 @@ function(angular, _, StateMachine, WebworkerHelper, tpl) {
 
 	console.log('Hello from dir !');
 
-	angular
-	.module('App')
+	angular.module('ror.client', [])
 	.controller('RoRClientCtrl', [
 		'$scope',
 		'$log',

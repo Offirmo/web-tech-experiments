@@ -3,6 +3,10 @@
  * See also :
  * - https://github.com/Offirmo/domain-middleware
  * - https://github.com/mathrawka/express-graceful-exit
+ *
+ * TOREAD
+ * http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
+ * https://github.com/davepacheco/node-verror
  */
 'use strict';
 
@@ -15,7 +19,7 @@ var DEFAULT_CONFIG = {
 	default_exit_code:       10, //< = no error
 	default_error_exit_code: 1, //< used on error, unless hinted otherwise
 	shutdown_timeout_ms:     9 * 1000, //< max time to shutdown before immediate (violent) kill
-	                                    // 10s = heroku
+	                                   // 10s = heroku
 };
 
 
