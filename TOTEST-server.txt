@@ -30,6 +30,7 @@ https://gcanti.github.io/resources/tcomb-validation/playground/playground.html
 
 -- errors
 http://npmawesome.com/posts/2014-08-11-verror/
+https://github.com/3rd-Eden/diagnostics
 
 -- config
 https://github.com/HenrikJoreteg/getconfig/blob/master/getconfig.js

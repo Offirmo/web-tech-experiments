@@ -1,5 +1,8 @@
 ’
 
+https://www.npmjs.org/package/hyperboot
+
+
 -- Thèmes dynamiques !
 http://scotch.io/tutorials/javascript/use-angularjs-and-nghref-to-grab-css-dynamically
 
@@ -34,6 +37,7 @@ http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and
 https://github.com/systemjs/systemjs
 http://angularjs.blogspot.fr/2014/11/using-ngaria.html
 https://github.com/jtblin/angular-chart.js
+https://github.com/mightyiam/combokeys
 
 -- Auth
 http://guardianjs.com/

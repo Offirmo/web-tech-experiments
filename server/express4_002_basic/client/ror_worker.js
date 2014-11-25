@@ -13,21 +13,13 @@ self.onmessage = function(e) {
 	throw new Error('From worker : I got a message from my parent before I was ready !');
 };
 
-self.onerror = function(e) {
-	console.log('worker : seen "error" message', arguments);
-};
+self.onerror = function(e) {	console.log('worker : seen "error" event', arguments); };
 
-self.ononline = function() {
-	console.log('worker : seen "online" message');
-};
+self.ononline = function() {	console.log('worker : seen "online" event'); };
 
-self.onoffline = function() {
-	console.log('worker : seen "offline" message');
-};
+self.onoffline = function() {	console.log('worker : seen "offline" event'); };
 
-self.onclose = function() {
-	console.log('worker : seen "close" message');
-};
+self.onclose = function() {	console.log('worker : seen "close" event'); };
 
 //importScripts('bower_components/lodash/dist/lodash.js');
 
@@ -52,8 +44,7 @@ function(_, StateMachine, WebworkerHelper) {
 		console.log('from worker, sending to parent :', o, 'cloned as', c);
 		self.postMessage(c);
 	}
-	postMessage('I loaded successfully and I\'m ready.');
-
+	postMessage('I loaded successfully and I’m ready.');
 
 
 	var logger = {
@@ -67,16 +58,33 @@ function(_, StateMachine, WebworkerHelper) {
 	};
 	logger.log('Worker started', debug_infos);
 
-	/*
-	var fsm = StateMachine.create({
-		initial: 'looking_for_save',
+	var sm = StateMachine.create({
+		initial: 'waiting_init',
 		events: [
-			{ name: 'warn',  from: 'green',  to: 'yellow' },
-			{ name: 'panic', from: 'yellow', to: 'red'    },
-			{ name: 'calm',  from: 'red',    to: 'yellow' },
-			{ name: 'clear', from: 'yellow', to: 'green'  }
-		]
-	});*/
+			{ name: 'init_done',         from: 'waiting_init',         to: 'loading_last_backup' },
+
+			{ name: 'no_backup_found',   from: 'loading_last_backup',  to: 'waiting_event' },
+			{ name: 'backup_load_error', from: 'loading_last_backup',  to: 'waiting_event' },
+			{ name: 'backup_loaded',     from: 'loading_last_backup',  to: 'waiting_event' },
+
+			{ name: 'fatal_error',       from: 'yellow', to: 'green'  }
+		],
+		callbacks: {
+			onbeforeevent : function(event, from, to, msg) {
+				console.log('[onbeforeevent] "' + event + '(' + msg + ')" : "' + from + '" -> "' + to + '"');
+			},
+			onleavestate : function(event, from, to, msg) {
+				//console.log('[onleavestate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+			},
+			onenterstate : function(event, from, to, msg) {
+				//console.log('[onenterstate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+			},
+			onafterevent : function(event, from, to, msg) {
+				//console.log('[onafterevent]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+			}
+		}
+	});
+	sm.init_done();
 
 	self.onmessage = function(e) {
 		console.log('worker : seen message from parent : ' + e.data); //, JSON.stringify(e));
