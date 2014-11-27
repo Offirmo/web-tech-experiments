@@ -1,6 +1,13 @@
 ’
 
+BEM methodology http://bem.info/
+
 https://www.npmjs.org/package/hyperboot
+
+http://scotch.io/tutorials/building-interactive-scrolling-websites-with-scrollmagic-js
+
+firebase
+http://scotch.io/tutorials/javascript/build-a-real-time-scheduling-app-using-angularjs-and-firebase
 
 
 -- Thèmes dynamiques !
@@ -47,6 +54,7 @@ https://github.com/IjzerenHein/famous-kenburnscontainer
 http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
 
 templating http://mozilla.github.io/nunjucks/
+http://paperclipjs.com/ can complement AngularJS
 
 -- AngularJS --
 https://github.com/begriffs/angular-paginate-anything
@@ -59,6 +67,8 @@ http://ng-video.herokuapp.com/
 http://www.jsdb.io/view/device-js
 http://tylerhenkel.com/angular-fullstack-2-0-released/
 http://eranhirs.github.io/jsTag/
+https://github.com/akatov/angular-contenteditable
+https://github.com/IcanDivideBy0/angular-reorderable
 
 
 - cartes
