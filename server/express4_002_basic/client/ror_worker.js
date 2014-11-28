@@ -53,6 +53,24 @@ function(_, StateMachine, WebworkerHelper) {
 		tick_period_ms : 500
 	};
 
+	var state = {
+		tick_count: 0
+	};
+
+	var pending_tick = false;
+	var events_to_process = [];
+
+	function schedule_next_tick() {
+		if(pending_tick) throw new Error('Tick reentrency !');
+		setTimeout(function() {
+			if(pending_tick) throw new Error('Tick collision !');
+			pending_tick = true;
+			console.log('tick !');
+			process_events();
+		}, config.tick_period_ms);
+	}
+
+
 	if (in_web_worker)
 		console.log('Hello from worker !', self.location);
 
@@ -61,7 +79,7 @@ function(_, StateMachine, WebworkerHelper) {
 		if(_.isString(o)) {
 			o = {
 				verb: 'POST',
-				url: '/log',
+				url: '/console/log',
 				data: [ o ]
 			};
 		}
@@ -73,8 +91,10 @@ function(_, StateMachine, WebworkerHelper) {
 			//console.log('from worker, sending to parent :', o, 'cloned as', c);
 			self.postMessage(c);
 		}
-		else
-			console.log(o);
+		else {
+			if (WebworkerHelper.process_log_message(o)) return;
+			console.error("Unknown msg sent from worker : ", o);
+		}
 	}
 	postMessage('I loaded successfully and I’m ready.');
 
@@ -82,15 +102,17 @@ function(_, StateMachine, WebworkerHelper) {
 		log: function log() {
 			postMessage({
 				verb: 'POST',
-				url: '/log',
+				url: '/console/log',
 				data: _.values(arguments)
 			});
 		}
 	};
-	logger.log('Worker started', debug_infos);
+
+	if (in_web_worker)
+		logger.log('Worker started', debug_infos);
 
 	// https://github.com/jakesgordon/javascript-state-machine
-	var sm = StateMachine.create({
+	var fsm = StateMachine.create({
 		initial: '_waiting_init',
 		events: [
 			{ name: 'init_done',         from: '_waiting_init',         to: '_loading_last_backup' },
@@ -105,6 +127,8 @@ function(_, StateMachine, WebworkerHelper) {
 			{ name: 'cmd',               from: '_waiting_event',        to: '_processing_cmd' },
 			{ name: 'action',            from: '_waiting_event',        to: '_processing_action' },
 
+			{ name: 'tick_handled',      from: '_processing_tick',      to: '_waiting_event' },
+
 			{ name: 'fatal_error',       from: [
 				'_loading_last_backup',
 				'_starting_up',
@@ -116,11 +140,11 @@ function(_, StateMachine, WebworkerHelper) {
 		],
 		callbacks: {
 			onbeforeevent : function(event, from, to, msg) {
-				logger.log('[onbeforeevent] "' + event + '(' + msg + ')" : "' + from + '" -> "' + to + '"');
+				//logger.log('[onbeforeevent] "' + event + '(' + msg + ')" : "' + from + '" -> "' + to + '"');
 				return true;
 			},
 			onleavestate : function(event, from, to, msg) {
-				logger.log('[onleavestate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+				//logger.log('[onleavestate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
 				return true;
 			},
 			onenterstate : function(event, from, to, msg) {
@@ -128,7 +152,7 @@ function(_, StateMachine, WebworkerHelper) {
 				return true;
 			},
 			onafterevent : function(event, from, to, msg) {
-				logger.log('[onafterevent]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+				//logger.log('[onafterevent]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
 				return true;
 			},
 
@@ -138,18 +162,49 @@ function(_, StateMachine, WebworkerHelper) {
 			},
 
 			on_loading_last_backup : function() {
-				console.log('hello', sm);
-				sm.backup_load_error();
+				fsm.backup_load_error();
+				return true;
+			},
+
+			on_starting_up : function() {
+				// initiate tick
+				schedule_next_tick();
+				fsm.started();
+				return true;
+			},
+
+			on_waiting_event : function() {
+				console.log('now waiting for events...');
+				return StateMachine.ASYNC;
+			},
+
+			on_processing_tick : function() {
+				if(!pending_tick) throw new Error('No tick to process !');
+				state.tick_count++;
+				console.log('processing tick #' + state.tick_count +'...');
+				// TODO
+				console.log('tick processed.');
+				pending_tick = false;
+				// schedule next tick
+				schedule_next_tick();
+				fsm.tick_handled();
 				return true;
 			}
 		}
 	});
-	console.log('sm', sm);
-	sm.init_done();
+	fsm.init_done();
+
+	function process_events() {
+		if(pending_tick)
+			fsm.tick();
+		else if (events_to_process.length)
+			fsm.cmd();
+	}
 
 	self.onmessage = function(e) {
-		console.log('worker : seen message from parent : ' + e.data); //, JSON.stringify(e));
-		self.postMessage('Response from worker ! (to : ' + e.data + ')');
+		console.log('worker : seen message from parent : ', e); //, JSON.stringify(e));
+		//self.postMessage('Response from worker ! (to : ' + e.data + ')');
+		events_to_process.push(e);
 	};
 
 });

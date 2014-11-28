@@ -108,20 +108,14 @@
 			};
 			worker.onmessage = function (e) {
 				//console.log("Msg received from worker : ", e.data);
-				if (e.data.url === '/log') {
-					var args = e.data.data;
-					if (_.isString(args[0]))
-						args[0] = '[log from worker] ' + args[0];
-					else
-						args.unshift('[log from worker]');
-					console.log.apply(console, args);
-					return;
-				}
-				console.error("Unknown msg received from worker : ", e.data);
 				if (!worker_ready) {
 					worker_ready = true;
 					send_to_worker('Hello from page !');
 				}
+
+				if (WebworkerHelper.process_log_message(e)) return;
+
+				console.error("Unknown msg received from worker : ", e.data);
 			};
 		}
 	};

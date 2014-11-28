@@ -70,7 +70,6 @@ define([
 		return _.clone(value);
 	}
 
-
 	function clone_for_msg_passing(value, context) {
 		context = context || {};
 		context.key = context.key || '(start)';
@@ -81,8 +80,31 @@ define([
 		return clone_unknown_for_msg_passing(value, context);
 	}
 
+	var log_mapping = {
+		'/console/log'   : console.log,
+		'/console/debug' : console.debug,
+		'/console/info'  : console.info,
+		'/console/warn'  : console.warn,
+		'/console/error' : console.error
+	};
+
+	function process_log_message(e) {
+		if(!e || e.verb !== 'POST') return false;
+		var log_function = log_mapping[e.url];
+		if(!log_function) return false;
+
+		var args = e.data;
+		if (_.isString(args[0]))
+			args[0] = '[log from worker] ' + args[0];
+		else
+			args.unshift('[log from worker]');
+		log_function.apply(console, args);
+		return true;
+	}
+
 	return {
 		clone_for_msg_passing: clone_for_msg_passing,
+		process_log_message: process_log_message
 	};
 
 }); // requirejs module
