@@ -2,8 +2,8 @@ define(
 [
 	'angular',
 	'lodash',
-	'text!modules/directives/ror/client.html',
-	'modules/directives/ror/panels/census'
+	'text!ng/directives/ror/client.html',
+	'ng/directives/ror/panels/census'
 ],
 function(angular, _, tpl) {
 	'use strict';

@@ -2,7 +2,7 @@ define(
 [
 	'angular',
 	'lodash',
-	'text!modules/directives/ror/panels/census.html'
+	'text!ng/directives/ror/panels/census.html'
 ],
 function(angular, _, tpl) {
 	'use strict';

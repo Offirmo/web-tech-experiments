@@ -1,3 +1,4 @@
+'use strict';
 
 var in_web_worker = (typeof window === 'undefined') && (typeof self !== 'undefined');
 console.log('in_web_worker ?', in_web_worker);
@@ -148,7 +149,7 @@ function(_, StateMachine, WebworkerHelper) {
 				return true;
 			},
 			onenterstate : function(event, from, to, msg) {
-				logger.log('[onenterstate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+				console.log('[onenterstate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
 				return true;
 			},
 			onafterevent : function(event, from, to, msg) {
@@ -182,7 +183,7 @@ function(_, StateMachine, WebworkerHelper) {
 				if(!pending_tick) throw new Error('No tick to process !');
 				state.tick_count++;
 				console.log('processing tick #' + state.tick_count +'...');
-				// TODO
+				// TODO do stuff
 				console.log('tick processed.');
 				pending_tick = false;
 				// schedule next tick
@@ -192,7 +193,7 @@ function(_, StateMachine, WebworkerHelper) {
 			}
 		}
 	});
-	fsm.init_done();
+	//fsm.init_done();
 
 	function process_events() {
 		if(pending_tick)

@@ -2,7 +2,7 @@ define(
 [
 	'angular',
 	'lodash',
-	'text!modules/directives/test.html'
+	'text!ng/directives/test.html'
 ],
 function(angular, _, tpl) {
 	'use strict';
