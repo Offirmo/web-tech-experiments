@@ -9,6 +9,9 @@ http://scotch.io/tutorials/building-interactive-scrolling-websites-with-scrollma
 firebase
 http://scotch.io/tutorials/javascript/build-a-real-time-scheduling-app-using-angularjs-and-firebase
 
+http://dailyjs.com/2014/11/06/alasql/
+
+typographie bien contrôlée ! http://txtjs.com/
 
 -- Thèmes dynamiques !
 http://scotch.io/tutorials/javascript/use-angularjs-and-nghref-to-grab-css-dynamically
@@ -48,6 +51,8 @@ https://github.com/mightyiam/combokeys
 
 -- Auth
 http://guardianjs.com/
+http://dailyjs.com/2014/11/14/grant/
+https://hacks.mozilla.org/2014/10/passwordless-authentication-secure-simple-and-fast-to-deploy/
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer

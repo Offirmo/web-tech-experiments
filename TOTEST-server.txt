@@ -10,7 +10,11 @@ http://googlecloudplatform.blogspot.fr/2014/08/click-to-deploy-mean-development-
 http://www.binpress.com/tutorial/create-a-mobile-rpg-for-beginners/1
 https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript
 http://www.truevalhalla.com/blog/ebook/
+
+** APIs
 http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
+http://jsonapi.org/ json apis
+https://github.com/interagent/http-api-design
 
 ** google analytics
 https://github.com/toddmotto/flare

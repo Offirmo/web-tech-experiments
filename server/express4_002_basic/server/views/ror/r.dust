@@ -34,13 +34,13 @@
 </head>
 <body>
 
-<div id="content">
+	<div id="content">
+		<h4><a ui-sref="landing">Test R</a></h4>
 
-<h4><a ui-sref="landing">Test R</a></h4>
+		<!-- <test></test> -->
 
-<ror-client></ror-client>
-
-</div>
+		<ror_client></ror_client>
+	</div>
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 <script>
@@ -55,7 +55,7 @@
 '|    -| |_ -| -_|    | . |  _|    |  _|   | -_|    |  _| -_| . | | |  _| .\'|  _| . |  _|_ -|\n' +
 '|__|__|_|___|___|    |___|_|      |_| |_|_|___|    |_| |___|  _|_|_|___|__,|_| |___|_| |___|\n' +
 '                                                           |_|                              \n' +
-		'So you are curious ?\n\n ');
+		' So you are curious ?\n\n ');
 
 
 	console.log('Starting page main js...');
@@ -63,17 +63,19 @@
 		[
 			'lodash',
 			'webworker_helper',
-			'modules/directives/ror_client/ror_client',
+			'modules/directives/test',
+			'modules/directives/ror/client',
 			'ror_worker',
 			'angular',
 			'angular-ui-router',
 			'angular-bootstrap'
 		],
-		function(_, WebworkerHelper, RoRClient) {
+		function(_, WebworkerHelper) {
 			console.log('main require done.');
 
 			var app = angular.module('App', [
 				'ui.bootstrap',
+				'test',
 				'ror.client'
 			]);
 
@@ -84,7 +86,6 @@
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
-			// cf.
 			console.log('Bootstrapping angular...');
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['App']);
