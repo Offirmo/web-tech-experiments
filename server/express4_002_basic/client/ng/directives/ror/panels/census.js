@@ -7,9 +7,9 @@ define(
 function(angular, _, tpl) {
 	'use strict';
 
-	console.log('Hello from directive ror.panels.census !');
+	//console.log('Hello from directive ror.panels.census !');
 
-	angular.module('ror.panels.census', [])
+	global_ng_module
 	.controller('RorPanelsCensusCtrl', [
 		'$scope',
 		'$log',
@@ -24,13 +24,13 @@ function(angular, _, tpl) {
 			replace: true,
 			controller: 'RorPanelsCensusCtrl',
 			link: function ($scope, $element, $attrs) {
-				console.log('Hello from directive ror.panels.census link !');
+				//console.log('Hello from directive ror.panels.census link !');
 			}
 		};
 	});
 
 	function RorPanelsCensusCtrl() {
-		console.log('Hello from directive ror.panels.census ctrl !');
+		//console.log('Hello from directive ror.panels.census ctrl !');
 	}
 
 });

@@ -2,6 +2,23 @@ window.main = function()
 {
 	'use strict';
 
+	var global_module_instance;
+	Object.defineProperty(window, 'global_ng_module', {
+		enumerable: true, // why not ?
+		set: function() {
+			throw new Error('You can’t assign window.global_module !');
+		},
+		get: function() {
+			if(global_module_instance) return global_module_instance; // already OK
+			console.log('building');
+			global_module_instance = angular.module('global_ng_module', [
+				'ui.bootstrap'
+			]);
+			return global_module_instance;
+		}
+	});
+
+
 	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
 	console.log('\n\n' +
 		' _____ _                  ___      _   _                        _ _         _                \n' +
@@ -26,13 +43,8 @@ window.main = function()
 		function(_, WebworkerHelper) {
 			console.log('main require done.');
 
-			var app = angular.module('App', [
-				'ui.bootstrap',
-				'test',
-				'ror.client'
-			]);
-
-			app.controller('LandingCtrl', function($scope, $document) {
+			global_ng_module
+			.controller('LandingCtrl', function($scope, $document) {
 				$scope.lang = $document[0].documentElement.lang;
 				console.log('detected lang :', $document[0].documentElement.lang);
 			});
@@ -41,7 +53,7 @@ window.main = function()
 			// cf. http://docs.angularjs.org/guide/bootstrap
 			console.log('Bootstrapping angular...');
 			angular.element(document).ready(function() {
-				angular.bootstrap(document, ['App']);
+				angular.bootstrap(document, ['global_ng_module']);
 			});
 		});
 
