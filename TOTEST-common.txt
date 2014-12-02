@@ -22,3 +22,7 @@ https://github.com/leeluolee/puer
 
 
 http://www.stickermule.com/marketplace
+
+
+-- Ajax
+https://github.com/visionmedia/superagent

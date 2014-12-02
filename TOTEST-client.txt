@@ -1,5 +1,9 @@
 ’
 
+http://learnsemantic.com/
+http://semantic-ui.com/kitchen-sink.html
+
+
 BEM methodology http://bem.info/
 
 https://www.npmjs.org/package/hyperboot
