@@ -2,94 +2,81 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
-	'underscore'
+	'underscore',
+	'./sinks/default'
 ],
-function(_) {
+function(_, DefaultSink) {
 	'use strict';
 
 	var DEFAULT_LOGGER_ID  = 'main';
-	var DEFAULT_LEVEL_NAME = 'debug';
-	var DEFAULT_LEVEL_RANK = 1;
+	var default_sink = DefaultSink.make_new();
 
-
-	// A log line (= log call)
-	// with a level and optional tags
-	function BaseLogLine(options) {
-		options = options || {
-			// logger_id
-			// default_level
-			// level
-		};
-
-		// default values
-		this.logger_id = options.logger_id || DEFAULT_LOGGER_ID;
-		this.level = options.level || options.default_level || {name: DEFAULT_LEVEL_NAME};
-		this.tags = [];
-		this.args = {};
+	// A log call, with a level.
+	// Internal use only.
+	function BaseLogCall(options) {
+		this.logger_id = options.logger_id;
+		this.level = options.level;
+		this.args = options.args;
 	}
 
+	// logger core, entirely configurable
+	function LogCore(logger_id) {
+		// check parameters
+		logger_id = logger_id || DEFAULT_LOGGER_ID;
+		if(!_.isString(logger_id)) throw new Error('Logger id must be a string !');
 
-
-	// logger core
-	// configurable with custom levels
-	function LogCore() {
-		this.levels = {};
+		this.levels = {}; // existing levels
+		this.logger_id = logger_id;
 		this.log_sinks = [];
-
-		// default sink func
-		/*this.log_sink = function(log_call, args) {
-			console.log.apply(console, args);
-		};*/
 
 		var log_core = this; // closure
 
-		// custom constructor
-		this.LogLine = function() {
-			var temp = new BaseLogLine();
-			temp.log_core = log_core;
-			return temp;
-		};
+		// inherit (useful ?)
+		function CustomizedLogCall() {
+			BaseLogCall.prototype.constructor.apply(this, arguments);
+			this.log_core = log_core;
+		}
+		CustomizedLogCall.prototype = Object.create(BaseLogCall.prototype);
+		CustomizedLogCall.prototype.constructor = CustomizedLogCall;
+		this.LogCall = CustomizedLogCall;
 	}
 
-	LogCore.prototype.add_level = function(level) {
-		this.levels[level] = this.levels[level] || {name: level};
-		this[level] = function(args) {
-			console.log('level "%s" direct call on log_line', level);
-			var new_log_line = new this.LogLine();
-			// save level
-			new_log_line.level = this.log_core.levels[level];
+	LogCore.prototype.add_level = function(level, rank, options) {
+		// check parameters
+		if(!_.isString(level)) throw new Error('Level must be a string !');
+		if(! level) throw new Error('Level can’t be empty !');
+		if(!_.isNumber(rank)) throw new Error('Rank must be a number !');
+		if(level < 0) throw new Error('Level must be >= 0 !');
+		if(this.levels[level]) throw new Error('This level is already defined !');
 
-			// call log sinks
-			if(args)
-				this.log_core.log_sink(this, arguments);
-			return this;
-		};
+		// record this level
+		this.levels[level] = _.defaults({name: level, rank: rank}, options);
+
+		// closure
+		var log_level = this.levels[level];
+
+		// add corresponding log primitive
 		this[level] = function() {
-			console.log('initiating log call on level call "%s"', level);
-			var log_call = this.create_call();
-			return log_call[level](arguments);
-		};
-	};
+			console.log('initiating log call on level "%s"', level);
+			// create log call object
+			var log_call = new this.LogCall({
+				logger_id: this.logger_id,
+				level: log_level,
+				args: Array.prototype.slice.call(arguments) // because arguments is not an array
+			});
 
-	LogCore.prototype.add_tag = function(tag) {
-		this.tags[tag] = this.tags[tag] || {name: tag};
-		this.LogCall.prototype[tag] = function(args) {
-			console.log('tag "%s" direct call on log_line', tag, this);
-			// save tag
-			this.tags.push(this.log_core.tags[tag]);
-			// log if needed
-			if(args)
-				this.log_core.log_sink(this, arguments);
-			return this;
-		};
-		this[tag] = function() {
-			console.log('initiating log call on tag call "%s"', tag);
-			var log_call = this.create_call();
-			return log_call[tag](arguments);
+			// actually log
+			if(! this.log_sinks.length)
+				default_sink(log_call); // fallback for convenience
+			else {
+				_.forEach(this.log_sinks, function(log_sink) {
+					log_sink(log_call);
+				});
+			}
 		};
 	};
 
 	return {
-		create: function() { return new LogCore(); }
+		create: function(logger_id) { return new LogCore(logger_id); }
 	};
 });
