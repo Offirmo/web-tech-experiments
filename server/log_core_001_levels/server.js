@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-var log_core = require('../../log_core');
+var log_core = require('../../incubator/log_core');
 
 var log = log_core.create();
 log.add_level('debug');

@@ -34,32 +34,57 @@ function(_) {
 	// configurable with custom levels
 	function LogCore() {
 		this.levels = {};
-		this.log_sinks = [];
 
 		// default sink func
-		/*this.log_sink = function(log_call, args) {
+		this.log_sink = function(log_call, args) {
 			console.log.apply(console, args);
-		};*/
+		};
 
 		var log_core = this; // closure
 
-		// custom constructor
 		this.LogLine = function() {
 			var temp = new BaseLogLine();
 			temp.log_core = log_core;
 			return temp;
 		};
+
+		this.LogCall = function() {
+			this.log_core = log_core;
+		};
+//		this.LogCall.prototype = BaseLogCall.prototype;
 	}
+	LogCore.prototype.create_call = function() {
+		var log_call = new this.LogCall();
+		_.forEach(this.tags, function(tag) {
+			Object.defineProperty(log_call, tag.name, {get: function(args) {
+				console.log('get tag %s (%s)', tag.name, args);
+				// save tag
+				this.tags.push(this.log_core.tags[tag]);
+				if(args)
+					this.log_core.log_sink(this, arguments);
+				return this;
+			}});
+		});
+		_.forEach(this.levels, function(level) {
+			Object.defineProperty(log_call, level.name, {get: function(args) {
+				console.log('get level %s (%s)', level.name, args);
+				// save level
+				this.level = level;
+				if(args)
+					this.log_core.log_sink(this, arguments);
+				return this;
+			}});
+		});
+		return log_call;
+	};
 
 	LogCore.prototype.add_level = function(level) {
 		this.levels[level] = this.levels[level] || {name: level};
-		this[level] = function(args) {
-			console.log('level "%s" direct call on log_line', level);
-			var new_log_line = new this.LogLine();
+		this.LogCall.prototype[level] = function(args) {
+			console.log('level "%s" direct call on log_line', level, this);
 			// save level
-			new_log_line.level = this.log_core.levels[level];
-
-			// call log sinks
+			this.level = this.log_core.levels[level];
+			// log if needed
 			if(args)
 				this.log_core.log_sink(this, arguments);
 			return this;

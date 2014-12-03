@@ -19,6 +19,9 @@ incubator/generic_store.js/node_modules
 incubator/generic_store.js/test_runner/bower_components
 incubator/generic_store.js/test_runner/node_modules
 
+incubator/log_core/node_modules
+incubator/log_core/test_runner/node_modules
+
 incubator/network-constants.js/test_runner/bower_components
 incubator/network-constants.js/test_runner/node_modules
 
