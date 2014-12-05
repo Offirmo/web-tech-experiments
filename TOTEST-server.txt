@@ -22,7 +22,6 @@ http://davidwalsh.name/track-errors-google-analytics
 http://boba.space150.com/
 https://github.com/revolunet/angular-google-analytics
 
-
 http://jekyllrb.com/
 
 okay https://github.com/brianc/node-okay
@@ -32,14 +31,8 @@ https://developers.google.com/web/starter-kit/
 https://github.com/walmartlabs/ALCE
 https://gcanti.github.io/resources/tcomb-validation/playground/playground.html
 
--- errors
-http://npmawesome.com/posts/2014-08-11-verror/
-https://github.com/3rd-Eden/diagnostics
-
 -- config
 https://github.com/HenrikJoreteg/getconfig/blob/master/getconfig.js
-
-
 
 -- github
 https://gitter.im chat relié à github
@@ -101,7 +94,8 @@ http://feathersjs.com/
 http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
 http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
 https://github.com/mikaa123/catnap
-http://avoidwork.github.io/tenso/?utm_source=nodeweekly&utm_medium=email
+http://avoidwork.github.io/tenso/
++++ http://blog.octo.com/designer-une-api-rest/
 
 --- client REST
 client http://node-modules.com/search?q=rest+client
@@ -116,23 +110,15 @@ http://square.github.io/crossfilter/
 http://dailyjs.com/2014/07/17/cash/ replace jq
 http://lincolnloop.com/blog/introducing-amygdala-javascript-rest-client/
 
-
--- logging --
-http://blog.nodejs.org/2012/03/28/service-logging-in-json-with-bunyan/
-https://medium.com/@garychambers108/b3cc6fd0dafd
-
-
 -- procédures --
 https://github.com/geddski/grunt-release
 https://github.com/ajoslin/conventional-changelog
 
-
 -- outils --
 http://eslint.org/docs/rules/valid-jsdoc.html
-http://arqex.com/874/reusing-require-js-modules-node-js?utm_source=nodeweekly&utm_medium=email
+http://arqex.com/874/reusing-require-js-modules-node-js
 https://github.com/gerhard/deliver
 http://www.lorem-accents.com/
-
 
 -- debug --
 https://github.com/hansineffect/Dogerr
@@ -142,12 +128,10 @@ http://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-functio
 http://stackoverflow.com/questions/16697791/nodejs-get-filename-of-caller-function
 https://github.com/equiet/recognizer à intégrer !
 
-
 -- npm --
 http://mixu.net/npm_lazy/
 npm pkgr
 http://stackoverflow.com/questions/10232192/exec-display-stdout-live
-
 
 -- misc
 http://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents
