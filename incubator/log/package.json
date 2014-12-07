@@ -2,7 +2,7 @@
 	"name": "log_core",
 	"version": "0.0.1",
 	"description": "base for writing a nice logger for node and browser",
-	"main": "index.js",
+	"main": "main.js",
 	"scripts": {
 		"test": "todo"
 	},

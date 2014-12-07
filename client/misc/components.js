@@ -36,6 +36,13 @@ requirejs.config({
 		}
 	},
 
+	/////////////////////
+	packages: [
+		{
+			name : 'log',
+			location: '../incubator/log'
+		}
+	],
 
 	/////////////////////
 	paths: {
@@ -44,7 +51,7 @@ requirejs.config({
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'      : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'              : 'bower_components/jquery/jquery',
-		'log'                 : '../incubator/log', // dir
+		//'log'                 : '../incubator/log/', // dir
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
 		'webworker_helper'    : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct

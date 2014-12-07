@@ -30,7 +30,7 @@ function(_) {
 		var mss = d.getMilliseconds();
 		// These lines ensure you have two-digits
 		if(hh < 10) hh = '0' + hh;
-		if(mm < 10) mm = '0' + mm;
+		if(mn < 10) mn = '0' + mn;
 		if(ss < 10) ss = '0' + ss;
 		if(mss < 10) mss = '00' + mss;
 		else if (mss < 100) mss = '0' + mss;

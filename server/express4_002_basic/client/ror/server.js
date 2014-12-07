@@ -9,160 +9,125 @@ define(
 function(_, StateMachine) {
 	'use strict';
 
-	var config = {
-		tick_period_ms : 500
-	};
+	function RorServer(options) {
+		this.config = {
+			tick_period_ms : 500
+		};
 
-	var state = {
-		tick_count: 0
-	};
+		this.state = {
+			tick_count: 0
+		};
 
-	var pending_tick = false;
-	var events_to_process = [];
+		this.pending_tick = false;
+		this.events_to_process = [];
 
-	function schedule_next_tick() {
-		if(pending_tick) throw new Error('Tick reentrency !');
-		setTimeout(function() {
-			if(pending_tick) throw new Error('Tick collision !');
-			pending_tick = true;
-			console.log('tick !');
-			process_events();
-		}, config.tick_period_ms);
-	}
+		var server = this; // closure
 
-	console.log('Hello from worker !', self.location);
+		// https://github.com/jakesgordon/javascript-state-machine
+		this.fsm = StateMachine.create({
+			initial: '_waiting_init',
+			events: [
+				{ name: 'init_done',         from: '_waiting_init',         to: '_loading_last_backup' },
 
-	function postMessage(o) {
-		// for convenience, raw strings are turned into a log
-		if(_.isString(o)) {
-			o = {
-				verb: 'POST',
-				url: '/console/log',
-				data: [ o ]
-			};
-		}
-		if(! _.isObject(o) || !(o.verb && o.url)) {
-			throw new Error('Incorrect argument for postMessage !');
-		}
-		if (in_web_worker) {
-			var c = WebworkerHelper.clone_for_msg_passing(o);
-			//console.log('from worker, sending to parent :', o, 'cloned as', c);
-			self.postMessage(c);
-		}
-		else {
-			if (WebworkerHelper.process_log_message(o)) return;
-			console.error("Unknown msg sent from worker : ", o);
-		}
-	}
-	postMessage('I loaded successfully and I’m ready.');
+				{ name: 'no_backup_found',   from: '_loading_last_backup',  to: '_starting_up' },
+				{ name: 'backup_load_error', from: '_loading_last_backup',  to: '_starting_up' },
+				{ name: 'backup_loaded',     from: '_loading_last_backup',  to: '_starting_up' },
 
-	var logger = {
-		log: function log() {
-			postMessage({
-				verb: 'POST',
-				url: '/console/log',
-				data: _.values(arguments)
-			});
-		}
-	};
+				{ name: 'started',           from: '_starting_up',          to: '_waiting_event' },
 
-	if (in_web_worker)
-		logger.log('Worker started', debug_infos);
+				{ name: 'tick',              from: '_waiting_event',        to: '_processing_tick' },
+				{ name: 'cmd',               from: '_waiting_event',        to: '_processing_cmd' },
+				{ name: 'action',            from: '_waiting_event',        to: '_processing_action' },
 
-	// https://github.com/jakesgordon/javascript-state-machine
-	var fsm = StateMachine.create({
-		initial: '_waiting_init',
-		events: [
-			{ name: 'init_done',         from: '_waiting_init',         to: '_loading_last_backup' },
+				{ name: 'tick_handled',      from: '_processing_tick',      to: '_waiting_event' },
 
-			{ name: 'no_backup_found',   from: '_loading_last_backup',  to: '_starting_up' },
-			{ name: 'backup_load_error', from: '_loading_last_backup',  to: '_starting_up' },
-			{ name: 'backup_loaded',     from: '_loading_last_backup',  to: '_starting_up' },
+				{ name: 'fatal_error',       from: [
+					'_loading_last_backup',
+					'_starting_up',
+					'_waiting_event',
+					'_processing_tick',
+					'_processing_cmd',
+					'_processing_action'
+				],                                                         to: '_error'  }
+			],
+			callbacks: {
+				onbeforeevent : function(event, from, to, msg) {
+					//logger.log('[onbeforeevent] "' + event + '(' + msg + ')" : "' + from + '" -> "' + to + '"');
+					return true;
+				},
+				onleavestate : function(event, from, to, msg) {
+					//logger.log('[onleavestate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+					return true;
+				},
+				onenterstate : function(event, from, to, msg) {
+					//console.log('[onenterstate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+					console.log('[onenterstate] "' + to + '" from state "' + from + '" following event "' + event
+						+ (msg ? ('(' + msg + ')') : '') + '".');
+					return true;
+				},
+				onafterevent : function(event, from, to, msg) {
+					//logger.log('[onafterevent]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
+					return true;
+				},
 
-			{ name: 'started',           from: '_starting_up',          to: '_waiting_event' },
+				on_error : function() {
+					console.error('Unknown internal error !');
+					return true;
+				},
 
-			{ name: 'tick',              from: '_waiting_event',        to: '_processing_tick' },
-			{ name: 'cmd',               from: '_waiting_event',        to: '_processing_cmd' },
-			{ name: 'action',            from: '_waiting_event',        to: '_processing_action' },
+				on_loading_last_backup : function() {
+					server.fsm.backup_load_error();
+					return true;
+				},
 
-			{ name: 'tick_handled',      from: '_processing_tick',      to: '_waiting_event' },
+				on_starting_up : function() {
+					// initiate tick
+					server.schedule_next_tick();
+					server.fsm.started();
+					return true;
+				},
 
-			{ name: 'fatal_error',       from: [
-				'_loading_last_backup',
-				'_starting_up',
-				'_waiting_event',
-				'_processing_tick',
-				'_processing_cmd',
-				'_processing_action'
-			],                                                         to: '_error'  }
-		],
-		callbacks: {
-			onbeforeevent : function(event, from, to, msg) {
-				//logger.log('[onbeforeevent] "' + event + '(' + msg + ')" : "' + from + '" -> "' + to + '"');
-				return true;
-			},
-			onleavestate : function(event, from, to, msg) {
-				//logger.log('[onleavestate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
-				return true;
-			},
-			onenterstate : function(event, from, to, msg) {
-				console.log('[onenterstate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
-				return true;
-			},
-			onafterevent : function(event, from, to, msg) {
-				//logger.log('[onafterevent]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
-				return true;
-			},
+				on_waiting_event : function() {
+					console.log('now waiting for events...');
+					return StateMachine.ASYNC;
+				},
 
-			on_error : function() {
-				console.error('Unknown internal error !');
-				return true;
-			},
-
-			on_loading_last_backup : function() {
-				fsm.backup_load_error();
-				return true;
-			},
-
-			on_starting_up : function() {
-				// initiate tick
-				schedule_next_tick();
-				fsm.started();
-				return true;
-			},
-
-			on_waiting_event : function() {
-				console.log('now waiting for events...');
-				return StateMachine.ASYNC;
-			},
-
-			on_processing_tick : function() {
-				if(!pending_tick) throw new Error('No tick to process !');
-				state.tick_count++;
-				console.log('processing tick #' + state.tick_count +'...');
-				// TODO do stuff
-				console.log('tick processed.');
-				pending_tick = false;
-				// schedule next tick
-				schedule_next_tick();
-				fsm.tick_handled();
-				return true;
+				on_processing_tick : function() {
+					if(!server.pending_tick) throw new Error('No tick to process !');
+					server.state.tick_count++;
+					console.log('processing tick #' + server.state.tick_count +'...');
+					// TODO do stuff
+					console.log('tick processed.');
+					server.pending_tick = false;
+					// schedule next tick
+					server.schedule_next_tick();
+					server.fsm.tick_handled();
+					return true;
+				}
 			}
-		}
-	});
-	//fsm.init_done();
-
-	function process_events() {
-		if(pending_tick)
-			fsm.tick();
-		else if (events_to_process.length)
-			fsm.cmd();
+		});
+		this.fsm.init_done();
 	}
 
-	self.onmessage = function(e) {
-		console.log('worker : seen message from parent : ', e); //, JSON.stringify(e));
-		//self.postMessage('Response from worker ! (to : ' + e.data + ')');
-		events_to_process.push(e);
+	RorServer.prototype.schedule_next_tick = function() {
+		if(this.pending_tick) throw new Error('Tick reentrency !');
+		var server = this; // closure
+		setTimeout(function() {
+			if(server.pending_tick) throw new Error('Tick collision !');
+			server.pending_tick = true;
+			console.log('tick !');
+			server.process_events();
+		}, server.config.tick_period_ms);
 	};
 
+	RorServer.prototype.process_events = function() {
+		if(this.pending_tick)
+			this.fsm.tick();
+		else if (this.events_to_process.length)
+			this.fsm.cmd();
+	};
+
+	return {
+		make_new: function(options) { return new RorServer(options); }
+	};
 });

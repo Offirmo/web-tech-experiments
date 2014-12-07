@@ -8,12 +8,11 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
 	'lodash',
-	'chalk',
 	'./enricher_console_affinity',
 	'./enricher_color_affinity',
 	'./enricher_timestamp_string'
 ],
-function(_, chalk, ConsoleAffinityEnricher, TimestampStringEnricher) {
+function(_, ConsoleAffinityEnricher, ColorAffinityEnricher, TimestampStringEnricher) {
 	'use strict';
 
 	var console_fn_by_level = {
@@ -25,6 +24,7 @@ function(_, chalk, ConsoleAffinityEnricher, TimestampStringEnricher) {
 	};
 
 	var enrich_with_console_affinity = ConsoleAffinityEnricher.make_new();
+	var enrich_with_color_affinity = ColorAffinityEnricher.make_new();
 	var enrich_with_timestamp_string = TimestampStringEnricher.make_new();
 
 	// args is expected to be an array
@@ -48,14 +48,19 @@ function(_, chalk, ConsoleAffinityEnricher, TimestampStringEnricher) {
 		if(!console_fn)
 			console_fn = console.error;
 
-		var colored_separator = chalk[log_call.color_affinity]('-');
 		var args = log_call.args.slice(0); // clone the args to not pollute other sinks
-		rebindConsoleArgsWithPrefix(args,
-			log_call.timestamp_string
-			+ ' ' + colored_separator + ' '
-			+ log_call.level.name.toUpperCase()
-			+ ' ' + colored_separator
-		);
+
+		var prefix = '';
+		if(typeof exports !== 'undefined') {
+			// node
+			prefix += log_call.timestamp_string;
+			prefix += log_call.chalk_style(' - '	+ log_call.level.name.toUpperCase()	+ ' -');
+		}
+		else {
+			// browser, what else ?
+			prefix += '[' + log_call.timestamp_string + ']';
+		}
+		rebindConsoleArgsWithPrefix(args, prefix);
 
 		console_fn.apply(console, args);
 	}

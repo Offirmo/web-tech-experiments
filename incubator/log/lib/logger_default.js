@@ -19,7 +19,7 @@ define([
 			logger.add_level('log',   3, {});
 			logger.add_level('debug', 3, {}); // alias
 
-			if(options.enhanced)
+			if(options && options.enhanced)
 				logger.add_sink(EnhancedConsoleSink.make_new());
 			else
 				logger.add_sink(PlainConsoleSink.make_new());
