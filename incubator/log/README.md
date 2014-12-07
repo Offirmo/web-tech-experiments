@@ -29,7 +29,7 @@ Design principles :
 * possible inheritance from another logger instance for config reuse (see also jog)
 * compatible with winston sinks (to reuse winston plugins)
 * syslog
-* FRC http://www.faqs.org/rfcs/rfc3164.html
+* RFC http://www.faqs.org/rfcs/rfc3164.html
 * blocking log (optional)
 * log to stout / stderr if possible
 * dump objets dans node

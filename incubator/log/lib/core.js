@@ -2,14 +2,12 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
-	'underscore',
-	'./sinks/default'
+	'lodash'
 ],
-function(_, DefaultSink) {
+function(_) {
 	'use strict';
 
 	var DEFAULT_LOGGER_ID  = 'main';
-	var default_sink = DefaultSink.make_new();
 
 	// A log call, with a level.
 	// Internal use only.
@@ -17,6 +15,7 @@ function(_, DefaultSink) {
 		this.logger_id = options.logger_id;
 		this.level = options.level;
 		this.args = options.args;
+		this.date = new Date();
 	}
 
 	// logger core, entirely configurable
@@ -57,7 +56,7 @@ function(_, DefaultSink) {
 
 		// add corresponding log primitive
 		this[level] = function() {
-			console.log('initiating log call on level "%s"', level);
+			//console.log('initiating log call on level "%s"', level);
 			// create log call object
 			var log_call = new this.LogCall({
 				logger_id: this.logger_id,
@@ -67,7 +66,7 @@ function(_, DefaultSink) {
 
 			// actually log
 			if(! this.log_sinks.length)
-				default_sink(log_call); // fallback for convenience
+				throw new Error('Logger has no sinks ! Please add one !')
 			else {
 				_.forEach(this.log_sinks, function(log_sink) {
 					log_sink(log_call);
@@ -76,7 +75,11 @@ function(_, DefaultSink) {
 		};
 	};
 
+	LogCore.prototype.add_sink = function(sink_fn) {
+		this.log_sinks.push(sink_fn);
+	};
+
 	return {
-		create: function(logger_id) { return new LogCore(logger_id); }
+		make_new: function(logger_id) { return new LogCore(logger_id); }
 	};
 });

@@ -44,6 +44,7 @@ requirejs.config({
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'      : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'              : 'bower_components/jquery/jquery',
+		'log'                 : '../incubator/log', // dir
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
 		'webworker_helper'    : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
@@ -63,7 +64,7 @@ requirejs.config({
 		'chai'                : 'bower_components/chai/chai',
 		'chai-as-promised'    : 'bower_components/chai-as-promised/lib/chai-as-promised',
 		'ckeditor'            : 'bower_components/ckeditor/ckeditor',
-		// dust : this plugin should really be aliased 'dust' for rdust to work properly
+		// dust-full : this plugin should be aliased 'dust' for rdust to work properly
 		'dust'                : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'        : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'ecotree'             : 'other_components/ecotree/ECOTree',

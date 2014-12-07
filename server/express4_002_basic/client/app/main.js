@@ -2,6 +2,9 @@ window.main = function()
 {
 	'use strict';
 
+	console.log('Starting page main js...');
+
+	// anglaur modules simplified ;-)
 	var global_module_instance;
 	Object.defineProperty(window, 'global_ng_module', {
 		enumerable: true, // why not ?
@@ -28,19 +31,18 @@ window.main = function()
 		'                                                           |_|                               \n' +
 		' So you are curious ?\n\n ');
 
-	console.log('Starting page main js...');
 	requirejs(
 		[
 			'lodash',
-			'webworker_helper',
+			//'webworker_helper',
 			//'ng/directives/test',
+			'ror/server',
 			'ng/directives/ror/client',
-			'ror_worker',
 			'angular',
 			'angular-ui-router',
 			'angular-bootstrap'
 		],
-		function(_, WebworkerHelper) {
+		function(_, RorServer) {
 			console.log('main require done.');
 
 			global_ng_module
