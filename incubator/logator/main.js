@@ -19,7 +19,7 @@ function(_, LoggerCore, LoggerDefault) {
 		return LoggerDefault.make_new(namespace, options);
 	}
 	make_new.Core = LoggerCore;
-
+	make_new.make_new = make_new; // to allow the Logator.make_new() syntax
 
 	Object.defineProperty(make_new, 'DefaultLogger', {
 		enumerable: true, // why not ?

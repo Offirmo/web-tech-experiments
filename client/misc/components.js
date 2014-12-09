@@ -39,8 +39,8 @@ requirejs.config({
 	/////////////////////
 	packages: [
 		{
-			name : 'log',
-			location: '../incubator/log'
+			name : 'logator',
+			location: '../incubator/logator'
 		}
 	],
 
@@ -51,7 +51,6 @@ requirejs.config({
 		'extended-exceptions' : '../incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'      : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'              : 'bower_components/jquery/jquery',
-		//'log'                 : '../incubator/log/', // dir
 		'network-constants'   : '../incubator/network-constants.js', // dir
 		'restlink'            : 'other_components/restlink.js', // dir
 		'webworker_helper'    : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
@@ -232,7 +231,6 @@ requirejs.config({
 			],
 			exports: 'mocha',
 			init: function (jquery) {
-				console.log('Hello from mocha shim ! Setting up mocha...');
 				this.mocha.setup('bdd');
 				return this.mocha;
 			}

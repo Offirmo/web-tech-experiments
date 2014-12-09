@@ -4,7 +4,7 @@ window.main = function()
 
 	console.log('Starting page main js...');
 
-	// anglaur modules simplified ;-)
+	// angular modules simplified ;-)
 	var global_module_instance;
 	Object.defineProperty(window, 'global_ng_module', {
 		enumerable: true, // why not ?
@@ -34,7 +34,7 @@ window.main = function()
 	requirejs(
 		[
 			'lodash',
-			'log',
+			'logator',
 			//'webworker_helper',
 			//'ng/directives/test',
 			'ror/server',
@@ -43,11 +43,11 @@ window.main = function()
 			'angular-ui-router',
 			'angular-bootstrap'
 		],
-		function(_, Logger, RorServer) {
+		function(_, Logator, RorServer) {
 			console.log('main require done.');
 
 			// build this app logger
-			var logger = Logger({enhanced: true});
+			var logger = Logator.make_new({enhanced: true});
 			logger.info('App is bootstrapping…');
 
 			global_ng_module

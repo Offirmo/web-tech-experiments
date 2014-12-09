@@ -5,17 +5,17 @@ define(
 [
 	'lodash',
 	'javascript-state-machine',
-	'log',
+	'logator',
 	'./static_data'
 ],
-function(_, StateMachine, Logger, Data) {
+function(_, StateMachine, Logator, Data) {
 	'use strict';
 
 	function RorServer(options) {
 		// scan options
 		options = options || {};
 
-		var logger = options.logger || Logger.make_new();
+		var logger = options.logger || Logator.make_new();
 
 		var config = {
 			version: '0.0.1',
@@ -43,7 +43,7 @@ function(_, StateMachine, Logger, Data) {
 			var units = state.census.units[unit.name] = state.census.units[unit.name] || [];
 			var unit = {
 				id: state.unit_next_id++,
-				size: unit.size
+				pieces: unit.pieces
 				// quality of pieces ?
 			};
 			units.push(unit);

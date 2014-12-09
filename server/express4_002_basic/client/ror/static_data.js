@@ -17,15 +17,29 @@ define(function() {
 
 	data.replicators = {
 		cub: {
-			name: 'cub',
-			size: 64
+			id: 'cub',
+			name: 'ror.cub',
+			pieces: 64
 		},
 		crab: {
-			name: 'crab',
-			size: 128
+			id: 'crab',
+			pieces: 128
 		},
-		beetle: {},
-		queen: {}
+		beetle: {
+
+		},
+		queen: {
+
+		},
+		shuttle: {
+
+		},
+		cruiser: {
+
+		},
+		planet: {
+
+		}
 	};
 
 	return data;
