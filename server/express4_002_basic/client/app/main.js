@@ -46,22 +46,15 @@ window.main = function()
 		function(_, Logger, RorServer) {
 			console.log('main require done.');
 
+			// build this app logger
 			var logger = Logger({enhanced: true});
-			logger.info('logger is : %s', 'ready', 42);
+			logger.info('App is bootstrapping…');
 
 			global_ng_module
 			.controller('LandingCtrl', function($scope, $document) {
 				$scope.lang = $document[0].documentElement.lang;
-				console.log('detected lang :', $document[0].documentElement.lang);
+				logger.info('detected lang :', $document[0].documentElement.lang);
 			});
-
-			/*
-			var console_levels = ['log', 'info', 'warn', 'error'];
-			_.forEach(console_levels, function(level) {
-				console[level](  'Hello world ! (from console, %s level)', level);
-				logger[level](  'Hello world ! (from logger, %s level)', level);
-			});
-			*/
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
@@ -70,7 +63,9 @@ window.main = function()
 				angular.bootstrap(document, ['global_ng_module']);
 			});
 
-			var server = RorServer.make_new();
+			var server = RorServer.make_new({
+				logger: logger
+			});
 		});
 
 

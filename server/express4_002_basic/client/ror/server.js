@@ -4,27 +4,53 @@
 define(
 [
 	'lodash',
-	'javascript-state-machine'
+	'javascript-state-machine',
+	'log',
+	'./static_data'
 ],
-function(_, StateMachine) {
+function(_, StateMachine, Logger, Data) {
 	'use strict';
 
 	function RorServer(options) {
-		this.config = {
+		// scan options
+		options = options || {};
+
+		var logger = options.logger || Logger.make_new();
+
+		var config = {
+			version: '0.0.1',
 			tick_period_ms : 500
 		};
 
-		this.state = {
-			tick_count: 0
+		logger.log('Instantiating a new v' + config.version + ' RoR server...');
+
+		var state = {
+			tick_count: 0,
+			pending_tick: false,
+			events_to_process: [],
+			unit_next_id: 0,
+			census: {
+				count: 0,
+				units: {
+
+				}
+			}
 		};
 
-		this.pending_tick = false;
-		this.events_to_process = [];
+		var clients = [];
 
-		var server = this; // closure
+		function add_new_replicator(unit) {
+			var units = state.census.units[unit.name] = state.census.units[unit.name] || [];
+			var unit = {
+				id: state.unit_next_id++,
+				size: unit.size
+				// quality of pieces ?
+			};
+			units.push(unit);
+		}
 
 		// https://github.com/jakesgordon/javascript-state-machine
-		this.fsm = StateMachine.create({
+		var fsm = StateMachine.create({
 			initial: '_waiting_init',
 			events: [
 				{ name: 'init_done',         from: '_waiting_init',         to: '_loading_last_backup' },
@@ -48,7 +74,7 @@ function(_, StateMachine) {
 					'_processing_tick',
 					'_processing_cmd',
 					'_processing_action'
-				],                                                         to: '_error'  }
+				],                                                          to: '_error'  }
 			],
 			callbacks: {
 				onbeforeevent : function(event, from, to, msg) {
@@ -61,7 +87,7 @@ function(_, StateMachine) {
 				},
 				onenterstate : function(event, from, to, msg) {
 					//console.log('[onenterstate]  "' + event + '(' + msg + ')" from state "' + from + '" to state "' + to + '"');
-					console.log('[onenterstate] "' + to + '" from state "' + from + '" following event "' + event
+					logger.log('[onenterstate] "' + to + '" from state "' + from + '" following event "' + event
 						+ (msg ? ('(' + msg + ')') : '') + '".');
 					return true;
 				},
@@ -71,61 +97,74 @@ function(_, StateMachine) {
 				},
 
 				on_error : function() {
-					console.error('Unknown internal error !');
+					logger.error('Unknown internal error !');
 					return true;
 				},
 
 				on_loading_last_backup : function() {
-					server.fsm.backup_load_error();
+					add_new_replicator(Data.replicators.cub);
+					fsm.backup_load_error();
 					return true;
 				},
 
 				on_starting_up : function() {
 					// initiate tick
-					server.schedule_next_tick();
-					server.fsm.started();
+					schedule_next_tick();
+					fsm.started();
 					return true;
 				},
 
 				on_waiting_event : function() {
-					console.log('now waiting for events...');
+					logger.log('now waiting for events...');
 					return StateMachine.ASYNC;
 				},
 
 				on_processing_tick : function() {
-					if(!server.pending_tick) throw new Error('No tick to process !');
-					server.state.tick_count++;
-					console.log('processing tick #' + server.state.tick_count +'...');
+					if(!state.pending_tick) throw new Error('No tick to process !');
+					state.tick_count++;
+					logger.log('processing tick #' + state.tick_count +'...');
 					// TODO do stuff
-					console.log('tick processed.');
-					server.pending_tick = false;
+					logger.log('tick processed.', state);
+					state.pending_tick = false;
 					// schedule next tick
-					server.schedule_next_tick();
-					server.fsm.tick_handled();
+					schedule_next_tick();
+					fsm.tick_handled();
 					return true;
 				}
 			}
 		});
-		this.fsm.init_done();
+		fsm.init_done();
+
+		function schedule_next_tick() {
+			if(state.pending_tick) throw new Error('Tick reentrency !');
+			setTimeout(function() {
+				if(state.pending_tick) throw new Error('Tick collision !');
+				state.pending_tick = true;
+				logger.log('tick !');
+				process_events();
+			}, config.tick_period_ms);
+		}
+
+		function process_events() {
+			if(state.pending_tick)
+				fsm.tick();
+			else if (state.events_to_process.length)
+				fsm.cmd();
+		}
+
+		// this func MUST be synchronous
+		function synchronize_client(client) {
+			// TODO
+		}
+
+
+		// external API
+		this.add_client = function(client) {
+			client.state = {}; // init our knowledge of the client state
+			clients.push(client);
+			synchronize_client(client);
+		};
 	}
-
-	RorServer.prototype.schedule_next_tick = function() {
-		if(this.pending_tick) throw new Error('Tick reentrency !');
-		var server = this; // closure
-		setTimeout(function() {
-			if(server.pending_tick) throw new Error('Tick collision !');
-			server.pending_tick = true;
-			console.log('tick !');
-			server.process_events();
-		}, server.config.tick_period_ms);
-	};
-
-	RorServer.prototype.process_events = function() {
-		if(this.pending_tick)
-			this.fsm.tick();
-		else if (this.events_to_process.length)
-			this.fsm.cmd();
-	};
 
 	return {
 		make_new: function(options) { return new RorServer(options); }
