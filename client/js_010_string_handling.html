@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- js_001 template -->
+<html lang=en>
+<head>
+	<meta charset="utf-8">
+	<title>JS test 010</title>
+</head>
+<body>
+<h1 id="header">JS test 010</h1>
+<p>Javascript enabled page : string handling test</p>
+<p>(stuff is sent to firebug console)</p>
+
+<script>
+
+	// REM : js console demo
+	console.log('hello world');
+
+	var originalString = "Hello world !";
+	var string1 = originalString;
+	var string2 = originalString.slice(0, -3);
+
+	console.log('originalString', originalString);
+	console.log('string1', string1);
+	console.log('string2', string2);
+
+</script>
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+</body>
+</html>

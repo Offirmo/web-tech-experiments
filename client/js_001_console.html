@@ -9,33 +9,33 @@
 	<h1 id="header">JS test 001</h1>
 	<p>Javascript enabled page 1 : console test</p>
 	<p>(stuff is sent to firebug console)</p>
-	
+
 	<script>
-		
+
 		// REM : js console demo
-		console.log("hello world");
-		
-		console.group("console levels tests");
-			console.log(  "console.log");
-			console.debug("console.debug");
-			console.info( "console.info");
-			console.warn( "console.warn");
-			console.error("console.error");
+		console.log('hello world');
+
+		console.group('console levels tests');
+			console.log(  'console.log');
+			console.debug('console.debug (deprecated)');
+			console.info( 'console.info');
+			console.warn( 'console.warn');
+			console.error('console.error');
 		console.groupEnd();
-		
+
 		var bar = {name: 'kitten', status: 'playful'}
-		console.log(2,4,6,8,"foo",bar);
-		console.log("%s is %d years old.", "Bob", 42);
+		console.log(2,4,6,8,'foo',bar);
+		console.log('%s is %d years old.', 'Bob', 42);
 		console.trace();
 		console.dir(bar);
-		
+
 		console.assert(false);
-		
+
 		document.body.appendChild(document.createTextNode('Hello from js code !'));
-	 
+
 		var h1 = document.getElementById('header'); // holds a reference to the <h1> tag
 		h1 = document.getElementsByTagName('h1')[0]; // accessing the same <h1> element
-		
+
 	</script>
 	<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 </body>
