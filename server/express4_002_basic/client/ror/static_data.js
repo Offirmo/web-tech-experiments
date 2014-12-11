@@ -5,15 +5,58 @@ define(function() {
 
 	var data = {};
 
-	data.controls = {
-		pause: {
-			action: 'pause'
-			// todo
+	data.interface = [
+		{
+			id: 'pause',
+			type: 'button',
+			prerequisite: null
 		},
-		play: {
-
+		{
+			id: 'unpause',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'wipe',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'clear_log',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'explore',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'gather_energy',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'gather_resources',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'replicate',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'create_swarm',
+			type: 'button',
+			prerequisite: null
+		},
+		{
+			id: 'send_swarm',
+			type: 'button',
+			prerequisite: null
 		}
-	};
+	];
 
 	data.replicators = {
 		cub: {
@@ -29,6 +72,12 @@ define(function() {
 
 		},
 		queen: {
+
+		},
+		cluster: {
+
+		},
+		gatherer: {
 
 		},
 		shuttle: {
