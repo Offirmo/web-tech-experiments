@@ -15,6 +15,7 @@
 		"datatables":               "latest",
 		"dustjs-linkedin":          "latest",
 		"dustjs-linkedin-helpers":  "latest",
+		"eventemitter2":            "latest",
 		"extended-exceptions.js":   "latest",
 		"famous-angular":           "latest",
 		"generic_store.js":         "latest",
