@@ -1,8 +1,8 @@
 {
-	"name": "incubator_modules",
+	"name": "gamifique",
 	"version": "0.0.1",
-	"description": "…",
-	"keywords": "…",
+	"description": "open gamification lib",
+	"keywords": "gamification, achievements, feats",
 	"license": "public domain",
 	"author": "Offirmo <offirmo.net@gmail.com> (http://offirmo.net)",
 	"homepage": "todo",
@@ -10,13 +10,17 @@
 		"type": "git",
 		"url": "todo"
 	},
+	"main": "main.js",
 	"dependencies": {
-		"amdefine":                 "latest",
-		"eventemitter2":            "latest",
-		"exit":                     "latest",
-		"lodash":                   "latest"
+		"todo": "^0"
 	},
 	"engines": {
 		"node": ">=0.10.0"
+	},
+	"bugs": {
+		"url": "todo"
+	},
+	"scripts": {
+		"test": "todo"
 	}
 }

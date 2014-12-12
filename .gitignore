@@ -1,6 +1,7 @@
 .~lock.*
 .idea
 npm-debug.log
+node_modules
 
 client/bower_components
 server/node_modules

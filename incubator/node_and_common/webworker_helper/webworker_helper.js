@@ -1,5 +1,5 @@
 // if node.js : use amdefine (add it with npm)
-//if (typeof define !== 'function') { var define = require('amdefine')(module); }
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
 	'lodash'

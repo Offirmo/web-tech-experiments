@@ -20,6 +20,13 @@ Stack overflow
 - "Used the maximum 40 votes in a day"
 - "Visited the site each day for 30 consecutive days. (Days are counted in UTC.)"
 
+
+Functionnal terms
+- revealed
+- revealed
+- unlock, unlocked
+
+
 API (thank you https://developers.google.com/games/services/common/concepts/achievements)
 - name
 - description
@@ -28,7 +35,7 @@ API (thank you https://developers.google.com/games/services/common/concepts/achi
 - public state : hidden, revealed, unlocked
 - list order (rank)
 - standard or incremental
-- steps : 2…10000
+- steps : 2…10000 -> auto !
 - reward
   - points or any currency
 - version (date) for not removing decommissioned but hard earned badges

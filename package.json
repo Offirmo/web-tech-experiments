@@ -5,6 +5,12 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"i": "npm install --global grunt-cli bower yo generator-famous serve nodemon; npm update -g; bower prune; bower install; bower update; cd server; npm prune; npm update; cd ../incubator/node_and_common; npm prune; npm update; cd ../base-objects.js; npm prune; npm update"
+		"i": "npm install --global grunt-cli serve nodemon puer; npm update -g grunt-cli serve nodemon puer; npm install; node_modules/.bin/bower prune; node_modules/.bin/bower install; node_modules/.bin/bower update; cd server; npm prune; npm update; cd ../incubator/node_and_common; npm prune; npm update; cd ../base-objects.js; npm prune; npm update"
+	},
+	"dependencies": {
+		"bower": "latest",
+		"generator-famous": "latest",
+		"grunt": "latest",
+		"yo": "latest"
 	}
 }
