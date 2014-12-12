@@ -1,0 +1,13 @@
+
+
+http://www.producthunt.com/kylebrussell/collections/best-games-of-2014
+
+http://www.afjv.com/news/4541_dreamirl-une-plateforme-innovante-de-jeux-independants.htm
+
+
+technos intéressantes
+* https://github.com/robertleeplummerjr/thaw.js
+* https://github.com/mavenave/inscribe.js
+* offline webapp bootloader https://github.com/substack/hyperboot
+* https://hacks.mozilla.org/2014/12/introducing-the-javascript-internationalization-api/
+* http://jakearchibald.com/2014/offline-cookbook/
