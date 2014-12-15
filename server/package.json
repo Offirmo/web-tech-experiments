@@ -54,6 +54,7 @@
 		"prettyjson":              "latest",
 		"progress":                "latest",
 		"proxyquire":              "latest",
+		"repl-client":             "latest",
 		"response-time":           "latest",
 		"serve-favicon":           "latest",
 		"serve-index":             "latest",
@@ -62,6 +63,7 @@
 		"trace":                   "~0",
 		"underscore":              "latest",
 		"usage":                   "latest",
+		"webkit-devtools-agent":   "latest",
 		"when":                    "latest",
 		"winston":                 "latest"
 	},

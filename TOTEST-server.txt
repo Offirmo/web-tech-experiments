@@ -136,3 +136,6 @@ http://stackoverflow.com/questions/10232192/exec-display-stdout-live
 -- misc
 http://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents
 https://github.com/M6Web/HttpToStatsd
+
+https://github.com/dshaw/repl-client
+https://github.com/c4milo/node-webkit-agent

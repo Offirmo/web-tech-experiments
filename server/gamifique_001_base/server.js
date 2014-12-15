@@ -11,6 +11,7 @@ var gamifique = require('../../incubator/node_and_common/gamifique')();
 
 gamifique.achievements.add({
 	name: 'Newbie clicker',
+	version: '2014',
 	description: 'You start clicking...',
 	initially_hidden: true,
 	requirements: [
@@ -19,6 +20,12 @@ gamifique.achievements.add({
 			needed_quantity: 10
 		}
 	]
+});
+
+// optional, to give more infos
+gamifique.feats.add({
+	name: 'click',
+	version: '2014'
 });
 
 gamifique.emit_feat('click');
