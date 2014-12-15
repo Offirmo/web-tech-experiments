@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+console.log('Hello world !');
+
 var _ = require('lodash');
 var gamifique = require('../../incubator/node_and_common/gamifique')();
 
@@ -19,5 +21,4 @@ gamifique.achievements.add({
 	]
 });
 
-//var uga = gamifique.make_new_user_account_for('user001');
-
+gamifique.emit_feat('click');

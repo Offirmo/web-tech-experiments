@@ -6,11 +6,20 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
-	'lodash'
-],function(_) {
+	'lodash',
+	'eventemitter2'
+],function(_, EventEmitter2 ) {
 	'use strict';
 
+	var EventEmitter = EventEmitter2.EventEmitter2;
+
 	function Gamifique(options) {
+
+		var ee = this.ee = new EventEmitter({
+			wildcard: true,
+			delimiter: ':',
+		});
+
 		var achievements = this.achievements = [];
 
 		achievements.add = function(achievement) {
@@ -27,6 +36,21 @@ define([
 			return xxx;
 		};
 
+
+		ee.on('feat:*', function() {
+			console.log(this.event, arguments);
+		});
+		ee.on('unlock:*', function() {
+			console.log(this.event, arguments);
+		});
+		ee.on('reveal:*', function() {
+			console.log(this.event, arguments);
+		});
+
+
+		var emit_feat = this.emit_feat = function(feat_id) {
+			ee.emit('feat:' + feat_id);
+		};
 	}
 
 	// convenient + clean interface
