@@ -13,6 +13,7 @@
 		"buzz":                     "latest",
 		"console-shim":             "latest",
 		"datatables":               "latest",
+		"data.validation":          "https://github.com/folktale/data.validation/archive/v1.3.0.tar.gz",
 		"dustjs-linkedin":          "latest",
 		"dustjs-linkedin-helpers":  "latest",
 		"eventemitter2":            "latest",

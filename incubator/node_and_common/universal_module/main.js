@@ -7,9 +7,8 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
 	'lodash',
-	'eventemitter2',
-	'predicates'
-],function(_, EventEmitter2, is) {
+	'eventemitter2'
+],function(_, EventEmitter2 ) {
 	'use strict';
 
 	var EventEmitter = EventEmitter2.EventEmitter2;
@@ -17,7 +16,6 @@ define([
 	function Gamifique(options) {
 
 		var config = {
-			achievements_update_debounce_ms: 250
 		};
 
 		var ee = this.ee = new EventEmitter({
@@ -27,11 +25,6 @@ define([
 
 		////////////////////////////////////
 		var achievements = this.achievements = {};
-		var isValidAchievement = is.structure({
-			name: is.string,
-			description: is.string,
-			age: is.number
-		});
 
 		// API : add non-enumerable methods to our array
 		Object.defineProperty(this.achievements, 'add', { value: function add_achievement(achievement) {

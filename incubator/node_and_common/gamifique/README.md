@@ -4,9 +4,10 @@ An achievement
 stories
 android doc
 - "Bake a lemon meringue pie before sundown"
-WoW
+- WoW
+- Angry birds Epic
+- http://winterbash2014.stackexchange.com/
 
-Angry birds Epic
 
 Stack overflow
 - "Completed "About Me" section of user profile"
@@ -25,6 +26,8 @@ Functionnal terms
 - revealed
 - revealed
 - unlock, unlocked
+
+http://en.wiktionary.org/wiki/feat
 
 
 API (thank you https://developers.google.com/games/services/common/concepts/achievements)

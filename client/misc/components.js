@@ -71,6 +71,7 @@ requirejs.config({
 		'chai-as-promised'    : 'bower_components/chai-as-promised/lib/chai-as-promised',
 		'ckeditor'            : 'bower_components/ckeditor/ckeditor',
 		// dust-full : this plugin should be aliased 'dust' for rdust to work properly
+		'data.validation'     : 'bower_components/data.validation/',
 		'dust'                : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'        : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'ecotree'             : 'other_components/ecotree/ECOTree',
