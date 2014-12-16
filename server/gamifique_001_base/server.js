@@ -22,10 +22,15 @@ gamifique.achievements.add({
 	]
 });
 
+console.log('achievements :\n', gamifique.achievements);
+console.log('feats :\n', gamifique.feats);
+
+
 // optional, to give more infos
-gamifique.feats.add({
+/*gamifique.feats.add({
 	name: 'click',
 	version: '2014'
-});
+});*/
 
 gamifique.emit_feat('click');
+console.log('feats :\n', gamifique.feats);

@@ -24,45 +24,79 @@ define([
 		});
 
 		////////////////////////////////////
-		var achievements = this.achievements = {};
-
 		// achievement.name <-- id
 		// achievement.
-		achievements.add = function(achievement) {
-			// TODO check param
-			achievements[achievement.name] = achievement;
-		};
-		achievements.get_all = function() {
-			return achievements;
-		};
-		achievements.get_revealed = function() {
-			return xxx;
-		};
-		achievements.get_unlocked = function() {
-			return xxx;
-		};
+		var achievements = this.achievements = {};
+
+		// add non-enumerable methods
+		Object.defineProperty(this.achievements, 'add', {
+			value: function(achievement) {
+				// TODO check param
+				achievement.requirements = achievement.requirements || [];
+				achievements[achievement.name] = achievement;
+				_.forEach(achievement.requirements, function (requirement) {
+					feats.add({name: requirement.feat});
+				});
+			}
+		});
+		Object.defineProperty(this.achievements, 'revealed', {
+			enumerable: false,
+			set: function(val) {
+				throw new Error('not assignable !');
+			},
+			get: function() {
+				return xxx;
+			}
+		});
+		Object.defineProperty(this.achievements, 'unlocked', {
+			enumerable: false,
+			set: function(val) {
+				throw new Error('not assignable !');
+			},
+			get: function() {
+				return xxx;
+			}
+		});
 
 		////////////////////////////////////
-		var feats = this.feats = {};
-		var achieved_feats = this.achieved_feats = {};
-
 		// feat.name <-- id
-		feats.add = function(feat) {
-			// TODO check param
-			feat[feat.name] = feat;
-			achieved_feats[feat.name] = {
-				name: feat.name,
-				feat: feat,
-				count: 0
-			};
-		};
+		var feats = this.feats = {};
+
+		Object.defineProperty(this.feats, 'add', {
+			value: function (feat) {
+				// TODO check param
+				feat.count = 0;
+				feats[feat.name] = feat;
+				ee.on('feat:' + feat.name, function() {
+					console.log('seen feat :', feat.name, arguments);
+					feat.count++;
+				});
+			}
+		});
+
+		////////////////////////////////////
+		// TODO !!
+		// load_state
+		// save_state
 
 
 		////////////////////////////////////
+		var reduce_requirement = function(accumulator, requirement) {
+			console.log('checking requirement', requirement, accumulator);
+			var feat = feats[requirement.feat];
+			accumulator.ops_needed += requirement.needed_quantity;
+			accumulator.ops_done +=  Math.min(feat.count, requirement.needed_quantity);
+			return accumulator;
+		};
 		var check_achievement = function(achievement) {
-			_.forEach(achievement.requirements, function(requirement) {
-
+			console.log('checking achievement', achievement);
+			var result = _.reduce(achievement.requirements, reduce_requirement, {
+				ops_needed: 0,
+				ops_done: 0,
 			});
+			result.total = (result.ops_done === result.ops_needed);
+			result.percent = Math.round( 100.0 * result.ops_done / result.ops_needed);
+			console.log(result);
 		};
 
 		var update_achievements = this.update_achievements = function() {
@@ -73,21 +107,22 @@ define([
 
 		////////////////////////////////////
 		ee.on('feat:*', function() {
-			console.log(this.event, arguments);
+			console.log('seen event :', this.event, arguments);
+			update_achievements();
 		});
 		ee.on('unlock:*', function() {
-			console.log(this.event, arguments);
+			console.log('seen event :', this.event, arguments);
 		});
 		ee.on('reveal:*', function() {
-			console.log(this.event, arguments);
+			console.log('seen event :', this.event, arguments);
 		});
 
 
 		var emit_feat = this.emit_feat = function(feat_name) {
 			// find the feat
-			var feat = feats[feat_id];
+			var feat = feats[feat_name];
 			// todo tests
-			ee.emit('feat:' + feat.name + ' (' + feat.version + ')');
+			ee.emit('feat:' + feat.name);
 		};
 	}
 
