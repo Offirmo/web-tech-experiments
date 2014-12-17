@@ -6,6 +6,12 @@ This is an attempt to make a js module which is universally usable :
 * browser with browserify
 * ES6 ?
 
+
+
+http://dontkry.com/posts/code/browserify-and-the-universal-module-definition.html
+
+
+
 References :
 - https://github.com/umdjs/umd
 - http://wiki.commonjs.org/wiki/CommonJS

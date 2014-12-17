@@ -43,4 +43,5 @@ gamifique.emit_feat('click');
 gamifique.emit_feat('click');
 gamifique.emit_feat('click');
 gamifique.emit_feat('click');
+gamifique.emit_feat('click');
 console.log('feats :\n', gamifique.feats);

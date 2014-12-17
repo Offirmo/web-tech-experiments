@@ -61,6 +61,7 @@
 		"response-time":            "latest",
 		"serve-favicon":            "latest",
 		"serve-index":              "latest",
+		"shackles":                 "latest",
 		"socket.io":                "latest",
 		"store":                    "latest",
 		"trace":                    "~0",

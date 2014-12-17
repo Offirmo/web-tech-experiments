@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"amdefine":                 "latest",
+		"chai":                     "latest",
 		"eventemitter2":            "latest",
 		"exit":                     "latest",
 		"lodash":                   "latest"
