@@ -139,3 +139,5 @@ https://github.com/M6Web/HttpToStatsd
 
 https://github.com/dshaw/repl-client
 https://github.com/c4milo/node-webkit-agent
+
+https://github.com/mikaelbr/node-notifier
