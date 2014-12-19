@@ -24,7 +24,6 @@ Stack overflow
 
 Functionnal terms
 - revealed
-- revealed
 - unlock, unlocked
 
 http://en.wiktionary.org/wiki/feat
