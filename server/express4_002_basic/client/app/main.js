@@ -37,7 +37,7 @@ window.main = function()
 			'logator',
 			//'webworker_helper',
 			//'ng/directives/test',
-			'ror/server',
+			'ror/core/server',
 			'ng/directives/ror/client',
 			'angular',
 			'angular-ui-router',

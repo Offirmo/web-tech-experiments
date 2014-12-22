@@ -75,6 +75,7 @@ requirejs.config({
 		'dust'                : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'        : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'ecotree'             : 'other_components/ecotree/ECOTree',
+		'eventemitter2'       : 'bower_components/eventemitter2/lib/eventemitter2',
 		'fullpage'            : 'other_components/fullpage/jquery.fullPage',
 		'javascript-state-machine': 'bower_components/javascript-state-machine/state-machine',
 		'jpanelmenu'          : 'bower_components/jpanelmenu/jquery.jpanelmenu',

@@ -1,10 +1,13 @@
 define(
 [
 	'lodash',
+	'eventemitter2',
 	'logator',
 ],
-function(_, Logator) {
+function(_, EventEmitter2, Logator) {
 	'use strict';
+
+	var EventEmitter = EventEmitter2.EventEmitter2;
 
 	function RorClient(server, options) {
 		// scan options
@@ -29,8 +32,14 @@ function(_, Logator) {
 				// TODO
 			}
 		};
-
 	}
+	RorClient.prototype.pause = function() {
+
+	};
+	RorClient.prototype.unpause = function() {
+
+	};
+
 
 	return {
 		make_new: function(server, options) { return new RorClient(server, options); }

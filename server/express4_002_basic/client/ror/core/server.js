@@ -5,11 +5,15 @@ define(
 [
 	'lodash',
 	'javascript-state-machine',
+	'eventemitter2',
 	'logator',
-	'./static_data'
+	'./static_data',
+	'./errors'
 ],
-function(_, StateMachine, Logator, Data) {
+function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 	'use strict';
+
+	var EventEmitter = EventEmitter2.EventEmitter2;
 
 	function RorServer(options) {
 		// scan options
@@ -19,7 +23,7 @@ function(_, StateMachine, Logator, Data) {
 
 		var config = {
 			version: '0.0.1',
-			tick_period_ms : 500
+			tick_period_ms : 5000
 		};
 
 		logger.log('Instantiating a new v' + config.version + ' RoR server...');
@@ -28,25 +32,49 @@ function(_, StateMachine, Logator, Data) {
 			tick_count: 0,
 			pending_tick: false,
 			events_to_process: [],
-			unit_next_id: 0,
+			next_replicator_id: 0, // for generating the unique id of each replicator
 			census: {
-				count: 0,
-				units: {
-
+				units: 0,
+				free_units: 0,
+				replicators: {
 				}
 			}
 		};
 
 		var clients = [];
 
-		function add_new_replicator(unit) {
-			var units = state.census.units[unit.name] = state.census.units[unit.name] || [];
-			var unit = {
-				id: state.unit_next_id++,
-				pieces: unit.pieces
+
+		// add new unit(s)
+		function add_new_units(count) {
+			state.census.units += count;
+			// todo auto-assemble ?
+			state.census.free_units += count;
+		}
+
+		/**
+		 * @param {Object} model - replicator model to assemble (from Data.replicators)
+		 */
+		function assemble_replicator(model) {
+			// init just in case
+			state.census.replicators[model.id] = state.census.replicators[model.id] || [];
+			// shortcuts
+			var units = state.census.replicators[model.id];
+			// checks
+			if(state.census.free_units < model.min_units) {
+				var e = new Errors.NotEnoughResourcesToAssemble();
+				e.model = model.id;
+				e.free_units = state.census.free_units;
+				e.required_units = model.min_units;
+				throw e;
+			}
+			// build the new replicator
+			var replicator = {
+				id: state.next_replicator_id++,
+				units: model.min_units
 				// quality of pieces ?
 			};
-			units.push(unit);
+			state.census.free_units -= replicator.units;
+			units.push(replicator);
 		}
 
 		// https://github.com/jakesgordon/javascript-state-machine
@@ -102,7 +130,8 @@ function(_, StateMachine, Logator, Data) {
 				},
 
 				on_loading_last_backup : function() {
-					add_new_replicator(Data.replicators.cub);
+					add_new_units(Data.replicators.cub.min_units);
+					assemble_replicator(Data.replicators.cub);
 					fsm.backup_load_error();
 					return true;
 				},
