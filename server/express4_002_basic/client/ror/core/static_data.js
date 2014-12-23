@@ -17,71 +17,103 @@ function(_) {
 
 	var data = {};
 
-	/*
-	data.interface = [
+	data.actions = to_hash([
 		{
-			id: 'pause',
-			type: 'button',
-			prerequisite: null
+			id: 'pause'
 		},
 		{
-			id: 'unpause',
-			type: 'button',
-			prerequisite: null
+			id: 'unpause'
 		},
 		{
-			id: 'wipe',
-			type: 'button',
-			prerequisite: null
+			id: 'wipe'
 		},
 		{
-			id: 'clear_log',
-			type: 'button',
-			prerequisite: null
-		}
-	];
-	*/
+			id: 'assemble'
+			// replicator model_id
+		},
+	]);
 
-	data.replicators = to_hash([
+	data.events = to_hash([
+		{
+			id: 'story_progress'
+		},
+		{
+			id: 'user_error'
+		},
+		{
+			id: 'meta_update'
+			// version
+			// tick interval
+			// speed
+			// tick count
+
+		},
+		{
+			id: 'census_update'
+		},
+		{
+			id: 'resources_update'
+		}
+	]);
+
+	data.story_steps = to_hash([
+		{
+			id: 'story_begins',
+			type: 'log',
+			msg: 'The story begins'
+		},
+	]);
+
+	data.replicator_models_by_rank = [
 		{
 			id: 'cub',
+			rank: 1,
 			name: 'ror.cub',
 			min_units: 64
 		},
 		{
 			id: 'crab',
+			rank: 2,
 			name: 'ror.crab',
 			min_units: 128
 		},
 		{
 			id: 'beetle',
+			rank: 3,
 			min_units: 256
 		},
 		{
 			id: 'queen',
+			rank: 4,
 			min_units: 512
 		},
 		{
 			id: 'cluster',
+			rank: 5,
 			min_units: 128
 		},
 		{
 			id: 'gatherer',
+			rank: 6,
 			min_units: 128
 		},
 		{
 			id: 'shuttle',
+			rank: 7,
 			min_units: 128
 		},
 		{
 			id: 'cruiser',
+			rank: 8,
 			min_units: 128
 		},
 		{
 			id: 'planet',
+			rank: 9,
 			units: 128
 		}
-	]);
+	];
+	data.replicator_models = to_hash(data.replicator_models_by_rank);
 
 	data.currencies = to_hash([
 		{

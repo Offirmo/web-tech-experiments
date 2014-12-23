@@ -1,0 +1,43 @@
+.directive-ror-panels-census .navbar {
+	margin-bottom: 7px;
+	min-height: 20px;
+	padding-right: 7px;
+}
+
+.directive-ror-panels-census .navbar > * {
+	margin: 0px;
+	padding: 7px;
+}
+.directive-ror-panels-census .navbar-brand {
+	/*padding: 0px;*/
+	height: auto;
+}
+
+.directive-ror-panels-census .navbar-text.navbar-right {
+	margin-right: 0px;
+}
+
+.directive-ror-panels-census .badge {
+	background-color: black;
+}
+
+.directive-ror-panels-census .census-needed-units {
+	width: 100px;
+}
+
+.directive-ror-panels-census .census-id {
+	text-transform:capitalize;
+}
+
+.directive-ror-panels-census .census-button {
+	border-right: solid 1px #777;
+	font-weight:bold;
+}
+.directive-ror-panels-census .census-button:last-child {
+	border-left: solid 1px #777;
+}
+.directive-ror-panels-census .census-button:hover {
+	background-color: black;
+	text-decoration: none;
+	cursor: hand;
+}

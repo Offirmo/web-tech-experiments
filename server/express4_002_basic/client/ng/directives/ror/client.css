@@ -1,0 +1,54 @@
+
+
+@font-face {
+	font-family: 'RobotoRegular';
+	src: url('/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+/* global and bootstrap adjustments */
+body {
+	background-color: black;
+	color: deepskyblue;
+	font-family: 'RobotoRegular';
+}
+
+/*
+.navbar-inverse .navbar-link {
+	color: lightskyblue;
+}
+.navbar-inverse .navbar-brand {
+	color: lightskyblue;
+}
+*/
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	color: deepskyblue;
+}
+
+.directive-ror-client .btn-default {
+	background-color: black;
+	border-color: lightsteelblue;
+	color: deepskyblue;
+}
+
+.directive-ror-client .btn-default:hover {
+	background-color: #333;
+	color: lightsteelblue;
+}
+
+.navbar {
+	position: relative;
+	min-height: 50px;
+	margin-bottom: 20px;
+}
+
+/* our stuff */
+.directive-ror-client {
+	background-color: black;
+	color: deepskyblue;
+	padding: 10px;
+}

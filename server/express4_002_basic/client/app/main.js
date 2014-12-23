@@ -38,22 +38,35 @@ window.main = function()
 			//'webworker_helper',
 			//'ng/directives/test',
 			'ror/core/server',
+			'ror/core/client',
 			'ng/directives/ror/client',
 			'angular',
 			'angular-ui-router',
 			'angular-bootstrap'
 		],
-		function(_, Logator, RorServer) {
+		function(_, Logator, RorServer, RorClient) {
 			console.log('main require done.');
 
 			// build this app logger
 			var logger = Logator.make_new({enhanced: true});
 			logger.info('App is bootstrapping…');
 
+			// server
+			var server = RorServer.make_new({
+				logger: logger
+			});
+
+			var client = RorClient.make_new(server, {
+				logger: logger
+			});
+
+			// ui
 			global_ng_module
 			.controller('LandingCtrl', function($scope, $document) {
 				$scope.lang = $document[0].documentElement.lang;
 				logger.info('detected lang :', $document[0].documentElement.lang);
+
+				$scope.client = client;
 			});
 
 			// angular manual initialisation since we use a script loader
@@ -61,10 +74,6 @@ window.main = function()
 			console.log('Bootstrapping angular...');
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['global_ng_module']);
-			});
-
-			var server = RorServer.make_new({
-				logger: logger
 			});
 		});
 

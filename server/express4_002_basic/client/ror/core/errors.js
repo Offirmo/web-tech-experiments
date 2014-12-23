@@ -11,6 +11,8 @@ function(_, EE) {
 
 	var Errors = {};
 
+	// for convenience (to spare a require)
+	Errors.EE = EE;
 
 	Errors.ActionError = EE.create_custom_error('ActionError', EE.RuntimeError);
 	Errors.NotEnoughResources = EE.create_custom_error('NotEnoughResources', Errors.ActionError);

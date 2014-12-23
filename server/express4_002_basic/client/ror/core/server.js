@@ -13,8 +13,6 @@ define(
 function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 	'use strict';
 
-	var EventEmitter = EventEmitter2.EventEmitter2;
-
 	function RorServer(options) {
 		// scan options
 		options = options || {};
@@ -22,37 +20,109 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 		var logger = options.logger || Logator.make_new();
 
 		var config = {
-			version: '0.0.1',
-			tick_period_ms : 5000
+			version: '0.0.2',
+			tick_interval_ms: 5000,
+			story_queue_size: 10
 		};
 
 		logger.log('Instantiating a new v' + config.version + ' RoR server...');
 
 		var state = {
 			tick_count: 0,
+			speed: 1, // 0 = stopped, x -> period = period * x
 			pending_tick: false,
 			events_to_process: [],
+			pending_actions: [],
 			next_replicator_id: 0, // for generating the unique id of each replicator
 			census: {
 				units: 0,
 				free_units: 0,
 				replicators: {
 				}
-			}
+			},
+			story: [] // empty so far
 		};
 
-		var clients = [];
+		var ee = this.ee = new EventEmitter2({
+			wildcard: true,
+			delimiter: ':'
+		});
+		// forwarder
+		this.on = function() {
+			ee.on.apply(ee, arguments);
+		}
 
 
-		// add new unit(s)
+
+		////////////////////////////////////
+
+		/// data for external API
+		this.get_meta = function get_meta() {
+			return {
+				version: config.version,
+				tick_interval_ms: config.tick_interval_ms,
+				speed: state.speed,
+				tick_count: state.tick_count
+			};
+		};
+		function emit_meta() {
+			ee.emit('meta_update', get_meta());
+		}
+
+		this.get_story = function get_story() {
+			return state.story;
+		};
+		function emit_story_progress(story_step) {
+			ee.emit('story_progress', story_step);
+		}
+
+		var get_census = this.get_census = function get_census() {
+			// census must be sorted
+			var census = [];
+			_.forEach(Data.replicator_models_by_rank, function(model) {
+				var census_infos = state.census.replicators[model.id];
+				if(! census_infos) return; // not known / none
+				var model_infos = _.clone(model);
+				model_infos.count = census_infos.length;
+				census.push(model_infos);
+			});
+			census.units = state.census.units;
+			census.free_units = state.census.free_units;
+			return census;
+		};
+		function emit_census() {
+			ee.emit('census_update', get_census());
+		}
+
+
+		////////////////////////////////////
+
+		function init_blank_state() {
+			add_new_units(Data.replicator_models.cub.min_units);
+			assemble_replicator(Data.replicator_models.cub);
+			progress_story(Data.story_steps.story_begins)
+		}
+
+
+
+		// send a story log line / story cutscene
+		function progress_story(story_step) {
+			state.story.unshift(story_step); // REM : add at the beginning
+			if(state.story > config.story_queue_size)
+				state.story.pop(); // REM : remove last
+			emit_story_progress(story_step);
+		}
+
+		// add new replicator unit(s)
 		function add_new_units(count) {
 			state.census.units += count;
 			// todo auto-assemble ?
 			state.census.free_units += count;
+			emit_census();
 		}
 
 		/**
-		 * @param {Object} model - replicator model to assemble (from Data.replicators)
+		 * @param {Object} model - replicator model to assemble (from Data.replicator_models)
 		 */
 		function assemble_replicator(model) {
 			// init just in case
@@ -75,6 +145,7 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 			};
 			state.census.free_units -= replicator.units;
 			units.push(replicator);
+			emit_census();
 		}
 
 		// https://github.com/jakesgordon/javascript-state-machine
@@ -130,8 +201,7 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 				},
 
 				on_loading_last_backup : function() {
-					add_new_units(Data.replicators.cub.min_units);
-					assemble_replicator(Data.replicators.cub);
+					init_blank_state();
 					fsm.backup_load_error();
 					return true;
 				},
@@ -160,6 +230,10 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 					fsm.tick_handled();
 					return true;
 				}
+			},
+			error: function(name, from, to, args, error, msg, e) {
+				console.error(arguments);
+				throw e || msg;
 			}
 		});
 		fsm.init_done();
@@ -171,7 +245,7 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 				state.pending_tick = true;
 				logger.log('tick !');
 				process_events();
-			}, config.tick_period_ms);
+			}, config.tick_interval_ms);
 		}
 
 		function process_events() {
@@ -181,17 +255,10 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 				fsm.cmd();
 		}
 
-		// this func MUST be synchronous
-		function synchronize_client(client) {
-			// TODO
-		}
-
-
-		// external API
-		this.add_client = function(client) {
-			client.state = {}; // init our knowledge of the client state
-			clients.push(client);
-			synchronize_client(client);
+		//
+		this.post_action = function(action_id, params) {
+			params.id = action_id;
+			state.pending_actions.push(params);
 		};
 	}
 

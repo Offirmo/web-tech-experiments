@@ -17,29 +17,37 @@ function(_, EventEmitter2, Logator) {
 
 		logger.log('Instantiating a new RoR client...');
 
-		var state = {
-		};
+		var state = this.state = {};
+		var story_log = this.story_log = [];
 
-		var server_interface = {
-			send_response: function() {
-
+		/// accessors
+		Object.defineProperty(this, 'log', {
+			set: function(val) {
+				throw new Error('not assignable !');
+			},
+			get: function() {
+				return story_log;
 			}
-		};
-		server.add_client(server_interface);
+		});
 
-		var ui_interface = {
-			click: function(action_id) {
-				// TODO
-			}
-		};
+		/// synchronize with server
+		state.meta = server.get_meta();
+		console.log('got meta', state.meta);
+
+		state.census = server.get_census();
+		console.log('got census', state.census);
+
+		/// plug to server
+		server.on('*', function() {
+			console.log('seen server event :', this.event, arguments);
+		});
 	}
-	RorClient.prototype.pause = function() {
-
+	RorClient.prototype.post_action = function(action_id, params) {
+		// TODO
 	};
-	RorClient.prototype.unpause = function() {
-
+	RorClient.prototype.clear_log = function() {
+		this.story_log = [];
 	};
-
 
 	return {
 		make_new: function(server, options) { return new RorClient(server, options); }

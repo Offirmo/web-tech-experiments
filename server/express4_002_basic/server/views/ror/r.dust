@@ -37,7 +37,7 @@
 
 		<!-- <test></test> -->
 
-		<ror_client></ror_client>
+		<ror_client client="client"></ror_client>
 	</div>
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>

@@ -1,3 +1,34 @@
 <div class="directive-ror-panels-census">
-	Replicator count...
+	Census
+
+	<nav class="navbar navbar-inverse">
+		<p class="navbar-text census-needed-units">
+			{{census.free_units}} free
+		</p>
+		<p class="navbar-text navbar-brand census-id">units</p>
+		<p class="navbar-text">
+			<span class="badge">{{census.units}}</span>
+		</p>
+		<p class="navbar-text navbar-right census-button">
+			<a href="#" class="navbar-link">-1</a>
+		</p>
+		<p class="navbar-text navbar-right census-button" ng-click="replicate()">
+			<a href="#" class="navbar-link">+1</a>
+		</p>
+	</nav>
+
+	<nav class="navbar navbar-inverse" ng-repeat="model in census">
+		<p class="navbar-text census-needed-units">
+			{{census.free_units}}/{{model.min_units}}
+		</p>
+		<p class="navbar-text navbar-brand census-id">{{model.id}}</p>
+		<p class="navbar-text"><span class="badge">{{model.count}}</span></p>
+		<p class="navbar-text navbar-right census-button">
+			<a href="#" class="navbar-link">-1</a>
+		</p>
+		<p class="navbar-text navbar-right census-button">
+			<a href="#" class="navbar-link">+1</a>
+		</p>
+	</nav>
+
 </div>

@@ -1,4 +1,78 @@
 <div class="directive-ror-client">
-	<h4><a ui-sref="landing">RoR client</a></h4>
-	<ror_panels_census></ror_panels_census>
+	<h4><a ui-sref="landing">RoR client v{{client.state.meta.version}}</a></h4>
+
+	<br />
+
+	<div class="btn-group">
+		<button class="btn btn-default" type="button">
+			<span class="glyphicon glyphicon-pause"></span>
+		</button>
+		<button class="btn btn-default" type="button">
+			<span class="glyphicon glyphicon-play"></span>
+		</button>
+		<button class="btn btn-default" type="button">
+			<span class="glyphicon glyphicon-forward"></span>
+		</button>
+	</div>
+	{{client.state.meta.tick_count}}
+
+	<br /><br />
+
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th colspan="2">Resources</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>materials</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>energy</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>data</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>energy sources</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>technological artifacts</td>
+				<td>12</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<ror_panels_census client="client"></ror_panels_census>
+
+	<br /><br />
+
+	<div class="btn-group">
+		<button class="btn btn-default" type="button">
+			Explore
+		</button>
+		<button class="btn btn-default" type="button">
+			Gather resources
+		</button>
+		<button class="btn btn-default" type="button">
+			Gather energy
+		</button>
+		<button class="btn btn-default" type="button">
+			Retro-engineer
+		</button>
+		<button class="btn btn-default" type="button">
+			Research
+		</button>
+		<button class="btn btn-default" type="button">
+			Learn
+		</button>
+	</div>
+
+
 </div>
