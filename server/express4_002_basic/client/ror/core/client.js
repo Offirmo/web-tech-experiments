@@ -12,13 +12,16 @@ function(_, EventEmitter2, Logator) {
 	function RorClient(server, options) {
 		// scan options
 		options = options || {};
+		options.max_log_count = options.max_log_count || 30;
 
-		var logger = options.logger || Logator.make_new();
+		this.server = server;
+
+		var logger = this.logger = options.logger || Logator.make_new();
 
 		logger.log('Instantiating a new RoR client...');
 
 		var state = this.state = {};
-		var story_log = this.story_log = [];
+		this.story_log = [];
 
 		/// accessors
 		Object.defineProperty(this, 'log', {
@@ -26,24 +29,33 @@ function(_, EventEmitter2, Logator) {
 				throw new Error('not assignable !');
 			},
 			get: function() {
-				return story_log;
+				return this.story_log;
 			}
 		});
 
-		/// synchronize with server
+		/// initial sync with server
 		state.meta = server.get_meta();
 		console.log('got meta', state.meta);
 
 		state.census = server.get_census();
 		console.log('got census', state.census);
 
+		this.story_log = server.get_story();
+		console.log('got story log', this.story_log);
+
 		/// plug to server
 		server.on('*', function() {
 			console.log('seen server event :', this.event, arguments);
 		});
+		server.on('census_update', function(census) {
+			var old = state.census;
+			state.census = census;
+			console.log('census updated', state.census, 'replacing', old);
+		});
+
 	}
 	RorClient.prototype.post_action = function(action_id, params) {
-		// TODO
+		this.server.post_action(action_id, params);
 	};
 	RorClient.prototype.clear_log = function() {
 		this.story_log = [];

@@ -1,0 +1,48 @@
+<div class="directive-ror-panels-census">
+
+	<div>
+		Census
+	</div>
+
+	<nav class="navbar navbar-inverse">
+		<p class="navbar-text census-needed-units">
+			{{state.census.free_units}} free
+		</p>
+		<p class="navbar-text navbar-brand census-id">units</p>
+		<p class="navbar-text">
+			<span class="badge">{{state.census.units}}</span>
+		</p>
+
+		<p class="navbar-text navbar-right census-button"
+		   ng-repeat="qty in qties"
+		   ng-click="replicate(qty)">
+			<a href="#" class="navbar-link">+{{qty}}</a>
+		</p>
+	</nav>
+
+	<div class="btn-group census-batch-quantity .pull-right">
+		<button type="button" class="btn btn-default"
+		        ng-repeat="qty in qties"
+		        ng-class="{'active' : qty === batch_quantity}"
+		        ng-click="set_batch_quantity(qty)">
+			{{qty}}
+		</button>
+	</div>
+
+	<nav class="navbar navbar-inverse" ng-repeat="model in state.census">
+		<p class="navbar-text census-needed-units">
+			{{state.census.free_units}}/{{model.min_units}}
+		</p>
+		<p class="navbar-text navbar-brand census-id">{{model.id}}</p>
+		<p class="navbar-text"><span class="badge">{{model.count}}</span></p>
+		<p class="navbar-text navbar-right census-button"
+		   ng-click="disassemble(model)">
+			<a href="#" class="navbar-link">-{{batch_quantity}}</a>
+		</p>
+		<p class="navbar-text navbar-right census-button"
+		   ng-click="assemble(model)">
+			<a href="#" class="navbar-link">+{{batch_quantity}}</a>
+		</p>
+	</nav>
+
+</div>

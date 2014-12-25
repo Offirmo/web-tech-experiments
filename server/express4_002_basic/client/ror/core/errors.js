@@ -15,6 +15,7 @@ function(_, EE) {
 	Errors.EE = EE;
 
 	Errors.ActionError = EE.create_custom_error('ActionError', EE.RuntimeError);
+	Errors.UnknownAction = EE.create_custom_error('UnknownAction', Errors.ActionError);
 	Errors.NotEnoughResources = EE.create_custom_error('NotEnoughResources', Errors.ActionError);
 	Errors.NotEnoughResourcesToAssemble = EE.create_custom_error('NotEnoughResourcesToAssemble', Errors.NotEnoughResources);
 

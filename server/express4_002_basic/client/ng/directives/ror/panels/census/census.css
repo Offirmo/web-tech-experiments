@@ -41,3 +41,12 @@
 	text-decoration: none;
 	cursor: hand;
 }
+
+.directive-ror-panels-census .census-batch-quantity .btn {
+	min-width: 27px;
+	padding: 3px 5px 1px 5px;
+}
+.directive-ror-panels-census .census-batch-quantity .btn.active {
+	font-weight:bold;
+	background-color: #333;
+}

@@ -3,22 +3,15 @@ define(
 	'angular',
 	'lodash',
 	'text!ng/directives/ror/client.html',
-	'ng/directives/ror/panels/census',
 	'css!ng/directives/ror/client.css',
+	'ng/directives/ror/panels/census/census',
+	'ng/directives/ror/panels/resources/resources',
+	'ng/directives/ror/panels/story_log/story_log',
 ],
 function(angular, _, tpl) {
 	'use strict';
 
-	//console.log('Hello from directive ror.client !');
-
 	global_ng_module
-	.controller('RorClientCtrl', [
-		'$scope',
-		'$log',
-		'$http',
-		'$q',
-		RorClientCtrl
-	])
 	.directive('rorClient', function rorClient () {
 		return {
 			restrict: 'E',
@@ -28,13 +21,17 @@ function(angular, _, tpl) {
 			template: tpl,
 			replace: true,
 			link: function ($scope, $element, $attrs) {
-				//console.log('Hello from directive ror.client link !');
+				// ...
 			},
-			controller: 'RorClientCtrl'
+			controller: 'RorClientController'
 		};
-	});
+	})
+	.controller('RorClientController', [
+		'$scope',
+		RorClientController
+	]);
 
-	function RorClientCtrl() {
+	function RorClientController() {
 		//console.log('Hello from directive ror.client ctrl !');
 	}
 

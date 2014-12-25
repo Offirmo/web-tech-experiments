@@ -28,7 +28,19 @@ function(_) {
 			id: 'wipe'
 		},
 		{
+			id: 'replicate'
+			// + count
+		},
+		{
+			id: 'salvage'
+			// + count
+		},
+		{
 			id: 'assemble'
+			// replicator model_id
+		},
+		{
+			id: 'disassemble'
 			// replicator model_id
 		},
 	]);
@@ -46,7 +58,6 @@ function(_) {
 			// tick interval
 			// speed
 			// tick count
-
 		},
 		{
 			id: 'census_update'
@@ -60,15 +71,20 @@ function(_) {
 		{
 			id: 'story_begins',
 			type: 'log',
-			msg: 'The story begins'
+			msg: 'The story begins...'
+		},
+		{
+			id: 'story_unfolds',
+			type: 'log',
+			msg: 'The story unfolds...'
 		},
 	]);
 
 	data.replicator_models_by_rank = [
 		{
-			id: 'cub',
+			id: 'mini-crab',
 			rank: 1,
-			name: 'ror.cub',
+			name: 'ror.mini-crab',
 			min_units: 64
 		},
 		{

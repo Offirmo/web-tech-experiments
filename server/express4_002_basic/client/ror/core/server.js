@@ -98,18 +98,18 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 		////////////////////////////////////
 
 		function init_blank_state() {
-			add_new_units(Data.replicator_models.cub.min_units);
-			assemble_replicator(Data.replicator_models.cub);
-			progress_story(Data.story_steps.story_begins)
+			add_new_units(Data.replicator_models['mini-crab'].min_units);
+			assemble_replicator(Data.replicator_models['mini-crab']);
+			progress_story(Data.story_steps.story_begins);
+			progress_story(Data.story_steps.story_unfolds);
 		}
-
 
 
 		// send a story log line / story cutscene
 		function progress_story(story_step) {
-			state.story.unshift(story_step); // REM : add at the beginning
+			state.story.push(story_step); // REM : add at the end
 			if(state.story > config.story_queue_size)
-				state.story.pop(); // REM : remove last
+				state.story.shift(); // REM : remove first
 			emit_story_progress(story_step);
 		}
 
@@ -148,6 +148,22 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 			emit_census();
 		}
 
+		function process_action(action) {
+			var params = action;
+			action = Data.actions[action.id];
+			if(! action) throw new Errors.UnknownAction(action.id);
+			// TODO generic prerequisites check
+			if(action.id === 'replicate') {
+				add_new_units(params.count);
+			}
+			else if(action.id === 'assemble') {
+				assemble_replicator(params.model);
+			}
+			else {
+				throw new Errors.EE.NotImplemented('action ' + action.id);
+			}
+		}
+
 		// https://github.com/jakesgordon/javascript-state-machine
 		var fsm = StateMachine.create({
 			initial: '_waiting_init',
@@ -161,10 +177,11 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 				{ name: 'started',           from: '_starting_up',          to: '_waiting_event' },
 
 				{ name: 'tick',              from: '_waiting_event',        to: '_processing_tick' },
-				{ name: 'cmd',               from: '_waiting_event',        to: '_processing_cmd' },
-				{ name: 'action',            from: '_waiting_event',        to: '_processing_action' },
+				//{ name: 'cmd',               from: '_waiting_event',        to: '_processing_cmd' },
+				{ name: 'action',            from: '_waiting_event',        to: '_processing_actions' },
 
 				{ name: 'tick_handled',      from: '_processing_tick',      to: '_waiting_event' },
+				{ name: 'actions_handled',   from: '_processing_actions',   to: '_waiting_event' },
 
 				{ name: 'fatal_error',       from: [
 					'_loading_last_backup',
@@ -214,7 +231,15 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 				},
 
 				on_waiting_event : function() {
-					logger.log('now waiting for events...');
+					if(state.pending_actions.length) {
+						fsm.action();
+						return true;
+					}
+					else if(state.pending_tick) {
+						fsm.tick();
+						return true;
+					}
+					logger.log('will sleep waiting for events...');
 					return StateMachine.ASYNC;
 				},
 
@@ -228,6 +253,19 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 					// schedule next tick
 					schedule_next_tick();
 					fsm.tick_handled();
+					return true;
+				},
+
+				on_processing_actions : function() {
+					if(!state.pending_actions.length) throw new Error('No actions to process !');
+					logger.log('processing actions...');
+					// no foreach since actions may be appended anytime
+					do {
+						var action = state.pending_actions.shift();
+						process_action(action);
+					} while(state.pending_actions.length);
+					logger.log('actions processed.');
+					fsm.actions_handled();
 					return true;
 				}
 			},
@@ -244,21 +282,29 @@ function(_, StateMachine, EventEmitter2, Logator, Data, Errors) {
 				if(state.pending_tick) throw new Error('Tick collision !');
 				state.pending_tick = true;
 				logger.log('tick !');
-				process_events();
+				if(fsm.is('_waiting_event'))
+					fsm.tick(); // wake up the fsm immediately
+				else {
+					// fsm is already busy, no need to wake it up.
+					// Tick will automatically be handled when fsm will arrive back in _waiting_event
+				}
 			}, config.tick_interval_ms);
-		}
-
-		function process_events() {
-			if(state.pending_tick)
-				fsm.tick();
-			else if (state.events_to_process.length)
-				fsm.cmd();
 		}
 
 		//
 		this.post_action = function(action_id, params) {
-			params.id = action_id;
-			state.pending_actions.push(params);
+			// TODO add callback mechanism
+			var action = params;
+			action.id = action_id;
+			state.pending_actions.push(action);
+			console.log('server : an action was posted : ', action);
+
+			if(fsm.is('_waiting_event'))
+				fsm.action(); // wake up the fsm immediately
+			else {
+				// fsm is already busy, no need to wake it up.
+				// Actions will automatically be handled when fsm will arrive back in _waiting_event
+			}
 		};
 	}
 
