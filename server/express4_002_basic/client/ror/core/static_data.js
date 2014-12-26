@@ -9,7 +9,8 @@ function(_) {
 
 	function to_hash(array) {
 		var hash = {};
-		_.forEach(array, function(entry) {
+		_.forEach(array, function(entry, index) {
+			entry.rank = index; // auto ranking
 			hash[entry.id] = entry;
 		});
 		return hash;
@@ -83,66 +84,95 @@ function(_) {
 	data.replicator_models_by_rank = [
 		{
 			id: 'mini-crab',
-			rank: 1,
 			name: 'ror.mini-crab',
 			min_units: 64
 		},
 		{
 			id: 'crab',
-			rank: 2,
 			name: 'ror.crab',
 			min_units: 128
 		},
 		{
 			id: 'beetle',
-			rank: 3,
 			min_units: 256
 		},
 		{
 			id: 'queen',
-			rank: 4,
 			min_units: 512
 		},
 		{
 			id: 'cluster',
-			rank: 5,
-			min_units: 128
-		},
-		{
-			id: 'gatherer',
-			rank: 6,
 			min_units: 128
 		},
 		{
 			id: 'shuttle',
-			rank: 7,
-			min_units: 128
+			min_units: 65536
 		},
 		{
 			id: 'cruiser',
-			rank: 8,
-			min_units: 128
+			min_units: 1048576
 		},
 		{
 			id: 'planet',
-			rank: 9,
-			units: 128
+			units: 1099511627776
 		}
 	];
 	data.replicator_models = to_hash(data.replicator_models_by_rank);
 
+	// manipulated by player
 	data.currencies = to_hash([
-		{
-			id: 'units'
-		},
 		{
 			id: 'energy'
 		},
 		{
-			id: 'metal'
+			id: 'materials'
 		},
 		{
-			id: 'pure_energy'
+			id: 'experience'
+		}
+	]);
+
+	// found in places
+	data.resources = to_hash([
+		{
+			id: 'hiding_places'
+		},
+		{
+			id: 'structures'
+		},
+		{
+			id: 'generators'
+		},
+		{
+			id: 'data_banks'
+		},
+		{
+			id: 'lore'
+		},
+	]);
+
+	// places to reside and explore
+	data.places = to_hash([
+		{
+			id: 'creator_incubator'
+		},
+		{
+			id: 'creator_labs'
+		},
+		{
+			id: 'military_base'
+		},
+		{
+			id: 'nearby_city'
+		},
+		{
+			id: 'capital_city'
+		},
+		{
+			id: 'continent'
+		},
+		{
+			id: 'planet'
 		}
 	]);
 

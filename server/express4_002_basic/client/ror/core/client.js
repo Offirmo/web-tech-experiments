@@ -1,10 +1,13 @@
+/** Rise of the replicators generic client
+ */
 define(
 [
 	'lodash',
+	'when',
 	'eventemitter2',
 	'logator',
 ],
-function(_, EventEmitter2, Logator) {
+function(_, when, EventEmitter2, Logator) {
 	'use strict';
 
 	var EventEmitter = EventEmitter2.EventEmitter2;
@@ -23,6 +26,17 @@ function(_, EventEmitter2, Logator) {
 		var state = this.state = {};
 		this.story_log = [];
 
+		// we'll be an event emitter
+		var ee = this.ee = new EventEmitter2({
+			wildcard: true,
+			delimiter: ':'
+		});
+		// setup forwarder
+		this.on = function() {
+			this.ee.on.apply(this.ee, arguments);
+		};
+
+
 		/// accessors
 		Object.defineProperty(this, 'log', {
 			set: function(val) {
@@ -34,25 +48,51 @@ function(_, EventEmitter2, Logator) {
 		});
 
 		/// initial sync with server
-		state.meta = server.get_meta();
-		console.log('got meta', state.meta);
+		var initialMetas      = server.get('/metas');
+		var initialCensus     = server.get('/census');
+		var initialCurrencies = server.get('/currencies');
 
-		state.census = server.get_census();
-		console.log('got census', state.census);
+		when.all([
+			initialMetas,
+			initialCensus,
+			initialCurrencies,
+		])
+		.then(function() {
+			ee.emit('ready');
+			ee.emit('fully_updated');
+		});
 
-		this.story_log = server.get_story();
-		console.log('got story log', this.story_log);
+		initialMetas.then(function(metas) {
+			state.meta = metas;
+			console.log('got meta', state.meta);
+		});
+
+		initialCensus.then(function(census) {
+			state.census = census;
+			console.log('got census', state.census);
+			/*
+			 server.on('census_update', function(census) {
+			 var old = state.census;
+			 state.census = census;
+			 console.log('census updated', state.census, 'replacing', old);
+			 });
+			 */
+		});
+
+		initialCurrencies.then(function(currencies) {
+			state.currencies = currencies;
+			console.log('got currencies', state.currencies);
+		});
 
 		/// plug to server
 		server.on('*', function() {
 			console.log('seen server event :', this.event, arguments);
 		});
-		server.on('census_update', function(census) {
-			var old = state.census;
-			state.census = census;
-			console.log('census updated', state.census, 'replacing', old);
-		});
 
+		/*
+		this.story_log = server.get_story();
+		console.log('got story log', this.story_log);
+		*/
 	}
 	RorClient.prototype.post_action = function(action_id, params) {
 		this.server.post_action(action_id, params);

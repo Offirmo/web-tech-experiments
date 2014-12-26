@@ -46,6 +46,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-bottom: 20px;
 }
 
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+	background-color: #333;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	background-color: #333;
+	color: deepskyblue;
+}
+
+
+
 /* our stuff */
 .directive-ror-client {
 	background-color: black;

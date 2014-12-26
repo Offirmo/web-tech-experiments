@@ -1,0 +1,17 @@
+<div class="directive-ror-panels-currencies">
+
+	<table class="table table-condensed table-hover">
+		<thead>
+			<tr>
+				<th colspan="2">Resources</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="currency in state.currencies">
+				<td>{{ currency.id }}</td>
+				<td>{{ currency.count }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

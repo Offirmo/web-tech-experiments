@@ -41,6 +41,11 @@ requirejs.config({
 		{
 			name : 'logator',
 			location: '../incubator/logator'
+		},
+		{
+			name : 'when',
+			location: 'bower_components/when',
+			main: 'when.js'
 		}
 	],
 
@@ -96,7 +101,7 @@ requirejs.config({
 		'store'               : 'bower_components/store.js/store',
 		'type-check'          : 'other_components/type-check/browser/type-check',
 		//'underscore'  -> replaced by lodash, see above
-		'when'                : 'bower_components/when/when'
+		//'when'                : 'bower_components/when/when'
 	},
 
 
