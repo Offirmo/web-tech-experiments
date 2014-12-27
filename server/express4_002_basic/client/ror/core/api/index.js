@@ -78,8 +78,11 @@ function(_, when, Errors, MetaRoute, CurrenciesRoute, CensusRoute, StoryRoute, A
 			_.forEach(handlers, function(handler) {
 				if(handler.get) {
 					if(! handler.emit_changes)
-						throw new Errors.InternalError('API handler X is missing its emit_changes() callback !');
-					handler.emit_changes();
+						throw new Errors.InternalError('API handler "' + handler.id + '" is missing its emit_changes() callback !');
+
+					setTimeout(function() {
+						handler.emit_changes();
+					}, 0);
 				}
 			});
 		};

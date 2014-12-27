@@ -18,15 +18,11 @@ function(_, Errors) {
 			return true;
 		});
 
-
 		fsm.add_state_callback('_starting_up', function() {
-			// initiate tick
-			fsm._.schedule_next_tick();
 			fsm.started();
 			return true;
 		});
 	}
-
 
 	return {
 		extend: extend

@@ -13,6 +13,8 @@ function(_) {
 		var state = server.state;
 		var Data = server.Data;
 
+		this.id = 'actions'; // for debug
+
 		this.match = function(uri) {
 			return (uri === '/census');
 		};

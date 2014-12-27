@@ -88,22 +88,6 @@ function(_, StateMachine, Errors, FsmInit, FsmMain) {
 			pending_tick: false,
 			pending_actions: [],
 
-			schedule_next_tick: function Fsm_schedule_next_tick() {
-				if(fsm._.pending_tick) throw new Error('Tick reentrency !');
-				setTimeout(function() {
-					if(fsm._.pending_tick) throw new Error('Tick collision !');
-
-					fsm._.pending_tick = true;
-					logger.log('tick !');
-					if(fsm.is('_waiting_event'))
-						fsm.tick(); // wake up the fsm immediately
-					else {
-						// fsm is already busy, no need to wake it up.
-						// Tick will automatically be handled when fsm comes back in _waiting_event
-					}
-				}, server.config.tick_interval_ms / server.state.meta.speed);
-			},
-
 			enqueue_action: function Fsm_enqueue_action(action) {
 				fsm._.pending_actions.push(action);
 				console.log('server : an action was posted : ', action);

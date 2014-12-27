@@ -19,7 +19,31 @@ function(_, Errors) {
 		var state = server.state;
 		var StateMachine = fsm._.StateMachine;
 
+		fsm._.schedule_next_tick = function Fsm_schedule_next_tick() {
+			if(fsm._.pending_tick) throw new Error('Tick reentrency !');
+			setTimeout(function() {
+				if(fsm._.pending_tick) throw new Error('Tick collision !');
+
+				fsm._.pending_tick = true;
+				logger.log('tick !');
+				if(fsm.is('_waiting_event'))
+					fsm.tick(); // wake up the fsm immediately
+				else {
+					// fsm is already busy, no need to wake it up.
+					// Tick will automatically be handled when fsm comes back in _waiting_event
+				}
+			}, server.config.tick_interval_ms / server.state.meta.speed);
+		};
+
+
+		fsm.onafterstarted = function() {
+			console.log('onafterstarted', arguments);
+			// initiate tick
+			fsm._.schedule_next_tick();
+		};
+
 		fsm.add_state_callback('_waiting_event', function() {
+			console.log('_waiting_event', arguments);
 			if(fsm._.pending_actions.length) {
 				setTimeout(function() {
 					fsm.action();

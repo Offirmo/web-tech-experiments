@@ -12,6 +12,8 @@ function(_) {
 		var config = server.config;
 		var state = server.state;
 
+		this.id = 'actions'; // for debug
+
 		this.match = function(uri) {
 			return (uri === '/actions');
 		};

@@ -202,13 +202,13 @@ function(_) {
 					locutor: 'Reese',
 					message: 'You must replicate now.',
 				},
-				{
+				/*{
 					type: 'journal',
 					inc: true,
 					locutor: 'narrator',
 					message: 'You break free from the test room !',
 					place: 'creator_labs',
-				}
+				}*/
 			]
 		},
 	];

@@ -6,6 +6,6 @@
 	background-color: black;
 }
 .directive-ror-panels-places > .nav-tabs > li > a:hover {
-	border-color: #333;
+	/*border-color: #333;*/
 	background-color: #333;
 }
