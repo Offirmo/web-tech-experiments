@@ -2,39 +2,37 @@ define(
 [
 	'angular',
 	'lodash',
-	'text!ng/directives/ror/panels/environment/environment.html',
-	'css!ng/directives/ror/panels/environment/environment.css'
+	'text!ng/directives/ror/panels/places/place/place.html',
+	'css!ng/directives/ror/panels/places/place/place.css'
 ],
 function(angular, _, tpl) {
 	'use strict';
 
 	global_ng_module
-	.directive('rorPanelsEnvironment', function rorPanelsEnvironment () {
+	.directive('rorPanelsPlace', function rorPanelsPlace () {
 		return {
 			restrict: 'E',
 			scope: {
-				client: '='
+				client: '=',
+				place: '='
 			},
 			template: tpl,
 			replace: true,
-			controller: 'RorPanelsEnvironmentController',
+			controller: 'RorPanelsPlaceController',
 			link: function ($scope, $element, $attrs) {
-				//
+				// shortcut
+				$scope.state = $scope.client.state;
 			}
 		};
 	})
-	.controller('RorPanelsEnvironmentController', [
+	.controller('RorPanelsPlaceController', [
 		'$scope',
-		RorPanelsEnvironmentController
+		RorPanelsPlaceController
 	]);
 
-	function RorPanelsEnvironmentController($scope) {
+	function RorPanelsPlaceController($scope) {
 		// shortcut
 		var client = $scope.client;
-
-		$scope.replicate = function() {
-			console.log('replicate !');
-		}
 
 	}
 

@@ -17,7 +17,7 @@ function(_) {
 			return (uri === '/currencies');
 		};
 
-		this.get = function(uri, options, when) {
+		function get_data() {
 			// currencies must be sorted
 			var currencies = [];
 			_.forEach(Data.currencies, function(currency) {
@@ -27,7 +27,15 @@ function(_) {
 				exposed_infos.count = currency_infos.count;
 				currencies.push(exposed_infos);
 			});
-			return when.resolve(currencies);
+			return currencies;
+		}
+
+		this.get = function(uri, options, when) {
+			return when.resolve(get_data());
+		};
+
+		this.emit_changes = function() {
+			server.ee.emit('/currencies', get_data());
 		};
 	}
 

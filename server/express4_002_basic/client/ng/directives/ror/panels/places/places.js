@@ -3,7 +3,8 @@ define(
 	'angular',
 	'lodash',
 	'text!ng/directives/ror/panels/places/places.html',
-	'css!ng/directives/ror/panels/places/places.css'
+	'css!ng/directives/ror/panels/places/places.css',
+	'ng/directives/ror/panels/places/place/place',
 ],
 function(angular, _, tpl) {
 	'use strict';
@@ -19,7 +20,8 @@ function(angular, _, tpl) {
 			replace: true,
 			controller: 'RorPanelsPlacesController',
 			link: function ($scope, $element, $attrs) {
-				//
+				// shortcut
+				$scope.state = $scope.client.state;
 			}
 		};
 	})
@@ -32,10 +34,17 @@ function(angular, _, tpl) {
 		// shortcut
 		var client = $scope.client;
 
-		$scope.replicate = function() {
-			console.log('replicate !');
-		}
+		$scope.current_place = null;
+		$scope.$watch('state.story.current_place_id', function(current, previous) {
+			if(! current) return;
+			console.log('place watch', current, previous);
+			$scope.move_to_place(current);
+		});
 
+		$scope.move_to_place = function(place_id) {
+			$scope.current_place = _.find($scope.state.story.places, {id: place_id});
+			console.log('moved to place', $scope.current_place);
+		};
 	}
 
 });

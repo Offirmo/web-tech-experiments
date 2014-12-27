@@ -4,6 +4,8 @@ define(
 	'lodash',
 	'text!ng/directives/ror/client.html',
 	'css!ng/directives/ror/client.css',
+	'ng/directives/ror/navbar/navbar',
+	'ng/directives/ror/panels/story_lead/story_lead',
 	'ng/directives/ror/panels/currencies/currencies',
 	'ng/directives/ror/panels/census/census',
 	'ng/directives/ror/panels/places/places',
@@ -41,6 +43,9 @@ function(angular, _, tpl) {
 		/// plug to client
 		client.on('*', function() {
 			console.log('seen client event :', this.event, arguments);
+		});
+
+		client.on('update', function() {
 			$scope.$digest();
 		});
 

@@ -7,23 +7,18 @@ define(
 function(_) {
 	'use strict';
 
-	function MetasRoute(server) {
+	function StoryRoute(server) {
 
 		var config = server.config;
 		var state = server.state;
 
 		this.match = function(uri) {
-			return (uri === '/metas');
+			return (uri === '/story');
 		};
 
 		function get_data() {
-			var metas = {
-				version: config.version,
-				tick_interval_ms: config.tick_interval_ms,
-				speed: state.meta.speed,
-				tick_count: state.meta.tick_count
-			};
-			return metas;
+			var story = _.cloneDeep(state.story._);
+			return story;
 		}
 
 		this.get = function(uri, options, when) {
@@ -31,12 +26,12 @@ function(_) {
 		};
 
 		this.emit_changes = function() {
-			server.ee.emit('/metas', get_data());
+			server.ee.emit('/story', get_data());
 		};
 	}
 
 
 	return {
-		make_new: function(server) { return new MetasRoute(server); }
+		make_new: function(server) { return new StoryRoute(server); }
 	};
 });

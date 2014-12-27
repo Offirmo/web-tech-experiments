@@ -21,13 +21,23 @@ function(_, Errors) {
 
 		fsm.add_state_callback('_waiting_event', function() {
 			if(fsm._.pending_actions.length) {
-				fsm.action();
-				return true;
+				setTimeout(function() {
+					fsm.action();
+				}, 1);
+				return StateMachine.ASYNC;
 			}
 			else if(fsm._.pending_tick) {
-				fsm.tick();
-				return true;
+				setTimeout(function() {
+					fsm.tick();
+				}, 1);
+				return StateMachine.ASYNC;
 			}
+
+			// nothing more to process.
+			// push changes to clients :
+			server.emit_changes();
+
+			// then sleep waiting for events
 			logger.log('will sleep waiting for events...');
 			return StateMachine.ASYNC;
 		});
@@ -36,6 +46,7 @@ function(_, Errors) {
 			if(!fsm._.pending_tick) throw new Error('No tick to process !');
 
 			state.meta.tick_count++;
+			server.mark_API_data_as_dirty('/metas', 'tick_count');
 			logger.log('processing tick #' + state.meta.tick_count +'...');
 
 			// TODO do stuff
@@ -44,7 +55,9 @@ function(_, Errors) {
 			fsm._.pending_tick = false;
 
 			// schedule next tick
-			fsm._.schedule_next_tick();
+			if(state.meta.speed !== 0)
+				fsm._.schedule_next_tick();
+
 			fsm.tick_handled();
 			return true;
 		});
@@ -56,7 +69,13 @@ function(_, Errors) {
 			// no foreach since actions may be appended anytime
 			do {
 				var action = fsm._.pending_actions.shift();
-				process_action(action);
+
+				if(! server.actions[action.id]) {
+					var e = new Error.InternalError('Unknown action "' + action.id + '" !');
+					return action.deferred.reject(e);
+				};
+				server.actions[action.id](action);
+
 			} while(fsm._.pending_actions.length);
 
 			logger.log('actions processed.');

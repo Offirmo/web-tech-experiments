@@ -101,7 +101,7 @@ function(_, StateMachine, Errors, FsmInit, FsmMain) {
 						// fsm is already busy, no need to wake it up.
 						// Tick will automatically be handled when fsm comes back in _waiting_event
 					}
-				}, server.config.tick_interval_ms);
+				}, server.config.tick_interval_ms / server.state.meta.speed);
 			},
 
 			enqueue_action: function Fsm_enqueue_action(action) {
@@ -142,7 +142,9 @@ function(_, StateMachine, Errors, FsmInit, FsmMain) {
 		FsmInit.extend(server);
 		FsmMain.extend(server);
 
-		fsm.init_done();
+		server.start = function() {
+			fsm.init_done();
+		};
 	}
 
 	return {

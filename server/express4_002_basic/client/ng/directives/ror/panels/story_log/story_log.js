@@ -20,7 +20,7 @@ function(angular, _, tpl) {
 			controller: 'RorPanelsStoryLogController',
 			link: function ($scope, $element, $attrs) {
 				// shortcut
-				$scope.log = $scope.client.state.census;
+				$scope.state = $scope.client.state;
 			}
 		};
 	})
@@ -35,7 +35,7 @@ function(angular, _, tpl) {
 
 		$scope.clear_log = function() {
 			client.clear_log();
-		}
+		};
 
 	}
 

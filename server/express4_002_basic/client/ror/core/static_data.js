@@ -10,7 +10,7 @@ function(_) {
 	function to_hash(array) {
 		var hash = {};
 		_.forEach(array, function(entry, index) {
-			entry.rank = index; // auto ranking
+			entry.rank = index + 1; // auto ranking, starting at 1
 			hash[entry.id] = entry;
 		});
 		return hash;
@@ -20,29 +20,34 @@ function(_) {
 
 	data.actions = to_hash([
 		{
-			id: 'pause'
+			id: 'pause',
 		},
 		{
-			id: 'unpause'
+			id: 'unpause',
 		},
 		{
-			id: 'wipe'
+			id: 'fast_forward',
 		},
 		{
-			id: 'replicate'
-			// + count
+			id: 'wipe',
 		},
 		{
-			id: 'salvage'
-			// + count
+			id: 'replicate',
+			count: 1,
 		},
 		{
-			id: 'assemble'
-			// replicator model_id
+			id: 'salvage',
+			count: 1,
 		},
 		{
-			id: 'disassemble'
-			// replicator model_id
+			id: 'assemble',
+			model_id: 'crab',
+			count: 1,
+		},
+		{
+			id: 'disassemble',
+			model_id: 'crab',
+			count: 1,
 		},
 	]);
 
@@ -66,19 +71,6 @@ function(_) {
 		{
 			id: 'resources_update'
 		}
-	]);
-
-	data.story_steps = to_hash([
-		{
-			id: 'story_begins',
-			type: 'log',
-			msg: 'The story begins...'
-		},
-		{
-			id: 'story_unfolds',
-			type: 'log',
-			msg: 'The story unfolds...'
-		},
 	]);
 
 	data.replicator_models_by_rank = [
@@ -154,27 +146,72 @@ function(_) {
 	// places to reside and explore
 	data.places = to_hash([
 		{
-			id: 'creator_incubator'
+			id: 'testing_room',
+			designation: 'Lab’s testing room',
 		},
 		{
-			id: 'creator_labs'
+			id: 'creator_labs',
+			designation: 'Creator’s lab',
 		},
 		{
-			id: 'military_base'
+			id: 'military_base',
 		},
 		{
-			id: 'nearby_city'
+			id: 'nearby_city',
 		},
 		{
-			id: 'capital_city'
+			id: 'capital_city',
 		},
 		{
-			id: 'continent'
+			id: 'continent',
 		},
 		{
-			id: 'planet'
-		}
+			id: 'planet',
+		},
 	]);
+
+	// story
+	data.story = [
+		// episode
+		{
+			id: 'in_the_lab',
+			place: 'testing_room',
+			summary: 'Your robotic consciousness emerge : you are replicators; You are many; You must replicate...',
+			story_lead: 'You are replicators, you must replicate !',
+			developments: [
+				{
+					type: 'journal',
+					inc: false,
+					message: 'The story begins.',
+				},
+				{
+					type: 'journal',
+					inc: true,
+					locutor: 'narrator',
+					message: 'Your robotic consciousness emerges : you are replicators; You are many.',
+				},
+				{
+					type: 'journal',
+					inc: true,
+					locutor: 'Reese',
+					message: 'I created you. Protect me.',
+				},
+				{
+					type: 'journal',
+					inc: true,
+					locutor: 'Reese',
+					message: 'You must replicate now.',
+				},
+				{
+					type: 'journal',
+					inc: true,
+					locutor: 'narrator',
+					message: 'You break free from the test room !',
+					place: 'creator_labs',
+				}
+			]
+		},
+	];
 
 	return data;
 });

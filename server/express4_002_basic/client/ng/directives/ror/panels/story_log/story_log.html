@@ -1,23 +1,19 @@
 <div class="directive-ror-panels-story-log">
 
-	<blockquote>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-	</blockquote>
-
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Story log</h3>
 		</div>
 		<div class="panel-body">
 			<ul class="list-unstyled">
-				<li ng-repeat="entry in client.log">{{ entry.msg }}</li>
+				<li ng-repeat="entry in state.story.last_journal_entries">{{ entry.message }}</li>
 			</ul>
+
+			<button type="button" class="btn btn-primary btn-sm"
+			        ng-click="clear_log()">
+				Clear log
+			</button>
 		</div>
 	</div>
-
-	<button type="button" class="btn btn-primary btn-lg btn-block"
-	        ng-click="clear_log()">
-		Clear log
-	</button>
 
 </div>

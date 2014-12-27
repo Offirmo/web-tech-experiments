@@ -1,35 +1,26 @@
 <div class="directive-ror-client">
-	<h4><a ui-sref="landing">RoR client v{{client.state.meta.version}}</a></h4>
 
-	<br />
+	<ror_navbar client="client"></ror_navbar>
 
-	<div class="btn-group">
-		<button class="btn btn-default" type="button">
-			<span class="glyphicon glyphicon-pause"></span>
-		</button>
-		<button class="btn btn-default" type="button">
-			<span class="glyphicon glyphicon-play"></span>
-		</button>
-		<button class="btn btn-default" type="button">
-			<span class="glyphicon glyphicon-forward"></span>
-		</button>
+	<div class="content">
+
+		<ror_panels_story_lead client="client"></ror_panels_story_lead>
+
+
+		<ror_panels_currencies client="client"></ror_panels_currencies>
+
+		<br />
+
+		<ror_panels_census client="client"></ror_panels_census>
+
+		<br /><br />
+
+		<ror_panels_places client="client"></ror_panels_places>
+
+		<br /><br />
+
+		<ror_panels_story_log client="client"></ror_panels_story_log>
+
 	</div>
-	{{client.state.meta.tick_count}}
-
-	<br /><br /><br />
-
-	<ror_panels_currencies client="client"></ror_panels_currencies>
-
-	<br /><br />
-
-	<ror_panels_census client="client"></ror_panels_census>
-
-	<br /><br />
-
-	<ror_panels_places client="client"></ror_panels_places>
-
-	<br /><br />
-
-	<ror_panels_story_log client="client"></ror_panels_story_log>
 
 </div>

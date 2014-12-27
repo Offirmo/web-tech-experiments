@@ -1,10 +1,13 @@
 <div class="directive-ror-panels-places">
 
 	<ul class="nav nav-tabs">
-		<li class="active">
-			<a href="#">Home</a>
+		<li ng-repeat="place in state.story.places"
+		    ng-class="{active: current_place.id === place.id}"
+		    ng-click="move_to_place(place.id)">
+			<a href="#">{{ place.designation }}</a>
 		</li>
 		<li><a href="#">?</a></li>
 	</ul>
+	<ror-panels-place client="client" place="current_place"></ror-panels-place>
 
 </div>

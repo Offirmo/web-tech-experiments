@@ -9,13 +9,13 @@ define(
 	'./options',
 	'./config',
 	'./state',
-	'./state-publication',
 	'./state-manipulation',
 	'./event-emitter',
 	'./fsm',
 	'./api/index',
+	'./actions/index',
 ],
-function(_, Data, Errors, Options, config, State, StatePublication, StateManipulation, EventEmitter, Fsm, Api) {
+function(_, Data, Errors, Options, config, State, StateManipulation, EventEmitter, Fsm, Api, Actions) {
 	'use strict';
 
 
@@ -30,16 +30,17 @@ function(_, Data, Errors, Options, config, State, StatePublication, StateManipul
 		this.Data = Data;
 		this.logger = options.logger; // shortcut
 
-		this.state = State.make_new(options);
+		this.state = State.make_new(options, Data);
 
-		StatePublication.extend(this);
-		StateManipulation.extend(this);
 		EventEmitter.extend(this);
-		Fsm.extend(this);
 		Api.extend(this);
+		StateManipulation.extend(this);
+		Fsm.extend(this);
+		Actions.extend(this);
 
 
 		console.log('server created', this);
+		this.start();
 
 		// shortcuts
 		var logger = this.logger;
@@ -48,37 +49,7 @@ function(_, Data, Errors, Options, config, State, StatePublication, StateManipul
 
 		////////////////////////////////////
 
-		/// data for external API
 		/*
-		function emit_meta() {
-			ee.emit('meta_update', get_meta());
-		}
-
-		this.get_story = function get_story() {
-			return state.story;
-		};
-		function emit_story_progress(story_step) {
-			ee.emit('story_progress', story_step);
-		}
-
-		var get_census = this.get_census = function get_census() {
-
-		};
-		function emit_census() {
-			ee.emit('census_update', get_census());
-		}
-
-
-		////////////////////////////////////
-
-
-		// send a story log line / story cutscene
-		function progress_story(story_step) {
-			state.story.push(story_step); // REM : add at the end
-			if(state.story > config.story_queue_size)
-				state.story.shift(); // REM : remove first
-			emit_story_progress(story_step);
-		}
 
 		// add new replicator unit(s)
 		function add_new_units(count) {
@@ -132,14 +103,6 @@ function(_, Data, Errors, Options, config, State, StatePublication, StateManipul
 				throw new Errors.EE.NotImplemented('action ' + action.id);
 			}
 		}
-
-		//
-		this.post_action = function(action_id, params) {
-			// TODO add callback mechanism
-			var action = params;
-			action.id = action_id;
-			this.fsm.enqueue_action(action);
-		};
 		*/
 	}
 

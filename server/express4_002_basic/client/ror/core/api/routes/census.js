@@ -17,7 +17,7 @@ function(_) {
 			return (uri === '/census');
 		};
 
-		this.get = function(uri, options, when) {
+		function get_data() {
 			// census must be sorted
 			var census = [];
 			_.forEach(Data.replicator_models_by_rank, function(model) {
@@ -29,7 +29,15 @@ function(_) {
 			});
 			//census.units = state.census.units;
 			//census.free_units = state.census.free_units;
-			return when.resolve(census);
+			return census;
+		}
+
+		this.get = function(uri, options, when) {
+			return when.resolve(get_data());
+		};
+
+		this.emit_changes = function() {
+			server.ee.emit('/census', get_data());
 		};
 	}
 

@@ -11,7 +11,7 @@ function(_, Errors) {
 
 	return {
 		version: '0.0.2',
-		tick_interval_ms: 5000,
+		tick_interval_ms: 1000,
 		story_queue_size: 10
 	};
 });

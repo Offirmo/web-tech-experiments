@@ -51,43 +51,57 @@ function(_, when, EventEmitter2, Logator) {
 		var initialMetas      = server.get('/metas');
 		var initialCensus     = server.get('/census');
 		var initialCurrencies = server.get('/currencies');
+		var initialStory      = server.get('/story');
 
 		when.all([
 			initialMetas,
 			initialCensus,
 			initialCurrencies,
+			initialStory
 		])
 		.then(function() {
 			ee.emit('ready');
-			ee.emit('fully_updated');
+			ee.emit('update');
 		});
 
 		initialMetas.then(function(metas) {
 			state.meta = metas;
 			console.log('got meta', state.meta);
+			server.on('/metas', function(metas) {
+				state.meta = metas;
+				ee.emit('update');
+			});
 		});
 
 		initialCensus.then(function(census) {
 			state.census = census;
 			console.log('got census', state.census);
-			/*
-			 server.on('census_update', function(census) {
-			 var old = state.census;
-			 state.census = census;
-			 console.log('census updated', state.census, 'replacing', old);
-			 });
-			 */
+			server.on('/census', function(census) {
+				state.census = census;
+				ee.emit('update');
+			});
 		});
 
 		initialCurrencies.then(function(currencies) {
 			state.currencies = currencies;
 			console.log('got currencies', state.currencies);
+			server.on('/currencies', function(currencies) {
+				state.currencies = currencies;
+				ee.emit('update');
+			});
 		});
 
-		/// plug to server
-		server.on('*', function() {
-			console.log('seen server event :', this.event, arguments);
+		initialStory.then(function(story) {
+			state.story = story;
+			console.log('got story', state.story);
+			server.on('/story', function(story) {
+				state.story = story;
+				ee.emit('update');
+			});
 		});
+
+
+		/// plug to server
 
 		/*
 		this.story_log = server.get_story();
@@ -95,7 +109,9 @@ function(_, when, EventEmitter2, Logator) {
 		*/
 	}
 	RorClient.prototype.post_action = function(action_id, params) {
-		this.server.post_action(action_id, params);
+		var action = params || {};
+		action.id = action_id;
+		return this.server.post('/actions', action);
 	};
 	RorClient.prototype.clear_log = function() {
 		this.story_log = [];

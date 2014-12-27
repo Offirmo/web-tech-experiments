@@ -1,0 +1,15 @@
+.directive-ror-navbar {
+
+}
+
+.directive-ror-navbar .navbar-brand {
+	font-size: 20px;
+	color: deepskyblue;
+}
+
+.directive-ror-navbar .btn-group {
+	display: inline;
+}
+.directive-ror-navbar .btn-group > .btn-default {
+	margin-top: 7px;
+}

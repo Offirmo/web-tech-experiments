@@ -59,6 +59,8 @@ window.main = function()
 			var client = RorClient.make_new(server, {
 				logger: logger
 			});
+			// expose it as global
+			window.client = client;
 
 			// ui
 			global_ng_module
