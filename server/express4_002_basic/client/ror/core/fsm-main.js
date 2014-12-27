@@ -37,13 +37,11 @@ function(_, Errors) {
 
 
 		fsm.onafterstarted = function() {
-			console.log('onafterstarted', arguments);
 			// initiate tick
 			fsm._.schedule_next_tick();
 		};
 
 		fsm.add_state_callback('_waiting_event', function() {
-			console.log('_waiting_event', arguments);
 			if(fsm._.pending_actions.length) {
 				setTimeout(function() {
 					fsm.action();

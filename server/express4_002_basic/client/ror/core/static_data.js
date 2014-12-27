@@ -125,29 +125,38 @@ function(_) {
 	]);
 
 	// found in places
-	data.resources = to_hash([
+	data.resources_by_rank = [
 		{
-			id: 'hiding_places'
+			id: 'structures',
+			designation: 'Consumable structures',
 		},
 		{
-			id: 'structures'
+			id: 'generators',
+			designation: 'Energy sources',
 		},
 		{
-			id: 'generators'
+			id: 'data_banks',
+			designation: 'Data banks',
 		},
 		{
-			id: 'data_banks'
+			id: 'lore',
+			designation: 'Lore',
 		},
 		{
-			id: 'lore'
+			id: 'hiding_places',
+			designation: 'Hiding places',
 		},
-	]);
+	];
+	data.resources_by_rank = to_hash(data.resources_by_rank);
 
 	// places to reside and explore
 	data.places = to_hash([
 		{
 			id: 'testing_room',
 			designation: 'Lab’s testing room',
+			structures: 500,
+			generators: 1,
+			hiding_places: 20,
 		},
 		{
 			id: 'creator_labs',
@@ -200,7 +209,7 @@ function(_) {
 					type: 'journal',
 					inc: true,
 					locutor: 'Reese',
-					message: 'You must replicate now.',
+					message: 'Now help me making more of you.',
 				},
 				/*{
 					type: 'journal',

@@ -20,7 +20,7 @@
 		</p>
 	</nav>
 
-	<div class="btn-group census-batch-quantity .pull-right">
+	<div class="btn-group census-batch-quantity">
 		<button type="button" class="btn btn-default"
 		        ng-repeat="qty in qties"
 		        ng-class="{'active' : qty === batch_quantity}"
@@ -37,11 +37,11 @@
 		<p class="navbar-text"><span class="badge">{{model.count}}</span></p>
 		<p class="navbar-text navbar-right census-button"
 		   ng-click="disassemble(model)">
-			<a href="#" class="navbar-link">-{{batch_quantity}}</a>
+			<a href="#" class="navbar-link">Disassemble {{batch_quantity}}</a>
 		</p>
 		<p class="navbar-text navbar-right census-button"
 		   ng-click="assemble(model)">
-			<a href="#" class="navbar-link">+{{batch_quantity}}</a>
+			<a href="#" class="navbar-link">Assemble {{batch_quantity}}</a>
 		</p>
 	</nav>
 

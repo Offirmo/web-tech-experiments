@@ -6,8 +6,9 @@ define(
 	'when',
 	'eventemitter2',
 	'logator',
+	'./static_data',
 ],
-function(_, when, EventEmitter2, Logator) {
+function(_, when, EventEmitter2, Logator, Data) {
 	'use strict';
 
 	var EventEmitter = EventEmitter2.EventEmitter2;
@@ -18,6 +19,7 @@ function(_, when, EventEmitter2, Logator) {
 		options.max_log_count = options.max_log_count || 30;
 
 		this.server = server;
+		this.Data = Data;
 
 		var logger = this.logger = options.logger || Logator.make_new();
 

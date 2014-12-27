@@ -1,5 +1,33 @@
 <div class="directive-ror-panels-place">
 
-	TODO {{ place.designation }}
+	<table class="table table-condensed table-hover">
+		<thead>
+		<tr>
+			<th colspan="2">Resources</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="resource in resources">
+			<td>{{ resource.designation }}</td>
+			<td>{{ resource.quantity }}</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<div class="btn-group action-buttons"
+	     ng-repeat="action in actions">
+		<button type="button" class="btn btn-default"
+		        ng-click="todo()">
+			{{ action }}
+		</button>
+		<button type="button" class="btn btn-default"
+		        ng-click="todo()">
+			+
+		</button>
+		<button type="button" class="btn btn-default"
+		        ng-click="todo()">
+			-
+		</button>
+	</div>
 
 </div>

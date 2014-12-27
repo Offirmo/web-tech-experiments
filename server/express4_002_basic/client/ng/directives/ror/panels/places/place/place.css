@@ -1,2 +1,10 @@
 .directive-ror-panels-place {
+	padding: 7px;
+	border-left: solid white 1px;
+	/*border-right: solid white 1px;*/
+	/*border-bottom: solid white 1px;*/
+}
+
+.directive-ror-panels-place .action-buttons {
+	margin-right: 7px;
 }
