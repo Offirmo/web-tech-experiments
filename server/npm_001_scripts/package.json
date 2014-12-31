@@ -1,0 +1,26 @@
+{
+	"name": "npm_001",
+	"description": "testing npm",
+	"author": "Offirmo <offirmo.net@gmail.com>",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"test":    "echo hello from test script !",
+		"tst":     "echo hello from tst script !",
+		"start":   "echo hello from start script !",
+		"stop":    "echo hello from stop script !",
+		"restart": "echo hello from restart script !",
+		"install": "echo hello from install script !",
+		"postinstall": "echo hello from postinstall script !",
+		"hello": "echo hello $name !"
+	},
+	"dependencies": {
+		"production": "~0.0.2"
+	},
+	"devDependencies": {
+		"node-dev": "~2.0.1"
+	},
+	"optionalDependencies": {
+		"option": "~0.2.1"
+	}
+}

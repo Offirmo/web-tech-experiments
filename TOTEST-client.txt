@@ -1,5 +1,10 @@
 ’
 
+http://pathgather.github.io/please-wait/
+http://mrzepinski.github.io/angular-debug-bar/
+http://lafikl.github.io/perfBar/
+http://mrzepinski.github.io/angular-rpi/
+
 http://learnsemantic.com/
 http://semantic-ui.com/kitchen-sink.html
 
