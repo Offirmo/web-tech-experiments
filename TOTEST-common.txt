@@ -1,4 +1,6 @@
 
+https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
+
 - fluent libs
 https://github.com/metaraine/shackles
 

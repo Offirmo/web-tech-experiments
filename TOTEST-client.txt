@@ -1,5 +1,10 @@
 ’
 
+http://kumailht.com/gridforms/
+https://github.com/knsv/mermaid
+
+http://www.sitepoint.com/5-most-popular-frontend-frameworks-compared/
+
 http://pathgather.github.io/please-wait/
 http://mrzepinski.github.io/angular-debug-bar/
 http://lafikl.github.io/perfBar/
