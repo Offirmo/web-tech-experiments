@@ -1,5 +1,8 @@
 ’
 
+https://github.com/antris/sneakpeek
+https://github.com/positionly/Typist
+
 http://kumailht.com/gridforms/
 https://github.com/knsv/mermaid
 
