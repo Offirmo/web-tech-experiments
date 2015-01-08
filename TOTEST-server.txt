@@ -1,3 +1,4 @@
+
 http://tech.blog.box.com/2014/10/introducing-leche-a-javascript-testing-utility-for-mocha-and-sinon/
 https://github.com/abeisgreat/FiltrES.js
 http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
@@ -52,8 +53,6 @@ https://www.npmjs.org/package/bcrypt
 
 job queue https://github.com/verbling/kickq
 
-https://github.com/asyncly/EventEmitter2
-
 https://github.com/primus/primus
 https://github.com/primus/fortress-maximus
 
@@ -66,9 +65,6 @@ http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-nod
 
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
-
-https://github.com/lemonde/get-set
-https://github.com/mariocasciaro/object-path
 
 bons modules https://github.com/spumko
 

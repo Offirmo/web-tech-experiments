@@ -2,7 +2,7 @@
 'use strict';
 
 // Test of better colors using chalk
-// TODO
+// https://www.npmjs.com/package/chalk
 
 console.log('Hello world !');
 
