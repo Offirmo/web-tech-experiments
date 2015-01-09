@@ -2,7 +2,7 @@
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
 https://github.com/asyncly/EventEmitter2
 https://github.com/mariocasciaro/object-path
-
+https://github.com/Yomguithereal/baobab
 
 - fluent libs
 https://github.com/metaraine/shackles
