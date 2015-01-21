@@ -18,9 +18,9 @@ function(_) {
 		var d = log_call.date;
 
 		var yyyy = d.getFullYear();
-		var mm = d.getMonth();
+		var mm = d.getMonth() + 1; // O-based
 		var dd = d.getDate();
-		// These lines ensure you have two-digits
+		// These lines ensure we have two-digits
 		if(mm < 10) mm = '0' + mm;
 		if(dd < 10) dd = '0' + dd;
 
@@ -28,15 +28,17 @@ function(_) {
 		var mn = d.getUTCMinutes();
 		var ss = d.getSeconds();
 		var mss = d.getMilliseconds();
-		// These lines ensure you have two-digits
+		// These lines ensure we have two-digits
 		if(hh < 10) hh = '0' + hh;
 		if(mn < 10) mn = '0' + mn;
 		if(ss < 10) ss = '0' + ss;
 		if(mss < 10) mss = '00' + mss;
 		else if (mss < 100) mss = '0' + mss;
 
-		log_call.timestamp_string = '' + yyyy + mm + dd
-			+ ' ' + hh + ':' + mn + ':' + ss + '.' + mss;
+		log_call.timestamp_string = '' +
+			yyyy + '/' + mm + '/' + dd +
+			' ' +
+			hh + ':' + mn + ':' + ss + '.' + mss;
 	}
 
 	return {

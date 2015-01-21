@@ -15,7 +15,7 @@ function(_) {
 		this.logger_id = options.logger_id;
 		this.level = options.level;
 		this.args = options.args;
-		this.date = new Date();
+		this.date = new Date(); // now
 	}
 
 	// logger core, entirely configurable

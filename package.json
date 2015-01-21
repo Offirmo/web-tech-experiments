@@ -1,24 +1,26 @@
 {
-	"name": "html_tests",
-	"description": "various web techs tests",
-	"author": "Offirmo <offirmo.net@gmail.com>",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"bower": "bower prune; bower install; bower update",
-		"postinstall": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm update; bower prune; bower install; bower update; cd server; npm prune; npm update; cd ../incubator/node_and_common; npm prune; npm update; cd ../base-objects.js; npm prune; npm update",
-		"lint": "echo TODO linting"
-	},
-	"dependencies": {
-		"bower":               "latest",
-		"generator-famous":    "latest",
-		"grunt":               "latest",
-		"yo":                  "latest"
-	},
-	"devDependencies": {
-		"pre-commit": "0.0.9"
-	},
-	"pre-commit": [
-		"lint"
-	]
+  "name": "html_tests",
+  "description": "various web techs tests",
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "bower": "bower prune; bower install; bower update",
+    "postinstall": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm update; bower prune; bower install; bower update; cd server; npm prune; npm update; cd ../incubator/node; npm prune; npm update; cd ../common; npm prune; npm update",
+    "lint": "echo TODO linting"
+  },
+  "dependencies": {
+    "bower":               "latest",
+    "generator-famous":    "latest",
+    "grunt":               "latest",
+    "yo":                  "^1"
+  },
+  "devDependencies": {
+    "eslint":              "latest",
+    "jshint":              "latest",
+    "pre-commit":          "0.0.9"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }

@@ -1,8 +1,13 @@
 
+
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
 https://github.com/asyncly/EventEmitter2
 https://github.com/mariocasciaro/object-path
 https://github.com/Yomguithereal/baobab
+
+https://github.com/ericelliott/stampit
+https://github.com/Yomguithereal/baobab
+
 
 - fluent libs
 https://github.com/metaraine/shackles
@@ -22,6 +27,7 @@ http://orteil.dashnet.org/randomgen/?gen=corvophraser.txt
 
 -- I18N
 http://formatjs.io/
+http://l10ns.org/
 
 
 -- useful tools

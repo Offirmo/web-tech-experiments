@@ -2,7 +2,7 @@
 'use strict';
 
 var _ = require('lodash');
-var logger = require('../../incubator/logator')({enhanced: true});
+var logger = require('../../incubator/common/logator')({enhanced: true});
 
 var console_levels = ['log', 'info', 'warn', 'error'];
 

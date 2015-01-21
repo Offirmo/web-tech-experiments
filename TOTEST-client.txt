@@ -1,5 +1,9 @@
 ’
 
+https://cdnify.com/blog/top-10-mobile-frameworks-performance/
+
+JSS https://medium.com/@oleg008/the-important-parts-131dda7f6f6f
+
 https://github.com/antris/sneakpeek
 https://github.com/positionly/Typist
 
