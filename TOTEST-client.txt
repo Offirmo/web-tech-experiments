@@ -1,4 +1,4 @@
-’
+
 
 https://cdnify.com/blog/top-10-mobile-frameworks-performance/
 
@@ -8,6 +8,7 @@ https://github.com/antris/sneakpeek
 https://github.com/positionly/Typist
 
 http://kumailht.com/gridforms/
+http://tympanus.net/Development/TextInputEffects/
 https://github.com/knsv/mermaid
 
 http://www.sitepoint.com/5-most-popular-frontend-frameworks-compared/
