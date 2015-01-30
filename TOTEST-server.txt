@@ -6,6 +6,8 @@ http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
 -- node advocacy
 http://codecondo.com/state-of-node-js/
 
+validation JSON http://gilesbowkett.blogspot.co.uk/2015/01/why-panda-strike-wrote-fastest-json.html
+
 
 --to read
 http://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/
