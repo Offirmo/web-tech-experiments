@@ -40,7 +40,7 @@ requirejs.config({
 	packages: [
 		{
 			name : 'logator',
-			location: '../incubator/logator'
+			location: 'incubator/logator'
 		},
 		{
 			name : 'when',
@@ -52,13 +52,13 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// AMD plugins (dirs or direct)
-		'base-objects'             : '../incubator/base-objects.js', // dir
-		'extended-exceptions'      : '../incubator/extended-exceptions.js/extended_exceptions', // direct
+		'base-objects'             : 'incubator/base-objects.js', // dir
+		'extended-exceptions'      : 'incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'                   : 'bower_components/jquery/jquery',
-		'network-constants'        : '../incubator/network-constants.js', // dir
+		'network-constants'        : 'incubator/network-constants.js', // dir
 		'restlink'                 : 'other_components/restlink.js', // dir
-		'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
+		'webworker_helper'         : 'incubator/node_and_common/webworker_helper/webworker_helper', // direct
 		// shim plugins
 		'accounting'               : 'bower_components/accounting/accounting',
 		'angular'                  : 'bower_components/angular/angular',

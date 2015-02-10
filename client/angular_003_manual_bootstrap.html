@@ -22,7 +22,7 @@
 	<script>
 		console.log("hello from header !");
 	</script>
-	<script data-main="misc/components.js" src="bower_components/requirejs/require.js"></script>
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
 </head>
 <body>
 
@@ -51,11 +51,11 @@
 		],
 		function() {
 			var app = angular.module('App', []);
-			app.controller('AppCtrl', function($scope) {
+			app.controller('AppCtrl', ['$scope', function($scope) {
 				$scope.title = "Angular Test App 003";
 				$scope.snippet = "Advanced javascript single-page webapp. Using require.js and angular.js.";
 				$scope.scoped_angular = angular;
-			});
+			}]);
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
