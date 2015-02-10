@@ -62,6 +62,10 @@ http://www.pintjs.com/ wrapper around grunt
 
 https://github.com/sahat/hackathon-starter
 
+https://github.com/suguru03/neo-async
+
+https://www.ejabberd.im/
+
 http://www.html5rocks.com/en/tutorials/appcache/beginner/
 http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
 
@@ -85,9 +89,6 @@ https://github.com/thlorenz/ansicolors
 
 - log gratuit en ligne ? Moyen de faire qq chose ?
 https://data.sparkfun.com/
-
--- i18n --
-https://github.com/yoshuawuyts/newspeak
 
 -- REST --
 http://feathersjs.com/

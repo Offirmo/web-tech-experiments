@@ -1,5 +1,10 @@
+https://github.com/js-data/js-data
 
 prochain framework ? http://aurelia.io/
+
+http://echarts.baidu.com/x/doc/example.html#map3d
+
+éditeur markdown https://github.com/pandao/editor.md
 
 https://cdnify.com/blog/top-10-mobile-frameworks-performance/
 
@@ -13,7 +18,8 @@ http://tympanus.net/Development/TextInputEffects/
 https://github.com/knsv/mermaid
 
 http://www.sitepoint.com/5-most-popular-frontend-frameworks-compared/
-
+https://github.com/voronianski/flux-comparison
+https://github.com/spite/THREE.AugmentedConsole.js/blob/master/src/THREE.AugmentedConsole.js
 http://pathgather.github.io/please-wait/
 http://mrzepinski.github.io/angular-debug-bar/
 http://lafikl.github.io/perfBar/
@@ -66,12 +72,11 @@ http://code.kojilabs.com/page-visibility-api/
 http://make-dev.tumblr.com/post/30013908789/time-to-remove-jquery
 http://tristanedwards.me/sweetalert
 AUTH https://github.com/sahat/satellizer
+
 -- client / no framework ?
 http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
 https://github.com/systemjs/systemjs
-http://angularjs.blogspot.fr/2014/11/using-ngaria.html
-https://github.com/jtblin/angular-chart.js
 https://github.com/mightyiam/combokeys
 
 -- Auth
@@ -87,6 +92,7 @@ templating http://mozilla.github.io/nunjucks/
 http://paperclipjs.com/ can complement AngularJS
 
 -- AngularJS --
+http://randomjavascript.blogspot.co.uk/2015/01/ngtestharness-strap-in-with-this-new.html
 https://github.com/begriffs/angular-paginate-anything
 http://mgcrea.github.io/angular-strap/
 https://github.com/sparkalow/angular-truncate
@@ -99,11 +105,11 @@ http://tylerhenkel.com/angular-fullstack-2-0-released/
 http://eranhirs.github.io/jsTag/
 https://github.com/akatov/angular-contenteditable
 https://github.com/IcanDivideBy0/angular-reorderable
-
+http://angularjs.blogspot.fr/2014/11/using-ngaria.html
+https://github.com/jtblin/angular-chart.js
 
 - cartes
 http://developers.route360.net/
-
 
 -- storage
 - JSON database

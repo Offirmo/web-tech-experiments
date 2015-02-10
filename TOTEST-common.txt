@@ -8,6 +8,7 @@ https://github.com/Yomguithereal/baobab
 https://github.com/ericelliott/stampit
 https://github.com/Yomguithereal/baobab
 
+https://github.com/Muscula/json-schema-benchmark
 
 - fluent libs
 https://github.com/metaraine/shackles
@@ -28,15 +29,8 @@ http://context.io/how-it-works/connecting-mailboxes
 http://nativetap.io/
 
 
--- I18N
-http://formatjs.io/
-http://l10ns.org/
-
-
 -- useful tools
 https://github.com/leeluolee/puer
-
-
 
 http://www.stickermule.com/marketplace
 
@@ -47,3 +41,9 @@ https://github.com/visionmedia/superagent
 
 -- mails
 http://zurb.com/ink/templates.php
+
+
+
+-- work
+http://www.groupahead.com/
+http://www.drawattention.co/
