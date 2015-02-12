@@ -1,5 +1,5 @@
 https://github.com/js-data/js-data
-
+http://photoswipe.com/
 prochain framework ? http://aurelia.io/
 
 http://echarts.baidu.com/x/doc/example.html#map3d
