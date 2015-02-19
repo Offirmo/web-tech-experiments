@@ -90,6 +90,8 @@ https://github.com/thlorenz/ansicolors
 - log gratuit en ligne ? Moyen de faire qq chose ?
 https://data.sparkfun.com/
 
+scrapper http://dailyjs.com/2015/02/05/xray/
+
 -- REST --
 http://feathersjs.com/
 http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/

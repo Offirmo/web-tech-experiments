@@ -31,6 +31,8 @@ http://nativetap.io/
 
 -- useful tools
 https://github.com/leeluolee/puer
+version for JetBrains IDEs from: http://download.wallabyjs.com/47256d31-477d-4449-81b4-a443009972aa
+https://github.com/wallabyjs/public#getting-started
 
 http://www.stickermule.com/marketplace
 

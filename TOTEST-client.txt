@@ -1,6 +1,7 @@
 https://github.com/js-data/js-data
 http://photoswipe.com/
 prochain framework ? http://aurelia.io/
+ou http://reapp.io/ (React, Webpack and ES6)
 
 http://echarts.baidu.com/x/doc/example.html#map3d
 
@@ -83,6 +84,7 @@ https://github.com/mightyiam/combokeys
 http://guardianjs.com/
 http://dailyjs.com/2014/11/14/grant/
 https://hacks.mozilla.org/2014/10/passwordless-authentication-secure-simple-and-fast-to-deploy/
+https://stormpath.com/blog/token-auth-spa/
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer
@@ -128,3 +130,5 @@ https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-brow
 https://golden-layout.com/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
 http://jackf.net/bezier-clock/
+http://www.giacomovacca.com/2015/02/websockets-over-nodejs-from-plain-to.html
+http://cssanimation.rocks/twitter-fave/
