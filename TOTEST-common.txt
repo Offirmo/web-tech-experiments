@@ -2,6 +2,7 @@
 -- markdown
 https://github.com/npm/marky-markdown
 https://www.npmjs.com/package/sanitize-html
+https://github.com/bevacqua/megamark
 
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
 https://github.com/asyncly/EventEmitter2

@@ -3,11 +3,14 @@ http://tech.blog.box.com/2014/10/introducing-leche-a-javascript-testing-utility-
 https://github.com/abeisgreat/FiltrES.js
 http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
 
+https://github.com/pilwon/ultimate-seed
+
 -- node advocacy
 http://codecondo.com/state-of-node-js/
 
 validation JSON http://gilesbowkett.blogspot.co.uk/2015/01/why-panda-strike-wrote-fastest-json.html
 
+http://dailyjs.com/2015/03/03/excel-material-refresh/
 
 --to read
 http://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/

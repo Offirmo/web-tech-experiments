@@ -3,6 +3,8 @@ http://photoswipe.com/
 prochain framework ? http://aurelia.io/
 ou http://reapp.io/ (React, Webpack and ES6)
 
+https://github.com/handsontable/handsontable
+
 http://echarts.baidu.com/x/doc/example.html#map3d
 
 éditeur markdown https://github.com/pandao/editor.md
