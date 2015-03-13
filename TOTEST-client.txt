@@ -5,6 +5,18 @@ ou http://reapp.io/ (React, Webpack and ES6)
 
 https://github.com/handsontable/handsontable
 
+-- baobab
+https://github.com/Yomguithereal/baobab
+http://christianalfoni.github.io/javascript/2015/02/06/plant-a-baobab-tree-in-your-flux-application.html
+
+-- google analytics
+http://blog.gospodarets.com/track_javascript_angularjs_and_jquery_errors_with_google_analytics/
+https://github.com/toddmotto/flare
+http://davidwalsh.name/track-errors-google-analytics
+http://boba.space150.com/
+https://github.com/revolunet/angular-google-analytics
+
+
 http://echarts.baidu.com/x/doc/example.html#map3d
 
 éditeur markdown https://github.com/pandao/editor.md
@@ -19,6 +31,8 @@ https://github.com/positionly/Typist
 http://kumailht.com/gridforms/
 http://tympanus.net/Development/TextInputEffects/
 https://github.com/knsv/mermaid
+
+http://mango.github.io/slideout/
 
 http://www.sitepoint.com/5-most-popular-frontend-frameworks-compared/
 https://github.com/voronianski/flux-comparison
@@ -39,6 +53,8 @@ BEM methodology http://bem.info/
 https://www.npmjs.org/package/hyperboot
 
 http://scotch.io/tutorials/building-interactive-scrolling-websites-with-scrollmagic-js
+
+easings http://canvasquery.com/playground-ease#inQuart
 
 firebase
 http://scotch.io/tutorials/javascript/build-a-real-time-scheduling-app-using-angularjs-and-firebase

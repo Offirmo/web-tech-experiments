@@ -45,7 +45,7 @@
 	<!-- js -->
 	<script src="bower_components/pace/pace.min.js"></script>
 	<script>
-		console.log("hello from header !");
+		console.log('hello from header !');
 	</script>
 	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
 </head>
@@ -146,8 +146,8 @@
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
-			// cf.
 			console.log('Bootstrapping angular...');
+			// we must bind on document to encompass page title
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['App']);
 			});

@@ -1,32 +1,29 @@
 <!doctype html>
 <!-- html_004 template -->
 
-<html lang='en' ng-app>
+<html lang='en' ng-app="todoApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+
 	<title>Angular 002</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- favicons -->
-
-	
 	<!-- style -->
-	<link rel="stylesheet" href="css/styles.css?v=1.0">
 	<style>
 		.done-true {
 			text-decoration: line-through;
 			color: grey;
 		}
 	</style>
-	
+
 	<!-- js -->
 	<script src="../bower_components/angular/angular.js"></script>
-	
+
 	<script>
-		function TodoCtrl($scope) {
+		angular.module('todoApp', [])
+		.controller('TodoController', ['$scope', function($scope) {
 			$scope.todos = [
 				{text:'learn angular', done:true},
 				{text:'build an angular app', done:false}];
@@ -51,7 +48,7 @@
 					if (!todo.done) $scope.todos.push(todo);
 				});
 			};
-		}
+		}]);
 	</script>
 </head>
 <body>
@@ -60,8 +57,8 @@
 <div id="content">
 	<div class="container">
 		<h1 id="header">Angular 002 = todo</h1>
-		
-		<div ng-controller="TodoCtrl">
+		<p>Taken from <a href="https://angularjs.org/">https://angularjs.org/</a></p>
+		<div ng-controller="TodoController">
 			<span>{{remaining()}} of {{todos.length}} remaining</span>
 			[ <a href="" ng-click="archive()">archive</a> ]
 			<ul class="unstyled">

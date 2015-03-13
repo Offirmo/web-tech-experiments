@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- http://stackoverflow.com/questions/7020961/uppercase-or-lowercase-doctype -->
+<!-- html base 005 template -->
+
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title>html test 004</title>
+	<meta name="description" content="...">
+	<meta name="author" content="Offirmo">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- (removed rarely used microsoft vml) -->
+
+	<!-- favicons -->
+	<!-- For IE -->
+	<!--[if IE]>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<LINK rel="icon" href="favicon.ico" type="image/ico">
+	<![endif]-->
+	<!-- For Modern Browsers with PNG Support -->
+	<link rel="icon" href="misc/favicon_16x16.png" type="image/png" />
+	<!-- Apple iDevices specific -->
+	<link rel="apple-touch-icon" href="misc/apple-touch-icon_57x57.png" />
+	<!-- MS Win7 / IE9 pinnable specific : never worked-->
+
+	<!-- style -->
+	<!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+	<style>
+		/* ... */
+	</style>
+
+	<!-- js -->
+	<!-- <script async src="js/scripts.js"></script> -->
+	<script src="html_004_page_loading_order_head_1.js"></script>
+	<script async src="html_004_page_loading_order_head_2.js"></script>
+	<script>
+		console.log('hello from header inline !');
+	</script>
+</head>
+<body>
+
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">html load order test</h1>
+		<p>HTML base page.</p>
+		<p>Hello world.</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+
+<script src="html_004_page_loading_order_body_1.js"></script>
+<script async src="html_004_page_loading_order_body_2.js"></script>
+<script>
+	console.log('hello from body inline !');
+</script>
+
+</body>
+</html>

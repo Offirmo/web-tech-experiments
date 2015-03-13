@@ -23,9 +23,9 @@ they go into their own repo and get "submodulized".
 Commands
 --------
 
-`npm run i` install all
+* `npm i` install all dependencies
+* `puer` starts a web server and opens default browser on root
 
-TODO
 
 Private notes
 -------------
@@ -39,10 +39,9 @@ node --debug server.js
 
 http://prose.io/
 
-Global npm modules to install :
 ```bash
-npm install -g yo grunt-cli bower generator-famous
-npm install -g bower grunt-cli npm-check-updates selenium-standalone
+npm install -g grunt-cli yo generator-famous
+npm install -g grunt-cli npm-check-updates selenium-standalone
 ```
 
 TODO docs (wikis)

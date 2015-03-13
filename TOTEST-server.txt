@@ -1,4 +1,7 @@
+
 http://strongloop.com/node-js/loopback-framework/
+http://compositecode.com/2014/08/20/framework-strongloops-loopback/
+
 http://tech.blog.box.com/2014/10/introducing-leche-a-javascript-testing-utility-for-mocha-and-sinon/
 https://github.com/abeisgreat/FiltrES.js
 http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
@@ -23,12 +26,6 @@ http://www.truevalhalla.com/blog/ebook/
 http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
 http://jsonapi.org/ json apis
 https://github.com/interagent/http-api-design
-
-** google analytics
-https://github.com/toddmotto/flare
-http://davidwalsh.name/track-errors-google-analytics
-http://boba.space150.com/
-https://github.com/revolunet/angular-google-analytics
 
 http://jekyllrb.com/
 
