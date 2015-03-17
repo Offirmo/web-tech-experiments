@@ -57,6 +57,7 @@
 		"spinkit":                  "latest",
 		"store.js":                 "latest",
 		"ui-router-extras":         "latest",
+		"unorm":                    "latest",
 		"underscore":               "latest",
 		"when":                     "latest"
 	},

@@ -242,6 +242,7 @@ http://nodetoolbox.com/categories/Logging
 à intégrer
 https://github.com/eldargab/easy-table
 https://github.com/krasimir/deb.js
++++ https://github.com/caiogondim/logdown
 
 à respecter
 http://strongloop.com/strongblog/automatic-node-js-clustering-with-log-aggregation/

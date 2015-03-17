@@ -5,6 +5,10 @@ ou http://reapp.io/ (React, Webpack and ES6)
 
 https://github.com/handsontable/handsontable
 
+-- i18n
+https://scotch.io/tutorials/internationalization-of-angularjs-applications
+
+
 -- baobab
 https://github.com/Yomguithereal/baobab
 http://christianalfoni.github.io/javascript/2015/02/06/plant-a-baobab-tree-in-your-flux-application.html
@@ -16,12 +20,7 @@ http://davidwalsh.name/track-errors-google-analytics
 http://boba.space150.com/
 https://github.com/revolunet/angular-google-analytics
 
-
 http://echarts.baidu.com/x/doc/example.html#map3d
-
-éditeur markdown https://github.com/pandao/editor.md
-
-https://cdnify.com/blog/top-10-mobile-frameworks-performance/
 
 JSS https://medium.com/@oleg008/the-important-parts-131dda7f6f6f
 
@@ -127,6 +126,7 @@ https://github.com/akatov/angular-contenteditable
 https://github.com/IcanDivideBy0/angular-reorderable
 http://angularjs.blogspot.fr/2014/11/using-ngaria.html
 https://github.com/jtblin/angular-chart.js
+https://scotch.io/bar-talk/the-best-news-from-angulars-ng-conf-2015
 
 - cartes
 http://developers.route360.net/
