@@ -8,6 +8,11 @@ http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
 
 https://github.com/pilwon/ultimate-seed
 
+generators
+https://github.com/shes/comws
+
+https://51degrees.com/products/device-detection/cloud
+
 -- node advocacy
 http://codecondo.com/state-of-node-js/
 
@@ -144,3 +149,6 @@ https://github.com/dshaw/repl-client
 https://github.com/c4milo/node-webkit-agent
 
 https://github.com/mikaelbr/node-notifier
+
+erreurs
+https://github.com/fanatid/error-system

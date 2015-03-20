@@ -41,6 +41,7 @@ http://www.stickermule.com/marketplace
 
 -- Ajax
 https://github.com/visionmedia/superagent
+https://github.com/luin/superfetch
 
 
 -- mails
