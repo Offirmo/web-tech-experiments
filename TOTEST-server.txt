@@ -96,6 +96,7 @@ https://github.com/thlorenz/ansicolors
 https://data.sparkfun.com/
 
 scrapper http://dailyjs.com/2015/02/05/xray/
+Interactive Push Notifications for SaaS http://horntell.com/
 
 -- REST --
 http://feathersjs.com/
@@ -104,6 +105,7 @@ http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express
 https://github.com/mikaa123/catnap
 http://avoidwork.github.io/tenso/
 +++ http://blog.octo.com/designer-une-api-rest/
+pratique avec SQL http://codeforgeek.com/2015/03/restful-api-node-and-express-4/
 
 --- client REST
 client http://node-modules.com/search?q=rest+client

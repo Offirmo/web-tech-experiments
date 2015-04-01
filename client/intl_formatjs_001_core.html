@@ -49,52 +49,24 @@
 	main = function()
 	{
 		console.log('Starting rsrc load...');
-		// all libs so we chekc that they work !
 		require(
 		[
-			// AMD plugins (dirs or direct)
-			'base-objects',
-			'extended-exceptions',
-			'jquery',
-			'network-constants',
-			'restlink' ,
-			// shim plugins
-			'accounting',
-			'angular',
-			'angular-isotope',
-			'angular-route',
-			'backbone',
-			'backbone-associations',
-			'bootstrap',
-			'bootstrap-rem',
-			'bootstrap3',
-			'chai',
-			'dust',
-			'ecotree',
-			'famous.angular',
-			'fullpage',
-			'javascript-state-machine',
-			'jpanelmenu',
-			'jquery.ui',
-			'jquery.svg',
-			'jquery.datatables',
-			'jquery.datatables.ui',
-			'json2',
-			'isotope',
-			'magnific-popup',
-			'mocha',
-			'moment',
-			'onepage-scroll',
-			'spin',
-			'store',
-			'type-check',
-			'underscore',
-			'when'
+			'lodash',
+			'intl-format-cache',
+			'intl-messageformat',
+			'intl-relativeformat'
 		],
-		function() {
+		function(_, format_cache, message_format, relative_format) {
 			// due to how we wrote component.js, we know that document is fully loaded
 			document.body.appendChild(document.createTextNode('Hello from mainFunction ! (jQuery version:' + $.fn.jquery + ')'));
 			console.log('load done !');
+
+			// https://scotch.io/tutorials/internationalization-of-angularjs-applications
+			// https://github.com/lgalfaso/angular-dynamic-locale
+			// https://github.com/angular-translate/angular-translate
+			//
+
+
 		});
 	};
 </script>

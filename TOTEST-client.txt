@@ -5,6 +5,10 @@ ou http://reapp.io/ (React, Webpack and ES6)
 
 https://github.com/handsontable/handsontable
 
+http://vodkabears.github.io/interdimensional/
+
+accessibilité++ http://a11yproject.com/
+
 -- i18n
 https://scotch.io/tutorials/internationalization-of-angularjs-applications
 
@@ -30,6 +34,8 @@ https://github.com/positionly/Typist
 http://kumailht.com/gridforms/
 http://tympanus.net/Development/TextInputEffects/
 https://github.com/knsv/mermaid
+
+http://www.angulargrid.com/example.html
 
 http://mango.github.io/slideout/
 
