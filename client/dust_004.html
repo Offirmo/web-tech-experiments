@@ -5,11 +5,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+
 	<title>Dust.js 004</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
 
@@ -22,8 +22,8 @@
 	<!-- For Modern Browsers with PNG Support -->
 	<link rel="icon" href="shared/favicon_16x16.png" type="image/png" />
 	<!-- ... -->
-	
-	
+
+
 	<!-- Ultra-mini css reset just to nicely display the loader
 	     Should be ultra-safe for :
 	     - old navigators like IE6
@@ -71,16 +71,14 @@
 	</style>
 
 	<!-- js -->
-	<script src="../other_components/quartermaster.js/quartermaster.js"></script>
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
 	<script>
 		//console.log("hello from header !");
 		window.main = function()
 		{
-			Q.log("Starting rsrc load...");
-
 			require(
-				[	'jquery', 'rdust!sandbox/dust_004h', 'rdust!sandbox/dust_004f', 'rdust!sandbox/dust_004c', 'rdust!sandbox/dust_004', 'bootstrap' ],
-				function($,   templateH,                 templateF,                 templateC,                 template) {
+				[	'jquery', 'rdust!client/dust_004h', 'rdust!client/dust_004f', 'rdust!client/dust_004c', 'rdust!client/dust_004', 'bootstrap' ],
+				function($,   templateH,                templateF,                templateC,                template) {
 					// is the window fully loaded ? seems yes.
 
 					// from https://github.com/blai/require-dust/blob/master/demo/lib/main.js
@@ -96,7 +94,7 @@
 
 					template.render(data, function(err, out) {
 						if(err !== null)
-							Q.error(err);
+							console.error(err);
 						document.getElementById('temp').innerHTML = out;
 					});
 			});

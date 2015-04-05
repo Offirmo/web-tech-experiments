@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">Angular test fallback title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+
+	<!-- style -->
+	<style>
+		/* ... */
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+		<ul>
+			<li ng-intl="no_key">directive
+			<li ng-intl="simple_key">directive
+			<li ng-intl="formatted_number">directive
+			<li ng-intl="formatted_number_percent">directive
+			<li ng-intl="formatted_date_full">directive
+			<li ng-intl="formatted_time_medium">directive
+			<li ng-intl="key_select">directive
+			<li ng-intl="key_select_nested">directive
+			<li ng-intl="plural">directive
+			<li ng-intl="plural_shortcut">directive
+			<li ng-intl="ordinal">directive
+			<li ng-intl="formatted_number_custom">directive
+
+			<li ng-intl="missing_translation_key">directive
+		</ul>
+		<p>Angular version : {{scoped_angular.version.full}}</p>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'lodash',
+			'intl-messageformat',
+			'intl-relativeformat',
+			//'intl-format-cache',
+			'angular',
+			'bootstrap3'
+		],
+		function(_, IntlMessageFormat, IntlRelativeFormat) {
+			var app = angular.module('App', []);
+
+			app.directive('ngIntl', [function () {
+				console.log('directive :', arguments);
+				return {
+					restrict: 'A',
+					link: function(scope, element, attr) {
+						//console.log('link', scope, element, attr);
+
+						var locale = scope.intl.locale;
+						var key = attr.ngIntl;
+						var messages = scope.intl.messages;
+						var data = scope;
+						var custom_formats = scope.intl.custom;
+
+						var msg = messages[key];
+
+						var text;
+						if(_.isUndefined(msg))
+							text = '[' + key + ']';
+						else {
+							var mf =  new IntlMessageFormat(msg, locale, custom_formats);
+							text = mf.format(data);
+						}
+
+						element.html(text);
+					}
+				};
+			}]);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "intl Test 006 FormatJS Angular";
+				$scope.snippet = "Testing FormatJS with angular directives. Stuff is sent to the console.";
+				$scope.scoped_angular = angular;
+
+				$scope.intl = {
+					locale: 'fr-FR',
+					messages: {
+						no_key: 'Bonjour monde !',
+						simple_key: 'Bonjour {name} !',
+						formatted_number: 'J’ai {numCats, number} chats.',
+						formatted_number_percent: 'Environ {percentBlackCats, number, percent} d’entre eux sont noirs.',
+						formatted_date_short:  'Nous sommes le {now, date, short } et tout va bien.',
+						formatted_date_medium: 'Nous sommes le {now, date, medium} et tout va bien.',
+						formatted_date_long:   'Nous sommes le {now, date, long  } et tout va bien.',
+						formatted_date_full:   'Nous sommes le {now, date, full  } et tout va bien.',
+						formatted_time_short:  'Il est {now, time, short } et tout va bien.',
+						formatted_time_medium: 'Il est {now, time, medium} et tout va bien.',
+						formatted_time_long:   'Il est {now, time, long  } et tout va bien.',
+						formatted_time_full:   'Il est {now, time, full  } et tout va bien.',
+						key_select:            '{gender, select, male {Il va} female {Elle va} other {Ils vont}} répondre incessament sous peu.',
+						key_select_nested:     '{taxableArea, select, true {{taxRate, number, percent} de TVA en sus.} other {TVA 0 %}}',
+						plural:                'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount} objets}}.',
+						plural_shortcut:       'Vous {itemCount2, plural, =0 {n’avez aucun objet} one {avez # objet} other {avez # objets}}.',
+						ordinal:               'C’est le {catAge, selectordinal, one {#er} other {#ème}} anniversaire de mon chat !',
+						formatted_number_custom: 'Ce sera {price, number, usd}.'
+					},
+					custom: {
+						number: {
+							usd: {
+								style: 'currency',
+								currency: 'USD',
+								currencyDisplay: 'name'
+							}
+						}
+					}
+				};
+				_.merge($scope, {
+					name: 'Mary',
+					gender: 'female',
+					numCats: 2,
+					percentBlackCats: 0.33,
+					now: new Date(),
+					taxableArea: true,
+					taxRate: 0.21,
+					itemCount1: 0,
+					itemCount2: 1,
+					catAge: 3,
+					price: 3
+				});
+			}]);
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

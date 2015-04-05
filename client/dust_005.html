@@ -5,11 +5,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+
 	<title>Dust.js 005</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
 
@@ -49,51 +49,46 @@
 <script>
 	console.log("hello from body !");
 
-	window.main = function()
-	{
+	window.main = function() {
 		console.log("Starting main...");
 		requirejs([
 			'jquery',
-			'rdust!sandbox/dust_004',
-			'rdust!sandbox/dust_004h',
-			'rdust!sandbox/dust_004f',
-			'rdust!sandbox/dust_004c',
+			'rdust!client/dust_004',
+			'rdust!client/dust_004h',
+			'rdust!client/dust_004f',
+			'rdust!client/dust_004c',
 			'bootstrap'
 		],
-		function($, main) {
-				// since template compilation and application are asynchronous,
-				// we need a way for the caller to wait until DOM is set
-				var deferredTemplateApplication= $.Deferred();
+		function ($, main) {
+			// since template compilation and application are asynchronous,
+			// we need a way for the caller to wait until DOM is set
+			var deferredTemplateApplication = $.Deferred();
 
-				// from https://github.com/blai/require-dust/blob/master/demo/lib/main.js
-				var data = {
-					"title": "Famous People",
-					"names" :
-						[
-							{ "name": "Larry" },
-							{ "name": "Curly" },
-							{ "name": "Moe" }
-						]
-				};
+			// from https://github.com/blai/require-dust/blob/master/demo/lib/main.js
+			var data = {
+				"title": "Famous People",
+				"names": [
+					{"name": "Larry"},
+					{"name": "Curly"},
+					{"name": "Moe"}
+				]
+			};
 
-				main.render(data, function(err, out) {
-					if(err !== null)
-						console.error(err);
-					var contentDiv = document.getElementById('temp');
-					contentDiv.innerHTML = out;
-					// how to wait for innerHTML assignation to be done
-					// http://www.webdeveloper.com/forum/showthread.php?250355-RESOLVED-How-to-wait-for-innerHTML-assignment-to-take
-					contentDiv.onload = function() {
-						deferredTemplateApplication.resolve();
-					}
-				});
+			main.render(data, function (err, out) {
+				if (err !== null)
+					console.error(err);
+				var contentDiv = document.getElementById('temp');
+				contentDiv.innerHTML = out;
+				// how to wait for innerHTML assignation to be done
+				// http://www.webdeveloper.com/forum/showthread.php?250355-RESOLVED-How-to-wait-for-innerHTML-assignment-to-take
+				contentDiv.onload = function () {
+					deferredTemplateApplication.resolve();
+				}
+			});
 
-				return deferredTemplateApplication.promise(); // return a more restricted promise object
-			}
-		);
-
-	//console.log("hello from body !");
-
+			return deferredTemplateApplication.promise(); // return a more restricted promise object
+		});
+	};
 </script>
 
 </body>

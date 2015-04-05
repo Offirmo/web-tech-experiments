@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-	<title>Intl test 001</title>
+	<title>Intl test 004</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 
@@ -35,7 +35,7 @@
 
 <div id="content">
 	<div class="container">
-		<h1 id="header">Intl test 001</h1>
+		<h1 id="header">Intl test 004</h1>
 		<p>Advanced javascript enabled page. Using require.js.</p>
 		<p>(stuff is sent to console)</p>
 	</div> <!-- /container -->
@@ -58,32 +58,49 @@
 			// due to how we wrote component.js, we know that document is fully loaded
 			console.log('load done !');
 
-			// example taken from IntlMessageFormat readme
-			var MESSAGES = {
-				'en-US': {
-					NUM_PHOTOS: 'You have {numPhotos, plural, ' +
-					'=0 {no photos.}' +
-					'=1 {one photo.}' +
-					'other {# photos.}}'
-				},
+			var locales = [ 'en', 'fr', 'zh-Hans-CN-u-nu-hanidec'];
 
-				'es-MX': {
-					NUM_PHOTOS: 'Usted {numPhotos, plural, ' +
-					'=0 {no tiene fotos.}' +
-					'=1 {tiene una foto.}' +
-					'other {tiene # fotos.}}'
-				}
-			};
+			var number_formats = [
 
-			var output;
+				new Intl.NumberFormat('fr'),
+				new Intl.NumberFormat('zh-Hans-CN-u-nu-hanidec')
+			];
 
-			var enNumPhotos = new IntlMessageFormat(MESSAGES['en-US'].NUM_PHOTOS, 'en-US');
-			output = enNumPhotos.format({numPhotos: 1000});
-			console.log(output); // => "You have 1,000 photos."
+			var styles = [ 'decimal', 'currency', 'percent'];
 
-			var esNumPhotos = new IntlMessageFormat(MESSAGES['es-MX'].NUM_PHOTOS, 'es-MX');
-			output = esNumPhotos.format({numPhotos: 1000});
-			console.log(output); // => "Usted tiene 1,000 fotos."
+			var number = 10.3;
+			var currency = 'JPY';
+
+			locales.forEach(function(locale) {
+				console.group(locale);
+
+				var options = {};
+
+				styles.forEach(function(style) {
+					options.style = style;
+
+					if(style === 'currency') {
+						['EUR', 'JPY'].forEach(function(currency) {
+							options.currency = currency;
+							['symbol', 'code', 'name'].forEach(function(currencyDisplay) {
+								options.currencyDisplay = currencyDisplay;
+								nf = new Intl.NumberFormat(locale, options);
+								console.log('[style:' + nf.resolved.style +
+									', currency:' + nf.resolved.currency +
+									', currencyDisplay:' + nf.resolved.currencyDisplay +
+									']',
+									nf.format(number));
+							});
+						});
+					}
+					else {
+						nf = new Intl.NumberFormat(locale, options);
+						console.log('[nu:' + nf.resolved.numberingSystem + ', style:' + nf.resolved.style + ']',
+							nf.format(number));
+					}
+				});
+				console.groupEnd();
+			});
 		});
 	};
 </script>

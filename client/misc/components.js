@@ -93,8 +93,8 @@ requirejs.config({
 		'json2'                    : 'bower_components/json2/json2',
 		'jsoneditor'               : 'bower_components/jsoneditor/jsoneditor',
 		'intl-format-cache'        : 'bower_components/intl-format-cache/index',
-		'intl-messageformat'       : 'bower_components/intl-messageformat/index',
-		'intl-relativeformat'      : 'bower_components/intl-relativeformat/index',
+		'intl-messageformat'       : 'bower_components/intl-messageformat/dist/intl-messageformat-with-locales',
+		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
 		'isotope'                  : 'bower_components/isotope/jquery.isotope',
 		'lodash'                   : 'bower_components/lodash/dist/lodash',
 		'magnific-popup'           : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
@@ -183,6 +183,17 @@ requirejs.config({
 				'css!bower_components/famous-angular/dist/famous-angular'
 			]
 		},
+		'intl-messageformat': {
+			exports: 'IntlMessageFormat'
+		},
+		'intl-relativeformat': {
+			exports: 'IntlRelativeFormat'
+		},
+		'isotope' : {
+			deps: [
+				'jquery'
+			]
+		},
 		'fullpage' : {
 			deps: [
 				'jquery',
@@ -237,11 +248,6 @@ requirejs.config({
 				'css!bower_components/jsoneditor/jsoneditor'
 			],
 			exports: 'jsoneditor'
-		},
-		'isotope' : {
-			deps: [
-				'jquery'
-			]
 		},
 		'magnific-popup' : {
 			deps: [

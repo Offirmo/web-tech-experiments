@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-	<title>Intl test 001</title>
+	<title>Intl test 002</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 
@@ -35,8 +35,8 @@
 
 <div id="content">
 	<div class="container">
-		<h1 id="header">Intl test 001</h1>
-		<p>Advanced javascript enabled page. Using require.js.</p>
+		<h1 id="header">Intl test 002</h1>
+		<p>Advanced javascript enabled page. Using require.js, loading all libs.</p>
 		<p>(stuff is sent to console)</p>
 	</div> <!-- /container -->
 </div> <!-- /content -->
@@ -52,38 +52,35 @@
 		require(
 		[
 			'lodash',
-			'intl-messageformat'
+			'intl-messageformat',
+			'intl-relativeformat'
 		],
-		function(_, IntlMessageFormat) {
+		function(_, IntlMessageFormat, IntlRelativeFormat, format_cache) {
 			// due to how we wrote component.js, we know that document is fully loaded
 			console.log('load done !');
 
-			// example taken from IntlMessageFormat readme
-			var MESSAGES = {
-				'en-US': {
-					NUM_PHOTOS: 'You have {numPhotos, plural, ' +
-					'=0 {no photos.}' +
-					'=1 {one photo.}' +
-					'other {# photos.}}'
+			// example taken from IntlRelativeFormat readme
+			//var rf = new IntlRelativeFormat('en-US');
+			var rf = new IntlRelativeFormat('fr-FR');
+
+			var posts = [
+				{
+					id   : 1,
+					title: 'Some Blog Post',
+					date : new Date(1426271670524)
 				},
-
-				'es-MX': {
-					NUM_PHOTOS: 'Usted {numPhotos, plural, ' +
-					'=0 {no tiene fotos.}' +
-					'=1 {tiene una foto.}' +
-					'other {tiene # fotos.}}'
+				{
+					id   : 2,
+					title: 'Another Blog Post',
+					date : new Date(1426378870524)
 				}
-			};
+			];
 
-			var output;
-
-			var enNumPhotos = new IntlMessageFormat(MESSAGES['en-US'].NUM_PHOTOS, 'en-US');
-			output = enNumPhotos.format({numPhotos: 1000});
-			console.log(output); // => "You have 1,000 photos."
-
-			var esNumPhotos = new IntlMessageFormat(MESSAGES['es-MX'].NUM_PHOTOS, 'es-MX');
-			output = esNumPhotos.format({numPhotos: 1000});
-			console.log(output); // => "Usted tiene 1,000 fotos."
+			posts.forEach(function (post) {
+				console.log(rf.format(post.date));
+			});
+			// => "3 hours ago"
+			// => "1 hour ago"
 		});
 	};
 </script>

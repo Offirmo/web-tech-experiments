@@ -1,3 +1,5 @@
+’
+
 https://github.com/js-data/js-data
 http://photoswipe.com/
 prochain framework ? http://aurelia.io/
@@ -8,9 +10,6 @@ https://github.com/handsontable/handsontable
 http://vodkabears.github.io/interdimensional/
 
 accessibilité++ http://a11yproject.com/
-
--- i18n
-https://scotch.io/tutorials/internationalization-of-angularjs-applications
 
 
 -- baobab
@@ -133,6 +132,11 @@ https://github.com/IcanDivideBy0/angular-reorderable
 http://angularjs.blogspot.fr/2014/11/using-ngaria.html
 https://github.com/jtblin/angular-chart.js
 https://scotch.io/bar-talk/the-best-news-from-angulars-ng-conf-2015
+--- i18n
+https://scotch.io/tutorials/internationalization-of-angularjs-applications
+https://github.com/lgalfaso/angular-dynamic-locale
+https://github.com/angular-translate/angular-translate
+
 
 - cartes
 http://developers.route360.net/
