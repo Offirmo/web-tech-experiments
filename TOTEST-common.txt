@@ -17,7 +17,7 @@ https://github.com/Muscula/json-schema-benchmark
 https://github.com/metaraine/shackles
 
 
--- useful SASS
+-- useful SAAS
 http://ifconfig.me/
 http://whatismyip.akamai.com/
 http://www.jaimelesstartups.fr/lemon-way/
@@ -30,6 +30,8 @@ http://playphrase.me
 http://orteil.dashnet.org/randomgen/?gen=corvophraser.txt
 http://context.io/how-it-works/connecting-mailboxes
 http://nativetap.io/
+http://shoutcloud.io/
+http://foaas.com/
 
 
 -- useful tools

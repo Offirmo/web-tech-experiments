@@ -11,6 +11,7 @@ http://vodkabears.github.io/interdimensional/
 
 accessibilité++ http://a11yproject.com/
 
+drag & drop http://bevacqua.github.io/dragula/
 
 -- baobab
 https://github.com/Yomguithereal/baobab
