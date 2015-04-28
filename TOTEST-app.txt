@@ -4,3 +4,8 @@ https://cdnify.com/blog/top-10-mobile-frameworks-performance/
 
 https://marvelapp.com/android-app-builder#product-hunt
 
+
+https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+
+https://realfavicongenerator.net/blog/apple-touch-icon-the-good-the-bad-the-ugly/
+

@@ -11,7 +11,10 @@ https://github.com/mariocasciaro/object-path
 
 https://github.com/ericelliott/stampit
 
+-- schema / DB
+https://github.com/anywhichway/joqular
 https://github.com/Muscula/json-schema-benchmark
+
 
 - fluent libs
 https://github.com/metaraine/shackles
@@ -35,21 +38,18 @@ http://foaas.com/
 
 
 -- useful tools
-https://github.com/leeluolee/puer
 version for JetBrains IDEs from: http://download.wallabyjs.com/47256d31-477d-4449-81b4-a443009972aa
 https://github.com/wallabyjs/public#getting-started
-
-http://www.stickermule.com/marketplace
-
 
 -- Ajax
 https://github.com/visionmedia/superagent
 https://github.com/luin/superfetch
+https://fetch.spec.whatwg.org/
+https://github.com/typicode/fetchival
 
 
 -- mails
 http://zurb.com/ink/templates.php
-
 
 
 -- work

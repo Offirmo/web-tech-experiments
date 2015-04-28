@@ -83,44 +83,30 @@
 		<form role="form" name="unForm">
 
 			<div class="form-group"
-			ng-class="{ 'has-error': unForm.unnormalizedText.$invalid }">
+			ng-class="{ 'has-error': unForm.mediawikiCode.$invalid }">
 
-				<label class="control-label" for="unnormalizedText">
-					So you need Unicode Normalization ? Paste your text here :
+				<label class="control-label" for="mediawikiCode">
+					So you need to convert your wiki ? Paste your mediawiki code here :
 				</label>
 
 				<textarea id="source" class="form-control"
 				rows="5"
 				required
-				name="unnormalizedText"
-				ng-model="text"
+				name="mediawikiCode"
+				ng-model="mediawikiCode"
 				ng-model-options="{ debounce: 200 }">
 				</textarea>
 
 			</div>
 
-			<div class="form-group"
-			ng-class="{ 'has-error': unForm.normalizationMethod.$invalid }">
-
-				<label class="control-label" for="normalizationMethod">
-					Choose the normalization method :
-				</label>
-
-				<select class="form-control" required
-				name="normalizationMethod"
-				ng-model="normalizationMethod"
-				ng-options="m.value as m.label for m in normalizationMethods"></select>
-
-			</div>
-
 		</form>
 
-		<p>And here is your normalized text :</p>
+		<p>And here is the corresponding markdown code :</p>
 
 		<textarea id="result" class="form-control"
 		readonly
 		rows="5"
-		ng-model="normalizedText"></textarea>
+		ng-model="markdownCode"></textarea>
 
 		<p ng-cloak>Angular version : {{scoped_angular.version.full}}</p>
 	</div> <!-- /container -->
@@ -147,32 +133,12 @@
 			var app = angular.module('App', ['ui.bootstrap']);
 
 			app.controller('LandingCtrl', ['$scope', '$document', function($scope, $document) {
-				$scope.title = 'Online Unicode Normalization';
-				$scope.normalizationMethods = [
-					{
-						label: 'NFD - Canonical Decomposition',
-						value: 'NFD'
-					},
-					{
-						label: 'NFC - Canonical Decomposition, followed by Canonical Composition',
-						value: 'NFC'
-					},
-					{
-						label: 'NFKD - Compatibility Decomposition',
-						value: 'NFKD'
-					},
-					{
-						label: 'NFKC -  Compatibility Decomposition, followed by Canonical Composition',
-						value: 'NFKC'
-					},
-				];
-				$scope.normalizationMethod = 'NFC';
-				$scope.scoped_angular = angular;
+				$scope.title = 'conversion';
+
+				$scope.$watch('[mediawikiCode]', function() {
 
 
-				$scope.$watch('[text, normalizationMethod]', function() {
-					// http://people.mozilla.org/~jorendorff/es6-draft.html#sec-string.prototype.normalize
-					$scope.normalizedText = ($scope.text || '').normalize($scope.normalizationMethod);
+					$scope.markdownCode = ($scope.text || '').normalize($scope.normalizationMethod);
 				})
 			}]);
 
