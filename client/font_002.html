@@ -2,16 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Test font 002</title>
+	<title>Test font 002 scaling</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link href="../other_components/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+	<link href="../bower_components/bootstrap-css/css/bootstrap.css" rel="stylesheet">
 	<!-- personal style here ? -->
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-   <link href="../other_components/bootstrap-rem/bootstrap-rem.css" rel="stylesheet" media="screen">
+   <link href="other_components/bootstrap-rem/bootstrap-rem.css" rel="stylesheet" media="screen">
 	<style>
 	html
       {
@@ -22,19 +22,19 @@
 	{
 		/* needed for correct positionning */
 		position:absolute;
-		
+
 		/* needed for container min-height */
 		height: 100%;
 		width: 100%;
 
-		background:url(shared/background_1280x791.png) no-repeat bottom center fixed;
+		background:url(misc/background_1280x791.png) no-repeat bottom center fixed;
 		/* thank you http://css-tricks.com/perfect-full-page-background-image/ */
 		-webkit-background-size: cover, auto;
 		-moz-background-size: cover, auto;
 		-o-background-size: cover, auto;
 		-khtml-background-size: cover, auto;
 		background-size: cover, auto;
-		
+
 		font-family: 'Poiret One', cursive;
 	}
 	section#i2
@@ -43,13 +43,11 @@
 	}
 	</style>
 	<!-- <link href="../contrib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
-	
-	<script src="../bower_components/jquery/jquery-1.9.1.js"></script>
-	<link rel="stylesheet" href="../contrib/jquery.ui/themes/base/jquery-ui.css" />
-	<script src="../contrib/jquery.ui/js/jquery-ui.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="../contrib/jquery.svg/jquery.svg.css"> 
-	<script type="text/javascript" src="../contrib/jquery.svg/jquery.svg.js"></script>
+
+	<script src="../bower_components/jquery/jquery.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../bower_components/jquery.svg/jquery.svg.css">
+	<script type="text/javascript" src="../bower_components/jquery.svg/jquery.svg.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -77,9 +75,9 @@
 			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
 		</section>
 	</div>
-	
-	
-	
+
+
+
 	<script>
 		var $jq = jQuery.noConflict(); // $jq is now an alias to the jQuery function;
 
@@ -88,7 +86,7 @@
 			// first compute bounding box
 			// (TODO)
 			// then scale
-			//var font_size = 
+			//var font_size =
 			$jq('html').css({"font-size": ($jq(window).height() / 50).toString() + "px"});
 		}
 
@@ -100,7 +98,7 @@
 			$jq("dd#hdheight"     ).text( $jq(document).height() );
 			$jq("dd#hdwidth"      ).text( $jq(document).width() );
 		}
-		
+
 		function on_window_resize()
 		{
 			update_window_dimensions();
@@ -110,7 +108,7 @@
 		$jq( document ).ready(function()
 		{
 			on_window_resize();
-		
+
 			// http://stackoverflow.com/questions/2996431/detect-when-a-window-is-resized-using-javascript
 			$jq(window).resize(function() {
 				on_window_resize();
