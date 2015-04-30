@@ -55,7 +55,7 @@ requirejs.config({
 		'base-objects'             : 'incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
-		'jquery'                   : 'bower_components/jquery/jquery',
+		'jquery'                   : 'bower_components/jquery/jquery.min',
 		'network-constants'        : 'incubator/network-constants.js', // dir
 		'restlink'                 : 'other_components/restlink.js', // dir
 		'webworker_helper'         : 'incubator/node_and_common/webworker_helper/webworker_helper', // direct
@@ -98,6 +98,8 @@ requirejs.config({
 		'isotope'                  : 'bower_components/isotope/jquery.isotope',
 		'lodash'                   : 'bower_components/lodash/dist/lodash',
 		'magnific-popup'           : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
+		'messenger'                : 'bower_components/messenger/build/js/messenger.min',
+		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
 		'mocha'                    : 'bower_components/mocha/mocha',
 		'moment'                   : 'bower_components/momentjs/moment',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
@@ -255,7 +257,20 @@ requirejs.config({
 				'css!bower_components/magnific-popup/dist/magnific-popup'
 			]
 		},
-		'mocha' : {
+		'messenger': {
+			deps: [
+				'jquery',
+				'css!bower_components/messenger/build/css/messenger'
+			],
+		},
+		'messenger-theme-future': {
+			deps: [
+				'messenger',
+				'css!bower_components/messenger/build/css/messenger-theme-future'
+			],
+			exports: 'Messenger',
+		},
+		'mocha': {
 			deps: [
 				'jquery'
 			],
