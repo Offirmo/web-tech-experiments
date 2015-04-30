@@ -1,5 +1,10 @@
 ’
 
+TODO
+- bootstrap theme
+- famous angular
+
+
 http://tholman.com/elevator.js/
 http://photoswipe.com/
 
@@ -7,7 +12,7 @@ prochain framework ? http://aurelia.io/
 ou http://reapp.io/ (React, Webpack and ES6)
 http://www.sitepoint.com/5-most-popular-frontend-frameworks-compared/
 http://putaindecode.fr/posts/js/introduction-a-reactjs/
-
+http://gridstylesheets.org/
 
 accessibilité++ http://a11yproject.com/
 

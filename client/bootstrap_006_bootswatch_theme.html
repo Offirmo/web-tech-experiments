@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang='en' xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title>Test Bootstrap 006</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- style -->
+	<style>
+		body { padding-top: 70px; } /* http://getbootstrap.com/components/#navbar-fixed-top */
+	</style>
+
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Brand</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li><a href="#">Separated link</a></li>
+					<li><a href="#">One more separated link</a></li>
+				</ul>
+			</li>
+		</ul>
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#">Link</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div><!-- /.navbar-collapse -->
+
+</nav>
+
+<div id="content">
+
+	<div class="container">
+
+		<h1 id="header">Test Bootstrap 006</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem libero, luctus eget nulla sed, semper vehicula augue. Praesent feugiat sapien elit, ac porttitor est porta vitae. Ut porttitor velit quis consectetur commodo. Nunc malesuada dictum est eget aliquet. Ut ac volutpat dui, ac hendrerit nisi. Nulla venenatis nibh ut egestas varius. Nunc accumsan rhoncus nisl, malesuada bibendum enim condimentum ac. Nunc molestie, purus quis blandit tempus, leo nunc aliquam odio, ut pretium dui nisl ac ipsum. In hac habitasse platea dictumst. Nullam sed fringilla sem. Nunc et feugiat sapien, id vulputate leo. Nunc tincidunt ornare dolor, at scelerisque leo sodales sit amet. Cras sodales rhoncus aliquam.
+		</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'angular-strap'
+		],
+		function() {
+
+		});
+	};
+</script>
+
+</body>
+</html>

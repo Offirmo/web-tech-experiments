@@ -137,7 +137,8 @@ requirejs.config({
 			deps: [
 				'angular',
 				// angular-strap replaces bootstrap js, it only needs bootstrap css
-				'css!bower_components/bootstrap-css/css/bootstrap',
+				//'css!bower_components/bootstrap-css/css/bootstrap',
+				'css!client/other_components/bootswatch/cyborg-bootstrap.min',
 			]
 		},
 		'angular-ui-router': {
