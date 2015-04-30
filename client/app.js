@@ -6,7 +6,7 @@ define([
 	'angularAMD',
 	'angular-ui-router',
 	'angular-ui-router-extras',
-	'bootstrap3'
+	'bootstrap'
 ], function (angularAMD) {
 	console.log('starting app...');
 	var app = angular.module('App', ['ui.router', 'ct.ui.router.extras']);

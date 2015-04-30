@@ -3,20 +3,17 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Bootstrap Test 006 theme</title>
+	<title>Bootstrap Test 005a vanilla required</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- style -->
 	<style>
-		body {
-			padding-top: 70px; /* http://getbootstrap.com/components/#navbar-fixed-top */
-		}
+		body { padding-top: 70px; } /* http://getbootstrap.com/components/#navbar-fixed-top */
 	</style>
 
 	<!-- js -->
 	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
 </head>
-
 
 <body role="document">
 
@@ -58,7 +55,7 @@
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
-		<h1 id="header">Test Bootstrap 006 : cyborg bootswatch theme</h1>
+		<h1 id="header">Test Bootstrap 005</h1>
 		<p>Bootstrap test : via require, with navbar (fixed top)</p>
 	</div>
 
@@ -628,13 +625,12 @@
 
 </div> <!-- /container -->
 
-
 <script>
 	window.main = function()
 	{
 		requirejs(
 		[
-			'bootstrap-with-cyborg-theme'
+			'bootstrap'
 		],
 		function() {
 		});

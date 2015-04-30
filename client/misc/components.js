@@ -52,7 +52,7 @@ requirejs.config({
 	/////////////////////
 	paths: {
 		// AMD plugins (dirs or direct)
-		'base-objects'             : 'incubator/base-objects.js', // dir
+		//'base-objects'             : 'incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'                   : 'bower_components/jquery/jquery.min',
@@ -61,18 +61,20 @@ requirejs.config({
 		'webworker_helper'         : 'incubator/node_and_common/webworker_helper/webworker_helper', // direct
 		// shim plugins
 		'accounting'               : 'bower_components/accounting/accounting',
-		'angular'                  : 'bower_components/angular/angular',
+		'angular'                  : 'bower_components/angular/angular.min',
+		'angular-animate'          : 'bower_components/angular-animate/angular-animate.min',
 		'angular-isotope'          : 'bower_components/angular-isotope/dist/angular-isotope',
-		'angular-bootstrap'        : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
-		'angular-strap'            : 'bower_components/angular-strap/dist/angular-strap.tpl',
-		'angular-strap-base'       : 'bower_components/angular-strap/dist/angular-strap',
+		//'angular-bootstrap'        : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
+		//'angular-strap'            : 'bower_components/angular-strap/dist/angular-strap.tpl',
+		//'angular-strap-base'       : 'bower_components/angular-strap/dist/angular-strap',
 		'angular-ui-router'        : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
-		'angularAMD'               : 'bower_components/angularAMD/angularAMD',
+		//'angularAMD'               : 'bower_components/angularAMD/angularAMD',
 		'backbone'                 : 'bower_components/backbone/backbone',
 		'backbone-associations'    : 'bower_components/backbone-associations/backbone-associations',
 		//'bootstrap-rem'           : 'other_components/bootstrap-rem/bootstrap-rem',
 		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
+		'bootstrap-with-cyborg-theme': 'bower_components/bootstrap-css/js/bootstrap',
 		'buzz'                     : 'bower_components/buzz/dist/buzz',
 		'chai'                     : 'bower_components/chai/chai',
 		'chai-as-promised'         : 'bower_components/chai-as-promised/lib/chai-as-promised',
@@ -123,24 +125,29 @@ requirejs.config({
 			deps: [ 'jquery' ], // angular has its own jQlite, but will use main jQuery if already available
 			exports: 'angular'
 		},
+		'angular-animate': {
+			deps: [ 'angular' ]
+		},
 		'angular-isotope': {
 			deps: [ 'angular', 'isotope' ]
 		},
-		'angular-bootstrap': {
-			deps: [ 'angular', 'bootstrap3' ]
-		},
+		/*'angular-bootstrap': {
+			deps: [ 'angular', 'bootstrap' ]
+		},*/
 		// 2 stage due to double file
-		'angular-strap': {
+		/*'angular-strap': {
 			deps: [ 'angular-strap-base' ]
 		},
 		'angular-strap-base': {
 			deps: [
 				'angular',
+				'angular-animate',
 				// angular-strap replaces bootstrap js, it only needs bootstrap css
-				//'css!bower_components/bootstrap-css/css/bootstrap',
-				'css!client/other_components/bootswatch/cyborg-bootstrap.min',
+				'css!bower_components/bootstrap-css/css/bootstrap',
+				'css!bower_components/angular-motion/dist/angular-motion.min',
+				//'css!client/other_components/bootswatch/cyborg-bootstrap.min',
 			]
-		},
+		},*/
 		'angular-ui-router': {
 			deps: [ 'angular' ]
 		},
@@ -158,9 +165,18 @@ requirejs.config({
 			deps: [ 'backbone' ]
 		},
 		'bootstrap': {
-			// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
-			deps: [ 'jquery',
-			        'css!bower_components/bootstrap-css/css/bootstrap' ]
+			deps: [
+				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+				'jquery',
+				'css!bower_components/bootstrap-css/css/bootstrap'
+			]
+		},
+		'bootstrap-with-cyborg-theme': {
+			deps: [
+				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+				'jquery',
+				'css!client/other_components/bootswatch/cyborg/cyborg-bootstrap.min'
+			]
 		},
 		'ckeditor': {
 			exports: 'CKEDITOR',

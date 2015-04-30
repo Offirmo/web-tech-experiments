@@ -2,15 +2,12 @@
 <html lang='en' xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
 <head>
 	<meta charset="utf-8">
-
-	<title>Bootstrap Test 006 theme</title>
+	<title ng-bind="title">Angular test fallback title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- style -->
 	<style>
-		body {
-			padding-top: 70px; /* http://getbootstrap.com/components/#navbar-fixed-top */
-		}
+		body { padding-top: 70px; } /* http://getbootstrap.com/components/#navbar-fixed-top */
 	</style>
 
 	<!-- js -->
@@ -58,7 +55,7 @@
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
-		<h1 id="header">Test Bootstrap 006 : cyborg bootswatch theme</h1>
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
 		<p>Bootstrap test : via require, with navbar (fixed top)</p>
 	</div>
 
@@ -628,15 +625,26 @@
 
 </div> <!-- /container -->
 
-
 <script>
 	window.main = function()
 	{
 		requirejs(
 		[
-			'bootstrap-with-cyborg-theme'
+			'angular-strap'
 		],
 		function() {
+			var app = angular.module('App', ['ngAnimate', 'mgcrea.ngStrap']);
+
+			app.controller('AppCtrl', ['$scope', function($scope) {
+				$scope.title = "Bootstrap Test 005b required angular-strap";
+			}]);
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
 		});
 	};
 </script>
