@@ -1,1 +1,1 @@
-console.log('hello from body-loaded file 2 !');
+console.log('hello from async body-loaded file 2 !');

@@ -1,1 +1,1 @@
-console.log('hello from header-loaded file 1 !');
+console.log('hello from sync header-loaded file 1 !');

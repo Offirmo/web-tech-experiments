@@ -4,6 +4,8 @@
 
 console.log('Starting require js config…');
 
+var min = '';
+
 requirejs.config({
 
 	// base URL from which component files will be searched
@@ -55,14 +57,14 @@ requirejs.config({
 		//'base-objects'             : 'incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
-		'jquery'                   : 'bower_components/jquery/jquery.min',
+		'jquery'                   : 'bower_components/jquery/jquery' + min,
 		'network-constants'        : 'incubator/network-constants.js', // dir
 		'restlink'                 : 'other_components/restlink.js', // dir
 		'webworker_helper'         : 'incubator/node_and_common/webworker_helper/webworker_helper', // direct
 		// shim plugins
 		'accounting'               : 'bower_components/accounting/accounting',
-		'angular'                  : 'bower_components/angular/angular.min',
-		'angular-animate'          : 'bower_components/angular-animate/angular-animate.min',
+		'angular'                  : 'bower_components/angular/angular' + min,
+		'angular-animate'          : 'bower_components/angular-animate/angular-animate' + min,
 		'angular-isotope'          : 'bower_components/angular-isotope/dist/angular-isotope',
 		//'angular-bootstrap'        : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
 		//'angular-strap'            : 'bower_components/angular-strap/dist/angular-strap.tpl',
@@ -85,6 +87,9 @@ requirejs.config({
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'ecotree'                  : 'other_components/ecotree/ECOTree',
 		'eventemitter2'            : 'bower_components/eventemitter2/lib/eventemitter2',
+		'famous'                   : 'bower_components/famous/dist/famous',
+		'famous-angular'           : 'bower_components/famous-angular/dist/famous-angular',
+		'famous-global'            : 'bower_components/famous/dist/famous-global',
 		'fullpage'                 : 'other_components/fullpage/jquery.fullPage',
 		'javascript-state-machine' : 'bower_components/javascript-state-machine/state-machine',
 		'jpanelmenu'               : 'bower_components/jpanelmenu/jquery.jpanelmenu',
@@ -100,7 +105,7 @@ requirejs.config({
 		'isotope'                  : 'bower_components/isotope/jquery.isotope',
 		'lodash'                   : 'bower_components/lodash/dist/lodash',
 		'magnific-popup'           : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
-		'messenger'                : 'bower_components/messenger/build/js/messenger.min',
+		'messenger'                : 'bower_components/messenger/build/js/messenger' + min,
 		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
 		'mocha'                    : 'bower_components/mocha/mocha',
 		'moment'                   : 'bower_components/momentjs/moment',
@@ -144,8 +149,8 @@ requirejs.config({
 				'angular-animate',
 				// angular-strap replaces bootstrap js, it only needs bootstrap css
 				'css!bower_components/bootstrap-css/css/bootstrap',
-				'css!bower_components/angular-motion/dist/angular-motion.min',
-				//'css!client/other_components/bootswatch/cyborg-bootstrap.min',
+				'css!bower_components/angular-motion/dist/angular-motion' + min,
+				//'css!client/other_components/bootswatch/cyborg-bootstrap' + min,
 			]
 		},*/
 		'angular-ui-router': {
@@ -175,7 +180,7 @@ requirejs.config({
 			deps: [
 				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 				'jquery',
-				'css!client/other_components/bootswatch/cyborg/cyborg-bootstrap.min'
+				'css!client/other_components/bootswatch/cyborg/cyborg-bootstrap' + min
 			]
 		},
 		'ckeditor': {
@@ -197,10 +202,25 @@ requirejs.config({
 			deps: [ 'css!other_components/ecotree/ECOTree' ]
 			// exports ?
 		},
-		'famous.angular': {
+		'famous': {
 			deps: [
-				'css!bower_components/famous-angular/dist/famous-angular'
+				'famous-global',
+				'css!bower_components/famous/dist/famous'
 			]
+		},
+		'famous-angular': {
+			deps: [
+				'famous-global',
+				'angular',
+				'css!bower_components/famous-angular/dist/famous-angular'
+			],
+			init: function (famous) {
+				// famous-angular needs famous as a global var...
+				window.famous = famous;
+			}
+		},
+		'famous-global': {
+			//exports: 'famous'
 		},
 		'intl-messageformat': {
 			exports: 'IntlMessageFormat'

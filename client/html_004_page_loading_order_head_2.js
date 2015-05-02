@@ -1,1 +1,1 @@
-console.log('hello from header-loaded file 2 !');
+console.log('hello from async header-loaded file 2 !');

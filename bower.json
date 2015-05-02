@@ -18,6 +18,7 @@
 		"dustjs-linkedin-helpers":  "latest",
 		"eventemitter2":            "latest",
 		"extended-exceptions.js":   "latest",
+		"famous":                   "latest",
 		"famous-angular":           "latest",
 		"generic_store.js":         "latest",
 		"javascript-state-machine": "latest",

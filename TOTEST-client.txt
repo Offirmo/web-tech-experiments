@@ -1,10 +1,9 @@
 ’
 
 TODO
-- bootstrap theme
 - famous angular
 
-
+http://kerningjs.com/
 http://tholman.com/elevator.js/
 http://photoswipe.com/
 

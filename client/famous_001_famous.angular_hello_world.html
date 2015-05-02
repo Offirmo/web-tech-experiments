@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		/* ... */
+	</style>
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p>Angular.famous hello world</p>
+		<div fa-app style="height: 200px">
+			<fa-surface fa-background-color="'red'">Hello world</fa-surface>
+		</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'bootstrap'
+		],
+		function(_, famous) {
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "Famo.us Test 001";
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>
