@@ -37,7 +37,8 @@
 		[
 			'lodash',
 			'messenger-theme-future',
-			'angular-strap'
+			'angular',
+			'bootstrap'
 		],
 		function(_, Messenger) {
 			Messenger.options = {
@@ -49,7 +50,7 @@
 			};
 			Messenger().post("App is loading…");
 
-			var app = angular.module('App', ['mgcrea.ngStrap']);
+			var app = angular.module('App', []);
 
 			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
 				$scope.title = "Feedback test 001";

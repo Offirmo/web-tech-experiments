@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#root {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		.panel {
+			text-align: center;
+			font-size: 20px;
+		}
+		.panel.header {
+			line-height: 75px;
+			border-bottom: solid 1px gray;
+		}
+		.panel.content {
+			padding: 10px;
+		}
+		.content > .xmessenger {
+			//display: block;
+		}
+		.panel.footer {
+			border-top: solid 1px gray;
+			line-height: 50px;
+		}
+	</style>
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="root" fa-app>
+	<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 50}">
+
+		<!-- header -->
+		<fa-surface class="panel header">
+			Le jeu du nombre
+		</fa-surface>
+
+
+		<!-- content -->
+		<fa-surface class="panel content">
+			<p>Trouvez le nombre entre 1 et 100.</p>
+			<p>Nombre de tentatives : {{state.nTries}}</p>
+
+			<form role="form" name="game" ng-show="state.playing">
+
+				<div class="form-group" ng-class="{ 'has-error': game.guess.$invalid }">
+					<label class="control-label" for="guess">Votre choix :</label>
+					<input required type="number" class="form-control"
+					name="guess"
+					placeholder="un nombre entre 1 et 100"
+					ng-model="state.guess" />
+				</div>
+
+				<button type="submit" class="btn btn-primary"
+				ng-disabled="game.$invalid"
+				ng-click="haveAGuess()">Tenter</button>
+
+			</form>
+
+		</fa-surface>
+
+		<!-- footer -->
+		<fa-surface class="panel footer">
+			Par Offirmo
+		</fa-surface>
+
+	</fa-header-footer-layout>
+</div>
+
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'jquery',
+			'famous-global',
+			'messenger-theme-future',
+			'angular',
+			'famous-angular',
+			'bootstrap-with-cyborg-theme'
+		],
+		function(_, $jq, famous, Messenger) {
+
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+
+				var startMsg;
+
+				$scope.title = "Famo.us Test 003";
+				var state = $scope.state = {
+					playing: false,
+					nTries: 0,
+					guess: 50,
+					target: undefined
+				};
+
+				function newGame() {
+					console.log('starting a new game...');
+					state.nTries = 0;
+					state.target = _.random(1, 100);
+					state.playing = true;
+					startMsg.update({
+						message: 'Je pense à un nombre...',
+						type: 'info',
+						actions: false
+					});
+					$scope.$digest();
+				}
+
+				$scope.haveAGuess = function() {
+					state.nTries++;
+					if(state.guess == state.target) {
+						startMsg.update({
+							message: 'Vous avez trouvé !',
+							type: 'success',
+							actions: {
+								start: {
+									label: 'Nouvelle partie',
+									action: newGame
+								}
+							}
+						});
+					}
+					else {
+						Messenger().error({
+							message: '' + state.guess + ' : ' + (state.guess < state.target ? 'trop petit' : 'trop grand')
+						});
+					}
+				};
+
+				console.log('hello 1');
+
+				setTimeout(function() {
+					console.log('hello 2');
+					Messenger.options = {
+						parentLocations: ['.content'],
+						/*messageDefaults: {
+						 //hideAfter: 0 // disable auto-hide
+						 },*/
+						extraClasses: 'messenger-fixed messenger-on-bottom',
+						theme: 'future'
+					};
+
+					startMsg = Messenger().success({
+						message: 'Bonjour',
+						hideAfter: 0,
+						actions: {
+							start: {
+								label: 'Nouvelle partie',
+								action: newGame
+							}
+						}
+					});
+
+				});
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

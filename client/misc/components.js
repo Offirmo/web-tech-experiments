@@ -180,7 +180,7 @@ requirejs.config({
 			deps: [
 				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 				'jquery',
-				'css!client/other_components/bootswatch/cyborg/cyborg-bootstrap' + min
+				'css!client/other_components/bootswatch/cyborg/cyborg-bootstrap.min'
 			]
 		},
 		'ckeditor': {
