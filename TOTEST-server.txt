@@ -12,6 +12,9 @@ https://github.com/shes/comws
 
 https://51degrees.com/products/device-detection/cloud
 
+-- ops
+https://deadmanssnitch.com/
+
 -- node advocacy
 http://codecondo.com/state-of-node-js/
 

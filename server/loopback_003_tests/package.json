@@ -1,5 +1,5 @@
 {
-  "name": "loopback_002_tests",
+  "name": "loopback_003_tests",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
@@ -24,5 +24,5 @@
     "type": "",
     "url": ""
   },
-  "description": "loopback_002_tests"
+  "description": "loopback_003_tests"
 }

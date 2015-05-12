@@ -5,6 +5,7 @@ https://www.npmjs.com/package/sanitize-html
 https://github.com/bevacqua/megamark
 https://fiddle.md
 
+https://github.com/yoshuawuyts/fsm-event
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
 https://github.com/asyncly/EventEmitter2
 https://github.com/mariocasciaro/object-path

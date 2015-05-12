@@ -1,0 +1,14 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "pg": {
+    "host": "localhost",
+    "database": "pizza",
+    "password": "pass",
+    "name": "pg",
+    "user": "pizza",
+    "connector": "postgresql"
+  }
+}

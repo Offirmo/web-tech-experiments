@@ -113,6 +113,8 @@ https://github.com/begriffs/angular-paginate-anything
 http://mgcrea.github.io/angular-strap/
 https://github.com/sparkalow/angular-truncate
 https://github.com/mgonto/restangular
+http://barakchamo.github.io/ng-promise-status/
+http://www.sitepoint.com/introduction-futuristic-new-router-angularjs/
 --- vidéos
 http://www.jsdb.io/view/mediaelement
 http://ng-video.herokuapp.com/
