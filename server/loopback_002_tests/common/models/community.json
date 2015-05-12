@@ -1,0 +1,27 @@
+{
+  "name": "community",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "id": true,
+      "index": true,
+      "comments": "Community name. Free, UTF-8"
+    },
+    "lastModificationDate": {
+      "type": "date"
+    },
+    "creationDate": {
+      "type": "date",
+      "comments": ""
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
