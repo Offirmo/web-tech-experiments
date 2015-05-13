@@ -7,6 +7,10 @@
     "validateUpsert": true
   },
   "properties": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
     "content": {
       "type": "string",
       "required": true,
@@ -17,7 +21,7 @@
   "relations": {
     "user": {
       "type": "belongsTo",
-      "model": "user",
+      "model": "myuser",
       "foreignKey": ""
     }
   },

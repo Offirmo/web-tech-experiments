@@ -41,36 +41,26 @@
 			'bootstrap'
 		],
 		function(_, Messenger) {
-			Messenger.options = {
-				messageDefaults: {
-					hideAfter: 0 // disable auto-hide
-				},
-				extraClasses: 'messenger-fixed messenger-bottom',
-				theme: 'future'
-			};
-
 			var app = angular.module('App', []);
 
 			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
 				$scope.title = "Feedback test 002";
 
-				var msg = Messenger().success({
-					message: 'Bonjour',
-					actions: {
-						start: {
-							label: 'Nouvelle partie',
-							action: function() {
-								console.log('hello');
-								return msg.update({
-									message: 'Trouvez le nombre entre 1 et 100',
-									type: 'success',
-									actions: false
-								});
-							}
-						}
-					}
-				});
+				setTimeout(function() {
+					console.log('hello 2');
+					Messenger.options = {
+						parentLocations: ['.container'],
+						messageDefaults: {
+							hideAfter: 0 // disable auto-hide
+						},
+						extraClasses: 'messenger-fixed messenger-on-bottom',
+						theme: 'future'
+					};
 
+					var msg = Messenger().success({
+						message: 'Bonjour'
+					});
+				});
 			}]);
 
 			// angular manual initialisation since we use a script loader

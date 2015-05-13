@@ -1,0 +1,19 @@
+{
+  "name": "myuser",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "messages": {
+      "type": "hasMany",
+      "model": "message",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}

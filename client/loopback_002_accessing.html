@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang='en' xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- style -->
+	<style>
+		body { padding-top: 70px; } /* http://getbootstrap.com/components/#navbar-fixed-top */
+	</style>
+
+	<!-- js -->
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+</head>
+
+<body role="document">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Pizza Party LoopBack</a>
+		</div>
+
+		<div id="navbar" class="navbar-collapse collapse">
+
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#about">About</a></li>
+			</ul>
+
+			<form ng-hide="user" class="navbar-form navbar-right" role="login">
+				<div class="form-group">
+					<input type="email" class="form-control" required placeholder="email" ng-model="credentials.email">
+					<input type="password" class="form-control" required placeholder="pwd" ng-model="credentials.password">
+				</div>
+				<button type="submit" class="btn btn-default" ng-click="login()">Login</button>
+			</form>
+
+			<form ng-show="user" class="navbar-form navbar-right" role="logout">
+				<button type="submit" class="btn btn-default" ng-click="user = null">Logout</button>
+			</form>
+
+			<ul ng-show="user" class="nav navbar-nav navbar-right">
+				<li><a href="#">{{user.email}}</a></li>
+			</ul>
+
+		</div><!--/.nav-collapse -->
+
+	</div>
+</nav>
+
+<div class="container theme-showcase" role="main">
+
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
+		<p>TODO</p>
+	</div>
+
+</div> <!-- /container -->
+
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'messenger-theme-future',
+			//'angular',
+			//'loopback-sdk-angular',
+			'lb-services',
+			'bootstrap',
+			//'bootstrap-with-cyborg-theme'
+		],
+		function(_, Messenger) {
+			var app = angular.module('App', ['lbServices']);
+
+			app.controller('AppCtrl', ['$scope', 'User', function($scope, User) {
+				$scope.title = "LoopBack Test 002 : accessing resources";
+				$scope.user = null;
+				$scope.credentials = {
+					email: 'foo@bar.com',
+					password: '123456'
+				};
+				$scope.login = function() {
+					// POST /users/login
+					User.login($scope.credentials, function(resource) {
+						console.log(resource);
+						$scope.user = resource.user;
+						Messenger().success({
+							message: 'Bienvenue',
+							hideAfter: 5
+						});
+					}, function(res) {
+						console.log(res);
+						Messenger().error({message: 'Échec du login : ' + res.data.error});
+					});
+				};
+
+				setTimeout(function() {
+					Messenger.options = {
+						parentLocations: ['.container'],
+						messageDefaults: {
+							hideAfter: 0, // disable auto-hide
+							hideOnNavigate: true,
+							showCloseButton: true,
+						},
+						extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+						theme: 'future'
+					};
+
+					var msg = Messenger().info({
+						message: 'Bonjour',
+						hideAfter: 5,
+					});
+				});
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

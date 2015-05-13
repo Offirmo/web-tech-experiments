@@ -31,7 +31,11 @@
     "public": true
   },
   "message": {
-    "dataSource": "db",
+    "dataSource": "pg",
+    "public": true
+  },
+  "myuser": {
+    "dataSource": "pg",
     "public": true
   }
 }

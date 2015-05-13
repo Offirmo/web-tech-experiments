@@ -65,7 +65,10 @@ requirejs.config({
 		'accounting'               : 'bower_components/accounting/accounting',
 		'angular'                  : 'bower_components/angular/angular' + min,
 		'angular-animate'          : 'bower_components/angular-animate/angular-animate' + min,
+		'angular-bootstrap-simple-chat': 'bower_components/angular-bootstrap-simple-chat/src/scripts/index',
 		'angular-isotope'          : 'bower_components/angular-isotope/dist/angular-isotope',
+		'angular-resource'         : 'bower_components/angular-resource/angular-resource' + min,
+		'angularjs-scroll-glue'    : 'bower_components/angularjs-scroll-glue/src/scrollglue',
 		//'angular-bootstrap'        : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
 		//'angular-strap'            : 'bower_components/angular-strap/dist/angular-strap.tpl',
 		//'angular-strap-base'       : 'bower_components/angular-strap/dist/angular-strap',
@@ -104,6 +107,8 @@ requirejs.config({
 		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
 		'isotope'                  : 'bower_components/isotope/jquery.isotope',
 		'lodash'                   : 'bower_components/lodash/dist/lodash',
+		'loopback-sdk-angular'     : 'bower_components/loopback-sdk-angular/lib/services',
+		'lb-services'              : 'server/loopback_003_tests/client/js/lb-services',
 		'magnific-popup'           : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
 		'messenger'                : 'bower_components/messenger/build/js/messenger' + min,
 		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
@@ -133,8 +138,26 @@ requirejs.config({
 		'angular-animate': {
 			deps: [ 'angular' ]
 		},
+		'angular-bootstrap-simple-chat': {
+			deps: [
+				'bootstrap',
+				'angularjs-scroll-glue',
+				'css!bower_components/angular-bootstrap-simple-chat/src/css/style',
+				'css!bower_components/angular-bootstrap-simple-chat/src/css/themes'
+			]
+		},
 		'angular-isotope': {
 			deps: [ 'angular', 'isotope' ]
+		},
+		'angular-resource': {
+			deps: [
+				'angular'
+			]
+		},
+		'angularjs-scroll-glue': {
+			deps: [
+				'angular'
+			]
 		},
 		/*'angular-bootstrap': {
 			deps: [ 'angular', 'bootstrap' ]
@@ -288,6 +311,16 @@ requirejs.config({
 			],
 			exports: 'jsoneditor'
 		},
+		'loopback-sdk-angular': {
+			deps: [
+				'angular'
+			]
+		},
+		'lb-services': {
+			deps: [
+				'angular-resource'
+			]
+		},
 		'magnific-popup' : {
 			deps: [
 				'jquery',
@@ -298,14 +331,14 @@ requirejs.config({
 			deps: [
 				'jquery',
 				'css!bower_components/messenger/build/css/messenger'
-			],
+			]
 		},
 		'messenger-theme-future': {
 			deps: [
 				'messenger',
 				'css!bower_components/messenger/build/css/messenger-theme-future'
 			],
-			exports: 'Messenger',
+			exports: 'Messenger'
 		},
 		'mocha': {
 			deps: [
