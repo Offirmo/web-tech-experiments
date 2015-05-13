@@ -69,7 +69,7 @@
 			</form>
 
 			<ul ng-show="user" class="nav navbar-nav navbar-right">
-				<li><a href="#">{{user.username}}</a></li>
+				<li><a href="#">{{user.user.username}}</a></li>
 			</ul>
 
 		</div><!--/.nav-collapse -->
@@ -81,12 +81,12 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
 		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
-		<p>TODO</p>
+		<p>Quick and dirty chat (polling)</p>
 	</div>
 
 	<irontec-simple-chat ng-if="user" id="chat"
 		messages="chat.messages"
-		username="user.username"
+		username="user.user.username"
 		input-placeholder-text="You can write here"
 		submit-button-text="Send your message"
 		title="Super Awesome Chat"
@@ -115,32 +115,41 @@
 			var app = angular.module('App', ['lbServices', 'irontec.simpleChat']);
 
 			app.controller('AppCtrl', ['$scope', 'Myuser', 'Message', function($scope, User, Message) {
-				$scope.title = "LoopBack Test 003 : chat";
+				$scope.title = "LoopBack Test 003";
 				$scope.user = null;
 				$scope.credentials = {
 					//username: 'foo',
-					email: 'foo@bar.com',
+					email: 'foo@foo.com',
 					password: '123456'
 				};
 				$scope.chat = {
-					messages: [
-					]
+					messages: []
 				};
 
-				Message.query(function(messages) {
-					console.log('messages', messages);
-					$scope.chat.messages = messages;
-				});
+				function update() {
+					Message.query({
+						filter : {
+							offset: $scope.chat.messages.length
+						}
+					}, function(messages) {
+						console.log('new messages', messages);
+						messages.forEach(function(message) {
+							$scope.chat.messages.push(message);
+						});
+						console.log('scope.chat.messages', $scope.chat.messages);
+					});
+				}
 
 				$scope.login = function() {
 					// POST /users/login
 					User.login($scope.credentials, function(resource) {
-						console.log(resource);
-						$scope.user = resource.user;
+						$scope.user = resource;
+						setInterval(update, 1000);
 						Messenger().success({
 							message: 'Bienvenue',
 							hideAfter: 5
 						});
+						console.log('user is now', $scope.user);
 					}, function(res) {
 						console.log(res);
 						Messenger().error({message: 'Échec du login : ' + res.data.error});
@@ -148,24 +157,19 @@
 				};
 
 				$scope.logout = function() {
-					// POST /users/logout
-					User.logout("TODOO", function(resource) {
-						console.log(resource);
-						$scope.user = resource.user;
-						Messenger().success({
-							message: 'Bienvenue',
-							hideAfter: 5
-						});
-					}, function(res) {
-						console.log(res);
-						Messenger().error({message: 'Échec du login : ' + res.data.error});
-					});
+					// TODO
 				};
 
 				$scope.sendMessage = function(message, username) {
-					var msg = new Message({
-						username: username || $scope.user.username,
+					/*$scope.user.messages.create({
+						username: username || $scope.user.user.username,
 						content: message
+					});*/
+
+					var msg = new Message({
+						username: username || $scope.user.user.username,
+						content: message,
+						myuserId: $scope.user.user.id
 					});
 					msg.$save();
 				};
@@ -183,7 +187,7 @@
 					};
 
 					var msg = Messenger().info({
-						message: 'Bonjour',
+						message: 'Bonjour. Connectez-vous pour commencer !',
 						hideAfter: 5,
 					});
 				});
