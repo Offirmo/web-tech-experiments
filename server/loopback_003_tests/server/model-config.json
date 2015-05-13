@@ -8,7 +8,7 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "pg"
   },
   "AccessToken": {
     "dataSource": "db",
@@ -27,7 +27,7 @@
     "public": false
   },
   "community": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "message": {

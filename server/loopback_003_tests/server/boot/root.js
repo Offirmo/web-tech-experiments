@@ -1,6 +1,4 @@
 module.exports = function(server) {
-  // Install a `/` route that returns server status
-  var router = server.loopback.Router();
-  router.get('/', server.loopback.status());
-  server.use(router);
+  // root is now served by static middleware
+  // cf. http://docs.strongloop.com/display/public/LB/Add+a+static+web+page
 };

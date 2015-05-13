@@ -50,3 +50,4 @@ TODO docs (wikis)
 - ui-router-extras
 - cheat sheet
 - famous
+- http://www.cadremploi.fr/editorial/actualites/actu-emploi/detail/article/avez-vous-la-personnalite-pour-faire-carriere.html
