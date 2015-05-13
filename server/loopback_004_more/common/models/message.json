@@ -1,0 +1,30 @@
+{
+  "name": "message",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "string",
+      "required": true,
+      "comments": "text of the message. Plain text, UTF-8."
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "myuser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}

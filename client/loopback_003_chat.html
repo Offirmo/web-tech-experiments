@@ -115,7 +115,7 @@
 			var app = angular.module('App', ['lbServices', 'irontec.simpleChat']);
 
 			app.controller('AppCtrl', ['$scope', 'Myuser', 'Message', function($scope, User, Message) {
-				$scope.title = "LoopBack Test 003";
+				$scope.title = "LoopBack Client Test 003";
 				$scope.user = null;
 				$scope.credentials = {
 					//username: 'foo',
@@ -129,9 +129,11 @@
 				function update() {
 					Message.query({
 						filter : {
-							offset: $scope.chat.messages.length
+							offset: $scope.chat.messages.length,
+							//include : 'myuser',
 						}
 					}, function(messages) {
+						if (messages.length === 0) return;
 						console.log('new messages', messages);
 						messages.forEach(function(message) {
 							$scope.chat.messages.push(message);
