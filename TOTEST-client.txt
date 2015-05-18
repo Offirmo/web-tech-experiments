@@ -1,7 +1,10 @@
 ’
 
+http://mobilehtml5.org/
+http://blog.chromium.org/2015/04/reaching-and-re-engaging-users-on.html
+
 TODO
-- famous angular
+- ...
 
 http://kerningjs.com/
 http://tholman.com/elevator.js/
