@@ -31,6 +31,7 @@
     "express":                  "~4",
     "express-debug":            "latest",
     "express-slash":            "latest",
+    "fb":                       "latest",
     "finished":                 "latest",
     "fermata":                  "latest",
     "forky":                    "latest",
