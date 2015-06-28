@@ -3,19 +3,20 @@
 
 console.log('Hello world !');
 
-var FB = require('fb');
-
+var FB = require('fb'); // https://github.com/Thuzi/facebook-node-sdk/
+// +API https://developers.facebook.com/docs/graph-api/reference/v2.3/post#publishing
 
 
 ////////////////////////////////////////////////////////////////////////////////
-var page_id = '...';
+//var page_id = '...';
 var app_id = '...';
 var app_secret = '...';
 var client_short_lived_access_token = '...';
 var client_long_lived_access_token = '...';
 // generated from app + user + page + rights
 // cf. http://offirmo.net/wiki/index.php?title=Facebook#Obtention_d.27un_token_de_publication_.C3.A0_dur.C3.A9e_illimit.C3.A9e
-var page_access_token = '...';
+//var page_access_token = '...';
+
 
 FB.setAccessToken(page_access_token);
 
@@ -124,15 +125,18 @@ FB.api(
 });
 */
 
+
 console.log('* post to a page, v3');
 FB.napi(
 	'/' + page_id + '/feed',
 	'post',
 	{
+		icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/6985-200.png',
+		picture: 'http://colourfulrebel.com/en/wp-content/uploads/2015/06/Cute-Kittens-1-Wallpaper-HD.jpg',
 		link: 'http://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
-		message: 'a status message',
-		caption: 'a caption',
-		description: 'a description',
+		message: 'status message',
+		caption: 'caption',
+		description: 'description',
 		name: 'link name',
 	},
 	function (error, response) {
@@ -150,6 +154,40 @@ FB.napi(
 		console.log(response);
 	}
 );
+
+
+/*
+console.log('* post to a page, v3');
+FB.napi(
+	'/' + page_id + '/feed',
+	'post',
+	{
+		link: 'http://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
+		message: 'a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong status message',
+		// limit 1000 bytes 2015/06/24
+		caption: 'a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong caption',
+		description: 'a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong description',
+		// limit 255 bytes 2015/06/24
+		name: 'oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo' + 'oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo' +'ooooooooooooooooooooooooooooooooooooooooooooooooooooooâ',
+	},
+	function (error, response) {
+		if(error) {
+			if(error.response.error.code === 'ETIMEDOUT') {
+				console.log('  request timeout !');
+			}
+			else {
+				console.log('  error', error.message);
+			}
+			return;
+		}
+
+		console.log('  Post Id: ' + response.id);
+		console.log(response);
+	}
+);
+*/
+
+
 
 
 /*
