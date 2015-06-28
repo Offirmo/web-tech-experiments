@@ -11,6 +11,7 @@ requirejs.config({
 	// base URL from which component files will be searched
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
 	// NOTE 2 : relative baseUrl base refers to *the calling html* !
+	// NOTE 3 : "self" stuff is for handling web workers
 	baseUrl: (self ? self.requirejs_baseurl : undefined) || '..',
 
 	// http://requirejs.org/docs/api.html#config-enforceDefine
@@ -27,18 +28,17 @@ requirejs.config({
 			'less': 'bower_components/require-less/less',
 			// an extension to be able to load dust.js templates easily
 			'rdust': 'bower_components/require-dust/rdust',
-			//'rdust': 'other_components/require-dust/require-dust',
 			// an extension to be able to wait for the DOM to be ready
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
 			'ngload': 'bower_components/angularAMD/ngload',
 			// transparently replace undercore with lodash
-			'underscore' : 'lodash',
-			'bootstrap3' : 'bootstrap'
+			'underscore' : 'lodash'
 		}
 	},
 
 	/////////////////////
+	// multi-files modules
 	packages: [
 		{
 			name : 'logator',
@@ -53,15 +53,15 @@ requirejs.config({
 
 	/////////////////////
 	paths: {
-		// AMD plugins (dirs or direct)
+		/////// AMD plugins (dirs or direct)
 		//'base-objects'             : 'incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'incubator/extended-exceptions.js/extended_exceptions', // direct
-		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'                   : 'bower_components/jquery/jquery' + min,
 		'network-constants'        : 'incubator/network-constants.js', // dir
 		'restlink'                 : 'other_components/restlink.js', // dir
 		'webworker_helper'         : 'incubator/node_and_common/webworker_helper/webworker_helper', // direct
-		// shim plugins
+
+		/////// shim plugins
 		'accounting'               : 'bower_components/accounting/accounting',
 		'angular'                  : 'bower_components/angular/angular' + min,
 		'angular-animate'          : 'bower_components/angular-animate/angular-animate' + min,
@@ -84,7 +84,7 @@ requirejs.config({
 		'chai'                     : 'bower_components/chai/chai',
 		'chai-as-promised'         : 'bower_components/chai-as-promised/lib/chai-as-promised',
 		'ckeditor'                 : 'bower_components/ckeditor/ckeditor',
-		// dust-full : this plugin should be aliased 'dust' for rdust to work properly
+		// dust-full : this plugin should be aliased 'dust' for rdust to work properly, see 'dust' below
 		'data.validation'          : 'bower_components/data.validation/',
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
@@ -93,7 +93,7 @@ requirejs.config({
 		'famous'                   : 'bower_components/famous/dist/famous',
 		'famous-angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'famous-global'            : 'bower_components/famous/dist/famous-global',
-		'fullpage'                 : 'other_components/fullpage/jquery.fullPage',
+		'fullpage'                 : 'bower_components/fullpage.js/jquery.fullPage' + min,
 		'javascript-state-machine' : 'bower_components/javascript-state-machine/state-machine',
 		'jpanelmenu'               : 'bower_components/jpanelmenu/jquery.jpanelmenu',
 		'jquery.ui'                : 'other_components/jquery.ui/js/jquery-ui.custom',
@@ -116,17 +116,25 @@ requirejs.config({
 		'moment'                   : 'bower_components/momentjs/moment',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
+		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
 		'spin'                     : 'bower_components/spin.js/spin',
 		'store'                    : 'bower_components/store.js/store',
 		'type-check'               : 'other_components/type-check/browser/type-check',
 		'unorm'                    : 'bower_components/unorm/lib/unorm',
-		//'underscore'  -> replaced by lodash, see above
-		//'when'                    : 'bower_components/when/when'
+		//'underscore'  -> replaced by lodash, see "map" section above.
 	},
 
 
 	/////////////////////
-	shim: {
+	shim: {		/////// require.js extensions
+		'ngload': ['angularAMD'],
+		'rdust' : {
+			deps: [ 'dust-helpers' ]
+		},
+
+		/////// AMD plugins
+
+		/////// shim plugins
 		'accounting' : {
 			// no deps
 			exports: 'accounting'
@@ -259,7 +267,7 @@ requirejs.config({
 		'fullpage' : {
 			deps: [
 				'jquery',
-				'css!other_components/fullpage/jquery.fullPage'
+				'css!bower_components/fullpage.js/jquery.fullPage'
 			]
 		},
 		'javascript-state-machine' : {
@@ -350,15 +358,8 @@ requirejs.config({
 				return this.mocha;
 			}
 		},
-		'ngload': ['angularAMD'],
-		'onepage-scroll': {
-			deps: [
-				'jquery',
-				'css!bower_components/onepage-scroll/onepage-scroll'
-			]
-		},
-		'rdust' : {
-			deps: [ 'dust-helpers' ]
+		'screenfull': {
+			exports: 'screenfull'
 		},
 		'spin' : {
 			exports: 'Spinner'

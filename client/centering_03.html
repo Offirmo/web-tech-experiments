@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test centering 3</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- personal style here ? -->
+	<style>
+	body
+	{
+		/* needed for correct positionning */
+		position:absolute;
+		margin: 0px;
+
+		/* needed for container min-height */
+		height: 100%;
+		width: 100%;
+	}
+	#content {
+		font-size: 20px; /* Yes I know what I do */
+		font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+		background-color: #101112;
+		color: #7B7F88;
+		/* vertical centering technique http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
+		height: 100%;
+		width: 100%;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+	#splash {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<div id="content" content>
+		<div id="splash">
+			<div id="logo">
+				Offirmo’s online adventures
+			</div>
+			<div id="loader">
+				<progress />
+			</div>
+		</div>
+	</div>
+</body>
+</html>

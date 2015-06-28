@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "bower": "bower prune; bower install; bower update",
+    "b": "bower prune; bower install; bower update",
     "postinstall": "npm install --global nodemon puer strongloop; npm update -g nodemon puer; npm prune; npm update; bower prune; bower install; bower update; cd server; npm prune; npm update",
     "lint": "echo TODO linting"
   },
