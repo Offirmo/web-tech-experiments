@@ -17,7 +17,6 @@ var client_long_lived_access_token = '...';
 // cf. http://offirmo.net/wiki/index.php?title=Facebook#Obtention_d.27un_token_de_publication_.C3.A0_dur.C3.A9e_illimit.C3.A9e
 //var page_access_token = '...';
 
-
 FB.setAccessToken(page_access_token);
 
 

@@ -1,4 +1,7 @@
 ’
+http://frontendhq.com/browser-support
+
+
 
 https://aerotwist.com/blog/guitar-tuner/
 
