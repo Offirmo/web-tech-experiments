@@ -6,8 +6,9 @@
   "private": true,
   "scripts": {
     "b": "bower prune; bower install; bower update",
-    "postinstall": "npm install --global nodemon puer strongloop && npm update -g nodemon puer strongloop && npm prune && bower prune && bower install && bower update && cd server && npm prune && npm update",
-    "lint": "echo TODO linting"
+    "postinstall": "npm install --global nodemon puer strongloop && npm update -g nodemon puer strongloop && npm prune && npm run b && cd server && npm prune && npm update",
+    "lint": "echo TODO linting",
+    "cleardeps": "rm -rf node_modules && rm -rf server/node_modules && rm -rf bower_components"
   },
   "engines": {
     "node": "^0.10.0"

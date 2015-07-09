@@ -12,6 +12,21 @@
 			bottom: 0;
 			left: 0;
 		}
+		.panel {
+			text-align: center;
+			font-size: 20px; /* bigger */
+		}
+		.panel.header {
+			border-bottom: solid 1px gray;
+			line-height: 75px;
+		}
+		.panel.content {
+			padding: 10px;
+		}
+		.panel.footer {
+			border-top: solid 1px gray;
+			line-height: 50px;
+		}
 	</style>
 
 	<script>
@@ -22,31 +37,25 @@
 <body>
 
 <div id="root" fa-app>
-	<fa-modifier fa-opacity="0.5">
+	<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 50}">
 
-		<fa-surface fa-background-color="'pink'" fa-size="[undefined,undefined]"></fa-surface>
+		<!-- header -->
+		<fa-surface class="panel header">
+			fa-header-footer-layout header 75px
+		</fa-surface>
 
-		<fa-modifier fa-origin="[.5, .5]" fa-align="[.5, .5]">
-			<fa-surface fa-background-color="'blue'" fa-size="[800,500]">
-				content featuring bootstrap
 
-				<h1>h1. Bootstrap heading</h1>
-				<h2>h2. Bootstrap heading</h2>
-				<h3>h3. Bootstrap heading</h3>
-				<h4>h4. Bootstrap heading</h4>
-				<h5>h5. Bootstrap heading</h5>
-				<h6>h6. Bootstrap heading</h6>
+		<!-- content -->
+		<fa-surface class="panel content">
+			fa-header-footer-layout content
+		</fa-surface>
 
-				<address>
-					<strong>Twitter, Inc.</strong><br>
-					795 Folsom Ave, Suite 600<br>
-					San Francisco, CA 94107<br>
-					<abbr title="Phone">P:</abbr> (123) 456-7890
-				</address>
-			</fa-surface>
-		</fa-modifier>
+		<!-- footer -->
+		<fa-surface class="panel footer">
+			fa-header-footer-layout footer 50px
+		</fa-surface>
 
-	</fa-modifier>
+	</fa-header-footer-layout>
 </div>
 
 
@@ -65,11 +74,9 @@
 		],
 		function(_, $jq, famous) {
 
-			var app = angular.module('App', ['famous.angular']);
-
-			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
-
-				$scope.title = "Famo.us Test 003";
+			angular.module('App', ['famous.angular'])
+			.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "Famo.us Test 004";
 			}]);
 
 			console.log("Bootstrapping angular...");

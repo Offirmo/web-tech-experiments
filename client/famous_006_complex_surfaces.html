@@ -6,11 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		#root {
-			position: fixed;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
+			height: 200px
+		}
+		.panel {
+			padding: 0px 10px;
 		}
 	</style>
 
@@ -21,33 +20,17 @@
 
 <body>
 
-<div id="root" fa-app>
-	<fa-modifier fa-opacity="0.5">
+<div id="content">
+	<div class="container">
+		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+		<p>Angular.famous complex surfaces</p>
 
-		<fa-surface fa-background-color="'pink'" fa-size="[undefined,undefined]"></fa-surface>
+		<div id="root" fa-app style="height: 200px">
+			<fa-surface fa-background-color="'lightgrey'">Hello world</fa-surface>
+		</div>
 
-		<fa-modifier fa-origin="[.5, .5]" fa-align="[.5, .5]">
-			<fa-surface fa-background-color="'blue'" fa-size="[800,500]">
-				content featuring bootstrap
-
-				<h1>h1. Bootstrap heading</h1>
-				<h2>h2. Bootstrap heading</h2>
-				<h3>h3. Bootstrap heading</h3>
-				<h4>h4. Bootstrap heading</h4>
-				<h5>h5. Bootstrap heading</h5>
-				<h6>h6. Bootstrap heading</h6>
-
-				<address>
-					<strong>Twitter, Inc.</strong><br>
-					795 Folsom Ave, Suite 600<br>
-					San Francisco, CA 94107<br>
-					<abbr title="Phone">P:</abbr> (123) 456-7890
-				</address>
-			</fa-surface>
-		</fa-modifier>
-
-	</fa-modifier>
-</div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
 
 
 <script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
@@ -61,7 +44,7 @@
 			'famous-global',
 			'angular',
 			'famous-angular',
-			'bootstrap-with-cyborg-theme'
+			'bootstrap'
 		],
 		function(_, $jq, famous) {
 
@@ -69,7 +52,7 @@
 
 			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
 
-				$scope.title = "Famo.us Test 003";
+				$scope.title = "Famo.us Test 006";
 			}]);
 
 			console.log("Bootstrapping angular...");
