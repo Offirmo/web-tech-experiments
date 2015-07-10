@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#root {
+			height: 200px
+		}
+		.panel {
+			padding: 0px 10px;
+		}
+	</style>
+
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="content">
+	<div class="container">
+		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+		<p>Angular.famous modifiers</p>
+
+		<div id="root" fa-app style="height: 300px">
+			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
+
+				<fa-surface fa-background-color="'lightgrey'">
+					Hello from fa-surface one, which should take all the space
+				</fa-surface>
+
+				<fa-modifier fa-translate="translationFor(0)">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						0<br/>fa-translate only
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(1)" fa-rotate-x="0.45">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						1<br/>fa-rotate-x
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(2)" fa-rotate-y="0.45">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						2<br/>fa-rotate-y
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(3)" fa-rotate-z="0.45">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						3<br/>fa-rotate-z
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(4)" fa-scale="0.8">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						4<br/>fa-scale
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(5)" fa-skew="1">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						5<br/>fa-skew
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(6)">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						6<br/>translate only
+					</fa-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(7)">
+					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+						7<br/>translate only
+					</fa-surface>
+				</fa-modifier>
+
+			</fa-modifier>
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'bootstrap'
+		],
+		function(_, famous) {
+
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "Famo.us Test 006";
+				$scope.tiles = {
+					size: [100, 50], // x, y
+					margin_h: 50,
+					margin_v: 25
+				};
+
+				$scope.translationFor = function(index) {
+					var COLUMN_COUNT = 3;
+					var row = Math.floor(index / COLUMN_COUNT);
+					var col = index % COLUMN_COUNT;
+
+					var translation = [
+						// x
+						col * 100 + 50,
+						// y
+						row * 50 + 25,
+						//z
+						0
+					];
+					return translation;
+				}
+
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

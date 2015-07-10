@@ -25,8 +25,30 @@
 		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
 		<p>Angular.famous complex surfaces</p>
 
-		<div id="root" fa-app style="height: 200px">
-			<fa-surface fa-background-color="'lightgrey'">Hello world</fa-surface>
+		<div id="root" fa-app style="height: 300px">
+			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
+
+				<fa-container-surface fa-options="{}">
+					This should not appear...
+
+					<fa-surface fa-background-color="'lightgrey'">
+						Hello from fa-surface one, which should take all the space
+					</fa-surface>
+
+					<fa-modifier fa-translate="[50, 25, 0]">
+						<fa-surface fa-background-color="'pink'" fa-size="[100,50]">
+							Hello from fa-surface two
+						</fa-surface>
+					</fa-modifier>
+
+					<fa-modifier fa-translate="[200, 25, 0]">
+						<fa-surface fa-background-color="'lightgreen'" fa-size="[100,50]">
+							Hello from fa-surface three
+						</fa-surface>
+					</fa-modifier>
+
+				</fa-container-surface>
+			</fa-modifier>
 		</div>
 
 	</div> <!-- /container -->
