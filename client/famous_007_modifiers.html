@@ -6,10 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		#root {
-			height: 200px
 		}
-		.panel {
-			padding: 0px 10px;
+		.test-surface {
+			font-size: 10px;
+			text-align: center;
+			background-color: pink;
+		}
+		.reference-surface {
+			font-size: 10px;
+			text-align: center;
+			border: 1px dashed black;
 		}
 	</style>
 
@@ -25,59 +31,209 @@
 		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
 		<p>Angular.famous modifiers</p>
 
-		<div id="root" fa-app style="height: 300px">
+		<div id="root" fa-app style="height: 900px">
 			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
 
 				<fa-surface fa-background-color="'lightgrey'">
-					Hello from fa-surface one, which should take all the space
+					fa-surface one, which should take all the space
 				</fa-surface>
 
+				<fa-modifier fa-origin="[.5, .5, .5]" fa-align="[.5, .5, .5]">
+					<fa-surface class="reference-surface" fa-size="tiles.size">
+						Info :<br/>center of parent surface
+					</fa-surface>
+				</fa-modifier>
+
+				<!-- no transform, for reference -->
+
 				<fa-modifier fa-translate="translationFor(0)">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
+					<fa-surface class="reference-surface" fa-size="tiles.size">0</fa-surface>
+					<fa-surface class="test-surface" fa-size="tiles.size">
 						0<br/>fa-translate only
 					</fa-surface>
 				</fa-modifier>
 
-				<fa-modifier fa-translate="translationFor(1)" fa-rotate-x="0.45">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						1<br/>fa-rotate-x
+				<fa-modifier fa-translate="translationFor(1)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">1</fa-surface>
+					<fa-surface class="test-surface" fa-size="tiles.size">
+						1<br/>fa-translate only
 					</fa-surface>
 				</fa-modifier>
 
-				<fa-modifier fa-translate="translationFor(2)" fa-rotate-y="0.45">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						2<br/>fa-rotate-y
+				<fa-modifier fa-translate="translationFor(2)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">2</fa-surface>
+					<fa-surface class="test-surface" fa-size="tiles.size">
+						2<br/>fa-translate only
 					</fa-surface>
 				</fa-modifier>
 
-				<fa-modifier fa-translate="translationFor(3)" fa-rotate-z="0.45">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						3<br/>fa-rotate-z
-					</fa-surface>
+
+
+
+				<!-- origin and align -->
+
+				<fa-modifier fa-translate="translationFor(3)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">3</fa-surface>
+					<fa-modifier fa-origin="[.5, .5, .5]">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							3<br/>fa-origin 0.5
+						</fa-surface>
+					</fa-modifier>
 				</fa-modifier>
 
-				<fa-modifier fa-translate="translationFor(4)" fa-scale="0.8">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						4<br/>fa-scale
-					</fa-surface>
+				<fa-modifier fa-translate="translationFor(4)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">4</fa-surface>
+					<fa-modifier fa-align="[.5, .5, .5]">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							4<br/>fa-align + fa-origin 0.5
+						</fa-surface>
+					</fa-modifier>
 				</fa-modifier>
 
-				<fa-modifier fa-translate="translationFor(5)" fa-skew="1">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						5<br/>fa-skew
-					</fa-surface>
+				<fa-modifier fa-translate="translationFor(5)">
+					<fa-container-surface fa-options="{size: tiles.size}">
+						<fa-surface class="reference-surface">5</fa-surface> <!-- note : no size given ! -->
+						<fa-modifier fa-origin="[.5, .5, .5]" fa-align="[.5, .5, .5]">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								5<br/>fa-align + fa-origin 0.5 in container surface
+							</fa-surface>
+						</fa-modifier>
+					</fa-container-surface>
 				</fa-modifier>
+
+
+
+
+				<!-- rotation transforms, no origin set -->
 
 				<fa-modifier fa-translate="translationFor(6)">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						6<br/>translate only
-					</fa-surface>
+					<fa-surface class="reference-surface" fa-size="tiles.size">6</fa-surface>
+					<fa-modifier fa-rotate-x="0.45">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							6<br/>fa-rotate-x
+						</fa-surface>
+					</fa-modifier>
 				</fa-modifier>
 
 				<fa-modifier fa-translate="translationFor(7)">
-					<fa-surface fa-background-color="'pink'" fa-size="tiles.size">
-						7<br/>translate only
-					</fa-surface>
+					<fa-surface class="reference-surface" fa-size="tiles.size">7</fa-surface>
+					<fa-modifier fa-rotate-y="0.45">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							7<br/>fa-rotate-y
+						</fa-surface>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(8)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">8</fa-surface>
+					<fa-modifier fa-rotate-z="0.45">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							8<br/>fa-rotate-z
+						</fa-surface>
+					</fa-modifier>
+				</fa-modifier>
+
+
+
+				<!-- rotation transforms, with origin set -->
+
+				<fa-modifier fa-translate="translationFor(9)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">9</fa-surface>
+					<fa-modifier fa-origin="[.5,.5,.5]">
+						<fa-modifier fa-rotate-x="0.45">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								9<br/>fa-rotate-x
+							</fa-surface>
+						</fa-modifier>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(10)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">10</fa-surface>
+					<fa-modifier fa-origin="[.5,.5,.5]">
+						<fa-modifier fa-rotate-y="0.45">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								10<br/>fa-rotate-y
+							</fa-surface>
+						</fa-modifier>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(11)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">11</fa-surface>
+					<fa-modifier fa-origin="[.5, .5, .5]">
+						<fa-modifier fa-rotate-z="0.45">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								11<br/>fa-rotate-z
+							</fa-surface>
+						</fa-modifier>
+					</fa-modifier>
+				</fa-modifier>
+
+				<!-- rotation transforms, with origin set + intermediate surface -->
+
+				<fa-modifier fa-translate="translationFor(12)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">12</fa-surface>
+					<fa-container-surface fa-options="{size: tiles.size}">
+						<fa-modifier fa-rotate-x="0.6" fa-origin="[.5,.5,.5]" fa-align="[.5,.5,.5]">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								12<br/>fa-rotate-x
+							</fa-surface>
+						</fa-modifier>
+					</fa-container-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(13)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">13</fa-surface>
+					<fa-container-surface fa-options="{size: tiles.size}">
+						<fa-modifier fa-rotate-y="0.6" fa-origin="[.5,.5,.5]" fa-align="[.5,.5,.5]">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								13<br/>fa-rotate-y
+							</fa-surface>
+						</fa-modifier>
+					</fa-container-surface>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(14)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">14</fa-surface>
+					<fa-container-surface fa-options="{size: tiles.size}">
+						<fa-modifier fa-rotate-z="0.6" fa-origin="[.5,.5,.5]" fa-align="[.5,.5,.5]">
+							<fa-surface class="test-surface" fa-size="tiles.size">
+								14<br/>fa-rotate-z
+							</fa-surface>
+						</fa-modifier>
+					</fa-container-surface>
+				</fa-modifier>
+
+
+
+
+
+				<fa-modifier fa-translate="translationFor(15)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">15</fa-surface>
+					<fa-modifier fa-scale=".8">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							15<br/>fa-scale
+						</fa-surface>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(16)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">16</fa-surface>
+					<fa-modifier fa-skew="[0, .5, 0]">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							16<br/>fa-skew y
+						</fa-surface>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="translationFor(17)">
+					<fa-surface class="reference-surface" fa-size="tiles.size">17</fa-surface>
+					<fa-modifier fa-skew="[0, 0, .5]">
+						<fa-surface class="test-surface" fa-size="tiles.size">
+							17<br/>fa-skew z
+						</fa-surface>
+					</fa-modifier>
 				</fa-modifier>
 
 			</fa-modifier>
@@ -104,11 +260,11 @@
 			var app = angular.module('App', ['famous.angular']);
 
 			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
-				$scope.title = "Famo.us Test 006";
+				$scope.title = "Famo.us Test 007";
 				$scope.tiles = {
 					size: [100, 50], // x, y
-					margin_h: 50,
-					margin_v: 25
+					margin_x: 50,
+					margin_y: 40
 				};
 
 				$scope.translationFor = function(index) {
@@ -118,9 +274,9 @@
 
 					var translation = [
 						// x
-						col * 100 + 50,
+						col * ($scope.tiles.size[0] + $scope.tiles.margin_x) + $scope.tiles.margin_x,
 						// y
-						row * 50 + 25,
+						row * ($scope.tiles.size[1] + $scope.tiles.margin_y) + $scope.tiles.margin_y,
 						//z
 						0
 					];
