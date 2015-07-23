@@ -5,9 +5,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "b": "bower prune; bower install; bower update",
+    "b": "bower prune && bower install && bower update",
     "postinstall": "npm install --global nodemon puer strongloop && npm update -g nodemon puer strongloop && npm prune && npm run b && cd server && npm prune && npm update",
-    "lint": "echo TODO linting",
     "cleardeps": "rm -rf node_modules && rm -rf server/node_modules && rm -rf bower_components"
   },
   "engines": {
@@ -17,14 +16,11 @@
     "bower":               "latest",
     "generator-famous":    "latest",
     "grunt":               "latest",
-    "yo":                  "^1"
+    "yo":                  "latest"
   },
   "devDependencies": {
-    "eslint":              "latest",
-    "jshint":              "latest",
-    "pre-commit":          "0.0.9"
+    "pre-commit":          "latest"
   },
   "pre-commit": [
-    "lint"
   ]
 }
