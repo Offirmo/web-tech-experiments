@@ -24,9 +24,18 @@
 		<div id="root" fa-app style="height: 900px">
 			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
 
-				<fa-surface fa-background-color="'lightgrey'">
-					fa-surface one, which should take all the space
-				</fa-surface>
+				<fa-scroll-view
+				 fa-pipe-from="sv1_eventHandler"
+				 fa-options="{direction: 0}">
+					<fa-view ng-repeat="view in sv1_views">
+						<fa-surface
+							fa-size="[100, 50]"
+							fa-pipe-to="sv1_eventHandler"
+							fa-background-color="view.bgColor">
+							[{{$index}}]{{view.content}}
+						</fa-surface>
+					</fa-view>
+				</fa-scroll-view>
 
 			</fa-modifier>
 		</div>
@@ -51,15 +60,25 @@
 
 			var app = angular.module('App', ['famous.angular']);
 
-			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
 				$scope.title = "Famo.us Test 008";
 
-				$scope.tiles = {
-					size: [100, 50], // x, y
-					margin_x: 50,
-					margin_y: 40
+				var EventHandler = $famous['famous/core/EventHandler'];
+				$scope.sv1_eventHandler = new EventHandler();
+
+				$scope.sv1_views = [];
+				for(var i=0; i < 20; i++) {
+					$scope.sv1_views.push({
+						content: 'view #' + (i + 1),
+						bgColor: '#9E9B8C'
+					});
+				}
+
+				$scope.logEvent = function(type, $event) {
+					console.log('Event : ' + type, $event);
 				};
 
+				console.log($scope.sv1_views);
 			}]);
 
 			console.log("Bootstrapping angular...");
