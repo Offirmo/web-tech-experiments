@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#root {
+		}
+	</style>
+
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="content">
+	<div class="container">
+		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+		<p>Angular.famous horizontal scrollview</p>
+
+		<div id="root" fa-app style="height: 900px">
+			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
+
+				<fa-scroll-view
+				 fa-pipe-from="sw1EventHandler"
+				 fa-pipe-from="sw1MouseSync"
+				 fa-tap="logEvent('view tap', $event)"
+				 fa-click="logEvent('view click', $event)"
+				 fa-options="{direction: 0}">
+					<fa-view ng-repeat="surf in surfs">
+						<fa-surface
+							fa-size="[100, 50]"
+							fa-pipe-to="sw1EventHandler"
+							fa-pipe-to="sw1MouseSync"
+							fa-tap="logEvent('surf tap', $event)"
+							fa-click="logEvent('surf click', $event)"
+							fa-background-color="surf.bgColor">
+							[{{$index}}]{{surf.content}}
+						</fa-surface>
+					</fa-view>
+				</fa-scroll-view>
+
+			</fa-modifier>
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'bootstrap'
+		],
+		function(_, famous) {
+
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
+				var EventHandler = $famous['famous/core/EventHandler'];
+				var MouseSync   = $famous['famous/inputs/MouseSync'];
+
+				$scope.title = "Famo.us Test 008";
+
+				$scope.sw1EventHandler = new EventHandler();
+				$scope.sw1MouseSync = new MouseSync({direction:0});
+
+				$scope.surfs = [];
+				for(var i=0; i < 20; i++) {
+					$scope.surfs.push({
+						content: 'view #' + (i + 1),
+						bgColor: '#9E9B8C'
+					});
+				}
+
+				$scope.logEvent = function(type, $event) {
+					console.log('Event : ' + type, $event);
+				};
+
+				//console.log($scope.surfs);
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>
