@@ -4,6 +4,7 @@
   "author": "Offirmo <offirmo.net@gmail.com>",
   "version": "0.0.1",
   "private": true,
+  "license": "Unlicense",
   "scripts": {
     "b": "bower prune && bower install && bower update",
     "postinstall": "npm install --global nodemon puer strongloop && npm update -g nodemon puer strongloop && npm prune && npm run b && cd server && npm prune && npm update",

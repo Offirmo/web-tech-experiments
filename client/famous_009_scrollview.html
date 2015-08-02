@@ -19,29 +19,33 @@
 <div id="content">
 	<div class="container">
 		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
-		<p>Angular.famous horizontal scrollview</p>
+		<p>Angular.famous horizontal scrollview, enhanced to work with touch and mouse</p>
 
-		<div id="root" fa-app style="height: 900px">
+		<div id="root" fa-app style="height: 500px">
 			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
 
-				<fa-scroll-view
-				 fa-pipe-from="sw1EventHandler"
-				 fa-pipe-from="sw1MouseSync"
-				 fa-tap="logEvent('view tap', $event)"
-				 fa-click="logEvent('view click', $event)"
-				 fa-options="{direction: 0}">
-					<fa-view ng-repeat="surf in surfs">
-						<fa-surface
-							fa-size="[100, 50]"
-							fa-pipe-to="sw1EventHandler"
-							fa-pipe-to="sw1MouseSync"
-							fa-tap="logEvent('surf tap', $event)"
-							fa-click="logEvent('surf click', $event)"
-							fa-background-color="surf.bgColor">
-							[{{$index}}]{{surf.content}}
-						</fa-surface>
-					</fa-view>
-				</fa-scroll-view>
+				<fa-surface fa-background-color="'lightgrey'">
+					Hello from fa-surface one, which should take all the space
+				</fa-surface>
+
+				<fa-modifier fa-translate="[0, 100, 0]">
+					<fa-scroll-view
+@					 fa-pipe-from="sw1EventHandler"
+					 fa-tap="logEvent('view tap', $event)"
+					 fa-click="logEvent('view click', $event)"
+					 fa-options="{direction: 0}">
+						<fa-view ng-repeat="surf in surfs">
+							<fa-surface
+								fa-size="[100, 150]"
+								fa-pipe-to="sw1SurfacesEventHandler"
+								fa-tap="logEvent('surf tap', $event)"
+								fa-click="logEvent('surf click', $event)"
+								fa-background-color="surf.bgColor">
+								[{{$index}}]{{surf.content}}
+							</fa-surface>
+						</fa-view>
+					</fa-scroll-view>
+				</fa-modifier>
 
 			</fa-modifier>
 		</div>
@@ -70,16 +74,52 @@
 				var EventHandler = $famous['famous/core/EventHandler'];
 				var MouseSync   = $famous['famous/inputs/MouseSync'];
 
-				$scope.title = "Famo.us Test 008";
+				$scope.title = "Famo.us Test 009";
+
+				// http://krazydad.com/tutorials/makecolors.php
+				function byte2Hex(n) {
+					var nybHexString = "0123456789ABCDEF";
+					return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
+				}
+				function RGB2Color(r,g,b) {
+					return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+				}
+				function makeColorGradient(frequency1, frequency2, frequency3,
+				                           phase1, phase2, phase3,
+				                           center, width, len)
+				{
+					if (center == undefined)   center = 128;
+					if (width == undefined)    width = 127;
+					if (len == undefined)      len = 50;
+
+					return function(i) {
+						var red = Math.sin(frequency1*i + phase1) * width + center;
+						var grn = Math.sin(frequency2*i + phase2) * width + center;
+						var blu = Math.sin(frequency3*i + phase3) * width + center;
+						return RGB2Color(red,grn,blu);
+					};
+				}
 
 				$scope.sw1EventHandler = new EventHandler();
-				$scope.sw1MouseSync = new MouseSync({direction:0});
+				$scope.sw1SurfacesEventHandler = new EventHandler();
 
+				// http://stackoverflow.com/questions/24229238/how-can-i-scroll-a-scrollview-using-a-mouse-drag-with-famo-us
+				$scope.sw1SurfacesEventHandler.pipe($scope.sw1EventHandler); // direct for taps
+				var sw1MouseSync = new MouseSync({direction:0});
+				$scope.sw1SurfacesEventHandler.pipe(sw1MouseSync); // to this one for clicks
+				sw1MouseSync.pipe($scope.sw1EventHandler); // then to sw
+
+				var maxSurfs = 30;
 				$scope.surfs = [];
-				for(var i=0; i < 20; i++) {
+				var makeCol = makeColorGradient(
+					.3 ,.3 ,.3,
+					0, 2, 4,
+					128, 127, maxSurfs);
+					//230, 25, maxSurfs);
+				for(var i=0; i < maxSurfs; i++) {
 					$scope.surfs.push({
 						content: 'view #' + (i + 1),
-						bgColor: '#9E9B8C'
+						bgColor: makeCol(i)
 					});
 				}
 
