@@ -30,7 +30,7 @@
 
 				<fa-modifier fa-translate="[0, 100, 0]">
 					<fa-scroll-view
-@					 fa-pipe-from="sw1EventHandler"
+					 fa-pipe-from="sw1EventHandler"
 					 fa-tap="logEvent('view tap', $event)"
 					 fa-click="logEvent('view click', $event)"
 					 fa-options="{direction: 0}">
@@ -72,7 +72,7 @@
 
 			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
 				var EventHandler = $famous['famous/core/EventHandler'];
-				var MouseSync   = $famous['famous/inputs/MouseSync'];
+				var MouseSync    = $famous['famous/inputs/MouseSync'];
 
 				$scope.title = "Famo.us Test 009";
 

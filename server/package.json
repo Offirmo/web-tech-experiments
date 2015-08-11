@@ -84,7 +84,6 @@
     "trace": "~0",
     "underscore": "latest",
     "usage": "latest",
-    "webkit-devtools-agent": "latest",
     "when": "latest",
     "winston": "latest"
   },
@@ -103,7 +102,8 @@
     "accounting": "latest",
     "angular": "latest",
     "backbone-associations": "latest",
-    "jquery": "latest"
+    "jquery": "latest",
+    "webkit-devtools-agent": "latest"
   },
   "custom": {
     "base-objects": "latest",

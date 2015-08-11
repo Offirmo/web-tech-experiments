@@ -6,21 +6,33 @@
   "private": true,
   "license": "Unlicense",
   "scripts": {
-    "b": "bower prune && bower install && bower update",
-    "postinstall": "npm install --global nodemon puer strongloop && npm update -g nodemon puer strongloop && npm prune && npm run b && cd server && npm prune && npm update",
-    "cleardeps": "rm -rf node_modules && rm -rf server/node_modules && rm -rf bower_components"
+    "puer": "puer",
+    "bower": "bower update --config.interactive=false",
+    "postinstall": "npm run bower && cd server && npm install",
+    "lint": "eslint .",
+
+    "cleardeps": "rm -rf node_modules && rm -rf server/node_modules && rm -rf bower_components",
+    "install_globals": "npm install --global puer strongloop && npm update -g puer strongloop",
+    "devinstall": "npm run install_globals && npm prune && npm install && npm update && npm run devbower && cd server && npm prune && npm install && npm update",
+    "devbower": "bower prune && bower install && bower update",
+
+    "bb": "npm run devbower",
+    "cc": "npm run cleardeps",
+    "ii": "npm run devinstall"
   },
   "engines": {
-    "node": "^0.10.0"
+    "node": "^0.12"
   },
   "dependencies": {
-    "bower":               "latest",
-    "generator-famous":    "latest",
-    "grunt":               "latest",
-    "yo":                  "latest"
   },
   "devDependencies": {
-    "pre-commit":          "latest"
+    "bower":               "latest",
+    "grunt":               "latest",
+    "generator-famous":    "latest",
+    "pre-commit":          "latest",
+    "puer":                "latest",
+    "strongloop":          "latest",
+    "yo":                  "latest"
   },
   "pre-commit": [
   ]

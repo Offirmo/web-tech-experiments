@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#root {
+		}
+		legend {
+			text-align: center;
+		}
+		.test-cell {
+			text-align: center;
+			font-size: 10px;
+		}
+	</style>
+
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="content">
+	<div class="container">
+		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+		<p>Angular.famous placement modifier. origin = [0, 0]</p>
+
+		<div id="root" fa-app style="height: 1500px">
+			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
+
+				<fa-surface fa-background-color="'lightgrey'">
+					fa-surface one, which should take all the space
+				</fa-surface>
+
+				<!-- default origin -->
+				<fa-modifier fa-translate="[60, 40, 0]"
+				fa-size="[225, 225]">
+
+					<fa-surface fa-background-color="'red'" >
+						<strong>origin = default</strong>
+					</fa-surface>
+
+					<fa-modifier ng-repeat="align in aligns"
+					fa-align="align">
+						<fa-surface class="test-cell" fa-background-color="'Khaki'" fa-size="[75,75]">
+							align = {{align}}<br />
+						</fa-surface>
+					</fa-modifier>
+
+					<fa-modifier
+						fa-origin="origin">
+						<fa-surface class="test-cell" fa-background-color="'Khaki'" fa-size="[75,75]">
+							<br />
+							align = default<br />
+						</fa-surface>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier ng-repeat="origin in origins"
+				fa-translate="[origin[0] * 800 + 60, origin[1] * 800 + 380, 0]"
+            fa-size="[225, 225]">
+
+					<!-- surface to take all the container space -->
+					<fa-surface fa-background-color="'red'" ></fa-surface>
+
+					<fa-modifier fa-translate="[0, origin[1] * -75 -25, 0]">
+						<fa-surface class="legend">
+							<strong>origin = {{origin}}</strong>
+						</fa-surface>
+					</fa-modifier>
+
+					<fa-modifier ng-repeat="align in aligns"
+					fa-origin="origin"
+					fa-align="align">
+						<fa-surface class="test-cell" fa-background-color="'Khaki'" fa-size="[75,75]">
+							align = {{align}}<br />
+						</fa-surface>
+					</fa-modifier>
+
+					<fa-modifier
+	             fa-origin="origin">
+						<fa-surface class="test-cell" fa-background-color="'Khaki'" fa-size="[75,75]">
+							<br />
+							align = default<br />
+						</fa-surface>
+					</fa-modifier>
+
+				</fa-modifier>
+
+			</fa-modifier>
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'bootstrap'
+		],
+		function(_, famous) {
+
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
+				$scope.title = "Famo.us Test 010";
+
+				$scope.origins = [];
+				$scope.aligns = [];
+				for(var i=0; i <= 2; i++) {
+					for(var j=0; j <= 2; j++) {
+						$scope.origins.push([i/2., j/2.]);
+						$scope.aligns.push([i/2., j/2.]);
+					}
+				}
+				console.log($scope.origins);
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

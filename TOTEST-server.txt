@@ -1,4 +1,8 @@
 
+https://blog.risingstack.com/nodejs-production-environment-for-startups/
+http://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
+
+https://github.com/kabab/qr-cairo QR codes
 https://github.com/dthree/vantage
 https://github.com/jwalton/node-promise-breaker
 
