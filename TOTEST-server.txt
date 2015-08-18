@@ -1,6 +1,7 @@
 
 https://blog.risingstack.com/nodejs-production-environment-for-startups/
 http://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
+http://mziccard.me/2015/08/10/node-timsort-fast-sorting-nodejs/
 
 https://github.com/kabab/qr-cairo QR codes
 https://github.com/dthree/vantage
@@ -18,6 +19,9 @@ generators
 https://github.com/shes/comws
 
 https://51degrees.com/products/device-detection/cloud
+
+-- markdown
+http://mdast.js.org/
 
 -- ops
 https://deadmanssnitch.com/
