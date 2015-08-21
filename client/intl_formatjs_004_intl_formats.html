@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-	<title>Intl test 004</title>
+	<title>Intl test 004 - standard lib Intl.NumberFormat</title>
 	<meta name="description" content="">
 	<meta name="author" content="Offirmo">
 
@@ -35,9 +35,9 @@
 
 <div id="content">
 	<div class="container">
-		<h1 id="header">Intl test 004</h1>
-		<p>Advanced javascript enabled page. Using require.js.</p>
-		<p>(stuff is sent to console)</p>
+		<h1 id="header">Intl test 004 - standard lib Intl.NumberFormat</h1>
+		<p>Loading and calling standard intl js API...</p>
+		<p><strong>(Results are sent to console)</strong></p>
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
@@ -51,17 +51,15 @@
 		console.log('Starting rsrc load...');
 		require(
 		[
-			'lodash',
-			'intl-messageformat'
+			'lodash'
 		],
-		function(_, IntlMessageFormat) {
+		function(_) {
 			// due to how we wrote component.js, we know that document is fully loaded
 			console.log('load done !');
 
 			var locales = [ 'en', 'fr', 'zh-Hans-CN-u-nu-hanidec'];
 
 			var number_formats = [
-
 				new Intl.NumberFormat('fr'),
 				new Intl.NumberFormat('zh-Hans-CN-u-nu-hanidec')
 			];
@@ -94,7 +92,7 @@
 						});
 					}
 					else {
-						nf = new Intl.NumberFormat(locale, options);
+						var nf = new Intl.NumberFormat(locale, options);
 						console.log('[nu:' + nf.resolved.numberingSystem + ', style:' + nf.resolved.style + ']',
 							nf.format(number));
 					}

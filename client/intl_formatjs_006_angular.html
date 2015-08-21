@@ -33,20 +33,20 @@
 		<h1 id="header" ng-bind="title">Angular test fallback title</h1>
 		<p ng-bind="snippet">Angular test fallback snippet.</p>
 		<ul>
-			<li ng-intl="no_key">directive
-			<li ng-intl="simple_key">directive
-			<li ng-intl="formatted_number">directive
-			<li ng-intl="formatted_number_percent">directive
-			<li ng-intl="formatted_date_full">directive
-			<li ng-intl="formatted_time_medium">directive
-			<li ng-intl="key_select">directive
-			<li ng-intl="key_select_nested">directive
-			<li ng-intl="plural">directive
-			<li ng-intl="plural_shortcut">directive
-			<li ng-intl="ordinal">directive
-			<li ng-intl="formatted_number_custom">directive
+			<li ng-intl="no_key">directive failure !!!
+			<li ng-intl="simple_key">directive failure !!!
+			<li ng-intl="formatted_number">directive failure !!!
+			<li ng-intl="formatted_number_percent">directive failure !!!
+			<li ng-intl="formatted_date_full">directive failure !!!
+			<li ng-intl="formatted_time_medium">directive failure !!!
+			<li ng-intl="key_select">directive failure !!!
+			<li ng-intl="key_select_nested">directive failure !!!
+			<li ng-intl="plural">directive failure !!!
+			<li ng-intl="plural_shortcut">directive failure !!!
+			<li ng-intl="ordinal">directive failure !!!
+			<li ng-intl="formatted_number_custom">directive failure !!!
 
-			<li ng-intl="missing_translation_key">directive
+			<li ng-intl="missing_translation_key">directive failure !!!
 		</ul>
 		<p>Angular version : {{scoped_angular.version.full}}</p>
 
@@ -102,7 +102,7 @@
 
 			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
 				$scope.title = "intl Test 006 FormatJS Angular";
-				$scope.snippet = "Testing FormatJS with angular directives. Stuff is sent to the console.";
+				$scope.snippet = "Testing using FormatJS with an angular directive (1st attempt). Stuff is sent to the console.";
 				$scope.scoped_angular = angular;
 
 				$scope.intl = {
