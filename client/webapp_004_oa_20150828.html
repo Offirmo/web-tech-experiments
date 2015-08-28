@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="LandingController" manifest="xxx.appcache">
+<!-- template : ../../apps/famous-base/view -->
+	<head>
+		<!-- modern encoding specification -->
+<meta charset="utf-8">
+<!-- old encoding specification, for compatibility -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+<meta name="fragment" content="!">
+<!-- https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+     http://a11yproject.com/posts/never-use-maximum-scale/
+     http://stackoverflow.com/a/25840284/587407 -->
+<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1">
+
+<!-- ... -->
+<link rel="canonical" href="http://offirmo.github.io/html_tests/">
+
+
+<!-- thank you http://www.groovymeta.com/ -->
+<!-- thank you http://www.sitepoint.com/meta-tags-html-basics-best-practices/ -->
+
+<meta name="description" content="A very simple RPG">
+<meta name="keywords" content="game, RPG" >
+<meta name="author" content="Offirmo">
+
+<!-- https://developers.facebook.com/docs/sharing/best-practices#tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Offirmo’s Boring RPG">
+<meta property="og:site_name" content="Offirmo’s Boring RPG">
+<meta property="og:url" content="http://offirmo.github.io/html_tests/">
+<meta property="og:description" content="A very simple RPG">
+<meta property="og:image" content="todo_link_to_image1200x630 and repeat this line xtimes">
+<meta property="article:author" content="https://www.facebook.com/TODO">
+
+<!-- https://developers.facebook.com/docs/opengraph/guides/internationalization?locale=fr_FR -->
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- https://dev.twitter.com/cards/overview -->
+<!-- https://dev.twitter.com/cards/types/summary -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@offirmo">
+<meta property="twitter:url" content="http://offirmo.github.io/html_tests/">
+
+<meta name="twitter:title" content="Offirmo’s Boring RPG">
+<meta name="twitter:description" content="A very simple RPG">
+<meta property="twitter:image" content="todo">
+<meta name="twitter:creator" content="Offirmo">
+
+<!-- http://schema.org/docs/gs.html -->
+<link rel="author" href="todo">
+
+<!-- browser adjustments -->
+
+<!-- http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android -->
+<meta name="theme-color" content="#181712">
+
+
+<!-- everything for install to homescreen / pinning our website as an app -->
+
+
+<!-- Android https://developer.chrome.com/multidevice/android/installtohomescreen -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- <link rel="manifest" href="client/app/jeudunombre/app-manifest.json"> -->
+
+
+<!-- iOS https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- always black to hide it -->
+
+<meta name="apple-mobile-web-app-title" content="Offirmo’s Boring RPG">
+
+<link rel="apple-touch-startup-image" href="/TODO-apple-touch-startup-image_320x480_portrait.png">
+
+
+<!-- windows https://msdn.microsoft.com/library/dn255024%28v=vs.85%29.aspx -->
+<!-- http://www.buildmypinnedsite.com/en -->
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+
+<title ng-bind="title">fallback title</title>
+
+<!-- thank you https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+
+<!-- style -->
+<!-- <link href="bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" /> -->
+<style>
+
+/* Only for loading style.
+* see index.css for definitive style.
+*/
+body
+{
+	/* needed for correct positionning */
+	position:absolute;
+	margin: 0;
+	padding: 0;
+
+	/* needed for container min-height */
+	height: 100%;
+	width: 100%;
+}
+#splash {
+	background-color: #101112;
+	color: #7B7F88;
+	position:absolute;
+
+	/* */
+	font-size: 20px; /* Yes I know what I do */
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+
+	/* vertical centering technique - parent
+	 * http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+	 */
+	height: 100%;
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+#splash-content {
+	/* vertical centering technique - child
+	 */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+}
+#splash .logo {
+}
+
+
+</style>
+
+<!-- js -->
+
+<!--<script src="bower_components/pace/pace.min.js"></script>-->
+<script>
+	//...
+</script>
+
+
+</head>
+	<body>
+		<noscript>
+	Your browser either does not support JavaScript, or has it turned off. Either way, this website can’t work...
+</noscript>
+
+<!--[if lt IE 9]>
+<p class="browsehappy">
+	You are using an &lt;strong&gt;outdated&lt;/strong&gt; browser. Please &lt;a href=&quot;http://browsehappy.com/&quot;&gt;upgrade your browser&lt;/a&gt; to improve your experience.
+</p>
+<![endif]-->
+
+
+<div id="root" fa-app>
+		<div content-directive>
+
+			<!-- splash screen with loader, only displayed while angular isn't ready -->
+			<div id="splash">
+	<div id="splash-content">
+		<div class="logo">
+			Offirmo’s online adventures
+		</div>
+		<div id="loader">
+			<progress />
+		</div>
+		<div><small>201507030152 xx TODO</small></div>
+	</div>
+</div>
+
+</div>
+	</div>
+
+
+
+
+<script src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		console.log('Starting main...');
+		requirejs(
+			[
+				'angular',
+				'bootstrap',
+				//'angular-bootstrap'
+			],
+			function() {
+				var app = angular.module('App', [/*'ui.bootstrap'*/]);
+
+				app.controller('LandingController', ['$scope', '$document', function($scope, $document) {
+					$scope.title = 'Webapp test 004';
+					$scope.snippet = 'Advanced javascript single-page webapp. Using require.js and AngularJS.';
+					$scope.scoped_angular = angular;
+					$scope.lang = $document[0].documentElement.lang;
+					console.log($document[0].documentElement.lang);
+				}]);
+
+				// http://angular-ui.github.io/bootstrap/#/alert
+				app.controller('AlertCtrl', ['$scope', '$document', function($scope, $document) {
+					$scope.alerts = [
+						//{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+					];
+
+					$scope.add_alert = function(msg) {
+						$scope.alerts.push({'msg': msg});
+					};
+
+					$scope.close_alert = function(index) {
+						$scope.alerts.splice(index, 1);
+					};
+				}]);
+
+				// angular manual initialisation since we use a script loader
+				// cf. http://docs.angularjs.org/guide/bootstrap
+				console.log('Bootstrapping angular...');
+				// we must bind on document to encompass page title
+				angular.element(document).ready(function() {
+					angular.bootstrap(document, ['App']);
+				});
+			});
+	};
+
+	require([
+		'misc/components'
+	], function() {
+		// Configuration loaded now, safe to do other require calls that depend on that config.
+
+	});
+</script>
+
+
+
+
+</body>
+</html>
+
+
+

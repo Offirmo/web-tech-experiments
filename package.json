@@ -6,7 +6,7 @@
   "private": true,
   "license": "Unlicense",
   "scripts": {
-    "puer": "puer",
+    "puer": "puer --exclude 'bower_components|node_modules'",
     "bower": "bower update --config.interactive=false",
     "postinstall": "npm run bower && cd server && npm install",
     "lint": "eslint .",

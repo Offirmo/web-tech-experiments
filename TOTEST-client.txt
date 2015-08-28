@@ -138,6 +138,19 @@ https://scotch.io/bar-talk/the-best-news-from-angulars-ng-conf-2015
 https://github.com/maxigimenez/angular-atomic-notify
 
 --- i18n
+-- SVG
+https://github.com/behdad/region-flags
+https://github.com/7kfpun/flag-css
+-- sprites
+https://github.com/lipis/flag-icon-css
+https://github.com/lafeber/world-flags-sprite
+https://www.flag-sprites.com/
+https://github.com/gosquared/flags
+-- super fonte
+https://github.com/googlei18n/noto-fonts
+-- angular flags (à copier)
+https://github.com/asafdav/ng-flags
+
 https://scotch.io/tutorials/internationalization-of-angularjs-applications
 https://github.com/lgalfaso/angular-dynamic-locale
 https://github.com/angular-translate/angular-translate

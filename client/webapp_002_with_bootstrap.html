@@ -13,7 +13,6 @@
 	<meta name="author" content="Offirmo">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
 
 	<!-- favicons -->
 	<!-- For IE -->
@@ -46,7 +45,7 @@
 	<!-- js -->
 	<script src="bower_components/pace/pace.min.js"></script>
 	<script>
-		console.log("hello from header !");
+		console.log('hello from header !');
 	</script>
 	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
 </head>
@@ -117,14 +116,15 @@
 		requirejs(
 		[
 			'angular',
-			'angular-bootstrap'
+			'bootstrap',
+			//'angular-bootstrap'
 		],
 		function() {
-			var app = angular.module('App', ['ui.bootstrap']);
+			var app = angular.module('App', [/*'ui.bootstrap'*/]);
 
 			app.controller('LandingCtrl', ['$scope', '$document', function($scope, $document) {
-				$scope.title = 'Webapp test 004';
-				$scope.snippet = 'Advanced javascript single-page webapp. Using require.js and angular.js.';
+				$scope.title = 'Webapp test 002';
+				$scope.snippet = 'Advanced javascript single-page webapp. Using require.js and AngularJS.';
 				$scope.scoped_angular = angular;
 				$scope.lang = $document[0].documentElement.lang;
 				console.log($document[0].documentElement.lang);
@@ -147,8 +147,8 @@
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
-			// cf.
 			console.log('Bootstrapping angular...');
+			// we must bind on document to encompass page title
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['App']);
 			});
