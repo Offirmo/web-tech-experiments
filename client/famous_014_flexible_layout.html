@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">Angular test fallback title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+
+	<!-- style -->
+	<style>
+		#uiview {
+			border: 1px solid red;
+		}
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+
+		<fa-app id="root" style="height: 500px" fa-perspective="500">
+			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
+
+				<fa-surface fa-background-color="'lightgrey'">
+					fa-surface one, which should take all the space.
+				</fa-surface>
+
+				<fa-flexible-layout fa-options="flexibleLayoutOptions_01">
+					<fa-surface fa-background-color="'#F00'">10%</fa-surface>
+					<fa-surface fa-background-color="'#0F0'">30%</fa-surface>
+					<fa-view>
+						<fa-surface fa-background-color="'#00F'">60%</fa-surface>
+					</fa-view>
+				</fa-flexible-layout>
+
+		</fa-app>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+
+
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'lodash',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'angular-ui-router',
+			'bootstrap'
+		],
+		function() {
+			var app = angular.module('App', ['ui.router', 'famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
+				$scope.title = "Famo.us Test 014";
+				$scope.snippet = "Famous/Angular flexible layout http://deprecated.famous.org/docs/views/FlexibleLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-flexible-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
+
+				$scope.flexibleLayoutOptions_01 = {
+					ratios: [.1, .3, .6],
+					direction: 1 //FlexibleLayout.DIRECTION_Y
+				}
+
+			}]);
+
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App']);
+			});
+		});
+	};
+</script>
+
+</body>
+</html>
