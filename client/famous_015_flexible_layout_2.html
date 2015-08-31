@@ -41,10 +41,13 @@
 				</fa-surface>
 
 				<fa-flexible-layout fa-options="flexibleLayoutOptions_01">
-					<fa-surface fa-background-color="'#F00'">10%</fa-surface>
-					<fa-surface fa-background-color="'#0F0'">30%</fa-surface>
+					<fa-surface fa-background-color="'#00F'"><br/>A</fa-surface>
+					<fa-surface fa-background-color="'#0F0'"><br/>B</fa-surface>
 					<fa-view>
-						<fa-surface fa-background-color="'#00F'">60%</fa-surface>
+						<fa-surface fa-background-color="'#0FF'"><br/>C</fa-surface>
+					</fa-view>
+					<fa-view>
+						<fa-surface fa-background-color="'#F00'"><br/>D</fa-surface>
 					</fa-view>
 				</fa-flexible-layout>
 
@@ -80,9 +83,9 @@
 				$scope.snippet = "Famous/Angular flexible layout http://deprecated.famous.org/docs/views/FlexibleLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-flexible-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
 
 				$scope.flexibleLayoutOptions_01 = {
-					ratios: [.1, .3, .6],
+					ratios: [1, 1, 1, 1],
 					direction: 0 //FlexibleLayout.DIRECTION_X
-				}
+				};
 
 				//$scope.
 
