@@ -42,8 +42,10 @@
 
 				<fa-sequential-layout fa-options="sequentialOptions">
 					<fa-view ng-repeat="view in sequence">
-						<fa-modifier fa-size="[undefined, 100]">
-							<fa-surface fa-background-color="view.bgColor"></fa-surface>
+						<fa-modifier fa-size="[undefined, view.heigth]">
+							<fa-surface fa-background-color="view.bgColor">
+								{{view.bgColor}} - {{view.heigth}} px
+							</fa-surface>
 						</fa-modifier>
 					</fa-view>
 				</fa-sequential-layout>
@@ -76,14 +78,30 @@
 			var app = angular.module('App', ['ui.router', 'famous.angular']);
 
 			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
-				$scope.title = "Famo.us Test 017";
+				$scope.title = "Famo.us Test 018";
 				$scope.snippet = "Famous/Angular sequential layout http://deprecated.famous.org/docs/views/SequentialLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-sequential-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
 
 				$scope.sequentialOptions = {
 					direction: 1, // vertical = 1 (default), horizontal = 0
 				};
-				$scope.sequence = [{bgColor: "orange"}, {bgColor: "red"}, {bgColor: "green"}, {bgColor: "yellow"}];
-
+				$scope.sequence = [
+					{
+						bgColor: "orange",
+						heigth: 60
+					},
+					{
+						bgColor: "red",
+						heigth: undefined // XXX don't work
+					},
+					{
+						bgColor: "green",
+						heigth: 100
+					},
+					{
+						bgColor: "yellow",
+						heigth: 60
+					}
+				];
 			}]);
 
 

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#root {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			color: #e2eff1;
+			background: black; /* will never be seen except when animating */
+		}
+		.background {
+			background: black;
+			color: ##b6d5e1;
+		}
+		.panel {
+			text-align: center;
+			font-size: 20px; /* bigger */
+		}
+		.panel.header {
+			border: 0px;
+			border-radius: 0px;
+			background: #555273; /* http://www.colorhunt.co/?p=popular#e2eff1b6d5e165799b555273 */
+			color: #e2eff1;
+			line-height: 75px;
+		}
+		.panel.header a {
+			cursor: pointer;
+		}
+		.panel.content,
+		.panel.content h1,
+		.panel.content h2,
+		.panel.content h3,
+		.panel.content p {
+			background: #e2eff1;
+			color: #555273;
+			padding: 10px;
+		}
+		.panel.content {
+			border: 0px;
+			border-radius: 0px;
+		}
+		.panel.footer {
+			border: 0px;
+			border-radius: 0px;
+			background: #555273;
+			color: #e2eff1;
+			line-height: 75px;
+		}
+		.panel.meta {
+			background: #555273;
+			color: #e2eff1;
+		}
+	</style>
+
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="root" fa-app fa-perspective="500"> <!-- note the fa-perspective for 3D effects -->
+
+	<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-scale="getScale()"> <!-- mandatory for a correct flipping -->
+		<fa-flipper>
+
+			<!-- game area -->
+			<fa-modifier>
+				<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 75}">
+
+					<!-- header -->
+					<fa-modifier>
+						<fa-surface class="panel header">
+							header
+							<a ng-click="go_settings()">[Settings]</a>
+							<a ng-click="go_credits()">[Credits]</a>
+						</fa-surface>
+					</fa-modifier>
+
+					<!-- content -->
+					<fa-modifier> <!-- this modifier is a container. opacity allows to spot surfaces that overlap -->
+
+						<fa-surface class="panel content">
+							<div id="content">
+								<div class="container">
+									<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+									<p>Angular.famous app</p>
+								</div> <!-- /container -->
+							</div> <!-- /content -->
+						</fa-surface>
+
+					</fa-modifier>
+
+					<!-- footer -->
+					<fa-modifier>
+						<fa-surface class="panel footer">
+							footer
+						</fa-surface>
+					</fa-modifier>
+
+				</fa-header-footer-layout>
+			</fa-modifier>
+
+			<!-- meta area -->
+			<fa-modifier>
+				<fa-surface class="panel meta" fa-click="go_game()">
+					Meta<br/>
+					v x.y.z<br/>
+
+				</fa-surface>
+			</fa-modifier>
+
+		</fa-flipper>
+	</fa-modifier>
+</div> <!-- /root -->
+
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'bootstrap'
+		],
+		function(_, famous) {
+
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
+				$scope.title = "Famo.us Test 101";
+
+				var EventHandler = $famous['famous/core/EventHandler'];
+				var Engine = $famous['famous/core/Engine'];
+				var Transitionable = $famous['famous/transitions/Transitionable'];
+
+				var t = new Transitionable(0);
+				t.set(1);
+
+				function flip_meta() {
+					// easeOutBounce
+					$famous.find('fa-flipper')[0].flip({ curve : 'easeInOut', duration : 500});
+				};
+				var meta_scale = 0.85;
+				var zoom_duration_ms = 200;
+				$scope.go_settings = function() {
+					t.set(1);
+					t.set(meta_scale, {duration: zoom_duration_ms, curve: 'linear'}, function() {
+						flip_meta();
+					});
+				};
+
+				$scope.go_game = function() {
+					flip_meta();
+					t.set(meta_scale);
+					t.set(1, {duration: zoom_duration_ms, curve: 'linear'});
+				};
+				$scope.getScale = function() {
+					return t.get();
+				};
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

@@ -15,8 +15,17 @@
 
 	<!-- style -->
 	<style>
-		#uiview {
-			border: 1px solid red;
+		.panel.header {
+			border: 0px;
+			border-radius: 0px;
+		}
+		.panel.content {
+			border: 0px;
+			border-radius: 0px;
+		}
+		.panel.footer {
+			border: 0px;
+			border-radius: 0px;
 		}
 	</style>
 
@@ -40,13 +49,25 @@
 					fa-surface one, which should take all the space.
 				</fa-surface>
 
-				<fa-sequential-layout fa-options="sequentialOptions">
-					<fa-view ng-repeat="view in sequence">
-						<fa-modifier fa-size="[undefined, 100]">
-							<fa-surface fa-background-color="view.bgColor"></fa-surface>
-						</fa-modifier>
-					</fa-view>
-				</fa-sequential-layout>
+				<fa-header-footer-layout fa-options="{headerSize: 0, footerSize: 150}">
+
+					<!-- header -->
+					<fa-surface class="panel header" fa-background-color="'red'">
+						<br/>XXX SHOULD NOT DISPLAY fa-header-footer-layout header 0px
+					</fa-surface>
+
+
+					<!-- content -->
+					<fa-surface class="panel content" fa-background-color="'orange'">
+						<br/><br/>fa-header-footer-layout content
+					</fa-surface>
+
+					<!-- footer -->
+					<fa-surface class="panel footer" fa-background-color="'yellow'">
+						<br/>fa-header-footer-layout footer 150 px
+					</fa-surface>
+
+				</fa-header-footer-layout>
 
 		</fa-app>
 
@@ -76,13 +97,13 @@
 			var app = angular.module('App', ['ui.router', 'famous.angular']);
 
 			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
-				$scope.title = "Famo.us Test 017";
-				$scope.snippet = "Famous/Angular sequential layout http://deprecated.famous.org/docs/views/SequentialLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-sequential-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
+				$scope.title = "Famo.us Test 016";
+				$scope.snippet = "Famous/Angular header footer layout https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
 
-				$scope.sequentialOptions = {
-					direction: 1, // vertical = 1 (default), horizontal = 0
-				};
-				$scope.sequence = [{bgColor: "orange"}, {bgColor: "red"}, {bgColor: "green"}, {bgColor: "yellow"}];
+				$scope.flexibleLayoutOptions_01 = {
+					ratios: [.1, .3, .6],
+					direction: 1 //FlexibleLayout.DIRECTION_Y
+				}
 
 			}]);
 
