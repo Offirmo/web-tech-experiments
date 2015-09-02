@@ -15,17 +15,8 @@
 
 	<!-- style -->
 	<style>
-		.panel.header {
-			border: 0px;
-			border-radius: 0px;
-		}
-		.panel.content {
-			border: 0px;
-			border-radius: 0px;
-		}
-		.panel.footer {
-			border: 0px;
-			border-radius: 0px;
+		#uiview {
+			border: 1px solid red;
 		}
 	</style>
 
@@ -49,25 +40,15 @@
 					fa-surface one, which should take all the space.
 				</fa-surface>
 
-				<fa-header-footer-layout fa-options="{headerSize: 0, footerSize: 150}">
-
-					<!-- header -->
-					<fa-surface class="panel header" fa-background-color="'red'">
-						<br/>XXX SHOULD NOT DISPLAY fa-header-footer-layout header 0px
-					</fa-surface>
-
-
-					<!-- content -->
-					<fa-surface class="panel content" fa-background-color="'orange'">
-						<br/><br/>fa-header-footer-layout content
-					</fa-surface>
-
-					<!-- footer -->
-					<fa-surface class="panel footer" fa-background-color="'yellow'">
-						<br/>fa-header-footer-layout footer 150 px
-					</fa-surface>
-
-				</fa-header-footer-layout>
+				<fa-sequential-layout fa-options="sequentialOptions">
+					<fa-view ng-repeat="view in sequence">
+						<fa-modifier fa-size="[undefined, view.heigth]">
+							<fa-surface fa-background-color="view.bgColor">
+								{{view.bgColor}} - {{view.heigth}} px
+							</fa-surface>
+						</fa-modifier>
+					</fa-view>
+				</fa-sequential-layout>
 
 		</fa-app>
 
@@ -97,9 +78,32 @@
 			var app = angular.module('App', ['ui.router', 'famous.angular']);
 
 			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
-				$scope.title = "Famo.us Test 016";
-				$scope.snippet = "Famous/Angular header footer layout with header 0px https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
+				$scope.title = "Famo.us Test 019";
+				$scope.snippet = "Famous/Angular sequential layout http://deprecated.famous.org/docs/views/SequentialLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-sequential-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
+
+				$scope.sequentialOptions = {
+					direction: 1, // vertical = 1 (default), horizontal = 0
+				};
+				$scope.sequence = [
+					{
+						bgColor: "orange",
+						heigth: 60
+					},
+					{
+						bgColor: "red",
+						heigth: undefined // XXX don't work
+					},
+					{
+						bgColor: "green",
+						heigth: 100
+					},
+					{
+						bgColor: "yellow",
+						heigth: 60
+					}
+				];
 			}]);
+
 
 			// angular manual initialisation since we use a script loader
 			// cf. http://docs.angularjs.org/guide/bootstrap
