@@ -32,7 +32,7 @@ requirejs.config({
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
 			'ngload': 'bower_components/angularAMD/ngload',
-			// transparently replace undercore with lodash
+			// transparently replace underscore with lodash
 			'underscore' : 'lodash'
 		}
 	},
@@ -40,6 +40,11 @@ requirejs.config({
 	/////////////////////
 	// multi-files modules
 	packages: [
+		{
+			name : 'baobab',
+			location: 'bower_components/baobab',
+			main: 'index.js'
+		},
 		{
 			name : 'logator',
 			location: 'incubator/logator'

@@ -1,4 +1,13 @@
 
+Rx
+http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
+http://reactivex.io/intro.html
+https://github.com/Reactive-Extensions/RxJS
+https://facebook.github.io/immutable-js/
+
+
+TOBLOG dev fonts http://sourcefoundry.org/hack/
+TOBLOG AngularJS speed trick, updated http://www.alexkras.com/11-tips-to-improve-angularjs-performance/
 
 http://welchcanavan.com/styleguide-roundup/
 

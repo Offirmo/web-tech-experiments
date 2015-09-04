@@ -1,4 +1,9 @@
 
+hosting, free tier ? https://viaduct.io/pricing
+
+list http://www.sitepoint.com/5-easy-performance-tweaks-node-js-express/?utm_source=nodeweekly&utm_medium=email
+
+
 https://blog.risingstack.com/nodejs-production-environment-for-startups/
 http://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
 http://mziccard.me/2015/08/10/node-timsort-fast-sorting-nodejs/
