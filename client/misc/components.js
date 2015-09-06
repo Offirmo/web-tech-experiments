@@ -79,6 +79,7 @@ requirejs.config({
 		//'angular-strap-base'       : 'bower_components/angular-strap/dist/angular-strap',
 		'angular-ui-router'        : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
+		'angular-rx'               : 'bower_components/angular-rx/dist/rx.angular',
 		//'angularAMD'               : 'bower_components/angularAMD/angularAMD',
 		'backbone'                 : 'bower_components/backbone/backbone',
 		'backbone-associations'    : 'bower_components/backbone-associations/backbone-associations',

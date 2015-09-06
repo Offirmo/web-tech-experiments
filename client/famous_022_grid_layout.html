@@ -33,15 +33,19 @@
 		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
 		<p ng-bind="snippet">Angular test fallback snippet.</p>
 
-		<fa-app id="root" style="height: 500px" fa-perspective="500">
+		<fa-app id="root" style="height: 800px" fa-perspective="500">
 			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
 
-				<fa-surface fa-background-color="'lightgrey'">
+				<fa-surface fa-background-color="'lightgrey'" class="sizecheck">
 					fa-surface one, which should take all the space.
 				</fa-surface>
 
 				<fa-grid-layout fa-options="gridLayoutOptions">
-					<fa-surface ng-repeat="element in gridElements" fa-background-color="element.backgroundColor">{{element.index}}</fa-surface>
+					<fa-surface ng-repeat="element in gridElements"
+					            fa-size="[100, 100]"
+					            fa-background-color="element.backgroundColor">
+						{{element.index}}
+					</fa-surface>
 				</fa-grid-layout>
 
 		</fa-app>
@@ -72,18 +76,12 @@
 			var app = angular.module('App', ['ui.router', 'famous.angular']);
 
 			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
-				var Engine = $famous['famous/core/Engine'];
-				var EventHandler = $famous['famous/core/EventHandler'];
+				$scope.title = "Famo.us Test 022";
+				$scope.snippet = "Autosizing. Famous/Angular grid layout http://deprecated.famous.org/docs/views/GridLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-grid-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
 
-				$scope.title = "Famo.us Test 020";
-				$scope.snippet = "<strong>click the grid</strong> Famous/Angular grid layout http://deprecated.famous.org/docs/views/GridLayout https://github.com/Famous/famous-angular/blob/master/src/scripts/directives/fa-grid-layout.js https://github.com/thomasstreet/famous-angular-examples/tree/master/app/views";
+				$scope.gridLayoutOptions = {};
+				//$scope.gridElements = [];
 
-				$scope.gridLayoutOptions = {
-					dimensions: [2, 3]
-				};
-
-				$scope.enginePipe = new EventHandler();
-				Engine.pipe($scope.enginePipe);
 
 				$scope.gridElements = [
 					{backgroundColor: '#F00', index: 1},
@@ -100,17 +98,30 @@
 					{backgroundColor: '#F0F', index: 12}
 				];
 
-				$scope.enginePipe.on('click', function(){
-					$scope.changeDimensions();
-					$scope.gridElements.splice(0, 1);
+				// wait for link, lazy way ;)
+				setTimeout(function() {
+					var gridLayoutElement = $famous.find('fa-grid-layout')[0];
+					console.log(gridLayoutElement);
+					var gridLayoutNode = gridLayoutElement.renderNode;
+					var elem_size = gridLayoutNode.getSize();
+					console.log(elem_size);
 
-					if(!$scope.$$phase) $scope.$apply();
-				});
+					// doesn't work
+					//gridLayoutNode.sequenceFrom($scope.gridElements);
 
-				$scope.changeDimensions = function(){
-					console.log('changing dimensions');
-					$scope.gridLayoutOptions.dimensions[0]++;
-				}
+					// compute how much 100x100 we can fit
+					var ideal_col_count = Math.round(elem_size[0] / 100);
+					console.log(ideal_col_count);
+					var ideal_row_count = Math.ceil($scope.gridElements.length / ideal_col_count);
+					console.log(ideal_row_count);
+
+					$scope.gridLayoutOptions = {
+						dimensions: [ideal_col_count, ideal_row_count],
+						//gutterSize: [2, 2],
+					};
+					gridLayoutNode.setOptions($scope.gridLayoutOptions);
+
+				}, 700);
 
 			}]);
 
