@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind="title">Angular test fallback title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#root {
+		}
+	</style>
+
+	<script>
+		// ...
+	</script>
+</head>
+
+<body>
+
+<div id="content">
+	<div class="container">
+		<h2 id="header" ng-bind="title">Angular test fallback title</h2>
+		<p ng-bind="snippet">Angular test fallback snippet.</p>
+
+		<div id="root" fa-app style="height: 500px" fa-perspective="500">
+			<fa-modifier fa-opacity="0.5"> <!-- this modifier allows to spot surfaces that overlap -->
+
+				<fa-surface fa-background-color="'lightgrey'">
+					fa-surface one, which should take all the space.<br/>
+					<strong>Note that this surface interferes with the flipping !! (in Chrome at last)</strong>
+				</fa-surface>
+
+				<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]">
+					<fa-flipper>
+
+						<fa-modifier fa-size="[200, 200]">
+							<fa-surface fa-background-color="'yellow'" fa-click="flipIt()">
+								Click me to see me flip! <br/>
+								In 3D with a nice easing !
+							</fa-surface>
+						</fa-modifier>
+
+						<fa-modifier fa-size="[200, 200]">
+							<fa-surface fa-background-color="'red'" fa-click="flipIt()">Flip me again!</fa-surface>
+						</fa-modifier>
+
+					</fa-flipper>
+				</fa-modifier>
+
+			</fa-modifier>
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+<script>
+	window.main = function()
+	{
+		requirejs(
+		[
+			'lodash',
+			'rxjs',
+			'famous-global',
+			'angular',
+			'famous-angular',
+			'bootstrap'
+		],
+		function(_, rxjs, famous) {
+
+			function debug_observable(observable, name) {
+				observable.subscribe(
+					function (x) {
+						console.log('@' + name + ' - Next:', x);
+					},
+					function (err) {
+						console.log('@' + name + ' - Error:', err);
+					},
+					function () {
+						console.log('@' + name + ' - Completed.');
+					}
+				);
+			}
+
+			var app = angular.module('App', ['famous.angular']);
+
+			app.controller('AppCtrl', ['$q', '$scope', '$famous', function($q, $scope, $famous) {
+				$scope.title = "RxJS Test 002";
+				$scope.snippet = "Basic functions";
+
+				var of42_observable = Rx.Observable.of(42);
+				debug_observable(of42_observable, 'of42');
+
+				var clickObserver;
+
+				$scope.flipIt = function() {
+					$famous.find('fa-flipper')[0].flip({ curve : 'easeOutBounce', duration : 500});
+				};
+
+
+			}]);
+
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>

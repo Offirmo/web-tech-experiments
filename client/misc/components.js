@@ -121,6 +121,7 @@ requirejs.config({
 		'moment'                   : 'bower_components/momentjs/moment',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
+		'rxjs'                     : 'bower_components/rxjs/dist/rx.all',
 		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
 		'spin'                     : 'bower_components/spin.js/spin',
 		'store'                    : 'bower_components/store.js/store',
