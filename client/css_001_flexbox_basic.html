@@ -1,0 +1,118 @@
+<!doctype html>
+<!-- html_004 template -->
+<!-- js_005 template -->
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+
+	<title ng-bind="title">test fallback title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- favicons -->
+
+	<!-- style -->
+	<style>
+		/* ... */
+		.flex-container {
+			display: flex;
+		}
+
+		.flex-direction-column {
+			flex-direction: column;
+		}
+		.flex-direction-column-reverse {
+			flex-direction: column-reverse;
+		}
+	</style>
+
+	<!-- js -->
+	<script>
+		console.log("hello from header !");
+	</script>
+	<script data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
+</head>
+<body>
+
+
+<div id="content">
+	<div class="container">
+
+		<h1 id="header" ng-bind="title">test fallback title</h1>
+		<p ng-bind="snippet">test fallback snippet.</p>
+
+		<hr />
+
+		<div class="flex-container flex-direction-column">
+			<div ng-repeat="item in items">
+				{{item.label}}
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="flex-container flex-direction-column-reverse">
+			<div ng-repeat="item in items">
+				{{item.label}}
+			</div>
+		</div>
+
+		<hr />
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log("hello from body !");
+
+	window.main = function()
+	{
+		console.log("Starting main...");
+		requirejs(
+		[
+			'lodash',
+			'angular',
+			'bootstrap'
+		],
+		function(_) {
+			var app = angular.module('App', []);
+
+			app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+				$scope.title = "Css Test 001";
+				$scope.snippet = "Testing flexbox / flex layout.";
+
+				$scope.items = [
+					{
+						label: 'salade',
+						color: 'green,'
+					},
+					{
+						label: 'tomate',
+						color: 'red,'
+					},
+					{
+						label: 'oignon',
+						color: 'orange,'
+					},
+					{
+						label: 'eau fraiche',
+						color: 'deepblue,'
+					},
+				]
+			}]);
+
+			// angular manual initialisation since we use a script loader
+			// cf. http://docs.angularjs.org/guide/bootstrap
+			console.log("Bootstrapping angular...");
+			angular.element(document).ready(function() {
+				angular.bootstrap(document, ['App'], {strictDi: true});
+			});
+		});
+	};
+</script>
+
+</body>
+</html>
