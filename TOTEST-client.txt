@@ -2,6 +2,12 @@
 http://frontendhq.com/browser-support
 
 
+baobab
+http://www.christianalfoni.com/articles/2015_02_06_Plant-a-Baobab-tree-in-your-flux-application
+http://www.christianalfoni.com/articles/2015_04_26_Handling-complex-state-with-Baobab
+http://www.christianalfoni.com/articles/2015_03_01_True-isomorphic-apps-with-React-and-Baobab
+https://github.com/Yomguithereal/baobab
+
 
 https://aerotwist.com/blog/guitar-tuner/
 
