@@ -78,8 +78,6 @@ http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
 http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
 https://github.com/eloone/symbol-typer
-http://font-to-width.com/
-http://fittextjs.com/
 http://hammerjs.github.io/touch-emulator/
 https://github.com/revolunet/angular-carousel
 http://weblinc.github.io/jquery.smoothState.js/demos/typical/about.html

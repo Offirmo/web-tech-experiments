@@ -39,8 +39,6 @@ node --debug restlink_server.js
 node --debug server.js
 ```
 
-http://prose.io/
-
 ```bash
 npm install -g grunt-cli yo generator-famous
 npm install -g grunt-cli npm-check-updates selenium-standalone
@@ -52,4 +50,3 @@ TODO docs (wikis)
 - ui-router-extras
 - cheat sheet
 - famous
-- http://www.cadremploi.fr/editorial/actualites/actu-emploi/detail/article/avez-vous-la-personnalite-pour-faire-carriere.html
