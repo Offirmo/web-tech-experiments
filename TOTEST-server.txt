@@ -1,8 +1,11 @@
 
 hosting, free tier ? https://viaduct.io/pricing
 
+https://medium.com/all-about-feathersjs/using-feathersjs-as-an-open-source-alternative-to-firebase-b5d93c200cee
+
 list http://www.sitepoint.com/5-easy-performance-tweaks-node-js-express/
 
+http://httpbin.org/
 
 https://blog.risingstack.com/nodejs-production-environment-for-startups/
 http://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
