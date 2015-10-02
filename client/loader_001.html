@@ -33,50 +33,61 @@
 	<!-- style -->
 	<style>
 
-		/* Only for loading style.
-		* see index.css for definitive style.
+		/* Only for loading styles.
+		* see index.css for app style.
 		*/
 		body
 		{
-			/* needed for correct positionning */
-			position:absolute;
+			/* we're serving a fullscreen app.
+			 * Takes full screen, and scrolls, if any, will be internal.
+			 */
 			margin: 0;
 			padding: 0;
-
-			/* needed for container min-height */
+			position:absolute;
 			height: 100%;
 			width: 100%;
 		}
-		#splash {
-			background-color: #101112;
-			color: #7B7F88;
-			position:absolute;
 
-			/* */
+		/* shared loading styles */
+		.utility-screen {
+			position:absolute;
+			height: 100%;
+			width: 100%;
+
+			/* above other content */
+			z-index:100;
+
 			font-size: 20px; /* Yes I know what I do */
 			font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
-
-			/* vertical centering technique - parent
-			 * http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-			 */
-			height: 100%;
-			width: 100%;
-			-webkit-transform-style: preserve-3d;
-			-moz-transform-style: preserve-3d;
-			transform-style: preserve-3d;
-		}
-		#splash-content {
-			/* vertical centering technique - child
-			 */
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
+			text-rendering: optimizeLegibility;
 			text-align: center;
+
+			background-color: #292830;
+			color: #ffebbc;
 		}
-		#splash .logo {
+		/* mini css reset (for UI not to change when bootstrap loads) */
+		.utility-screen * {
+			box-sizing: border-box;
+			margin: 0px;
+			line-height: 1.42857;
+		}
+		.utility-screen progress {
+			display: inline-block;
+			vertical-align: baseline;
 		}
 
+		#loader {
+			z-index:101; /* above all at start */
+		}
 
+		#error-console {
+			z-index:101; /* above all at start */
+		}
+
+		#splash {
+			background-color: transparent;
+			color: #ffebbc;
+		}
 	</style>
 
 	<!-- js -->
@@ -103,18 +114,28 @@
 <div id="root" fa-app>
 	<div content-directive>
 
-		<!-- splash screen with loader, only displayed while angular isn't ready -->
-		<div id="splash">
-			<div id="splash-content">
-				<div class="logo">
-					Offirmo’s online adventures
-				</div>
-				<div id="loader">
-					<progress />
-				</div>
-				<div>
-					<span class="version">v0.0.11</span>
-				</div>
+		<!-- loader screen, displayed at start while js and rsrcs loading -->
+		<div class="utility-screen" id="loader">
+			<div style="width: 100%; position: absolute; bottom: 33%;">
+				<p style="font-size: 10px;">Offirmo’s</p>
+				<p style="font-size: 25px;">Online</p>
+				<p style="font-size: 30px;">Adventures</p>
+			</div>
+			<div style="width: 100%; position: absolute; top: 66%;">
+				<progress style="display: none;"/>
+			</div>
+		</div>
+
+		<!-- improved screen, displayed when a few rsrc have loaded  -->
+		<div class="utility-screen" id="splash">
+			<div style="width: 100%; position: absolute; top: 33%;">
+				<p style="font-size: 30px;">The Boring RPG</p>
+				<p style="font-size: 10px;font-style:italic;">reloaded</p>
+			</div>
+
+			<div style="width: 100%; position: absolute; bottom: 33%;">
+				<p>Updating...</p>
+				<progress style="xxdisplay: none;"/>
 			</div>
 		</div>
 
@@ -122,8 +143,45 @@
 </div>
 
 
+<script async data-main="misc/components.js" src="../bower_components/requirejs/require.js"></script>
 <script>
 	console.log('Hello world');
+
+	window.main = function() {
+		requirejs(['fooXXX'], function() {
+			// ...
+		});
+	};
+
+	var stage = 0;
+	// using portable element selectors
+	var loader = document.querySelector('#loader');
+	var splash = document.querySelector('#splash');
+	setTimeout(function() {
+		document.querySelector('#loader progress').style.display = 'inline-block';
+	}, 3000);
+	window.x = function () {
+		stage++;
+		console.log('X', stage);
+		switch (stage) {
+			case 1:
+				splash.style['z-index'] = 101;
+				loader.style['z-index'] = 100;
+				break;
+			case 2:
+				console.log('Loading bootstrap...');
+				requirejs(['bootstrap'], function() {
+					console.log('Loaded bootstrap.');
+				});
+				break
+			default:
+				console.log('no more stages.');
+				break;
+		}
+	};
+
+
+
 </script>
 
 
