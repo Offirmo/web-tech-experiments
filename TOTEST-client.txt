@@ -195,10 +195,6 @@ https://github.com/arvindr21/diskDB
 http://wamalaka.com/locallydb
 https://github.com/zendesk/cross-storage
 
---- baobab
-https://github.com/Yomguithereal/baobab
-http://christianalfoni.github.io/javascript/2015/02/06/plant-a-baobab-tree-in-your-flux-application.html
-
 
 -- methodologie
 BEM methodology http://bem.info/
