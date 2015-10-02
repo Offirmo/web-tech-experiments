@@ -1,6 +1,9 @@
 ’
 http://frontendhq.com/browser-support
 
+Design
+http://www.elezea.com/2015/09/how-to-display-threaded-discussions-on-the-web/
+
 
 baobab
 http://www.christianalfoni.com/articles/2015_02_06_Plant-a-Baobab-tree-in-your-flux-application
