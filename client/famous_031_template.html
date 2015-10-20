@@ -1,0 +1,35 @@
+<div>
+
+	<fa-modifier fa-size="size">
+
+		<fa-modifier fa-translate="[0,0,0]">
+			<fa-surface fa-background-color="['red', 'cyan'][depth()%2]">
+				fa-surface #{{depth()}} dir bg
+			</fa-surface>
+		</fa-modifier>
+
+		<fa-modifier fa-translate="[0,0,0.001]">
+
+			<fa-modifier fa-translate="[20,20,0]">
+
+				<fa-modifier fa-size="fgSize">
+					<fa-surface fa-background-color="['red', 'cyan'][(depth()+1)%2]">
+						fa-surface #{{depth()}} dir fg
+					</fa-surface>
+				</fa-modifier>
+
+			</fa-modifier>
+
+			<fa-modifier fa-translate="[20,140,0]">
+
+				<div ng-if="subDepth > 0">
+					<sub-ui-component size="subSize" depth="subDepth"></sub-ui-component>
+				</div>
+
+			</fa-modifier>
+
+		</fa-modifier>
+
+	</fa-modifier>
+
+</div>
