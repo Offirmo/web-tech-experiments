@@ -1,5 +1,15 @@
 
-hosting, free tier ? https://viaduct.io/pricing
+https://cloud.google.com/container-engine/
+
+http://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
+
+https://github.com/jwagner/smartcrop.js
+
+https://www.npmjs.com/package/dotenv
+
+https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=fr
+
+https://sheetsu.com/
 
 https://medium.com/all-about-feathersjs/using-feathersjs-as-an-open-source-alternative-to-firebase-b5d93c200cee
 
@@ -29,6 +39,7 @@ generators
 https://github.com/shes/comws
 
 https://51degrees.com/products/device-detection/cloud
+http://radek.io/2015/10/27/nodegit/ Manipulating git repositories with Node.js
 
 -- markdown
 http://mdast.js.org/

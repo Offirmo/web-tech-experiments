@@ -1,6 +1,13 @@
 ’
 http://frontendhq.com/browser-support
 
+http://sachinchoolur.github.io/ngclipboard/
+http://sharingbuttons.io/
+https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
+
+http://ponyfoo.com/articles/using-the-javascript-charting-library
+http://zenorocha.github.io/clipboard.js/
+
 Design
 http://www.elezea.com/2015/09/how-to-display-threaded-discussions-on-the-web/
 

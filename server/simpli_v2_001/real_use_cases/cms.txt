@@ -1,0 +1,39 @@
+cms -> "git@^1.8.2"
+cms -> "exiftool@9.53"
+cms -> "redis-server@^2"
+cms -> "postgresql-server@~9.3"
+cms -> "ruby@^1.9.3"
+cms -> "ruby gem compass"
+cms -> "node@0.10.40"
+cms -> "oss-server@1.5.4-SNAPSHOT-b629"
+
+"git@^1.8.2" -> "apt:git"
+
+"exiftool@9.53" -> "apt:build-essential"
+"exiftool@9.53" -> "apt:perl"
+"exiftool@9.53" -> "apt:wget"
+
+"redis-server@^2" -> "apt:redis-server"
+
+"postgresql-server@~9.3" -> "apt:postgresql"
+
+"ruby@^1.9.3" -> "apt:ruby"
+"ruby@^1.9.3" -> "apt:ruby-dev"
+
+"ruby-gem-compass"
+
+"node@0.10.40" -> "nvm@0.26.1"
+
+"oss-server@1.5.4-SNAPSHOT-b629" -> "oracle-jdk@~7"
+
+"nvm@0.26.1" -> "gcc@^4.2.0"
+"nvm@0.26.1" -> "make@^3.81.0"
+"nvm@0.26.1" -> "python@~2.6"
+"nvm@0.26.1" -> "curl"
+
+"oracle-jdk@~7" -> "apt:java"
+
+"gcc@^4.2.0" -> "apt:build-essential"
+"make@^3.81.0" -> "apt:build-essential"
+"python@~2.6" -> "apt:python"
+"curl" -> "apt:curl"

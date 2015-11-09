@@ -1,0 +1,3 @@
+[submodule "contrib/offirmo-shell-lib"]
+	path = contrib/offirmo-shell-lib
+	url = git@github.com:Offirmo/offirmo-shell-lib.git

@@ -1,0 +1,26 @@
+
+0.1.0 *API break*
+- changed "manual" to "unmanaged"
+- improved tests
+- added tests
+
+0.0.3 - 2015/07/03 *API break*
+- upgraded underlying OSL lib to fix a major bug
+- new namespacing of modules
+- new naming pattern of modules, depending on their manager (apt, etc.)
+- naming improvements : renamed all "sudo" to "root"
+- new scheme for loading apt sources : from a function
+- better debug messages
+- new extensible bashrc structure
+- better handling of lang var
+- added option to skip bootstrap (useless in dev) via a stamp
+- better env init files
+- new detection of incorrect sourcing of the lib
+
+0.0.2 - 2014/08/14 *API break*
+- changed naming convention, mass rename
+- new features
+- redesign some features
+
+0.0.1 - 2014/08/08
+- initial commit
