@@ -56,7 +56,7 @@ console.log('* env = ' + env);
 require('trace'); // activate long stack traces
 require('clarify'); // Exclude node internal calls from the stack traces
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 var listening_port = process.env.PORT || 4000;
 

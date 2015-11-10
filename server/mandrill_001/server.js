@@ -3,7 +3,7 @@
 
 console.log('Hello world !');
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 var nconf = require('nconf');
 var conf = new nconf.Provider();

@@ -5,7 +5,7 @@ TODO
 
 console.log('Hello world !');
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 var listening_port = process.env.PORT || 3000;
 

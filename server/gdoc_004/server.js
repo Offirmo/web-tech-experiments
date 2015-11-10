@@ -8,7 +8,7 @@ var WhenNodeFunctions = require('when/node/function');
 var WhenSequence = require('when/sequence');
 var WhenPipeline = require('when/pipeline');
 var WhenGuard = require('when/guard');
-var _ = require('underscore');
+var _ = require('lodash');
 
 ///////
 var config = new (require('nconf').Provider)();

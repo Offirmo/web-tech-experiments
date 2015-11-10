@@ -21,7 +21,7 @@
     "ii": "npm run devinstall"
   },
   "engines": {
-    "node": "^0.12"
+    "node": "^5"
   },
   "dependencies": {
   },

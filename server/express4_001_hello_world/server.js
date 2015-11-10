@@ -5,7 +5,7 @@
 
 console.log('Hello world !');
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 // http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
 // http://nodejs.org/api/os.html#os_os_networkinterfaces

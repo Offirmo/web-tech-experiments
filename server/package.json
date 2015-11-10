@@ -83,7 +83,6 @@
     "socket.io": "latest",
     "store": "latest",
     "trace": "latest",
-    "underscore": "latest",
     "usage": "latest",
     "when": "latest",
     "winston": "latest"

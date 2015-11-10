@@ -3,7 +3,7 @@
 
 console.log('Hello world !');
 
-var _ = require('underscore');
+var _ = require('lodash');
 var when = require('when');
 var when_node = require('when/node');
 var when_pipeline = require('when/pipeline');
