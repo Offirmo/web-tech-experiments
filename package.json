@@ -12,7 +12,7 @@
     "lint": "eslint .",
 
     "cleardeps": "rm -rf node_modules && rm -rf server/node_modules && rm -rf bower_components",
-    "install_globals": "npm install --global puer strongloop && npm update -g puer strongloop",
+    "install_globals": "npm install --global puer strongloop nodemon && npm update -g puer strongloop nodemon",
     "devinstall": "npm run install_globals && npm prune && npm install && npm update && npm run devbower && cd server && npm prune && npm install && npm update",
     "devbower": "bower prune && bower install && bower update",
 
