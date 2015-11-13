@@ -1,4 +1,7 @@
 
+Manipulating git repositories with Node.js
+http://radek.io/2015/10/27/nodegit/
+
 https://cloud.google.com/container-engine/
 
 http://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
