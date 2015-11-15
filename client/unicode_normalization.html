@@ -25,7 +25,7 @@
 	<!-- ... -->
 
 	<!-- style -->
-	<link href="../bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
+	<link href="../bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" />
 	<style>
 		/* http://docs.angularjs.org/api/ng.directive:ngCloak */
 		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -141,10 +141,10 @@
 		[
 			'unorm',
 			'angular',
-			'angular-bootstrap'
+			'bootstrap'
 		],
 		function(unorm) {
-			var app = angular.module('App', ['ui.bootstrap']);
+			var app = angular.module('App', []);
 
 			app.controller('LandingCtrl', ['$scope', '$document', function($scope, $document) {
 				$scope.title = 'Online Unicode Normalization';

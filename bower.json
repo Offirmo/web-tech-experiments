@@ -64,7 +64,7 @@
 		"store.js":                 "latest",
 		"ui-router-extras":         "latest",
 		"unorm":                    "latest",
-		"underscore":               "latest",
+		"underscore.string":        "latest",
 		"when":                     "latest"
 	},
 	"devDependencies": {

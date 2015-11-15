@@ -127,6 +127,7 @@ requirejs.config({
 		'spin'                     : 'bower_components/spin.js/spin',
 		'store'                    : 'bower_components/store.js/store',
 		'type-check'               : 'other_components/type-check/browser/type-check',
+		'underscore.string'        : 'bower_components/underscore.string/dist/underscore.string',
 		'unorm'                    : 'bower_components/unorm/lib/unorm',
 		//'underscore'  -> replaced by lodash, see "map" section above.
 	},

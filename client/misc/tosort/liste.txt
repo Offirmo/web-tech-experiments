@@ -8,10 +8,8 @@ accounting.js
 http://josscrowcroft.github.io/accounting.js
 
 
-backbone.js   
-underscore.js   
+backbone.js
 -----------------------------
-../contrib/backbone/underscore.js
 ../contrib/backbone/backbone.js
 
 

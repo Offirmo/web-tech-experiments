@@ -25,7 +25,7 @@
 	<!-- ... -->
 
 	<!-- style -->
-	<link href="../bower_components/pace/themes/pace-theme-flash.css" rel="stylesheet" />
+	<link href="../bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" />
 	<style>
 		/* http://docs.angularjs.org/api/ng.directive:ngCloak */
 		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -33,6 +33,9 @@
 		}
 		/* http://getbootstrap.com/components/#navbar-fixed-top */
 		body { padding-top: 70px; }
+		#source, #result {
+			font-family: "Consolas", "fixed";
+		}
 	</style>
 
 	<!-- Various shims for IE8. Don't care for speed, this is IE8 -->
@@ -76,10 +79,6 @@
 
 		<h1 id="header" ng-bind="title" ng-cloak>fallback title</h1>
 
-		<div ng-controller="AlertCtrl" ng-cloak>
-			<alert ng-repeat="alert in alerts" type="alert.type" close="close_alert($index)">{{alert.msg}}</alert>
-		</div>
-
 		<form role="form" name="unForm">
 
 			<div class="form-group"
@@ -90,12 +89,26 @@
 				</label>
 
 				<textarea id="source" class="form-control"
-				rows="5"
+				rows="20"
 				required
 				name="mediawikiCode"
 				ng-model="mediawikiCode"
 				ng-model-options="{ debounce: 200 }">
 				</textarea>
+
+			</div>
+
+			<div class="form-group">
+
+				<label class="control-label" for="language">
+					Language :
+				</label>
+
+				<input id="language" class="form-control"
+				          name="language"
+				          ng-model="language"
+				          ng-model-options="{ debounce: 200 }">
+				</input>
 
 			</div>
 
@@ -105,10 +118,9 @@
 
 		<textarea id="result" class="form-control"
 		readonly
-		rows="5"
+		rows="20"
 		ng-model="markdownCode"></textarea>
 
-		<p ng-cloak>Angular version : {{scoped_angular.version.full}}</p>
 	</div> <!-- /container -->
 </div> <!-- /content -->
 
@@ -125,36 +137,218 @@
 		console.log('Starting main...');
 		requirejs(
 		[
+			'lodash',
+			'underscore.string',
 			'unorm',
 			'angular',
-			'angular-bootstrap'
+			'bootstrap'
 		],
-		function(unorm) {
-			var app = angular.module('App', ['ui.bootstrap']);
+		function(_, _s, unorm) {
+			var app = angular.module('App', []);
+
+			var DRAFT_BACKUP_KEY = 'offirmo.html-tests.mediawiki-to-markdown.backup';
+			var LANGUAGE_KEY = 'offirmo.html-tests.mediawiki-to-markdown.language';
+
 
 			app.controller('LandingCtrl', ['$scope', '$document', function($scope, $document) {
 				$scope.title = 'conversion';
 
-				$scope.$watch('[mediawikiCode]', function() {
+				$scope.mediawikiCode = window.localStorage.getItem(DRAFT_BACKUP_KEY);
+				$scope.language = window.localStorage.getItem(LANGUAGE_KEY) || 'javascript';
+
+				$scope.$watch('[mediawikiCode, language]', function() {
+
+					if ($scope.language) {
+						window.localStorage.setItem(LANGUAGE_KEY, $scope.language);
+					}
+
+					if ($scope.mediawikiCode) {
+						window.localStorage.setItem(DRAFT_BACKUP_KEY, $scope.mediawikiCode);
+						$scope.markdownCode = mediawiki_to_markdown($scope.mediawikiCode);
+					}
+				});
 
 
-					$scope.markdownCode = ($scope.text || '').normalize($scope.normalizationMethod);
-				})
-			}]);
+				///////////////////////////////////////////////////////////////////////////////////////////////////////
+				function mediawiki_to_markdown(mwtext) {
+					var mdtext = mwtext || '';
 
-			// http://angular-ui.github.io/bootstrap/#/alert
-			app.controller('AlertCtrl', ['$scope', '$document', function($scope, $document) {
-				$scope.alerts = [
-					//{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
-				];
+					//mdtext = mdtext.normalize('NFKC');
 
-				$scope.add_alert = function(msg) {
-					$scope.alerts.push({'msg': msg});
-				};
+					var lines = mdtext.split('\n');
+					//console.log(lines);
 
-				$scope.close_alert = function(index) {
-					$scope.alerts.splice(index, 1);
-				};
+					lines = convert_code_blocks(lines);
+					lines = convert_inline_code(lines);
+					lines = convert_lists(lines);
+					lines = convert_sections(lines);
+					lines = space_sections(lines);
+					lines = convert_bold_and_italic(lines);
+					lines = convert_complex_links(lines);
+					lines = remove_useless(lines);
+					lines = convert_misc(lines);
+
+					lines = clean_md(lines);
+
+					mdtext = lines.join('\n');
+					return mdtext;
+				}
+
+				function convert_code_blocks(lines) {
+					var in_block = false;
+
+					var res = [];
+					var line_count = lines.length;
+					for(var i = 0; i < line_count; ++i) {
+						var line = lines[i];
+
+						if (in_block) {
+							if (line[0] === ' ')
+								res.push(line.slice(1));
+							else {
+								in_block = false;
+								res.push('```');
+								res.push(line);
+							}
+						}
+						else {
+							if (line[0] === ' ') {
+								if (_s.rtrim(line) === '') {
+									// skip
+									res.push('');
+								}
+								else {
+									in_block = true;
+									res.push('```' + $scope.language);
+									res.push(line.slice(1));
+								}
+							}
+							else
+								res.push(line);
+						}
+					}
+
+					return res;
+				}
+
+				function convert_inline_code(lines) {
+					return lines.map(function(line) {
+						line = line.replace('<code>', '`');
+						line = line.replace('</code>', '`');
+
+						return line;
+					});
+				}
+
+				function convert_lists(lines) {
+					var in_block = false;
+					return lines.map(function(line) {
+						if (line.slice(0, 3) === '```')
+							in_block = !in_block;
+
+						if (in_block) return line; // don't touch
+
+						if (line[line.length-1] === '=') return line; // avoid conflict
+
+						var count = 0;
+						var pref = '';
+						var last = '';
+						while(line[0] === '*' || line[0] === '#') {
+							count++;
+							last = (line[0] === '#' ? '1.' : '*');
+							line = line.slice(1);
+							if(count > 1)
+								pref = pref + '  ';
+						}
+
+						return pref + last + line;
+					});
+				}
+
+				function convert_sections(lines) {
+					return lines.map(function(line) {
+						var count = 0;
+						var pref = '';
+						while(line[0] === '=') {
+							count++;
+							line = line.slice(1);
+							pref = pref + '#';
+						}
+
+						while(line.slice(-1) === '=') {
+							line = line.slice(0, line.length -1);
+						}
+
+						return pref + line;
+					});
+				}
+
+				function space_sections(lines) {
+
+					var res = [];
+					var line_count = lines.length;
+					for(var i = 0; i < line_count; ++i) {
+						var prev_line = i ? lines[i-1] : '';
+						var line = lines[i];
+
+						if (line[0] === '#' && prev_line != '')
+							res.push('');
+
+						res.push(line);
+					}
+
+					return res;
+				}
+
+				function convert_bold_and_italic(lines) {
+					return lines.map(function(line) {
+						line = line.replace(/'''''/g, "***");
+						line = line.replace(/'''/g, "**", 'g');
+						line = line.replace(/''/g, "*", 'g');
+						return line;
+					});
+				}
+
+				function convert_complex_links(lines) {
+					return lines.map(function(line) {
+						line = line.replace(/\[\[(.*)\|(.*)\]\]/, '[[$2|$1]]');
+
+						return line;
+					});
+				}
+
+				function remove_useless(lines) {
+					return lines.map(function(line) {
+						line = line.replace('<nowiki>', '');
+						line = line.replace('</nowiki>', '');
+
+						return line;
+					});
+				}
+
+				function convert_misc(lines) {
+					return lines.map(function(line) {
+						line = line.replace('«', '<');
+						line = line.replace('»', '>');
+
+						line = line.replace('<strike>', '~~');
+						line = line.replace('</strike>', '~~');
+
+						line = line.replace('[[C++]]', '[[Cplusplus]]');
+
+						return line;
+					});
+				}
+
+				function clean_md(lines) {
+					return lines.map(function(line) {
+						line = _s.rtrim(line);
+
+						return line;
+					});
+				}
+				////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 			}]);
 
 			// angular manual initialisation since we use a script loader
