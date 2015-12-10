@@ -1,6 +1,8 @@
 ’
 http://frontendhq.com/browser-support
 
+https://github.com/GooTechnologies/goojs
+
 http://sachinchoolur.github.io/ngclipboard/
 http://sharingbuttons.io/
 https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
@@ -23,9 +25,6 @@ https://aerotwist.com/blog/guitar-tuner/
 
 http://mobilehtml5.org/
 http://blog.chromium.org/2015/04/reaching-and-re-engaging-users-on.html
-
-TODO
-- ...
 
 http://kerningjs.com/
 http://tholman.com/elevator.js/
@@ -111,13 +110,6 @@ http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
 https://github.com/systemjs/systemjs
 https://github.com/mightyiam/combokeys
-
--- Auth
-http://guardianjs.com/
-http://dailyjs.com/2014/11/14/grant/
-https://hacks.mozilla.org/2014/10/passwordless-authentication-secure-simple-and-fast-to-deploy/
-https://stormpath.com/blog/token-auth-spa/
-AUTH https://github.com/sahat/satellizer
 
 
 -- famo.us

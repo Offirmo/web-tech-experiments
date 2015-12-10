@@ -1,4 +1,7 @@
 
+siege http://www.joedog.org/siege-manual/
+https://coderwall.com/p/fjtqcq
+
 Manipulating git repositories with Node.js
 http://radek.io/2015/10/27/nodegit/
 
@@ -22,6 +25,7 @@ http://httpbin.org/
 
 https://blog.risingstack.com/nodejs-production-environment-for-startups/
 http://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
+https://blog.nraboy.com/2015/11/using-passportjs-in-your-node-js-couchbase-web-application/
 http://mziccard.me/2015/08/10/node-timsort-fast-sorting-nodejs/
 
 https://github.com/kabab/qr-cairo QR codes
@@ -43,9 +47,6 @@ https://github.com/shes/comws
 
 https://51degrees.com/products/device-detection/cloud
 http://radek.io/2015/10/27/nodegit/ Manipulating git repositories with Node.js
-
--- markdown
-http://mdast.js.org/
 
 -- ops
 https://deadmanssnitch.com/
@@ -195,3 +196,7 @@ https://github.com/mikaelbr/node-notifier
 
 erreurs
 https://github.com/fanatid/error-system
+
+
+-- terminal / command line
+http://developer.telerik.com/featured/creating-node-js-command-line-utilities-improve-workflow/

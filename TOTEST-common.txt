@@ -16,6 +16,7 @@ https://github.com/npm/marky-markdown
 https://www.npmjs.com/package/sanitize-html
 https://github.com/bevacqua/megamark
 https://fiddle.md
+http://mdast.js.org/
 
 https://github.com/yoshuawuyts/fsm-event
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
@@ -31,23 +32,6 @@ https://github.com/Muscula/json-schema-benchmark
 
 - fluent libs
 https://github.com/metaraine/shackles
-
-
--- useful SAAS
-http://ifconfig.me/
-http://whatismyip.akamai.com/
-http://www.jaimelesstartups.fr/lemon-way/
-https://rollbar.com/
-https://github.com/sindresorhus/is-up
-https://github.com/sindresorhus/public-ip
-http://pusher.com/
-https://www.olark.com
-http://playphrase.me
-http://orteil.dashnet.org/randomgen/?gen=corvophraser.txt
-http://context.io/how-it-works/connecting-mailboxes
-http://nativetap.io/
-http://shoutcloud.io/
-http://foaas.com/
 
 
 -- useful tools
