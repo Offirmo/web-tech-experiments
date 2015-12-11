@@ -1,6 +1,12 @@
 ’
 http://frontendhq.com/browser-support
 
+http://nathancahill.github.io/Split.js/
+http://thenewcode.com/279/Rotate-Elements-on-Scroll-with-JavaScript
+https://github.com/djyde/PureSlider
+http://fengyuanchen.github.io/cropperjs/
+https://github.com/kristw/d3kit-timeline
+
 https://github.com/GooTechnologies/goojs
 
 http://sachinchoolur.github.io/ngclipboard/

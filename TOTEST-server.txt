@@ -5,7 +5,10 @@ https://coderwall.com/p/fjtqcq
 Manipulating git repositories with Node.js
 http://radek.io/2015/10/27/nodegit/
 
+https://github.com/dylang/shortid
+https://github.com/dylang/node-rss
 https://cloud.google.com/container-engine/
+https://github.com/dylang/changelog
 
 http://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
 
@@ -200,3 +203,8 @@ https://github.com/fanatid/error-system
 
 -- terminal / command line
 http://developer.telerik.com/featured/creating-node-js-command-line-utilities-improve-workflow/
+https://github.com/dylang/grunt-attention
+https://github.com/dylang/observatory
+
+--- ORM
+http://www.craigkerstiens.com/2015/11/30/massive-node-postgres-an-overview-and-intro/
