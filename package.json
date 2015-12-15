@@ -19,7 +19,7 @@
     "ii": "npm run devinstall"
   },
   "engines": {
-    "node": "^5"
+    "node": "^4.2.3"
   },
   "dependencies": {
     "amdefine": "^1.0.0",
