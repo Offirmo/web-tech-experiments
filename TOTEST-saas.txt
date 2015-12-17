@@ -22,5 +22,5 @@ http://shoutcloud.io/
 http://foaas.com/
 https://www.imgix.com/
 
-
+http://placehold.it/
 http://playphrase.me
