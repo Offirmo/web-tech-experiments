@@ -26,7 +26,7 @@
     "assert-generator": "^0.1.0",
     "async": "^1.5.0",
     "backbone": "^1.2.3",
-    "body-parser": "^1.14.1",
+    "body-parser": "^1.14.2",
     "bytes": "^2.1.0",
     "chalk": "^1.1.0",
     "clarify": "^1.0.5",
