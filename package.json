@@ -90,7 +90,7 @@
   "devDependencies": {
     "bower": "^1.6.5",
     "chai": "^3.4.1",
-    "chai-as-promised": "^5.1.0",
+    "chai-as-promised": "^5.2.0",
     "chai-backbone": "^0.9.4",
     "chai-interface": "^2.0.2",
     "express-livereload": "^0.0.24",
