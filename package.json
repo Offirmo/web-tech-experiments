@@ -43,7 +43,7 @@
     "express": "^4.13.3",
     "express-debug": "^1.1.1",
     "express-slash": "^2.0.1",
-    "extract-zip": "^1.2.0",
+    "extract-zip": "^1.4.0",
     "fb": "^0.7.3",
     "finished": "^1.2.2",
     "forky": "^0.3.0",
