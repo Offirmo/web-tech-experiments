@@ -4,3 +4,4 @@
 # Declare files that will always have CRLF line endings on checkout.
 *.bat text eol=crlf
 *.graphml text eol=crlf
+browserconfig.xml text eol=crlf

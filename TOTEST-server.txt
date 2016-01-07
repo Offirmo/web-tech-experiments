@@ -4,6 +4,7 @@ https://coderwall.com/p/fjtqcq
 
 Manipulating git repositories with Node.js
 http://radek.io/2015/10/27/nodegit/
+https://github.com/creationix/js-git
 
 https://github.com/dylang/shortid
 https://github.com/dylang/node-rss
