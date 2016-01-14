@@ -46,7 +46,7 @@
     "express-debug": "^1.1.1",
     "express-slash": "^2.0.1",
     "extract-zip": "^1.4.1",
-    "fb": "^0.7.3",
+    "fb": "^1.0.1",
     "finished": "^1.2.2",
     "forky": "^0.3.0",
     "fs-extra": "^0.26.3",
