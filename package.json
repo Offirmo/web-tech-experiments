@@ -104,7 +104,7 @@
     "chai-interface": "^2.0.2",
     "express-livereload": "^0.0.24",
     "grunt": "^0.4.5",
-    "jspm": "^0.16.21",
+    "jspm": "^0.16.23",
     "mocha": "^2.3.3",
     "node-livereload": "napcs/node-livereload",
     "nodemon": "^1.8.1",
