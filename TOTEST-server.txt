@@ -11,6 +11,9 @@ https://github.com/dylang/node-rss
 https://cloud.google.com/container-engine/
 https://github.com/dylang/changelog
 
+parser HTML5
+https://github.com/inikulin/parse5?utm_source=nodeweekly&utm_medium=email
+
 http://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
 
 https://github.com/jwagner/smartcrop.js
