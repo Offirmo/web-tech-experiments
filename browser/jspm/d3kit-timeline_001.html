@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- html_004 template -->
+
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>d3kit-timeline 001</title>
+
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style>
+
+	</style>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">d3kit-timeline 001</h1>
+		<p>https://github.com/kristw/d3kit-timeline</p>
+		<div class="timeline" id="timeline"></div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	console.log('hello world !', System);
+	require( [ 'd3', 'd3kit-timeline', 'bootstrap', 'bootstrap/css/bootstrap.css!' ],
+	function(d3, d3Kit) {
+		console.log('loaded !');
+
+		var data = [
+			{time: new Date(1977, 4,25), episode: 4, name: 'A New Hope'},
+			{time: new Date(1980, 4,17), episode: 5, name: 'The Empire Strikes Back'},
+			{time: new Date(1984, 4,25), episode: 6, name: 'Return of the Jedi'},
+			{time: new Date(1999, 4,19), episode: 1, name: 'The Phantom Menace'},
+			{time: new Date(2002, 4,16), episode: 2, name: 'Attack of the Clones'},
+			{time: new Date(2005, 4,19), episode: 3, name: 'Revenge of the Sith'},
+			{time: new Date(2015,11,18), episode: 7, name: 'The Force Awakens'},
+		];
+
+		var chart = new d3Kit.Timeline('#timeline', {
+			direction: 'right',
+			initialWidth: 400,
+			initialHeight: 250,
+			textFn: function(d){
+				return d.time.getFullYear() + ' - ' + d.name;
+			}
+		});
+
+		chart.data(data);
+
+	});
+</script>
+
+</body>
+</html>
