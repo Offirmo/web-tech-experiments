@@ -46,7 +46,7 @@
     "express-debug": "^1.1.1",
     "express-slash": "^2.0.1",
     "extract-zip": "^1.4.1",
-    "fb": "^0.7.3",
+    "fb": "^1.0.1",
     "finished": "^1.2.2",
     "forky": "^0.3.0",
     "fs-extra": "^0.26.3",
@@ -54,22 +54,23 @@
     "good-console": "^5.2.0",
     "hapi": "^12.1.0",
     "he": "^0.5.0",
-    "humanize-duration": "3.4.0",
+    "humanize-duration": "3.5.0",
     "iconv-lite": "^0.4.13",
     "javascript-state-machine": "^2.3.5",
     "jschardet": "^1.4.1",
     "json-stringify-safe": "^5.0.1",
+    "jspm-bower-endpoint": "^0.3.2",
     "localStorage": "^1.0.3",
     "locale": "^0.0.20",
     "locus": "^1.2.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.0.0",
     "longjohn": "^0.2.9",
     "method-override": "^2.3.5",
     "moment": "^2.11.1",
     "moment-precise-range": "^0.1.1",
     "morgan": "^1.6.1",
     "nconf": "^0.8.2",
-    "nedb": "^1.5.1",
+    "nedb": "^1.6.0",
     "node-mandrill": "^1.0.1",
     "node-schedule": "^0.6.0",
     "object-path": "^0.9.2",
@@ -104,7 +105,7 @@
     "chai-interface": "^2.0.2",
     "express-livereload": "^0.0.24",
     "grunt": "^0.4.5",
-    "jspm": "^0.16.21",
+    "jspm": "^0.16.23",
     "mocha": "^2.3.3",
     "node-livereload": "napcs/node-livereload",
     "nodemon": "^1.8.1",
@@ -146,8 +147,16 @@
     "dependencies": {
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "css": "github:systemjs/plugin-css@^0.1.20",
-      "lodash": "npm:lodash@^3.10.1"
+      "cytoscape": "npm:cytoscape@^2.5.4",
+      "d3": "bower:d3@3.4.13",
+      "d3kit": "bower:d3kit@1.0.9",
+      "d3kit-timeline": "bower:d3kit-timeline@^0.4.0",
+      "json": "github:systemjs/plugin-json@^0.1.0",
+      "lodash": "npm:lodash@^3.10.1",
+      "text": "github:systemjs/plugin-text@^0.0.4"
     },
-    "devDependencies": {}
+    "devDependencies": {
+      "clean-css": "npm:clean-css@^3.4.9"
+    }
   }
 }
