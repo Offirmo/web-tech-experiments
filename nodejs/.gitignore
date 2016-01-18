@@ -1,5 +1,1 @@
-*.log
-
-node_modules/
-
 express_003_autogen/node_modules/

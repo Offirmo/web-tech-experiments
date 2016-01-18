@@ -7,6 +7,7 @@
   "license": "Unlicense",
   "scripts": {
     "puer": "puer --exclude 'bower_components|node_modules|jspm_packages'",
+    "npm-install-dev": "npm prune && npm install && npm update",
     "jspm-install": "jspm registry create bower jspm-bower-endpoint -y && jspm install -y",
     "jspm-install-dev": "jspm clean && jspm install && jspm update",
     "bower-install": "bower update --config.interactive=false",
@@ -15,7 +16,7 @@
     "lint": "eslint .",
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf jspm_packages",
     "install_globals": "npm install --global jspm puer nodemon && npm update --global jspm puer nodemon",
-    "devinstall": "npm run install_globals && npm prune && npm install && npm update && npm run bower-install-dev && npm run jspm-install-dev",
+    "devinstall": "npm run install_globals && npm run npm-install-dev && npm run bower-install-dev && npm run jspm-install-dev",
     "bb": "npm run bower-install-dev",
     "cc": "npm run cleardeps",
     "ii": "npm run devinstall"

@@ -10,6 +10,10 @@ live chat        ->  https://www.olark.com
 device testing   ->  http://nativetap.io/
 
 
+dependencies     ->  https://libraries.io/about
+
+
+
 http://ifconfig.me/
 http://whatismyip.akamai.com/
 https://rollbar.com/
@@ -24,3 +28,5 @@ https://www.imgix.com/
 
 http://placehold.it/
 http://playphrase.me
+
+
