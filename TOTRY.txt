@@ -48,3 +48,9 @@ Blanc sur noir
 Tab spaces
 
 Appli d'assistance à l'écriture de conventions de codage
+-> autogen de fichiers de conf pour des outils
+
+Appli de planification de voyages
+
+Appli de veille techno
+
