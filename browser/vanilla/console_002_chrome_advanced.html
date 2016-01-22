@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>JS Console 001</title>
+
+<h1 id="header">This is JavaScript</h1>
+<p>Activate the JS console and look at it.</p>
+<p>https://developers.google.com/web/tools/chrome-devtools/debug/console/console-reference?hl=en</p>
+https://konklone.com/post/how-to-hack-the-developer-console-to-be-needlessly-interactive
+
+
+<script>
+	var styles = {
+		spam: "color: #336699",
+		please: "color: #336699; font-weight: bold",
+		emoji: function(emoji) {
+			return "background-image: url(\"https://isitchristmas.com/emojis/" + emoji + ".png\"); background-size: cover";
+		}
+	};
+
+	console.log(
+		"%cPlease%c don't spam and ruin the chat! %c  %c %c  %c %c  ",
+		styles.please, styles.spam, styles.emoji("smiley"),
+		styles.spam, styles.emoji("heart"),
+		styles.spam, styles.emoji("christmas_tree")
+	);
+
+</script>
