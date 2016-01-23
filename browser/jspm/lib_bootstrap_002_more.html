@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>[lib] bootstrap test 002 - more</title>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">...</h1>
+		<p>More advanced bootstrap examples... <a>http://getbootstrap.com/components/</a></p>
+
+		<div class="alert alert-success" role="alert">alert-success</div>
+		<div class="alert alert-info" role="alert">alert-info</div>
+		<div class="alert alert-warning" role="alert">alert-warning</div>
+		<div class="alert alert-danger" role="alert">alert-danger</div>
+
+		<table class="table table-condensed table-striped">
+			<thead>
+				<th>x1</th><th>x2</th>
+			</thead>
+			<tr>
+				<td>foo</td><td>bar</td>
+			</tr>
+			<tr>
+				<td>bar</td><td>baz</td>
+			</tr>
+		</table>
+
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" style="width: 35%">
+				<span class="sr-only">35% Complete (success)</span>
+			</div>
+			<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 20%">
+				<span class="sr-only">20% Complete (warning)</span>
+			</div>
+		</div>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	require([ 'bootstrap', 'bootstrap/css/bootstrap.css!' ]);
+</script>

@@ -1,27 +1,43 @@
 ﻿<!DOCTYPE html>
 
-<meta charset="utf-8">
-<title>JS Console 001</title>
 
-<h1 id="header">This is JavaScript</h1>
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<title>JS Console 001</title>
+</head>
+
+<h1>...</h1>
 <p>Activate the JS console and look at it.</p>
 <p>https://developers.google.com/web/tools/chrome-devtools/debug/console/console-reference?hl=en</p>
 
-
 <script>
-	console.log("hello world");
+	document.querySelector('h1').textContent = document.title;
+
+	console.log('hello world');
+
 	var bar = {name: 'kitten', status: 'playful'};
-	console.log(2,4,6,8,"foo",bar);
-	console.log("%s is %d years old.", "Bob", 42);
-	console.group("console levels tests");
-	console.log(  "console.log");
-	console.debug("console.debug");
-	console.info( "console.info");
-	console.warn( "console.warn");
-	console.error("console.error");
+	console.log(2,4,6,8,'foo',bar);
+	console.log('%s is %d years old.', 'Bob', 42);
+
+	console.group('console levels tests');
+		console.log(  'console.log');
+		console.debug('console.debug');
+		console.info( 'console.info');
+		console.warn( 'console.warn');
+		console.error('console.error');
 	console.groupEnd();
+
 	console.trace();
 	console.dir(bar);
+
 	document.body.appendChild(document.createTextNode('Hello World from JS !'));
 
 	var h1 = document.getElementById('header'); // holds a reference to the <h1> tag
@@ -29,5 +45,3 @@
 
 	console.assert(false);
 </script>
-
-<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>

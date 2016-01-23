@@ -40,6 +40,12 @@
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 <script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+
 	console.log('hello world !', System);
 	require( [ 'd3', 'd3kit-timeline', 'bootstrap', 'bootstrap/css/bootstrap.css!' ],
 	function(d3, d3Kit) {
