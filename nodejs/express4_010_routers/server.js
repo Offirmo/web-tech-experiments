@@ -17,7 +17,7 @@ var LISTENING_PORT = 3000;
 var local_ips = _.chain(require('os').networkInterfaces())
 	.values()
 	.flatten()
-	.pluck('address')
+	.map('address')
 	.value();
 
 
@@ -25,6 +25,7 @@ var local_ips = _.chain(require('os').networkInterfaces())
 /////////////////////////////////////////////
 
 var sub_router = require('./sub-router');
+var meta_router = require('../--mini_incubator/meta-routes');
 var sub_app = require('./sub-app');
 
 
@@ -37,6 +38,7 @@ app.get('/', function(req, res) {
 });
 
 app.use('/router', sub_router);
+app.use('/meta', meta_router);
 app.use('/app', sub_app);
 
 /////////////////////////////////////////////

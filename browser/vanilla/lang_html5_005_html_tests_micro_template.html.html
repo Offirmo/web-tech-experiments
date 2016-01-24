@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>HTML5 005 - HTML tests micro template</title>
 	<style type="text/css">
 		body {
 			margin: 40px;
@@ -11,7 +12,6 @@
 			color: #333;
 		}
 	</style>
-	<title>HTML5 005 - HTML tests micro template</title>
 </head>
 
 <h1>...</h1>
@@ -21,4 +21,7 @@
 
 <script>
 	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
 </script>
