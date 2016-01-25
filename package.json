@@ -16,7 +16,7 @@
     "xxpostinstall": "npm run bower-install && npm run jspm-install",
     "lint": "eslint .",
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf jspm_packages",
-    "install-dev": "npm run install_globals && npm run npm-install-dev && npm run bower-install-dev && npm run jspm-install-dev",
+    "install-dev": "npm run npm-install-globals && npm run npm-install-dev && npm run bower-install-dev && npm run jspm-install-dev",
     "cc": "npm run cleardeps",
     "ii": "npm run install-dev"
   },
