@@ -52,7 +52,7 @@
     "forky": "^0.3.0",
     "fs-extra": "^0.26.3",
     "good": "^6.4.0",
-    "good-console": "^5.2.0",
+    "good-console": "^5.3.0",
     "hapi": "^12.1.0",
     "he": "^0.5.0",
     "humanize-duration": "3.5.0",
