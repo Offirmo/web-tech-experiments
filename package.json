@@ -64,7 +64,7 @@
     "localStorage": "^1.0.3",
     "locale": "^0.0.20",
     "locus": "^1.2.0",
-    "lodash": "^4.0.0",
+    "lodash": "^4.0.1",
     "longjohn": "^0.2.9",
     "method-override": "^2.3.5",
     "moment": "^2.11.1",
