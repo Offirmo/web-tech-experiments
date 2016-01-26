@@ -23,6 +23,7 @@ var local_ips = _.chain(require('os').networkInterfaces())
 
 /////////////////////////////////////////////
 
+var passport_router = require('./passport-router');
 var sub_router = require('./sub-router');
 var meta_router = require('../--mini_incubator/meta-routes');
 
@@ -31,7 +32,7 @@ var meta_router = require('../--mini_incubator/meta-routes');
 
 var app = express();
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
 	res.send(`
 <!DOCTYPE html>
 <head>
@@ -57,6 +58,7 @@ app.get('/', function(req, res) {
 	`);
 });
 
+app.use('/', passport_router);
 app.use('/router', sub_router);
 app.use('/meta', meta_router);
 
@@ -66,7 +68,7 @@ app.listen(LISTENING_PORT);
 
 /////////////////////////////////////////////
 
-_.forEach(local_ips, function(ip) {
+_.forEach(local_ips, (ip) => {
 	console.log('Listening on http://' + ip + ':' + LISTENING_PORT);
 });
 console.log('(Ctrl+C to stop)');

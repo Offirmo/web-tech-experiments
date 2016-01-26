@@ -34,6 +34,7 @@
     "clarify": "^1.0.5",
     "colors": "^1.1.2",
     "compression": "^1.6.1",
+    "connect-flash": "^0.1.1",
     "connect-no-www": "^0.1.2",
     "consolidate": "^0.13.1",
     "cookie-parser": "^1.4.1",
