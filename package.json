@@ -43,7 +43,7 @@
     "dustjs-linkedin": "^2.7.2",
     "edit-google-spreadsheet": "^0.2.20",
     "errorhandler": "^1.4.3",
-    "express": "^4.13.3",
+    "express": "^4.13.4",
     "express-debug": "^1.1.1",
     "express-slash": "^2.0.1",
     "extract-zip": "^1.4.1",
