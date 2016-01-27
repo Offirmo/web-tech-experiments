@@ -100,7 +100,7 @@
     "winston": "^2.1.0"
   },
   "devDependencies": {
-    "bower": "^1.7.3",
+    "bower": "^1.7.6",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.2.0",
     "chai-backbone": "^0.9.4",
