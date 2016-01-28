@@ -108,7 +108,7 @@
     "express-livereload": "^0.0.24",
     "grunt": "^0.4.5",
     "jspm": "^0.16.25",
-    "mocha": "^2.4.3",
+    "mocha": "^2.4.5",
     "node-livereload": "napcs/node-livereload",
     "nodemon": "^1.8.1",
     "pre-commit": "^1.1.2",
