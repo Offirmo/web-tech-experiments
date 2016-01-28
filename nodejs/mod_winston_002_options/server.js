@@ -28,3 +28,5 @@ winston.verbose('Log at verbose level');
 winston.info('Log at info level');
 winston.warn('Log at warn level');
 winston.error('Log at error level');
+
+winston.log('Log at ? level'); // ?
