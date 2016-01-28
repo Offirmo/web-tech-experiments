@@ -5,11 +5,13 @@ var PassportLocalStrategy = require('passport-local').Strategy;
 
 /////////////////////////////////////////////
 
-var local_strategy = module.exports = new PassportLocalStrategy({
+var local_strategy = module.exports = new PassportLocalStrategy(
+	{
 		usernameField: 'email',
-		//passwordField: 'passwd'
+		//passwordField: 'password'
 	},
-	authentify);
+	verify
+);
 
 /////////////////////////////////////////////
 
@@ -22,7 +24,8 @@ const DB = {
 	}]
 };
 
-function authentify(email, password, done) {
+function verify(email, password, done) {
+	console.log('local_strategy verify', email, password);
 	var user = _.find(DB.users, { // XXX example, of course !!!
 		email: email,
 		password: password
@@ -31,5 +34,3 @@ function authentify(email, password, done) {
 
 	return done(null, user);
 }
-
-var local_strategy = new PassportLocalStrategy(authentify);

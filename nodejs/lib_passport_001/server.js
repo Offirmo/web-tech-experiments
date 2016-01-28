@@ -8,6 +8,7 @@ console.log('Hello world !');
 
 var _ = require('lodash');
 var express = require('express');
+var passport = require('passport');
 
 
 var LISTENING_PORT = 3000;
@@ -31,6 +32,26 @@ var meta_router = require('../--mini_incubator/meta-routes');
 /////////////////////////////////////////////
 
 var app = express();
+
+
+app.use(require('body-parser').urlencoded({ extended: true }) ); //< needed for passport to work !
+app.use(require('cookie-parser')());
+//app.use(express.session({ secret: 'keyboard cat' }));
+app.use(passport.initialize());
+
+/* TODO
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+	done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+	User.findById(id, function(err, user) {
+		done(err, user);
+	});
+});
+*/
 
 app.get('/', (req, res) => {
 	res.send(`
