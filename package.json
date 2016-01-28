@@ -101,7 +101,7 @@
   },
   "devDependencies": {
     "bower": "^1.7.7",
-    "chai": "^3.4.1",
+    "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
     "chai-backbone": "^0.9.4",
     "chai-interface": "^2.0.2",
