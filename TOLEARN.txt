@@ -1,0 +1,27 @@
+- [x] Jekyll
+- [ ] Jekyll theming
+- [ ] Jekyll i18n
+- [ ] JSDoc http://usejsdoc.org/
+- [ ] Cordova
+- [ ] OAuth2 http://passportjs.org/docs
+- [ ] GitHub login
+- [ ] https
+  * https://letsencrypt.org/
+  * https://community.letsencrypt.org/t/node-js-configuration/5175
+- [ ] notifications
+- [ ] ServiceWorker
+  * https://serviceworke.rs
+- [ ] Stormpath
+- [ ] GraphQL
+- [ ] Hosting gratuit
+- [ ] full text search
+- [ ] tokens
+- [ ] webpack
+- [ ] animation API
+- [ ] geolocalisation API
+- [ ] geolocalisation DB
+- [ ] google spreadsheet
+- [ ] connect-flash https://github.com/jaredhanson/connect-flash
+- [ ] RabbitMQ
+- [ ] Twitter bot https://medium.com/@DebashisBarman/creating-a-twitter-bot-with-node-js-bea760b80bd5
+- [ ]

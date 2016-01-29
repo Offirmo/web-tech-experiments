@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- html_004 template -->
+
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>jspm 001</title>
+
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style>
+
+	</style>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">...</h1>
+		<p>1st try of webpack <a>https://webpack.github.io/docs/</a></p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	require( [ 'lodash', 'bootstrap', 'bootstrap/css/bootstrap.css!' ],
+	function(_) {
+		console.log('loaded !');
+		_.map(['hello', 'world'], function(msg) {
+			console.log(msg);
+		});
+	});
+</script>
+
+</body>
+</html>
