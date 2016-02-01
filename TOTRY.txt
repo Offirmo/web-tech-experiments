@@ -3,28 +3,6 @@ Idées
 
 Wrapper de console pour trouver qui émet ce warning
 
-Fuite de ressource :
-Timers
-Events
-$destroy
-
-
-Wrapper de callbacks pour check :
-Appelle (timeout)
-Une seule fois
-Pas err +res
-Try catch
-Err bon type
-Always async
-
-Utilisation mémoire périodique
-
-Plugin Babel ?
-
-
-
-
-Pokemon logo-tan
 
 Appli de veille
 Meilleurs tutos

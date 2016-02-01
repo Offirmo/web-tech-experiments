@@ -1,8 +1,34 @@
+- [x] HTML
+- [x] CSS
+- [x] ECMA5
+- [x] Bootstrap
+- [x] AngularJS
+- [x] eslint
+- [x] nodejs
+- [x] npm
+- [x] bower
+- [x] lodash
+- [x] async
+- [x] https://github.com/kristw/d3kit-timeline
 - [x] Jekyll
+- [x] famo.us
+- [x] appcache
+- [x] requirejs
+- [x] JSON-schema
+- [ ] JSON-schema with links
+- [ ] JSON-schema with complex validation
+- [x] Winston
+- [ ] BEM
 - [ ] Jekyll theming
 - [ ] Jekyll i18n
+- [ ] https://github.com/handsontable/handsontable
+- [ ] Angular Material https://material.angularjs.org/latest/getting-started
 - [ ] JSDoc http://usejsdoc.org/
 - [ ] Cordova
+- [ ] https://microsoft.github.io/code-push/
+- [ ] ionic
+- [ ] React
+- [ ] node on Windows http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
 - [ ] OAuth2 http://passportjs.org/docs
 - [ ] GitHub login
 - [ ] https

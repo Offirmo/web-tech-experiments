@@ -5,26 +5,18 @@ http://nathancahill.github.io/Split.js/
 http://thenewcode.com/279/Rotate-Elements-on-Scroll-with-JavaScript
 https://github.com/djyde/PureSlider
 http://fengyuanchen.github.io/cropperjs/
-https://github.com/kristw/d3kit-timeline
 
 https://github.com/GooTechnologies/goojs
 
+http://zenorocha.github.io/clipboard.js/
 http://sachinchoolur.github.io/ngclipboard/
 http://sharingbuttons.io/
 https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
 
 http://ponyfoo.com/articles/using-the-javascript-charting-library
-http://zenorocha.github.io/clipboard.js/
 
 Design
 http://www.elezea.com/2015/09/how-to-display-threaded-discussions-on-the-web/
-
-
-baobab
-http://www.christianalfoni.com/articles/2015_02_06_Plant-a-Baobab-tree-in-your-flux-application
-http://www.christianalfoni.com/articles/2015_04_26_Handling-complex-state-with-Baobab
-http://www.christianalfoni.com/articles/2015_03_01_True-isomorphic-apps-with-React-and-Baobab
-https://github.com/Yomguithereal/baobab
 
 
 https://aerotwist.com/blog/guitar-tuner/
@@ -58,13 +50,12 @@ JSS = JSON CSS https://medium.com/@oleg008/the-important-parts-131dda7f6f6f
 
 http://kumailht.com/gridforms/
 http://tympanus.net/Development/TextInputEffects/
-https://github.com/knsv/mermaid
+https://github.com/knsv/mermaid graphs
 
 http://www.angulargrid.com/example.html
 
 http://mango.github.io/slideout/
 
-https://github.com/voronianski/flux-comparison
 https://github.com/spite/THREE.AugmentedConsole.js/blob/master/src/THREE.AugmentedConsole.js
 http://pathgather.github.io/please-wait/
 http://mrzepinski.github.io/angular-debug-bar/
@@ -208,7 +199,6 @@ http://learnsemantic.com/
 
 -- content
 embeds http://oembed.com/
-tables https://github.com/handsontable/handsontable
 bandeau qui disparaît https://github.com/antris/sneakpeek
 --- cartes
 http://developers.route360.net/
@@ -222,5 +212,3 @@ paralaxe mobile http://vodkabears.github.io/interdimensional/
 mappemonde 3D http://echarts.baidu.com/x/doc/example.html#map3d
 typographie bien contrôlée ! http://txtjs.com/
 effet de frappe https://github.com/positionly/Typist
-
-
