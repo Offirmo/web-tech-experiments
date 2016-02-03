@@ -66,6 +66,7 @@
     "locus": "^1.2.0",
     "lodash": "^4.1.0",
     "longjohn": "^0.2.9",
+    "lunr": "0.6.0",
     "method-override": "^2.3.5",
     "moment": "^2.11.1",
     "moment-precise-range": "^0.1.1",
