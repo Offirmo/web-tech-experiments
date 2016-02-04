@@ -68,7 +68,7 @@
     "unorm": "latest",
     "underscore.string": "latest",
     "when": "latest",
-    "superagent": "~1.6.1"
+    "superagent": "latest"
   },
   "devDependencies": {
     "chai-as-promised": "latest",
@@ -95,12 +95,11 @@
     "fullpage.js": "latest",
     "jquery.ui": "latest",
     "type-check": "latest",
-    "koa": "latest"
   },
   "to_test": {
     "zepto": "latest"
   },
   "resolutions": {
-    "angular": "^1.3.0"
+    "angular": "^1.4.0"
   }
 }
