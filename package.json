@@ -74,7 +74,7 @@
     "nconf": "^0.8.4",
     "nedb": "^1.7.2",
     "node-mandrill": "^1.0.1",
-    "node-schedule": "^0.6.0",
+    "node-schedule": "^1.0.0",
     "object-path": "^0.9.2",
     "okay": "^1.0.0",
     "passport": "^0.3.2",
