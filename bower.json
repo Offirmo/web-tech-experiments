@@ -94,7 +94,7 @@
     "chai-interface": "latest",
     "fullpage.js": "latest",
     "jquery.ui": "latest",
-    "type-check": "latest",
+    "type-check": "latest"
   },
   "to_test": {
     "zepto": "latest"
