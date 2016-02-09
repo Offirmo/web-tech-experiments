@@ -11,7 +11,7 @@ fetch(URL).then(response => {
 	let tbody = document.querySelector('tbody');
 
 	_.forEach(posts, function (post) {
-		var el = document.createElement('tr');
+		let el = document.createElement('tr');
 		el.innerHTML = `
 		<td>${post.id}</td>
 		<td>${post.userId}</td>
