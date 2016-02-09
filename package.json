@@ -52,7 +52,7 @@
     "forky": "^0.3.0",
     "fs-extra": "^0.26.5",
     "good": "^6.5.0",
-    "good-console": "^5.3.0",
+    "good-console": "^5.3.1",
     "hapi": "^13.0.0",
     "he": "^0.5.0",
     "humanize-duration": "3.5.0",
@@ -64,7 +64,7 @@
     "localStorage": "^1.0.3",
     "locale": "^0.0.20",
     "locus": "^1.2.0",
-    "lodash": "^4.2.1",
+    "lodash": "^4.3.0",
     "longjohn": "^0.2.9",
     "lunr": "0.6.0",
     "method-override": "^2.3.5",
@@ -94,6 +94,7 @@
     "trace": "^2.2.1",
     "usage": "^0.7.1",
     "when": "^3.7.7",
+    "wikidata-sdk": "2.2.1",
     "winston": "^2.1.0"
   },
   "devDependencies": {
