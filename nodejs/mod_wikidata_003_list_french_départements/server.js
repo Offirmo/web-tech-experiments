@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony_destructuring
 'use strict';
 
 console.log('Hello world !');
@@ -36,6 +36,8 @@ const Item = {
 	first_level_administrative_country_subdivision: 'Q10864048', // https://www.wikidata.org/wiki/Q10864048
 };
 
+const WDQ_endpoint = 'https://wdq.wmflabs.org/api/';
+const Wikidata_endpoint = 'http://www.wikidata.org/wiki/Special:EntityData/';
 
 // http://wdq.wmflabs.org/wdq/
 
@@ -57,7 +59,24 @@ const Item = {
 
 // items[ITEM,...]  A static list of ITEMs
 
-CLAIM[31:6465] AND NOCLAIM[576]
+// CLAIM[31:6465] AND NOCLAIM[576]
 
 
-https://gist.github.com/kimmobrunfeldt/ca53975d4ae9a7851fa9
+// https://gist.github.com/kimmobrunfeldt/ca53975d4ae9a7851fa9
+
+// http://stackoverflow.com/a/3608791/587407
+
+let query = 'CLAIM[31:6465] AND NOCLAIM[576]';
+let url = WDQ_endpoint + '?q=' + encodeURIComponent(query);
+
+console.log('* query : ' + query);
+console.log('* query URL : ' + url);
+
+console.log('* fetching…');
+fetch(url)
+.then(res  => res.json())
+.then(data => {
+	let {status, items} = data;
+	console.log('* status ', status);
+	console.log(items);
+});
