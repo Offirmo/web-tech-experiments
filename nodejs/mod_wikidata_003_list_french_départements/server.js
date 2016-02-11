@@ -10,6 +10,8 @@ const wdk = require('wikidata-sdk');
 
 const fetch = require('node-fetch');
 
+// https://fr.wikipedia.org/wiki/Liste_des_d%C3%A9partements_fran%C3%A7ais
+
 // Good département : https://www.wikidata.org/wiki/Q12584
 // Bad département :
 // https://www.wikidata.org/wiki/Wikidata:List_of_properties/Geographical_feature#Administrative_territorial_entity
