@@ -34,14 +34,3 @@ fetch(url)
 });
 
 
-
-/*
-const Property_instance_of = 'P31'; // https://www.wikidata.org/wiki/Property:P31
-
-
-var ids = 'Q571'; // could also be several ids as an array: ['Q1', 'Q5', 'Q571']
-var languages = ['en', 'fr']; // returns all languages if not specified
-var properties = undefined; // ['info', 'claims']; // returns all data if not specified
-
-var url = wdk.getEntities(ids, languages, properties);
-*/

@@ -41,34 +41,9 @@ const Item = {
 const WDQ_endpoint = 'https://wdq.wmflabs.org/api/';
 const Wikidata_endpoint = 'http://www.wikidata.org/wiki/Special:EntityData/';
 
-// http://wdq.wmflabs.org/wdq/
-
-// CLAIM[31:6465]  P31 + Q6465 = instance_of department_of_France
-// + NOT dissolved_or_abolished
-
-
-// claim[PROPERTY:ITEM,...]
-// claim[138:676555] returns all items that are named after (P138) Francis of Assisi (Q676555).
-// claim[31:(tree[12280][][279])] gives a list of all instances (P31) of subclasses (P279) of bridges Q12280.
-
-// noclaim[PROPERTY:ITEM,...]
-// claim[138:676555] AND noclaim[31:515] returns all items that are named after (P138) Francis of Assisi (Q676555) and are not an instance of (P31) city (Q515).
-
-// tree[ITEM,...][PROPERTY,...][PROPERTY,...]
-//
-
-// claim[106:82955] AND claim[509:12152]  List of politicians who died of a heart attack
-
-// items[ITEM,...]  A static list of ITEMs
-
-// CLAIM[31:6465] AND NOCLAIM[576]
-
-
-// https://gist.github.com/kimmobrunfeldt/ca53975d4ae9a7851fa9
+let query = 'CLAIM[31:6465] AND NOCLAIM[576]';
 
 // http://stackoverflow.com/a/3608791/587407
-
-let query = 'CLAIM[31:6465] AND NOCLAIM[576]';
 let url = WDQ_endpoint + '?q=' + encodeURIComponent(query);
 
 console.log('* query : ' + query);
@@ -77,8 +52,13 @@ console.log('* query URL : ' + url);
 console.log('* fetching…');
 fetch(url)
 .then(res  => res.json())
-.then(data => {
+.then((data) => {
 	let {status, items} = data;
+	if(status.error) throw new Error(status.error);
+
 	console.log('* status ', status);
 	console.log(items);
+})
+.catch((err) => {
+	console.error('ERR', err);
 });

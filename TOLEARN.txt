@@ -50,4 +50,9 @@
 - [ ] connect-flash https://github.com/jaredhanson/connect-flash
 - [ ] RabbitMQ
 - [ ] Twitter bot https://medium.com/@DebashisBarman/creating-a-twitter-bot-with-node-js-bea760b80bd5
-- [ ]
+- [x] Wikidata ~2016/02/03
+- [x] Wikidata Magnus Manke's WQD 2016/02/07
+- [ ] http://security.stackexchange.com/questions/113416/how-does-reverse-shell-behave
+- [ ] SPARQL
+- [ ] RDF
+- [x] HTML API fetch
