@@ -10,6 +10,8 @@ const wdk = require('wikidata-sdk');
 
 const fetch = require('node-fetch');
 
+const _ = require('lodash');
+
 // https://fr.wikipedia.org/wiki/Liste_des_d%C3%A9partements_fran%C3%A7ais
 
 // Good département : https://www.wikidata.org/wiki/Q12584
@@ -36,6 +38,7 @@ console.log('* query : ' + query);
 console.log('* query URL : ' + url);
 
 console.log('* fetching…');
+
 fetch(url)
 .then(res  => res.json())
 .then((data) => {
