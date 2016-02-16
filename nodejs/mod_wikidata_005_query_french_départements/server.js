@@ -14,16 +14,7 @@ const wdk = require('wikidata-sdk');
 
 const Wikidata = require('../mod_wikidata_common');
 
-// https://fr.wikipedia.org/wiki/Liste_des_d%C3%A9partements_fran%C3%A7ais
-
-// Good département : https://www.wikidata.org/wiki/Q12584
-// Bad département :
-// https://www.wikidata.org/wiki/Wikidata:List_of_properties/Geographical_feature#Administrative_territorial_entity
-
 ////////////////////////////////////////////////////////////
-
-const WDQS_endpoint = 'https://query.wikidata.org/sparql';
-const Wikidata_endpoint = 'http://www.wikidata.org/wiki/Special:EntityData/';
 
 let query = `prefix wdt: <http://www.wikidata.org/prop/direct/>
 prefix wd: <http://www.wikidata.org/entity/>
@@ -154,21 +145,54 @@ Promise.resolve([ { item: { type: 'uri', value: 'http://www.wikidata.org/entity/
 	{ item:
 	{ type: 'uri',
 		value: 'http://www.wikidata.org/entity/Q3708621' } } ])
-.then(bindings => {
+.then((bindings) => {
+
 	var entity_ids = _(bindings)
 		.map('item.value')
 		.map(uri => uri.slice(uri.lastIndexOf('/') + 1))
 		.value();
 
-	console.log(entity_ids);
+	//console.log(entity_ids);
 
 	return fetchEntities({
 		ids: entity_ids,
 		languages: ['fr']
 	});
 })
-.then(function(json) {
-	console.log(json);
+.then(function(data) {
+	//console.log('final data', data);
+	var entities = data.entities;
+	//console.log(entities);
+	function comparator(entity) {
+		const P300_claim = entity.claims.P300;
+		//console.log(P300_claim);
+		if (P300_claim) {
+			if(P300_claim.length != 1)
+				console.log('strange', P300_claim);
+			return P300_claim[0].mainsnak.datavalue.value;
+		}
+
+		const label = entity.labels.fr.value;
+		console.log('entity "' + label + '" has no code !');
+		return label;
+	}
+	var entity_keys = _.keys(entities).sort((a, b) => {
+		const entity_a = entities[a];
+		const entity_b = entities[b];
+
+		//console.log('' + entity_a_label + ' > ' + entity_b_label);
+		return comparator(entity_a).localeCompare(comparator(entity_b));
+	});
+	console.log(entity_keys);
+
+	console.log(entities[entity_keys[0]]);
+
+	entity_keys.forEach((key, i) => {
+		const entity = entities[key];
+		const {id, labels} = entity;
+		console.log('* ' + key + ' : ' + comparator(entity) + ' - ' + labels.fr.value);
+	});
+
 })
 .catch((err) => {
 	console.error('ERR', err);
@@ -177,24 +201,40 @@ Promise.resolve([ { item: { type: 'uri', value: 'http://www.wikidata.org/entity/
 
 function fetchEntities(params) {
 	let entity_ids = _.flatten([params.ids]);
+	params.ids = undefined; // for later merge
 	let id_batches = [];
 
 	while (entity_ids.length > 0)
 		id_batches.push(entity_ids.splice(0, Wikidata.Endpoint.WDQS.limit));
 
-	async.parallel()
-	var url = wdk.getEntities({
-		ids: entity_ids,
-		languages: ['fr'], // returns all languages if not specified
-		//properties: ['info', 'claims'], // returns all data if not specified
-		//format: 'json' // defaults to json
+	/*id_batches.forEach((batch, index) => {
+		console.log('* batch #' + index + ' : [size ' + batch.length + '] ', batch);
+	});*/
+	//console.log(id_batches.length, id_batches[0].length, id_batches);
+
+	let urls = id_batches.map((ids, i) => {
+		let xparams = _.merge({}, params, {ids});
+		//console.log('* batch #' + i + ' params :', xparams);
+		return wdk.getEntities(xparams);
 	});
-	console.log(url);
+	console.log(urls);
 
-	return fetch(url)
-		.then(function(res) {
-			return res.json();
+	let promises = urls.map((url) => {
+		return fetch(url)
+		.then(res => res.json())
+		.then((data) => {
+			let {errors, warnings, success, entities} = data;
+			if (errors) console.error('errors', errors);
+			if (warnings) console.warn('warnings', warnings);
+			return data;
 		});
+	});
 
-
+	return Promise.all(promises)
+	.then((values) => {
+		console.log(values);
+		return values.reduce((finalResult, currentResult) => {
+			return _.merge(finalResult, currentResult);
+		}, {})
+	});
 }

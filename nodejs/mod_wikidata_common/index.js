@@ -1,13 +1,8 @@
 
-module.exports = {
-	Property,
-	Item,
-	Endpoint
-};
+
 
 
 const Property = {
-
 	// 3 "basic membership properties"
 	// https://www.wikidata.org/wiki/Help:Basic_membership_properties
 	// all transitives
@@ -30,6 +25,7 @@ const Endpoint = {
 	Wikidata: {
 		url: 'http://www.wikidata.org/wiki/Special:EntityData/'
 	},
+
 	WDQS: {
 		url: 'https://query.wikidata.org/sparql',
 		limit: 50
@@ -39,4 +35,11 @@ const Endpoint = {
 		// deprecated
 		url: 'https://wdq.wmflabs.org/api/'
 	},
+};
+
+
+module.exports = {
+	Property,
+	Item,
+	Endpoint
 };
