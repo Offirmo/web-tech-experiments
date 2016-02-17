@@ -8,6 +8,7 @@
   "scripts": {
     "puer": "puer --exclude 'bower_components|node_modules|jspm_packages'",
     "lint": "eslint .",
+    "webpack": "webpack --progress --colors",
     "npm-install-globals": "npm install --global jspm puer nodemon && npm update --global jspm puer nodemon",
     "npm-install-dev": "npm prune && npm install && npm update",
     "jspm-install": "jspm registry create bower jspm-bower-endpoint -y && jspm install -y",
@@ -105,6 +106,7 @@
     "chai-as-promised": "^5.2.0",
     "chai-backbone": "^0.9.4",
     "chai-interface": "^2.0.2",
+    "css-loader": "0.23.1",
     "express-livereload": "^0.0.24",
     "grunt": "^0.4.5",
     "jspm": "^0.16.29",
@@ -114,6 +116,10 @@
     "pre-commit": "^1.1.2",
     "puer": "^1.1.1",
     "sinon-chai": "^2.8.0",
+    "style-loader": "0.13.0",
+    "webpack": "1.12.13",
+    "webpack-dev-server": "1.14.1",
+    "webpack-load-plugins": "0.1.2",
     "yo": "^1.6.0"
   },
   "commentedOut": {
