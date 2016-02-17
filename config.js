@@ -15,6 +15,7 @@ System.config({
   },
 
   map: {
+    "angular-material": "github:angular/bower-material@1.0.5",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
@@ -34,6 +35,18 @@ System.config({
     },
     "bower:d3kit@1.0.9": {
       "d3": "bower:d3@3.4.13"
+    },
+    "github:angular/bower-angular-animate@1.5.0": {
+      "angular": "github:angular/bower-angular@1.5.0"
+    },
+    "github:angular/bower-angular-aria@1.5.0": {
+      "angular": "github:angular/bower-angular@1.5.0"
+    },
+    "github:angular/bower-material@1.0.5": {
+      "angular": "github:angular/bower-angular@1.5.0",
+      "angular-animate": "github:angular/bower-angular-animate@1.5.0",
+      "angular-aria": "github:angular/bower-angular-aria@1.5.0",
+      "css": "github:systemjs/plugin-css@0.1.20"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
