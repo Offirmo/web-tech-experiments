@@ -1,4 +1,7 @@
 
+https://github.com/bevacqua/trunc-html
+https://github.com/teamweek/instadate
+
 Rx
 http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
 http://reactivex.io/intro.html

@@ -35,3 +35,10 @@ http://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-ins
 // Good département : https://www.wikidata.org/wiki/Q12584
 // Bad département :
 // https://www.wikidata.org/wiki/Wikidata:List_of_properties/Geographical_feature#Administrative_territorial_entity
+
+
+TODO https://www.npmjs.com/package/wdqs-ui
+https://www.npmjs.com/package/ask-js
+https://www.npmjs.com/package/wikipedia-data
+https://www.npmjs.com/package/wikigeo
+https://github.com/maxlath/wikidata-agent

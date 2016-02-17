@@ -31,8 +31,7 @@ SELECT ?item WHERE {
   FILTER(!bound(?dummy0))
 }`;
 
-// http://stackoverflow.com/a/3608791/587407
-let url = WDQS_endpoint + '?format=json&query=' + encodeURIComponent(query);
+let url = wdk.sparqlQuery(query);
 
 console.log('* query : ' + query);
 console.log('* query URL : ' + url);
