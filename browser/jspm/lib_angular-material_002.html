@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
-	<title>[lib] Angular Material 001</title>
+	<title>[lib] Angular Material 002</title>
 	<script src="../../jspm_packages/system.js"></script>
 	<script src="../../config.js"></script>
 	<script>
@@ -12,40 +12,55 @@
 		window.define = System.amdDefine;
 		window.require = window.requirejs = System.amdRequire;
 	</script>
+
+	<style>
+		.colorNested .demo-content > div div:nth-child(1), .colorNested-noPad .demo-content > div div:nth-child(1) {
+			background-color: #009688;
+		}
+		.colorNested .demo-content > div div:nth-child(2), .colorNested-noPad .demo-content > div div:nth-child(2) {
+			background-color: #3949ab;
+		}
+		.colorNested .demo-content > div div {
+			padding: 8px;
+			box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+			opacity: 0.9;
+			color: white;
+			text-align: center;
+		}
+	</style>
 </head>
 
-<div class="contentdemoBasicUsage" ng-controller="AppCtrl" layout="column" ng-cloak="">
+<div ng-controller="AppCtrl" ng-cloak="" class="colorNested">
 	<md-toolbar class="md-warn">
 		<div class="md-toolbar-tools">
 			<h2 class="md-flex">Toolbar: md-warn</h2>
 		</div>
 	</md-toolbar>
 
-	<md-content flex="" layout-padding="">
-		<p>Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.</p>
-
-		<p>
-			Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
-		</p>
-	</md-content>
+	<div class="demo-content" layout="row">
+		<div layout="row" flex>
+			<div flex>First item in row</div>
+			<div flex>Second item in row</div>
+		</div>
+		<div layout="column" flex>
+			<div flex>First item in column</div>
+			<div flex>Second item in column</div>
+		</div>
+	</div>
 </div>
 
 <script>
-	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
-		el.href || (el.href = el.text);
-	});
-
 	require([
 		'angular',
 		'angular-aria',
 		'angular-animate',
+		'angular-messages',
 		'angular-material',
 		'angular-material/angular-material.css!',
-		'angular-material/angular-material.layouts.css!'
-		//'angular-messages'
+		'angular-material/angular-material.layouts.css!',
 	], function(angular) {
 		console.log(angular);
-		var app = angular.module('App', ['ngMaterial', 'ngAnimate', /*'ngMessages',*/ 'ngAria']);
+		var app = angular.module('App', ['ngAria', 'ngAnimate', 'ngMessages', 'ngMaterial']);
 
 		app.controller('AppCtrl', ['$scope', function($scope) {
 			$scope.title = document.title;

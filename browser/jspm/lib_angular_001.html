@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>[lib] Angular 001</title>
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">{{title}}</h1>
+		<li><a>https://github.com/Offirmo-team/wiki/wiki/AngularJS</a></li>
+
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	require([
+		'angular',
+		'bootstrap',
+		'bootstrap/css/bootstrap.css!'
+	], function(angular) {
+		var app = angular.module('App', []);
+
+		app.controller('AppCtrl', ['$q', '$scope', function($q, $scope) {
+			$scope.title = document.title;
+		}]);
+
+		// angular manual initialisation since we use a script loader
+		// cf. http://docs.angularjs.org/guide/bootstrap
+		console.log('Bootstrapping angular...');
+		angular.element(document).ready(function() {
+			angular.bootstrap(document, ['App'], {strictDi: true});
+		});
+	});
+</script>
