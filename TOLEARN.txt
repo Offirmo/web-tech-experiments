@@ -15,14 +15,31 @@
 - [x] appcache
 - [x] requirejs
 - [x] JSON-schema
+- [x] Winston
+- [x] express
+- [x] express Passport 2016/01/28
+- [x] Wikidata ~2016/02/03
+- [x] HTML API fetch ~2016/02/5
+- [x] Wikidata Magnus Manke's WQD 2016/02/07
+- [x] forky
+- [x] nodemon
+- [x] puer
+- [x] node colors
+- [x] full text search 2016/02/03
+- [x] lunr 2016/02/03
+- [x] mandrill
+- [x] ES6
+- [x] webpack http://webpack.github.io/ 2016/02/17
+- [x] Angular
+- [x] Angular ui.router
+- [x] Angular Material https://material.angularjs.org/latest/getting-started 2016/02/17
+- [x] SPARQL ~2016/02/15
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
-- [x] Winston
 - [ ] BEM
 - [ ] Jekyll theming
 - [ ] Jekyll i18n
 - [ ] https://github.com/handsontable/handsontable
-- [ ] Angular Material https://material.angularjs.org/latest/getting-started
 - [ ] JSDoc http://usejsdoc.org/
 - [ ] Cordova
 - [ ] https://microsoft.github.io/code-push/
@@ -40,9 +57,7 @@
 - [ ] Stormpath
 - [ ] GraphQL
 - [ ] Hosting gratuit
-- [ ] full text search
 - [ ] tokens
-- [ ] webpack http://webpack.github.io/
 - [ ] animation API
 - [ ] geolocalisation API
 - [ ] geolocalisation DB
@@ -50,12 +65,8 @@
 - [ ] connect-flash https://github.com/jaredhanson/connect-flash
 - [ ] RabbitMQ
 - [ ] Twitter bot https://medium.com/@DebashisBarman/creating-a-twitter-bot-with-node-js-bea760b80bd5
-- [x] Wikidata ~2016/02/03
-- [x] Wikidata Magnus Manke's WQD 2016/02/07
-- [ ] http://security.stackexchange.com/questions/113416/how-does-reverse-shell-behave
-- [ ] SPARQL ~2016/02/15
+- [ ] reverse shell http://security.stackexchange.com/questions/113416/how-does-reverse-shell-behave
 - [ ] RDF
-- [x] HTML API fetch ~2016/02/5
 - [ ] http://www.jeremy-dutheil.fr/un-champ-dadresse-avec-auto-completion-grace-google-maps-api/
 - [ ] https://auth0.com/learn/json-web-tokens/
 - [ ] http://stackshare.io/posts/top-50-developer-tools-and-services-of-2015

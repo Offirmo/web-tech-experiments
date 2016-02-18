@@ -8,11 +8,18 @@ System.config({
       "optimisation.modules.system"
     ]
   },
-
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
     "bower:*": "jspm_packages/bower/*"
+  },
+
+  meta: {
+    "github:angular/bower-angular-messages@1.5.0": {
+      "deps": [
+        "angular"
+      ]
+    }
   },
 
   map: {
@@ -207,13 +214,5 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     }
-  },
-
-	"meta": {
-		"github:angular/bower-angular-messages@1.5.0": {
-			"deps": [
-				"angular"
-			]
-		}
-	}
+  }
 });
