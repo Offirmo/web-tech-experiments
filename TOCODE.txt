@@ -25,10 +25,21 @@ Person
 Blanc sur noir
 Tab spaces
 
-Appli d'assistance à l'écriture de conventions de codage
+
+
+## Appli d'assistance à l'écriture de conventions de codage
 -> autogen de fichiers de conf pour des outils
 
-Appli de planification de voyages
+http://stylelint.io/
+https://github.com/sasstools/sass-lint
 
-Appli de veille techno
+
+
+## Appli de planification de voyages
+
+
+
+
+## Appli de veille techno
+
 
