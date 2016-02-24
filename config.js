@@ -38,15 +38,28 @@ System.config({
     "d3": "bower:d3@3.4.13",
     "d3kit": "bower:d3kit@1.0.9",
     "d3kit-timeline": "bower:d3kit-timeline@0.4.1",
+    "handsontable": "bower:handsontable@0.23.0",
     "json": "github:systemjs/plugin-json@0.1.0",
     "lodash": "npm:lodash@3.10.1",
+    "react": "npm:react@0.14.7",
+    "react-dom": "npm:react-dom@0.14.7",
     "text": "github:systemjs/plugin-text@0.0.4",
+    "wikidata-sdk": "npm:wikidata-sdk@2.3.0",
     "bower:d3kit-timeline@0.4.1": {
       "d3kit": "bower:d3kit@1.0.9",
       "labella": "bower:labella@1.0.0"
     },
     "bower:d3kit@1.0.9": {
       "d3": "bower:d3@3.4.13"
+    },
+    "bower:handsontable@0.23.0": {
+      "css": "github:systemjs/plugin-css@0.1.20",
+      "moment": "bower:moment@2.11.2",
+      "pikaday": "bower:pikaday@1.4.0",
+      "zeroclipboard": "bower:zeroclipboard@2.2.0"
+    },
+    "bower:pikaday@1.4.0": {
+      "css": "github:systemjs/plugin-css@0.1.20"
     },
     "github:angular/bower-angular-animate@1.5.0": {
       "angular": "github:angular/bower-angular@1.5.0"
@@ -91,6 +104,9 @@ System.config({
     },
     "github:jspm/nodelibs-process@0.1.2": {
       "process": "npm:process@0.11.2"
+    },
+    "github:jspm/nodelibs-querystring@0.1.0": {
+      "querystring": "npm:querystring@0.2.0"
     },
     "github:jspm/nodelibs-stream@0.1.0": {
       "stream-browserify": "npm:stream-browserify@1.0.0"
@@ -158,6 +174,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
+    "npm:fbjs@0.6.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
@@ -180,6 +199,13 @@ System.config({
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
     "npm:punycode@1.3.2": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:react-dom@0.14.7": {
+      "react": "npm:react@0.14.7"
+    },
+    "npm:react@0.14.7": {
+      "fbjs": "npm:fbjs@0.6.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:readable-stream@1.1.13": {
@@ -213,6 +239,9 @@ System.config({
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:wikidata-sdk@2.3.0": {
+      "querystring": "github:jspm/nodelibs-querystring@0.1.0"
     }
   }
 });

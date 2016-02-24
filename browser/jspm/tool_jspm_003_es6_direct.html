@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>jspm 003 - ES2015 *WITHOUT* transpiler</title>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">...</h1>
+		<p>jspm *without* transpiler (may work only in Chrome)</p>
+		<ul>
+			<li><a>https://kangax.github.io/compat-table/es6/#chrome48</a>
+		</ul>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script type="text/ecmascript">
+	'use strict';
+	console.log('Hello world !');
+
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), el => el.href || (el.href = el.text));
+
+	require([
+		'lodash',
+		'bootstrap',
+		'bootstrap/css/bootstrap.css!'
+	],	(_) => {
+		'use strict';
+		console.log('loaded !');
+
+		let query = `prefix wdt: <http://www.wikidata.org/prop/direct/>
+prefix wd: <http://www.wikidata.org/entity/>
+SELECT ?item WHERE {
+?item wdt:P31 wd:Q6465 .
+OPTIONAL { ?item wdt:P576 ?dummy0 }
+FILTER(!bound(?dummy0))
+}`;
+		console.log('* query : ' + query);
+	});
+
+</script>

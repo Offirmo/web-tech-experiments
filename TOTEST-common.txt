@@ -1,3 +1,5 @@
+http://fr.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692
+https://github.com/robbyrussell/oh-my-zsh
 
 https://github.com/bevacqua/trunc-html
 https://github.com/teamweek/instadate

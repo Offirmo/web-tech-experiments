@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>[lib] bootstrap test 001</title>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">...</h1>
+		<p>Loading bootstrap <a>http://getbootstrap.com/</a> via jspm...</p>
+		<div id="example"></div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	require([
+		'handsontable',
+		'bootstrap',
+		'bootstrap/css/bootstrap.css!'
+	], function(handsontable) {
+		var data = [
+			["", "Kia", "Nissan", "Toyota", "Honda"],
+			["2008", 10, 11, 12, 13],
+			["2009", 20, 11, 14, 13],
+			["2010", 30, 15, 12, 13]
+		];
+
+		var container = document.getElementById('example');
+		var hot = new Handsontable(
+			container,
+			{
+				data: data
+			}
+		);
+	});
+</script>

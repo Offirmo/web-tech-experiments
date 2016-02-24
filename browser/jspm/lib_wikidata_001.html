@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- html_004 template -->
+
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>[lib] Wikidata access 001</title>
+
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style>
+
+	</style>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+<body>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">...</h1>
+		<p>...</p>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	require( [ 'lodash', 'wikidata-sdk', 'bootstrap', 'bootstrap/css/bootstrap.css!' ],
+	function(_, wdk) {
+		console.log('loaded !');
+
+		var url = wdk.searchEntities({
+			search: 'Ingmar Bergman',
+			language: 'fr',
+			format: 'json',
+			limit: 10
+		});
+
+		console.log(url);
+
+		var ids = Array.from(Array(3).keys()).map(function(x) {return 'P' + (x + 1)});
+
+		url = 'https://crossorigin.me/' + wdk.getEntities({
+			ids,
+			languages: ['en'], // returns all languages if not specified
+			properties: ['labels'], // returns all data if not specified
+			format: 'json'
+		});
+
+		console.log(url);
+
+		fetch(url)
+		.then(function(res) {
+			console.log('response', res);
+			return res.json();
+		})
+		.then(function(json) {
+			console.log('JSON', arguments);
+		})
+		.catch(function (err) {
+			console.error('error !', err);
+		});
+	});
+</script>
+
+</body>
+</html>

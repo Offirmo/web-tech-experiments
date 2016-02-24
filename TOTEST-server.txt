@@ -2,6 +2,7 @@
 siege http://www.joedog.org/siege-manual/
 https://coderwall.com/p/fjtqcq
 
+http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://github.com/tjmehta/coworkers RabbitMQ
 
 Manipulating git repositories with Node.js
