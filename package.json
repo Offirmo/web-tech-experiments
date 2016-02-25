@@ -117,7 +117,7 @@
     "puer": "^1.1.1",
     "sinon-chai": "^2.8.0",
     "style-loader": "0.13.0",
-    "webpack": "1.12.13",
+    "webpack": "1.12.14",
     "webpack-dev-server": "1.14.1",
     "webpack-load-plugins": "0.1.2",
     "yo": "^1.6.0"
