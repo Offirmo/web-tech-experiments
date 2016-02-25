@@ -164,7 +164,8 @@
       "d3": "bower:d3@3.4.13",
       "d3kit": "bower:d3kit@1.0.9",
       "d3kit-timeline": "bower:d3kit-timeline@^0.4.0",
-      "handsontable": "bower:handsontable@^0.23.0",
+      "handsontable": "github:handsontable/handsontable@^0.23.0",
+      "jquery": "npm:jquery@^2.2.1",
       "json": "github:systemjs/plugin-json@^0.1.0",
       "lodash": "npm:lodash@^3.10.1",
       "react": "npm:react@^0.14.7",
@@ -177,6 +178,29 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "clean-css": "npm:clean-css@^3.4.9",
       "core-js": "npm:core-js@^1.1.4"
+    },
+    "overrides": {
+      "github:handsontable/handsontable@0.23.0": {
+        "main": "dist/handsontable.full.js",
+        "format": "global",
+        "shim": {
+          "dist/handsontable.full": {
+            "deps": [
+              "moment",
+              "zeroclipboard",
+              "pikaday",
+              "jquery"
+            ],
+            "exports": "Handsontable"
+          }
+        },
+        "dependencies": {
+          "zeroclipboard": "npm:zeroclipboard@^2.1.6",
+          "pikaday": "npm:pikaday@^1.3.2",
+          "moment": "npm:moment@^2.2.0",
+          "jquery": "jspm:jquery@*"
+        }
+      }
     }
   }
 }

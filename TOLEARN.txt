@@ -38,6 +38,7 @@
 - [ ] node on Windows http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
 - [ ] Jekyll theming
 - [ ] Jekyll i18n
+- [ ] Web components
 - [ ] zsh + themes
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
@@ -75,4 +76,5 @@
 - [ ] nedb
 - [ ] modern modules
       https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/
+
 

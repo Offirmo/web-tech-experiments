@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
-	<title>[lib] bootstrap test 001</title>
+	<title>[lib] handsontable test 001</title>
 
 	<script src="../../jspm_packages/system.js"></script>
 	<script src="../../config.js"></script>
@@ -17,7 +17,9 @@
 <div id="content">
 	<div class="container">
 		<h1 id="header">...</h1>
-		<p>Loading bootstrap <a>http://getbootstrap.com/</a> via jspm...</p>
+		<li><a>https://handsontable.com/</a>
+		<li><a>https://github.com/handsontable/handsontable</a>
+		<li><a>https://github.com/jspm/registry/issues/697</a>
 		<div id="example"></div>
 	</div> <!-- /container -->
 </div> <!-- /content -->
@@ -30,9 +32,12 @@
 
 	require([
 		'handsontable',
+		'handsontable/dist/handsontable.full.css!',
 		'bootstrap',
 		'bootstrap/css/bootstrap.css!'
-	], function(handsontable) {
+	], function(Handsontable) {
+		console.log('Hello');
+
 		var data = [
 			["", "Kia", "Nissan", "Toyota", "Honda"],
 			["2008", 10, 11, 12, 13],

@@ -30,8 +30,12 @@ Tab spaces
 ## Appli d'assistance à l'écriture de conventions de codage
 -> autogen de fichiers de conf pour des outils
 
+http://jshint.com/
 http://stylelint.io/
 https://github.com/sasstools/sass-lint
+https://github.com/airbnb/javascript
+https://github.com/elierotenberg/coding-styles
+
 
 
 
