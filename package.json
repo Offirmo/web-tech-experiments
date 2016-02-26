@@ -98,7 +98,7 @@
     "when": "^3.7.7",
     "wikidata-sdk": "^2.3.0",
     "wikidata-token": "1.0.4",
-    "winston": "^2.1.0"
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "bower": "^1.7.7",
