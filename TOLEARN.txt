@@ -1,5 +1,6 @@
 - [x] HTML
 - [x] CSS
+      http://www.sitepoint.com/12-little-known-css-facts-the-sequel/
 - [x] ECMA5
 - [x] Bootstrap
 - [x] AngularJS
@@ -35,9 +36,14 @@
 - [x] Angular Material https://material.angularjs.org/latest/getting-started 2016/02/17
 - [x] SPARQL ~2016/02/15
 - [-] React 19/02/2016
+      https://react.rocks/blog/post/propTypes_React_Flow/
+      http://airbnb.io/enzyme/
+      https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
+- [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [ ] node on Windows http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
 - [ ] Jekyll theming
 - [ ] Jekyll i18n
+- [ ] Npm install en un clin d'oeil avec Nexus
 - [ ] Web components
 - [ ] zsh + themes
 - [ ] JSON-schema with links
@@ -76,5 +82,7 @@
 - [ ] nedb
 - [ ] modern modules
       https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/
-
-
+- [ ] kubernetes http://blog.jonparrott.com/building-a-paas-on-kubernetes/
+- [ ] Kong https://github.com/Mashape/kong
+- [ ] git
+      https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807

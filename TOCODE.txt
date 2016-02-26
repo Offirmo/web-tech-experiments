@@ -41,9 +41,14 @@ https://github.com/elierotenberg/coding-styles
 
 ## Appli de planification de voyages
 
+"book" lien + cherche plus grosses images
 
++ classement par géographie
 
 
 ## Appli de veille techno
 
 
+
+## super install
+https://github.com/cdax/setop
