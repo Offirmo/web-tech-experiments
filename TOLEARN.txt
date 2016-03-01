@@ -86,3 +86,7 @@
 - [ ] Kong https://github.com/Mashape/kong
 - [ ] git
       https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807
+- [ ] nodal
+      https://davidwalsh.name/nodejs-services
+- [ ] logs
+      http://edravis.github.io/logatim/

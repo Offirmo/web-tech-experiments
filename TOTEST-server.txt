@@ -4,6 +4,12 @@ siege http://www.joedog.org/siege-manual/
 https://coderwall.com/p/fjtqcq
 https://github.com/Mashape/kong
 
+
+
+https://doclets.io/
+https://nodesource.com/blog/blacklisting-node-js-core-modules-and-bindings-to-enhance-application-security/
+https://davidwalsh.name/nodejs-services
+
 http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://github.com/tjmehta/coworkers RabbitMQ
 

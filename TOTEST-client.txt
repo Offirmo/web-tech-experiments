@@ -2,6 +2,8 @@
 
 http://sigmajs.org/
 
+https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
+
 http://samsarajs.org/
 http://www.jeremy-dutheil.fr/un-champ-dadresse-avec-auto-completion-grace-google-maps-api/
 

@@ -1,16 +1,19 @@
 
-SMS              ->  https://www.twilio.com/
+SMS                ->  https://www.twilio.com/
 
-mobile payment   ->  http://www.jaimelesstartups.fr/lemon-way/
-
-
-live chat        ->  https://www.olark.com
+mobile payment     ->  http://www.jaimelesstartups.fr/lemon-way/
 
 
-device testing   ->  http://nativetap.io/
+live chat          ->  https://www.olark.com
 
 
-dependencies     ->  https://libraries.io/about
+device testing     ->  http://nativetap.io/
+
+
+dependencies       ->  https://libraries.io/about
+
+
+feature switching  -> https://launchdarkly.com/pricing.html
 
 
 
