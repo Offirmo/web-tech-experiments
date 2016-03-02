@@ -70,6 +70,7 @@
 - [ ] geolocalisation API
 - [ ] geolocalisation DB
 - [ ] google spreadsheet
+      http://tutorials.pluralsight.com/review/using-a-spreadsheet-to-power-charts-in-angularjs-apps
 - [ ] connect-flash https://github.com/jaredhanson/connect-flash
 - [ ] RabbitMQ
 - [ ] Twitter bot https://medium.com/@DebashisBarman/creating-a-twitter-bot-with-node-js-bea760b80bd5
