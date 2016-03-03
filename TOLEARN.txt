@@ -91,3 +91,7 @@
       https://davidwalsh.name/nodejs-services
 - [ ] logs
       http://edravis.github.io/logatim/
+- [ ] animations web
+      https://github.com/codrops/Animocons
+      http://mojs.io/
+- [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
