@@ -14,22 +14,19 @@ System.config({
     "bower:*": "jspm_packages/bower/*"
   },
 
-  meta: {
-  },
-
   map: {
     "angular": "github:angular/bower-angular@1.5.0",
     "angular-animate": "github:angular/bower-angular-animate@1.5.0",
     "angular-aria": "github:angular/bower-angular-aria@1.5.0",
-    "angular-material": "github:angular/bower-material@1.0.5",
+    "angular-material": "github:angular/bower-material@1.0.6",
     "angular-messages": "github:angular/bower-angular-messages@1.5.0",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
-    "clean-css": "npm:clean-css@3.4.9",
+    "clean-css": "npm:clean-css@3.4.10",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",
-    "cytoscape": "npm:cytoscape@2.6.4",
+    "cytoscape": "npm:cytoscape@2.6.5",
     "d3": "bower:d3@3.4.13",
     "d3kit": "bower:d3kit@1.0.9",
     "d3kit-timeline": "bower:d3kit-timeline@0.4.1",
@@ -57,10 +54,11 @@ System.config({
     "github:angular/bower-angular-messages@1.5.0": {
       "angular": "github:angular/bower-angular@1.5.0"
     },
-    "github:angular/bower-material@1.0.5": {
+    "github:angular/bower-material@1.0.6": {
       "angular": "github:angular/bower-angular@1.5.0",
       "angular-animate": "github:angular/bower-angular-animate@1.5.0",
       "angular-aria": "github:angular/bower-angular-aria@1.5.0",
+      "angular-messages": "github:angular/bower-angular-messages@1.5.0",
       "css": "github:systemjs/plugin-css@0.1.20"
     },
     "github:handsontable/handsontable@0.23.0": {
@@ -133,7 +131,7 @@ System.config({
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:clean-css@3.4.9": {
+    "npm:clean-css@3.4.10": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.8.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -163,7 +161,7 @@ System.config({
     "npm:core-util-is@1.0.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:cytoscape@2.6.4": {
+    "npm:cytoscape@2.6.5": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
