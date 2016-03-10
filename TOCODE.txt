@@ -26,13 +26,7 @@ Blanc sur noir
 Tab spaces
 
 
-## bangja greenkeeper++
-https://libraries.io/api#github-repository-dependencies
-https://libraries.io/api/npm/grunt?api_key=58b267e7ea45d005f6a0305e979b5186
-https://libraries.io/api/github/EpitaJS/js-class-2016-proto/dependencies?api_key=58b267e7ea45d005f6a0305e979b5186
-https://github.com/tuvistavie/node-git-cli
-https://github.com/nodegit/nodegit
-http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr
+
 
 
 ## Appli d'assistance à l'écriture de conventions de codage
