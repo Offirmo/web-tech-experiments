@@ -40,12 +40,16 @@
       http://airbnb.io/enzyme/
       https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
-- [ ] node on Windows http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
-- [ ] Jekyll theming
+- [x] Virtualbox VBoxManage 2016/03/11
+- [ ] node on Windows
+      - [x] vm-windows https://github.com/coreybutler/nvm-windows 2016/03/07
+      - [ ] http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
+- [x] zsh + themes -> prezto 2016/03/12
+- [x] Jekyll theming 2016/03/13
+- [x] Babel-node 2016/03/11
 - [ ] Jekyll i18n
 - [ ] Npm install en un clin d'oeil avec Nexus
 - [ ] Web components
-- [ ] zsh + themes
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
 - [ ] BEM
@@ -66,7 +70,6 @@
 - [ ] GraphQL
 - [ ] Hosting gratuit
 - [ ] tokens
-- [ ] animation API
 - [ ] geolocalisation API
 - [ ] geolocalisation DB
 - [ ] google spreadsheet
@@ -92,6 +95,7 @@
 - [ ] logs
       http://edravis.github.io/logatim/
 - [ ] animations web
+      - [ ] animation API
       https://github.com/codrops/Animocons
       http://mojs.io/
 - [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
