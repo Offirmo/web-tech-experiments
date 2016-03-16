@@ -1,0 +1,8 @@
+{
+  "presets": ["es2015-node5"],
+  only: [
+    "common/**/*.js",
+    "server/**/*.js"
+  ],
+  "sourceMaps": true
+}
