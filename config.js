@@ -15,18 +15,18 @@ System.config({
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.0",
-    "angular-animate": "github:angular/bower-angular-animate@1.5.0",
-    "angular-aria": "github:angular/bower-angular-aria@1.5.0",
+    "angular": "github:angular/bower-angular@1.5.1",
+    "angular-animate": "github:angular/bower-angular-animate@1.5.1",
+    "angular-aria": "github:angular/bower-angular-aria@1.5.1",
     "angular-material": "github:angular/bower-material@1.0.6",
-    "angular-messages": "github:angular/bower-angular-messages@1.5.0",
+    "angular-messages": "github:angular/bower-angular-messages@1.5.1",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "clean-css": "npm:clean-css@3.4.10",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",
-    "cytoscape": "npm:cytoscape@2.6.5",
+    "cytoscape": "npm:cytoscape@2.6.6",
     "d3": "bower:d3@3.4.13",
     "d3kit": "bower:d3kit@1.0.9",
     "d3kit-timeline": "bower:d3kit-timeline@0.4.1",
@@ -45,25 +45,24 @@ System.config({
     "bower:d3kit@1.0.9": {
       "d3": "bower:d3@3.4.13"
     },
-    "github:angular/bower-angular-animate@1.5.0": {
-      "angular": "github:angular/bower-angular@1.5.0"
+    "github:angular/bower-angular-animate@1.5.1": {
+      "angular": "github:angular/bower-angular@1.5.1"
     },
-    "github:angular/bower-angular-aria@1.5.0": {
-      "angular": "github:angular/bower-angular@1.5.0"
+    "github:angular/bower-angular-aria@1.5.1": {
+      "angular": "github:angular/bower-angular@1.5.1"
     },
-    "github:angular/bower-angular-messages@1.5.0": {
-      "angular": "github:angular/bower-angular@1.5.0"
+    "github:angular/bower-angular-messages@1.5.1": {
+      "angular": "github:angular/bower-angular@1.5.1"
     },
     "github:angular/bower-material@1.0.6": {
-      "angular": "github:angular/bower-angular@1.5.0",
-      "angular-animate": "github:angular/bower-angular-animate@1.5.0",
-      "angular-aria": "github:angular/bower-angular-aria@1.5.0",
-      "angular-messages": "github:angular/bower-angular-messages@1.5.0",
+      "angular": "github:angular/bower-angular@1.5.1",
+      "angular-animate": "github:angular/bower-angular-animate@1.5.1",
+      "angular-aria": "github:angular/bower-angular-aria@1.5.1",
       "css": "github:systemjs/plugin-css@0.1.20"
     },
     "github:handsontable/handsontable@0.23.0": {
       "jquery": "npm:jquery@2.2.1",
-      "moment": "npm:moment@2.11.2",
+      "moment": "npm:moment@2.12.0",
       "pikaday": "npm:pikaday@1.4.0",
       "zeroclipboard": "npm:zeroclipboard@2.2.0"
     },
@@ -161,7 +160,7 @@ System.config({
     "npm:core-util-is@1.0.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:cytoscape@2.6.5": {
+    "npm:cytoscape@2.6.6": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
@@ -180,7 +179,7 @@ System.config({
     "npm:lodash@3.10.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:moment@2.11.2": {
+    "npm:moment@2.12.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:os-browserify@0.1.2": {
@@ -190,7 +189,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:pikaday@1.4.0": {
-      "moment": "npm:moment@2.11.2"
+      "moment": "npm:moment@2.12.0"
     },
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"

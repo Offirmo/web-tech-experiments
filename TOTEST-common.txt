@@ -1,3 +1,6 @@
+
+http://daily-javascript.com/articles/ljson/
+
 http://fr.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692
 https://github.com/robbyrussell/oh-my-zsh
 
