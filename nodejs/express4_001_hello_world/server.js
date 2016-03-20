@@ -10,11 +10,9 @@ var _ = require('lodash');
 // http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
 // http://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
+	.values()
 	.flatten()
-	.filter(function(val){
-		return (val.family === 'IPv4' && val.internal === false);
-	})
-	.pluck('address')
+	.map('address')
 	.value();
 
 

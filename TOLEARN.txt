@@ -41,6 +41,7 @@
       https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [ ] node on Windows http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
+      http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
 - [ ] Jekyll theming
 - [ ] Jekyll i18n
 - [ ] Npm install en un clin d'oeil avec Nexus

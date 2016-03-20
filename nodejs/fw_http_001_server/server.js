@@ -3,14 +3,12 @@
 
 // http://fr.openclassrooms.com/informatique/cours/des-applications-ultra-rapides-avec-node-js/construire-son-serveur-http
 
+const http = require('http');
 
-var http = require('http');
-
-var server = http.createServer(function(req, res) {
+const server = http.createServer((req, res) => {
 	res.writeHead(200);
-	res.end('Salut tout le monde !');
+	res.end('Hello world !');
 });
 
-console.log('Listening on 8080...');
-
 server.listen(8080);
+console.log('Listening on 8080...');
