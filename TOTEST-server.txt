@@ -17,6 +17,7 @@ vorpal
 inquirer / Inquirer2
 
 
+https://github.com/sindresorhus/meow
 
 https://doclets.io/
 https://nodesource.com/blog/blacklisting-node-js-core-modules-and-bindings-to-enhance-application-security/
