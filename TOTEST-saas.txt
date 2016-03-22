@@ -16,6 +16,9 @@ dependencies       ->  https://libraries.io/about
 feature switching  -> https://launchdarkly.com/pricing.html
 
 
+big file sharing   -> https://www.myairbridge.com/en/
+
+
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/

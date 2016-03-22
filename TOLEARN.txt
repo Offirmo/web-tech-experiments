@@ -1,4 +1,5 @@
 - [x] HTML
+- [x] docker 2015/03/02
 - [x] CSS
       http://www.sitepoint.com/12-little-known-css-facts-the-sequel/
 - [x] ECMA5
@@ -48,8 +49,10 @@
 - [x] zsh + themes -> prezto 2016/03/12
 - [x] Jekyll theming 2016/03/13
 - [x] Babel-node 2016/03/11
+- [x] babel on node, cohabitation ES5 / ES6 2016/03/20
+- [x] babel-watch 2016/03/21 https://github.com/kmagiera/babel-watch
 - [ ] Jekyll i18n
-- [ ] Npm install en un clin d'oeil avec Nexus / pnpm / ied
+- [ ] Npm install en un clin d'œil avec Nexus / pnpm / ied
 - [ ] Web components
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
@@ -100,3 +103,5 @@
       https://github.com/codrops/Animocons
       http://mojs.io/
 - [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
+- [ ] kubernetes
+      https://github.com/redspread/spread
