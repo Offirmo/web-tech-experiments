@@ -48,8 +48,11 @@
       http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
 - [x] zsh + themes -> prezto 2016/03/12
 - [x] Jekyll theming 2016/03/13
-- [x] Babel-node 2016/03/11
-- [x] babel on node, cohabitation ES5 / ES6 2016/03/20
+- [x] ES6 on node,
+      - [x] native ES6 : new shebang
+      - [x] cohabitation ES5 / ES6 2016/03/20
+      - [x] Babel-node 2016/03/11
+      - [ ] error stack https://github.com/babel/karma-babel-preprocessor/issues/4
 - [x] babel-watch 2016/03/21 https://github.com/kmagiera/babel-watch
 - [ ] Jekyll i18n
 - [ ] Npm install en un clin d'œil avec Nexus / pnpm / ied
