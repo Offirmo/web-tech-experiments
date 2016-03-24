@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+#!/bin/sh
+':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --harmony_modules --harmony_regexps --harmony_proxies --harmony_sloppy_function --harmony_sloppy_let --harmony_unicode_regexps --harmony_reflect --harmony_destructuring --harmony_default_parameters --harmony_sharedarraybuffer --harmony_atomics --harmony_simd "$0" "$@"
 'use strict';
 
 // http://offirmo.net/wiki/index.php?title=Express.js
@@ -34,7 +35,31 @@ var sub_app = require('./sub-app');
 var app = express();
 
 app.get('/', function(req, res) {
-	res.send('hello from app !');
+	res.send(`
+<!DOCTYPE html>
+<head>
+	<title>advanced routing</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<li><a>${req.baseUrl}/router</a>
+<li><a>${req.baseUrl}/meta</a>
+<li><a>${req.baseUrl}/app</a>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>
+	`);
 });
 
 app.use('/router', sub_router);

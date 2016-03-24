@@ -108,3 +108,6 @@
 - [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
 - [ ] kubernetes
       https://github.com/redspread/spread
+- [ ] PostGresQL
+      http://schinckel.net/2014/05/25/querying-json-in-postgres/
+      http://michael.otacoo.com/postgresql-2/postgres-9-5-feature-highlight-new-jsonb-functions/
