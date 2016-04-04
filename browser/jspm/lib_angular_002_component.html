@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<html lang="en" xmlns:ng="http://angularjs.org"  ng-controller="AppCtrl as $ctrl">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>[lib] Angular 002 - components</title>
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+	</script>
+</head>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">{{$ctrl.title}}</h1>
+		<li><a>https://github.com/Offirmo-team/wiki/wiki/AngularJS</a>
+		<li><a>https://docs.angularjs.org/guide/component</a>
+		<li><a>https://github.com/Offirmo-team/wiki/wiki/AngularJS</a>
+		<li><a>https://github.com/Offirmo-team/wiki/wiki/AngularJS</a>
+		<li><a>https://github.com/Offirmo-team/wiki/wiki/AngularJS</a>
+
+		<hello name="World"></hello>
+		<hello name="John"></hello>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	require([
+		'angular',
+		'bootstrap',
+		'bootstrap/css/bootstrap.css!'
+	], function(angular) {
+		var mod = angular.module('App', []);
+
+		mod
+		.controller('AppCtrl', ['$q', function($q) {
+			this.title = document.title;
+		}])
+		.component('hello', {
+			template: '<div>Hello, {{$ctrl.name}} !</div>',
+			controller: function() {
+				//this.name = 'shahar';
+			},
+			bindings: {name: '@'}
+		});
+
+		// angular manual initialisation since we use a script loader
+		// cf. http://docs.angularjs.org/guide/bootstrap
+		console.log('Bootstrapping angular...');
+		angular.element(document).ready(function() {
+			angular.bootstrap(document, ['App'], {strictDi: true});
+		});
+	});
+</script>
