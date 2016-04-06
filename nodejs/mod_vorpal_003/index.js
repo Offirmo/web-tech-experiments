@@ -17,12 +17,8 @@ const APP_ID = 'mod_vorpal_002';
 vorpal.history(APP_ID);
 vorpal.localStorage(APP_ID);
 
-vorpal
-	.command('foo', 'Outputs "bar".')
-	.action(function(args, callback) {
-		this.log('bar');
-		callback();
-	});
+var extension = require('./vorpal-extension');
+vorpal.use(extension);
 
 vorpal.delimiter('tbrpg>');
 
@@ -33,4 +29,4 @@ vorpal.exec('help');
 
 vorpal.show();
 
-vorpal.ui.input('exit');
+vorpal.ui.input('foo');

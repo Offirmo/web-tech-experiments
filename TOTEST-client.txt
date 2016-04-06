@@ -4,6 +4,8 @@ http://sigmajs.org/
 https://github.com/helion3/inspire-tree
 https://github.com/walmartlabs/little-loader
 
+http://snapsvg.io/
+
 https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
 
 http://samsarajs.org/

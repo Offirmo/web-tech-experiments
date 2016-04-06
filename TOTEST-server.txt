@@ -4,6 +4,8 @@ shebang
 ':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --es_staging --harmony_modules --harmony_regexps --harmony_sloppy_function --harmony_sloppy_let --harmony_unicode_regexps --harmony_destructuring --harmony_default_parameters "$0" "$@"
 
 
+https://github.com/airbnb/caravel
+
 https://github.com/wg/wrk
 siege http://www.joedog.org/siege-manual/
 https://coderwall.com/p/fjtqcq
@@ -13,7 +15,6 @@ https://github.com/Mashape/kong
 --- CLI
 yargs
 commander
-vorpal
 inquirer / Inquirer2
 
 
