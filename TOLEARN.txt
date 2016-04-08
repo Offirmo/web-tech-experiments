@@ -37,6 +37,10 @@
 - [x] Angular Material https://material.angularjs.org/latest/getting-started 2016/02/17
 - [x] SPARQL ~2016/02/15
 - [-] React 19/02/2016
+		https://egghead.io/series/react-fundamentals
+		https://egghead.io/series/getting-started-with-redux
+		https://www.youtube.com/watch?v=KYzlpRvWZ6c
+		https://code-cartoons.com/a-cartoon-intro-to-redux-3afb775501a6#.hc1bglz50
       https://react.rocks/blog/post/propTypes_React_Flow/
       http://airbnb.io/enzyme/
       https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
