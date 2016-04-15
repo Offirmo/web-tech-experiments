@@ -1,11 +1,15 @@
 
 http://daily-javascript.com/articles/ljson/
+https://github.com/ziyasal/scientist.js
+https://github.com/jezen/is-thirteen
 
 http://fr.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692
 https://github.com/robbyrussell/oh-my-zsh
 
 https://github.com/bevacqua/trunc-html
 https://github.com/teamweek/instadate
+
+http://sweetjs.org/
 
 Rx
 http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)

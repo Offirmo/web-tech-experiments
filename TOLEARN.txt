@@ -32,6 +32,8 @@
 - [x] mandrill
 - [x] ES6
 - [x] webpack http://webpack.github.io/ 2016/02/17
+      http://rosenfeld.herokuapp.com/en/articles/2016-02-29-getting-an-spa-to-load-the-fastest-possible-way-and-how-webpack-can-help-you
+      https://gist.github.com/sokra/27b24881210b56bbaff7
 - [x] Angular
 - [x] Angular ui.router
 - [x] Angular Material https://material.angularjs.org/latest/getting-started 2016/02/17
@@ -44,6 +46,9 @@
       https://react.rocks/blog/post/propTypes_React_Flow/
       http://airbnb.io/enzyme/
       https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
+      https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
+      https://github.com/eanplatter/enclave
+
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [x] Virtualbox VBoxManage 2016/03/11
 - [ ] node on Windows
@@ -115,3 +120,8 @@
 - [ ] PostGresQL
       http://schinckel.net/2014/05/25/querying-json-in-postgres/
       http://michael.otacoo.com/postgresql-2/postgres-9-5-feature-highlight-new-jsonb-functions/
+- [ ] spectacle
+      https://github.com/thejameskyle/spectacle-code-slide
+- [ ] https://github.com/testdouble/scripty
+- [ ] https://kite.com/
+

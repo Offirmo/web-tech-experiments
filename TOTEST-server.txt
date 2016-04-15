@@ -1,8 +1,14 @@
 
+
+tests d'API https://github.com/jareware/pointing-fingers
+
 shebang
 #!/bin/sh
 ':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --es_staging --harmony_modules --harmony_regexps --harmony_sloppy_function --harmony_sloppy_let --harmony_unicode_regexps --harmony_destructuring --harmony_default_parameters "$0" "$@"
 
+https://zeit.co/now
+
+feature toggling https://github.com/FredKSchott/fflip
 
 https://github.com/airbnb/caravel
 

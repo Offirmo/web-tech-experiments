@@ -3,6 +3,9 @@ Idées
 
 Wrapper de console pour trouver qui émet ce warning
 
+Bangja
+https://github.com/dylang/npm-check
+
 
 Appli de veille
 Meilleurs tutos
@@ -72,3 +75,8 @@ https://github.com/cdax/setop
 http://helion3.com/inspire-tree/
 https://github.com/breach/node-thrust/
 https://gist.github.com/LeoColomb/993506f47fe10e234123
+
+
+## console !
+https://github.com/CVarisco/CLog.js
+
