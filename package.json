@@ -113,7 +113,7 @@
     "chai-interface": "^2.0.3",
     "css-loader": "0.23.1",
     "express-livereload": "^0.0.24",
-    "grunt": "^0.4.5",
+    "grunt": "^1.0.1",
     "jspm": "^0.16.33",
     "mocha": "^2.4.5",
     "node-livereload": "napcs/node-livereload",
