@@ -36,7 +36,9 @@
       https://gist.github.com/sokra/27b24881210b56bbaff7
 - [x] Angular
 - [x] Angular ui.router
-- [x] Angular Material https://material.angularjs.org/latest/getting-started 2016/02/17
+- [-] Angular Material
+      https://material.angularjs.org/latest/getting-started 2016/02/17
+      https://design.google.com/icons/
 - [x] SPARQL ~2016/02/15
 - [-] React 19/02/2016
 		https://egghead.io/series/react-fundamentals
