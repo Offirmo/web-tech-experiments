@@ -173,6 +173,7 @@
       "jquery": "npm:jquery@^2.2.1",
       "json": "github:systemjs/plugin-json@^0.1.0",
       "lodash": "npm:lodash@^3.10.1",
+      "marked": "npm:marked@^0.3.5",
       "react": "npm:react@^0.14.7",
       "react-dom": "npm:react-dom@^0.14.7",
       "text": "github:systemjs/plugin-text@^0.0.4",

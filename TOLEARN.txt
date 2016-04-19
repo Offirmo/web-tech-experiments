@@ -48,6 +48,7 @@
       https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
       https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
       https://github.com/eanplatter/enclave
+      http://putaindecode.fr/posts/js/introduction-a-reactjs/
 
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [x] Virtualbox VBoxManage 2016/03/11
