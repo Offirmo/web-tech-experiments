@@ -15,30 +15,30 @@ System.config({
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.3",
-    "angular-animate": "github:angular/bower-angular-animate@1.5.3",
-    "angular-aria": "github:angular/bower-angular-aria@1.5.3",
+    "angular": "github:angular/bower-angular@1.5.5",
+    "angular-animate": "github:angular/bower-angular-animate@1.5.5",
+    "angular-aria": "github:angular/bower-angular-aria@1.5.5",
     "angular-material": "github:angular/bower-material@1.0.7",
-    "angular-messages": "github:angular/bower-angular-messages@1.5.3",
+    "angular-messages": "github:angular/bower-angular-messages@1.5.5",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
-    "clean-css": "npm:clean-css@3.4.11",
+    "clean-css": "npm:clean-css@3.4.12",
     "core-js": "npm:core-js@1.2.6",
-    "css": "github:systemjs/plugin-css@0.1.20",
-    "cytoscape": "npm:cytoscape@2.6.7",
+    "css": "github:systemjs/plugin-css@0.1.21",
+    "cytoscape": "npm:cytoscape@2.6.8",
     "d3": "bower:d3@3.4.13",
     "d3kit": "bower:d3kit@1.0.9",
     "d3kit-timeline": "bower:d3kit-timeline@0.4.1",
     "handsontable": "github:handsontable/handsontable@0.23.0",
-    "jquery": "npm:jquery@2.2.2",
+    "jquery": "npm:jquery@2.2.3",
     "json": "github:systemjs/plugin-json@0.1.0",
     "lodash": "npm:lodash@3.10.1",
     "marked": "npm:marked@0.3.5",
     "react": "npm:react@0.14.8",
     "react-dom": "npm:react-dom@0.14.8",
     "text": "github:systemjs/plugin-text@0.0.4",
-    "wikidata-sdk": "npm:wikidata-sdk@2.3.0",
+    "wikidata-sdk": "npm:wikidata-sdk@2.5.0",
     "bower:d3kit-timeline@0.4.1": {
       "d3kit": "bower:d3kit@1.0.9",
       "labella": "bower:labella@1.0.0"
@@ -46,24 +46,24 @@ System.config({
     "bower:d3kit@1.0.9": {
       "d3": "bower:d3@3.4.13"
     },
-    "github:angular/bower-angular-animate@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+    "github:angular/bower-angular-animate@1.5.5": {
+      "angular": "github:angular/bower-angular@1.5.5"
     },
-    "github:angular/bower-angular-aria@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+    "github:angular/bower-angular-aria@1.5.5": {
+      "angular": "github:angular/bower-angular@1.5.5"
     },
-    "github:angular/bower-angular-messages@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+    "github:angular/bower-angular-messages@1.5.5": {
+      "angular": "github:angular/bower-angular@1.5.5"
     },
     "github:angular/bower-material@1.0.7": {
-      "angular": "github:angular/bower-angular@1.5.3",
-      "angular-animate": "github:angular/bower-angular-animate@1.5.3",
-      "angular-aria": "github:angular/bower-angular-aria@1.5.3",
-      "css": "github:systemjs/plugin-css@0.1.20"
+      "angular": "github:angular/bower-angular@1.5.5",
+      "angular-animate": "github:angular/bower-angular-animate@1.5.5",
+      "angular-aria": "github:angular/bower-angular-aria@1.5.5",
+      "css": "github:systemjs/plugin-css@0.1.21"
     },
     "github:handsontable/handsontable@0.23.0": {
-      "jquery": "npm:jquery@2.2.2",
-      "moment": "npm:moment@2.12.0",
+      "jquery": "npm:jquery@2.2.3",
+      "moment": "npm:moment@2.13.0",
       "pikaday": "npm:pikaday@1.4.0",
       "zeroclipboard": "npm:zeroclipboard@2.2.0"
     },
@@ -109,7 +109,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:twbs/bootstrap@3.3.6": {
-      "jquery": "github:components/jquery@2.2.1"
+      "jquery": "npm:jquery@2.2.3"
     },
     "npm:amdefine@1.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -131,7 +131,7 @@ System.config({
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:clean-css@3.4.11": {
+    "npm:clean-css@3.4.12": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.8.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -161,7 +161,7 @@ System.config({
     "npm:core-util-is@1.0.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:cytoscape@2.6.7": {
+    "npm:cytoscape@2.6.8": {
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
@@ -180,9 +180,6 @@ System.config({
     "npm:lodash@3.10.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:moment@2.12.0": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
     },
@@ -190,7 +187,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:pikaday@1.4.0": {
-      "moment": "npm:moment@2.12.0"
+      "moment": "npm:moment@2.13.0"
     },
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
@@ -205,7 +202,7 @@ System.config({
       "fbjs": "npm:fbjs@0.6.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:readable-stream@1.1.13": {
+    "npm:readable-stream@1.1.14": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "core-util-is": "npm:core-util-is@1.0.2",
       "events": "github:jspm/nodelibs-events@0.1.1",
@@ -222,7 +219,7 @@ System.config({
     "npm:stream-browserify@1.0.0": {
       "events": "github:jspm/nodelibs-events@0.1.1",
       "inherits": "npm:inherits@2.0.1",
-      "readable-stream": "npm:readable-stream@1.1.13"
+      "readable-stream": "npm:readable-stream@1.1.14"
     },
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
@@ -237,7 +234,7 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:wikidata-sdk@2.3.0": {
+    "npm:wikidata-sdk@2.5.0": {
       "querystring": "github:jspm/nodelibs-querystring@0.1.0"
     },
     "npm:zeroclipboard@2.2.0": {
