@@ -12,7 +12,8 @@ class CoolComponent extends React.Component {
 	// .state => NEVER mutate this.state directly, treat this.state as if it were immutable.
 	// .setState(nextState, [callback])
 	// .replaceState(nextState, [callback]) XXX do not use, pending removal
-	// forceUpdate([callback])
+	// .forceUpdate([callback])
+	// setProps
 
 
 	getInitialState () {

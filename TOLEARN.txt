@@ -40,17 +40,12 @@
       https://material.angularjs.org/latest/getting-started 2016/02/17
       https://design.google.com/icons/
 - [x] SPARQL ~2016/02/15
-- [-] React 19/02/2016
-		https://egghead.io/series/react-fundamentals
-		https://egghead.io/series/getting-started-with-redux
-		https://www.youtube.com/watch?v=KYzlpRvWZ6c
-		https://code-cartoons.com/a-cartoon-intro-to-redux-3afb775501a6#.hc1bglz50
-      https://react.rocks/blog/post/propTypes_React_Flow/
-      http://airbnb.io/enzyme/
-      https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
-      https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
-      https://github.com/eanplatter/enclave
-      http://putaindecode.fr/posts/js/introduction-a-reactjs/
+- [-] React 19/02/2016 18/04/2016
+		https://www.youtube.com/watch?v=KYzlpRvWZ6c "Making your app fast with high-performance components"
+		https://react.rocks/blog/post/propTypes_React_Flow/
+		http://airbnb.io/enzyme/
+		https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
+		https://github.com/eanplatter/enclave
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [x] Virtualbox VBoxManage 2016/03/11
 - [ ] node on Windows
