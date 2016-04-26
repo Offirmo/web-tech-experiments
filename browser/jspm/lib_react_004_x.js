@@ -5,7 +5,9 @@ import ReactDOM from 'react-dom';
 class CoolComponent extends React.Component {
 
 	constructor (props) {
-		super(props)
+		console.info('~~ constructor')
+		// TODO define initial state ?
+		super(props) // <-- really needed ?
 	}
 
 	// inheriting :
@@ -16,19 +18,23 @@ class CoolComponent extends React.Component {
 	// setProps
 
 
-	getInitialState () {
+	// NO "This is only supported for classes created using React.createClass.
+	// Did you mean to define a state property instead?"
+	/*getInitialState () {
 		console.info('~~ getInitialState')
 		return {
 			foo: 42
 		}
-	}
+	}*/
 
-	getDefaultProps () {
+	// NO "This is only supported for classes created using React.createClass.
+	// Use a static property to define defaultProps instead."
+	/*getDefaultProps () {
 		console.info('~~ getDefaultProps')
 		return {
 			value: 'default value'
 		}
-	}
+	}*/
 
 	// invoked once
 	componentWillMount () {
@@ -37,7 +43,7 @@ class CoolComponent extends React.Component {
 	}
 
 	render (props) {
-		console.info('~~ render')
+		console.count('~~ render')
 		return (
 			<p>
 				Hello, <input type="text" placeholder="Your name here" /> !
