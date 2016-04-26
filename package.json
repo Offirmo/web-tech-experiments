@@ -179,6 +179,7 @@
       "react": "npm:react@^0.14.7",
       "react-dom": "npm:react-dom@^0.14.7",
       "react-tap-event-plugin": "npm:react-tap-event-plugin@^1.0.0",
+      "redux": "npm:redux@^3.5.2",
       "text": "github:systemjs/plugin-text@^0.0.4",
       "wikidata-sdk": "npm:wikidata-sdk@^2.3.0"
     },
