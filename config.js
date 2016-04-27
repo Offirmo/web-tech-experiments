@@ -36,6 +36,7 @@ System.config({
     "lodash": "npm:lodash@3.10.1",
     "marked": "npm:marked@0.3.5",
     "material-ui": "npm:material-ui@0.14.4",
+    "moment": "npm:moment@2.13.0",
     "react": "npm:react@0.14.8",
     "react-dom": "npm:react-dom@0.14.8",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",

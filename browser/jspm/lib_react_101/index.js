@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
+// http://www.material-ui.com/
+// https://design.google.com/icons/
+
 import Layout from './components/layout/index'
 
 import '../../assets/fonts/MaterialIcons/material-icons.css!'
