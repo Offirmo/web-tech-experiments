@@ -1,32 +1,36 @@
-import React from 'react';
+import React from 'react'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { connect } from 'react-redux'
 
-import List from 'material-ui/lib/lists/list';
-import Divider from 'material-ui/lib/divider';
+import List from 'material-ui/lib/lists/list'
+import Divider from 'material-ui/lib/divider'
 
 import Step from '../step/index'
 
-const data = [
-	{
-		id: 1,
-		type:         'flight',
-		start_place:  'Paris ',
-		start_date:   new Date(2016, 6, 2, 16, 40),
-		duration_min: 6.5 * 60
-	},
-	{
-		id: 2,
-		type:         'flight',
-		start_place:  'Doha',
-		start_date:   new Date(2016, 6, 3, 0, 10),
-		duration_min: 30
-	},
-]
 export default class Journey extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
+
+	componentDidMount() {
+		const { store } = this.context
+		this.unsubscribe = store.subscribe(() =>
+			this.forceUpdate()
+		)
+	}
 
 	render () {
 
-		var items = [];
-		data.forEach((step) => {
+		const store = this.context.store
+		const state_im = store.getState()
+		const steps = state_im.getIn(['journey', 'steps']).toJS()
+
+		var items = []
+		console.log(steps)
+		steps.forEach((step) => {
 			items.push(<Step key={step.id * 10} {...step} />)
 			items.push(<Divider key={step.id * 10 + 1} />)
 		})
@@ -37,4 +41,23 @@ export default class Journey extends React.Component {
 			</List>
 		)
 	}
+
+	static reducer(state, action) {
+		state = state || Immutable.Map(Step.DEFAULTS)
+
+		switch (action.type) {
+			case 'JOURNEY_ADD_STEP':
+				return state; // TODO
+			case 'JOURNEY_DELETE_STEP':
+				return state; // TODO
+			case 'JOURNEY_MOVE_STEP':
+				return state; // TODO
+			default:
+				return state;
+		}
+	}
+}
+
+Journey.contextTypes = {
+	store: React.PropTypes.object
 }
