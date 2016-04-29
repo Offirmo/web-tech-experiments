@@ -5,6 +5,7 @@ import ContentAdd from 'material-ui/lib/svg-icons/content/add'
 
 import './styles.css!'
 
+////////////////////////////////////
 
 const FAB = ({
 	onClick
@@ -15,5 +16,7 @@ const FAB = ({
 		</FloatingActionButton>
 	</div>
 );
+
+////////////////////////////////////
 
 export default FAB;

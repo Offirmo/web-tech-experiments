@@ -1,5 +1,4 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import ListItem from 'material-ui/lib/lists/list-item';
 import Colors from 'material-ui/lib/styles/colors';
@@ -9,7 +8,6 @@ import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import FontIcon from 'material-ui/lib/font-icon';
-import Immutable from 'immutable'
 
 import moment from 'moment'
 import 'moment/locale/fr'
@@ -17,84 +15,91 @@ import 'moment/locale/fr'
 const LOCALE = 'fr'
 const DATE_FORMAT = 'lll'
 
-const iconStyles = {
-	margin: '6px 24px 0px 24px'
-};
 
-const iconButtonElement = (
+////////////////////////////////////
+
+const rightMenuIcon = (
 	<IconButton touch={true}>
 		<MoreIcon color={Colors.grey400} />
 	</IconButton>
 );
 
-const rightIconMenu = (
-	<IconMenu iconButtonElement={iconButtonElement}>
+const rightMenu = (
+	<IconMenu iconButtonElement={rightMenuIcon}>
 		<MenuItem>Reply</MenuItem>
 		<MenuItem>Forward</MenuItem>
 		<MenuItem>Delete</MenuItem>
 	</IconMenu>
 );
 
-export default class Step extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
+const iconStyles = {
+	margin: '6px 24px 0px 24px'
+};
 
-	render () {
-		let icon, color
-		switch(this.props.type) {
-			case 'home':
-				icon = 'home'
-				break
-			case 'visit':
-				icon = 'photo_camera'
-				break
-			default:
-				icon = 'local_airport'
-				break
-			// landscape
-			// directions bike boat bus car run walk
-			// subway
-			// flight
-			// local_hotel
-			// restaurant
-			// train tram
-			// beach_access
-			// pool
-		}
-		switch(this.props.type) {
-			case 'home':
-			case 'visit':
-			default:
-				color = Colors.red500
-				break
-		}
+const StepListItem = ({
+	icon,
+	color,
+	primary_text,
+	secondaryText
+}) => (
+	<ListItem
+		leftIcon={<MoreVertIcon color={Colors.grey400} />}
+		leftAvatar={<FontIcon className="material-icons" style={iconStyles} color={color}>{icon}</FontIcon>}
+		primaryText={primary_text}
+		secondaryText={secondaryText}
+		secondaryTextLines={1}
+		rightIconButton={rightMenu}
+	/>
+)
 
-		const date_string = moment(this.props.start_date).locale(LOCALE).format(DATE_FORMAT)
+////////////////////////////////////
 
-		const primary_text = `${date_string} - ${this.props.start_place}`
-		const secondaryText = `${this.props.duration_min} min.`
-
-		return (
-			<ListItem
-				leftIcon={<MoreVertIcon color={Colors.grey400} />}
-				leftAvatar={<FontIcon className="material-icons" style={iconStyles} color={color}>{icon}</FontIcon>}
-				primaryText={primary_text}
-				secondaryText={secondaryText}
-				secondaryTextLines={1}
-				rightIconButton={rightIconMenu}
-			/>
-		)
+function get_icon(type) {
+	switch(type) {
+	case 'home':
+		return 'home'
+	case 'visit':
+		return 'photo_camera'
+	default:
+		return 'local_airport'
+		// landscape
+		// directions bike boat bus car run walk
+		// subway
+		// flight
+		// local_hotel
+		// restaurant
+		// train tram
+		// beach_access
+		// pool
 	}
 }
 
-Step.DEFAULTS = {
-	type:         'visit',
-	start_place:  '?',
-	start_date:   Date.now(),
-	duration_min: 30
+function get_color(type) {
+	switch(type) {
+		case 'home':
+		case 'visit':
+		default:
+			return Colors.red500
+	}
+}
+
+let Step = ({
+	type,
+	start_place,
+	start_date,
+	duration_min
+}) => {
+	const date_string = moment(start_date).locale(LOCALE).format(DATE_FORMAT)
+
+	const params = {
+		icon: get_icon(type),
+		color: get_color(type),
+		primary_text: `${date_string} - ${start_place}`,
+		secondaryText: `${duration_min} min.`
+	}
+
+	return <StepListItem {...params} />
 }
 
 Step.propTypes = {
@@ -104,4 +109,4 @@ Step.propTypes = {
 	duration_min: React.PropTypes.number
 }
 
-Step.defaultProps = Step.DEFAULTS
+export default Step
