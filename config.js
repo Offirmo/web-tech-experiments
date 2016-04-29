@@ -30,6 +30,7 @@ System.config({
     "d3": "bower:d3@3.4.13",
     "d3kit": "bower:d3kit@1.0.9",
     "d3kit-timeline": "bower:d3kit-timeline@0.4.1",
+    "flux-standard-action": "npm:flux-standard-action@0.6.1",
     "handsontable": "github:handsontable/handsontable@0.23.0",
     "immutable": "npm:immutable@3.8.1",
     "jquery": "npm:jquery@2.2.3",
@@ -45,6 +46,7 @@ System.config({
     "react-router": "npm:react-router@2.3.0",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",
     "redux": "npm:redux@3.5.2",
+    "redux-actions": "npm:redux-actions@0.9.1",
     "text": "github:systemjs/plugin-text@0.0.4",
     "wikidata-sdk": "npm:wikidata-sdk@2.5.0",
     "bower:d3kit-timeline@0.4.1": {
@@ -231,6 +233,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.1.1",
       "ua-parser-js": "npm:ua-parser-js@0.7.10"
+    },
+    "npm:flux-standard-action@0.6.1": {
+      "lodash.isplainobject": "npm:lodash.isplainobject@3.2.0"
     },
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
@@ -461,6 +466,10 @@ System.config({
       "private": "npm:private@0.1.6",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "source-map": "npm:source-map@0.5.5"
+    },
+    "npm:redux-actions@0.9.1": {
+      "flux-standard-action": "npm:flux-standard-action@0.6.1",
+      "reduce-reducers": "npm:reduce-reducers@0.1.2"
     },
     "npm:redux@3.5.2": {
       "lodash": "npm:lodash@4.11.1",

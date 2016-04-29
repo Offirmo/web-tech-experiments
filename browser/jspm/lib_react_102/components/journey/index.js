@@ -29,7 +29,7 @@ export default class Journey extends React.Component {
 		const steps = state_im.getIn(['journey', 'steps']).toJS()
 
 		var items = []
-		console.log(steps)
+		//console.log(steps)
 		steps.forEach((step) => {
 			items.push(<Step key={step.id * 10} {...step} />)
 			items.push(<Divider key={step.id * 10 + 1} />)

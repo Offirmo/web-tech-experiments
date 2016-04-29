@@ -2,10 +2,17 @@ import Immutable from 'immutable'
 
 import {reducer as journey_reducer, DEFAULTS as journey_defaults} from './journey'
 
-const DEFAULTS = {
+////////////////////////////////////
+
+export const DEFAULTS = {
 	locale: 'fr',
 	journey: journey_defaults
 }
+
+////////////////////////////////////
+
+
+////////////////////////////////////
 
 export function reducer(state, action) {
 	state = state || Immutable.fromJS(DEFAULTS)
@@ -17,5 +24,3 @@ export function reducer(state, action) {
 			return state;
 	}
 }
-
-export default reducer

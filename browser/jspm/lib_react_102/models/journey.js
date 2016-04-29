@@ -1,29 +1,48 @@
 import Immutable from 'immutable'
+import { createAction, handleAction, handleActions } from 'redux-actions';
 
 import {reducer as step_reducer, DEFAULTS as step_defaults} from './step'
+
+let id_generator = 1
+
+////////////////////////////////////
 
 export const DEFAULTS = {
 	name: 'A nice unnamed journey...',
 	steps: [
 		Object.assign({}, step_defaults, {
-			id: 1,
+			id: id_generator++,
 			rank: 1,
 			type: 'home'
 		}),
 
 		Object.assign({}, step_defaults, {
-			id: 2,
+			id: id_generator++,
 			rank: 2,
 			type: 'visit'
 		}),
 
 		Object.assign({}, step_defaults, {
-			id: 3,
+			id: id_generator++,
 			rank: 3,
 			type: 'home'
 		})
 	]
 }
+
+////////////////////////////////////
+
+export const actions = {
+
+	add_step: createAction('JOURNEY_ADD_STEP', (step_data) => {
+		console.log('building action', id_generator)
+
+		return Object.assign({}, step_defaults, step_data || {}, {id: id_generator++})
+	})
+
+}
+
+////////////////////////////////////
 
 export function reducer(state, action) {
 	state = state || Immutable.fromJS(DEFAULTS)
@@ -33,7 +52,7 @@ export function reducer(state, action) {
 	switch (action.type) {
 		case 'JOURNEY_ADD_STEP':
 			return state.update('steps',
-				list => list.push( Object.assign({}, step_defaults, {type: 'visit', id: 4}) )
+				list => list.push( Object.assign({}, step_defaults, action.payload) )
 			)
 
 		case 'JOURNEY_DELETE_STEP':
@@ -46,5 +65,3 @@ export function reducer(state, action) {
 			return state;
 	}
 }
-
-export default reducer

@@ -1,11 +1,17 @@
 import Immutable from 'immutable'
 
+////////////////////////////////////
+
 export const DEFAULTS = {
 	type:         'visit',
 	start_place:  '?',
 	start_date:   Date.now(),
 	duration_min: 30
 }
+
+////////////////////////////////////
+
+////////////////////////////////////
 
 export function reducer(state, action) {
 	state = state || Immutable.fromJS(DEFAULTS)
@@ -27,5 +33,3 @@ export function reducer(state, action) {
 			return state;
 	}
 }
-
-export default reducer
