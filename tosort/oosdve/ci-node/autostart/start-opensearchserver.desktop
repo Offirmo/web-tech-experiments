@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=start-opensearchserver
+Type=Application
+Exec=/home/huit/opensearchserver-1.5.9-b868/start.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=start-opensearchserver
+
