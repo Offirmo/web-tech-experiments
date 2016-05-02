@@ -47,6 +47,7 @@ System.config({
     "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",
     "redux": "npm:redux@3.5.2",
     "redux-actions": "npm:redux-actions@0.9.1",
+    "redux-logger": "npm:redux-logger@2.6.1",
     "text": "github:systemjs/plugin-text@0.0.4",
     "wikidata-sdk": "npm:wikidata-sdk@2.5.0",
     "bower:d3kit-timeline@0.4.1": {

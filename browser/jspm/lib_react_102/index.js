@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { isFSA } from 'flux-standard-action'
+import createLogger from 'redux-logger';
+import { Provider } from 'react-redux'
+import {Iterable} from 'immutable';
 
 // http://www.material-ui.com/
 // https://design.google.com/icons/
@@ -36,10 +39,19 @@ function top_reducer(state, action) {
 	return newState
 }
 
-import { Provider } from 'react-redux'
+
+const redux_middlewares = [];
+
+const redux_logger = createLogger({
+	stateTransformer: state => state ? state.toJS() : state
+})
+redux_middlewares.push(redux_logger)
 
 ReactDOM.render(
-	<Provider store={createStore(top_reducer)} >
+	<Provider store={createStore(
+		reducer,
+		applyMiddleware(...redux_middlewares)
+	)} >
 		<App />
 	</Provider>,
 	document.getElementById('content')
