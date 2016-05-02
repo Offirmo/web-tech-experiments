@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=start-selenium-server
+Type=Application
+Exec=bash '/home/huit/Desktop/start-selenium-server.sh'
+Terminal=true
+X-GNOME-Autostart-enabled=true
+Name[en_US]=start-selenium-server
