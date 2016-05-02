@@ -35,7 +35,7 @@ System.config({
     "immutable": "npm:immutable@3.8.1",
     "jquery": "npm:jquery@2.2.3",
     "json": "github:systemjs/plugin-json@0.1.2",
-    "lodash": "npm:lodash@4.11.1",
+    "lodash": "npm:lodash@4.11.2",
     "marked": "npm:marked@0.3.5",
     "material-ui": "npm:material-ui@0.14.4",
     "moment": "npm:moment@2.13.0",
@@ -213,9 +213,6 @@ System.config({
       "promise": "npm:promise@7.1.1",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
     },
-    "npm:fbjs@0.6.1": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
     "npm:fbjs@0.8.1": {
       "babel-plugin-syntax-flow": "npm:babel-plugin-syntax-flow@6.5.0",
       "core-js": "npm:core-js@1.2.6",
@@ -312,7 +309,7 @@ System.config({
       "lodash._basecopy": "npm:lodash._basecopy@3.0.1",
       "lodash.keysin": "npm:lodash.keysin@3.0.8"
     },
-    "npm:lodash@4.11.1": {
+    "npm:lodash@4.11.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -329,13 +326,13 @@ System.config({
       "lodash.merge": "npm:lodash.merge@3.3.2",
       "lodash.throttle": "npm:lodash.throttle@3.0.4",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@0.14.8",
+      "react": "npm:react@15.0.2",
       "react-addons-create-fragment": "npm:react-addons-create-fragment@0.14.8",
-      "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@0.14.8",
+      "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@15.0.2",
       "react-addons-transition-group": "npm:react-addons-transition-group@0.14.8",
       "react-addons-update": "npm:react-addons-update@0.14.8",
       "react-dom": "npm:react-dom@0.14.8",
-      "react-tap-event-plugin": "npm:react-tap-event-plugin@0.2.2",
+      "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",
       "warning": "npm:warning@2.1.0"
     },
     "npm:node-fetch@1.5.1": {
@@ -379,27 +376,24 @@ System.config({
       "strict-uri-encode": "npm:strict-uri-encode@1.1.0"
     },
     "npm:react-addons-create-fragment@0.14.8": {
-      "react": "npm:react@0.14.8"
-    },
-    "npm:react-addons-pure-render-mixin@0.14.8": {
-      "react": "npm:react@0.14.8"
+      "react": "npm:react@15.0.2"
     },
     "npm:react-addons-pure-render-mixin@15.0.2": {
       "react": "npm:react@15.0.2"
     },
     "npm:react-addons-transition-group@0.14.8": {
-      "react": "npm:react@0.14.8"
+      "react": "npm:react@15.0.2"
     },
     "npm:react-addons-update@0.14.8": {
-      "react": "npm:react@0.14.8"
+      "react": "npm:react@15.0.2"
     },
     "npm:react-dom@0.14.8": {
-      "react": "npm:react@0.14.8"
+      "react": "npm:react@15.0.2"
     },
     "npm:react-redux@4.4.5": {
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.5",
       "invariant": "npm:invariant@2.2.1",
-      "lodash": "npm:lodash@4.11.1",
+      "lodash": "npm:lodash@4.11.2",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "react": "npm:react@15.0.2",
@@ -413,18 +407,10 @@ System.config({
       "react": "npm:react@15.0.2",
       "warning": "npm:warning@2.1.0"
     },
-    "npm:react-tap-event-plugin@0.2.2": {
-      "fbjs": "npm:fbjs@0.2.1",
-      "react": "npm:react@0.14.8"
-    },
     "npm:react-tap-event-plugin@1.0.0": {
       "fbjs": "npm:fbjs@0.2.1",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "react": "npm:react@15.0.2"
-    },
-    "npm:react@0.14.8": {
-      "fbjs": "npm:fbjs@0.6.1",
-      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:react@15.0.2": {
       "fbjs": "npm:fbjs@0.8.1",
@@ -458,8 +444,8 @@ System.config({
       "reduce-reducers": "npm:reduce-reducers@0.1.2"
     },
     "npm:redux@3.5.2": {
-      "lodash": "npm:lodash@4.11.1",
-      "lodash-es": "npm:lodash-es@4.11.1",
+      "lodash": "npm:lodash@4.11.2",
+      "lodash-es": "npm:lodash-es@4.11.2",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "symbol-observable": "npm:symbol-observable@0.2.4"
