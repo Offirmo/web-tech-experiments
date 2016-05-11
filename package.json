@@ -120,7 +120,7 @@
     "mocha": "^2.4.5",
     "node-livereload": "napcs/node-livereload",
     "nodemon": "^1.9.1",
-    "pre-commit": "^1.1.2",
+    "pre-commit": "^1.1.3",
     "puer": "^1.1.1",
     "sinon-chai": "^2.8.0",
     "style-loader": "0.13.1",
