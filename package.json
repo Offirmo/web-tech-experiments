@@ -7,7 +7,7 @@
   "license": "Unlicense",
   "scripts": {
     "start": "npm run puer",
-    "puer": "puer --exclude 'bower_components|node_modules|jspm_packages'",
+    "puer": "puer --exclude 'bower_components|node_modules|jspm_packages' --port $PORT",
     "lint": "eslint .",
     "webpack": "webpack --progress --colors",
     "npm-install-globals": "npm install --global jspm puer nodemon && npm update --global jspm puer nodemon",

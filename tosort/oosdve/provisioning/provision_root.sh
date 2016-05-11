@@ -31,13 +31,13 @@ echo "  - PATH          = $PATH"
 sudo locale-gen fr_FR
 sudo locale-gen fr_FR.UTF-8
 
-## To handle apt repositories
+## To handle 3rd party apt repositories
 sudo apt install -y  software-properties-common python-software-properties
 
 ## allow secure apt repositories
 sudo apt install -y  apt-transport-https
 
-## add apt repositories
+## add important apt repositories
 sudo add-apt-repository -y ppa:ubuntu-desktop/ubuntu-make
 sudo add-apt-repository -y ppa:webupd8team/java
 
