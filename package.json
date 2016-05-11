@@ -119,7 +119,7 @@
     "jspm": "^0.16.34",
     "mocha": "^2.4.5",
     "node-livereload": "napcs/node-livereload",
-    "nodemon": "^1.9.1",
+    "nodemon": "^1.9.2",
     "pre-commit": "^1.1.3",
     "puer": "^1.1.1",
     "sinon-chai": "^2.8.0",
