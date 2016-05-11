@@ -127,7 +127,7 @@
     "webpack": "1.13.0",
     "webpack-dev-server": "1.14.1",
     "webpack-load-plugins": "0.1.2",
-    "yo": "^1.7.0"
+    "yo": "^1.8.1"
   },
   "commentedOut": {
     "accounting": "latest",
