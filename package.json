@@ -55,7 +55,7 @@
     "good": "^6.6.0",
     "good-console": "^6.0.0",
     "hapi": "^13.4.0",
-    "he": "^1.0.0",
+    "he": "^1.1.0",
     "humanize-duration": "^3.7.0",
     "iconv-lite": "^0.4.13",
     "javascript-state-machine": "^2.3.5",
