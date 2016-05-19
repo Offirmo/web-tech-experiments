@@ -1,8 +1,0 @@
-modified : 
-
-added .jquery-ui-enabled parent class for all
-
-+ tester element
-.jquery-ui-theme-bootstrap-offirmo-test {
-	font-size: 33px;
-}
