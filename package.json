@@ -23,7 +23,7 @@
     "xx": "rm -rf node_modules && rm -rf bower_components && rm -rf jspm_packages"
   },
   "engines": {
-    "node": "^5.9.0"
+    "node": "^6.2.0"
   },
   "dependencies": {
     "amdefine": "^1.0.0",
