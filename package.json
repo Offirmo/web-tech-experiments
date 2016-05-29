@@ -54,7 +54,7 @@
     "fs-extra": "^0.28.0",
     "good": "^7.0.0",
     "good-console": "^6.1.2",
-    "hapi": "^13.4.0",
+    "hapi": "^13.4.1",
     "he": "^1.1.0",
     "humanize-duration": "^3.7.1",
     "iconv-lite": "^0.4.13",
