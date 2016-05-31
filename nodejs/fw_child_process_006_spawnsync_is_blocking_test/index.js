@@ -7,7 +7,7 @@ console.log('Hello world !')
 
 ///////////////////////////////////////////////////////
 
-const spawn = require('child_process').spawn
+const spawnSync = require('child_process').spawnSync
 
 ///////////////////////////////////////////////////////
 
@@ -18,12 +18,9 @@ const params = [ '10' ]
 const options = {
 	timeout: 5000,
 	env: process.env,
+	encoding: 'utf8'
 }
 
 console.log(`Spawn : spawning ${executable}`, params);
-const spawn_instance = spawn(executable, params, options);
-
-spawn_instance.on('close', (code, signal) => {
-	console.log(`Spawn : got event close with code "${code}" & signal "${signal}"`)
-});
-
+const result = spawnSync(executable, params, options);
+console.log(`spawnSync : done`)
