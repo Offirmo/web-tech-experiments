@@ -20,7 +20,11 @@
     "ii": "npm run install-dev",
     "jj": "npm run jspm-install-dev",
     "bb": "npm run bower-install-dev",
-    "xx": "rm -rf node_modules && rm -rf bower_components && rm -rf jspm_packages"
+    "xx": "rm -rf node_modules && rm -rf bower_components && rm -rf jspm_packages",
+    "mocha": "mocha",
+    "mocha1": "mocha --colors --check-leaks --harmony_modules nodejs/mod_chai_001_hello/index.js",
+    "mocha2a": "mocha --colors --check-leaks --harmony_modules nodejs/mod_chai_002_comparison/assert.js",
+    "mocha2b": "mocha --colors --check-leaks --harmony_modules nodejs/mod_chai_002_comparison/chai_expect.js"
   },
   "engines": {
     "node": "^6.2.0"
@@ -31,6 +35,7 @@
     "backbone": "^1.3.3",
     "body-parser": "^1.15.1",
     "bytes": "^2.3.0",
+    "chai": "^3.5.0",
     "chalk": "^1.1.3",
     "clarify": "^1.0.5",
     "compression": "^1.6.2",
@@ -69,6 +74,7 @@
     "longjohn": "^0.2.9",
     "lunr": "0.7.1",
     "method-override": "^2.3.6",
+    "mocha": "^2.5.3",
     "moment": "^2.13.0",
     "moment-precise-range": "^0.1.1",
     "morgan": "^1.7.0",
@@ -94,6 +100,8 @@
     "serve-favicon": "^2.3.0",
     "serve-index": "^1.7.3",
     "shackles": "^0.2.0",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
     "socket.io": "^1.4.6",
     "store": "^1.3.20",
     "trace": "^2.3.0",
