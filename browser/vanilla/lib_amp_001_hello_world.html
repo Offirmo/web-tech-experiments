@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib 001 - AMP</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	Create Your First AMP Page https://www.ampproject.org/docs/get_started/create_page.html
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>

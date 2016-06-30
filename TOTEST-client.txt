@@ -1,5 +1,12 @@
 ’
 
+https://github.com/sindresorhus/emoj
+
+TEST
+https://medium.com/@i.anunay/mocknode-e338f793dba0#.4li55ar5h
+http://devlucky.github.io/kakapo-js
+
+
 https://css-tricks.com/rem-global-em-local/
 http://zellwk.com/blog/rem-vs-em/
 
