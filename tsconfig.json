@@ -4,7 +4,7 @@
 		"target": "es6"
 	},
 	"files": [
-		"typescript"
+		"./typings/index.d.ts"
 	],
 	"compileOnSave": false
 }

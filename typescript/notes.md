@@ -10,3 +10,6 @@
 "moduleResolution": "node",
 "module": "commonjs",
 */
+
+
+///<reference path="../../typings/modules/lodash/index.d.ts"/>
