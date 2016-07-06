@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"noEmit": true,
+
+		"jsx": "react",
+		"moduleResolution": "node",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"target": "es6"
+	},
+	"files": [
+		"typescript"
+	],
+	"compileOnSave": false
+}
