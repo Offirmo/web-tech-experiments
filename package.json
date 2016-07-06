@@ -27,7 +27,7 @@
     "mocha2b": "mocha --colors --check-leaks --harmony_modules nodejs/mod_chai_002_comparison/chai_expect.js"
   },
   "engines": {
-    "node": "^6.2.0"
+    "node": "^6"
   },
   "dependencies": {
     "amdefine": "^1.0.0",
@@ -132,6 +132,8 @@
     "puer": "^1.1.1",
     "sinon-chai": "^2.8.0",
     "style-loader": "0.13.1",
+    "ts-node": "^0.9.3",
+    "typescript": "^2.0.0-dev.20160706",
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1",
     "webpack-load-plugins": "0.1.2",
