@@ -12,11 +12,12 @@
 			color: #333;
 		}
 	</style>
+	<script src="../../node_modules/setimmediate/setImmediate.js"></script>
 </head>
 
 <h1>...</h1>
 <p>
-	Testing the new ES6 Promise
+	Testing the new ES6 Promise timings. Stuff is sent to console.
 </p>
 
 <script>
@@ -24,4 +25,29 @@
 	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text);
 	});
+
+	console.log('--- start ---')
+
+	setImmediate(function() { console.log('--- immediate msg 1 ---') }, 0)
+	setTimeout(function() { console.log('--- enqueued msg 1 ---') }, 0)
+
+	new Promise(function(resolve, reject) {
+		console.log('--- into Promise ---')
+		setImmediate(function() { console.log('--- immediate msg 2 ---') }, 0)
+		setTimeout(function() { console.log('--- enqueued msg 2 ---') }, 0)
+		resolve(true)
+	})
+	.then(function() {
+		console.log('--- resolution 1 ---')
+		setImmediate(function() { console.log('--- immediate msg 3 ---') }, 0)
+		setTimeout(function() { console.log('--- enqueued msg 3 ---') }, 0)
+
+	})
+	.then(function() {
+		console.log('--- resolution 2 ---')
+		setImmediate(function() { console.log('--- immediate msg 4 ---') }, 0)
+		setTimeout(function() { console.log('--- enqueued msg 4 ---') }, 0)
+	})
+
+	console.log('--- end ---')
 </script>
