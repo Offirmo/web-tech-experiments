@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>HTML5 005 - HTML tests micro template</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		.container {
+			margin: 3px;
+			padding: 7px;
+			background-color: #dbf2db;
+		}
+		.container .background {
+			border: 3px dotted black;
+			background-color: #dedfff;
+		}
+		.container .background p {
+			font-size: 30px;
+		}
+		.scaled75 {
+			transform: scale(0.75);
+			transform-origin: 0px 0px;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	Trying the "scale" CSS transform
+</p>
+
+<div class="container">
+	<div class="background">
+		<p>Hello World</p>
+		<ul>
+			<li>Done
+		</ul>
+	</div>
+</div>
+
+<div class="container scaled75">
+	<div class="background">
+		<p>Hello World</p>
+		<ul>
+			<li>Done
+		</ul>
+	</div>
+</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>
