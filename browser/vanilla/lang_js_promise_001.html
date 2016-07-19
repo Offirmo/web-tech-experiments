@@ -31,8 +31,8 @@
 	setImmediate(function() { console.log('--- immediate msg 1 ---') }, 0)
 	setTimeout(function() { console.log('--- enqueued msg 1 ---') }, 0)
 
-	new Promise(function(resolve, reject) {
-		console.log('--- into Promise ---')
+	const prom = new Promise(function(resolve, reject) {
+		console.log('--- into Promise creation fn---')
 		setImmediate(function() { console.log('--- immediate msg 2 ---') }, 0)
 		setTimeout(function() { console.log('--- enqueued msg 2 ---') }, 0)
 		resolve(true)
@@ -50,4 +50,5 @@
 	})
 
 	console.log('--- end ---')
+
 </script>

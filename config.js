@@ -15,18 +15,18 @@ System.config({
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.6",
-    "angular-animate": "github:angular/bower-angular-animate@1.5.6",
-    "angular-aria": "github:angular/bower-angular-aria@1.5.6",
+    "angular": "github:angular/bower-angular@1.5.7",
+    "angular-animate": "github:angular/bower-angular-animate@1.5.7",
+    "angular-aria": "github:angular/bower-angular-aria@1.5.7",
     "angular-material": "github:angular/bower-material@1.0.9",
-    "angular-messages": "github:angular/bower-angular-messages@1.5.6",
+    "angular-messages": "github:angular/bower-angular-messages@1.5.7",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
-    "clean-css": "npm:clean-css@3.4.14",
-    "core-js": "npm:core-js@1.2.6",
-    "css": "github:systemjs/plugin-css@0.1.22",
-    "cytoscape": "npm:cytoscape@2.6.12",
+    "clean-css": "npm:clean-css@3.4.18",
+    "core-js": "npm:core-js@1.2.7",
+    "css": "github:systemjs/plugin-css@0.1.23",
+    "cytoscape": "npm:cytoscape@2.7.6",
     "d3": "bower:d3@3.4.13",
     "d3kit": "bower:d3kit@1.0.9",
     "d3kit-timeline": "bower:d3kit-timeline@0.4.1",
@@ -38,12 +38,12 @@ System.config({
     "lodash": "npm:lodash@4.13.1",
     "marked": "npm:marked@0.3.5",
     "material-ui": "npm:material-ui@0.14.4",
-    "moment": "npm:moment@2.13.0",
-    "react": "npm:react@15.1.0",
-    "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@15.1.0",
+    "moment": "npm:moment@2.14.1",
+    "react": "npm:react@15.2.1",
+    "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@15.2.1",
     "react-dom": "npm:react-dom@0.14.8",
     "react-redux": "npm:react-redux@4.4.5",
-    "react-router": "npm:react-router@2.4.1",
+    "react-router": "npm:react-router@2.6.0",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",
     "redux": "npm:redux@3.5.2",
     "redux-actions": "npm:redux-actions@0.9.1",
@@ -57,29 +57,29 @@ System.config({
     "bower:d3kit@1.0.9": {
       "d3": "bower:d3@3.4.13"
     },
-    "github:angular/bower-angular-animate@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+    "github:angular/bower-angular-animate@1.5.7": {
+      "angular": "github:angular/bower-angular@1.5.7"
     },
-    "github:angular/bower-angular-aria@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+    "github:angular/bower-angular-aria@1.5.7": {
+      "angular": "github:angular/bower-angular@1.5.7"
     },
-    "github:angular/bower-angular-messages@1.5.6": {
-      "angular": "github:angular/bower-angular@1.5.6"
+    "github:angular/bower-angular-messages@1.5.7": {
+      "angular": "github:angular/bower-angular@1.5.7"
     },
     "github:angular/bower-material@1.0.9": {
-      "angular": "github:angular/bower-angular@1.5.6",
-      "angular-animate": "github:angular/bower-angular-animate@1.5.6",
-      "angular-aria": "github:angular/bower-angular-aria@1.5.6",
-      "css": "github:systemjs/plugin-css@0.1.22"
+      "angular": "github:angular/bower-angular@1.5.7",
+      "angular-animate": "github:angular/bower-angular-animate@1.5.7",
+      "angular-aria": "github:angular/bower-angular-aria@1.5.7",
+      "css": "github:systemjs/plugin-css@0.1.23"
     },
     "github:handsontable/handsontable@0.23.0": {
       "jquery": "npm:jquery@2.2.4",
-      "moment": "npm:moment@2.13.0",
+      "moment": "npm:moment@2.14.1",
       "pikaday": "npm:pikaday@1.4.0",
       "zeroclipboard": "npm:zeroclipboard@2.2.0"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
-      "assert": "npm:assert@1.4.0"
+      "assert": "npm:assert@1.4.1"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.6.0"
@@ -108,7 +108,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.3"
+      "process": "npm:process@0.11.5"
     },
     "github:jspm/nodelibs-querystring@0.1.0": {
       "querystring": "npm:querystring@0.2.0"
@@ -124,6 +124,9 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "github:jspm/nodelibs-vm@0.1.0": {
+      "vm-browserify": "npm:vm-browserify@0.0.4"
     },
     "github:jspm/nodelibs-zlib@0.1.0": {
       "browserify-zlib": "npm:browserify-zlib@0.1.4"
@@ -141,10 +144,9 @@ System.config({
       "domain": "github:jspm/nodelibs-domain@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:assert@1.4.0": {
+    "npm:assert@1.4.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "buffer-shims": "npm:buffer-shims@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "npm:util@0.10.3"
     },
@@ -170,7 +172,7 @@ System.config({
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:clean-css@3.4.14": {
+    "npm:clean-css@3.4.18": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.8.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -191,7 +193,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:core-js@1.2.6": {
+    "npm:core-js@1.2.7": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -200,7 +202,9 @@ System.config({
     "npm:core-util-is@1.0.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:cytoscape@2.6.12": {
+    "npm:cytoscape@2.7.6": {
+      "os": "github:jspm/nodelibs-os@0.1.0",
+      "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
@@ -212,7 +216,7 @@ System.config({
       "iconv-lite": "npm:iconv-lite@0.4.13"
     },
     "npm:fbjs@0.2.1": {
-      "core-js": "npm:core-js@1.2.6",
+      "core-js": "npm:core-js@1.2.7",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.1.1",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
@@ -221,7 +225,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:fbjs@0.8.3": {
-      "core-js": "npm:core-js@1.2.6",
+      "core-js": "npm:core-js@1.2.7",
       "immutable": "npm:immutable@3.8.1",
       "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
       "loose-envify": "npm:loose-envify@1.2.0",
@@ -257,7 +261,7 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:inline-style-prefixer@0.6.7": {
-      "bowser": "npm:bowser@1.3.0",
+      "bowser": "npm:bowser@1.4.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:invariant@2.2.1": {
@@ -366,13 +370,15 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:pikaday@1.4.0": {
-      "moment": "npm:moment@2.13.0"
+      "moment": "npm:moment@2.14.1"
     },
     "npm:process-nextick-args@1.0.7": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:process@0.11.3": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0"
+    "npm:process@0.11.5": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
     "npm:promise@7.1.1": {
       "asap": "npm:asap@2.0.4",
@@ -390,8 +396,8 @@ System.config({
     "npm:react-addons-pure-render-mixin@0.14.8": {
       "react": "npm:react@0.14.8"
     },
-    "npm:react-addons-pure-render-mixin@15.1.0": {
-      "react": "npm:react@15.1.0"
+    "npm:react-addons-pure-render-mixin@15.2.1": {
+      "react": "npm:react@15.2.1"
     },
     "npm:react-addons-transition-group@0.14.8": {
       "react": "npm:react@0.14.8"
@@ -403,21 +409,22 @@ System.config({
       "react": "npm:react@0.14.8"
     },
     "npm:react-redux@4.4.5": {
-      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.6",
+      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
       "invariant": "npm:invariant@2.2.1",
       "lodash": "npm:lodash@4.13.1",
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.1.0",
+      "react": "npm:react@15.2.1",
       "redux": "npm:redux@3.5.2"
     },
-    "npm:react-router@2.4.1": {
+    "npm:react-router@2.6.0": {
       "history": "npm:history@2.1.2",
-      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.6",
+      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
       "invariant": "npm:invariant@2.2.1",
+      "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.1.0",
-      "warning": "npm:warning@2.1.0"
+      "react": "npm:react@15.2.1",
+      "warning": "npm:warning@3.0.0"
     },
     "npm:react-tap-event-plugin@0.2.2": {
       "fbjs": "npm:fbjs@0.2.1",
@@ -426,13 +433,13 @@ System.config({
     "npm:react-tap-event-plugin@1.0.0": {
       "fbjs": "npm:fbjs@0.2.1",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.1.0"
+      "react": "npm:react@15.2.1"
     },
     "npm:react@0.14.8": {
       "fbjs": "npm:fbjs@0.6.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:react@15.1.0": {
+    "npm:react@15.2.1": {
       "fbjs": "npm:fbjs@0.8.3",
       "loose-envify": "npm:loose-envify@1.2.0",
       "object-assign": "npm:object-assign@4.1.0",
@@ -499,7 +506,14 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:vm-browserify@0.0.4": {
+      "indexof": "npm:indexof@0.0.1"
+    },
     "npm:warning@2.1.0": {
+      "loose-envify": "npm:loose-envify@1.2.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:warning@3.0.0": {
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
