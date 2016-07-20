@@ -1,4 +1,6 @@
 
+https://github.com/rich-harris/sorcery  Resolve a chain of sourcemaps back to the original source, like magic
+
 http://daily-javascript.com/articles/ljson/
 https://github.com/ziyasal/scientist.js
 https://github.com/jezen/is-thirteen

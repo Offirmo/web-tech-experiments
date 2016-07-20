@@ -1,5 +1,7 @@
 ’
 
+http://andrewhfarmer.com/webpack-hmr-tutorial/
+
 https://github.com/sindresorhus/emoj
 
 TEST
