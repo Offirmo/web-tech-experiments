@@ -1,12 +1,12 @@
-html_tests
-==========
+web-tech-experiments
+====================
 
 [![Project status](http://img.shields.io/badge/project_status-highly_experimental-red.png)](http://offirmo.net/classifying-open-source-projects-status/)
 [![license](http://img.shields.io/badge/license-public_domain-brightgreen.png)](http://unlicense.org/)
 [![Gittip](http://img.shields.io/gittip/Offirmo.png)](https://www.gittip.com/Offirmo/)
 
 
-http://offirmo.github.io/html_tests/
+http://offirmo.github.io/web-tech-experiments/
 
 Introduction
 ------------
