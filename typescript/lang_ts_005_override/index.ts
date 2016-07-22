@@ -9,8 +9,6 @@ function hello(locutor: string, ...locutors: string[]): void {
 }
 
 
-/*import { hello } from './lib'*/
-
 hello('typescript world')
 
 hello('Joe', 'Jack', 'William', 'Averell')

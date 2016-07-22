@@ -13,3 +13,9 @@
 
 
 ///<reference path="../../typings/modules/lodash/index.d.ts"/>
+
+	"files": [
+		"./typings/index.d.ts"
+	],
+	
+	

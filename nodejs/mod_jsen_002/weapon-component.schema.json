@@ -1,0 +1,28 @@
+{
+	"title": "WeaponComponent Schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"id": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 50
+		},
+		"i18n_key": {
+			"description": "i18n key for this element",
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 60
+		},
+		"type": {
+			"description": "type of component (base, qualifier1, qualifier2, quality)",
+			"type": "string",
+			"default": "base"
+		},
+		"affinities": {
+			"description": "(TODO) hints of other components this one should or should not be associated with",
+			"default": {}
+		}
+	},
+	"required": [ "id", "i18n_key", "type" ]
+}

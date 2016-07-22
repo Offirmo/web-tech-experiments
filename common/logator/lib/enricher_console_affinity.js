@@ -18,7 +18,7 @@ function(_) {
 		if(log_call.console_affinity) return; // nothing to do, already there
 		if(log_call.level.console_affinity)
 			log_call.console_affinity = log_call.level.console_affinity; // already computed
-		if(_.contains(console_levels, log_call.level.name))
+		if(_.includes(console_levels, log_call.level.name))
 			log_call.console_affinity = log_call.level.name;
 		else
 			throw new Error('TODO compute console affinity via known usual names then by relative rank');

@@ -63,8 +63,10 @@
     "he": "^1.1.0",
     "humanize-duration": "^3.8.0",
     "iconv-lite": "^0.4.13",
+    "immutable": "^3.8.1",
     "javascript-state-machine": "^2.3.5",
     "jschardet": "^1.4.1",
+    "jsen": "^0.6.1",
     "json-stringify-safe": "^5.0.1",
     "jspm-bower-endpoint": "^0.3.2",
     "localStorage": "^1.0.3",
@@ -114,6 +116,8 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "@types/jsen": "0.0.17",
+    "@types/lodash": "0.0.28",
     "babel-cli": "^6.9.0",
     "babel-preset-es2015-node5": "^1.2.0",
     "babel-register": "^6.9.0",
@@ -134,7 +138,7 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "0.13.1",
     "ts-node": "^0.9.3",
-    "typescript": "^2.0.0-dev.20160706",
+    "typescript": "^2.1.0-dev.20160722",
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1",
     "webpack-load-plugins": "0.1.2",

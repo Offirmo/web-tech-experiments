@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "class-name": true,
+    "forin": true,
+    "label-position": true,
+    "label-undefined": true,
+    "member-access": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-controlled-inputs": true,
+    "no-debugger": true,
+    "no-duplicate-key": true,
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-inferrable-types": true,
+    "no-shadowed-variable": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unreachable": true,
+    "no-unused-expression": true,
+    "no-unused-variable": [true, "react"],
+    "semicolon": [true, "never"],
+    "triple-equals": true,
+    "use-isnan": true
+  }
+}
