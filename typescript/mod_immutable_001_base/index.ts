@@ -1,9 +1,11 @@
 #!/bin/sh
 ':' //# http://sambal.org/?p=1014 ; exec `dirname $0`/../../node_modules/.bin/ts-node "$0" "$@"
+console.log('Hello, world !')
+
+// http://facebook.github.io/immutable-js/docs/#/
 
 import Immutable = require('immutable')
 
-console.log('Hello, world !')
 
 var map1: Immutable.Map<string, number> = Immutable.Map({a:1, b:2, c:3})
 
