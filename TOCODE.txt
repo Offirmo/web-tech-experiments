@@ -1,6 +1,18 @@
 
 Idées
 
+https://github.com/sindresorhus/node-module-boilerplate
+
+
+Modules d'aggrégation
+* Promises
+  https://github.com/sindresorhus/promise-time
+  https://github.com/sindresorhus/pify
+* CLI output
+* npm utils knife
+  https://github.com/sindresorhus/read-pkg-up
+
+
 Wrapper de console pour trouver qui émet ce warning
 
 Bangja
