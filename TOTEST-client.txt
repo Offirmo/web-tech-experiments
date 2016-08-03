@@ -1,5 +1,6 @@
 ’
 
+https://github.com/mailcheck/mailcheck  Reduce misspelled email addresses in your web apps.
 https://zingchart.github.io/zingtouch/  a JavaScript gesture detection library for the modern web
 http://nosir.github.io/cleave.js/ Format your <input/> content when you are typing
 https://howlerjs.com/ Audio library for the modern web
