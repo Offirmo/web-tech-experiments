@@ -1,5 +1,5 @@
 #!/bin/sh
-':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --harmony_destructuring "$0" "$@"
+':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node "$0" "$@"
 'use strict';
 
 console.log('Hello world !');
@@ -13,7 +13,7 @@ var vorpal = require('vorpal')();
 
 ////////////////////////////////////////////////////////////
 
-const APP_ID = 'mod_vorpal_002';
+const APP_ID = 'mod_vorpal_003';
 vorpal.history(APP_ID);
 vorpal.localStorage(APP_ID);
 
