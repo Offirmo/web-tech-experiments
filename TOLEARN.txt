@@ -74,11 +74,12 @@
 - [ ] OAuth2 http://passportjs.org/docs
 - [ ] GitHub login
 - [ ] https
-  * https://letsencrypt.org/
-  * https://community.letsencrypt.org/t/node-js-configuration/5175
+      https://letsencrypt.org/
+      https://community.letsencrypt.org/t/node-js-configuration/5175
 - [ ] notifications
 - [ ] ServiceWorker
-  * https://serviceworke.rs
+      https://serviceworke.rs
+      https://bitsofco.de/the-service-worker-lifecycle/?
 - [ ] Stormpath
 - [ ] GraphQL
 - [ ] Hosting gratuit
@@ -106,7 +107,7 @@
 - [ ] nodal
       https://davidwalsh.name/nodejs-services
 - [ ] logs
-      http://edravis.github.io/logatim/
+      https://logentries.com/
 - [ ] animations web
       - [ ] animation API
       https://github.com/codrops/Animocons
@@ -122,3 +123,4 @@
 - [ ] https://github.com/testdouble/scripty
 - [ ] https://kite.com/
 - [ ] Web Components
+      https://github.com/pimterry/server-components
