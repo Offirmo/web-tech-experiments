@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>[lib] react test 005 - a component with state</title>
+
+	<script src="../../jspm_packages/system.js"></script>
+	<script src="../../config.js"></script>
+	<script>
+		window.define = System.amdDefine;
+		window.require = window.requirejs = System.amdRequire;
+		System.import('./lib_react_005_x.js');
+	</script>
+</head>
+
+<div id="content">
+	<div class="container">
+		<h1 id="header">...</h1>
+		<p><a>https://medium.com/react-ecosystem/how-to-handle-state-in-react-6f2d3cd73a0c</a>...</p>
+
+		<div id="example"></div>
+	</div> <!-- /container -->
+</div> <!-- /content -->
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+	require( [ 'bootstrap', 'bootstrap/css/bootstrap.css!' ]);
+</script>

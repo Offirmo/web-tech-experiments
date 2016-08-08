@@ -6,8 +6,11 @@ class CoolComponent extends React.Component {
 
 	constructor (props) {
 		console.info('~~ constructor', arguments)
-		// TODO define initial state ?
-		super(props) // <-- really needed ?
+		super(props)
+		// define initial state
+		this.state = {
+			click_count: 0
+		}
 	}
 
 	// inheriting :
@@ -17,24 +20,12 @@ class CoolComponent extends React.Component {
 	// .forceUpdate([callback])
 	// setProps
 
-
-	// NO "This is only supported for classes created using React.createClass.
-	// Did you mean to define a state property instead?"
-	/*getInitialState () {
-		console.info('~~ getInitialState')
-		return {
-			foo: 42
-		}
-	}*/
-
-	// NO "This is only supported for classes created using React.createClass.
-	// Use a static property to define defaultProps instead."
-	/*getDefaultProps () {
-		console.info('~~ getDefaultProps')
-		return {
-			value: 'default value'
-		}
-	}*/
+	on_button_click() {
+		console.info('~~ on_button_click', arguments)
+		this.setState({
+			click_count: ++this.state.click_count
+		})
+	}
 
 	// invoked once
 	componentWillMount () {
@@ -43,12 +34,12 @@ class CoolComponent extends React.Component {
 	}
 
 	render () {
-		console.count('~~ render', arguments)
-		console.info('~~ render', arguments)
+		console.count('~~ render')
+		console.info('~~ render', arguments, this.props, this.state)
 		return (
 			<p>
-				Hello, <input type="text" placeholder="Your name here" /> !<br />
-				{this.props.children}
+				Hello. <button onClick={this.on_button_click.bind(this)}>{this.props.label}</button><br />
+				Click count : {this.state.click_count}
 			</p>
 		)
 	}
@@ -95,12 +86,12 @@ class CoolComponent extends React.Component {
 
 // https://facebook.github.io/react/docs/reusable-components.html#prop-validation
 CoolComponent.propTypes = {
-	initialCount: React.PropTypes.number,
-	children: React.PropTypes.node.isRequired
+	label: React.PropTypes.string,
+	//children: React.PropTypes.element.isRequired
 }
 
 CoolComponent.defaultProps = {
-	initialCount: 0
+	label: 'Click me.'
 }
 
 // CoolComponent.mixins
@@ -109,6 +100,6 @@ CoolComponent.defaultProps = {
 
 
 ReactDOM.render(
-	<CoolComponent>Meow</CoolComponent>,
+	<CoolComponent label="Click me quick !" />,
 	document.getElementById('example')
 )

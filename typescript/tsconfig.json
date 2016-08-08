@@ -13,5 +13,9 @@
 		"noEmit": true,
 		"noEmitOnError": true
 	},
-	"compileOnSave": false
+	"compileOnSave": false,
+	"_comments": {
+		"module": "commonjs",
+		"moduleResolution": "node"
+	}
 }
