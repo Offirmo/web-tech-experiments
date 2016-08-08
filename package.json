@@ -12,8 +12,8 @@
     "webpack": "webpack --progress --colors",
     "npm-install-globals": "npm install --global jspm puer nodemon && npm update --global jspm puer nodemon",
     "npm-install-dev": "npm prune && npm install && npm update",
-    "jspm-install": "jspm registry create bower jspm-bower-endpoint -y && jspm install -y",
-    "jspm-install-dev": "jspm registry create bower jspm-bower-endpoint -y && jspm clean && jspm install && jspm update",
+    "jspm-install": "jspm install -y",
+    "jspm-install-dev": "jspm clean && jspm install && jspm update",
     "bower-install": "bower update --config.interactive=false",
     "bower-install-dev": "bower prune && bower install && bower update",
     "install-dev": "npm run npm-install-globals && npm run npm-install-dev && npm run bower-install-dev && npm run jspm-install-dev",
@@ -68,7 +68,6 @@
     "jschardet": "^1.4.1",
     "jsen": "^0.6.1",
     "json-stringify-safe": "^5.0.1",
-    "jspm-bower-endpoint": "^0.3.2",
     "localStorage": "^1.0.3",
     "locale": "^0.1",
     "locus": "^1.2.0",
@@ -156,6 +155,7 @@
     "function-rate-limit": "^1.0.1",
     "generator-famous": "^0.9.2",
     "jquery": "latest",
+    "jspm-bower-endpoint": "^0.3.2",
     "loopback": "^2.23.0",
     "loopback-boot": "^2.14.0",
     "loopback-connector-postgresql": "^2.4.0",
@@ -183,58 +183,35 @@
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "cytoscape": "npm:cytoscape@^2.5.4",
-      "d3": "bower:d3@3.4.13",
-      "d3kit": "bower:d3kit@1.0.9",
-      "d3kit-timeline": "bower:d3kit-timeline@^0.4.0",
+      "d3": "npm:d3@^4.2.1",
+      "d3kit": "npm:d3kit@^1.1.0",
+      "d3kit-timeline": "npm:d3kit-timeline@^1.3.1",
       "flux-standard-action": "npm:flux-standard-action@^0.6.1",
-      "handsontable": "github:handsontable/handsontable@^0.23.0",
+      "handsontable": "github:handsontable/handsontable@^0.26.1",
       "immutable": "npm:immutable@^3.8.1",
-      "jquery": "npm:jquery@^2.2.1",
+      "jquery": "npm:jquery@^3.1.0",
       "json": "github:systemjs/plugin-json@^0.1.0",
       "lodash": "npm:lodash@^4.11.1",
       "marked": "npm:marked@^0.3.5",
-      "material-ui": "npm:material-ui@^0.14.4",
+      "material-ui": "npm:material-ui@^0.15.3",
       "moment": "npm:moment@^2.13.0",
-      "react": "npm:react@^15.0.1",
-      "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@^15.0.1",
-      "react-dom": "npm:react-dom@^0.14.7",
+      "react": "npm:react@^15.3.0",
+      "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@^15.3.0",
+      "react-dom": "npm:react-dom@^15.3.0",
       "react-redux": "npm:react-redux@^4.4.5",
       "react-router": "npm:react-router@^2.3.0",
       "react-tap-event-plugin": "npm:react-tap-event-plugin@^1.0.0",
       "redux": "npm:redux@^3.5.2",
-      "redux-actions": "npm:redux-actions@^0.9.1",
+      "redux-actions": "npm:redux-actions@^0.10.1",
       "redux-logger": "npm:redux-logger@^2.6.1",
-      "text": "github:systemjs/plugin-text@^0.0.4",
-      "wikidata-sdk": "npm:wikidata-sdk@^2.3.0"
+      "text": "github:systemjs/plugin-text@^0.0.8",
+      "wikidata-sdk": "npm:wikidata-sdk@^3.2.2"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^6.11.6",
       "clean-css": "npm:clean-css@^3.4.9",
-      "core-js": "npm:core-js@^1.1.4"
-    },
-    "overrides": {
-      "github:handsontable/handsontable@0.23.0": {
-        "main": "dist/handsontable.full.js",
-        "format": "global",
-        "shim": {
-          "dist/handsontable.full": {
-            "deps": [
-              "moment",
-              "zeroclipboard",
-              "pikaday",
-              "jquery"
-            ],
-            "exports": "Handsontable"
-          }
-        },
-        "dependencies": {
-          "zeroclipboard": "npm:zeroclipboard@^2.1.6",
-          "pikaday": "npm:pikaday@^1.3.2",
-          "moment": "npm:moment@^2.2.0",
-          "jquery": "jspm:jquery@*"
-        }
-      }
+      "core-js": "npm:core-js@^2.4.1"
     }
   }
 }
