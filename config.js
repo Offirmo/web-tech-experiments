@@ -36,9 +36,9 @@ System.config({
     "immutable": "npm:immutable@3.8.1",
     "jquery": "npm:jquery@3.1.0",
     "json": "github:systemjs/plugin-json@0.1.2",
-    "lodash": "npm:lodash@4.14.1",
+    "lodash": "npm:lodash@4.14.2",
     "marked": "npm:marked@0.3.6",
-    "material-ui": "npm:material-ui@0.15.3",
+    "material-ui": "npm:material-ui@0.15.4",
     "moment": "npm:moment@2.14.1",
     "react": "npm:react@15.3.0",
     "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@15.3.0",
@@ -160,8 +160,8 @@ System.config({
       "debug": "npm:debug@2.2.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "json5": "npm:json5@0.4.0",
-      "lodash": "npm:lodash@4.14.1",
-      "minimatch": "npm:minimatch@3.0.2",
+      "lodash": "npm:lodash@4.14.2",
+      "minimatch": "npm:minimatch@3.0.3",
       "module": "github:jspm/nodelibs-module@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "path-exists": "npm:path-exists@1.0.0",
@@ -180,7 +180,7 @@ System.config({
       "babel-types": "npm:babel-types@6.13.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "detect-indent": "npm:detect-indent@3.0.1",
-      "lodash": "npm:lodash@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
       "source-map": "npm:source-map@0.5.6"
     },
     "npm:babel-helpers@6.8.0": {
@@ -197,7 +197,7 @@ System.config({
       "core-js": "npm:core-js@2.4.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "home-or-tmp": "npm:home-or-tmp@1.0.0",
-      "lodash": "npm:lodash@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
       "mkdirp": "npm:mkdirp@0.5.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "path-exists": "npm:path-exists@1.0.0",
@@ -213,7 +213,7 @@ System.config({
       "babel-traverse": "npm:babel-traverse@6.13.0",
       "babel-types": "npm:babel-types@6.13.0",
       "babylon": "npm:babylon@6.8.4",
-      "lodash": "npm:lodash@4.14.1"
+      "lodash": "npm:lodash@4.14.2"
     },
     "npm:babel-traverse@6.13.0": {
       "babel-code-frame": "npm:babel-code-frame@6.11.0",
@@ -224,14 +224,14 @@ System.config({
       "debug": "npm:debug@2.2.0",
       "globals": "npm:globals@8.18.0",
       "invariant": "npm:invariant@2.2.1",
-      "lodash": "npm:lodash@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:babel-types@6.13.0": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "babel-traverse": "npm:babel-traverse@6.13.0",
       "esutils": "npm:esutils@2.0.2",
-      "lodash": "npm:lodash@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
       "to-fast-properties": "npm:to-fast-properties@1.0.2"
     },
     "npm:babylon@6.8.4": {
@@ -501,7 +501,7 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:inline-style-prefixer@2.0.1": {
-      "bowser": "npm:bowser@1.4.3",
+      "bowser": "npm:bowser@1.4.4",
       "hyphenate-style-name": "npm:hyphenate-style-name@1.0.1"
     },
     "npm:invariant@2.2.1": {
@@ -540,10 +540,10 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:material-ui@0.15.3": {
+    "npm:material-ui@0.15.4": {
       "inline-style-prefixer": "npm:inline-style-prefixer@2.0.1",
       "keycode": "npm:keycode@2.1.4",
-      "lodash": "npm:lodash@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "react": "npm:react@15.3.0",
       "react-addons-create-fragment": "npm:react-addons-create-fragment@15.3.0",
@@ -555,7 +555,7 @@ System.config({
       "simple-assign": "npm:simple-assign@0.1.0",
       "warning": "npm:warning@3.0.0"
     },
-    "npm:minimatch@3.0.2": {
+    "npm:minimatch@3.0.3": {
       "brace-expansion": "npm:brace-expansion@1.1.6",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
@@ -631,7 +631,7 @@ System.config({
     "npm:react-redux@4.4.5": {
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
       "invariant": "npm:invariant@2.2.1",
-      "lodash": "npm:lodash@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "react": "npm:react@15.3.0",
@@ -691,8 +691,8 @@ System.config({
       "reduce-reducers": "npm:reduce-reducers@0.1.2"
     },
     "npm:redux@3.5.2": {
-      "lodash": "npm:lodash@4.14.1",
-      "lodash-es": "npm:lodash-es@4.14.1",
+      "lodash": "npm:lodash@4.14.2",
+      "lodash-es": "npm:lodash-es@4.14.2",
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "symbol-observable": "npm:symbol-observable@0.2.4"

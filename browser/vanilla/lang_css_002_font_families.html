@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
-	<title>CSS 001 - the "scale" CSS transform</title>
+	<title>CSS 002 - examining default font-families</title>
 	<style type="text/css">
 		body {
 			margin: 40px;
@@ -33,26 +33,21 @@
 
 <h1>...</h1>
 <p>
-	...
+	<a>http://stackoverflow.com/questions/38918262/in-css-which-fonts-are-selected-by-generic-font-family-on-common-browsers-os</a>
 </p>
 
-<div class="container">
-	<div class="background">
-		<p>Hello World</p>
-		<ul>
-			<li>Done
-		</ul>
-	</div>
-</div>
-
-<div class="container scaled75">
-	<div class="background">
-		<p>Hello World</p>
-		<ul>
-			<li>Done
-		</ul>
-	</div>
-</div>
+<p>
+<ul>
+	<li><span style="font-family: serif">serif</span></li>
+	<li><span style="font-family: sans-serif">sans-serif</span> (for comparison:
+		<span style="font-family: Helvetica, sans-serif">Helvetica</span>,
+		<span style="font-family: Arial, sans-serif">Arial</span>,
+		<span style="font-family: 'Open Sans', sans-serif">Open Sans</span>)</li>
+	<li><span style="font-family: cursive">cursive</span></li>
+	<li><span style="font-family: fantasy">fantasy</span></li>
+	<li><span style="font-family: monospace">monospace</span></li>
+</ul>
+</p>
 
 <script>
 	document.querySelector('h1').textContent = document.title;
