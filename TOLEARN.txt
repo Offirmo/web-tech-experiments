@@ -126,3 +126,10 @@
       https://github.com/pimterry/server-components
 - [ ] accessibility
       https://egghead.io/courses/start-building-accessible-web-applications-today
+- [ ] Jekyll
+      https://github.com/tinychime/jekyons
+      https://github.com/18F/jekyll-get
+https://screeps.com/
+https://stdlib.com/
+https://hyperterm.org/#installation
+

@@ -6,6 +6,8 @@ https://github.com/marteinn/The-Big-Username-Blacklist
 
 tests d'API https://github.com/jareware/pointing-fingers
 
+QR Code generator for node https://github.com/Offirmo/qr-cairo
+
 if-env
 https://github.com/reactjs/react-router-tutorial/tree/master/lessons/11-productionish-server
 
