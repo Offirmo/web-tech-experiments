@@ -9,6 +9,9 @@
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
 
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+
 		"target": "es6",
 		"noEmit": true,
 		"noEmitOnError": true

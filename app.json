@@ -1,7 +1,7 @@
 {
-	"name": "html_tests",
+	"name": "web-tech-experiments",
 	"description": "various web techs tests",
-	"repository": "https://github.com/Offirmo/html_tests",
+	"repository": "https://github.com/Offirmo/web-tech-experiments",
 	"logo": "https://node-js-sample.herokuapp.com/node.svg",
 	"keywords": ["node", "javascript", "experiment"]
 }

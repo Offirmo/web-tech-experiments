@@ -1,5 +1,5 @@
 {
-  "name": "html_tests",
+  "name": "web-tech-experiments",
   "description": "various web techs tests",
   "author": "Offirmo <offirmo.net@gmail.com>",
   "version": "0.0.1",
@@ -64,6 +64,7 @@
     "humanize-duration": "^3.8.0",
     "iconv-lite": "^0.4.13",
     "immutable": "^3.8.1",
+    "inversify": "^2.0.0-rc.10",
     "javascript-state-machine": "^2.3.5",
     "jschardet": "^1.4.1",
     "jsen": "^0.6.1",
@@ -94,6 +95,7 @@
     "progress": "^1.1.0",
     "proxyquire": "^1.7.9",
     "redux-cursor": "^3",
+    "reflect-metadata": "^0.1.8",
     "repl-client": "^0.3.0",
     "response-time": "^2.3.1",
     "rx": "^4.1.0",
@@ -104,6 +106,7 @@
     "socket.io": "^1.4.6",
     "store": "^1.3.20",
     "trace": "^2.3.0",
+    "typescript": "^2.1.0-dev.20160819",
     "usage": "^0.7.1",
     "vorpal": "^1",
     "when": "^3.7.7",
@@ -113,6 +116,7 @@
   },
   "devDependencies": {
     "@types/immutable": "^3.8.1",
+    "@types/inversify": "^2.0.29",
     "@types/jsen": "^0.0.17",
     "@types/lodash": "^0.0.29",
     "babel-cli": "^6.9.0",
