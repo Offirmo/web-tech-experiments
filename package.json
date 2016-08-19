@@ -119,6 +119,7 @@
     "@types/inversify": "^2.0.29",
     "@types/jsen": "^0.0.17",
     "@types/lodash": "^0.0.29",
+    "@types/node": "^6.0.36",
     "babel-cli": "^6.9.0",
     "babel-preset-es2015-node5": "^1.2.0",
     "babel-register": "^6.9.0",
@@ -205,7 +206,7 @@
       "react-router": "npm:react-router@^2.3.0",
       "react-tap-event-plugin": "npm:react-tap-event-plugin@^1.0.0",
       "redux": "npm:redux@^3.5.2",
-      "redux-actions": "npm:redux-actions@^0.10.1",
+      "redux-actions": "npm:redux-actions@^0.11.0",
       "redux-logger": "npm:redux-logger@^2.6.1",
       "text": "github:systemjs/plugin-text@^0.0.8",
       "wikidata-sdk": "npm:wikidata-sdk@^3.2.2"

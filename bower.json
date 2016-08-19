@@ -19,7 +19,6 @@
     "console-shim": "latest",
     "d3kit-timeline": "latest",
     "datatables": "latest",
-    "data.validation": "folktale/data.validation",
     "dustjs-linkedin": "latest",
     "dustjs-linkedin-helpers": "latest",
     "eventemitter2": "latest",
@@ -27,7 +26,6 @@
     "famous": "latest",
     "famous-angular": "latest",
     "fullpage.js": "latest",
-    "generic_store.js": "latest",
     "javascript-state-machine": "latest",
     "jpanelmenu": "latest",
     "jquery": "latest",
@@ -41,7 +39,6 @@
     "intl-format-cache": "yahoo/intl-format-cache",
     "isotope": "latest",
     "lodash": "latest",
-    "loopback-sdk-angular": "strongloop/loopback-sdk-angular",
     "magnific-popup": "latest",
     "messenger": "latest",
     "modernizr": "latest",
@@ -67,8 +64,7 @@
     "ui-router-extras": "latest",
     "unorm": "latest",
     "underscore.string": "latest",
-    "when": "latest",
-    "superagent": "latest"
+    "when": "latest"
   },
   "devDependencies": {
     "chai-as-promised": "latest",
@@ -85,9 +81,12 @@
     "angularAMD": "latest",
     "backbone-associations": "latest",
     "base-objects.js": "latest",
+    "data.validation": "folktale/data.validation",
+    "generic_store.js": "latest",
     "html5shiv": "latest",
     "jqueryuibootstrap": "latest",
     "restlink.js": "latest"
+    "superagent": "latest"
   },
   "not_in_bower": {
     "fowl": "latest",
