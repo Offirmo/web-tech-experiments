@@ -10,68 +10,45 @@ https://howlerjs.com/ Audio library for the modern web
 https://jets.js.org/ Native CSS search engine
 
 https://github.com/nojvek/chrome-remote-debug-protocol
-
 http://andrewhfarmer.com/webpack-hmr-tutorial/
-
 https://github.com/sindresorhus/emoj
 
 TEST
-https://medium.com/@i.anunay/mocknode-e338f793dba0#.4li55ar5h
+https://medium.com/@i.anunay/mocknode-e338f793dba0 Mocknode a configurable mock server
 http://devlucky.github.io/kakapo-js
-
 
 https://css-tricks.com/rem-global-em-local/
 http://zellwk.com/blog/rem-vs-em/
-
 https://github.com/davidmerfield/randomColor
-
-https://github.com/akveo/blur-admin
+https://github.com/akveo/blur-admin Angular Bootstrap Admin Panel Framework
 https://github.com/dantrain/react-stonecutter
 https://github.com/kadirahq/react-storybook
 http://interactjs.io/ drag & drop touch
-
-https://github.com/angular/universal/tree/master/modules/preboot
-
-http://sigmajs.org/
-https://github.com/helion3/inspire-tree
+http://sigmajs.org/ graph drawing
+https://github.com/helion3/inspire-tree tree UI
 https://github.com/walmartlabs/little-loader
-https://github.com/richardanaya/webblock
-
-https://github.com/ctrl-freaks/freezeframe.js
-
-http://snapsvg.io/
-
+https://github.com/ctrl-freaks/freezeframe.js freeze gifs
+http://snapsvg.io/ SVG lib
 https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
-
-http://samsarajs.org/
+http://samsarajs.org/ Animation
 http://www.jeremy-dutheil.fr/un-champ-dadresse-avec-auto-completion-grace-google-maps-api/
-
-http://frontendhq.com/browser-support
-
 http://nathancahill.github.io/Split.js/
 http://thenewcode.com/279/Rotate-Elements-on-Scroll-with-JavaScript
-https://github.com/djyde/PureSlider
 http://fengyuanchen.github.io/cropperjs/
-
-https://github.com/GooTechnologies/goojs
-
+https://github.com/GooTechnologies/goojs 3D WebGL engine
 http://zenorocha.github.io/clipboard.js/
 http://sachinchoolur.github.io/ngclipboard/
 http://sharingbuttons.io/
 https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
-
 http://ponyfoo.com/articles/using-the-javascript-charting-library
 
 Design
 http://www.elezea.com/2015/09/how-to-display-threaded-discussions-on-the-web/
 
-
 https://aerotwist.com/blog/guitar-tuner/
-
 http://mobilehtml5.org/
 http://blog.chromium.org/2015/04/reaching-and-re-engaging-users-on.html
-
-http://kerningjs.com/
+http://kerningjs.com/ advanced web typography
 http://tholman.com/elevator.js/
 http://photoswipe.com/
 
@@ -97,24 +74,18 @@ http://tympanus.net/Development/TextInputEffects/
 https://github.com/knsv/mermaid graphs
 
 http://www.angulargrid.com/example.html
-
 http://mango.github.io/slideout/
-
 https://github.com/spite/THREE.AugmentedConsole.js/blob/master/src/THREE.AugmentedConsole.js
 http://pathgather.github.io/please-wait/
 http://mrzepinski.github.io/angular-debug-bar/
 http://lafikl.github.io/perfBar/
 http://mrzepinski.github.io/angular-rpi/
-
 http://semantic-ui.com/kitchen-sink.html
-
 https://github.com/rvagg/morkdown
 http://usablica.github.io/intro.js/
-
 http://scotch.io/tutorials/building-interactive-scrolling-websites-with-scrollmagic-js
 
 easings http://canvasquery.com/playground-ease#inQuart
-
 
 -- Thèmes dynamiques !
 http://scotch.io/tutorials/javascript/use-angularjs-and-nghref-to-grab-css-dynamically
@@ -145,13 +116,11 @@ http://jackf.net/bezier-clock/
 http://www.giacomovacca.com/2015/02/websockets-over-nodejs-from-plain-to.html
 http://cssanimation.rocks/twitter-fave/
 
-
 -- client / no framework ?
 http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
 https://github.com/systemjs/systemjs
 https://github.com/mightyiam/combokeys
-
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer
@@ -159,7 +128,6 @@ http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
 
 templating http://mozilla.github.io/nunjucks/
 http://paperclipjs.com/ can complement AngularJS
-
 
 -- AngularJS --
 https://github.com/Gillespie59/eslint-plugin-angular
@@ -244,6 +212,7 @@ http://learnsemantic.com/
 -- content
 embeds http://oembed.com/
 bandeau qui disparaît https://github.com/antris/sneakpeek
+
 --- cartes
 http://developers.route360.net/
 --- communication / feedback
@@ -252,7 +221,7 @@ popups http://github.hubspot.com/messenger/docs/welcome/
 
 
 -- effets
-paralaxe mobile http://vodkabears.github.io/interdimensional/
+scroll mobile sur tilt http://vodkabears.github.io/interdimensional/
 mappemonde 3D http://echarts.baidu.com/x/doc/example.html#map3d
 typographie bien contrôlée ! http://txtjs.com/
 effet de frappe https://github.com/positionly/Typist

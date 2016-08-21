@@ -85,7 +85,7 @@
     "generic_store.js": "latest",
     "html5shiv": "latest",
     "jqueryuibootstrap": "latest",
-    "restlink.js": "latest"
+    "restlink.js": "latest",
     "superagent": "latest"
   },
   "not_in_bower": {

@@ -5,3 +5,9 @@ To share on
 - dev's tricks
 - my own blog ?
 - jobprod
+
+
+Site:
+* i18n
+* https
+* 404

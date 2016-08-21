@@ -41,11 +41,11 @@ System.config({
     "marked": "npm:marked@0.3.6",
     "material-ui": "npm:material-ui@0.15.4",
     "moment": "npm:moment@2.14.1",
-    "react": "npm:react@15.3.0",
-    "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@15.3.0",
-    "react-dom": "npm:react-dom@15.3.0",
+    "react": "npm:react@15.3.1",
+    "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@15.3.1",
+    "react-dom": "npm:react-dom@15.3.1",
     "react-redux": "npm:react-redux@4.4.5",
-    "react-router": "npm:react-router@2.6.1",
+    "react-router": "npm:react-router@2.7.0",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",
     "redux": "npm:redux@3.5.2",
     "redux-actions": "npm:redux-actions@0.11.0",
@@ -156,7 +156,7 @@ System.config({
       "babel-template": "npm:babel-template@6.9.0",
       "babel-traverse": "npm:babel-traverse@6.13.0",
       "babel-types": "npm:babel-types@6.13.0",
-      "babylon": "npm:babylon@6.8.4",
+      "babylon": "npm:babylon@6.9.0",
       "convert-source-map": "npm:convert-source-map@1.3.0",
       "debug": "npm:debug@2.2.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -213,7 +213,7 @@ System.config({
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "babel-traverse": "npm:babel-traverse@6.13.0",
       "babel-types": "npm:babel-types@6.13.0",
-      "babylon": "npm:babylon@6.8.4",
+      "babylon": "npm:babylon@6.9.0",
       "lodash": "npm:lodash@4.15.0"
     },
     "npm:babel-traverse@6.13.0": {
@@ -221,7 +221,7 @@ System.config({
       "babel-messages": "npm:babel-messages@6.8.0",
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "babel-types": "npm:babel-types@6.13.0",
-      "babylon": "npm:babylon@6.8.4",
+      "babylon": "npm:babylon@6.9.0",
       "debug": "npm:debug@2.2.0",
       "globals": "npm:globals@8.18.0",
       "invariant": "npm:invariant@2.2.1",
@@ -235,7 +235,7 @@ System.config({
       "lodash": "npm:lodash@4.15.0",
       "to-fast-properties": "npm:to-fast-properties@1.0.2"
     },
-    "npm:babylon@6.8.4": {
+    "npm:babylon@6.9.0": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -249,7 +249,7 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "pako": "npm:pako@0.2.9",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "readable-stream": "npm:readable-stream@2.1.4",
+      "readable-stream": "npm:readable-stream@2.1.5",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:buffer-shims@1.0.0": {
@@ -451,7 +451,7 @@ System.config({
       "promise": "npm:promise@7.1.1",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
     },
-    "npm:fbjs@0.8.3": {
+    "npm:fbjs@0.8.4": {
       "core-js": "npm:core-js@1.2.7",
       "immutable": "npm:immutable@3.8.1",
       "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
@@ -527,11 +527,11 @@ System.config({
     },
     "npm:lodash.isplainobject@3.2.0": {
       "lodash._basefor": "npm:lodash._basefor@3.0.3",
-      "lodash.isarguments": "npm:lodash.isarguments@3.0.9",
+      "lodash.isarguments": "npm:lodash.isarguments@3.1.0",
       "lodash.keysin": "npm:lodash.keysin@3.0.8"
     },
     "npm:lodash.keysin@3.0.8": {
-      "lodash.isarguments": "npm:lodash.isarguments@3.0.9",
+      "lodash.isarguments": "npm:lodash.isarguments@3.1.0",
       "lodash.isarray": "npm:lodash.isarray@3.0.4"
     },
     "npm:loose-envify@1.2.0": {
@@ -546,10 +546,10 @@ System.config({
       "keycode": "npm:keycode@2.1.4",
       "lodash": "npm:lodash@4.15.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.3.0",
-      "react-addons-create-fragment": "npm:react-addons-create-fragment@15.3.0",
-      "react-addons-transition-group": "npm:react-addons-transition-group@15.3.0",
-      "react-dom": "npm:react-dom@15.3.0",
+      "react": "npm:react@15.3.1",
+      "react-addons-create-fragment": "npm:react-addons-create-fragment@15.3.1",
+      "react-addons-transition-group": "npm:react-addons-transition-group@15.3.1",
+      "react-dom": "npm:react-dom@15.3.1",
       "react-event-listener": "npm:react-event-listener@0.2.1",
       "react-tap-event-plugin": "npm:react-tap-event-plugin@1.0.0",
       "recompose": "npm:recompose@0.20.2",
@@ -614,20 +614,20 @@ System.config({
     "npm:query-string@3.0.3": {
       "strict-uri-encode": "npm:strict-uri-encode@1.1.0"
     },
-    "npm:react-addons-create-fragment@15.3.0": {
-      "react": "npm:react@15.3.0"
+    "npm:react-addons-create-fragment@15.3.1": {
+      "react": "npm:react@15.3.1"
     },
-    "npm:react-addons-pure-render-mixin@15.3.0": {
-      "react": "npm:react@15.3.0"
+    "npm:react-addons-pure-render-mixin@15.3.1": {
+      "react": "npm:react@15.3.1"
     },
-    "npm:react-addons-transition-group@15.3.0": {
-      "react": "npm:react@15.3.0"
+    "npm:react-addons-transition-group@15.3.1": {
+      "react": "npm:react@15.3.1"
     },
-    "npm:react-dom@15.3.0": {
-      "react": "npm:react@15.3.0"
+    "npm:react-dom@15.3.1": {
+      "react": "npm:react@15.3.1"
     },
     "npm:react-event-listener@0.2.1": {
-      "fbjs": "npm:fbjs@0.8.3"
+      "fbjs": "npm:fbjs@0.8.4"
     },
     "npm:react-redux@4.4.5": {
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
@@ -635,25 +635,25 @@ System.config({
       "lodash": "npm:lodash@4.15.0",
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.3.0",
+      "react": "npm:react@15.3.1",
       "redux": "npm:redux@3.5.2"
     },
-    "npm:react-router@2.6.1": {
+    "npm:react-router@2.7.0": {
       "history": "npm:history@2.1.2",
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
       "invariant": "npm:invariant@2.2.1",
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.3.0",
+      "react": "npm:react@15.3.1",
       "warning": "npm:warning@3.0.0"
     },
     "npm:react-tap-event-plugin@1.0.0": {
       "fbjs": "npm:fbjs@0.2.1",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.3.0"
+      "react": "npm:react@15.3.1"
     },
-    "npm:react@15.3.0": {
-      "fbjs": "npm:fbjs@0.8.3",
+    "npm:react@15.3.1": {
+      "fbjs": "npm:fbjs@0.8.4",
       "loose-envify": "npm:loose-envify@1.2.0",
       "object-assign": "npm:object-assign@4.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -668,7 +668,7 @@ System.config({
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
     },
-    "npm:readable-stream@2.1.4": {
+    "npm:readable-stream@2.1.5": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "buffer-shims": "npm:buffer-shims@1.0.0",
       "core-util-is": "npm:core-util-is@1.0.2",
@@ -682,10 +682,10 @@ System.config({
     },
     "npm:recompose@0.20.2": {
       "change-emitter": "npm:change-emitter@0.1.2",
-      "fbjs": "npm:fbjs@0.8.3",
+      "fbjs": "npm:fbjs@0.8.4",
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@15.3.0",
+      "react": "npm:react@15.3.1",
       "symbol-observable": "npm:symbol-observable@0.2.4"
     },
     "npm:redux-actions@0.11.0": {
@@ -695,7 +695,7 @@ System.config({
     },
     "npm:redux@3.5.2": {
       "lodash": "npm:lodash@4.15.0",
-      "lodash-es": "npm:lodash-es@4.14.2",
+      "lodash-es": "npm:lodash-es@4.15.0",
       "loose-envify": "npm:loose-envify@1.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "symbol-observable": "npm:symbol-observable@0.2.4"

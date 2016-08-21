@@ -27,3 +27,6 @@ I’m stuck with this problem, wanting to test that an expected debounce is corr
 Even if you have arguments, removing this useless caching would make our lives easier without harming lodash at all… Caching Date.now makes no sense today.
 
 
+
+Propagate recent changes to lodash.debounce
+https://github.com/lodash/lodash/issues/2385#issuecomment-222171335
