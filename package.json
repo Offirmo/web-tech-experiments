@@ -117,7 +117,6 @@
   },
   "devDependencies": {
     "@types/immutable": "^3.8.1",
-    "@types/inversify": "^2.0.29",
     "@types/jsen": "^0.0.17",
     "@types/lodash": "^0.0.29",
     "@types/node": "^6.0.36",
@@ -132,6 +131,7 @@
     "css-loader": "^0.23.1",
     "express-livereload": "^0.0.24",
     "grunt": "^1.0.1",
+    "inversify-dts": "^2.0.0",
     "jspm": "^0.16.35",
     "mocha": "^3.0.2",
     "node-livereload": "napcs/node-livereload",
@@ -149,6 +149,7 @@
     "yo": "^1.8.3"
   },
   "commentedOut": {
+    "@types/inversify": "^2.0.29",
     "accounting": "latest",
     "alce": "^1.1.0",
     "angular": "latest",
