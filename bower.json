@@ -70,7 +70,6 @@
     "chai-as-promised": "latest",
     "chai-backbone": "latest",
     "mocha": "latest",
-    "mocha-as-promised": "latest",
     "sinon-chai": "latest"
   },
   "commentedOutDeps": {
@@ -90,8 +89,6 @@
   },
   "not_in_bower": {
     "fowl": "latest",
-    "chai-interface": "latest",
-    "fullpage.js": "latest",
     "jquery.ui": "latest",
     "type-check": "latest"
   },
@@ -99,7 +96,7 @@
     "zepto": "latest"
   },
   "resolutions": {
-    "angular": "^1.4.0",
+    "angular": "^1.5.0",
     "get-size": "^2.0.0",
     "masonry": "^4.1.0",
     "fizzy-ui-utils": "^2.0.0",

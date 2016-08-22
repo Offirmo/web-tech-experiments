@@ -26,7 +26,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "clean-css": "npm:clean-css@3.4.19",
     "core-js": "npm:core-js@2.4.1",
-    "css": "github:systemjs/plugin-css@0.1.26",
+    "css": "github:systemjs/plugin-css@0.1.27",
     "cytoscape": "npm:cytoscape@2.7.8",
     "d3": "npm:d3@4.2.2",
     "d3kit": "npm:d3kit@1.1.0",
@@ -50,6 +50,7 @@ System.config({
     "redux": "npm:redux@3.5.2",
     "redux-actions": "npm:redux-actions@0.11.0",
     "redux-logger": "npm:redux-logger@2.6.1",
+    "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.27",
     "systemjs/plugin-text": "github:systemjs/plugin-text@0.0.8",
     "text": "github:systemjs/plugin-text@0.0.8",
     "wikidata-sdk": "npm:wikidata-sdk@3.2.2",
@@ -66,7 +67,7 @@ System.config({
       "angular": "github:angular/bower-angular@1.5.8",
       "angular-animate": "github:angular/bower-angular-animate@1.5.8",
       "angular-aria": "github:angular/bower-angular-aria@1.5.8",
-      "css": "github:systemjs/plugin-css@0.1.26"
+      "css": "github:systemjs/plugin-css@0.1.27"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
