@@ -6,11 +6,15 @@
 console.log('hello')
 
 import kernel from "./inversify.kernel";
-import TYPES, { IData } from './types'
+import { TYPES, Mod1Schema, Mod1StaticData, Mod1Factory } from './types'
 
-//import TYPES from "./types";
+const schema = kernel.get<Mod1Schema>(TYPES.Mod1Schema)
+console.log('Mod1 schema from kernel:', schema)
 
-const test = kernel.get<IData>(TYPES.IData)
+const sd = kernel.get<Mod1StaticData>(TYPES.Mod1StaticData)
+console.log('Mod1 static data from kernel:', sd)
 
-console.log(test)
+const mod1_factory = kernel.get<Mod1Factory>(TYPES.Mod1Factory)
+console.log('Mod1 from kernel:', mod1_factory)
 
+console.log('create a mod1 data:', mod1_factory().create(sd[0]))

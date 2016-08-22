@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib Tachyons 003 - responsive</title>
+
+	<link rel="stylesheet" href="../../node_modules/tachyons/css/tachyons.min.css"/>
+	<style type="text/css">
+		body {
+
+		}
+	</style>
+</head>
+
+<body class="ma3">
+
+	<h1 class="mid-gray">...</h1>
+	<p>
+		<a>http://tachyons.io/</a>
+	</p>
+
+	<p class="w5 h3 ma2 bg-washed-blue db tc">default</p>
+	<p class="w5 h3 ma2 bg-washed-blue dn tc db-ns">not-small</p>
+	<p class="w5 h3 ma2 bg-washed-blue dn tc db-m">medium</p>
+	<p class="w5 h3 ma2 bg-washed-blue dn tc db-l">large</p>
+
+	<script>
+		document.querySelector('h1').textContent = document.title;
+		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+			el.href || (el.href = el.text);
+		});
+	</script>
+</body>
