@@ -18,4 +18,5 @@ console.log('Mod1 static data from kernel:', sd)
 const mod1_factory = kernel.get<Mod1.Factory>(Mod1.TYPES.Factory)
 //console.log('Mod1 factory from kernel:', mod1_factory)
 
-console.log('create a mod1 data:', mod1_factory().create(sd[0]))
+const mod1 = mod1_factory()
+console.log('create a mod1 data:', mod1.create(sd[0]))

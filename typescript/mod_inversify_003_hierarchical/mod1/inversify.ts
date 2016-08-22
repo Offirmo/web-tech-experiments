@@ -13,24 +13,20 @@ let TYPES = {
 	Factory: Symbol('Factory'),
 }
 
-import { interfaces } from "inversify"
+import { KernelModule, interfaces } from "inversify"
 
 const default_schema: JSON = require('./schema.json')
 const default_static_data: JSON = require('./static_data.json')
 
-//const kernel = new Kernel()
+const kernel_module = new KernelModule((bind: interfaces.Bind) => {
 
-function bind(kernel: interfaces.Kernel) {
-	kernel
-		.bind<Schema>(TYPES.Schema)
+	bind<Schema>(TYPES.Schema)
 		.toConstantValue(default_schema as Schema)
 
-	kernel
-		.bind<StaticData>(TYPES.StaticData)
+	bind<StaticData>(TYPES.StaticData)
 		.toConstantValue((default_static_data as any).content as StaticData)
 
-	kernel
-		.bind<interfaces.Factory<ILib>>(TYPES.Factory)
+	bind<interfaces.Factory<ILib>>(TYPES.Factory)
 		.toFactory<ILib>((context: interfaces.Context) => {
 			//console.log('in factory', context)
 			return () => {
@@ -40,12 +36,14 @@ function bind(kernel: interfaces.Kernel) {
 				})
 			}
 		})
-}
+
+})
 
 export {
+	ILib,
 	Schema,
 	StaticData,
 	Factory,
 	TYPES,
-	bind
+	kernel_module
 }

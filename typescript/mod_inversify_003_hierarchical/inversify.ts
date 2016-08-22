@@ -6,9 +6,9 @@ import * as Mod1 from './mod1/inversify'
 const mod1_schema: JSON = require('./overrides/mod1_schema.json')
 
 const default_kernel = new Kernel()
-Mod1.bind(default_kernel)
+default_kernel.load(Mod1.kernel_module)
 
-const kernel = new Kernel();
+const kernel = new Kernel()
 kernel.parent = default_kernel
 
 kernel
