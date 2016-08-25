@@ -68,7 +68,7 @@ function get_i18n(lang_id: string) {
 	let defaults: IIntl[] = []
 	if (region)
 		defaults = defaults.concat(kernel.getAllTagged<IIntl>('intl', 'lang', lang_id))
-	defaults = defaults.concat(kernel.getAllTagged<IIntl>('intl', 'lang', 'fr'))
+	defaults = defaults.concat(kernel.getAllTagged<IIntl>('intl', 'lang', lang))
 	return Object.assign.apply(undefined, [ {} ] .concat(defaults))
 }
 console.log('fr_fr', get_i18n('fr_fr'))

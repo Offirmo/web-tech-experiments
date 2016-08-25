@@ -2,20 +2,33 @@
 	"compilerOptions": {
 		"listFiles": true,
 		"pretty": true,
+		"locale": "fr",
+
+		"moduleResolution": "node",
+		"traceResolution": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
 
 		"allowJs": false,
 		"forceConsistentCasingInFileNames": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"strictNullChecks": true,
+		"suppressImplicitAnyIndexErrors": false,
 
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-
-		"target": "es6",
+		"target": "es2015",
+		"lib": [ "es2015", "dom" ],
 		"noEmit": true,
 		"noEmitOnError": true
 	},
+	"files": [
+		"../node_modules/@types/node/index.d.ts",
+		"../node_modules/inversify-dts/inversify/inversify.d.ts"
+	],
 	"compileOnSave": false,
 	"_comments": {
 		"module": "commonjs",
