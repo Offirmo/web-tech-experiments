@@ -20,8 +20,8 @@ System.config({
     "angular-material": "github:angular/bower-material@1.1.0",
     "angular-messages": "github:angular/bower-angular-messages@1.5.8",
     "angular/bower-material": "github:angular/bower-material@1.1.0",
-    "babel": "npm:babel-core@6.13.2",
-    "babel-core": "npm:babel-core@6.13.2",
+    "babel": "npm:babel-core@6.14.0",
+    "babel-core": "npm:babel-core@6.14.0",
     "babel-runtime": "npm:babel-runtime@6.11.6",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "clean-css": "npm:clean-css@3.4.19",
@@ -123,7 +123,7 @@ System.config({
       "browserify-zlib": "npm:browserify-zlib@0.1.4"
     },
     "github:twbs/bootstrap@3.3.7": {
-      "jquery": "npm:jquery@2.2.4"
+      "jquery": "npm:jquery@3.1.0"
     },
     "npm:amdefine@1.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -147,17 +147,17 @@ System.config({
       "esutils": "npm:esutils@2.0.2",
       "js-tokens": "npm:js-tokens@2.0.0"
     },
-    "npm:babel-core@6.13.2": {
+    "npm:babel-core@6.14.0": {
       "babel-code-frame": "npm:babel-code-frame@6.11.0",
-      "babel-generator": "npm:babel-generator@6.11.4",
+      "babel-generator": "npm:babel-generator@6.14.0",
       "babel-helpers": "npm:babel-helpers@6.8.0",
       "babel-messages": "npm:babel-messages@6.8.0",
-      "babel-register": "npm:babel-register@6.11.6",
+      "babel-register": "npm:babel-register@6.14.0",
       "babel-runtime": "npm:babel-runtime@6.11.6",
-      "babel-template": "npm:babel-template@6.9.0",
-      "babel-traverse": "npm:babel-traverse@6.13.0",
-      "babel-types": "npm:babel-types@6.13.0",
-      "babylon": "npm:babylon@6.9.0",
+      "babel-template": "npm:babel-template@6.14.0",
+      "babel-traverse": "npm:babel-traverse@6.14.0",
+      "babel-types": "npm:babel-types@6.14.0",
+      "babylon": "npm:babylon@6.9.1",
       "convert-source-map": "npm:convert-source-map@1.3.0",
       "debug": "npm:debug@2.2.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -176,10 +176,10 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.2",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:babel-generator@6.11.4": {
+    "npm:babel-generator@6.14.0": {
       "babel-messages": "npm:babel-messages@6.8.0",
       "babel-runtime": "npm:babel-runtime@6.11.6",
-      "babel-types": "npm:babel-types@6.13.0",
+      "babel-types": "npm:babel-types@6.14.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "detect-indent": "npm:detect-indent@3.0.1",
       "lodash": "npm:lodash@4.15.0",
@@ -187,14 +187,14 @@ System.config({
     },
     "npm:babel-helpers@6.8.0": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
-      "babel-template": "npm:babel-template@6.9.0"
+      "babel-template": "npm:babel-template@6.14.0"
     },
     "npm:babel-messages@6.8.0": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:babel-register@6.11.6": {
-      "babel-core": "npm:babel-core@6.13.2",
+    "npm:babel-register@6.14.0": {
+      "babel-core": "npm:babel-core@6.14.0",
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "core-js": "npm:core-js@2.4.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -210,33 +210,33 @@ System.config({
       "core-js": "npm:core-js@2.4.1",
       "regenerator-runtime": "npm:regenerator-runtime@0.9.5"
     },
-    "npm:babel-template@6.9.0": {
+    "npm:babel-template@6.14.0": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
-      "babel-traverse": "npm:babel-traverse@6.13.0",
-      "babel-types": "npm:babel-types@6.13.0",
-      "babylon": "npm:babylon@6.9.0",
+      "babel-traverse": "npm:babel-traverse@6.14.0",
+      "babel-types": "npm:babel-types@6.14.0",
+      "babylon": "npm:babylon@6.9.1",
       "lodash": "npm:lodash@4.15.0"
     },
-    "npm:babel-traverse@6.13.0": {
+    "npm:babel-traverse@6.14.0": {
       "babel-code-frame": "npm:babel-code-frame@6.11.0",
       "babel-messages": "npm:babel-messages@6.8.0",
       "babel-runtime": "npm:babel-runtime@6.11.6",
-      "babel-types": "npm:babel-types@6.13.0",
-      "babylon": "npm:babylon@6.9.0",
+      "babel-types": "npm:babel-types@6.14.0",
+      "babylon": "npm:babylon@6.9.1",
       "debug": "npm:debug@2.2.0",
       "globals": "npm:globals@8.18.0",
       "invariant": "npm:invariant@2.2.1",
       "lodash": "npm:lodash@4.15.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:babel-types@6.13.0": {
+    "npm:babel-types@6.14.0": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
-      "babel-traverse": "npm:babel-traverse@6.13.0",
+      "babel-traverse": "npm:babel-traverse@6.14.0",
       "esutils": "npm:esutils@2.0.2",
       "lodash": "npm:lodash@4.15.0",
       "to-fast-properties": "npm:to-fast-properties@1.0.2"
     },
-    "npm:babylon@6.9.0": {
+    "npm:babylon@6.9.1": {
       "babel-runtime": "npm:babel-runtime@6.11.6",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
