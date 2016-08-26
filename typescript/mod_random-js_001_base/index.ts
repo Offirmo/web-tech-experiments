@@ -3,7 +3,7 @@
 
 console.log('Hello, world !')
 
-import { Random } from 'random-js'
+import { Random } from '@offirmo/random'
 
 console.log(Random)
 console.log(Random.engines)
