@@ -1,6 +1,7 @@
 
+touch .babelrc
 ```sh
-npm i -D babel-cli
+npm i -D babel-cli babel-preset-es2015-node6
 ```
 
 ```
