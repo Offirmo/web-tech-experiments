@@ -1,7 +1,7 @@
 ’
 
-http://tachyons.io/ micro CSS
 https://github.com/pixelass/beneath-the-sun control of z-index
+https://alertifyjs.org/ Simple browser dialogs
 
 https://github.com/mailcheck/mailcheck  Reduce misspelled email addresses in your web apps.
 https://zingchart.github.io/zingtouch/  a JavaScript gesture detection library for the modern web

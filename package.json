@@ -1,9 +1,9 @@
 {
   "name": "web-tech-experiments",
+  "private": true,
   "description": "various web techs tests",
   "author": "Offirmo <offirmo.net@gmail.com>",
   "version": "0.0.1",
-  "private": true,
   "license": "Unlicense",
   "scripts": {
     "start": "npm run puer",
