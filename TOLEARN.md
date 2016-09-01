@@ -109,9 +109,9 @@
 - [ ] logs
       https://logentries.com/
 - [ ] animations web
-      - [ ] animation API
-      https://github.com/codrops/Animocons
-      http://mojs.io/
+      - [ ] animation API https://github.com/web-animations/web-animations-js
+      http://danielcwilson.com/blog/2015/07/animations-intro/
+      http://mojs.io/ https://github.com/codrops/Animocons
 - [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
 - [ ] kubernetes
       https://github.com/redspread/spread
