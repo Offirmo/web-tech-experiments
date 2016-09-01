@@ -7,11 +7,11 @@
 	<title>[lib] react test 001</title>
 
 	<script src="../../jspm_packages/system.js"></script>
-	<script src="../../config.js"></script>
+	<script src="../../jspm.config.js"></script>
 	<script>
 		window.define = System.amdDefine;
 		window.require = window.requirejs = System.amdRequire;
-		System.import('./lib_react_001_x.js');
+		System.import('web-tech-experiments/lib_react_001_x.js');
 	</script>
 </head>
 
@@ -28,5 +28,6 @@
 	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text);
 	});
-	require( [ 'bootstrap', 'bootstrap/css/bootstrap.css!' ]);
+	require( [ 'bootstrap/dist/css/bootstrap.css!' ]);
+	//require( [ 'bootstrap', 'bootstrap/css/bootstrap.css!' ]);
 </script>

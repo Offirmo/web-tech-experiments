@@ -12,6 +12,7 @@
     "webpack": "webpack --progress --colors",
     "npm-install-globals": "npm install --global jspm puer nodemon && npm update --global jspm puer nodemon",
     "npm-install-dev": "npm prune && npm install && npm update",
+    "jspm": "jspm",
     "jspm-install": "jspm install -y",
     "jspm-install-dev": "jspm clean && jspm install && jspm update",
     "bower-install": "bower update --config.interactive=false",
@@ -177,6 +178,109 @@
     "extended-exceptions": "latest",
     "network-constants": "latest",
     "restlink": "latest"
+  },
+  "jspm": {
+    "name": "web-tech-experiments",
+    "main": "web-tech-experiments.js",
+    "dependencies": {
+      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.7",
+      "core-js": "npm:core-js@^2.4.1",
+      "css": "github:systemjs/plugin-css@^0.1.27",
+      "react-dom": "npm:react-dom@^15.3.1",
+      "systemjs/plugin-css": "github:systemjs/plugin-css@^0.1.27",
+      "systemjs/plugin-text": "github:systemjs/plugin-text@^0.0.8",
+      "text": "github:systemjs/plugin-text@^0.0.8"
+    },
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.13"
+    },
+    "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
+      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
+      "domain": "github:jspm/nodelibs-domain@^0.2.0-alpha",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
+      "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "react": "npm:react@^15.3.1",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
+      "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
+    },
+    "overrides": {
+      "github:twbs/bootstrap@3.3.7": {
+        "main": "js/bootstrap.js",
+        "dependencies": {
+          "jquery": "jspm:jquery@*"
+        },
+        "files": [
+          "dist",
+          "fonts",
+          "js",
+          "css"
+        ],
+        "meta": {
+          "js/bootstrap.js": {
+            "deps": [
+              "jquery"
+            ],
+            "exports": "$",
+            "format": "global"
+          }
+        }
+      },
+      "npm:browserify-zlib@0.1.4": {
+        "dependencies": {
+          "readable-stream": "^2.0.2",
+          "pako": "~0.2.0"
+        },
+        "map": {
+          "_stream_transform": "readable-stream/transform"
+        }
+      },
+      "npm:debug@2.2.0": {
+        "main": "browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./browser.js": {
+            "node": "./node.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:jquery@3.1.0": {
+        "format": "amd"
+      },
+      "npm:lodash@4.15.0": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:ms@0.7.1": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
+      }
+    }
   },
   "pre-commit": []
 }
