@@ -357,9 +357,11 @@ SystemJS.config({
       "map": {
         "jquery": "npm:jquery@3.1.0"
       },
-		 meta: {
-			 '*.css': { loader: 'css' }
-		 }
+      "meta": {
+        "*.css": {
+          "loader": "css"
+        }
+      }
     },
     "npm:babel-plugin-transform-react-jsx@6.8.0": {
       "map": {
@@ -379,76 +381,15 @@ SystemJS.config({
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
         "lodash": "npm:lodash@4.15.0",
-        "babel-types": "npm:babel-types@6.14.0"
+        "babel-types": "npm:babel-types@6.15.0"
       }
     },
-    "npm:babel-types@6.14.0": {
+    "npm:babel-types@6.15.0": {
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
         "lodash": "npm:lodash@4.15.0",
-        "to-fast-properties": "npm:to-fast-properties@1.0.2",
-        "babel-traverse": "npm:babel-traverse@6.14.0"
-      }
-    },
-    "npm:babel-traverse@6.14.0": {
-      "map": {
-        "babel-runtime": "npm:babel-runtime@6.11.6",
-        "babel-types": "npm:babel-types@6.14.0",
-        "lodash": "npm:lodash@4.15.0",
-        "babel-code-frame": "npm:babel-code-frame@6.11.0",
-        "babel-messages": "npm:babel-messages@6.8.0",
-        "globals": "npm:globals@8.18.0",
-        "debug": "npm:debug@2.2.0",
-        "babylon": "npm:babylon@6.9.1",
-        "invariant": "npm:invariant@2.2.1"
-      }
-    },
-    "npm:babel-code-frame@6.11.0": {
-      "map": {
-        "esutils": "npm:esutils@2.0.2",
-        "babel-runtime": "npm:babel-runtime@6.11.6",
-        "chalk": "npm:chalk@1.1.3",
-        "js-tokens": "npm:js-tokens@2.0.0"
-      }
-    },
-    "npm:babel-messages@6.8.0": {
-      "map": {
-        "babel-runtime": "npm:babel-runtime@6.11.6"
-      }
-    },
-    "npm:babylon@6.9.1": {
-      "map": {
-        "babel-runtime": "npm:babel-runtime@6.11.6"
-      }
-    },
-    "npm:debug@2.2.0": {
-      "map": {
-        "ms": "npm:ms@0.7.1"
-      }
-    },
-    "npm:chalk@1.1.3": {
-      "map": {
-        "ansi-styles": "npm:ansi-styles@2.2.1",
-        "escape-string-regexp": "npm:escape-string-regexp@1.0.5",
-        "has-ansi": "npm:has-ansi@2.0.0",
-        "strip-ansi": "npm:strip-ansi@3.0.1",
-        "supports-color": "npm:supports-color@2.0.0"
-      }
-    },
-    "npm:has-ansi@2.0.0": {
-      "map": {
-        "ansi-regex": "npm:ansi-regex@2.0.0"
-      }
-    },
-    "npm:strip-ansi@3.0.1": {
-      "map": {
-        "ansi-regex": "npm:ansi-regex@2.0.0"
-      }
-    },
-    "npm:invariant@2.2.1": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0"
+        "to-fast-properties": "npm:to-fast-properties@1.0.2"
       }
     }
   }

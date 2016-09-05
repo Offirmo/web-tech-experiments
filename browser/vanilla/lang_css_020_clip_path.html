@@ -11,6 +11,35 @@
 			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 			color: #333;
 		}
+		.container {
+		}
+		.test {
+			position: relative;
+			xxoverflow: hidden;
+			padding: 5% 0px;
+		}
+		.special {
+			position: absolute;
+
+			clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+			-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+			/*
+			top: 10%;
+			width: 200%;
+			height: 90%;
+			opacity: .5;*/
+		}
+		.test p {
+		}
+		.test.v1 .special {
+			background-color: cyan;
+		}
+		.test.v2 {
+		}
+		.test.v2 .special {
+			background-color: lightpink;
+		}
 	</style>
 </head>
 
@@ -18,6 +47,33 @@
 <p>
 	<a>https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path</a>
 </p>
+
+<div class="container">
+	<div class="test v1">
+		<div class="special"></div>
+		<p>
+			Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri ductante barbaricos pagos adventans velut mutato repente consilio ad placidiora deverti.
+		</p>
+	</div>
+	<div class="test v2">
+		<div class="special"></div>
+		<p>
+			Quod si rectum statuerimus vel concedere amicis, quidquid velint, vel impetrare ab iis, quidquid velimus, perfecta quidem sapientia si simus, nihil habeat res vitii; sed loquimur de iis amicis qui ante oculos sunt, quos vidimus aut de quibus memoriam accepimus, quos novit vita communis. Ex hoc numero nobis exempla sumenda sunt, et eorum quidem maxime qui ad sapientiam proxime accedunt.
+		</p>
+	</div>
+	<div class="test v1">
+		<div class="special"></div>
+		<p>
+			Eodem tempore etiam Hymetii praeclarae indolis viri negotium est actitatum, cuius hunc novimus esse textum. cum Africam pro consule regeret Carthaginiensibus victus inopia iam lassatis, ex horreis Romano populo destinatis frumentum dedit, pauloque postea cum provenisset segetum copia, integre sine ulla restituit mora.
+		</p>
+	</div>
+	<div class="test v2">
+		<div class="special"></div>
+		<p>
+			Post hanc adclinis Libano monti Phoenice, regio plena gratiarum et venustatis, urbibus decorata magnis et pulchris; in quibus amoenitate celebritateque nominum Tyros excellit, Sidon et Berytus isdemque pares Emissa et Damascus saeculis condita priscis.
+		</p>
+	</div>
+</div>
 
 <script>
 	document.querySelector('h1').textContent = document.title;
