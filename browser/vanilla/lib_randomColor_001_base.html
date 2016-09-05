@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib randomColor 001 - base</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<script src="../../node_modules/randomcolor/randomColor.js"></script>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://randomcolor.llllll.li/</a>
+	<a>https://github.com/davidmerfield/randomColor</a>
+</p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+<p class="test"></p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	const paras = document.querySelectorAll('.test')
+
+	paras.forEach((p, i) => {
+		p.textContent = '' + i
+		const color = randomColor({
+			luminosity: 'light',
+			format: 'hsl'
+		})
+		console.log(color)
+		p.style.backgroundColor = color
+	})
+</script>
