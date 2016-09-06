@@ -1,6 +1,9 @@
 # Logs
 npm-debug.log.*
 
+# credentials
+nodejs/google_oauth2.json
+
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules

@@ -7,32 +7,30 @@ var Spreadsheet = require('edit-google-spreadsheet');
 
 Spreadsheet.load({
 	debug: true,
-	spreadsheetName: 'DatabaseTest01',
+	spreadsheetName: 'EF - lib watch',
 	worksheetName: 'data',
 	// Choose from 1 of the 3 authentication methods:
-	//    1. Username and Password
-	username: 'offirmo.net@gmail.com',
-	password: 'secret !!!'
+	//    1. Username and Password -> DEPRECATED
 	// OR 2. OAuth
-	//oauth : {
-	//	email: 'my-name@google.email.com',
-	//	keyFile: 'my-private-key.pem'
-	//},
-	// OR 3. Token
-	//accessToken : {
+	// OR 3. OAuth2 (See get_oauth2_permissions.js)
+	"oauth2": require('../google_oauth2.json')
+	// OR 4. Static Token
+	// accessToken : {
 	//	type: 'Bearer',
 	//	token: 'xyz'
 	//}
+	// OR 5. Dynamic Token
 }, function sheetReady(err, spreadsheet) {
 	console.log('ready ?');
 	if(err) throw err;
 
+	// read data
 	spreadsheet.receive(function(err, rows, info) {
 		if(err) throw err;
 		console.log("Found rows:", rows);
 		// Found rows: { '3': { '5': 'hello!' } }
 	});
-
+/*
 	spreadsheet.add({ 3: { 5: "hello!" } });
 	spreadsheet.add({
 		3: {
@@ -46,7 +44,9 @@ Spreadsheet.load({
 		if(err) throw err;
 		console.log("Updated Cell at row 3, column 5 to 'hello!'");
 	});
+*/
 
+	// get metadata
 	spreadsheet.metadata(function(err, metadata){
 		if(err) throw err;
 		console.log(metadata);

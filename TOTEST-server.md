@@ -2,11 +2,6 @@
 // DB
 https://github.com/EventStore/EventStore
 
-accessing google spreadsheet :
-https://github.com/jpillora/node-edit-google-spreadsheet
-https://github.com/theoephraim/node-google-spreadsheet
-https://github.com/samcday/node-google-spreadsheets
-
 https://www.sitepoint.com/horizon-a-scalable-backend-perfect-for-javascript-mobile-apps/
 https://github.com/jayfk/statuspage A statuspage generator that lets you host your statuspage for free on Github.
 https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
