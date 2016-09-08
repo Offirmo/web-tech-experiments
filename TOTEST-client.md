@@ -1,6 +1,7 @@
 ’
 
-https://github.com/pixelass/beneath-the-sun control of z-index
+
+
 https://alertifyjs.org/ Simple browser dialogs
 
 https://github.com/mailcheck/mailcheck  Reduce misspelled email addresses in your web apps.
@@ -204,9 +205,6 @@ http://wamalaka.com/locallydb
 https://github.com/zendesk/cross-storage
 
 
--- methodologie
-BEM methodology http://bem.info/
-http://learnsemantic.com/
 
 
 -- content

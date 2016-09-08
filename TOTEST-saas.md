@@ -19,6 +19,7 @@ feature switching  -> https://launchdarkly.com/pricing.html
 big file sharing   -> https://www.myairbridge.com/en/
 
 
+Générateur de QR Codes http://www.unitag.fr/qrcode
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/
@@ -35,3 +36,4 @@ http://placehold.it/
 http://playphrase.me
 https://opbeat.com/
 http://instantlogosearch.com/
+http://www.mangopay.com/

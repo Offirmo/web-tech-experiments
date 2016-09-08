@@ -7,7 +7,7 @@ Sindre Sorhus gets us covered with 3 complementary modules about running an app 
 * sudo-block (GitHub: [sindresorhus/sudo-block](https://github.com/sindresorhus/sudo-block), License: MIT, npm: [sudo-block](https://www.npmjs.com/package/sudo-block))
 * downgrade-root (GitHub: [sindresorhus/downgrade-root](https://github.com/sindresorhus/downgrade-root), License: MIT, npm: [downgrade-root](https://www.npmjs.com/package/downgrade-root))
 
-As you know, Unix programs can be run with ["root privileges"](https://en.wikipedia.org/wiki/Superuser#Unix_and_Unix-like) usually by starting them with [`sudo`](https://en.wikipedia.org/wiki/Sudo). The "root" user has all permissions, which is in important security concern.
+As you know, Unix programs can be run with ["root privileges"](https://en.wikipedia.org/wiki/Superuser#Unix_and_Unix-like) usually by starting them with [`sudo`](https://en.wikipedia.org/wiki/Sudo). The "root" user has all permissions, which is an important security concern.
 
 When writing a CLI app in javascript, you may want to check if your app is run with root privileges with the 1st module `is-root`:
 

@@ -1,5 +1,5 @@
 
-* <> (GitHub: [a/b](https://github.com/a/b), License: MIT, npm: [b](https://www.npmjs.com/package/b))
+* XXXXXXX (GitHub: [AAAAAAA/XXXXXXX](https://github.com/AAAAAAA/XXXXXXX), License: MIT, npm: [XXXXXXX](https://www.npmjs.com/package/XXXXXXX))
 
 
 Fresh news:
