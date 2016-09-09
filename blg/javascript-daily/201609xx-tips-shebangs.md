@@ -1,3 +1,8 @@
+# Run your js in the terminal: The ultimate shebang collection
+
+npm i -D babel-preset-es2015-node6
+
+
 
 touch .babelrc
 ```sh
@@ -15,3 +20,5 @@ npm i -D babel-cli babel-preset-es2015-node6
 chmod +x index.js
 ./index.js
 ```
+
+
