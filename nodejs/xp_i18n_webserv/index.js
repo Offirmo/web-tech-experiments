@@ -32,10 +32,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/best-locales', (req, res) => {
+	const seen_params = {}
+	const result = {}
+
+
 	res.send({
-		data: 'hello world',
+		data: {
+			seen_params,
+			result
+		},
 		meta: {
-			
+
 		}
 	})
 })
