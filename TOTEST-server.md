@@ -22,25 +22,16 @@ https://zeit.co/now
 
 feature toggling https://github.com/FredKSchott/fflip
 
-https://github.com/airbnb/caravel
+  data exploration platform designed to be visual, intuitive, and interactive https://github.com/airbnb/caravel
 
-https://github.com/wg/wrk
+Modern HTTP benchmarking tool https://github.com/wg/wrk
 siege http://www.joedog.org/siege-manual/
-https://coderwall.com/p/fjtqcq
+Linux: Get IP Address on Command Line/Shell https://coderwall.com/p/fjtqcq
 https://github.com/Mashape/kong
 
 
---- CLI
-yargs
-commander
-inquirer / Inquirer2
-
-
-https://github.com/sindresorhus/meow
-
 https://doclets.io/
 https://nodesource.com/blog/blacklisting-node-js-core-modules-and-bindings-to-enhance-application-security/
-https://davidwalsh.name/nodejs-services
 
 http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://github.com/tjmehta/coworkers RabbitMQ
@@ -55,7 +46,7 @@ https://cloud.google.com/container-engine/
 https://github.com/dylang/changelog
 
 parser HTML5
-https://github.com/inikulin/parse5?utm_source=nodeweekly&utm_medium=email
+https://github.com/inikulin/parse5
 
 http://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
 
@@ -64,8 +55,6 @@ https://github.com/jwagner/smartcrop.js
 https://www.npmjs.com/package/dotenv
 
 https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=fr
-
-https://sheetsu.com/
 
 https://medium.com/all-about-feathersjs/using-feathersjs-as-an-open-source-alternative-to-firebase-b5d93c200cee
 
@@ -79,18 +68,17 @@ https://blog.nraboy.com/2015/11/using-passportjs-in-your-node-js-couchbase-web-a
 http://mziccard.me/2015/08/10/node-timsort-fast-sorting-nodejs/
 
 https://github.com/kabab/qr-cairo QR codes
-https://github.com/dthree/vantage
-https://github.com/jwalton/node-promise-breaker
 
-https://github.com/leeluolee/fstorm
+https://github.com/dthree/vantage Distributed, realtime CLI for live Node apps.
+https://github.com/jwalton/node-promise-breaker Helps you write libraries that accept both promises and callbacks.
+
+incredibly fast & reliable filewriter https://github.com/leeluolee/fstorm
 
 http://prose.io/
 
 http://tech.blog.box.com/2014/10/introducing-leche-a-javascript-testing-utility-for-mocha-and-sinon/
-https://github.com/abeisgreat/FiltrES.js
+A simple, safe, ElasticSearch Query compiler https://github.com/abeisgreat/FiltrES.js
 http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
-
-https://github.com/pilwon/ultimate-seed
 
 generators
 https://github.com/shes/comws
@@ -164,7 +152,6 @@ https://github.com/suguru03/neo-async
 https://www.ejabberd.im/
 
 http://www.html5rocks.com/en/tutorials/appcache/beginner/
-http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/
 
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
@@ -177,12 +164,6 @@ https://github.com/tholman/giflinks
 
 jeu 3D http://www.jsdb.io/view/babylon-js
 
--- serveur
-http://strongloop.com/
-
-- couleurs + propres
-https://www.npmjs.org/package/chalk
-https://github.com/thlorenz/ansicolors
 
 - log gratuit en ligne ? Moyen de faire qq chose ?
 https://data.sparkfun.com/
@@ -246,7 +227,6 @@ https://github.com/mikaelbr/node-notifier
 
 erreurs
 https://github.com/fanatid/error-system
-
 
 -- terminal / command line
 http://developer.telerik.com/featured/creating-node-js-command-line-utilities-improve-workflow/
