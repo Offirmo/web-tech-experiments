@@ -2,6 +2,9 @@
 // DB
 https://github.com/EventStore/EventStore
 
+a microservices toolkit http://senecajs.org/
+typescript Rest API framework https://github.com/zorend/cloverjs
+
 https://www.sitepoint.com/horizon-a-scalable-backend-perfect-for-javascript-mobile-apps/
 https://github.com/jayfk/statuspage A statuspage generator that lets you host your statuspage for free on Github.
 https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
