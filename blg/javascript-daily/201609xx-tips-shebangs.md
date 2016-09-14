@@ -1,6 +1,3 @@
-XXX TODO search and replace
-xxx -> offirmo
-
 # Javascript in shell: The ultimate shebang collection
 
 Today, let's try the tip format. Don't worry, we'll introduce some nice modules along the way.
@@ -8,7 +5,7 @@ Today, let's try the tip format. Don't worry, we'll introduce some nice modules 
 Thanks to node, Javascript conquered new realms, including the terminal.
 To integrate with other tools, or just for convenience, you may want to run your JS code as a shell script.
 This is done with a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)), of course.
-[Sam Mikes](http://sambal.org/2014/02/passing-options-node-shebang-line/) devised a shebang that allows running a node script as a shell script, passing correctly all parameters:
+[Sam Mikes](http://sambal.org/2014/02/passing-options-node-shebang-line/) cleverly devised a shebang that allows running a node script as a shell script:
 
 First some initialisations:
 
@@ -34,7 +31,7 @@ const { hello } = require('hello-world-emo')
 process.argv.slice(2).forEach(val => hello(val)) // say hello to everyone
 ```
 
-In case you wondered, node will detect and skip the shebang, so this is syntactically valid. Then from your terminal:
+In case you wondered, node will detect and skip the shebang, so this is syntactically valid ([more info](http://sambal.org/2014/02/passing-options-node-shebang-line/)). Then from your terminal:
 
 ```
 $ ./index.js Joe Jack
@@ -88,8 +85,9 @@ The shebang and the code becomes:
 ```typescript
 #!/bin/sh
 ':' //# http://sambal.org/?p=1014 ; exec `dirname $0`/node_modules/.bin/ts-node "$0" "$@"
-/// <reference path="node_modules/@types/node/index.d.ts" />
+'use strict';
 
+/// <reference path="node_modules/@types/node/index.d.ts" />
 import { hello } from 'hello-world-emo'
 process.argv.slice(2).forEach((val: string) => hello(val)) //< sprinkled some typescript here
 ```
@@ -108,4 +106,4 @@ That's all. Let's start writing great Unix tools and utilities now!
 Modules introduced:
 * babel-cli (GitHub: [babel/packages/babel-cli](https://github.com/babel/babel/tree/master/packages/babel-cli), License: MIT, npm: [babel-cli](https://www.npmjs.com/package/babel-cli))
 * ts-node (GitHub: [TypeStrong/ts-node](https://github.com/TypeStrong/ts-node), License: MIT, npm: [ts-node](https://www.npmjs.com/package/ts-node))
-* hello-world-emo (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-npm), License: MIT, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly ;-)
+* hello-world-emo (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-npm), License: Unlicense, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly ;-)
