@@ -1,9 +1,9 @@
 XXX TODO search and replace
-yjutard -> offirmo
+xxx -> offirmo
 
 # Javascript in shell: The ultimate shebang collection
 
-Today, let's try the tip format. Don't worry, we'll introduce some nice modules along the way !
+Today, let's try the tip format. Don't worry, we'll introduce some nice modules along the way.
  
 Thanks to node, Javascript conquered new realms, including the terminal.
 To integrate with other tools, or just for convenience, you may want to run your JS code as a shell script.
@@ -15,13 +15,13 @@ First some initialisations:
 ```
 mkdir ... ; cd ...
 npm init
-chmod +x index.js
+chmod +x index.js //< note this
 npm i --save hello-world-emo  // for testing purpose
 ```
 
 Then in `index.js`: **(note the 2-lines shebang at start)**
 
-```js
+```javascript
 #!/bin/sh
 ':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node "$0" "$@"
 'use strict';
@@ -34,12 +34,12 @@ const { hello } = require('hello-world-emo')
 process.argv.slice(2).forEach(val => hello(val)) // say hello to everyone
 ```
 
-Then from your shell:
+In case you wondered, node will detect and skip the shebang, so this is syntactically valid. Then from your terminal:
 
-```bash
+```
 $ ./index.js Joe Jack
 arg #0 = "/home/offirmo/.nvm/versions/node/v6.5.0/bin/node"
-arg #1 = "/home/offirmo/work/src/xxx-special-tests/shebangs/index.js"
+arg #1 = "/home/offirmo/[redacted]/index.js"
 arg #2 = "Joe"
 arg #3 = "Jack"
 [hello-world-emo] Hello from [redacted]/node_modules/hello-world-emo/dist/index.node-stable.js
@@ -47,10 +47,10 @@ Hello, Joe :-(
 Hello, Jack :-(
 ```
 
-It works! Still, not much gained from running `node index.js Joe Jack`. Then how about running pure ES6 code using ES6 modules ? The `babel-node` executable, exposed by the [`babel-cli`](https://www.npmjs.com/package/babel-cli) npm module and a trivial bit of config allows that:
+It works! Same behaviour as running `node index.js Joe Jack`. Then how about running pure ES6 code using ES6 modules ? The [`babel-node`](https://babeljs.io/docs/usage/cli/) executable, exposed by the [`babel-cli`](https://www.npmjs.com/package/babel-cli) npm module and a trivial bit of config allows that:
 
-```bash
-npm i --save babel-cli babel-preset-es2015-node6
+```
+npm i --save  babel-cli  babel-preset-es2015-node6
 echo '{ "presets": ["es2015-node6"] }' > .babelrc
 ```
 
@@ -67,17 +67,19 @@ process.argv.slice(2).forEach(val => hello(val))
 
 And sure enough:
 
-```bash
+```
 $ ./index_es6.js Joe Jack
 [hello-world-emo] Hello from [redacted]/node_modules/hello-world-emo/dist/index.node-stable.js
 Hello, Joe :-(
 Hello, Jack :-(
 ```
 
-Direct execution, not even needing a build step ! Then how about doing it for typescript, which is gaining traction ? We'll need typescript of course (targeting typescript v2 here, which is vastly superior to 1 and due to be released anytime soon), node.js typings and the ts-node npm module: 
+Direct execution, not even needing a build step! Take note that the Babel team doesn't endorse using this utility in production, but YMMV.
 
-```bash
-npm i --save typescript@2 @types/node ts-node
+Next, how about doing it for [typescript](https://www.typescriptlang.org/) ? We'll need [typescript](https://www.npmjs.com/package/typescript) of course (targeting typescript v2 here, which is vastly superior to v1 and due to be released anytime soon), [node.js type definitions](https://www.npmjs.com/package/@types/node) and the [`ts-node`](https://www.npmjs.com/package/ts-node) npm module: 
+
+```
+npm i --save  typescript@2  @types/node  ts-node
 touch index.ts; chmod +x index.ts
 ```
 
@@ -89,21 +91,21 @@ The shebang and the code becomes:
 /// <reference path="node_modules/@types/node/index.d.ts" />
 
 import { hello } from 'hello-world-emo'
-process.argv.slice(2).forEach((val: string) => hello(val))
+process.argv.slice(2).forEach((val: string) => hello(val)) //< sprinkled some typescript here
 ```
 
 And as expected:
 
-```bash
+```
 $ ./index.ts Joe Jack
 [hello-world-emo] Hello from [redacted]/node_modules/hello-world-emo/dist/index.node-stable.js
 Hello, Joe :-(
 Hello, Jack :-(
 ```
 
-That's all. Let's start writing Unix tools and utilities now!
+That's all. Let's start writing great Unix tools and utilities now!
 
 Modules introduced:
 * babel-cli (GitHub: [babel/packages/babel-cli](https://github.com/babel/babel/tree/master/packages/babel-cli), License: MIT, npm: [babel-cli](https://www.npmjs.com/package/babel-cli))
 * ts-node (GitHub: [TypeStrong/ts-node](https://github.com/TypeStrong/ts-node), License: MIT, npm: [ts-node](https://www.npmjs.com/package/ts-node))
-* hello-world-emo ;) (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-emo), License: MIT, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo))
+* hello-world-emo (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-npm), License: MIT, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly ;-)
