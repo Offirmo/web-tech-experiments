@@ -44,7 +44,9 @@ Hello, Joe :-(
 Hello, Jack :-(
 ```
 
-It works! Same behaviour as running `node index.js Joe Jack`. Then how about running pure ES6 code using ES6 modules ? The [`babel-node`](https://babeljs.io/docs/usage/cli/) executable, exposed by the [`babel-cli`](https://www.npmjs.com/package/babel-cli) npm module and a trivial bit of config allows that:
+It works! Same behaviour as running `node index.js Joe Jack`.
+
+Let's do better: how about running pure ES6 code using ES6 modules ? The [`babel-node`](https://babeljs.io/docs/usage/cli/) executable, exposed by the [`babel-cli`](https://www.npmjs.com/package/babel-cli) npm module and a trivial bit of config allows that:
 
 ```
 npm i --save  babel-cli  babel-preset-es2015-node6
@@ -71,7 +73,7 @@ Hello, Joe :-(
 Hello, Jack :-(
 ```
 
-Direct execution, not even needing a build step! Take note that the Babel team doesn't endorse using this utility in production, but YMMV.
+Direct execution, not even needing a build step! Please note that the Babel team [doesn't endorse](https://www.npmjs.com/package/babel-cli) using this utility in production, but YMMV.
 
 Next, how about doing it for [typescript](https://www.typescriptlang.org/) ? We'll need [typescript](https://www.npmjs.com/package/typescript) of course (targeting typescript v2 here, which is vastly superior to v1 and due to be released anytime soon), [node.js type definitions](https://www.npmjs.com/package/@types/node) and the [`ts-node`](https://www.npmjs.com/package/ts-node) npm module: 
 
@@ -106,4 +108,4 @@ That's all. Let's start writing great Unix tools and utilities now!
 Modules introduced:
 * babel-cli (GitHub: [babel/packages/babel-cli](https://github.com/babel/babel/tree/master/packages/babel-cli), License: MIT, npm: [babel-cli](https://www.npmjs.com/package/babel-cli))
 * ts-node (GitHub: [TypeStrong/ts-node](https://github.com/TypeStrong/ts-node), License: MIT, npm: [ts-node](https://www.npmjs.com/package/ts-node))
-* hello-world-emo (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-npm), License: Unlicense, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly ;-)
+* hello-world-emo (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-npm), License: Unlicense, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly. Please star ;-)
