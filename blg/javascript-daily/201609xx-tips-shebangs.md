@@ -75,7 +75,7 @@ Hello, Jack :-(
 
 Direct execution, not even needing a build step! Please note that the Babel team [doesn't endorse](https://www.npmjs.com/package/babel-cli) using this utility in production, but YMMV.
 
-Next, how about doing it for [typescript](https://www.typescriptlang.org/) ? We'll need [typescript](https://www.npmjs.com/package/typescript) of course (targeting typescript v2 here, which is vastly superior to v1 and due to be released anytime soon), [node.js type definitions](https://www.npmjs.com/package/@types/node) and the [`ts-node`](https://www.npmjs.com/package/ts-node) npm module: 
+Last, how about doing it for [typescript](https://www.typescriptlang.org/) ? We'll need [typescript](https://www.npmjs.com/package/typescript) of course (targeting typescript v2 here, which is vastly superior to v1 and due to be released anytime soon), [node.js type definitions](https://www.npmjs.com/package/@types/node) and the [`ts-node`](https://www.npmjs.com/package/ts-node) npm module: 
 
 ```
 npm i --save  typescript@2  @types/node  ts-node
