@@ -1,4 +1,4 @@
-# Javascript in shell: The ultimate shebang collection
+# Run Javascript in shell: The ultimate shebang collection
 
 Today, let's try the tip format. Don't worry, we'll introduce some nice modules along the way.
  
@@ -51,6 +51,7 @@ Let's do better: how about running pure ES6 code using ES6 modules ? The [`babel
 ```
 npm i --save  babel-cli  babel-preset-es2015-node6
 echo '{ "presets": ["es2015-node6"] }' > .babelrc
+touch index_es6.js; chmod +x index_es6.js
 ```
 
 The shebang and the code becomes:
@@ -78,7 +79,7 @@ Direct execution, not even needing a build step! Please note that the Babel team
 Last, how about doing it for [typescript](https://www.typescriptlang.org/) ? We'll need [typescript](https://www.npmjs.com/package/typescript) of course (targeting typescript v2 here, which is vastly superior to v1 and due to be released anytime soon), [node.js type definitions](https://www.npmjs.com/package/@types/node) and the [`ts-node`](https://www.npmjs.com/package/ts-node) npm module: 
 
 ```
-npm i --save  typescript@2  @types/node  ts-node
+npm i -S  typescript@2  @types/node  ts-node
 touch index.ts; chmod +x index.ts
 ```
 
@@ -108,4 +109,4 @@ That's all. Let's start writing great Unix tools and utilities now!
 Modules introduced:
 * babel-cli (GitHub: [babel/packages/babel-cli](https://github.com/babel/babel/tree/master/packages/babel-cli), License: MIT, npm: [babel-cli](https://www.npmjs.com/package/babel-cli))
 * ts-node (GitHub: [TypeStrong/ts-node](https://github.com/TypeStrong/ts-node), License: MIT, npm: [ts-node](https://www.npmjs.com/package/ts-node))
-* hello-world-emo (GitHub: [Offirmo/hello-world-emo](https://github.com/Offirmo/hello-world-npm), License: Unlicense, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly. Please star ;-)
+* hello-world-emo (GitHub: [Offirmo/hello-world-npm](https://github.com/Offirmo/hello-world-npm), License: Unlicense, npm: [hello-world-emo](https://www.npmjs.com/package/hello-world-emo)) from yours truly. Please star ;-)
