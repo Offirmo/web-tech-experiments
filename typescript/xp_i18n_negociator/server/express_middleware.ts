@@ -18,7 +18,13 @@ function parse_HTTP_ACCEPT_LANGUAGE(raw: string) {
 
 // should have param "supported languages"
 function middleware(req: express.Request, res: express.Response) {
+
+	console.log(req.cookies)
+
 	const server_hints: ServerLocaleHints = {
+
+		from_explicitly_set_cookie:
+			normalize_and_validate_bcp47_locale(req.cookies['user-explicitly-selected-locale']),
 
 		from_url_query_string_lang:
 			normalize_and_validate_bcp47_locale(req.query.lang),
@@ -65,7 +71,6 @@ function middleware(req: express.Request, res: express.Response) {
 	 req.locale_choice = 'no match and/or no info, defaulted to the first supported language';
 	 }
 	 */
-
 
 
 	res.send({

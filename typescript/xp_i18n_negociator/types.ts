@@ -20,8 +20,16 @@ interface BrowserLocaleHints {
 }
 
 interface ServerLocaleHints {
+
+	// We allow storing user choice in a http-only cookie
+	from_explicitly_set_cookie: BCP47Locale | undefined
+
+	//
 	from_ip_geolocation: BCP47Locale | undefined
+
+	//
 	from_header_HTTP_ACCEPT_LANGUAGE: BCP47Locale[]
+
 	// the very common ?lang=fr
 	// should never be used except for demo/debug
 	// for fear a user share or bookmark it "as is"
