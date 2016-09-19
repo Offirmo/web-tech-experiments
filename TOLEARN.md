@@ -133,4 +133,6 @@
 https://screeps.com/
 https://stdlib.com/
 https://hyperterm.org/#installation
-
+- [ ] desktop apps
+      http://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition
+      
