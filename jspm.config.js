@@ -54,28 +54,19 @@ SystemJS.config({
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
-    "react": "npm:react@15.3.1",
-    "react-dom": "npm:react-dom@15.3.1",
+    "react": "npm:react@15.3.2",
+    "react-dom": "npm:react-dom@15.3.2",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
-    "systemjs-plugin-babel": "npm:systemjs-plugin-babel@0.0.15",
     "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.27",
-    "systemjs/plugin-text": "github:systemjs/plugin-text@0.0.9",
+    "systemjs/plugin-text": "github:systemjs/plugin-text@0.0.8",
     "text": "github:systemjs/plugin-text@0.0.8",
-    "twbs/bootstrap": "github:twbs/bootstrap@3.3.7",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
     "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha"
   },
   packages: {
-    "npm:react@15.3.1": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0",
-        "fbjs": "npm:fbjs@0.8.4",
-        "object-assign": "npm:object-assign@4.1.0"
-      }
-    },
     "npm:fbjs@0.8.4": {
       "map": {
         "loose-envify": "npm:loose-envify@1.2.0",
@@ -269,19 +260,12 @@ SystemJS.config({
         "create-hash": "npm:create-hash@1.1.2",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
         "pbkdf2": "npm:pbkdf2@3.0.7",
-        "asn1.js": "npm:asn1.js@4.8.0"
+        "asn1.js": "npm:asn1.js@4.8.1"
       }
     },
     "npm:sha.js@2.4.5": {
       "map": {
         "inherits": "npm:inherits@2.0.3"
-      }
-    },
-    "npm:asn1.js@4.8.0": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3",
-        "bn.js": "npm:bn.js@4.11.6",
-        "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
       }
     },
     "npm:hash.js@1.0.3": {
@@ -349,7 +333,7 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
-        "lodash": "npm:lodash@4.15.0",
+        "lodash": "npm:lodash@4.16.0",
         "babel-types": "npm:babel-types@6.15.0"
       }
     },
@@ -357,7 +341,7 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
-        "lodash": "npm:lodash@4.15.0",
+        "lodash": "npm:lodash@4.16.0",
         "to-fast-properties": "npm:to-fast-properties@1.0.2"
       }
     },
@@ -392,6 +376,20 @@ SystemJS.config({
         "bn.js": "npm:bn.js@4.11.6",
         "brorand": "npm:brorand@1.0.6",
         "hash.js": "npm:hash.js@1.0.3"
+      }
+    },
+    "npm:react@15.3.2": {
+      "map": {
+        "fbjs": "npm:fbjs@0.8.4",
+        "loose-envify": "npm:loose-envify@1.2.0",
+        "object-assign": "npm:object-assign@4.1.0"
+      }
+    },
+    "npm:asn1.js@4.8.1": {
+      "map": {
+        "bn.js": "npm:bn.js@4.11.6",
+        "inherits": "npm:inherits@2.0.3",
+        "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
       }
     }
   }
