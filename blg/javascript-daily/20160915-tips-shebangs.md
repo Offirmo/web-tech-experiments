@@ -1,3 +1,5 @@
+http://daily-javascript.com/articles/shebang/
+
 # Run Javascript in shell: The ultimate shebang collection
 
 Today, let's try the tip format. Don't worry, we'll introduce some nice modules along the way.

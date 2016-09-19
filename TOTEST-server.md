@@ -1,4 +1,9 @@
 
+
+Figure out if your node process is blocked because the CPU is spinning https://github.com/mafintosh/block-trace
+
+Share your terminal over the web https://github.com/tsl0922/ttyd
+
 // DB
 https://github.com/EventStore/EventStore
 

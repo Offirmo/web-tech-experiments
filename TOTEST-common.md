@@ -1,4 +1,6 @@
 
+https://github.com/sindresorhus/aggregate-error
+
 https://github.com/rich-harris/sorcery  Resolve a chain of sourcemaps back to the original source, like magic
 
 https://github.com/SamyPesse/gitkit-js Pure javascript implementation of Git (Node.js and Browser)

@@ -79,7 +79,8 @@
 - [ ] notifications
 - [ ] ServiceWorker
       https://serviceworke.rs
-      https://bitsofco.de/the-service-worker-lifecycle/?
+      https://bitsofco.de/the-service-worker-lifecycle/
+      https://github.com/lyzadanger/pragmatist-service-worker
 - [ ] Stormpath
 - [ ] GraphQL
 - [ ] Hosting gratuit

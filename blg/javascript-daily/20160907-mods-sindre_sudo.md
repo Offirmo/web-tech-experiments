@@ -1,4 +1,4 @@
-http://daily-javascript.com/
+http://daily-javascript.com/articles/sindre-sudo/
 
 # 3 modules to check, enforce or prevent running in sudo mode
 
