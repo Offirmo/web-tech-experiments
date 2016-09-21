@@ -1,6 +1,12 @@
 ’
 
 
+https://github.com/franciscop/cookies.js simple cookies
+https://github.com/dollarshaveclub/reframe.js make it responsive
+https://wideckop.github.io/mocassin.css/ animations
+https://github.com/stevenmhunt/badgerly badges
+
+
 React:
 https://github.com/stelatech/react-anime
 https://github.com/zalmoxisus/redux-remotedev
@@ -10,6 +16,7 @@ https://github.com/reactotron/reactotron
 
 Lib viewport https://github.com/pyrsmk/W
 
+https://github.com/720kb/checked.css animations à repiquer
 
 https://alertifyjs.org/ Simple browser dialogs
 

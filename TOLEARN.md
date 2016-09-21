@@ -48,7 +48,7 @@
 		https://github.com/eanplatter/enclave
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [x] Virtualbox VBoxManage 2016/03/11
-- [ ] node on Windows
+- [-] node on Windows
       - [x] vm-windows https://github.com/coreybutler/nvm-windows 2016/03/07
       - [ ] http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
       http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
@@ -83,7 +83,9 @@
       https://github.com/lyzadanger/pragmatist-service-worker
 - [ ] Stormpath
 - [ ] GraphQL
+       http://graphql.org/
 - [ ] Hosting gratuit
+       heroku
 - [ ] tokens
 - [ ] geolocalisation API
 - [ ] geolocalisation DB
@@ -98,7 +100,6 @@
 - [ ] https://auth0.com/learn/json-web-tokens/
 - [ ] http://stackshare.io/posts/top-50-developer-tools-and-services-of-2015
 - [ ] http://blogs.technet.com/b/devops/archive/2016/01/12/vorlonjs-a-journey-to-devops-introducing-the-blog-post-series.aspx
-- [ ] nedb
 - [ ] modern modules
       https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/
 - [ ] kubernetes http://blog.jonparrott.com/building-a-paas-on-kubernetes/
@@ -135,4 +136,8 @@ https://stdlib.com/
 https://hyperterm.org/#installation
 - [ ] desktop apps
       http://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition
-      
+- [ ] Angular 2
+       http://blog.thoughtram.io/angular/2016/09/15/angular-2-final-is-out.html
+- [ ] No code
+       https://www.producthunt.com/@jurica87/collections/without-coding
+       

@@ -5,7 +5,7 @@ https://github.com/rich-harris/sorcery  Resolve a chain of sourcemaps back to th
 
 https://github.com/SamyPesse/gitkit-js Pure javascript implementation of Git (Node.js and Browser)
 
-http://daily-javascript.com/articles/ljson/
+http://daily-javascript.com/articles/ljson/ replacement for JSON which also allows you to parse and stringify pure functions and their contents
 https://github.com/ziyasal/scientist.js
 https://github.com/jezen/is-thirteen
 
@@ -13,9 +13,9 @@ http://fr.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16
 https://github.com/robbyrussell/oh-my-zsh
 
 https://github.com/bevacqua/trunc-html
-https://github.com/teamweek/instadate
+https://github.com/teamweek/instadate A minimal high performance date library for Node.js and Browser 
 
-http://sweetjs.org/
+http://sweetjs.org/ macros
 
 Rx
 http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
@@ -45,7 +45,7 @@ https://github.com/mariocasciaro/object-path
 https://github.com/ericelliott/stampit
 
 -- schema / DB
-https://github.com/anywhichway/joqular
+https://github.com/anywhichway/joqular JavaScript Object Query Language Representation
 https://github.com/Muscula/json-schema-benchmark
 
 
