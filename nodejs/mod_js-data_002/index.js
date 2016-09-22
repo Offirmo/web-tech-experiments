@@ -17,9 +17,18 @@ let store = new JSData.DS()
 // http://www.js-data.io/docs/dsdefineresource
 const Item = store.defineResource('item')
 
-const item01 = Item.createInstance({ type: 'weapon' })
+const item01 =
+//const item01 = Item.createInstance({ type: 'weapon' })
 //const item01 = Item.inject({ id: 1 })
+//console.log(item01)
 
-console.log(item01)
+Item.create({ type: 'weapon' }).then(item => console.log)
 
 ////////////
+/*
+const ItemQuality = store.defineResource({
+	name: 'item_quality',
+	relations: {}
+})
+
+*/
