@@ -1,6 +1,22 @@
 ’
 
 
+https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html
+https://github.com/facebookincubator/create-react-app
+https://github.com/mxstbr/react-boilerplate
+
+http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
+
+~~~ website ~~~
+https://github.com/camwiegert/in-view Get notified when a DOM element enters or exits the viewport.
+https://camwiegert.github.io/baffle reveal text 
+https://speakerdeck.com/talento90
+
+
+https://github.com/sourcelair/xterm.js 
+http://cesiumjs.org/ world-class 3D globes and maps
+
+https://github.com/dollarshaveclub/postmate for worker inter-page ?
 https://github.com/franciscop/cookies.js simple cookies
 https://github.com/dollarshaveclub/reframe.js make it responsive
 https://wideckop.github.io/mocassin.css/ animations
