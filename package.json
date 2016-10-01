@@ -265,10 +265,10 @@
           "test.js"
         ]
       },
-      "npm:jquery@3.1.0": {
+      "npm:jquery@3.1.1": {
         "format": "amd"
       },
-      "npm:lodash@4.16.0": {
+      "npm:lodash@4.16.2": {
         "map": {
           "buffer": "@empty",
           "process": "@empty"
