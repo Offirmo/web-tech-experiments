@@ -17,11 +17,11 @@ https://github.com/sourcelair/xterm.js
 http://cesiumjs.org/ world-class 3D globes and maps
 
 https://github.com/dollarshaveclub/postmate for worker inter-page ?
+https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
 https://github.com/franciscop/cookies.js simple cookies
 https://github.com/dollarshaveclub/reframe.js make it responsive
 https://wideckop.github.io/mocassin.css/ animations
 https://github.com/stevenmhunt/badgerly badges
-
 
 React:
 https://github.com/stelatech/react-anime
@@ -63,7 +63,6 @@ https://github.com/walmartlabs/little-loader
 https://github.com/ctrl-freaks/freezeframe.js freeze gifs
 http://snapsvg.io/ SVG lib
 https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
-http://samsarajs.org/ Animation
 http://www.jeremy-dutheil.fr/un-champ-dadresse-avec-auto-completion-grace-google-maps-api/
 http://nathancahill.github.io/Split.js/
 http://thenewcode.com/279/Rotate-Elements-on-Scroll-with-JavaScript
@@ -72,7 +71,6 @@ https://github.com/GooTechnologies/goojs 3D WebGL engine
 http://zenorocha.github.io/clipboard.js/
 http://sachinchoolur.github.io/ngclipboard/
 http://sharingbuttons.io/
-https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
 http://ponyfoo.com/articles/using-the-javascript-charting-library
 
 Design
