@@ -8,8 +8,7 @@ https://github.com/mxstbr/react-boilerplate
 http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 
 ~~~ website ~~~
-https://github.com/camwiegert/in-view Get notified when a DOM element enters or exits the viewport.
-https://camwiegert.github.io/baffle reveal text 
+https://pepper.swat.io/#builder
 https://speakerdeck.com/talento90
 
 
