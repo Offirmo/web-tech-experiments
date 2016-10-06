@@ -129,7 +129,7 @@ SystemJS.config({
       "map": {
         "isarray": "npm:isarray@1.0.0",
         "base64-js": "npm:base64-js@1.2.0",
-        "ieee754": "npm:ieee754@1.1.6"
+        "ieee754": "npm:ieee754@1.1.8"
       }
     },
     "github:jspm/nodelibs-os@0.2.0-alpha": {
@@ -152,7 +152,7 @@ SystemJS.config({
         "browserify-sign": "npm:browserify-sign@4.0.0",
         "randombytes": "npm:randombytes@2.0.3",
         "create-hmac": "npm:create-hmac@1.1.4",
-        "pbkdf2": "npm:pbkdf2@3.0.8",
+        "pbkdf2": "npm:pbkdf2@3.0.9",
         "public-encrypt": "npm:public-encrypt@4.0.0"
       }
     },
@@ -248,7 +248,7 @@ SystemJS.config({
         "browserify-aes": "npm:browserify-aes@1.0.6",
         "create-hash": "npm:create-hash@1.1.2",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
-        "pbkdf2": "npm:pbkdf2@3.0.8",
+        "pbkdf2": "npm:pbkdf2@3.0.9",
         "asn1.js": "npm:asn1.js@4.8.1"
       }
     },
@@ -322,7 +322,7 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
-        "lodash": "npm:lodash@4.16.2",
+        "lodash": "npm:lodash@4.16.3",
         "babel-types": "npm:babel-types@6.16.0"
       }
     },
@@ -377,19 +377,19 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
-        "lodash": "npm:lodash@4.16.2",
+        "lodash": "npm:lodash@4.16.3",
         "to-fast-properties": "npm:to-fast-properties@1.0.2"
-      }
-    },
-    "npm:pbkdf2@3.0.8": {
-      "map": {
-        "create-hmac": "npm:create-hmac@1.1.4"
       }
     },
     "npm:node-fetch@1.6.3": {
       "map": {
         "is-stream": "npm:is-stream@1.1.0",
         "encoding": "npm:encoding@0.1.12"
+      }
+    },
+    "npm:pbkdf2@3.0.9": {
+      "map": {
+        "create-hmac": "npm:create-hmac@1.1.4"
       }
     }
   }
