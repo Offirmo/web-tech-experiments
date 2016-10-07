@@ -76,6 +76,7 @@
     "lodash": "^4.12.0",
     "longjohn": "^0.2.9",
     "lunr": "0.7.1",
+    "marked": "^0.3.6",
     "method-override": "^2.3.6",
     "moment": "^2.13.0",
     "moment-precise-range": "^0.2",
