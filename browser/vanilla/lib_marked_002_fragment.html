@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib marked 002 - frag</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<script src="../../node_modules/marked/lib/marked.js"></script>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/chjj/marked</a>
+</p>
+<div id="content"></div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	window
+		.fetch('./lib_marked_002_fragment.md')
+		.then(r => r.text())
+		.then(data => {
+			document.getElementById('content').innerHTML =
+				marked(data)
+		})
+</script>

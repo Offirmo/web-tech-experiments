@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib marked 001 - base</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<script src="../../node_modules/marked/lib/marked.js"></script>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/chjj/marked</a>
+</p>
+<div id="content"></div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	document.getElementById('content').innerHTML =
+		marked('# Marked in browser\n\nRendered by [**marked**](https://github.com/chjj/marked).');
+</script>
