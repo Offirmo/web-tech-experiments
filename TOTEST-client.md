@@ -7,9 +7,15 @@ https://github.com/mxstbr/react-boilerplate
 
 http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 
-~~~ website ~~~
+
+~~~ website P ~~~
 https://pepper.swat.io/#builder
 https://speakerdeck.com/talento90
+https://github.com/positionly/Typist effet de frappe
+
+~~~ website M ~~~
+http://www.heropatterns.com/
+https://github.com/krasimir/navigo simple router
 
 
 https://github.com/sourcelair/xterm.js 
@@ -251,4 +257,3 @@ popups http://github.hubspot.com/messenger/docs/welcome/
 scroll mobile sur tilt http://vodkabears.github.io/interdimensional/
 mappemonde 3D http://echarts.baidu.com/x/doc/example.html#map3d
 typographie bien contrôlée ! http://txtjs.com/
-effet de frappe https://github.com/positionly/Typist

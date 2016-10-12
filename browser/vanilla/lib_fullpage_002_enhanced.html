@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib fullPage.js 002 - more</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/fullpage.js/jquery.fullPage.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/fullpage.js/jquery.fullPage.css" />
+</head>
+
+<ul id="myMenu">
+	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+	<li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+	<li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
+</ul>
+
+<div id="fullpage">
+	<div class="section">
+		<h1>...</h1>
+		<p>
+			<a>https://github.com/alvarotrigo/fullPage.js</a>
+		</p>
+
+		#1 section
+	</div>
+	<div class="section">#2 section</div>
+	<div class="section">#3 section</div>
+	<div class="section fp-auto-height">#4 Footer Auto height</div>
+</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	$(document).ready(function() {
+		$('#fullpage').fullpage({
+			sectionsColor: ['#4BBFC3', '#7BAABE', '#4BBFC3', '#7BAABE', '#4BBFC3', '#7BAABE', ],
+			anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+			menu: '#myMenu'
+		})
+	})
+</script>

@@ -61,19 +61,20 @@
       - [ ] error stack https://github.com/babel/karma-babel-preprocessor/issues/4
 - [x] babel-watch 2016/03/21 https://github.com/kmagiera/babel-watch
 - [ ] Jekyll i18n
-- [ ] Npm install en un clin d'œil avec Nexus / pnpm / ied
+- [ ] Npm install en un clin d'œil avec Nexus / pnpm / ied / yarn
 - [ ] Web components
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
 - [ ] BEM
 - [ ] https://github.com/handsontable/handsontable
 - [ ] JSDoc http://usejsdoc.org/
-- [ ] Cordova
+- [-] Cordova
+       In progress !
 - [ ] https://microsoft.github.io/code-push/
 - [ ] ionic
 - [ ] OAuth2 http://passportjs.org/docs
 - [ ] GitHub login
-- [ ] https
+- [ ] http**S**
       https://letsencrypt.org/
       https://community.letsencrypt.org/t/node-js-configuration/5175
 - [ ] notifications
@@ -131,9 +132,9 @@
 - [ ] Jekyll
       https://github.com/tinychime/jekyons
       https://github.com/18F/jekyll-get
-https://screeps.com/
-https://stdlib.com/
-https://hyperterm.org/#installation
+- [ ] https://screeps.com/
+- [ ] https://stdlib.com/
+- [ ] https://hyperterm.org/#installation
 - [ ] desktop apps
       http://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition
 - [ ] Angular 2

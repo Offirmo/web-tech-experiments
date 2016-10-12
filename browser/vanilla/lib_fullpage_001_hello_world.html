@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib fullPage.js 001 - base</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/fullpage.js/jquery.fullPage.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/fullpage.js/jquery.fullPage.css" />
+</head>
+
+
+<div id="fullpage">
+	<div class="section">
+		<h1>...</h1>
+		<p>
+			<a>https://github.com/alvarotrigo/fullPage.js</a>
+		</p>
+
+		Some section
+	</div>
+	<div class="section">Some section</div>
+	<div class="section">Some section</div>
+	<div class="section">Some section</div>
+</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	$(document).ready(function() {
+		$('#fullpage').fullpage()
+	})
+</script>
