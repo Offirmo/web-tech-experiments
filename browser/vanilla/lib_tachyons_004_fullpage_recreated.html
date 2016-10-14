@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>Lib Tachyons 004 - fullpage.js like</title>
+
+	<link rel="stylesheet" href="../../node_modules/tachyons/css/tachyons.min.css"/>
+	<style type="text/css">
+		body {
+
+		}
+	</style>
+</head>
+
+<body class="bg-near-white code">
+
+
+	<article class="cf">
+		<!-- http://tachyons.io/components/layout/two-column-collapse-one/index.html -->
+		<div class="fl w-100 w-50-ns bg-near-white tc">
+
+			<!-- http://tachyons.io/components/collections/profile-card-title-subtitle/index.html -->
+			<div class="mw5 center pa3 pa4-ns mv3">
+				<div class="tc">
+					<img src="../assets/avatar_real.jpg" class="br-100 h4 w4 dib ba b--black-05 pa2" title="Offirmo's avatar">
+					<h1 class="f3 sans-serif mb2 gray">Column #1a</h1>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="fl w-100 w-50-ns tc">
+			<h1 class="f3 sans-serif mb2 gray">Column #2a</h1>
+			<p>lorem ipsum</p>
+		</div>
+	</article>
+
+	<article class="cf">
+		<!-- http://tachyons.io/components/layout/two-column-collapse-one/index.html -->
+		<div class="fl w-100 w-50-ns bg-near-white tc">
+			<h1 class="f3 sans-serif mb2 gray">Column #1b</h1>
+			<p>lorem ipsum</p>
+		</div>
+
+		<div class="fl w-100 w-50-ns tc">
+
+
+			<!-- http://tachyons.io/components/collections/profile-card-title-subtitle/index.html -->
+			<div class="mw5 center pa3 pa4-ns mv3">
+				<div class="tc">
+					<img src="../assets/avatar_real.jpg" class="br-100 h4 w4 dib ba b--black-05 pa2" title="Offirmo's avatar">
+					<h1 class="f3 sans-serif mb2 gray">Column #2b</h1>
+				</div>
+			</div>
+		</div>
+	</article>
+
+
+
+
+
+
+	<footer class="pv4 ph3 ph5-m ph6-l mid-gray">
+		<small class="f6 db tc">© 2016 <b class="ttu">SOME COMPANY Inc</b>., All Rights Reserved</small>
+		<div class="tc mt3">
+			<a href="/terms/"    title="Terms" class="f6 dib ph2 link mid-gray dim">Terms of Use</a>
+			<a href="/privacy/"  title="Privacy" class="f6 dib ph2 link mid-gray dim">Privacy</a>
+		</div>
+	</footer>
+
+	<script>
+		//document.querySelector('h1').textContent = document.title;
+		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+			el.href || (el.href = el.text);
+		});
+	</script>
+</body>
