@@ -70,6 +70,7 @@
     "is-root": "^1.0.0",
     "javascript-state-machine": "^2.3.5",
     "js-data": "^2.9.0",
+    "js-yaml": "^3.6.1",
     "jschardet": "^1.4.1",
     "jsen": "^0.6.1",
     "localStorage": "^1.0.3",

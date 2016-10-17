@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>XP Wedding 001 - fullpage + tachyons</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+
+	<script src="../../node_modules/fullpage.js/vendors/scrolloverflow.js"></script>
+	<script src="../../node_modules/fullpage.js/dist/jquery.fullpage.extensions.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/fullpage.js/dist/jquery.fullpage.css" />
+
+	<link rel="stylesheet" href="../../node_modules/tachyons/css/tachyons.min.css"/>
+	<xlink rel="stylesheet" href="../../node_modules/tachyons-debug/css/tachyons-debug.css"/>
+
+	<style type="text/css">
+		body {
+			background-color: #DFDBE5;
+			background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+		}
+	</style>
+</head>
+
+<div id="fullpage">
+	<div class="section">Some section</div>
+	<div class="section">Some section</div>
+	<div class="section">Some section</div>
+	<div class="section">Some section</div>
+</div>
+
+
+
+<script>
+	$(document).ready(function() {
+		$('#fullpage').fullpage({
+			sectionsColor: ['#4BBFC3', '#7BAABE', '#4BBFC3', '#7BAABE', '#4BBFC3', '#7BAABE', ],
+			bigSectionsDestination: 'top',
+			//scrollBar: true,
+			scrollOverflow: true
+		})
+	})
+</script>
