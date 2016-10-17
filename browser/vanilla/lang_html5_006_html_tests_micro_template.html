@@ -5,10 +5,8 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Lib js-yaml 001 - Hello world</title>
+	<title>HTML5 006 - HTML tests micro template</title>
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
-
-	<script src="../../node_modules/js-yaml/dist/js-yaml.js"></script>
 
 	<style type="text/css">
 		body {
@@ -21,26 +19,12 @@
 
 <h1>...</h1>
 <p>
-	<a>https://github.com/nodeca/js-yaml</a>
+	A micro template for HTML tests
 </p>
 
 <script>
-	document.querySelector('h1').textContent = document.title;
+	document.querySelector('h1').textContent = document.title
 	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text)
 	})
-
-	window
-		.fetch('./lib_js-yaml_001.yaml')
-		.then(r => r.text())
-		.then(data => {
-			try {
-				var doc = jsyaml.safeLoad(data, {
-					onWarning: console.warn
-				})
-				console.log(doc)
-			} catch (e) {
-				console.log(e)
-			}
-		})
 </script>
