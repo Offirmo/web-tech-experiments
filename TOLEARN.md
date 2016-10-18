@@ -141,4 +141,7 @@
        http://blog.thoughtram.io/angular/2016/09/15/angular-2-final-is-out.html
 - [ ] No code
        https://www.producthunt.com/@jurica87/collections/without-coding
-       
+- [x] fullpage.js 2016/10/12
+- [x] flipclock 2016/10/15
+- [x] js-yaml 2016/10/16
+
