@@ -273,7 +273,7 @@
       "npm:jquery@3.1.1": {
         "format": "amd"
       },
-      "npm:lodash@4.16.3": {
+      "npm:lodash@4.16.4": {
         "map": {
           "buffer": "@empty",
           "process": "@empty"

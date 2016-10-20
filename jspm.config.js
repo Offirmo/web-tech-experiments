@@ -45,7 +45,7 @@ SystemJS.config({
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "core-js": "npm:core-js@2.4.1",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
-    "css": "github:systemjs/plugin-css@0.1.30",
+    "css": "github:systemjs/plugin-css@0.1.31",
     "domain": "github:jspm/nodelibs-domain@0.2.0-alpha",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
@@ -58,7 +58,7 @@ SystemJS.config({
     "react-dom": "npm:react-dom@15.3.2",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
-    "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.30",
+    "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.31",
     "systemjs/plugin-text": "github:systemjs/plugin-text@0.0.8",
     "text": "github:systemjs/plugin-text@0.0.8",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
@@ -322,7 +322,7 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
-        "lodash": "npm:lodash@4.16.3",
+        "lodash": "npm:lodash@4.16.4",
         "babel-types": "npm:babel-types@6.16.0"
       }
     },
@@ -377,7 +377,7 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@6.11.6",
         "esutils": "npm:esutils@2.0.2",
-        "lodash": "npm:lodash@4.16.3",
+        "lodash": "npm:lodash@4.16.4",
         "to-fast-properties": "npm:to-fast-properties@1.0.2"
       }
     },
