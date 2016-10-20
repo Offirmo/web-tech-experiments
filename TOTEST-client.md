@@ -12,6 +12,7 @@ http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 https://pepper.swat.io/#builder
 https://speakerdeck.com/talento90
 https://github.com/positionly/Typist effet de frappe
+http://photoswipe.com/ JavaScript gallery, no dependencies.
 
 ~~~ website M ~~~
 http://www.heropatterns.com/
@@ -23,7 +24,9 @@ http://cesiumjs.org/ world-class 3D globes and maps
 
 https://github.com/dollarshaveclub/postmate for worker inter-page ?
 https://github.com/bevacqua/swivel Message passing between ServiceWorker and pages made simple
-https://github.com/franciscop/cookies.js simple cookies
+
+https://github.com/franciscop/cookies.js simple cookies https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie/Simple_document.cookie_framework
+
 https://github.com/dollarshaveclub/reframe.js make it responsive
 https://wideckop.github.io/mocassin.css/ animations
 https://github.com/stevenmhunt/badgerly badges
@@ -73,7 +76,6 @@ http://nathancahill.github.io/Split.js/
 http://thenewcode.com/279/Rotate-Elements-on-Scroll-with-JavaScript
 http://fengyuanchen.github.io/cropperjs/
 https://github.com/GooTechnologies/goojs 3D WebGL engine
-http://zenorocha.github.io/clipboard.js/
 http://sachinchoolur.github.io/ngclipboard/
 http://sharingbuttons.io/
 http://ponyfoo.com/articles/using-the-javascript-charting-library
@@ -85,10 +87,9 @@ https://aerotwist.com/blog/guitar-tuner/
 http://mobilehtml5.org/
 http://blog.chromium.org/2015/04/reaching-and-re-engaging-users-on.html
 http://kerningjs.com/ advanced web typography
-http://tholman.com/elevator.js/
+http://tholman.com/elevator.js/ back to top
 http://photoswipe.com/
 
-http://www.sitepoint.com/5-most-popular-frontend-frameworks-compared/
 http://gridstylesheets.org/
 
 accessibilité++ http://a11yproject.com/
@@ -130,7 +131,6 @@ http://scotch.io/tutorials/javascript/use-angularjs-and-nghref-to-grab-css-dynam
 http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
 https://developers.google.com/web/fundamentals/performance/
 
--- to test
 http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
 http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
@@ -144,7 +144,6 @@ https://github.com/nebulade/supererror
 http://www.sitepoint.com/introducing-screen-orientation-api/
 http://airbnb.github.io/infinity/
 http://code.kojilabs.com/page-visibility-api/
-http://make-dev.tumblr.com/post/30013908789/time-to-remove-jquery
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 https://golden-layout.com/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
@@ -155,14 +154,13 @@ http://cssanimation.rocks/twitter-fave/
 -- client / no framework ?
 http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
-https://github.com/systemjs/systemjs
 https://github.com/mightyiam/combokeys
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer
 http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
 
-templating http://mozilla.github.io/nunjucks/
+http://mozilla.github.io/nunjucks/ templating
 http://paperclipjs.com/ can complement AngularJS
 
 -- AngularJS --
@@ -206,7 +204,7 @@ https://scotch.io/tutorials/internationalization-of-angularjs-applications
 https://github.com/lgalfaso/angular-dynamic-locale
 https://github.com/angular-translate/angular-translate
 
-optim chargement https://github.com/typicode/pegasus
+https://github.com/typicode/pegasus optim chargement 
 
 
 
@@ -257,3 +255,13 @@ popups http://github.hubspot.com/messenger/docs/welcome/
 scroll mobile sur tilt http://vodkabears.github.io/interdimensional/
 mappemonde 3D http://echarts.baidu.com/x/doc/example.html#map3d
 typographie bien contrôlée ! http://txtjs.com/
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+Best of
+http://zenorocha.github.io/clipboard.js/
+https://github.com/alvarotrigo/fullPage.js
+http://www.heropatterns.com/
+https://github.com/objectivehtml/FlipClock
