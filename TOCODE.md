@@ -1,6 +1,11 @@
 
 Idées
 
+
+Color table
+https://margaret2.github.io/pantone-colors/
+
+
 https://github.com/sindresorhus/node-module-boilerplate
 
 

@@ -13,6 +13,7 @@ https://pepper.swat.io/#builder
 https://speakerdeck.com/talento90
 https://github.com/positionly/Typist effet de frappe
 http://photoswipe.com/ JavaScript gallery, no dependencies.
+https://npm-stat.com/charts.html?author=offirmo&from=2014-10-16&to=2016-10-16
 
 ~~~ website M ~~~
 http://www.heropatterns.com/
