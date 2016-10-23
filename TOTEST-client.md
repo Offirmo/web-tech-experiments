@@ -17,7 +17,7 @@ http://photoswipe.com/ JavaScript gallery, no dependencies.
 ~~~ website M ~~~
 http://www.heropatterns.com/
 https://github.com/krasimir/navigo simple router
-
+https://adioma.com/dashboard/4041/edit
 
 https://github.com/sourcelair/xterm.js 
 http://cesiumjs.org/ world-class 3D globes and maps
