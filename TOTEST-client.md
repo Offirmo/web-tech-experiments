@@ -20,6 +20,9 @@ http://www.heropatterns.com/
 https://github.com/krasimir/navigo simple router
 https://adioma.com/dashboard/4041/edit
 
+
+
+
 https://github.com/sourcelair/xterm.js 
 http://cesiumjs.org/ world-class 3D globes and maps
 
@@ -37,6 +40,8 @@ https://github.com/stelatech/react-anime
 https://github.com/zalmoxisus/redux-remotedev
 https://github.com/jxnblk/reline
 https://github.com/reactotron/reactotron
+import CloseOnEscape from 'react-close-on-escape'
+import onClickOutside from 'react-onclickoutside'
 
 
 Lib viewport https://github.com/pyrsmk/W
