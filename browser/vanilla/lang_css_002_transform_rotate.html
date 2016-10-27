@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>CSS 002 - the "rotate" CSS transform</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		.container {
+			margin: 3px;
+			padding: 7px;
+			background-color: #dbf2db;
+			display: inline-block;
+		}
+
+		table {
+			border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+		}
+		td {
+			border: 1px solid black;
+		}
+
+		.rotated45 {
+			transform: rotate(45deg);
+		}
+
+		thead th {
+			color: red;
+			transform: rotate(-90deg);
+			padding-left: 5px;
+		}
+		td div {
+			transform: rotate(-45deg);
+			padding: 5px;
+		}
+		tbody td:hover {
+			background-color: red;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	...
+</p>
+
+<div class="container">
+	<table>
+		<thead>
+			<tr><th></th><th>XX</th><th>YY</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>AA</th><td><div>Foo</div></td><td><div>bar</div></td></tr>
+			<tr><th>BB</th><td><div>baz</div></td><td><div>42</div></td></tr>
+		</tbody>
+	</table>
+</div>
+
+<br />
+
+<div class="container rotated45">
+	<table>
+		<thead>
+		<tr><th></th><th>XX</th><th>YY</th></tr>
+		</thead>
+		<tbody>
+		<tr><th>AA</th><td><div>Foo</div></td><td><div>bar</div></td></tr>
+		<tr><th>BB</th><td><div>baz</div></td><td><div>42</div></td></tr>
+		</tbody>
+	</table>
+</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>
