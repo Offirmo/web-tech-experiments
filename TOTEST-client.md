@@ -19,10 +19,15 @@ https://npm-stat.com/charts.html?author=offirmo&from=2014-10-16&to=2016-10-16
 http://www.heropatterns.com/
 https://github.com/krasimir/navigo simple router
 https://adioma.com/dashboard/4041/edit
+http://videojs.com/
+http://kenwheeler.github.io/slick/ carousel
+http://idangero.us/swiper/get-started/ carousel
+leafletjs.com cartes
 
 
 
 
+https://github.com/anywhichway/reasondb client-side DB
 https://github.com/sourcelair/xterm.js 
 http://cesiumjs.org/ world-class 3D globes and maps
 
