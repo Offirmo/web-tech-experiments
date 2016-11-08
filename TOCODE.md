@@ -1,6 +1,9 @@
 
 Idées
 
+i18n
+https://github.com/myhau/mimetype-descriptions
+https://osrec.github.io/currencyFormatter.js/
 
 Color table
 https://margaret2.github.io/pantone-colors/
