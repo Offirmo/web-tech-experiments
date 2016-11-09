@@ -23,6 +23,8 @@ http://videojs.com/
 http://kenwheeler.github.io/slick/ carousel
 http://idangero.us/swiper/get-started/ carousel
 leafletjs.com cartes
+https://github.com/raphaelfabeni/css-loader
+https://github.com/tonystar/float-label-css
 
 
 
