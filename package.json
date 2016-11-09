@@ -73,6 +73,7 @@
     "js-yaml": "^3.6.1",
     "jschardet": "^1.4.1",
     "jsen": "^0.6.1",
+    "leaflet": "^1.0.1",
     "localStorage": "^1.0.3",
     "locale": "^0.1",
     "locus": "^1.2.0",
