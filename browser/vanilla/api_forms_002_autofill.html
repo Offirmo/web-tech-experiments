@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>HTML API - advanced form 002 - autofill</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<link rel="stylesheet" type="text/css" href="../../node_modules/float-label-css/dist/float-label.min.css" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://html.spec.whatwg.org/multipage/forms.html#autofill</a>
+</p>
+<p>
+	<label class="has-float-label">
+		<input type="email" placeholder="email@example.com"/>
+		<span>Email</span>
+	</label>
+
+	<label class="has-float-label">
+		<input type="password" placeholder="xyz"/>
+		<span>password</span>
+	</label>
+
+	<label class="has-float-label">
+		<input type="latin" placeholder="123"/>
+		<span>captcha</span>
+	</label>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>

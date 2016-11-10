@@ -14,6 +14,9 @@ https://github.com/sindresorhus/p-map-series
 Color table
 https://margaret2.github.io/pantone-colors/
 
+Device detection
+npm useragent
+
 
 https://github.com/sindresorhus/node-module-boilerplate
 

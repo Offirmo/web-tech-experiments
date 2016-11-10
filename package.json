@@ -52,6 +52,7 @@
     "extract-zip": "^1.5.0",
     "finished": "^1.2.2",
     "flipclock": "^0.7.8",
+    "float-label-css": "^1.0.1",
     "forky": "^0.3.0",
     "fs-extra": "^0.30",
     "fullpage.js": "^2.8.6",

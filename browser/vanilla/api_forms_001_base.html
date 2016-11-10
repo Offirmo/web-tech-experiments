@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>HTML API - advanced form 001 - type & inputmode</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<link rel="stylesheet" type="text/css" href="../../node_modules/float-label-css/dist/float-label.min.css" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/tonystar/float-label-css</a>
+	<label class="has-float-label">
+		<input type="email" placeholder="email@example.com"/>
+		<span>Email</span>
+	</label>
+
+	<label class="has-float-label">
+		<input type="number" placeholder="your age"/>
+		<span>age</span>
+	</label>
+
+	<label class="has-float-label">
+		<input inputmode=latin-name placeholder="your name">
+		<span>Name</span>
+	</label>
+
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>
