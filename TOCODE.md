@@ -5,6 +5,12 @@ i18n
 https://github.com/myhau/mimetype-descriptions
 https://osrec.github.io/currencyFormatter.js/
 
+promise toolbox
+https://github.com/sindresorhus/p-defer
+https://github.com/sindresorhus/p-pipe
+https://github.com/sindresorhus/p-reduce
+https://github.com/sindresorhus/p-map-series
+
 Color table
 https://margaret2.github.io/pantone-colors/
 
