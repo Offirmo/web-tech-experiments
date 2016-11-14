@@ -35,10 +35,16 @@
 
 	<!-- js -->
 	<!-- <script async src="js/scripts.js"></script> -->
-	<script src="html_004_page_loading_order_head_1.js"></script>
-	<script async src="html_004_page_loading_order_head_2.js"></script>
 	<script>
-		console.log('hello from header inline !');
+		console.log('hello from head, inline #1 !');
+	</script>
+	<script src="html_004_page_loading_order_head_sync.js"></script>
+	<script>
+		console.log('hello from head, inline #2 !');
+	</script>
+	<script async src="html_004_page_loading_order_head_async.js"></script>
+	<script>
+		console.log('hello from head, inline #3 !');
 	</script>
 </head>
 <body>
@@ -54,10 +60,16 @@
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 
-<script src="html_004_page_loading_order_body_1.js"></script>
-<script async src="html_004_page_loading_order_body_2.js"></script>
 <script>
-	console.log('hello from body inline !');
+	console.log('hello from body, inline #1 !');
+</script>
+<script src="html_004_page_loading_order_body_sync.js"></script>
+<script>
+	console.log('hello from body, inline #2 !');
+</script>
+<script async src="html_004_page_loading_order_body_async.js"></script>
+<script>
+	console.log('hello from body, inline #3 !');
 </script>
 
 </body>
