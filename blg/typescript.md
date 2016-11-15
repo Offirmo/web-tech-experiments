@@ -25,3 +25,6 @@ Titre:
 
 Passez à typescript en douceur: points durs et leurs solutions
 Typescript Power leveling: ce qu'il faut savoir pour 
+
+One Does Not Simply Write Typescript... Initié depuis 6 mois, je vous partagerai tous les problèmes non-triviaux que j'ai rencontré en Typescript.
+Objectif: vous propulser au niveau 60 en vous évitant de nombreuses prises de têtes et heures de lecture de Stack Overflow.
