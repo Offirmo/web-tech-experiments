@@ -45,6 +45,7 @@ https://wideckop.github.io/mocassin.css/ animations
 https://github.com/stevenmhunt/badgerly badges
 
 React:
+http://blueprintjs.com/
 https://github.com/stelatech/react-anime
 https://github.com/zalmoxisus/redux-remotedev
 https://github.com/jxnblk/reline
