@@ -31,7 +31,8 @@
 - [x] lunr 2016/02/03
 - [x] mandrill
 - [x] ES6
-- [x] webpack http://webpack.github.io/ 2016/02/17
+- [x] webpack 2016/02/17
+      http://webpack.github.io/
       http://rosenfeld.herokuapp.com/en/articles/2016-02-29-getting-an-spa-to-load-the-fastest-possible-way-and-how-webpack-can-help-you
       https://gist.github.com/sokra/27b24881210b56bbaff7
 - [x] Angular
@@ -88,8 +89,8 @@
 - [ ] Hosting gratuit
        heroku
 - [ ] tokens
-- [ ] geolocalisation API
-- [ ] geolocalisation DB
+- [ ] geolocation API
+- [ ] geolocation DB
 - [ ] google spreadsheet
       http://tutorials.pluralsight.com/review/using-a-spreadsheet-to-power-charts-in-angularjs-apps
 - [ ] connect-flash https://github.com/jaredhanson/connect-flash
@@ -103,7 +104,6 @@
 - [ ] http://blogs.technet.com/b/devops/archive/2016/01/12/vorlonjs-a-journey-to-devops-introducing-the-blog-post-series.aspx
 - [ ] modern modules
       https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/
-- [ ] kubernetes http://blog.jonparrott.com/building-a-paas-on-kubernetes/
 - [ ] Kong https://github.com/Mashape/kong
 - [ ] git
       https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807
@@ -116,8 +116,6 @@
       http://danielcwilson.com/blog/2015/07/animations-intro/
       http://mojs.io/ https://github.com/codrops/Animocons
 - [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
-- [ ] kubernetes
-      https://github.com/redspread/spread
 - [ ] PostGresQL
       http://schinckel.net/2014/05/25/querying-json-in-postgres/
       http://michael.otacoo.com/postgresql-2/postgres-9-5-feature-highlight-new-jsonb-functions/
@@ -144,4 +142,6 @@
 - [x] fullpage.js 2016/10/12
 - [x] flipclock 2016/10/15
 - [x] js-yaml 2016/10/16
-
+- [x] progressive web app
+      https://developers.google.com/web/fundamentals/getting-started/codelabs/your-first-pwapp/
+      

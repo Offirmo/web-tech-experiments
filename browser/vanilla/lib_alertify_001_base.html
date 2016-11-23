@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Lib alertify 001 - base</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+		.shepherd-target.shepherd-enabled {
+			outline: solid 3px red;
+		}
+		label {
+			margin: 10px;
+		}
+	</style>
+
+	<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
+
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://alertifyjs.org/</a>
+	<a>https://github.com/alertifyjs/alertify.js</a>
+</p>
+
+<div class="alertify-logs"></div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	alertify.parent(document.body) // https://github.com/alertifyjs/alertify.js/issues/101
+	alertify.alert("Message")
+</script>

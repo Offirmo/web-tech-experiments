@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Lib shepherd 001 - base</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+		.shepherd-target.shepherd-enabled {
+			outline: solid 3px red;
+		}
+		label {
+			margin: 10px;
+		}
+	</style>
+
+	<link rel="stylesheet" href="https://cdn.rawgit.com/tonystar/float-label-css/v1.0.1/dist/float-label.min.css"/>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/shepherd/1.8.1/js/shepherd.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/shepherd/1.8.1/css/shepherd-theme-arrows.css" />
+
+</head>
+
+<h1>...</h1>
+<p>
+	<a>http://github.hubspot.com/shepherd/docs/welcome/</a>
+	<a>https://github.com/HubSpot/shepherd</a>
+</p>
+
+<p>
+	<form>
+		<label class="has-float-label">
+			<input id="input01" type="email" placeholder="email@example.com"/>
+			<span>Email</span>
+		</label>
+
+		<label class="has-float-label">
+			<input id="input02" type="password" placeholder="xyz"/>
+			<span>password</span>
+		</label>
+
+		<label class="has-float-label">
+			<input id="input03" type="latin" placeholder="123"/>
+			<span>captcha</span>
+		</label>
+	</form>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	let tour = new Shepherd.Tour({
+		defaults: {
+			classes: 'shepherd-theme-arrows',
+			scrollTo: true,
+		}
+	});
+
+	tour.addStep({
+		title: 'Example Shepherd',
+		text: 'Creating a Shepherd is easy too! Just create ...',
+		attachTo: '#input01 right',
+		//advanceOn: '.docs-link click'
+	});
+
+	tour.addStep({
+		title: 'Example Shepherd',
+		text: 'Creating a Shepherd is easy too! Just create ...',
+		attachTo: '#input02 right',
+		//advanceOn: '.docs-link click'
+	});
+
+	tour.addStep({
+		title: 'Example Shepherd',
+		text: 'Creating a Shepherd is easy too! Just create ...',
+		attachTo: '#input03 right',
+		//advanceOn: '.docs-link click'
+	});
+
+	tour.start();
+</script>
