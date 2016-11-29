@@ -7,6 +7,8 @@ https://github.com/mxstbr/react-boilerplate
 
 http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 
+http://git.hust.cc/ribbon.js/ a ribbon for site
+
 
 ~~~ website P ~~~
 https://pepper.swat.io/#builder
