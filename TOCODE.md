@@ -1,6 +1,16 @@
 
 Idées
 
+generic progressive app bootstraper
+- spinner
+  http://lea.verou.me/2013/11/cleanest-css-spinner-ever/
+  http://lea.verou.me/2013/11/flexible-google-style-loader-with-css/
+- icons (CSS) http://cssicon.space/
+- work with phaser
+- support resource loading
+- support update
+- progressive enhancement when logo, font
+
 i18n
 https://github.com/myhau/mimetype-descriptions
 https://osrec.github.io/currencyFormatter.js/

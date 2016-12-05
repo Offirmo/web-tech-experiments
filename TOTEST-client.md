@@ -9,6 +9,8 @@ http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 
 http://git.hust.cc/ribbon.js/ a ribbon for site
 
+good, simple libs http://markapp.io/
+http://leaverou.github.io/stretchy/
 
 ~~~ website P ~~~
 https://pepper.swat.io/#builder
