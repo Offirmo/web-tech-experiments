@@ -1,5 +1,7 @@
 ’
 
+https://polyfill.io/v2/docs/
+https://philipwalton.com/articles/loading-polyfills-only-when-needed/
 
 https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html
 https://github.com/facebookincubator/create-react-app

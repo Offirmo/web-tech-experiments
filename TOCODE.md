@@ -1,6 +1,17 @@
 
 Idées
 
+github pages hosted lists
+- stored in markdown
+- tiles with different sizes (http://packery.metafizzy.co/draggable.html)
+- icons from site
+  https://github.com/mat/besticon
+  https://icons.better-idea.org/popular
+- progressive
+- https://polyfill.io/v2/docs/
+- groups
+
+
 generic progressive app bootstraper
 - spinner
   http://lea.verou.me/2013/11/cleanest-css-spinner-ever/

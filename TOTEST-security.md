@@ -7,6 +7,9 @@ impersonate
 
 fix bugs using alt
 
+https://www.npmjs.com/package/hide-secrets
+
+API https://developer.microsoft.com/en-us/microsoft-edge/platform/status/
 
 ## promise.broken
 In readme: do some interesting things

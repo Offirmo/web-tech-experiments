@@ -37,22 +37,9 @@
       https://gist.github.com/sokra/27b24881210b56bbaff7
 - [x] Angular
 - [x] Angular ui.router
-- [-] Angular Material
-      https://material.angularjs.org/latest/getting-started 2016/02/17
-      https://design.google.com/icons/
 - [x] SPARQL ~2016/02/15
-- [-] React 19/02/2016 18/04/2016
-		https://www.youtube.com/watch?v=KYzlpRvWZ6c "Making your app fast with high-performance components"
-		https://react.rocks/blog/post/propTypes_React_Flow/
-		http://airbnb.io/enzyme/
-		https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
-		https://github.com/eanplatter/enclave
 - [x] diff-so-fancy https://github.com/so-fancy/diff-so-fancy
 - [x] Virtualbox VBoxManage 2016/03/11
-- [-] node on Windows
-      - [x] vm-windows https://github.com/coreybutler/nvm-windows 2016/03/07
-      - [ ] http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
-      http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
 - [x] zsh + themes -> prezto 2016/03/12
 - [x] Jekyll theming 2016/03/13
 - [x] ES6 on node,
@@ -61,8 +48,23 @@
       - [x] Babel-node 2016/03/11
       - [ ] error stack https://github.com/babel/karma-babel-preprocessor/issues/4
 - [x] babel-watch 2016/03/21 https://github.com/kmagiera/babel-watch
-- [ ] Jekyll i18n
-- [ ] Npm install en un clin d'œil avec Nexus / pnpm / ied / yarn
+- [-] React 19/02/2016 18/04/2016
+		https://www.youtube.com/watch?v=KYzlpRvWZ6c "Making your app fast with high-performance components"
+		https://react.rocks/blog/post/propTypes_React_Flow/
+		http://airbnb.io/enzyme/
+		https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
+		https://github.com/eanplatter/enclave
+- [-] node on Windows
+      - [x] vm-windows https://github.com/coreybutler/nvm-windows 2016/03/07
+      - [ ] http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
+      http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
+- [x] Jekyll i18n
+- [x] Npm install en un clin d'œil avec Nexus / pnpm / ied / yarn
+- [x] google spreadsheet
+      http://tutorials.pluralsight.com/review/using-a-spreadsheet-to-power-charts-in-angularjs-apps
+- [x] fullpage.js 2016/10/12
+- [x] flipclock 2016/10/15
+- [x] js-yaml 2016/10/16
 - [ ] Web components
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
@@ -91,8 +93,6 @@
 - [ ] tokens
 - [ ] geolocation API
 - [ ] geolocation DB
-- [ ] google spreadsheet
-      http://tutorials.pluralsight.com/review/using-a-spreadsheet-to-power-charts-in-angularjs-apps
 - [ ] connect-flash https://github.com/jaredhanson/connect-flash
 - [ ] RabbitMQ
 - [ ] Twitter bot https://medium.com/@DebashisBarman/creating-a-twitter-bot-with-node-js-bea760b80bd5
@@ -139,9 +139,7 @@
        http://blog.thoughtram.io/angular/2016/09/15/angular-2-final-is-out.html
 - [ ] No code
        https://www.producthunt.com/@jurica87/collections/without-coding
-- [x] fullpage.js 2016/10/12
-- [x] flipclock 2016/10/15
-- [x] js-yaml 2016/10/16
-- [x] progressive web app
+- [ ] progressive web app
       https://developers.google.com/web/fundamentals/getting-started/codelabs/your-first-pwapp/
+- [ ] Phaser
       
