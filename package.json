@@ -10,16 +10,10 @@
     "puer": "puer --exclude 'bower_components|node_modules|jspm_packages' --port $PORT",
     "lint": "eslint .",
     "webpack": "webpack --progress --colors",
-    "npm-install-globals": "npm install --global jspm puer nodemon && npm update --global jspm puer nodemon",
-    "npm-install-dev": "npm prune && npm install && npm update",
-    "jspm": "jspm",
-    "jspm-install": "jspm install -y",
-    "jspm-install-dev": "jspm clean && jspm install && jspm update",
     "bower-install": "bower update --config.interactive=false",
     "bower-install-dev": "bower prune && bower install && bower update",
-    "install-dev": "npm run npm-install-globals && npm run npm-install-dev && npm run bower-install-dev && npm run jspm-install-dev",
+    "install-dev": "npm run bower-install-dev",
     "ii": "npm run install-dev",
-    "jj": "npm run jspm-install-dev",
     "bb": "npm run bower-install-dev",
     "xx": "rm -rf node_modules && rm -rf bower_components && rm -rf jspm_packages",
     "mocha": "mocha",
@@ -197,91 +191,6 @@
     "extended-exceptions": "latest",
     "network-constants": "latest",
     "restlink": "latest"
-  },
-  "jspm": {
-    "name": "web-tech-experiments",
-    "main": "web-tech-experiments.js",
-    "dependencies": {
-      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
-      "bootstrap": "github:twbs/bootstrap@^3.3.7",
-      "core-js": "npm:core-js@^2.4.1",
-      "css": "github:systemjs/plugin-css@^0.1.27",
-      "react-dom": "npm:react-dom@^15.3.1",
-      "systemjs/plugin-css": "github:systemjs/plugin-css@^0.1.27",
-      "systemjs/plugin-text": "github:systemjs/plugin-text@^0.0.8",
-      "text": "github:systemjs/plugin-text@^0.0.8"
-    },
-    "devDependencies": {
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.13"
-    },
-    "peerDependencies": {
-      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
-      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
-      "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
-      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
-      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
-      "domain": "npm:jspm-nodelibs-domain@^0.2.0",
-      "events": "npm:jspm-nodelibs-events@^0.2.0",
-      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
-      "http": "npm:jspm-nodelibs-http@^0.2.0",
-      "https": "npm:jspm-nodelibs-https@^0.2.0",
-      "os": "npm:jspm-nodelibs-os@^0.2.0",
-      "path": "npm:jspm-nodelibs-path@^0.2.0",
-      "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "react": "npm:react@^15.3.1",
-      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
-      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
-      "url": "npm:jspm-nodelibs-url@^0.2.0",
-      "util": "npm:jspm-nodelibs-util@^0.2.0",
-      "vm": "npm:jspm-nodelibs-vm@^0.2.0",
-      "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
-    },
-    "overrides": {
-      "github:twbs/bootstrap@3.3.7": {
-        "main": "js/bootstrap.js",
-        "dependencies": {
-          "jquery": "jspm:jquery@*"
-        },
-        "files": [
-          "dist",
-          "fonts",
-          "js",
-          "css"
-        ],
-        "meta": {
-          "js/bootstrap.js": {
-            "deps": [
-              "jquery"
-            ],
-            "exports": "$",
-            "format": "global"
-          }
-        }
-      },
-      "npm:browserify-zlib@0.1.4": {
-        "dependencies": {
-          "readable-stream": "^2.0.2",
-          "pako": "~0.2.0"
-        },
-        "map": {
-          "_stream_transform": "readable-stream/transform"
-        }
-      },
-      "npm:inherits@2.0.3": {
-        "ignore": [
-          "test.js"
-        ]
-      },
-      "npm:jquery@3.1.1": {
-        "format": "amd"
-      },
-      "npm:lodash@4.16.4": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      }
-    }
   },
   "pre-commit": []
 }
