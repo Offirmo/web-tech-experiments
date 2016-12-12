@@ -143,3 +143,4 @@
       https://developers.google.com/web/fundamentals/getting-started/codelabs/your-first-pwapp/
 - [ ] Phaser
       
+- [ ] IPFS https://ipfs.io/

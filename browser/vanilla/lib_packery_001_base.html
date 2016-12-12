@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Lib packery 001 - base</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		.pckry {
+			width: 80px;
+			background: #EEE;
+		}
+
+		.pckry:after {
+			content: '';
+			display: table;
+		}
+
+		.pckry-item {
+			float: left;
+			width:  18px;
+			height: 18px;
+			margin: 1px;
+			background: #444;
+		}
+
+		.pckry-item.w2 { width:  38px; }
+		.pckry-item.h2 { height: 38px; }
+		.pckry-item.w4 { width:  78px; }
+		.pckry-item.h4 { height: 78px; }
+		.pckry-item.w5 { width:  98px; }
+	</style>
+
+	<script src="../../node_modules/packery/dist/packery.pkgd.js"></script>
+
+</head>
+
+<h1>...</h1>
+<p>
+	<a>http://packery.metafizzy.co/#getting-started</a><br />
+	<a>https://github.com/metafizzy/packery</a>
+</p>
+
+
+
+<div class="pckry" data-packery='{ "itemSelector": ".pckry-item" }'>
+	<div class="pckry-item w2"></div>
+	<div class="pckry-item h2"></div>
+	<div class="pckry-item w2"></div>
+	<div class="pckry-item h2"></div>
+	<div class="pckry-item"></div>
+	<div class="pckry-item"></div>
+</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	var pckry = new Packery('.pckry', {
+		// options...
+	});
+
+</script>

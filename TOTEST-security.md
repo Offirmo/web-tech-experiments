@@ -1,9 +1,13 @@
 
 https://github.com/bestiejs/platform.js A platform detection library that works on nearly all JavaScript platforms.
 
+https://github.com/gchq/CyberChef
+
 copy another dev
 
 impersonate
+
+pic: https://github.com/ondras/primitive.js
 
 fix bugs using alt
 

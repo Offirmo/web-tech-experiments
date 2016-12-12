@@ -21,6 +21,7 @@ https://github.com/positionly/Typist effet de frappe
 http://photoswipe.com/ JavaScript gallery, no dependencies.
 https://npm-stat.com/charts.html?author=offirmo&from=2014-10-16&to=2016-10-16
 vanilla, framework, bookmarklet, extensions de navigateur, phonegap app, desktop app, web app...
+http://ceejbot.github.io/
 
 
 ~~~ website M ~~~
