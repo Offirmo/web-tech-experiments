@@ -1,5 +1,7 @@
 ’
 
+https://github.com/Jam3/nice-color-palettes
+
 https://polyfill.io/v2/docs/
 https://philipwalton.com/articles/loading-polyfills-only-when-needed/
 
@@ -36,7 +38,7 @@ https://github.com/raphaelfabeni/css-loader
 https://github.com/tonystar/float-label-css
 
 
-
+https://github.com/Jam3/nice-color-palettes
 
 https://github.com/anywhichway/reasondb client-side DB
 https://github.com/sourcelair/xterm.js 
