@@ -16,6 +16,8 @@ http://git.hust.cc/ribbon.js/ a ribbon for site
 good, simple libs http://markapp.io/
 http://leaverou.github.io/stretchy/
 
+https://robertnyman.com/2010/03/22/css-pointer-events-to-allow-clicks-on-underlying-elements/
+
 ~~~ website P ~~~
 https://pepper.swat.io/#builder
 https://speakerdeck.com/talento90
