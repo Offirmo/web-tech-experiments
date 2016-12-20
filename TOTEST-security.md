@@ -39,6 +39,9 @@ listen to special params in url to get analytics (can be overthrown !)
 ## injection with A/B testing
 
 
+## exfiltration
+https://github.com/sindresorhus/clipboardy
+
 
 ## fake identity
 * setup a ring to cross auth ?

@@ -2,6 +2,16 @@
 Idées
 
 
+générateur de fichiers lint
+http://schemastore.org/json/
+http://json.schemastore.org/csslintrc
+http://json.schemastore.org/eslintrc
+http://json.schemastore.org/htmlhint
+http://json.schemastore.org/stylelintrc
+http://json.schemastore.org/tsconfig
+http://json.schemastore.org/tslint
+
+
 generic progressive app bootstraper
 - spinner
   http://lea.verou.me/2013/11/cleanest-css-spinner-ever/

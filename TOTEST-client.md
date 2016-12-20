@@ -1,5 +1,15 @@
 ’
 
+
+
+////////////////////////////////////////////////////////////////////////
+Best of
+clipboard         http://zenorocha.github.io/clipboard.js/
+full page design  https://github.com/alvarotrigo/fullPage.js
+bg patterns       http://www.heropatterns.com/
+countdown         https://github.com/objectivehtml/FlipClock
+////////////////////////////////////////////////////////////////////////
+
 https://github.com/Jam3/nice-color-palettes
 
 https://polyfill.io/v2/docs/
@@ -17,6 +27,20 @@ good, simple libs http://markapp.io/
 http://leaverou.github.io/stretchy/
 
 https://robertnyman.com/2010/03/22/css-pointer-events-to-allow-clicks-on-underlying-elements/
+
+
+~~~ visual testing ~~~
+https://github.com/SC5/sc5-styleguide-visualtest
+https://github.com/SC5/sc5-styleguide
+http://varya.me/dotcss-2016/examples/visual-tests/index.html
+
+
+~~~ Ultimate typo ~~~
+https://github.com/wentin/underlineJS
+https://github.com/sindresorhus/emoj
+http://kerningjs.com/ advanced web typography
+https://github.com/filamentgroup/faux-pas
+
 
 ~~~ website P ~~~
 https://pepper.swat.io/#builder
@@ -39,6 +63,10 @@ leafletjs.com cartes
 https://github.com/raphaelfabeni/css-loader
 https://github.com/tonystar/float-label-css
 
+
+email https://litmus.com/lp/dotcss
+
+https://philipwalton.com/articles/learning-how-to-set-up-automated-cross-browser-javascript-unit-testing/
 
 https://github.com/Jam3/nice-color-palettes
 
@@ -79,22 +107,17 @@ https://jets.js.org/ Native CSS search engine
 
 https://github.com/nojvek/chrome-remote-debug-protocol
 http://andrewhfarmer.com/webpack-hmr-tutorial/
-https://github.com/sindresorhus/emoj
 
 TEST
 https://medium.com/@i.anunay/mocknode-e338f793dba0 Mocknode a configurable mock server
 http://devlucky.github.io/kakapo-js
 
-https://css-tricks.com/rem-global-em-local/
-http://zellwk.com/blog/rem-vs-em/
 https://github.com/davidmerfield/randomColor
-https://github.com/akveo/blur-admin Angular Bootstrap Admin Panel Framework
 https://github.com/dantrain/react-stonecutter
 https://github.com/kadirahq/react-storybook
 http://interactjs.io/ drag & drop touch
 http://sigmajs.org/ graph drawing
 https://github.com/helion3/inspire-tree tree UI
-https://github.com/walmartlabs/little-loader
 https://github.com/ctrl-freaks/freezeframe.js freeze gifs
 http://snapsvg.io/ SVG lib
 https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/
@@ -113,7 +136,6 @@ http://www.elezea.com/2015/09/how-to-display-threaded-discussions-on-the-web/
 https://aerotwist.com/blog/guitar-tuner/
 http://mobilehtml5.org/
 http://blog.chromium.org/2015/04/reaching-and-re-engaging-users-on.html
-http://kerningjs.com/ advanced web typography
 http://tholman.com/elevator.js/ back to top
 http://photoswipe.com/
 
@@ -160,7 +182,6 @@ https://developers.google.com/web/fundamentals/performance/
 
 http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
-http://scotch.io/bar-talk/understanding-the-bootstrap-3-grid-system
 https://github.com/eloone/symbol-typer
 http://hammerjs.github.io/touch-emulator/
 https://github.com/revolunet/angular-carousel
@@ -185,9 +206,7 @@ https://github.com/mightyiam/combokeys
 
 -- famo.us
 https://github.com/IjzerenHein/famous-kenburnscontainer
-http://stackoverflow.com/questions/tagged/famo.us?page=1&sort=newest&pagesize=50
 
-http://mozilla.github.io/nunjucks/ templating
 http://paperclipjs.com/ can complement AngularJS
 
 -- AngularJS --
@@ -285,10 +304,3 @@ typographie bien contrôlée ! http://txtjs.com/
 
 
 
-
-////////////////////////////////////////////////////////////////////////
-Best of
-http://zenorocha.github.io/clipboard.js/
-https://github.com/alvarotrigo/fullPage.js
-http://www.heropatterns.com/
-https://github.com/objectivehtml/FlipClock
