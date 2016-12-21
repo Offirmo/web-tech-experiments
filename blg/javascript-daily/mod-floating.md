@@ -7,13 +7,13 @@ Xmas time has a special atmosphere, and you can share it with your website's vis
 
 ![Snow effect](/blg/javascript-daily/floating.gif?raw=true)
 
-*floating.js* has no dependencies. Add it to your page with whatever method you fancy. Simplest solution:
+*floating.js* creates fully configurable floating elements on your page. It has no dependencies. Add it to your page with whatever method you fancy. Simplest solution:
 ```html
 <script src="https://unpkg.com/floating.js@2.6.3/floating.js"></script>
 ```
 (alternative: `yarn add floating.js` + `require('floating.js)`)
 
-*floating.js* creates fully configurable floating elements on your page. Here is what I used for the snow effect above ([live demo](https://cdn.rawgit.com/Offirmo/web-tech-experiments/master/browser/vanilla/lib_floating_001_base.html)):
+Here is what I used for the snow effect above ([live demo](https://cdn.rawgit.com/Offirmo/web-tech-experiments/master/browser/vanilla/lib_floating_001_base.html)):
 ```js
 floating({
    content: '<span style="color: snow">❄</span>',
