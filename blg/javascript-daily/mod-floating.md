@@ -5,7 +5,7 @@ floating.js (GitHub: Haroenv/floating.js, License: Apache-2.0, npm: floating.js)
 
 Xmas time has a special atmosphere, and you can share it with your website's visitors thanks to a nice module from [Haroen Viaene](https://github.com/Haroenv):
 
-![Snow effect](/blg/javascript-daily/floating.gif?raw=true "Optional Title")
+![Snow effect](/blg/javascript-daily/floating.gif?raw=true)
 
 *floating.js* has no dependencies. Add it to your page with whatever method you fancy. Simplest solution:
 ```html
