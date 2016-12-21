@@ -1,7 +1,5 @@
 ’
 
-
-
 ////////////////////////////////////////////////////////////////////////
 Best of
 clipboard         http://zenorocha.github.io/clipboard.js/
@@ -10,7 +8,16 @@ bg patterns       http://www.heropatterns.com/
 countdown         https://github.com/objectivehtml/FlipClock
 ////////////////////////////////////////////////////////////////////////
 
+https://unpkg.com/    https://unpkg.com/package@version/file
+https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
+https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
+
+
+https://javascript30.com/
+
+http://all-animation.github.io/
 https://github.com/Jam3/nice-color-palettes
+https://www.microanimations.com/gif-collection/
 
 https://polyfill.io/v2/docs/
 https://philipwalton.com/articles/loading-polyfills-only-when-needed/

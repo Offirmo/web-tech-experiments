@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Lib floating.js 001 - base</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #CCC;
+			background-color: #333;
+		}
+	</style>
+
+	<script src="https://unpkg.com/floating.js@2.6.3/floating.js"></script>
+
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/Haroenv/floating.js</a>
+	<a>https://haroen.me/floating.js/</a>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	floating({
+		content: '<span style="color: snow">❄</span>',
+		number: 25,
+		direction: 'reverse',
+		size: [0.5, 2.5],
+	})
+</script>
