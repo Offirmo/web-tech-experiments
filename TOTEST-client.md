@@ -6,14 +6,27 @@ clipboard         http://zenorocha.github.io/clipboard.js/
 full page design  https://github.com/alvarotrigo/fullPage.js
 bg patterns       http://www.heropatterns.com/
 countdown         https://github.com/objectivehtml/FlipClock
+player            https://github.com/Bilibili/flv.js
 ////////////////////////////////////////////////////////////////////////
 
 https://unpkg.com/    https://unpkg.com/package@version/file
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
+https://html5boilerplate.com/
+
+Format your <input/> content when you are typing https://nosir.github.io/cleave.js/
+https://www.boxfactura.com/pulltorefresh.js/
+
+Graphs:
+http://www.chartjs.org/
+http://plottablejs.org/components/
+
+https://hyperform.js.org/examples.html
 
 https://javascript30.com/
+
+http://omrelli.ug/g9/ drawing lib reactive
 
 http://all-animation.github.io/
 https://github.com/Jam3/nice-color-palettes

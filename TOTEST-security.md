@@ -7,6 +7,12 @@ copy another dev
 
 impersonate
 
+Abusing npm libraries for data exfiltration https://blog.sourceclear.com/all-your-secrets-belong-to-us/
+The Ransomware in our Dependencies https://blog.sourceclear.com/ransomware-in-deps/
+
+https://hackernoon.com/cross-site-scripting-for-dummies-be30f76fad09
+https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0
+
 pic: https://github.com/ondras/primitive.js
 
 fix bugs using alt
