@@ -27,4 +27,4 @@ However, with a different config, you can have a [bubbling effect](https://haroe
 
 For more information, check out the [full documentation](https://haroen.me/floating.js/doc/).
 
-Thanks [Haroen Viaene](https://github.com/Haroenv) and Merry Christmas to everyone !
+Thanks [Haroen Viaene](https://github.com/Haroenv), thank you amazing readers, and Merry Christmas to everyone !
