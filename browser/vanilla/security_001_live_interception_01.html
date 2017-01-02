@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Security 001 - Live JS interception</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	Test... (see console)
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>
+
+<script>
+	// install interceptor
+	// ideas https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#Fundamental_objects
+
+	const originals = {
+		Array: {
+			prototype: {
+				find: Array.prototype.find,
+				forEach: Array.prototype.forEach,
+				from: Array.prototype.from,
+			}
+		},
+		Function: {
+			prototype: {
+				toString: Function.prototype.toString
+			}
+		},
+		JSON: {
+			parse: JSON.parse,
+			stringify: JSON.stringify,
+		},
+		Object: {
+			getPrototypeOf: Object.getPrototypeOf,
+			getOwnPropertyNames: Object.getOwnPropertyNames,
+			prototype: {
+				hasOwnProperty: Object.prototype.hasOwnProperty
+			}
+		},
+		String: {
+			prototype: {
+			}
+		},
+	}
+
+	// lodash picks
+
+	/**
+	 * Creates a unary function that invokes `func` with its argument transformed.
+	 *
+	 * @private
+	 * @param {Function} func The function to wrap.
+	 * @param {Function} transform The argument transform.
+	 * @returns {Function} Returns the new function.
+	 */
+	function overArg(func, transform) {
+		return function(arg) {
+			return func(transform(arg))
+		};
+	}
+
+	/** Used to infer the `Object` constructor. */
+	var objectCtorString = originals.Function.prototype.toString.call(Object)
+
+	var getPrototype = overArg(Object.getPrototypeOf, Object)
+
+	function isPlainObject(value) {
+		if (value === null) return false
+		if (typeof value !== 'object') return false
+
+		const proto = getPrototype(value)
+		if (proto === null) return true
+
+		const Ctor = originals.Object.prototype.hasOwnProperty.call(proto, 'constructor') && proto.constructor
+		return typeof Ctor == 'function' && Ctor instanceof Ctor && originals.Function.prototype.toString.call(Ctor) == objectCtorString
+	}
+
+
+	function interception_filter(candidate) {
+		if (!isPlainObject(candidate)) return false
+
+		const names = originals.Object.getOwnPropertyNames(candidate)
+		let interestingNames = names
+			.filter(name => {
+				if (name[0] !== 'p' && name[0] !== 'P') return false
+
+				const lcname = name.toLowerCase()
+				return lcname === 'pwd' || lcname === 'password'
+			})
+
+		return interestingNames
+	}
+
+	function spy(candidate) {
+		const partial_analysis = interception_filter(candidate)
+		if (! partial_analysis) return false
+
+		console.info('looking into...', candidate, partial_analysis)
+	}
+
+	Array.prototype.find = function(callback, thisArg) {
+		//console.info('Array.prototype.find called with', this, callback, thisArg)
+
+		originals.Array.prototype.forEach.bind(this)(spy)
+
+		return originals.Array.prototype.find.bind(this)(callback, thisArg)
+	}
+
+
+</script>
+
+<script>
+	// do stuff... should be intercepted
+
+	const credentials = [
+		{
+			Login: 'foo',
+			Password: 'bar'
+		},
+		{
+			Login: 'john',
+			Password: 'Azerty12'
+		}
+	]
+
+	const credential = credentials.find(cred => cred.login === 'john')
+
+	console.info('Simulating display of credential...', credential)
+</script>
