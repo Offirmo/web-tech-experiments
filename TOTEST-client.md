@@ -13,6 +13,8 @@ https://unpkg.com/    https://unpkg.com/package@version/file
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
+https://github.com/infernojs/inferno#toc11
+
 https://html5boilerplate.com/
 
 Format your <input/> content when you are typing https://nosir.github.io/cleave.js/

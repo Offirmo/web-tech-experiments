@@ -1,21 +1,43 @@
 ﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
 
-<meta charset="utf-8">
-<title>JS Console 001</title>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h1 id="header">This is JavaScript</h1>
-<p>Activate the JS console and look at it.</p>
-<p>https://developers.google.com/web/tools/chrome-devtools/debug/console/console-reference?hl=en</p>
-https://konklone.com/post/how-to-hack-the-developer-console-to-be-needlessly-interactive
+	<title>Console 002 - Chrome advanced features</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
 
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>Activate the JS console and look at it.
+	<a>https://developers.google.com/web/tools/chrome-devtools/debug/console/console-reference?hl=en</a>
+	<a>https://konklone.com/post/how-to-hack-the-developer-console-to-be-needlessly-interactive</a>
+</p>
 
 <script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
 	var styles = {
+		reset: "color: black; background-color: white;",
 		spam: "color: #336699",
 		please: "color: #336699; font-weight: bold",
 		emoji: function(emoji) {
-			return "background-image: url(\"https://isitchristmas.com/emojis/" + emoji + ".png\"); background-size: cover";
-		}
+			return "background-image: url(\"https://isitchristmas.com/emojis/" + emoji +
+				".png\"); background-size: cover;";
+		},
+		crack: "color: salmon; background-color: black;",
 	};
 
 	console.log(
@@ -25,4 +47,21 @@ https://konklone.com/post/how-to-hack-the-developer-console-to-be-needlessly-int
 		styles.spam, styles.emoji("christmas_tree")
 	);
 
+	console.log(
+		"Emoji test %c  %c  %c  %c  ",
+		styles.emoji("arrow_down"),
+		styles.emoji("arrow_heading_up"),
+		styles.emoji("up"),
+		styles.emoji("smiling_imp")
+	);
+
+	console.log(
+		"%c   %c %c Emoji test %c  %c  %c  ",
+		styles.emoji("smiling_imp"),
+		styles.reset,
+		styles.crack,
+		styles.crack + styles.emoji("arrow_down"),
+		styles.crack + styles.emoji("arrow_heading_up"),
+		styles.crack + styles.emoji("up")
+	);
 </script>

@@ -65,7 +65,7 @@ Most reputable countries
   * GitHub https://libraries.io/github/Offirmo
     * fork a few libs, contribute
   * linkedin ?
-
+https://www.raymond.cc/blog/top-10-sites-receive-sms-online-without-phone/
 
 https://securityintelligence.com/the-10-most-common-application-attacks-in-action/
 
@@ -100,3 +100,6 @@ stealth: detect ENV and do nothing in stealth mode
 TODO
 - +ignore-scripts = true
 - dev and prod deps
+
+listen to clipboard
+
