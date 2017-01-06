@@ -124,6 +124,7 @@
     "@types/jsen": "^0.0.18",
     "@types/lodash": "^4.14.33",
     "@types/node": "^6.0.36",
+    "@types/tsmonad": "0.0.29",
     "babel-cli": "^6.9.0",
     "babel-preset-es2015-node5": "^1.2.0",
     "babel-preset-es2015-node6": "^0.4.0",
@@ -145,6 +146,7 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "ts-node": "^2",
+    "tsmonad": "^0.6.1",
     "typescript": "^2.0.2"
   },
   "commentedOut": {

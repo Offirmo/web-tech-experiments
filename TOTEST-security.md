@@ -93,6 +93,7 @@ popular js problems
 new framework: be the 1st to propose classic modules
 
 http://news.softpedia.com/news/node-js-package-manager-vulnerable-to-malicious-worm-packages-502216.shtml
+https://medium.com/friendship-dot-js/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558#.ajjpdc7yg
 
 stealth: detect ENV and do nothing in stealth mode
 
@@ -103,3 +104,33 @@ TODO
 
 listen to clipboard
 
+https://www.versioneye.com/
+https://snyk.io/
+
+exfiltration with https://github.com/ngageoint/endpoint.js ?
+
+command and control with GPG signing
+
+https://fr.wikipedia.org/wiki/Botnet
+
+http://stackoverflow.com/questions/27279359/how-to-make-git-work-to-push-commits-to-github-via-tor
+https://nodesource.com/blog/nine-security-tips-to-keep-express-from-getting-pwned/
+
+https://blog.liftsecurity.io/2015/01/27/a-malicious-module-on-npm
+https://www.infoq.com/news/2016/03/npm-infection
+
+
+Hooking into API
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#Fundamental_objects
+https://javascriptweblog.wordpress.com/2011/12/05/extending-javascript-natives/
+https://www.sencha.com/forum/showthread.php?32799-Useful-Overrides-Additional-Array-methods
+
+https://developer.chrome.com/extensions/runtime#method-sendMessage
+https://developer.chrome.com/extensions/messaging
+
+evil:
+cause crash or slowdown (competitor, ransom)
+
+encrypt JSON, hack bcrypt
+
+https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing
