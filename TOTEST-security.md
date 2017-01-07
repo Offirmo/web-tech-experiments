@@ -134,3 +134,5 @@ cause crash or slowdown (competitor, ransom)
 encrypt JSON, hack bcrypt
 
 https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing
+
+http://macbidouille.com/news/2016/12/31/2016-a-battu-de-nouveaux-records-dinsecurite-sur-la-toile
