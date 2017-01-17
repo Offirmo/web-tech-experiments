@@ -18,6 +18,7 @@ p1.subscribe(
 
 const p2 = Rx.Observable
 	.fromPromise(new Promise((resolve, reject) => reject(new Error('bar'))))
+
 p2.subscribe({
 	next: value => console.log(value),
 	error: err => console.error(err),

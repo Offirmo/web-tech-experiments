@@ -4,6 +4,9 @@ Promises:
 - https://github.com/joeattardi/promise-poller
 - 
 
+https://babeljs.io/blog/2016/08/30/babili
+
+
 https://github.com/date-fns/date-fns
 
 https://lernajs.io/
