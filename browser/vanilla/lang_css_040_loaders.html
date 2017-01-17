@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>CSS3 040 - loaders</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		/*coffee cup*/
+		* {
+			--loader-color: rgba(3, 169, 244, 1);
+		}
+
+		.loader_coffee_cup {
+			width: 20px;
+			height: 24px;
+			border: 1px var(--loader-color) solid;
+			border-radius: 0 0 5px 5px;
+			position: relative;
+			margin: 36px auto;
+		}
+
+		.loader_coffee_cup:after,
+		.loader_coffee_cup:before {
+			position: absolute;
+			content: "";
+		}
+
+		.loader_coffee_cup:after {
+			width: 5px;
+			height: 12px;
+			border: 1px var(--loader-color) solid;
+			border-left: none;
+			border-radius: 0 20px 20px 0;
+			left: 20px;
+		}
+
+		.loader_coffee_cup:before {
+			width: 1px;
+			height: 6px;
+			background-color: var(--loader-color);
+			top: -10px;
+			left: 4px;
+			box-shadow: 5px 0 0 0 var(--loader-color), 5px -5px 0 0 var(--loader-color), 10px 0 0 0 var(--loader-color);
+			-webkit-animation: loader_coffee_up_steam 1s linear infinite alternate;
+			-moz-animation: loader_coffee_up_steam 1s linear infinite alternate;
+			animation: loader_coffee_up_steam 1s linear infinite alternate;
+		}
+
+		@-webkit-keyframes loader_coffee_up_steam {
+			0% {
+				height: 0;
+			}
+			100% {
+				height: 6px;
+			}
+		}
+
+		@-moz-keyframes loader_coffee_up_steam {
+			0% {
+				height: 0;
+			}
+			100% {
+				height: 6px;
+			}
+		}
+
+		@keyframes loader_coffee_up_steam {
+			0% {
+				height: 0;
+			}
+			100% {
+				height: 6px;
+			}
+		}
+
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/Haonancx/CSS3-Loader</a>
+	<div class="loader_coffee_cup"></div>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>
