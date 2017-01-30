@@ -136,3 +136,21 @@ encrypt JSON, hack bcrypt
 https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing
 
 http://macbidouille.com/news/2016/12/31/2016-a-battu-de-nouveaux-records-dinsecurite-sur-la-toile
+
+https://github.com/theori-io/chakra-2016-11
+https://blog.malwarebytes.com/threat-analysis/2017/01/new-mac-backdoor-using-antiquated-code/
+https://github.com/dxa4481/truffleHog
+
+Don't use too much power: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback#Browser_compatibility
+
+exfiltration https://www.chromestatus.com/feature/5264933985976320 bluetooth
+
+https://thezero.org/en/MyHS/
+
+HKPK
+https://blog.qualys.com/ssllabs/2016/09/06/is-http-public-key-pinning-dead
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning
+https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning
+
+brick a website
+http://bitsup.blogspot.fr/2016/05/cache-control-immutable.html

@@ -7,15 +7,27 @@ full page design  https://github.com/alvarotrigo/fullPage.js
 bg patterns       http://www.heropatterns.com/
 countdown         https://github.com/objectivehtml/FlipClock
 player            https://github.com/Bilibili/flv.js
+
+CDNs:
+https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
+https://unpkg.com/floating.js@2.6.3/floating.js
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
 ////////////////////////////////////////////////////////////////////////
 
 https://unpkg.com/    https://unpkg.com/package@version/file
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
+// bonne combo ?
 https://github.com/infernojs/inferno#toc11
+http://conditionerjs.com/
+svelte
 
+http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+https://github.com/jakiestfu/Medium.js
 https://html5boilerplate.com/
+
+https://github.com/css-modules/css-modules
 
 Format your <input/> content when you are typing https://nosir.github.io/cleave.js/
 https://www.boxfactura.com/pulltorefresh.js/

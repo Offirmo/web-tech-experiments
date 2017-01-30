@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>CSS3 042 - scroll hint</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/just-scroll@1/css/just-scroll.min.css" />
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/koddr/just-scroll/</a>
+	<div class="just-scroll to-down color-green centered">
+		<div class="mouse-icon">
+			<div class="wheel"></div>
+		</div>
+	</div>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>

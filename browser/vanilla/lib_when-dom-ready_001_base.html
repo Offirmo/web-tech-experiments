@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Lib when-dom-ready 001 - base</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #efefef;
+			background-color: #000833;
+		}
+	</style>
+
+	<script src="https://unpkg.com/when-dom-ready@^1/dist/index.js"></script>
+
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://github.com/lukechilds/when-dom-ready</a><br/>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+
+	// Loaded ready states
+	const loadedStates = ['interactive', 'complete'];
+
+	// Return Promise
+	const whenDomReady = (cb, doc) => new Promise(resolve => {
+		// Allow doc to be passed in as the lone first param
+		if (cb && typeof cb !== 'function') {
+			doc = cb;
+			cb = null;
+		}
+
+		// Use global document if we don't have one
+		doc = doc || window.document;
+
+		// Handle DOM load
+		const done = () => resolve(cb && cb());
+
+		// Resolve now if DOM has already loaded
+		// Otherwise wait for DOMContentLoaded
+		if (loadedStates.includes(doc.readyState)) {
+			setTimeout(done, 0);
+		} else {
+			doc.addEventListener('DOMContentLoaded', done);
+		}
+	});
+
+	whenDomReady().then(() => console.log('DOM is ready yo!'));
+</script>

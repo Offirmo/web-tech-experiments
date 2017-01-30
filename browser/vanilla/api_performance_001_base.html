@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Navigation Timing 001 - base</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>Activate the JS console and look at it.<br />
+	<a>https://www.html5rocks.com/en/tutorials/webperformance/basics/</a><br />
+	Performance API <a>https://developer.mozilla.org/en-US/docs/Web/API/Performance</a>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>
+<script>
+	console.info('performance', performance)
+	console.info('example of performance high resolution timer', performance.now())
+</script>
+<script>
+	// http://www.tutorialsavvy.com/2016/11/introducing-window-performance-api.html/
+	switch(performance.navigation.type) {
+		case 0:
+			console.info('page reached by navigation (0)')
+			break
+		case 1:
+			console.info('page reloaded (1)')
+			break
+		case 2:
+			console.info('page reached through history (2)')
+			break
+
+		default:
+			console.info(`page reached via unknown mean (${performance.navigation.type}) ??`)
+			break
+	}
+</script>

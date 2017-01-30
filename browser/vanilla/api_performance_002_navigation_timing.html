@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Navigation Timing 002 - navigation timing</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>Activate the JS console and look at it.<br />
+	<a>https://www.html5rocks.com/en/tutorials/webperformance/basics/</a><br />
+	Performance API <a>https://developer.mozilla.org/en-US/docs/Web/API/Performance</a><br />
+	Navigation Timing API <a>https://developer.mozilla.org/en/docs/Web/API/Navigation_timing_API</a><br />
+	performanceTiming object <a>https://msdn.microsoft.com/en-us/library/ff975075</a><br />
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	console.log(document.readyState)
+
+	performance.mark('foo')
+	performance.mark('bar')
+	window.performance.measure('measure_foo_from_dom', 'foo', 'bar')
+
+	console.log(performance.getEntries())
+
+	document.addEventListener('DOMContentLoaded', () => {
+		console.info('DOMContentLoaded')
+		console.log(performance.timing)
+
+		setTimeout(() => {
+
+			// https://www.html5rocks.com/en/tutorials/webperformance/basics/
+			window.performance.measure('network latency', 'fetchStart', 'responseEnd')
+			window.performance.measure('page load', 'responseEnd', 'loadEventEnd')
+			window.performance.measure('page load', 'navigationStart', 'loadEventEnd')
+
+			console.info('mark', performance.getEntriesByType('mark'))
+			console.info('measure', performance.getEntriesByType('measure'))
+		}, 10)
+	})
+
+</script>
+

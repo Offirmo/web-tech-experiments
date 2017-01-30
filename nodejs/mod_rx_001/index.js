@@ -1,19 +1,26 @@
 #!/usr/bin/env node
 'use strict';
 
-console.log('Hello world !');
+console.log('Hello world !')
 
 // https://github.com/ReactiveX/RxJS
 // http://reactivex.io/rxjs/
 // http://reactivex.io/rxjs/manual/tutorial.html
 const Rx = require('rxjs')
 
+// beware, will instantiate the observable
+function log_observable(observable, id) {
+	return observable.subscribe(
+		x => console.log(`[${id}] Next: ${x.toString()}`),
+		err => console.error(`[${id}] Error: ${err}`),
+		() => console.log(`[${id}] Completed`)
+	)
+}
+
 // From one or multiple values
-Rx.Observable
-	.of('foo', 'bar')
-	.subscribe(value => console.log(value))
+const rxo1 = Rx.Observable.of('foo', 'bar')
+log_observable(rxo1, 'rxo1')
 
 // From array of values
-Rx.Observable
-	.from([1,2,3])
-	.subscribe(value => console.log(value))
+const rxo2 = Rx.Observable.from([1,2,3])
+log_observable(rxo2, 'rxo2')

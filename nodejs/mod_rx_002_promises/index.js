@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-console.log('Hello world !');
+console.log('Hello world !')
 
 // https://github.com/ReactiveX/RxJS
 // http://reactivex.io/rxjs/
@@ -9,22 +9,27 @@ console.log('Hello world !');
 const Rx = require('rxjs')
 
 
+// beware, will instantiate the observable
+function log_observable(observable, id) {
+	return observable.subscribe(
+		x => console.log(`[${id}] Next: ${x.toString()}`),
+		err => console.error(`[${id}] Error: ${err}`),
+		() => console.log(`[${id}] Completed`)
+	)
+}
+
 // From a Promise
-const p1 = Rx.Observable
-	.fromPromise(new Promise((resolve, reject) => resolve('foo')))
-p1.subscribe(
-	value => console.log(value)
-)
+const rxo1 = Rx.Observable
+	.fromPromise(new Promise((resolve, reject) => {
+		console.log('rxo1 promise created !')
+		resolve('foo')
+	}))
+log_observable(rxo1, 'O1a')
+log_observable(rxo1, 'O1b')
 
-const p2 = Rx.Observable
+const rxo2 = Rx.Observable
 	.fromPromise(new Promise((resolve, reject) => reject(new Error('bar'))))
+log_observable(rxo2, 'O2')
 
-p2.subscribe({
-	next: value => console.log(value),
-	error: err => console.error(err),
-	complete: () => console.log('Observer got a complete notification'),
-})
-
-Rx.Observable
-	.concat(p1, p2)
-	.subscribe(value => console.log(value))
+const rxo3 = Rx.Observable.concat(rxo1, rxo2)
+log_observable(rxo3, 'O3')

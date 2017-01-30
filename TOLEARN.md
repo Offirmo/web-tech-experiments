@@ -125,6 +125,7 @@
 - [ ] https://kite.com/
 - [ ] Web Components
       https://github.com/pimterry/server-components
+      https://hackernoon.com/building-a-custom-tag-input-with-skate-js-fbd4cdf744f
 - [ ] accessibility
       https://egghead.io/courses/start-building-accessible-web-applications-today
 - [ ] Jekyll
@@ -144,3 +145,4 @@
 - [ ] Phaser
       
 - [ ] IPFS https://ipfs.io/
+- [ ] CSP https://blogs.windows.com/msedgedev/2017/01/10/edge-csp-2/#CtHqTcAYmpTCCIPo.97
