@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Navigation Timing 003 - navigation timing edge cases</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>Activate the JS console and look at it.<br />
+	Performance API <a>https://developer.mozilla.org/en-US/docs/Web/API/Performance</a><br />
+	Navigation Timing API <a>https://developer.mozilla.org/en/docs/Web/API/Navigation_timing_API</a><br />
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	// what happen if we mark 2 times ?
+	performance.mark('foo')
+	performance.mark('foo')
+
+	document.addEventListener('DOMContentLoaded', () => {
+		console.info('DOMContentLoaded')
+
+		setTimeout(() => {
+			console.info('mark', performance.getEntriesByType('mark'))
+			console.info('measure', performance.getEntriesByType('measure'))
+
+			console.info('mark', performance.getEntriesByName('foo', 'mark'))
+			console.info('mark', performance.getEntriesByName('bar', 'mark')) // not existing
+		}, 10)
+	})
+
+</script>
+

@@ -1,7 +1,7 @@
 ’
 
 ////////////////////////////////////////////////////////////////////////
-Best of
+Best of:
 clipboard         http://zenorocha.github.io/clipboard.js/
 full page design  https://github.com/alvarotrigo/fullPage.js
 bg patterns       http://www.heropatterns.com/
