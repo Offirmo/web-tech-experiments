@@ -18,10 +18,15 @@ https://unpkg.com/    https://unpkg.com/package@version/file
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
+https://github.com/tunnckoCore/gibon simple routing
+https://github.com/hyperapp/hyperapp simple tout
+
 // bonne combo ?
 https://github.com/infernojs/inferno#toc11
 http://conditionerjs.com/
 svelte
+
+https://github.com/byeolbit/translucent superbe effet
 
 http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
 https://github.com/jakiestfu/Medium.js
