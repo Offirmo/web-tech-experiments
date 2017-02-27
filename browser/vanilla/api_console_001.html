@@ -18,38 +18,38 @@
 <p>https://developers.google.com/web/tools/chrome-devtools/debug/console/console-reference?hl=en</p>
 
 <script>
-	document.querySelector('h1').textContent = document.title;
+	document.querySelector('h1').textContent = document.title
 
-	console.log('hello world');
+	console.log('hello world')
 
-	var bar = {name: 'kitten', status: 'playful'};
-	console.log(2,4,6,8,'foo',bar);
-	console.log('%s is %d years old.', 'Bob', 42);
+	var bar = {name: 'kitten', status: 'playful'}
+	console.log(2,4,6,8,'foo',bar)
+	console.log('%s is %d years old.', 'Bob', 42)
 
-	console.group('console levels tests');
-		console.log(  'console.log');
-		console.debug('console.debug');
-		console.info( 'console.info');
-		console.warn( 'console.warn');
-		console.error('console.error');
-	console.groupEnd();
+	console.group('console levels tests')
+		console.log(  'console.log')
+		console.debug('console.debug')
+		console.info( 'console.info')
+		console.warn( 'console.warn')
+		console.error('console.error')
+	console.groupEnd()
 
 
-	console.groupCollapsed('console group: collapsed');
-	console.log(  'console.log');
-	console.debug('console.debug');
-	console.info( 'console.info');
-	console.warn( 'console.warn');
-	console.error('console.error');
-	console.groupEnd();
+	console.groupCollapsed('console group: collapsed')
+	console.log(  'console.log')
+	console.debug('console.debug')
+	console.info( 'console.info')
+	console.warn( 'console.warn')
+	console.error('console.error')
+	console.groupEnd()
 
-	console.trace();
-	console.dir(bar);
+	console.trace()
+	console.dir(bar)
 
-	document.body.appendChild(document.createTextNode('Hello World from JS !'));
+	document.body.appendChild(document.createTextNode('Hello World from JS !'))
 
-	var h1 = document.getElementById('header'); // holds a reference to the <h1> tag
-	h1 = document.getElementsByTagName('h1')[0]; // accessing the same <h1> element
+	var h1 = document.getElementById('header') // holds a reference to the <h1> tag
+	h1 = document.getElementsByTagName('h1')[0] // accessing the same <h1> element
 
-	console.assert(false);
+	console.assert(false)
 </script>

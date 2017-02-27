@@ -12,6 +12,11 @@ CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
 https://unpkg.com/floating.js@2.6.3/floating.js
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
+	
+	
+graph effects
+https://www.openprocessing.org/ +++ oa, ror
+https://p5js.org/get-started/
 ////////////////////////////////////////////////////////////////////////
 
 https://unpkg.com/    https://unpkg.com/package@version/file
@@ -21,10 +26,14 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 https://github.com/tunnckoCore/gibon simple routing
 https://github.com/hyperapp/hyperapp simple tout
 
+https://www.netlify.com/pricing/ pumped up GitHub pages ???
+
 // bonne combo ?
 https://github.com/infernojs/inferno#toc11
 http://conditionerjs.com/
 svelte
+
+https://github.com/react-map/react-magic cools anims
 
 https://github.com/byeolbit/translucent superbe effet
 
@@ -106,8 +115,6 @@ https://github.com/tonystar/float-label-css
 email https://litmus.com/lp/dotcss
 
 https://philipwalton.com/articles/learning-how-to-set-up-automated-cross-browser-javascript-unit-testing/
-
-https://github.com/Jam3/nice-color-palettes
 
 https://github.com/anywhichway/reasondb client-side DB
 https://github.com/sourcelair/xterm.js 
@@ -321,8 +328,6 @@ https://github.com/dreyacosta/somewhere.js
 https://github.com/arvindr21/diskDB
 http://wamalaka.com/locallydb
 https://github.com/zendesk/cross-storage
-
-
 
 
 -- content

@@ -1,4 +1,8 @@
 
+https://bazel.build/ generic build tool
+
+https://github.com/dleitee/walletjs lib décimal
+
 
 Promises:
 - https://github.com/joeattardi/promise-poller

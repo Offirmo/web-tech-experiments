@@ -154,3 +154,6 @@ https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning
 
 brick a website
 http://bitsup.blogspot.fr/2016/05/cache-control-immutable.html
+
+leak
+http://codegolf.stackexchange.com/questions/110485/leak-memory-in-as-few-bytes-as-possible
