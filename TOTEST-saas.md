@@ -1,20 +1,16 @@
 
-SMS                ->  https://www.twilio.com/
+Auth               -> https://www.okta.com/developer/signup/stormpath/
+SMS                -> https://www.twilio.com/
 
-mobile payment     ->  http://www.jaimelesstartups.fr/lemon-way/
+mobile payment     -> http://www.jaimelesstartups.fr/lemon-way/
 
+live chat          -> https://www.olark.com
 
-live chat          ->  https://www.olark.com
+device testing     -> http://nativetap.io/
 
-
-device testing     ->  http://nativetap.io/
-
-
-dependencies       ->  https://libraries.io/about
-
+dependencies       -> https://libraries.io/about
 
 feature switching  -> https://launchdarkly.com/pricing.html
-
 
 big file sharing   -> https://www.myairbridge.com/en/
 
@@ -27,6 +23,7 @@ Audit SEO / perf ++ https://auditor.raventools.com/
 Specs for selling a SAAS https://www.enterpriseready.io/
 
 admin ? http://www.forestadmin.com/product
+
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/

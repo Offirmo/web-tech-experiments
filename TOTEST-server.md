@@ -2,6 +2,8 @@
 
 CLI https://github.com/dominictarr/subarg
 
+debug https://github.com/queckezz/fmt-obj
+
 https://nodesource.com/blog/8-protips-to-start-killing-it-when-dockerizing-node-js/
 https://github.com/msudgh/icu-loader
 

@@ -35,6 +35,8 @@ svelte
 
 https://github.com/react-map/react-magic cools anims
 
+https://safi.me.uk/typewriterjs/ typewriter effect
+
 https://github.com/byeolbit/translucent superbe effet
 
 http://www.stucox.com/blog/you-cant-detect-a-touchscreen/

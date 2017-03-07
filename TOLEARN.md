@@ -145,4 +145,4 @@
 - [ ] Phaser
       
 - [ ] IPFS https://ipfs.io/
-- [ ] CSP https://blogs.windows.com/msedgedev/2017/01/10/edge-csp-2/#CtHqTcAYmpTCCIPo.97
+- [ ] CSP https://blogs.windows.com/msedgedev/2017/01/10/edge-csp-2/

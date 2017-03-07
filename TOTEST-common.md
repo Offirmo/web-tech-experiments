@@ -3,6 +3,8 @@ https://bazel.build/ generic build tool
 
 https://github.com/dleitee/walletjs lib décimal
 
+https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-node-and-the-browser/
+
 
 Promises:
 - https://github.com/joeattardi/promise-poller
@@ -51,6 +53,7 @@ TOBLOG AngularJS speed trick, updated http://www.alexkras.com/11-tips-to-improve
 http://welchcanavan.com/styleguide-roundup/
 
 -- markdown
+https://github.com/showdownjs/showdown parser
 https://github.com/npm/marky-markdown
 https://www.npmjs.com/package/sanitize-html
 https://github.com/bevacqua/megamark
