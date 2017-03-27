@@ -17,6 +17,8 @@ https://unpkg.com/floating.js@2.6.3/floating.js
 graph effects
 https://www.openprocessing.org/ +++ oa, ror
 https://p5js.org/get-started/
+
+color manipulation http://gka.github.io/chroma.js/
 ////////////////////////////////////////////////////////////////////////
 
 https://unpkg.com/    https://unpkg.com/package@version/file

@@ -2,6 +2,26 @@
 Idées
 
 
+Game
+- interactive maps https://github.com/dphilipson/graphs-and-paths
+- talents https://github.com/dphilipson/graphito#toc0
+
+
+Test de site web
+- tous navigateurs
+- apparence (pas tout blanc)
+- CSP ?
+- HTTPS ?
+
+
+achievements
+https://pixelbuddha.net/ballicons3/
+
+
+Compta
+https://bws.bankin.com/dashboard/signup
+
+
 générateur de fichiers lint
 http://schemastore.org/json/
 http://json.schemastore.org/csslintrc
@@ -22,9 +42,12 @@ generic progressive app bootstraper
 - support update
 - progressive enhancement when logo, font
 
+
 i18n
 https://github.com/myhau/mimetype-descriptions
 https://osrec.github.io/currencyFormatter.js/
+npm localized-countries
+
 
 promise toolbox
 https://github.com/sindresorhus/p-defer

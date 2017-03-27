@@ -136,6 +136,7 @@
 - [ ] https://hyperterm.org/#installation
 - [ ] desktop apps
       http://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition
+      https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build
 - [ ] Angular 2
        http://blog.thoughtram.io/angular/2016/09/15/angular-2-final-is-out.html
 - [ ] No code
@@ -146,3 +147,4 @@
       
 - [ ] IPFS https://ipfs.io/
 - [ ] CSP https://blogs.windows.com/msedgedev/2017/01/10/edge-csp-2/
+- [ ] quickstarter https://www.backerkit.com/
