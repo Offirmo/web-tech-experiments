@@ -7,6 +7,8 @@ full page design  https://github.com/alvarotrigo/fullPage.js
 bg patterns       http://www.heropatterns.com/
 countdown         https://github.com/objectivehtml/FlipClock
 player            https://github.com/Bilibili/flv.js
+tooltips          https://popper.js.org/
+
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
