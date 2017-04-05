@@ -2,12 +2,14 @@
 
 ////////////////////////////////////////////////////////////////////////
 Best of:
+DOM               https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
 clipboard         http://zenorocha.github.io/clipboard.js/
 full page design  https://github.com/alvarotrigo/fullPage.js
 bg patterns       http://www.heropatterns.com/
 countdown         https://github.com/objectivehtml/FlipClock
 player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
+browser versions  http://browser-update.org/
 
 
 CDNs:

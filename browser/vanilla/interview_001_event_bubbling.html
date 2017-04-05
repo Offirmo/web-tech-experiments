@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- html5_006 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Interview 001</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+
+<div id="1" style="background-color:#bce8f1; padding: 10px">
+	Div1
+	<div id="2" style="background-color:#d9edf7; padding: 10px">
+		Div2
+		<div id="3" style="background-color:#3a87ad; padding: 10px">
+			Div3
+		</div>
+	</div>
+</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	const divs = Array.from(document.getElementsByTagName('div'))
+
+	// MIND THE LAST PARAMETER !!!
+	divs.forEach(div => div.addEventListener('click', log_event, false))
+
+	function log_event() {
+		console.log(this.id)
+	}
+</script>
