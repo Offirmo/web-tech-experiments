@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>CSS 052 - sprite chip animated</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		* {
+			--sprite-grid-size: 24px;
+			--chip-width: 32px;
+			--chip-height: 48px;
+			--chip-frame-duration: 1s;
+		}
+
+		.chip-greenhair-S-1 {
+			background-image: url('../assets/remakertp01.png');
+			background-repeat: no-repeat;
+			background-position: calc(var(--chip-width) * -3) calc(var(--chip-height) * -0);
+			width: var(--chip-width);
+			height: var(--chip-height);
+		}
+		.chip-greenhair-S-2 {
+			background-image: url('../assets/remakertp01.png');
+			background-repeat: no-repeat;
+			background-position: calc(var(--chip-width) * -4) calc(var(--chip-height) * -0);
+			width: var(--chip-width);
+			height: var(--chip-height);
+		}
+		.chip-greenhair-S-3 {
+			background-image: url('../assets/remakertp01.png');
+			background-repeat: no-repeat;
+			background-position: calc(var(--chip-width) * -5) calc(var(--chip-height) * -0);
+			width: var(--chip-width);
+			height: var(--chip-height);
+		}
+
+		@keyframes chip {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.chip {
+			position:relative;
+		}
+
+		.chip > div {
+			position: absolute;
+			left: 0;
+			animation: chip;
+			animation-timing-function: steps(2, end);
+			animation-iteration-count: infinite;
+			animation-duration: calc(var(--chip-frame-duration) * 3);
+		}
+
+		.chip > div:nth-of-type(1) {
+			animation-delay: 0s;
+		}
+		.chip > div:nth-of-type(2) {
+			animation-delay: var(--chip-frame-duration);
+		}
+		.chip > div:nth-of-type(3) {
+			animation-delay: calc(var(--chip-frame-duration) * 2);
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	...
+	<div class="chip">
+		<div class="chip-greenhair-S-1">1</div>
+		<div class="chip-greenhair-S-2">2</div>
+		<div class="chip-greenhair-S-3">3</div>
+	</div>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>

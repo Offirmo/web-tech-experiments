@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body {
+                padding: 0 50px 0 50px;
+                font-size: 18px;
+            }
+            div p {
+                line-height: 32px;
+            }
+            footer p {
+                line-height: 15px;
+            }
+            #logo {
+                width: 250px;
+            }
+            .small_padding {
+                padding-top: 50px;
+            }
+            .right {
+                text-align: right;
+            }
+            .left {
+                text-align: left;
+            }
+            .bottom-left {
+                position: absolute;
+                bottom: 0px;
+                left: 50px;
+            }
+            .bottom-right {
+                position: absolute;
+                bottom: 0px;
+                right: 50px;
+            }
+            footer {
+                clear: both;
+                padding-top: 50px;
+            }
+            footer .left {
+                float: left;
+            }
+            footer .right {
+                float: right;
+            }
+            div#table {
+                padding-top: 50px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid black;  
+                padding: 20px 5px 20px 5px;
+                font-size: 13px;
+                text-align: center;
+            }
+            .bold {
+                color: #1A6B80;
+                font-weight:bold;
+            }
+            tr.first.bold td {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="logo" src="([wW]+?)dashlane_icon.png" />
+
+        <div id="customer" class="left">
+            <p>
+                To:
+                <br />
+                    <b>Immortan Joe</b>
+                    <br />
+                    <b>Bullet Farm</b>
+                    <br />
+                    <b>555 Gas Town central</b>
+                    <br />
+                    VAT/TAX number:
+                    <br />
+                    <b>656532</b>
+            </p>
+        </div>
+        <div id="address" class="right">
+            <p>
+                <b>Dashlane, Inc.</b>
+                <br />
+                156 5th Ave, Suite 504
+                <br />
+                New York, NY 10010 USA
+            </p>
+        </div>
+        <div id="title">
+            <p>
+                <b>Your Invoice</b>
+            </p>
+        </div>
+        <div class="small_padding">
+            <table>
+                <tr class="first bold">
+                    <td>Invoice Number</td>
+                    <td>Date</td>
+                    <td>Description</td>
+                    <td>Unit Price</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+                <tr>
+                    <td>INVPRE500</td>
+                    <td>d{2}/d{2}/d{4}</td>
+                    <td>Add New Member</td>
+                    <td>$26.66</td>
+                    <td>3</td>
+                    <td>$79.98</td>
+                </tr>
+            </table>
+        </div>
+        <div class="small_padding right">
+            Total: $79.98
+        </div>
+
+        <footer class="bold">
+            <div class="bottom-left">
+                Dashlane, Inc.
+                <br/>
+                156 5th Ave, Suite 504
+                New York, NY 10010 USA
+            </div>
+            <div class="bottom-right">
+                https://www.dashlane.com
+            </div>
+        </footer>
+    </body>
+</html>
+

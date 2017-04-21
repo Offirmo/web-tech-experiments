@@ -24,6 +24,10 @@ Specs for selling a SAAS https://www.enterpriseready.io/
 
 admin ? http://www.forestadmin.com/product
 
+GeoIP              -> https://ipinfo.io/developers
+
+test               -> http://rem-rest-api.herokuapp.com/
+
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/

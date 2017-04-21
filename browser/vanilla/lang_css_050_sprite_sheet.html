@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+	<title>CSS 050 - sprite sheets</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		.sprite-potion-red {
+			background: url('../assets/bigset.png') no-repeat -24px -504px;
+			width: 24px;
+			height: 24px;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	...
+	<div class="sprite-potion-red"></div>
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>
