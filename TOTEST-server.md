@@ -3,6 +3,9 @@
 CLI https://github.com/dominictarr/subarg
 CLI https://github.com/mattallty/Caporal.js
 
+server-side rendering
+https://github.com/d3-node/d3-node
+
 debug https://github.com/queckezz/fmt-obj
 
 https://nodesource.com/blog/8-protips-to-start-killing-it-when-dockerizing-node-js/
