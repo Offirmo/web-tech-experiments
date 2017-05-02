@@ -10,7 +10,7 @@ countdown         https://github.com/objectivehtml/FlipClock
 player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
-
+state machine     https://github.com/jakesgordon/javascript-state-machine
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -38,6 +38,8 @@ https://www.netlify.com/pricing/ pumped up GitHub pages ???
 https://github.com/infernojs/inferno#toc11
 http://conditionerjs.com/
 svelte
+
+https://techblog.badoo.com/blog/2017/03/23/webRTC-making-a-peer-to-peer-game-using-javascript/
 
 https://github.com/react-map/react-magic cools anims
 

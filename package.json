@@ -112,6 +112,7 @@
     "tachyons-debug": "^1.1.7",
     "trace": "^2.3.0",
     "usage": "^0.7.1",
+    "walletjs": "^1.2.1",
     "when": "^3.7.7",
     "wikidata-sdk": "^4.0.2",
     "wikidata-token": "^1",
