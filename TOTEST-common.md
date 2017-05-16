@@ -28,7 +28,6 @@ https://github.com/rich-harris/sorcery  Resolve a chain of sourcemaps back to th
 
 https://github.com/SamyPesse/gitkit-js Pure javascript implementation of Git (Node.js and Browser)
 
-http://daily-javascript.com/articles/ljson/ replacement for JSON which also allows you to parse and stringify pure functions and their contents
 https://github.com/ziyasal/scientist.js
 https://github.com/jezen/is-thirteen
 
