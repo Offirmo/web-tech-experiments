@@ -1,0 +1,42 @@
+
+[being happy]
+
+[being happy] requires [having a good quality of life]
+
+[having a good quality of life] requires [living in a good place]
+
+[living in a good place] possibly realized by [living in Australia]
+
+[living in Australia] possibly realized by [Living in Sydney]
+[living in Australia] possibly realized by [Living in Melbourne]
+
+[Living in Australia] requires [having an Australian visa]
+
+[having an australian visa] possibly realized by [having an Australian 457 work visa]
+[having an australian visa] possibly realized by [having Australian permanent residency]
+
+[having an Australian 457 work visa] requires [having a sponsoring employer]
+[having an Australian 457 work visa] requires [having a private health insurance]
+
+[having a sponsoring employer] possibly realized by [being recruited by Atlassian]
+[being recruited by Atlassian] requires [succeeding at the interviews]
+[succeeding at the interviews] done!
+[being recruited by Atlassian] requires [having an offer and accepting it]
+[having an offer and accepting it] done!
+[being recruited by Atlassian] requires [passing Atlassian background check]
+[being recruited by Atlassian] requires [being successfully granted the 457 visa]
+[being succesfully granted the 457 visa] done!
+
+[having a private health insurance] possibly realized by [being covered by Atlassian health insurance](from X to Y)
+[being covered by Atlassian health insurance] requires [filling the form]
+[being covered by Atlassian health insurance] requires [giving Australian arrival date]
+
+[Living in Australia] requires [relocating to Australia]
+
+[relocating to Australia] requires [having an Australian visa]
+[relocating to Australia] requires [having a plane ticket]
+[relocating to Australia] requires [moving stuff]
+
+[Living in Sydney] requires [having a place to live]
+[having a place to live] possibly realized by [being housed by Atlassian contractor](from X to Y)
+

@@ -1,0 +1,10 @@
+[
+	{
+		date: '12/12/2004',
+		amount: 12.99,
+		currency: 'EUR',
+	},
+	{ date: '12/10/2004',   amount:    12.99, currency: 'EUR' },
+	{ date: '13/10/2004',   amount:   112.99, currency: 'EUR' },
+	{ date: '12/10/2004',   amount:  -812.99, currency: 'EUR' },
+]

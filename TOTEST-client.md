@@ -16,11 +16,6 @@ CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
 https://unpkg.com/floating.js@2.6.3/floating.js
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
-	
-	
-graph effects
-https://www.openprocessing.org/ +++ oa, ror
-https://p5js.org/get-started/
 
 color manipulation http://gka.github.io/chroma.js/
 ////////////////////////////////////////////////////////////////////////
@@ -31,6 +26,7 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 https://github.com/tunnckoCore/gibon simple routing
 https://github.com/hyperapp/hyperapp simple tout
+https://github.com/shankariyerr/tinyreset
 
 https://www.netlify.com/pricing/ pumped up GitHub pages ???
 
