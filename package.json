@@ -38,6 +38,7 @@
     "consolidate": "^0.14.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.7.1",
+    "d3": "^4.9.1",
     "downgrade-root": "^1.2.2",
     "dustjs-linkedin": "^2.7.2",
     "errorhandler": "^1.4.3",
