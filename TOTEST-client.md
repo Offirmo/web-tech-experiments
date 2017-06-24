@@ -11,6 +11,8 @@ player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
 state machine     https://github.com/jakesgordon/javascript-state-machine
+animations        http://animejs.com/
+typographie       https://github.com/davatron5000/Lettering.js
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -21,6 +23,7 @@ color manipulation http://gka.github.io/chroma.js/
 ////////////////////////////////////////////////////////////////////////
 
 https://unpkg.com/    https://unpkg.com/package@version/file
+   http://getlibs.com/
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 

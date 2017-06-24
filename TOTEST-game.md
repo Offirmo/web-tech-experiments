@@ -1,5 +1,7 @@
 
 
+https://codepen.io/nicoptere/full/awzbQW/ +++ basic isomorphic ?
+
 http://www.spritecow.com/  to generate CSS for sprites
 https://vxresource.wordpress.com/ RPG maker Vx resources
 http://game-icons.net/ +++ SVG game icons
@@ -18,6 +20,9 @@ comptes
 https://github.com/marteinn/The-Big-Username-Blacklist
 
 
+Polices
+* https://www.behance.net/gallery/53874837/Carre-Typeface
+* 
 
 Inventaire
 * http://packery.metafizzy.co/draggable.html

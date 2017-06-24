@@ -10,3 +10,5 @@ nodejs/google_oauth2.json
 node_modules
 bower_components
 incubator/common/logator/node_modules
+
+package-lock.json
