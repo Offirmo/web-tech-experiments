@@ -42,6 +42,7 @@
     "downgrade-root": "^1.2.2",
     "dustjs-linkedin": "^2.7.2",
     "errorhandler": "^1.4.3",
+    "eventemitter3": "^2.0.3",
     "express": "^4.13.4",
     "express-debug": "^1.1.1",
     "express-slash": "^2.0.1",
