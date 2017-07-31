@@ -12,12 +12,15 @@ https://www.openprocessing.org/ +++ superb graphic effects
 
 https://quickdraw.withgoogle.com/ doodles crayon
 
-Chat simulé
+Chat/adversaires simulés
 http://www.minecraftforum.net/forums/off-topic/forum-games/431299-big-list-of-minecraft-forum-usernames
 Filtrer mots
 https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
 comptes
 https://github.com/marteinn/The-Big-Username-Blacklist
+
+Algorithms
+* simple maze generator https://twitter.com/aemkei/status/889586022530658304
 
 
 Polices
