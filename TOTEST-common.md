@@ -1,6 +1,10 @@
 
+--- tools
 https://bazel.build/ generic build tool
+https://lernajs.io/
 
+
+--- libs
 https://github.com/dleitee/walletjs lib décimal
 https://github.com/brockwhittaker/BitArray.js lib bits
 
@@ -16,7 +20,6 @@ https://babeljs.io/blog/2016/08/30/babili
 
 https://github.com/date-fns/date-fns
 
-https://lernajs.io/
 
 https://yarnpkg.com/en/compare
 
@@ -62,10 +65,8 @@ http://mdast.js.org/
 
 https://github.com/yoshuawuyts/fsm-event
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
-https://github.com/asyncly/EventEmitter2
+https://github.com/primus/eventemitter3
 https://github.com/mariocasciaro/object-path
-
-https://github.com/ericelliott/stampit
 
 -- schema / DB
 https://github.com/anywhichway/joqular JavaScript Object Query Language Representation
@@ -82,9 +83,8 @@ https://github.com/wallabyjs/public#getting-started
 https://github.com/defunctzombie/zuul
 
 -- Ajax
+https://github.com/matthew-andrews/isomorphic-fetch
 https://github.com/visionmedia/superagent
-https://github.com/luin/superfetch
-https://fetch.spec.whatwg.org/
 https://github.com/typicode/fetchival
 
 
