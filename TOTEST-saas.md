@@ -1,4 +1,7 @@
 
+GraphQL CMS        -> https://graphcms.com/
+
+
 Auth               -> https://www.okta.com/developer/signup/stormpath/
 SMS                -> https://www.twilio.com/
 
@@ -27,6 +30,8 @@ admin ? http://www.forestadmin.com/product
 GeoIP              -> https://ipinfo.io/developers
 
 test               -> http://rem-rest-api.herokuapp.com/
+
+chat bot infos     -> https://collect.chat/
 
 
 http://ifconfig.me/

@@ -1,7 +1,10 @@
 
 --- tools
 https://bazel.build/ generic build tool
-https://lernajs.io/
+Monorepos:
+- https://lernajs.io/
+- https://github.com/Microsoft/web-build-tools/wiki/Rush
+
 
 
 --- libs
