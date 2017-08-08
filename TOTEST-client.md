@@ -27,6 +27,8 @@ https://unpkg.com/    https://unpkg.com/package@version/file
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
+https://jaredreich.com/pell wisiwig editor no dependencies
+
 https://github.com/tunnckoCore/gibon simple routing
 https://github.com/hyperapp/hyperapp simple tout
 https://github.com/shankariyerr/tinyreset
