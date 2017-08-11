@@ -1,7 +1,5 @@
 
 
-CLI https://github.com/dominictarr/subarg
-CLI https://github.com/mattallty/Caporal.js
 
 logs http://adpushup.github.io/woodlot/
 
@@ -262,10 +260,6 @@ https://github.com/mikaelbr/node-notifier
 erreurs
 https://github.com/fanatid/error-system
 
--- terminal / command line
-http://developer.telerik.com/featured/creating-node-js-command-line-utilities-improve-workflow/
-https://github.com/dylang/grunt-attention
-https://github.com/dylang/observatory
 
 --- ORM
 http://www.craigkerstiens.com/2015/11/30/massive-node-postgres-an-overview-and-intro/

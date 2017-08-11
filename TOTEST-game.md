@@ -1,5 +1,9 @@
 
 
+- interactive maps https://github.com/dphilipson/graphs-and-paths
+- talents https://github.com/dphilipson/graphito#toc0
+
+
 https://codepen.io/nicoptere/full/awzbQW/ +++ basic isomorphic ?
 
 http://www.spritecow.com/  to generate CSS for sprites

@@ -2,10 +2,8 @@
 Idées
 
 
-Game
-- interactive maps https://github.com/dphilipson/graphs-and-paths
-- talents https://github.com/dphilipson/graphito#toc0
 
+https://sonarwhal.com/
 
 Test de site web
 - tous navigateurs

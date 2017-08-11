@@ -148,3 +148,4 @@
 - [ ] IPFS https://ipfs.io/
 - [ ] CSP https://blogs.windows.com/msedgedev/2017/01/10/edge-csp-2/
 - [ ] quickstarter https://www.backerkit.com/
+- [ ] https://medium.com/the-node-js-collection/debugging-node-js-with-google-chrome-4965b5f910f4
