@@ -4,6 +4,7 @@
 logs http://adpushup.github.io/woodlot/
 
 
+https://github.com/dthree/mailit A tiny drop-in REST API to send emails 
 
 debug https://github.com/queckezz/fmt-obj
 

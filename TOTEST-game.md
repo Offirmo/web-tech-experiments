@@ -3,6 +3,9 @@
 - interactive maps https://github.com/dphilipson/graphs-and-paths
 - talents https://github.com/dphilipson/graphito#toc0
 
+https://www.behance.net/gallery/55668517/Arcanista-Free-Font
+https://www.behance.net/gallery/55249019/BIT-Free-Pixel-Typeface
+https://pixelbuddha.net/freebie/45-geometric-vector-shapes auras !!!
 
 https://codepen.io/nicoptere/full/awzbQW/ +++ basic isomorphic ?
 

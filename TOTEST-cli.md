@@ -5,6 +5,9 @@ Terminals:
 - https://eugeny.github.io/terminus/#macos
 
 
+https://github.com/bokub/chalk-animation
+
+
 CLI https://github.com/dominictarr/subarg
 CLI https://github.com/mattallty/Caporal.js
 
