@@ -10,7 +10,7 @@ process.on('exit', function(code) {
 
 const readline = require('readline')
 
-if (!process.stdin.setRawMode)
+if (!process.stdout.isTTY)
 	throw new Error('current term is not a tty !')
 
 readline.emitKeypressEvents(process.stdin)
@@ -24,7 +24,3 @@ process.stdin.on('keypress', (str, key) => {
 	if (key.ctrl && key.name === 'c')
 		process.kill(process.pid, 'SIGINT');
 })
-
-
-
-
