@@ -82,6 +82,7 @@
       https://community.letsencrypt.org/t/node-js-configuration/5175
 - [ ] notifications
 - [ ] ServiceWorker
+      https://www.hacklabo.com/your-first-service-worker/
       https://serviceworke.rs
       https://bitsofco.de/the-service-worker-lifecycle/
       https://github.com/lyzadanger/pragmatist-service-worker
