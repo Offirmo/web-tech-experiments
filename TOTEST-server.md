@@ -1,8 +1,4 @@
-
-
-
 logs http://adpushup.github.io/woodlot/
-
 
 https://github.com/dthree/mailit A tiny drop-in REST API to send emails 
 
@@ -13,19 +9,11 @@ https://github.com/msudgh/icu-loader
 
 https://github.com/255kb/stack-on-a-budget
 
-https://piwik.org/ free analytics
-https://dply.co/ free hosting for 2 hours
-
-https://github.com/RafalWilinski/express-status-monitor status monitor free
 https://hashnode.com/post/10-things-you-shouldnt-do-while-running-nodejs-in-production-cisab2fyu0s9oth5341faywcw
 
 Figure out if your node process is blocked because the CPU is spinning https://github.com/mafintosh/block-trace
 
 Share your terminal over the web https://github.com/tsl0922/ttyd
-
-Free hosting ?
-http://www.joelonsoftware.com/items/2016/05/30.html hyperdev
-https://medium.freecodecamp.com/building-a-nodejs-microservice-on-aws-lambda-6adb6da53cbb
 
 https://keymetrics.io/2016/08/24/pm2-v2-released/
 
@@ -53,9 +41,8 @@ shebang
 
 https://zeit.co/now
 
-feature toggling https://github.com/FredKSchott/fflip
-
-  data exploration platform designed to be visual, intuitive, and interactive https://github.com/airbnb/caravel
+feature toggling   https://github.com/FredKSchott/fflip
+data exploration platform designed to be visual, intuitive, and interactive https://github.com/airbnb/caravel
 
 Modern HTTP benchmarking tool https://github.com/wg/wrk
 siege http://www.joedog.org/siege-manual/

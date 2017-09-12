@@ -33,6 +33,8 @@ test               -> http://rem-rest-api.herokuapp.com/
 
 chat bot infos     -> https://collect.chat/
 
+step-by-step       -> https://www.hotjar.com/grow-your-saas-startup/
+
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/
