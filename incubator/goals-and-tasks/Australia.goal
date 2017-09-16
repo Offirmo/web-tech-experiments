@@ -25,7 +25,7 @@
 [having an offer and accepting it] done!
 [being recruited by Atlassian] requires [passing Atlassian background check]
 [being recruited by Atlassian] requires [being successfully granted the 457 visa]
-[being succesfully granted the 457 visa] done!
+[being successfully granted the 457 visa] done!
 
 [having a private health insurance] possibly realized by [being covered by Atlassian health insurance](from X to Y)
 [being covered by Atlassian health insurance] requires [filling the form]
