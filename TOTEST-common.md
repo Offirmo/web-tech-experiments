@@ -1,14 +1,13 @@
 
 
---- iso
+//////////// isomorphic ////////////
 https://github.com/azu/localstorage-ponyfill
-
-
---- tools
-https://bazel.build/ generic build tool
-Monorepos:
-- https://lernajs.io/
-- https://github.com/Microsoft/web-build-tools/wiki/Rush
+network          https://github.com/matthew-andrews/isomorphic-fetch
+                 axios
+                 https://github.com/visionmedia/superagent
+                 https://github.com/typicode/fetchival
+                 
+validation       https://github.com/hapijs/joi
 
 
 
@@ -22,8 +21,6 @@ https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-no
 Promises:
 - https://github.com/joeattardi/promise-poller
 - 
-
-https://babeljs.io/blog/2016/08/30/babili
 
 
 https://github.com/date-fns/date-fns
@@ -42,13 +39,10 @@ https://github.com/SamyPesse/gitkit-js Pure javascript implementation of Git (No
 https://github.com/ziyasal/scientist.js
 https://github.com/jezen/is-thirteen
 
-http://fr.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692
-https://github.com/robbyrussell/oh-my-zsh
-
 https://github.com/bevacqua/trunc-html
 https://github.com/teamweek/instadate A minimal high performance date library for Node.js and Browser 
 
-http://sweetjs.org/ macros
+macros    http://sweetjs.org/
 
 Rx
 http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
@@ -83,17 +77,6 @@ https://github.com/Muscula/json-schema-benchmark
 
 - fluent libs
 https://github.com/metaraine/shackles
-
-
--- useful tools
-version for JetBrains IDEs from: http://download.wallabyjs.com/47256d31-477d-4449-81b4-a443009972aa
-https://github.com/wallabyjs/public#getting-started
-https://github.com/defunctzombie/zuul
-
--- Ajax
-https://github.com/matthew-andrews/isomorphic-fetch
-https://github.com/visionmedia/superagent
-https://github.com/typicode/fetchival
 
 
 -- mails

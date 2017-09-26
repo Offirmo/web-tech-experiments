@@ -1,4 +1,8 @@
 
+https://github.com/WolframHempel/speaking-jpg
+https://www.stefanjudis.com/blog/hidden-messages-in-javascript-property-names/
+
+
 https://github.com/bestiejs/platform.js A platform detection library that works on nearly all JavaScript platforms.
 
 https://github.com/gchq/CyberChef
