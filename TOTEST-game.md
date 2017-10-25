@@ -1,7 +1,19 @@
 
 
+dungeons
+crafting (deep town)
+spirit stones, composable
+tiered items
+biomes
+power
+
+amazing design https://codepen.io/rrenula/pen/LzLXYJ
+
 - interactive maps https://github.com/dphilipson/graphs-and-paths
 - talents https://github.com/dphilipson/graphito#toc0
+- tree view https://github.com/elbywan/bosket
+- pathfinding https://github.com/anvaka/ngraph.path
+
 
 https://www.behance.net/gallery/55668517/Arcanista-Free-Font
 https://www.behance.net/gallery/55249019/BIT-Free-Pixel-Typeface

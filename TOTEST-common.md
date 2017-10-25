@@ -14,13 +14,15 @@ validation       https://github.com/hapijs/joi
 --- libs
 https://github.com/dleitee/walletjs lib décimal
 https://github.com/brockwhittaker/BitArray.js lib bits
+https://github.com/ai/nanoevents  nano events
+
 
 https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-node-and-the-browser/
 
 
 Promises:
 - https://github.com/joeattardi/promise-poller
-- 
+- https://github.com/sindresorhus/p-progress
 
 
 https://github.com/date-fns/date-fns

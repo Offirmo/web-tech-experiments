@@ -12,7 +12,11 @@ tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
 state machine     https://github.com/jakesgordon/javascript-state-machine
 animations        http://animejs.com/
-typographie       https://github.com/davatron5000/Lettering.js
+scheduling        https://github.com/alexreardon/raf-schd
+full screen       https://github.com/Aqours/Fullscreen
+scroll bar        https://idiotwu.github.io/smooth-scrollbar/
+maps              https://maptalks.org/
+colors            http://clrs.cc/
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -34,21 +38,23 @@ https://github.com/hyperapp/hyperapp simple tout
 https://github.com/shankariyerr/tinyreset
 
 
+https://github.com/mikeal/markdown-element
 
+web components https://github.com/mikeal/distjs
 
 https://codepen.io/Kseso/full/ZJbEMe/
 
 
 https://www.netlify.com/pricing/ pumped up GitHub pages ???
 
-// bonne combo ?
-https://github.com/infernojs/inferno#toc11
-http://conditionerjs.com/
-svelte
+REACT
+https://github.com/react-map/react-magic cools anims
+https://shopify.github.io/draggable/
+
+
 
 https://techblog.badoo.com/blog/2017/03/23/webRTC-making-a-peer-to-peer-game-using-javascript/
 
-https://github.com/react-map/react-magic cools anims
 
 https://safi.me.uk/typewriterjs/ typewriter effect
 
@@ -105,6 +111,7 @@ https://github.com/wentin/underlineJS
 https://github.com/sindresorhus/emoj
 http://kerningjs.com/ advanced web typography
 https://github.com/filamentgroup/faux-pas
+typographie       https://github.com/davatron5000/Lettering.js
 
 
 ~~~ website P ~~~

@@ -1,114 +1,116 @@
 //import { createDeferred } from './promise-utils'
 
+// eager / lazy
+// in order
+
 function factory({debugId}) {
+	const LIB = 'Mini injector'
+	const store = {}
 
-    const store = {}
+	const injector = {
+		register,
+		get,
+		_: {
+			store,
+		}
+	}
 
-    const injector = {
-        register,
-        get,
-        _: {
-            store,
-        }
-    }
+	function get(...rsrcIds) {
+		if (!rsrcIds || !rsrcIds.length)
+			throw new Error(`${LIB} get(): no resources asked!`)
 
-    function get(...rsrcIds) {
-        if (!rsrcIds || !rsrcIds.length)
-            throw new Error(`Mini injector get(): no resources!`)
+		return Promise.all(
+			rsrcIds
+				.map(function validateParam(rsrcId) {
+					if (!store[rsrcId])
+						throw new Error(`${LIB} get(): unknown resource "${rsrcId}"!`)
+					return rsrcId
+				})
+				.map(rsrcId => store[rsrcId].promise)
+		)
+			.then(() => {
+				const valuesHash = rsrcIds.reduce((acc, rsrcId) => {
+					acc[rsrcId] = store[rsrcId].resolvedValue
+					return acc
+				}, {})
+				return valuesHash
+			})
+	}
 
-        return Promise.all(
-                rsrcIds
-                .map(function validateParam(rsrcId) {
-                    if (!store[rsrcId])
-                        throw new Error(`Mini injector get(): unknown resource "${rsrcId}"!`)
-                    return rsrcId
-                })
-                .map(rsrcId => store[rsrcId].promise)
-            )
-            .then(() => {
-                const valuesHash = rsrcIds.reduce((acc, rsrcId) => {
-                    acc[rsrcId] = store[rsrcId].resolvedValue
-                    return acc
-                }, {})
-                return valuesHash
-            })
-    }
+	function registerSingleResource(rsrcId, generatorOrValue, dependencies) {
+		if (store[rsrcId])
+			throw new Error(`${LIB} register(): resource "${rsrcId}" already registered!`)
 
-    function registerRsrc(rsrcId, generatorOrValue, dependencies) {
-        if (store[rsrcId])
-            throw new Error(`Mini injector: resource "${rsrcId}" already registered!`)
+		dependencies.forEach(function validateResourceDependency(depId) {
+			if (!store[depId])
+				throw new Error(`${LIB} register(): missing dependency "${depId}" for generating resource "${rsrcId}"!`)
+		})
 
-        dependencies.forEach(function validateParam(depId) {
-            if (!store[depId])
-                throw new Error(`Mini injector: missing dependency "${depId}" for generating resource "${rsrcId}"!`)
-        })
+		const rsrc = {
+			id: rsrcId,
+			dependencies,
+			promise: undefined,
+			isResolved: false,
+			resolvedValue: undefined,
+		}
+		rsrc.promise = get(...dependencies)
+			.then(valuesHash => {
+				if (typeof generatorOrValue === 'function' && !generatorOrValue.then) {
+					return generatorOrValue.call(undefined, valuesHash)
+				}
 
-        const rsrc = {
-            id: rsrcId,
-            dependencies,
-            promise: undefined,
-            isResolved: false,
-            resolvedValue: undefined,
-        }
-        rsrc.promise = get(...dependencies)
-            .then(valuesHash => {
-                if (!generatorOrValue.then && typeof generatorOrValue === 'function') {
-                    return generatorOrValue.call(undefined, valuesHash)
-                }
-                else {
-                    return generatorOrValue
-                }
-            })
+				return generatorOrValue
+			})
 
-        rsrc.promise.then(value => {
-            rsrc.isResolved = true
-            rsrc.resolvedValue = value
-            injector[rsrcId] = value // expose the value directly on the injector for convenience
-        })
-        store[rsrcId] = rsrc
+		rsrc.promise.then(value => {
+			rsrc.isResolved = true
+			rsrc.resolvedValue = value
+			injector[rsrcId] = value // expose the value directly on the injector for convenience
+		})
+		store[rsrcId] = rsrc
 
-        return rsrc.promise
-    }
+		return rsrc.promise
+	}
 
-    function register(rsrcsDefinition) {
-        Object.keys(rsrcsDefinition).forEach(rsrcId => {
-            let generatorOrValue = rsrcsDefinition[rsrcId]
-            let dependencies = []
-            if (Array.isArray(generatorOrValue)) {
-                dependencies = generatorOrValue
-                generatorOrValue = dependencies.pop()
-            }
-            registerRsrc(rsrcId, generatorOrValue, dependencies)
-        })
+	function register(rsrcsDefinition) {
+		Object.keys(rsrcsDefinition).forEach(rsrcId => {
+			let generatorOrValue = rsrcsDefinition[rsrcId]
+			let dependencies = []
+			if (Array.isArray(generatorOrValue)) {
+				dependencies = generatorOrValue
+				generatorOrValue = dependencies.pop()
+			}
+			registerSingleResource(rsrcId, generatorOrValue, dependencies)
+		})
 
-        return get(...Object.keys(rsrcsDefinition))
-    }
+		return get(...Object.keys(rsrcsDefinition))
+	}
 
-    injector.register({
-        debugId,
-        injector,
-    })
+	injector.register({
+		debugId,
+		injector,
+	})
 
-    const safeInjector = new window.Proxy(injector, {
-        get(target, name) {
-            if (name === 'get') return target[name]
-            if (name === 'register') return target[name]
-            if (!store[name])
-                throw new Error(`Mini injector direct access: unknown resource "${name}"!`)
-            if (!store[name].isResolved)
-                throw new Error(`Mini injector direct access: synchronously trying to access unresolved resource "${name}"!`)
-            return target[name]
-        },
-        set(obj, prop, value) {
-            throw new Error(`Mini injector '.': messing with the injector ("${prop}" = "${value}") is not allowed!`)
-        }
-    })
+	const safeInjector = new window.Proxy(injector, {
+		get(target, name) {
+			if (name === 'get') return target[name]
+			if (name === 'register') return target[name]
+			if (!store[name])
+				throw new Error(`${LIB} direct getter: unknown resource "${name}"!`)
+			if (!store[name].isResolved)
+				throw new Error(`${LIB} direct getter: synchronously trying to access unresolved resource "${name}"!`)
+			return target[name]
+		},
+		set(obj, prop, value) {
+			throw new Error(`${LIB} direct setter: messing with the injector ("${prop}" = "${value}") is not allowed!`)
+		}
+	})
 
-    return safeInjector
+	return safeInjector
 }
 
 export {
-    factory,
+	factory,
 }
 
 

@@ -1,3 +1,6 @@
+Lambdas:
+* https://zeit.co/oss
+
 logs http://adpushup.github.io/woodlot/
 
 https://github.com/dthree/mailit A tiny drop-in REST API to send emails 
