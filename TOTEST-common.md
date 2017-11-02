@@ -8,6 +8,8 @@ network          https://github.com/matthew-andrews/isomorphic-fetch
                  https://github.com/typicode/fetchival
                  
 validation       https://github.com/hapijs/joi
+uuid             https://github.com/ai/nanoid
+event emitter    https://github.com/ai/nanoevents
 
 
 

@@ -17,6 +17,8 @@ full screen       https://github.com/Aqours/Fullscreen
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
 maps              https://maptalks.org/
 colors            http://clrs.cc/
+tree view         https://github.com/elbywan/bosket
+simple icons      https://icongr.am/simple
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -25,6 +27,8 @@ https://unpkg.com/floating.js@2.6.3/floating.js
 
 color manipulation http://gka.github.io/chroma.js/
 ////////////////////////////////////////////////////////////////////////
+
+pure css modal https://hunzaboy.github.io/Light-Modal/#
 
 https://unpkg.com/    https://unpkg.com/package@version/file
    http://getlibs.com/

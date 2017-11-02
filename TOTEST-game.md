@@ -7,6 +7,9 @@ tiered items
 biomes
 power
 
+
+https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children's-privacy
+
 amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
 - interactive maps https://github.com/dphilipson/graphs-and-paths
