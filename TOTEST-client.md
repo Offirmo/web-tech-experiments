@@ -19,34 +19,37 @@ maps              https://maptalks.org/
 colors            http://clrs.cc/
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
+poppers           https://github.com/FezVrasta/popper.js
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
 https://unpkg.com/floating.js@2.6.3/floating.js
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
 
-color manipulation http://gka.github.io/chroma.js/
-////////////////////////////////////////////////////////////////////////
-
-pure css modal https://hunzaboy.github.io/Light-Modal/#
-
 https://unpkg.com/    https://unpkg.com/package@version/file
    http://getlibs.com/
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
-https://jaredreich.com/pell wisiwig editor no dependencies
 
-https://github.com/tunnckoCore/gibon simple routing
-https://github.com/hyperapp/hyperapp simple tout
+////////////////////////////////////////////////////////////////////////
+
+pure css modal https://hunzaboy.github.io/Light-Modal/#
+
+color manipulation http://gka.github.io/chroma.js/
+
+https://jaredreich.com/pell   wisiwig editor no dependencies
+
+https://github.com/tunnckoCore/gibon   simple routing
+https://github.com/hyperapp/hyperapp   simple tout
 https://github.com/shankariyerr/tinyreset
-
 
 https://github.com/mikeal/markdown-element
 
 web components https://github.com/mikeal/distjs
 
-https://codepen.io/Kseso/full/ZJbEMe/
+https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
+amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
 
 https://www.netlify.com/pricing/ pumped up GitHub pages ???

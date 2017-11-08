@@ -1,4 +1,8 @@
 
+http://goodriddlesnow.com/riddles/by/what-am-i-riddles/page:5/sort:id/direction:asc#
+
+Tribu de Dana
+École du micro d'argent
 
 dungeons
 crafting (deep town)
@@ -10,7 +14,6 @@ power
 
 https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children's-privacy
 
-amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
 - interactive maps https://github.com/dphilipson/graphs-and-paths
 - talents https://github.com/dphilipson/graphito#toc0
