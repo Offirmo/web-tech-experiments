@@ -15,3 +15,7 @@ Share
 
 npm
 * https://npm.runkit.com/try-node-8
+
+
+https://www.intercom.com/books/starting-up
+https://blog.intercom.com/product-hunts-ryan-hoover-on-growing-a-happy-community/

@@ -1,6 +1,8 @@
 
 http://goodriddlesnow.com/riddles/by/what-am-i-riddles/page:5/sort:id/direction:asc#
 
+Asgardia
+
 Tribu de Dana
 École du micro d'argent
 
@@ -11,6 +13,10 @@ tiered items
 biomes
 power
 
+scrying spell to find lost people
+
+Fantasy interface http://homebrewery.naturalcrit.com/
+animal speech https://pets.stackexchange.com/questions/18822/what-is-this-street-cat-trying-to-ask-me-for
 
 https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children's-privacy
 

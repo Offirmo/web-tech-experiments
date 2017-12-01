@@ -26,8 +26,7 @@
 		"noEmitOnError": true
 	},
 	"files": [
-		"../node_modules/@types/node/index.d.ts",
-		"../node_modules/inversify-dts/inversify/inversify.d.ts"
+		"../node_modules/@types/node/index.d.ts"
 	],
 	"compileOnSave": false,
 	"_comments": {

@@ -65,7 +65,6 @@
     "hjson": "^3",
     "iconv-lite": "^0.4.13",
     "immutable": "^3.8.1",
-    "inversify": "^2.0.0",
     "is-root": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
     "javascript-state-machine": "^3",
@@ -157,10 +156,11 @@
     "style-loader": "^0.18",
     "ts-node": "^3.0.4",
     "tsmonad": "^0.7",
-    "typescript": "^2.0.2"
+    "typescript": "^2.7.0-dev.20171114"
   },
   "commentedOut": {
     "@types/inversify": "^2.0.29",
+    "inversify": "^2.0.0",
     "accounting": "latest",
     "alce": "^1.1.0",
     "angular": "latest",
