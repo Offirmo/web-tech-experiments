@@ -2,6 +2,8 @@
 Idées
 
 
+browser support table https://confluence.atlassian.com/cloud/supported-browsers-744721663.html
+
 
 https://sonarwhal.com/
 
