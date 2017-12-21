@@ -6,8 +6,8 @@ network          https://github.com/matthew-andrews/isomorphic-fetch
                  axios
                  https://github.com/visionmedia/superagent
                  https://github.com/typicode/fetchival
-                 
 validation       https://github.com/hapijs/joi
+                 https://github.com/ianstormtaylor/superstruct
 uuid             https://github.com/ai/nanoid
 event emitter    https://github.com/ai/nanoevents
 
