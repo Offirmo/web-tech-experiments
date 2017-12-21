@@ -20,6 +20,7 @@ colors            http://clrs.cc/
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
 poppers           https://github.com/FezVrasta/popper.js
+shortcuts         https://github.com/avocode/combokeys
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -33,6 +34,9 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 
 ////////////////////////////////////////////////////////////////////////
+
+Effects:
+- http://hugoware.net/blog/lost-in-space
 
 pure css modal https://hunzaboy.github.io/Light-Modal/#
 

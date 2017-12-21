@@ -25,6 +25,7 @@
     "node": "^6"
   },
   "dependencies": {
+    "@atlaskit/analytics": "^2.3.4",
     "@offirmo/random": "^2",
     "@reactivex/rxjs": "^5",
     "amdefine": "^1",
