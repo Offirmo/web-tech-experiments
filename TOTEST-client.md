@@ -35,12 +35,20 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 ////////////////////////////////////////////////////////////////////////
 
+https://github.com/thedaviddias/Front-End-Checklist
+
 Effects:
 - http://hugoware.net/blog/lost-in-space
+- http://ykob.github.io/sketch-threejs/
+
+Concepts
+- https://tympanus.net/Development/SearchUIEffects/index10.html
+- https://github.com/codrops/TooltipAnimations/
 
 pure css modal https://hunzaboy.github.io/Light-Modal/#
 
 color manipulation http://gka.github.io/chroma.js/
+gradients https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 
 https://jaredreich.com/pell   wisiwig editor no dependencies
 

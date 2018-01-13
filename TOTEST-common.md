@@ -52,7 +52,14 @@ Rx
 http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
 http://reactivex.io/intro.html
 https://github.com/Reactive-Extensions/RxJS
+
+Immutability
 https://facebook.github.io/immutable-js/
+https://github.com/aearly/icepick
+https://github.com/rtfeldman/seamless-immutable
+
+for APIs
+https://github.com/paularmstrong/normalizr
 
 https://github.com/VerbalExpressions/JSVerbalExpressions
 
