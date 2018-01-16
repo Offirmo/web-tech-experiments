@@ -40,6 +40,8 @@ https://github.com/thedaviddias/Front-End-Checklist
 Effects:
 - http://hugoware.net/blog/lost-in-space
 - http://ykob.github.io/sketch-threejs/
+- https://github.com/byeolbit/translucent
+
 
 Concepts
 - https://tympanus.net/Development/SearchUIEffects/index10.html
@@ -63,21 +65,14 @@ web components https://github.com/mikeal/distjs
 https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
 amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
-
-https://www.netlify.com/pricing/ pumped up GitHub pages ???
-
 REACT
 https://github.com/react-map/react-magic cools anims
 https://shopify.github.io/draggable/
-
-
 
 https://techblog.badoo.com/blog/2017/03/23/webRTC-making-a-peer-to-peer-game-using-javascript/
 
 
 https://safi.me.uk/typewriterjs/ typewriter effect
-
-https://github.com/byeolbit/translucent superbe effet
 
 http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
 https://github.com/jakiestfu/Medium.js
@@ -86,6 +81,7 @@ https://html5boilerplate.com/
 https://github.com/css-modules/css-modules
 
 Format your <input/> content when you are typing https://nosir.github.io/cleave.js/
+
 https://www.boxfactura.com/pulltorefresh.js/
 
 Graphs:
