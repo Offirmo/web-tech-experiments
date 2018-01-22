@@ -21,6 +21,7 @@ tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
 poppers           https://github.com/FezVrasta/popper.js
 shortcuts         https://github.com/avocode/combokeys
+loaders           https://loading.io/
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
