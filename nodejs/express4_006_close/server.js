@@ -25,6 +25,7 @@ process.on('uncaughtException', function(err){
 
 	// ask the server to not accept new connections
 	// and to wait for existing connections to close (may take a long time !)
+	// XXX does it work?
 	server.close(function() {
 		// all connections are closed
 		console.log('all closed');

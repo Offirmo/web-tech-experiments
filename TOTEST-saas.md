@@ -1,7 +1,6 @@
 
 GraphQL CMS        -> https://graphcms.com/
 
-
 Auth               -> https://www.okta.com/developer/signup/stormpath/
 SMS                -> https://www.twilio.com/
 
@@ -19,13 +18,13 @@ big file sharing   -> https://www.myairbridge.com/en/
 
 saas microservices -> https://hook.io/new
 
-Générateur de QR Codes http://www.unitag.fr/qrcode
+Générateur de QR Codes -> http://www.unitag.fr/qrcode
 
-Audit SEO / perf ++ https://auditor.raventools.com/
+Audit SEO / perf ++ -> https://auditor.raventools.com/
 
-Specs for selling a SAAS https://www.enterpriseready.io/
+Specs for selling a SAAS -> https://www.enterpriseready.io/
 
-admin ? http://www.forestadmin.com/product
+admin ? -> http://www.forestadmin.com/product
 
 GeoIP              -> https://ipinfo.io/developers
 
@@ -41,10 +40,15 @@ screen shots       -> https://enpose.co/pricing/
 
 e-signature        -> https://www.hellosign.com/api
 
+Newsfeeds & Activity Streams  -> https://getstream.io/
+
+push -> https://pushjs.org/#
+
+fanout ? -> https://www.ably.io/compare
+
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/
-https://rollbar.com/
 https://github.com/sindresorhus/is-up
 https://github.com/sindresorhus/public-ip
 http://pusher.com/
