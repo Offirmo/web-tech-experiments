@@ -22,6 +22,10 @@ simple icons      https://icongr.am/simple
 poppers           https://github.com/FezVrasta/popper.js
 shortcuts         https://github.com/avocode/combokeys
 loaders           https://loading.io/
+components        https://frend.co/
+incredible viz    https://carrotsearch.com/foamtree/
+                  https://isotope.metafizzy.co/
+                  https://packery.metafizzy.co/
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -29,7 +33,7 @@ https://unpkg.com/floating.js@2.6.3/floating.js
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
 
 https://unpkg.com/    https://unpkg.com/package@version/file
-   http://getlibs.com/
+http://getlibs.com/
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
@@ -39,6 +43,10 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 https://github.com/thedaviddias/Front-End-Checklist
 
 analytics imblocables https://github.com/jbtronics/CrookedStyleSheets
+
+Visualization
+* https://carrotsearch.com/foamtree/ (via https://github.com/webpack-contrib/webpack-bundle-analyzer)
+* https://chrisbateman.github.io/webpack-visualizer/
 
 Effects:
 - http://hugoware.net/blog/lost-in-space
@@ -130,6 +138,7 @@ https://github.com/sindresorhus/emoj
 http://kerningjs.com/ advanced web typography
 https://github.com/filamentgroup/faux-pas
 typographie       https://github.com/davatron5000/Lettering.js
+typographie bien contrôlée ! http://txtjs.com/
 
 
 ~~~ website P ~~~
@@ -238,7 +247,6 @@ http://blog.gospodarets.com/track_javascript_angularjs_and_jquery_errors_with_go
 https://github.com/toddmotto/flare
 http://davidwalsh.name/track-errors-google-analytics
 http://boba.space150.com/
-https://github.com/revolunet/angular-google-analytics
 
 
 JSS = JSON CSS https://medium.com/@oleg008/the-important-parts-131dda7f6f6f
@@ -247,11 +255,9 @@ http://kumailht.com/gridforms/
 http://tympanus.net/Development/TextInputEffects/
 https://github.com/knsv/mermaid graphs
 
-http://www.angulargrid.com/example.html
 http://mango.github.io/slideout/
 https://github.com/spite/THREE.AugmentedConsole.js/blob/master/src/THREE.AugmentedConsole.js
 http://pathgather.github.io/please-wait/
-http://mrzepinski.github.io/angular-debug-bar/
 http://lafikl.github.io/perfBar/
 http://mrzepinski.github.io/angular-rpi/
 http://semantic-ui.com/kitchen-sink.html
@@ -272,7 +278,6 @@ http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
 https://github.com/eloone/symbol-typer
 http://hammerjs.github.io/touch-emulator/
-https://github.com/revolunet/angular-carousel
 http://weblinc.github.io/jquery.smoothState.js/demos/typical/about.html
 http://www.google.com/design/spec/style/color.html#
 https://github.com/marmelab/ng-admin
@@ -282,43 +287,16 @@ http://airbnb.github.io/infinity/
 http://code.kojilabs.com/page-visibility-api/
 https://segment.io/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/
 https://golden-layout.com/
-http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
 http://jackf.net/bezier-clock/
 http://www.giacomovacca.com/2015/02/websockets-over-nodejs-from-plain-to.html
-http://cssanimation.rocks/twitter-fave/
 
 -- client / no framework ?
 http://bitworking.org/news/2014/05/zero_framework_manifesto
 http://stackoverflow.com/questions/5186542/where-am-i-wrong-about-my-project-and-these-javascript-frameworks#
 https://github.com/mightyiam/combokeys
 
--- famo.us
-https://github.com/IjzerenHein/famous-kenburnscontainer
+-
 
-http://paperclipjs.com/ can complement AngularJS
-
--- AngularJS --
-https://github.com/Gillespie59/eslint-plugin-angular
-http://randomjavascript.blogspot.co.uk/2015/01/ngtestharness-strap-in-with-this-new.html
-https://github.com/begriffs/angular-paginate-anything
-http://mgcrea.github.io/angular-strap/
-https://github.com/sparkalow/angular-truncate
-https://github.com/mgonto/restangular
-http://barakchamo.github.io/ng-promise-status/
-http://www.sitepoint.com/introduction-futuristic-new-router-angularjs/
---- vidéos
-http://www.jsdb.io/view/mediaelement
-http://ng-video.herokuapp.com/
-http://www.jsdb.io/view/device-js
-
-http://tylerhenkel.com/angular-fullstack-2-0-released/
-http://eranhirs.github.io/jsTag/
-https://github.com/akatov/angular-contenteditable
-https://github.com/IcanDivideBy0/angular-reorderable
-http://angularjs.blogspot.fr/2014/11/using-ngaria.html
-https://github.com/jtblin/angular-chart.js
-https://scotch.io/bar-talk/the-best-news-from-angulars-ng-conf-2015
-https://github.com/maxigimenez/angular-atomic-notify
 
 --- i18n
 -- SVG
@@ -331,12 +309,7 @@ https://www.flag-sprites.com/
 https://github.com/gosquared/flags
 -- super fonte
 https://github.com/googlei18n/noto-fonts
--- angular flags (à copier)
-https://github.com/asafdav/ng-flags
 
-https://scotch.io/tutorials/internationalization-of-angularjs-applications
-https://github.com/lgalfaso/angular-dynamic-locale
-https://github.com/angular-translate/angular-translate
 
 https://github.com/typicode/pegasus optim chargement 
 
@@ -353,12 +326,8 @@ http://jakearchibald.com/2014/offline-cookbook/
 https://jakearchibald.github.io/isserviceworkerready/index.html
 http://www.html5rocks.com/en/tutorials/service-worker/introduction/
 
---- app cache
-https://github.com/gr2m/appcache-nanny
-https://www.npmjs.com/package/hyperboot
 
 --- persistence
-http://lattapartners.com/offline-data-in-the-browser/
 pouchdb http://www.sitepoint.com/building-offline-first-app-pouchdb/
 in-memory https://github.com/js-data/js-data
 firebase http://scotch.io/tutorials/javascript/build-a-real-time-scheduling-app-using-angularjs-and-firebase
@@ -386,7 +355,6 @@ popups http://github.hubspot.com/messenger/docs/welcome/
 -- effets
 scroll mobile sur tilt http://vodkabears.github.io/interdimensional/
 mappemonde 3D http://echarts.baidu.com/x/doc/example.html#map3d
-typographie bien contrôlée ! http://txtjs.com/
 
 
 

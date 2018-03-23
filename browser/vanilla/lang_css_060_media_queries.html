@@ -5,20 +5,20 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>HTML5 006 - HTML tests micro template</title>
+	<title>CSS 060 - Media queries</title>
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
 
 	<style type="text/css">
 		body {
-			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 			/* https://www.leejamesrobinson.com/blog/how-stripe-designs-beautiful-websites/ */
 			text-rendering: optimizeLegibility;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 
-			/* http://perfectmotherfuckingwebsite.com/ */
 			color: #333;
+
 			margin: 40px;
 			line-height: 1.6;
 			font-size: 16px;
@@ -39,14 +39,40 @@
 			box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
 		}
 
+		.top-content {
+
+		}
+
+		@media screen and (max-height: 600px) {
+			/*.top-content {
+				display: none;
+			}*/
+
+			/* https://blog.escapecreative.com/how-to-replace-text-with-css/ */
+			.top-content {
+				visibility: hidden;
+				position: relative;
+			}
+
+			.top-content:after {
+				visibility: visible;
+				position: absolute;
+				top: 0;
+				left: 0;
+				content: "This text replaces the original.";
+			}
+		}
+
 
 	</style>
 </head>
 
 <h1>...</h1>
+<p class="top-content">
+	Useless para
+</p>
 <p>
-	A micro template for HTML tests
-	<button>click me!</button>
+	Critical para
 </p>
 
 <script>

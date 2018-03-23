@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png"/>
+	<title>CSS 071 - shapes</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+			background-color: black;
+		}
+
+		#circle {
+			width: 100px;
+			height: 100px;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+
+			background: #292830;
+			color: #ffebbc;
+			border: solid 5px #ffebbc;
+		}
+		/* Cleaner, but slightly less support: use "50%" as value */
+
+		#tv1 {
+			width: 200px;
+			height: 150px;
+			margin: 20px 0;
+			text-align: center;
+			text-indent: .1em;
+
+			border-radius: 50% / 10%;
+
+			background: #292830;
+			color: #ffebbc;
+			border: solid 5px #ffebbc;
+		}
+
+		#tv2 {
+
+			width: 200px;
+			height: 150px;
+			margin: 20px 0;
+			text-align: center;
+			text-indent: .1em;
+
+			border-radius: 5% / 50%;
+
+			background: #292830;
+			color: #ffebbc;
+			border: solid 5px #ffebbc;
+		}
+
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://css-tricks.com/examples/ShapesOfCSS/</a>
+</p>
+<div id="tv1">Hello, world</div>
+<div id="tv2">Hello, world</div>
+<div id="circle">Hello, world</div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function (el) {
+		el.href || (el.href = el.text);
+	});
+</script>

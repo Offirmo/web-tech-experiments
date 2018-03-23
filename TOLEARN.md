@@ -87,6 +87,7 @@
       https://bitsofco.de/the-service-worker-lifecycle/
       https://github.com/lyzadanger/pragmatist-service-worker
       https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-workers-5-cases-when-you-should-use-them-a547c0757f6a
+      https://medium.freecodecamp.org/service-workers-the-little-heroes-behind-progressive-web-apps-431cc22d0f16
 - [ ] Stormpath
 - [ ] GraphQL
        http://graphql.org/

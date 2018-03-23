@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png"/>
+	<title>CSS 070 - shapes</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		#tv {
+			position: relative;
+			width: 200px;
+			height: 150px;
+			margin: 20px 0;
+			background: red;
+			border-radius: 50% / 10%;
+			color: white;
+			text-align: center;
+			text-indent: .1em;
+		}
+
+		#tv:before {
+			content: '';
+			position: absolute;
+			top: 10%;
+			bottom: 10%;
+			right: -5%;
+			left: -5%;
+			background: inherit;
+			border-radius: 5% / 50%;
+		}
+
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://css-tricks.com/examples/ShapesOfCSS/</a>
+</p>
+<div id="tv"></div>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function (el) {
+		el.href || (el.href = el.text);
+	});
+</script>

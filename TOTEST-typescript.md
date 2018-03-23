@@ -8,3 +8,7 @@ http://www.typescriptlang.org/play/#src=interface%20Json%20%7B%0D%0A%09%5Bx%3A%2
 https://github.com/electricessence/TypeScript.NET/blob/master/source/JSON.d.ts
 https://github.com/electricessence/TypeScript.NET/blob/master/_utility/file-promise.ts#L59-L80
 http://blog.ninja-squad.com/2016/03/15/ninja-tips-2-type-your-json-with-typescript/
+
+
+
+https://www.npmjs.com/package/monolite
