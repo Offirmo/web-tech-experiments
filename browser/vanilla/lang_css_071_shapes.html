@@ -6,6 +6,13 @@
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png"/>
 	<title>CSS 071 - shapes</title>
 	<style type="text/css">
+		html {
+			box-sizing: border-box;
+		}
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+
 		body {
 			margin: 40px;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -24,7 +31,6 @@
 			color: #ffebbc;
 			border: solid 5px #ffebbc;
 		}
-		/* Cleaner, but slightly less support: use "50%" as value */
 
 		#tv1 {
 			width: 200px;

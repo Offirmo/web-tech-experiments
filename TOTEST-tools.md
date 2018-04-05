@@ -14,3 +14,4 @@ version for JetBrains IDEs from: http://download.wallabyjs.com/47256d31-477d-444
 https://github.com/wallabyjs/public
 https://github.com/defunctzombie/zuul
 
+http://www.hygen.io/quick-start/
