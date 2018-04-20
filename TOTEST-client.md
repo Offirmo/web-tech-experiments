@@ -77,6 +77,7 @@ https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
 amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
 REACT
+anims https://medium.com/@drcmda/why-react-needed-yet-another-animation-library-introducing-react-spring-8212e424c5ce
 https://github.com/react-map/react-magic cools anims
 https://shopify.github.io/draggable/
 
