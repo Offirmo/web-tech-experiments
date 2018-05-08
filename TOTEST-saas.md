@@ -46,6 +46,9 @@ push -> https://pushjs.org/#
 
 fanout ? -> https://www.ably.io/compare
 
+group chat         -> https://tlk.io/ 
+
+get avatar         --> https://unavatar.now.sh
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/

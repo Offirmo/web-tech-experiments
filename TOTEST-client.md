@@ -2,6 +2,7 @@
 
 ////////////////////////////////////////////////////////////////////////
 Best of:
+Base components   http://ui.toast.com/
 DOM               https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
 clipboard         http://zenorocha.github.io/clipboard.js/
 full page design  https://github.com/alvarotrigo/fullPage.js
