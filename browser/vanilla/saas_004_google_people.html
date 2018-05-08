@@ -40,18 +40,29 @@
 			// clientId and scope are optional if auth is not required.
 			'clientId': '496416474187-44a6sog5bp16jmt2gfk2mfds45smm4bj.apps.googleusercontent.com',
 			'scope': 'contacts',
-		}).then(function() {
+		})
+			.catch(err => {
+				err.message = '[client.init] ' + err.message
+				throw err
+			})
+			.then(() => {
 			// 3. Initialize and make the API request.
 			return gapi.client.request({
-				'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
-			})
+					'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+				})
+				.catch(err => {
+					err.message = '[client.request] ' + err.message
+					throw err
+				})
 		}).then(function(response) {
 			console.log(response.result);
 		}, function(reason) {
 			console.log('Error: ' + reason.result.error.message);
 		});
-	};
+	}
+
 	// 1. Load the JavaScript client library.
+	console.log('starting', gapi)
 	gapi.load('client', start);
 </script>
 
