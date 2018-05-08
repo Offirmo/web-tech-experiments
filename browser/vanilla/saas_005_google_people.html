@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 04 Google people API option 1</title>
+	<title>SaaS 05 Google people API option 2</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -36,34 +36,35 @@
 	function start() {
 		// 2. Initialize the JavaScript client library.
 		gapi.client.init({
-				'apiKey': 'AIzaSyD2oH4-3LxVSnzUZvEP5QQJ0NQ9yZ0mPNw',
-				// Your API key will be automatically added to the Discovery Document URLs.
-				'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
-				// clientId and scope are optional if auth is not required.
-				'clientId': '496416474187-44a6sog5bp16jmt2gfk2mfds45smm4bj.apps.googleusercontent.com',
-				'scope': 'profile',
-			})
+			'apiKey': 'AIzaSyD2oH4-3LxVSnzUZvEP5QQJ0NQ9yZ0mPNw',
+			// clientId and scope are optional if auth is not required.
+			'clientId': '496416474187-44a6sog5bp16jmt2gfk2mfds45smm4bj.apps.googleusercontent.com',
+			'scope': 'contacts',
+		})
 			.catch(err => {
 				err.message = '[client.init] ' + err.message
 				throw err
 			})
-			.then(function() {
+			.then(() => {
 			// 3. Initialize and make the API request.
-			return gapi.client.people.people.get({
-					'resourceName': 'people/me',
-					'requestMask.includeField': 'person.names'
+			return gapi.client.request({
+					'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
 				})
 				.catch(err => {
 					err.message = '[client.request] ' + err.message
 					throw err
-				});
-			})
-			.then(function(response) {
-				console.log(response.result);
-			}, function(reason) {
-				console.log('Error: ' + reason.result.error.message);
-			});
-	};
+				})
+		}).then(function(response) {
+			console.log(response.result);
+		}, function(reason) {
+			console.log('Error: ' + reason.result.error.message);
+		});
+	}
+
 	// 1. Load the JavaScript client library.
-	console.log('starting (option 1)', gapi)
+	console.log('starting (option 2)', gapi)
 	gapi.load('client', start);
+</script>
+
+</body>
+</html>
