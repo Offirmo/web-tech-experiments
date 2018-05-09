@@ -41,7 +41,9 @@
 		gapi.client.init({
 				'apiKey': 'AIzaSyD2oH4-3LxVSnzUZvEP5QQJ0NQ9yZ0mPNw',
 				// Your API key will be automatically added to the Discovery Document URLs.
-				'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
+				'discoveryDocs': [
+					'https://people.googleapis.com/$discovery/rest',
+				],
 				// clientId and scope are optional if auth is not required.
 				'clientId': '496416474187-44a6sog5bp16jmt2gfk2mfds45smm4bj.apps.googleusercontent.com',
 				'scope': 'profile',
@@ -67,8 +69,9 @@
 				console.log('Error: ' + reason.result.error.message);
 			});
 	}
+
 	// 1. Load the JavaScript client library.
-	console.log('starting (option 1)', gapi)
+	console.log('starting (option 1)', gapi, gapi.client.people);
 	gapi.load('client', start);
 </script>
 
