@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 014 Google people API: get contacts (rev7)</title>
+	<title>SaaS 014 Google people API: get contacts (rev9)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -79,31 +79,34 @@
 	function on_client_loaded() {
 		console.log('on_client_loaded', {gapi})
 		// Load the API client + auth2 library
-		const load_ret = gapi.load('client:auth2', {
-			callback: on_gapi_libs_loaded,
-			onerror: () => {
+		const load_retval = gapi.load('client:auth2', {
+			callback: (x) => {
+				console.log('gapi load success', x)
+				on_gapi_libs_loaded()
+			},
+			onerror: (err) => {
 				// Handle loading error.
-				console.error('gapi.client failed to load!');
+				console.error('gapi.client failed to load!', err);
 			},
 			timeout: 5000, // 5 seconds.
-			ontimeout: () => {
+			ontimeout: (x) => {
 				// Handle timeout.
-				console.error('gapi.client could not load in a timely manner!');
+				console.error('gapi.client could not load in a timely manner!', x);
 			},
 		});
-		console.log('on_client_loaded', {load_ret})
+		console.log('on_client_loaded', {load_retval})
 	}
 
 	function on_gapi_libs_loaded() {
 		console.log('on_gapi_libs_loaded', {client: gapi.client, auth2: gapi.auth2})
-		gapi.client.init({
+		const init_retval = gapi.client.init({
 				apiKey,
 				discoveryDocs,
 				clientId,
 				scope,
 			})
-			.then(() => {
-				console.info('on_gapi_libs_loaded: init success')
+			.then((x) => {
+				console.info('on_gapi_libs_loaded: init success', x)
 
 				// Listen for sign-in state changes.
 				gapi.auth2.getAuthInstance().isSignedIn.listen(on_signin_status_updated);
@@ -122,6 +125,8 @@
 					console.error('on_gapi_libs_loaded:', err)
 				}
 			)
+
+		console.log({init_retval})
 	}
 
 	function on_signin_status_updated(isSignedIn) {
