@@ -61,7 +61,11 @@
 	// Enter one or more authorization scopes. Refer to the documentation for
 	// the API or https://developers.google.com/people/v1/how-tos/authorizing
 	// for details.
-	const scope = 'profile,contacts';
+	const scope = [
+		'https://www.googleapis.com/auth/contacts',
+		'https://www.googleapis.com/auth/userinfo.profile',
+	]
+	//'profile,contacts';
 
 	const authorizeButton = document.getElementById('authorize-button');
 	const signoutButton = document.getElementById('signout-button');
