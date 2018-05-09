@@ -122,9 +122,10 @@
 		});
 	}
 </script>
-<script async defer src="https://apis.google.com/js/api.js"
-		  onload="this.onload=function(){console.log('script onload'); on_client_loaded()};"
-		  onreadystatechange="console.log('onreadystatechange', this.readyState); if (this.readyState === 'complete') this.onload()">
+<script async defer
+	onload="console.log('script onload');this.onload=function(){console.log('function onload');};on_client_loaded();"
+	src="https://apis.google.com/js/api.js"
+	onreadystatechange="console.log('onreadystatechange', this.readyState); if (this.readyState === 'complete') this.onload()">
 </script>
 
 
