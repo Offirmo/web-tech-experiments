@@ -61,16 +61,8 @@
 	// Enter one or more authorization scopes. Refer to the documentation for
 	// the API or https://developers.google.com/people/v1/how-tos/authorizing
 	// for details.
+	// space separated!
 	const scope = 'profile https://www.googleapis.com/auth/contacts.readonly'
-/*
-		'profile',
-		'https://www.googleapis.com/auth/contacts.readonly',
-		*/
-		/*
-		'https://www.googleapis.com/auth/contacts',
-		'https://www.googleapis.com/auth/userinfo.profile',
-		*/
-	//'profile,contacts';
 
 	const authorizeButton = document.getElementById('authorize-button');
 	const signoutButton = document.getElementById('signout-button');
@@ -170,7 +162,7 @@
 	}
 
 	function makeApiCalls() {
-		console.log('querying apis...', {gapi.client.people})
+		console.log('querying apis...')
 		getProfile()
 		getContactList()
 	}
