@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+
+	<title>SaaS 04 Google people API option 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			height: 100%;
+			font-family: 'Open Sans', 'Segoe UI', 'Open Sans', Helvetica, Arial, sans-serif;
+		}
+		progress {
+			border: solid 1px black;
+		}
+	</style>
+</head>
+<body>
+
+<h1>...</h1>
+<a>https://developers.google.com/api-client-library/javascript/start/start-js</a>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text);
+	});
+</script>
+
+<script type="text/javascript">
+	// Enter an API key from the Google API Console:
+	//   https://console.developers.google.com/apis/credentials
+	const apiKey = 'AIzaSyD2oH4-3LxVSnzUZvEP5QQJ0NQ9yZ0mPNw';
+
+	// Enter the API Discovery Docs that describes the APIs you want to
+	// access. In this example, we are accessing the People API, so we load
+	// Discovery Doc found here: https://developers.google.com/people/api/rest/
+	const discoveryDocs = [
+		'https://people.googleapis.com/$discovery/rest?version=v1',
+	];
+
+	// Enter a client ID for a web application from the Google API Console:
+	//   https://console.developers.google.com/apis/credentials?project=_
+	// In your API Console project, add a JavaScript origin that corresponds
+	//   to the domain where you will be running the script.
+	const clientId = '496416474187-44a6sog5bp16jmt2gfk2mfds45smm4bj.apps.googleusercontent.com';
+
+	// Enter one or more authorization scopes. Refer to the documentation for
+	// the API or https://developers.google.com/people/v1/how-tos/authorizing
+	// for details.
+	const scope = 'profile';
+
+	const authorizeButton = document.getElementById('authorize-button');
+	const signoutButton = document.getElementById('signout-button');
+
+	function on_client_loaded() {
+		console.log('on_client_loaded', gapi)
+		// Load the API client and auth2 library
+		gapi.load('client:auth2', on_oauth_client_loaded);
+	}
+
+	function on_oauth_client_loaded() {
+		console.log('on_oauth_client_loaded', gapi.client)
+		gapi.client.init({
+				apiKey,
+				discoveryDocs,
+				clientId,
+				scope,
+			})
+			.then(() => {
+				// Listen for sign-in state changes.
+				gapi.auth2.getAuthInstance().isSignedIn.listen(on_signin_status_updated);
+
+				// Handle the initial sign-in state.
+				on_signin_status_updated(gapi.auth2.getAuthInstance().isSignedIn.get());
+
+				authorizeButton.onclick = handleAuthClick;
+				signoutButton.onclick = handleSignoutClick;
+			})
+			.catch(err => {
+				console.error('on_oauth_client_loaded:', err)
+			})
+	}
+
+	function on_signin_status_updated(isSignedIn) {
+		console.log('updateSigninStatus', {isSignedIn})
+		if (isSignedIn) {
+			authorizeButton.style.display = 'none';
+			signoutButton.style.display = 'block';
+			makeApiCall();
+		} else {
+			authorizeButton.style.display = 'block';
+			signoutButton.style.display = 'none';
+		}
+	}
+
+	function handleAuthClick(event) {
+		gapi.auth2.getAuthInstance().signIn();
+	}
+
+	function handleSignoutClick(event) {
+		gapi.auth2.getAuthInstance().signOut();
+	}
+
+	// Load the API and make an API call.  Display the results on the screen.
+	function makeApiCall() {
+		gapi.client.people.people.get({
+			'resourceName': 'people/me',
+			'requestMask.includeField': 'person.names'
+		}).then(function(resp) {
+			const p = document.createElement('p');
+			const name = resp.result.names[0].givenName;
+			p.appendChild(document.createTextNode('Hello, '+name+'!'));
+			document.getElementById('content').appendChild(p);
+		});
+	}
+</script>
+<script async defer src="https://apis.google.com/js/api.js"
+		  onload="this.onload=function(){console.log('script onload'); on_client_loaded()};"
+		  onreadystatechange="console.log('onreadystatechange', this.readyState); if (this.readyState === 'complete') this.onload()">
+</script>
+
+
+</body>
+</html>

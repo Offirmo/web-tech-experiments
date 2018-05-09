@@ -43,7 +43,7 @@
       // Enter the API Discovery Docs that describes the APIs you want to
       // access. In this example, we are accessing the People API, so we load
       // Discovery Doc found here: https://developers.google.com/people/api/rest/
-      var discoveryDocs = ["https://people.googleapis.com/$discovery/rest"];
+      var discoveryDocs = ["https://people.googleapis.com/$discovery/rest?version=v1"];
 
       // Enter a client ID for a web application from the Google API Console:
       //   https://console.developers.google.com/apis/credentials?project=_
@@ -83,6 +83,7 @@
       }
 
       function updateSigninStatus(isSignedIn) {
+      	console.log('updateSigninStatus', isSignedIn)
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
