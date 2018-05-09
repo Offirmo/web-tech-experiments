@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 014 Google people API: get contacts (rev12)</title>
+	<title>SaaS 014 Google people API: get contacts (rev13)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -140,7 +140,8 @@
 	function getProfile() {
 		return Promise.resolve(gapi.client.people.people.get({
 				'resourceName': 'people/me',
-				'requestMask.includeField': 'person.names,person.emailAddresses'
+				//'requestMask.includeField': 'person.names,person.emailAddresses'
+				'personFields': 'names,emailAddresses',
 			}))
 			.then(console.info.bind(console, 'getProfile'))
 			.catch(err => {
@@ -149,12 +150,25 @@
 			})
 	}
 
-	function getContactList() {
-		return Promise.resolve(gapi.client.people.connections.list({
-				'resourceName': 'people/me/connections',
-				'requestMask.includeField': 'person.names,person.emailAddresses'
+	function getContactList1() {
+		return Promise.resolve(gapi.client.people.people.connections.list({
+				'resourceName': 'people/me',
+				//'requestMask.includeField': 'person.names,person.emailAddresses',
+				'personFields': 'names,emailAddresses',
 			}))
-			.then(console.info.bind(console, 'getContactList'))
+			.then(console.info.bind(console, 'getContactList1'))
+			.catch(err => {
+				console.error('getContactList:', err)
+				throw err
+			})
+	}
+
+	function getContactList2() {
+		return Promise.resolve(gapi.client.people.people.get({
+			'resourceName': 'people/me/connections',
+			'requestMask.includeField': 'person.names,person.emailAddresses',
+		}))
+			.then(console.info.bind(console, 'getContactList2'))
 			.catch(err => {
 				console.error('getContactList:', err)
 				throw err
@@ -164,7 +178,8 @@
 	function makeApiCalls() {
 		console.log('querying apis...')
 		getProfile()
-		getContactList()
+		getContactList1()
+		getContactList2()
 	}
 </script>
 <script async defer
