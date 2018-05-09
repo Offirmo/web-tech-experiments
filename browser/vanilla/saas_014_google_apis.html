@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 014 Google people API: get contacts (rev2)</title>
+	<title>SaaS 014 Google people API: get contacts (rev3)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -106,9 +106,14 @@
 				authorizeButton.onclick = handleAuthClick;
 				signoutButton.onclick = handleSignoutClick;
 			})
-			.catch(err => {
-				console.error('on_gapi_libs_loaded:', err)
-			})
+			.then(
+				() => {
+					console.log('on_gapi_libs_loaded sucess')
+				},
+				err => {
+					console.error('on_gapi_libs_loaded:', err)
+				}
+			)
 	}
 
 	function on_signin_status_updated(isSignedIn) {
@@ -143,6 +148,14 @@
 				p.appendChild(document.createTextNode('Hello, '+name+'!'));
 				document.getElementById('content').appendChild(p);
 			})
+			.then(
+				() => {
+					console.log('makeApiCall sucess')
+				},
+				err => {
+					console.error('makeApiCall', err)
+				}
+			)
 			.catch(err => {
 				console.error('makeApiCall:', err)
 			})
