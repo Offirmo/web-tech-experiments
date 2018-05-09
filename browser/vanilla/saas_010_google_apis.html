@@ -25,14 +25,17 @@
 <body>
 
 <h1>...</h1>
+<a>https://developers.google.com/api-client-library/javascript/start/start-js</a>
 
-<script src="https://apis.google.com/js/api.js"></script>
 <script>
 	document.querySelector('h1').textContent = document.title;
 		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text);
 	});
+</script>
 
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
 	function start() {
 		// 2. Initialize the JavaScript client library.
 		gapi.client.init({
@@ -47,16 +50,16 @@
 				err.message = '[client.init] ' + err.message
 				throw err
 			})
-			.then(function() {
-			// 3. Initialize and make the API request.
-			return gapi.client.people.people.get({
-					'resourceName': 'people/me',
-					'requestMask.includeField': 'person.names'
-				})
-				.catch(err => {
-					err.message = '[client.request] ' + err.message
-					throw err
-				});
+			.then(() => {
+				// 3. Initialize and make the API request.
+				return gapi.client.people.people.get({
+						'resourceName': 'people/me',
+						'requestMask.includeField': 'person.names'
+					})
+					.catch(err => {
+						err.message = '[client.request] ' + err.message
+						throw err
+					});
 			})
 			.then(function(response) {
 				console.log(response.result);
