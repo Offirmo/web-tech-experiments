@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 014 Google people API: get contacts (rev3)</title>
+	<title>SaaS 014 Google people API: get contacts (rev4)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -136,21 +136,14 @@
 		gapi.auth2.getAuthInstance().signOut();
 	}
 
-	// Load the API and make an API call. Display the results on the screen.
 	function makeApiCall() {
 		gapi.client.people.people.get({
-				'resourceName': 'people/me',
-				'requestMask.includeField': 'person.names'
-			})
-			.then(function(resp) {
-				const p = document.createElement('p');
-				const name = resp.result.names[0].givenName;
-				p.appendChild(document.createTextNode('Hello, '+name+'!'));
-				document.getElementById('content').appendChild(p);
+				'resourceName': 'people/me/connections',
+				'requestMask.includeField': 'person.names,person.emailAddresses'
 			})
 			.then(
-				() => {
-					console.log('makeApiCall sucess')
+				(resp) => {
+					console.log('makeApiCall sucess', resp)
 				},
 				err => {
 					console.error('makeApiCall', err)
