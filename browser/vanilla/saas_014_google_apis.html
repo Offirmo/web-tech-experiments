@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 014 Google people API: get contacts (rev10)</title>
+	<title>SaaS 014 Google people API: get contacts (rev11)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -61,7 +61,7 @@
 	// Enter one or more authorization scopes. Refer to the documentation for
 	// the API or https://developers.google.com/people/v1/how-tos/authorizing
 	// for details.
-	const scope = 'https://www.googleapis.com/auth/contacts.readonly'
+	const scope = 'profile https://www.googleapis.com/auth/contacts.readonly'
 /*
 		'profile',
 		'https://www.googleapis.com/auth/contacts.readonly',
@@ -130,7 +130,7 @@
 		if (isSignedIn) {
 			authorizeButton.style.display = 'none';
 			signoutButton.style.display = 'block';
-			makeApiCall();
+			makeApiCalls();
 		} else {
 			authorizeButton.style.display = 'block';
 			signoutButton.style.display = 'none';
@@ -145,22 +145,34 @@
 		gapi.auth2.getAuthInstance().signOut();
 	}
 
-	function makeApiCall() {
-		gapi.client.people.people.get({
+	function getProfile() {
+		return Promise.resolve(gapi.client.people.people.get({
+				'resourceName': 'people/me',
+				'requestMask.includeField': 'person.names,person.emailAddresses'
+			}))
+			.then(console.info)
+			.catch(err => {
+				console.error('getProfile:', err)
+				throw err
+			})
+	}
+
+	function getContactList() {
+		return Promise.resolve(gapi.client.people.people.get({
 				'resourceName': 'people/me/connections',
 				'requestMask.includeField': 'person.names,person.emailAddresses'
-			})
-			.then(
-				(resp) => {
-					console.log('makeApiCall sucess', resp)
-				},
-				err => {
-					console.error('makeApiCall', err)
-				}
-			)
+			}))
+			.then(console.info)
 			.catch(err => {
-				console.error('makeApiCall:', err)
+				console.error('getContactList:', err)
+				throw err
 			})
+	}
+
+	function makeApiCalls() {
+		console.log('querying apis...')
+		getProfile()
+		getContactList()
 	}
 </script>
 <script async defer
