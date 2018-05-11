@@ -43,7 +43,7 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 https://github.com/thedaviddias/Front-End-Checklist
 
-analytics imblocables https://github.com/jbtronics/CrookedStyleSheets
+analytics inblocables https://github.com/jbtronics/CrookedStyleSheets
 
 Visualization
 * https://carrotsearch.com/foamtree/ (via https://github.com/webpack-contrib/webpack-bundle-analyzer)
