@@ -16,8 +16,6 @@
 
 <body>
 
-<div class="o⋄centered-article">
-
 	<h1>...</h1>
 	<p>
 		<a>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe</a>
@@ -30,6 +28,8 @@
 			  frameborder="0" scrolling="no">
 		Problem. Iframe content should be here.
 	</iframe>
+
+	<div id="content"></div>
 
 	<script>
 		document.querySelector('h1').textContent = document.title;
@@ -47,5 +47,13 @@
 		window.addEventListener("message", receiveMessage, false);
 		function receiveMessage(event) {
 			console.info(`[${document.title}] received message:`, event)
+
+			if (event.origin === 'https://www.offirmo.net') {
+				const contacts = JSON.parse(event.data)
+				console.info(`[${document.title}] got contacts:`, contacts)
+				const p = document.createElement('p');
+				p.appendChild(document.createTextNode(`${contacts.length} contacts loaded`));
+				document.getElementById('content').appendChild(p);
+			}
 		}
 	</script>
