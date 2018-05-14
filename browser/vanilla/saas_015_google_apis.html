@@ -36,6 +36,10 @@
 		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text);
 	});
+	window.addEventListener("message", receiveMessage, false);
+	function receiveMessage(event) {
+		console.info(`[${document.title}] received message:`, event)
+	}
 </script>
 
 <script type="text/javascript">
