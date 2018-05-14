@@ -140,7 +140,7 @@
 	function getProfile() {
 		return Promise.resolve(gapi.client.people.people.get({
 				'resourceName': 'people/me',
-				//'requestMask.includeField': 'person.names,person.emailAddresses'
+				//DEPRECATED 'requestMask.includeField': 'person.names,person.emailAddresses'
 				'personFields': 'names,emailAddresses',
 			}))
 			.then(console.info.bind(console, 'getProfile'))
@@ -153,7 +153,6 @@
 	function getContactList1() {
 		return Promise.resolve(gapi.client.people.people.connections.list({
 				'resourceName': 'people/me',
-				//'requestMask.includeField': 'person.names,person.emailAddresses',
 				'personFields': 'names,emailAddresses',
 			}))
 			.then(console.info.bind(console, 'getContactList1'))
@@ -166,7 +165,7 @@
 	function getContactList2() {
 		return Promise.resolve(gapi.client.people.people.get({
 			'resourceName': 'people/me/connections',
-			'requestMask.includeField': 'person.names,person.emailAddresses',
+			'personFields': 'names,emailAddresses',
 		}))
 			.then(console.info.bind(console, 'getContactList2'))
 			.catch(err => {

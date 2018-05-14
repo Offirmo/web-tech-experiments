@@ -29,6 +29,8 @@
 <button id="authorize-button" style="display: none;">Authorize</button>
 <button id="signout-button" style="display: none;">Sign Out</button>
 
+<div id="content"></div>
+
 <script>
 	document.querySelector('h1').textContent = document.title;
 		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
@@ -137,7 +139,6 @@
 	function getProfile() {
 		return Promise.resolve(gapi.client.people.people.get({
 				'resourceName': 'people/me',
-				//'requestMask.includeField': 'person.names,person.emailAddresses'
 				'personFields': 'names,emailAddresses',
 			}))
 			.then(console.info.bind(console, 'getProfile'))
@@ -149,16 +150,21 @@
 
 	function displayContacts(src, infos) {
 		if (infos && infos.result && infos.result.connections && infos.result.connections.length) {
-			console.info(`from ${src}:`, infos.result.connections)
+			const interestingConnections = infos.result.connections.filter(conn => {
+				return conn.emailAddresses && conn.emailAddresses.length
+			})
+			console.info(`from ${src}:`, interestingConnections)
+			const p = document.createElement('p');
+			p.appendChild(document.createTextNode(`${interestingConnections.length} contacts loaded`));
+			document.getElementById('content').appendChild(p);
 			return
 		}
 		throw new Error('No connections in the response!!')
 	}
 
-	function getContactList1() {
+	function getContactList() {
 		return Promise.resolve(gapi.client.people.people.connections.list({
 				'resourceName': 'people/me',
-				//'requestMask.includeField': 'person.names,person.emailAddresses',
 				'personFields': 'names,emailAddresses',
 			}))
 			.then(displayContacts.bind(null, 'getContactList1'))
@@ -168,23 +174,10 @@
 			})
 	}
 
-	function getContactList2() {
-		return Promise.resolve(gapi.client.people.people.get({
-				'resourceName': 'people/me/connections',
-				'requestMask.includeField': 'person.names,person.emailAddresses',
-			}))
-			.then(displayContacts.bind(null, 'getContactList2'))
-			.catch(err => {
-				console.error('getContactList2:', err)
-				throw err
-			})
-	}
-
 	function makeApiCalls() {
 		console.log('querying apis...')
 		getProfile()
-		getContactList1()
-		getContactList2()
+		getContactList()
 	}
 </script>
 <script async defer
