@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 015 Google people API: eagerly get contacts (rev5)</title>
+	<title>SaaS 015 Google people API: eagerly get contacts (rev6)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -78,6 +78,8 @@
 	const signoutButton = document.getElementById('signout-button');
 
 	// https://developers.google.com/api-client-library/javascript/reference/referencedocs
+
+	// TODO check referrer, and don't do anything if unexpected
 
 	function on_client_loaded() {
 		console.log('on_client_loaded', {gapi})
@@ -162,16 +164,36 @@
 
 	function displayContacts(src, infos) {
 		if (infos && infos.result && infos.result.connections && infos.result.connections.length) {
-			const interestingConnections = infos.result.connections.filter(conn => {
-				return conn.emailAddresses && conn.emailAddresses.length
+			const interestingConnections = infos.result.connections
+				.filter(conn => {
+					return conn.emailAddresses && conn.emailAddresses.length
+				})
+
+			const cleanedConnections = []
+			interestingConnections.forEach(({names, emailAddresses}) => {
+				if (names.length > 1) console.info('FYI', names)
+
+				emailAddresses.forEach(email => {
+					if (!email) return
+
+					cleanedConnections.push({
+						name: (name[0] || {}).displayName || email,
+						email,
+					})
+				})
 			})
-			console.info(`from ${src}:`, interestingConnections)
+
+			console.info(`from ${src}:`, cleanedConnections)
 			const p = document.createElement('p');
 			p.appendChild(document.createTextNode(`${interestingConnections.length} contacts loaded`));
 			document.getElementById('content').appendChild(p);
 
+			// 1.) check our parent
 			// post to our parent if it is what we expect
-
+			window.parent.postMessage(
+				JSON.stringify(cleanedConnections),
+				document.referrer, // having been validated previously
+			)
 			return
 		}
 		throw new Error('No connections in the response!!')
