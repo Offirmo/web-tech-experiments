@@ -11,12 +11,6 @@
 
 	<link rel="stylesheet" type="text/css" href="https://rawgit.com/Offirmo/offirmo-monorepo/master/2-advanced/view-css/dist/offirmo-reset%2Butils.css" />
 	<style>
-		body {
-			font-family: 'Open Sans', 'Segoe UI', 'Open Sans', Helvetica, Arial, sans-serif;
-		}
-		progress {
-			border: solid 1px black;
-		}
 	</style>
 </head>
 
@@ -25,9 +19,12 @@
 <div class="o⋄centered-article">
 
 	<h1>...</h1>
-	<a>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe</a>
+	<p>
+		<a>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe</a>
+	</p>
 
 	<iframe src="https://www.offirmo.net/web-tech-experiments/browser/vanilla/saas_015_google_apis.html"
+			  sandbox="allow-scripts allow-same-origin allow-popups"
 			  referrerpolicy="origin"
 	width="500px" height="300px"
 			  frameborder="0" scrolling="no">
@@ -40,6 +37,7 @@
 			el.href || (el.href = el.text);
 		});
 
+		console.info(`[${document.title}] my parent is:`, window.parent)
 		window.addEventListener("message", receiveMessage, false);
 		function receiveMessage(event) {
 			console.info(`[${document.title}] received message:`, event)
