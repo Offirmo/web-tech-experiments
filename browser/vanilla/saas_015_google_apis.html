@@ -167,9 +167,9 @@
 				'resourceName': 'people/me',
 				'personFields': 'names,emailAddresses',
 			}))
-			.then(displayContacts.bind(null, 'getContactList1'))
+			.then(displayContacts.bind(null, 'getContactList'))
 			.catch(err => {
-				console.error('getContactList1:', err)
+				console.error('getContactList:', err)
 				throw err
 			})
 	}
