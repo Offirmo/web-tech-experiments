@@ -37,7 +37,12 @@
 		el.href || (el.href = el.text);
 	});
 
-	console.info(`[${document.title}] my parent is:`, window.parent)
+	console.info(`[${document.title}] loading!`, {
+		'window.parent': window.parent,
+		'window.self': window.self,
+		'window.top': window.top,
+		in_iframe: window.self !== window.top,
+	})
 	window.addEventListener("message", receiveMessage, false);
 	function receiveMessage(event) {
 		console.info(`[${document.title}] received message:`, event)
