@@ -48,7 +48,7 @@
 		function receiveMessage(event) {
 			console.info(`[${document.title}] received message:`, event)
 
-			if (event.origin === 'https://www.offirmo.net') {
+			if (event.origin === 'https://www.offirmo.net' && event.data.startsWith('[{')) {
 				const contacts = JSON.parse(event.data)
 				console.info(`[${document.title}] got contacts:`, contacts)
 				const p = document.createElement('p');

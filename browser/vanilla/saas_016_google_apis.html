@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 015 Google people API: eagerly get contacts and pass them to parent (rev8)</title>
+	<title>SaaS 015 Google people API: intelligently get contacts (rev1)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,10 +42,6 @@
 		'window.top': window.top,
 		in_iframe: window.self !== window.top,
 	})
-	window.addEventListener("message", receiveMessage, false);
-	function receiveMessage(event) {
-		console.info(`[${document.title}] received message:`, event)
-	}
 </script>
 
 <script type="text/javascript">
@@ -64,7 +60,7 @@
 	//   https://console.developers.google.com/apis/credentials?project=_
 	// In your API Console project, add a JavaScript origin that corresponds
 	//   to the domain where you will be running the script.
-	const clientId = '496416474187-44a6sog5bp16jmt2gfk2mfds45smm4bj.apps.googleusercontent.com';
+	const clientId = '994604587357-13iicnh9vmbenokatsabkbfdrb8i2bkb.apps.googleusercontent.com';
 
 	// Enter one or more authorization scopes. Refer to the documentation for
 	// the API or https://developers.google.com/people/v1/how-tos/authorizing
@@ -81,35 +77,39 @@
 
 	function on_client_loaded() {
 		console.log('on_client_loaded', {gapi})
+
 		// Load the API client + auth2 library
-		// TODO promisify
-		const load_retval = gapi.load('client:auth2', {
-			callback: (x) => {
+		const load_retval = new Promise((resolve, reject) => {
+			gapi.load('client:auth2', {
+				callback: resolve,
+				onerror: reject,
+				timeout: 5000, // 5 seconds TODO evaluate
+				ontimeout: x => {
+					console.error('gapi.client could not load in a timely manner!', x);
+					reject(new Error('gapi.client could not load in a timely manner!'))
+				},
+			});
+		})
+
+		load_retval
+			.then(x => {
 				console.log('gapi load success', x)
 				on_gapi_libs_loaded()
-			},
-			onerror: (err) => {
-				// Handle loading error.
-				console.error('gapi.client failed to load!', err);
-			},
-			timeout: 5000, // 5 seconds.
-			ontimeout: (x) => {
-				// Handle timeout.
-				console.error('gapi.client could not load in a timely manner!', x);
-			},
-		});
-		console.log('on_client_loaded', {load_retval})
+			})
+			.catch(err => {
+				console.error('gapi.client could not load:', err);
+			})
 	}
 
 	function on_gapi_libs_loaded() {
 		console.log('on_gapi_libs_loaded', {client: gapi.client, auth2: gapi.auth2})
 		const init_retval = Promise.resolve(gapi.client.init({
-				apiKey,
+				//apiKey,
 				discoveryDocs,
 				clientId,
 				scope,
 			}))
-			.then((x) => {
+			.then(x => {
 				console.info('on_gapi_libs_loaded: init success', x)
 
 				// Listen for sign-in state changes.
@@ -187,16 +187,6 @@
 			const p = document.createElement('p');
 			p.appendChild(document.createTextNode(`${interestingConnections.length} contacts loaded`));
 			document.getElementById('content').appendChild(p);
-
-			// 1.) check our parent
-			if (document.referrer !== 'https://yjutard.ngrok.io')
-				return
-
-			// 2.) post to our parent if it is what we expect
-			window.parent.postMessage(
-				JSON.stringify(cleanedConnections),
-				document.referrer, // having been validated previously
-			)
 		}
 		throw new Error('No connections in the response!!')
 	}
