@@ -6,8 +6,6 @@ SMS                -> https://www.twilio.com/
 
 mobile payment     -> http://www.jaimelesstartups.fr/lemon-way/
 
-live chat          -> https://www.olark.com
-
 device testing     -> http://nativetap.io/
 
 dependencies       -> https://libraries.io/about
@@ -20,8 +18,6 @@ saas microservices -> https://hook.io/new
 
 Générateur de QR Codes -> http://www.unitag.fr/qrcode
 
-Audit SEO / perf ++ -> https://auditor.raventools.com/
-
 Specs for selling a SAAS -> https://www.enterpriseready.io/
 
 admin ?            -> http://www.forestadmin.com/product
@@ -33,8 +29,6 @@ test               -> http://rem-rest-api.herokuapp.com/
 chat bot infos     -> https://collect.chat/
 
 step-by-step       -> https://www.hotjar.com/grow-your-saas-startup/
-
-live user          -> https://www.producthunt.com/posts/ciapp
 
 screen shots       -> https://enpose.co/pricing/
 
@@ -63,7 +57,4 @@ https://www.imgix.com/
 http://placehold.it/
 http://playphrase.me
 https://opbeat.com/
-http://instantlogosearch.com/
 http://www.mangopay.com/
-
-http://90seconds.tv/ mini vidéos ?

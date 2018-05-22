@@ -27,6 +27,7 @@ components        https://frend.co/
 incredible viz    https://carrotsearch.com/foamtree/
                   https://isotope.metafizzy.co/
                   https://packery.metafizzy.co/
+Audit             https://sonarwhal.com/
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js

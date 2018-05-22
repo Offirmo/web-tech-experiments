@@ -1,6 +1,13 @@
 Lambdas:
 * https://zeit.co/oss
 
+
+spawn
+* https://github.com/jamiebuilds/spawndamnit
+
+
+pdf https://github.com/RelaxedJS/ReLaXed
+
 logs http://adpushup.github.io/woodlot/
 
 https://github.com/dthree/mailit A tiny drop-in REST API to send emails 

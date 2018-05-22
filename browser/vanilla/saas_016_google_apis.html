@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 
-	<title>SaaS 015 Google people API: intelligently get contacts (rev1)</title>
+	<title>SaaS 016 Google people API: intelligently get contacts (rev1)</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -122,10 +122,9 @@
 				signoutButton.onclick = handleSignoutClick;
 			})
 			.catch(err => {
+				// TODO google rejects with a non/error :-(
 				console.error('on_gapi_libs_loaded:', err)
 			})
-
-		console.log({init_retval})
 	}
 
 	function on_signin_status_updated(isSignedIn) {
@@ -153,16 +152,17 @@
 				'resourceName': 'people/me',
 				'personFields': 'names,emailAddresses',
 			}))
-			.then(console.info.bind(console, 'getProfile'))
+			.then(data => {
+				console.info('getProfile', data.result)
+			})
 			.catch(err => {
 				console.error('getProfile:', err)
-				throw err
 			})
 	}
 
-	function displayContacts(src, infos) {
-		if (infos && infos.result && infos.result.connections && infos.result.connections.length) {
-			const interestingConnections = infos.result.connections
+	function displayContacts(data) {
+		if (data && data.result && data.result.connections && data.result.connections.length) {
+			const interestingConnections = data.result.connections
 				.filter(conn => {
 					return conn.emailAddresses && conn.emailAddresses.length
 				})
@@ -188,7 +188,6 @@
 			p.appendChild(document.createTextNode(`${interestingConnections.length} contacts loaded`));
 			document.getElementById('content').appendChild(p);
 		}
-		throw new Error('No connections in the response!!')
 	}
 
 	function getContactList() {
@@ -196,10 +195,19 @@
 				'resourceName': 'people/me',
 				'personFields': 'names,emailAddresses',
 			}))
-			.then(displayContacts.bind(null, 'getContactList'))
+			.then(displayContacts)
 			.catch(err => {
 				console.error('getContactList:', err)
-				throw err
+			})
+	}
+
+	function getContactGroups() {
+		return Promise.resolve(gapi.client.people.contactGroups.list())
+			.then(data => {
+				console.info('getContactGroups', data.result.contactGroups)
+			})
+			.catch(err => {
+				console.error('getContactGroups:', err)
 			})
 	}
 
@@ -207,6 +215,7 @@
 		console.log('querying apis...')
 		getProfile()
 		getContactList()
+		getContactGroups()
 	}
 </script>
 <script async defer
