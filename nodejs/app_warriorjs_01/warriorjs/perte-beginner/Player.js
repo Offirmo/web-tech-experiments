@@ -1,6 +1,36 @@
 
+/*
 function prettify_obj(obj) {
 	return JSON.stringify(obj)
+}*/
+
+// https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
+const ANSI_RESET = '\x1b[0m'
+const ANSI_FG_RED = '\x1b[31m'
+function prettify_obj(x) {
+	if (x === null)
+		return 'null'
+
+	if (Array.isArray(x))
+		return [
+			'[',
+			x.map(prettify_obj).join(','),
+			']',
+		].join('')
+
+	// http://devdocs.io/javascript/operators/typeof
+	switch(typeof x) {
+		case 'string':
+			return `'${x}'`
+		case 'object':
+			return [
+				'{',
+				Object.keys(x).sort().map(k => `${k}:${prettify_obj(x[k])}`).join(','),
+				'}',
+			].join('')
+		default:
+			return ANSI_FG_RED + x + ANSI_RESET
+	}
 }
 
 function learn(warrior, knowledge) {
@@ -59,24 +89,20 @@ const ABSOLUTE_DIRECTION_OPPOSITE = {
 function get_status(warrior, knowledge, last_status) {
 	if (!last_status) {
 		last_status = {
-			state: {
-				health: warrior.health(),
-			},
-			situation: {
+			turn_count: 0,
+			my_absolute_direction: 'right',
+			health: warrior.health(),
+			surroundings: {
 				taking_damage: false,
-			},
-			memory: {
-				turn_count: 0,
-				my_absolute_direction: 'right',
 			},
 		}
 	}
 
 	const status = {
-		state: {
-			health: warrior.health(),
-		},
-		situation: {
+		...last_status,
+		turn_count: last_status.memory.turn_count + 1,
+		health: warrior.health(),
+		surroundings: {
 			backward: {
 				sensing: false,
 				seeing: false,
@@ -85,19 +111,15 @@ function get_status(warrior, knowledge, last_status) {
 				sensing: false,
 				seeing: false,
 			},
-			taking_damage: last_status.state.health > warrior.health(),
-		},
-		memory: {
-			...last_status.memory,
-			turn_count: last_status.memory.turn_count + 1,
+			taking_damage: last_status.health > warrior.health(),
 		},
 	}
 
 	RELATIVE_DIRECTIONS.forEach(relative_direction => {
 		const SENSED = warrior.feel(relative_direction)
-		status.situation[relative_direction] = status.situation[relative_direction] || {}
-		status.situation[relative_direction].sensing = !SENSED.isEmpty()
-		status.situation[relative_direction].sensed = identify_sensed(SENSED)
+		status.surroundings[relative_direction] = status.surroundings[relative_direction] || {}
+		status.surroundings[relative_direction].sensing = !SENSED.isEmpty()
+		status.surroundings[relative_direction].sensed = identify_sensed(SENSED)
 
 		const SEEN = warrior.look(relative_direction)
 			.slice(1) // ignore 1st which we "sensed" already
@@ -105,12 +127,12 @@ function get_status(warrior, knowledge, last_status) {
 
 		SEEN.forEach((seen, index) => {
 			if (!seen) return
-			if (status.situation[relative_direction].sensing) return
-			if (status.situation[relative_direction].seeing) return
+			if (status.surroundings[relative_direction].sensing) return
+			if (status.surroundings[relative_direction].seeing) return
 
-			status.situation[relative_direction].seeing = true
-			status.situation[relative_direction].seen = seen
-			status.situation[relative_direction].seen_distance = index + 1
+			status.surroundings[relative_direction].seeing = true
+			status.surroundings[relative_direction].seen = seen
+			status.surroundings[relative_direction].seen_distance = index + 1
 		})
 	})
 
@@ -132,22 +154,24 @@ function get_new_absolute_direction_after_pivot_to(relative_direction, previous_
 let knowledge
 let last_status
 
+const RADIX = '⋅' + ANSI_RESET
+
 class Player {
 	playTurn(warrior) {
 		knowledge = learn(warrior, knowledge)
-		warrior.think('K  :' + prettify_obj(knowledge))
+		warrior.think(RADIX + 'K  :' + prettify_obj(knowledge))
 
-		warrior.think('N-1:' + prettify_obj(last_status))
+		warrior.think(RADIX + 'N-1:' + prettify_obj(last_status))
 
 		const status = get_status(warrior, knowledge, last_status)
-		warrior.think('N  :' + prettify_obj(status))
+		warrior.think(RADIX + 'N  :' + prettify_obj(status))
 
 		// coolness
-		if (status.memory.turn_count === 1) {
-			warrior.think(`Ha ha, a new level! For glory and loot!!!`)
+		if (status.turn_count === 1) {
+			warrior.think(RADIX + `Ha ha, a new level! For glory and loot!!!`)
 		}
 
-		let { my_absolute_direction } = status.memory
+		let { my_absolute_direction } = status
 		let decided = undefined
 
 		// Highest priority: close-range enemies
@@ -156,17 +180,17 @@ class Player {
 		RELATIVE_DIRECTIONS.forEach(relative_direction => {
 			if (decided) return
 
-			if (status.situation[relative_direction].sensed === 'enemy') {
+			if (status.surroundings[relative_direction].sensed === 'enemy') {
 				if (relative_direction === 'forward') {
-					warrior.think(`Take that filthy monster!! [${relative_direction}]`)
+					warrior.think(RADIX + `Take that filthy monster!! [${relative_direction}]`)
 					warrior.attack()
 					decided = `warrior.attack()`
 				}
 				else {
 					// pivot to be more effective. TODO check the rules about that!
-					warrior.think(`Ah! An ennemy behind me!! [${relative_direction}]`)
+					warrior.think(RADIX + `Ah! An ennemy behind me!! [${relative_direction}]`)
 					warrior.pivot(relative_direction)
-					my_absolute_direction = get_new_absolute_direction_after_pivot_to(relative_direction, status)
+					my_absolute_direction = get_new_absolute_direction_after_pivot_to(relative_direction, my_absolute_direction)
 					decided = `warrior.pivot('${relative_direction}')`
 				}
 			}
@@ -177,14 +201,14 @@ class Player {
 		RELATIVE_DIRECTIONS.forEach(relative_direction => {
 			if (decided) return
 
-			if (status.situation[relative_direction].seen === 'enemy') {
-				warrior.think(`Take that filthy distant monster!! [${relative_direction}]`)
+			if (status.surroundings[relative_direction].seen === 'enemy') {
+				warrior.think(RADIX + `Take that filthy distant monster!! [${relative_direction}]`)
 				warrior.shoot(relative_direction)
 				decided = `warrior.shoot('${relative_direction})`
 			}
 		})
-		/*if (!decided && status.situation.taking_damage) {
-			if (status.state.health < knowledge.MAX_HEALTH / 2) {
+		/*if (!decided && status.surroundings.taking_damage) {
+			if (status.health < knowledge.MAX_HEALTH / 2) {
 				warrior.think(`You sneaky archer! I'll retreat for now`)
 				const dir = DIRECTION_OPPOSITE[my_absolute_direction]
 				warrior.walk(dir)
@@ -198,8 +222,8 @@ class Player {
 		}*/
 
 		// then survival
-		if (!decided && status.state.health <= (knowledge.MAX_HEALTH - knowledge.REST_HEALTH_INCREMENT)) {
-			warrior.think(`Seems safe, let's rest.`)
+		if (!decided && status.health <= (knowledge.MAX_HEALTH - knowledge.REST_HEALTH_INCREMENT)) {
+			warrior.think(RADIX + `Seems safe, let's rest.`)
 			warrior.rest()
 			decided = `warrior.rest()`
 		}
@@ -208,8 +232,8 @@ class Player {
 		RELATIVE_DIRECTIONS.forEach(relative_direction => {
 			if (decided) return
 
-			if (status.situation[relative_direction].sensed === 'captive') {
-				warrior.think(`You are safe! [${relative_direction}]`)
+			if (status.surroundings[relative_direction].sensed === 'captive') {
+				warrior.think(RADIX + `You are safe! [${relative_direction}]`)
 				warrior.rescue(relative_direction)
 				decided = `warrior.rescue('${relative_direction}')`
 			}
@@ -217,10 +241,10 @@ class Player {
 
 		// exploration
 		if (!decided) {
-			warrior.think(`On we go!!`)
+			warrior.think(RADIX + `On we go!!`)
 
-			if (status.situation.forward.sensed === 'wall') {
-				warrior.think(`Dead end...`)
+			if (status.surroundings.forward.sensed === 'wall') {
+				warrior.think(RADIX + `Dead end...`)
 				my_absolute_direction = ABSOLUTE_DIRECTION_OPPOSITE[my_absolute_direction]
 				warrior.pivot('backward')
 				decided = `warrior.pivot('backward')`
@@ -231,7 +255,7 @@ class Player {
 			}
 		}
 
-		warrior.think(`decided: ${decided}`)
+		warrior.think(RADIX + `decided: ${decided}`)
 
 		status.memory.my_absolute_direction = my_absolute_direction
 		last_status = status

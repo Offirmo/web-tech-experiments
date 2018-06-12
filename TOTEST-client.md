@@ -39,9 +39,11 @@ http://getlibs.com/
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
-
 ////////////////////////////////////////////////////////////////////////
 
+scroll https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations
+       https://codesandbox.io/s/mm5xq5kv5y
+       
 https://github.com/thedaviddias/Front-End-Checklist
 
 analytics inblocables https://github.com/jbtronics/CrookedStyleSheets
@@ -54,6 +56,7 @@ Effects:
 - http://hugoware.net/blog/lost-in-space
 - http://ykob.github.io/sketch-threejs/
 - https://github.com/byeolbit/translucent
+- https://yuanchuan.name/2018/05/06/unicode-patterns.html
 
 
 Concepts

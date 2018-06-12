@@ -48,7 +48,7 @@
       - [x] Babel-node 2016/03/11
       - [ ] error stack https://github.com/babel/karma-babel-preprocessor/issues/4
 - [x] babel-watch 2016/03/21 https://github.com/kmagiera/babel-watch
-- [-] React 19/02/2016 18/04/2016
+- [x] React 19/02/2016 18/04/2016
 		https://www.youtube.com/watch?v=KYzlpRvWZ6c "Making your app fast with high-performance components"
 		https://react.rocks/blog/post/propTypes_React_Flow/
 		http://airbnb.io/enzyme/
