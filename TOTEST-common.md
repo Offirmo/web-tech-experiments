@@ -8,15 +8,15 @@ network          https://github.com/matthew-andrews/isomorphic-fetch
                  https://github.com/typicode/fetchival
 validation       https://github.com/hapijs/joi
                  https://github.com/ianstormtaylor/superstruct
-uuid             https://github.com/ai/nanoid
-event emitter    https://github.com/ai/nanoevents
+uuid             https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
+event emitter    https://github.com/ai/nanoevents  <-- emiterry?
 next tick        https://github.com/jamiebuilds/tickedoff
 immutable state  https://github.com/jamiebuilds/bey
+currency         https://sarahdayan.github.io/dinero.js/module-Dinero.html
 
 --- libs
-https://github.com/dleitee/walletjs lib décimal
+https://github.com/dleitee/walletjs lib décimal <-- dinero?
 https://github.com/brockwhittaker/BitArray.js lib bits
-https://github.com/ai/nanoevents  nano events
 
 
 https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-node-and-the-browser/
