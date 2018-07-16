@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png"/>
+	<title>CSS 080 - table</title>
+	<style type="text/css">
+
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+
+		.dev-area {
+			position: fixed;
+			top: 0;
+			right: 0;
+			border-collapse: collapse;
+			border: solid 1px black;
+			background-color: rgba(255, 255, 255, 0.5);
+
+			font-family: "Consolas", "Lucida Console", monospace;
+			font-size: 14px;
+		}
+		.dev-area button {
+			border: 0;
+			font-size: inherit;
+			padd
+		}
+		.dev-area td {
+			border: solid 1px black;
+			text-align: center;
+			padding: 1px;
+			padding-bottom: 3px;
+		}
+		.dev-area .DA-environment {
+			background-color: #FC8227;
+		}
+		.dev-area .DA-controls {
+			font-size: 20px;
+			padding-left: 4px;
+			padding-bottom: 0;
+		}
+		.dev-area .DA-refresh {
+			font-size: 22px;
+			padding-bottom: 0;
+		}
+
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>iii</a>
+</p>
+
+<table class="dev-area">
+	<tr><td class="DA-environment">Staging</td></tr>
+	<tr><td class="DA-controls">
+	<button>⏮</button>
+		<button>⏸️</button>
+			<button>⏭</button>
+	</td></tr>
+	<tr><td class="DA-refresh"><button>🔄</button></td></tr>
+	<tr><td><button>🔥SE</button></td></tr>
+	<tr><td><button>🔥AE</button></td></tr>
+	<tr><td><button>🔥UP</button></td></tr>
+</table>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function (el) {
+		el.href || (el.href = el.text);
+	});
+</script>

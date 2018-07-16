@@ -5,9 +5,12 @@ config file      https://github.com/davidtheclark/cosmiconfig
 
 ////////////////////////////////////////////////////////////////////////
 
+https://github.com/GoogleChrome/puppeteer
+
 Lambdas:
 * https://zeit.co/oss
 
+pubsub https://www.pubnub.com/pricing/
 
 spawn
 * https://github.com/jamiebuilds/spawndamnit

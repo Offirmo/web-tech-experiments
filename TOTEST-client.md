@@ -42,6 +42,10 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 ////////////////////////////////////////////////////////////////////////
 
+animations https://github.com/madou/yubaba
+
+outil de dev mobile? https://medium.com/@ericsimons/introducing-teleport-over-the-air-hot-reloading-debugging-for-pwas-%EF%B8%8F-efd1e2b1c64c
+
 scroll https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations
        https://codesandbox.io/s/mm5xq5kv5y
        
@@ -58,6 +62,10 @@ Effects:
 - http://ykob.github.io/sketch-threejs/
 - https://github.com/byeolbit/translucent
 - https://yuanchuan.name/2018/05/06/unicode-patterns.html
+
+Nice / art
+- https://css-tricks.com/more-unicode-patterns/
+- http://theme-for-a-dream.com/
 
 
 Concepts

@@ -13,7 +13,7 @@ event emitter    https://github.com/ai/nanoevents  <-- emiterry?
 next tick        https://github.com/jamiebuilds/tickedoff
 immutable state  https://github.com/jamiebuilds/bey
 currency         https://sarahdayan.github.io/dinero.js/module-Dinero.html
-
+typed ORM        https://github.com/typeorm/typeorm
 --- libs
 https://github.com/dleitee/walletjs lib décimal <-- dinero?
 https://github.com/brockwhittaker/BitArray.js lib bits
