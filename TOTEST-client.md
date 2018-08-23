@@ -2,6 +2,7 @@
 
 ////////////////////////////////////////////////////////////////////////
 Best of:
+spinner simple    http://spin.js.org/
 Base components   http://ui.toast.com/
 DOM               https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
 clipboard         http://zenorocha.github.io/clipboard.js/
@@ -11,16 +12,13 @@ countdown         https://github.com/objectivehtml/FlipClock
 player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
-state machine     https://github.com/jakesgordon/javascript-state-machine
 animations        http://animejs.com/
-scheduling        https://github.com/alexreardon/raf-schd
 full screen       https://github.com/Aqours/Fullscreen
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
 maps              https://maptalks.org/
 colors            http://clrs.cc/
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
-poppers           https://github.com/FezVrasta/popper.js
 shortcuts         https://github.com/avocode/combokeys
 loaders           https://loading.io/
 components        https://frend.co/
@@ -29,6 +27,7 @@ incredible viz    https://carrotsearch.com/foamtree/
                   https://packery.metafizzy.co/
 Audit             https://sonarwhal.com/
 hotkeys           https://github.com/jaywcjlove/hotkeys
+database          https://github.com/localForage/localForage
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -41,6 +40,11 @@ https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 ////////////////////////////////////////////////////////////////////////
+
+bundle and babel as a service https://bundle.sh/
+
+https://css-tricks.com/fitting-text-to-a-container/
+
 
 animations https://github.com/madou/yubaba
 
@@ -361,11 +365,7 @@ embeds http://oembed.com/
 bandeau qui disparaît https://github.com/antris/sneakpeek
 
 --- cartes
-http://developers.route360.net/
---- communication / feedback
-alertes http://tristanedwards.me/sweetalert
-popups http://github.hubspot.com/messenger/docs/welcome/
-
+http://www.targomo.com/developers/
 
 -- effets
 scroll mobile sur tilt http://vodkabears.github.io/interdimensional/

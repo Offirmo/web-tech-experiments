@@ -2,22 +2,22 @@
 
 //////////// isomorphic ////////////
 https://github.com/azu/localstorage-ponyfill
-network          https://github.com/matthew-andrews/isomorphic-fetch
-                 axios
-                 https://github.com/visionmedia/superagent
-                 https://github.com/typicode/fetchival
-validation       https://github.com/hapijs/joi
-                 https://github.com/ianstormtaylor/superstruct
-uuid             https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
-event emitter    https://github.com/ai/nanoevents  <-- emiterry?
-next tick        https://github.com/jamiebuilds/tickedoff
-immutable state  https://github.com/jamiebuilds/bey
-currency         https://sarahdayan.github.io/dinero.js/module-Dinero.html
-typed ORM        https://github.com/typeorm/typeorm
+state machine     https://github.com/jakesgordon/javascript-state-machine
+network           https://github.com/matthew-andrews/isomorphic-fetch
+                  axios
+                  https://github.com/visionmedia/superagent
+                  https://github.com/typicode/fetchival
+validation        https://github.com/hapijs/joi
+                  https://github.com/ianstormtaylor/superstruct
+uuid              https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
+event emitter     https://github.com/ai/nanoevents  <-- emiterry?
+next tick         https://github.com/jamiebuilds/tickedoff
+immutable state   https://github.com/jamiebuilds/bey
+currency          https://sarahdayan.github.io/dinero.js/module-Dinero.html
+typed ORM         https://github.com/typeorm/typeorm
 --- libs
 https://github.com/dleitee/walletjs lib décimal <-- dinero?
 https://github.com/brockwhittaker/BitArray.js lib bits
-
 
 https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-node-and-the-browser/
 
@@ -78,7 +78,6 @@ http://mdast.js.org/
 
 https://github.com/yoshuawuyts/fsm-event
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
-https://github.com/primus/eventemitter3
 https://github.com/mariocasciaro/object-path
 
 -- schema / DB

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png"/>
+	<title>CSS 090 - dark theme in a day</title>
+	<style type="text/css">
+
+		html {
+			/* blue + orange */
+			--hue: 210;
+			--accent-hue: 25;
+
+			/* green + orange
+			--hue: 110;
+			--accent-hue: 25; */
+			/* orange
+			--hue: 25;
+			--accent-hue: 25; */
+
+
+			/* light
+			--text-color-normal: hsl(var(--hue), 20%, 12%);
+			--text-color-light: hsl(var(--hue), 15%, 35%);
+			--text-color-richer: hsl(var(--hue), 50%, 72%);
+			--text-color-highlight: hsl(var(--accent-hue), 70%, 45%);
+
+			--link-color: hsl(var(--hue), 90%, 70%);
+			--accent-color: hsl(var(--accent-hue), 100%, 70%);
+			--error-color: rgb(240, 50, 50);
+
+			--background: hsl(var(--hue), 100%, 98%);
+*/
+			/* dark */
+			--text-color-normal: hsl(var(--hue), 10%, 62%);
+			--text-color-light: hsl(var(--hue), 15%, 35%);
+			--text-color-richer: hsl(var(--hue), 50%, 72%);
+			--text-color-highlight: hsl(var(--accent-hue), 70%, 45%);
+
+			--link-color: hsl(var(--hue), 90%, 70%);
+			--accent-color: hsl(var(--accent-hue), 100%, 70%);
+			--error-color: rgb(240, 50, 50);
+
+			--background: hsl(var(--hue), 20%, 12%);
+		}
+
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: var(--text-color-normal);
+
+			background-color: var(--background);
+		}
+
+		.txt-light { color: var(--text-color-light); }
+		.txt-richer { color: var(--text-color-richer); }
+		.txt-highlight { color: var(--text-color-highlight); }
+		.txt-error { color: var(--error-color); }
+
+		a { text-decoration-color: var(--link-color); }
+		a:link,
+		a:visited {color: inherit;}
+		a:hover,
+		a:active {color: var(--accent-color);}
+
+	</style>
+</head>
+
+<h1>...</h1>
+<a>https://medium.com/@mwichary/dark-theme-in-a-day-3518dde2955a</a>
+<p>
+	NORMAL A class would be okay, too, but in my head classes feel like checkboxes, whereas data attributes act more like radio buttons. It felt like a moot distinction at this very point — we only had two themes — but I wanted to think a bit ahead.
+</p>
+<p class="txt-light">
+	LIGHT A class would be okay, too, but in my head classes feel like checkboxes, whereas data attributes act more like radio buttons. It felt like a moot distinction at this very point — we only had two themes — but I wanted to think a bit ahead.
+</p>
+<p class="txt-richer">
+	RICHER A class would be okay, too, but in my head classes feel like checkboxes, whereas data attributes act more like radio buttons. It felt like a moot distinction at this very point — we only had two themes — but I wanted to think a bit ahead.
+</p>
+<p class="txt-highlight">
+	HIGHLIGHT A class would be okay, too, but in my head classes feel like checkboxes, whereas data attributes act more like radio buttons. It felt like a moot distinction at this very point — we only had two themes — but I wanted to think a bit ahead.
+</p>
+<p class="txt-error">
+	ERROR A class would be okay, too, but in my head classes feel like checkboxes, whereas data attributes act more like radio buttons. It felt like a moot distinction at this very point — we only had two themes — but I wanted to think a bit ahead.
+</p>
+
+<script>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function (el) {
+		el.href || (el.href = el.text);
+	});
+</script>
