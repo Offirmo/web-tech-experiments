@@ -28,6 +28,7 @@ incredible viz    https://carrotsearch.com/foamtree/
 Audit             https://sonarwhal.com/
 hotkeys           https://github.com/jaywcjlove/hotkeys
 database          https://github.com/localForage/localForage
+isotope, packery  https://metafizzy.co/
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
