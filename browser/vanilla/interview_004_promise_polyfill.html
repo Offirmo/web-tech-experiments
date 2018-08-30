@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png"/>
+
+	<title>Interview 004</title>
+
+	<style type="text/css">
+
+	</style>
+</head>
+
+<h1>...</h1>
+
+<script>
+
+	class Promise2 {
+
+		constructor(resolver) {
+			this.tickPending = false
+			this.resolved = false
+			this.resolvedSuccessfully = undefined
+			this.resolvedValue = null
+			this.pendingThenFns = []
+			this.pendingCatchFns = []
+
+			setTimeout(() => {
+				try {
+					resolver(
+						this._resolve.bind(this),
+						this._reject.bind(this),
+					)
+				}
+				catch(e) {
+					this._reject(e)
+				}
+			})
+		}
+
+		_resolve(value) {
+			if (this.resolved) return
+
+			this.resolved = true
+			this.resolvedSuccessfully = true
+			this.resolvedValue = value
+			this._resolvePendingOnNextTick()
+		}
+
+		_reject(error) {
+			if (this.resolved) return
+
+			this.resolved = true
+			this.resolvedSuccessfully = false
+			this.resolvedValue = error
+			this._resolvePendingOnNextTick()
+		}
+
+		_resolvePendingOnNextTick() {
+			if (this.tickPending) return
+			if (!this.resolved) return
+
+			this.tickPending = true
+
+			setTimeout(() => {
+				const pendingThenFns = this.pendingThenFns
+				this.pendingThenFns = []
+				const pendingCatchFns = this.pendingCatchFns
+				this.pendingCatchFns = []
+				this.tickPending = false
+
+				if (this.resolvedSuccessfully) {
+					pendingThenFns.forEach(thenFn => thenFn(this.resolvedValue))
+				}
+				else {
+					pendingCatchFns.forEach(catchFn => catchFn(this.resolvedValue))
+				}
+			})
+		}
+
+		then(callback) {
+			const newPromise = new Promise2(() => {})
+
+			function onCurrentResolve(value) {
+				try {
+					const nextValue = callback(value)
+					newPromise._resolve(nextValue)
+				}
+				catch(e) {
+					newPromise._reject(e)
+				}
+			}
+			function onCurrentReject(error) {
+				newPromise._reject(error)
+			}
+			this.pendingThenFns.push(onCurrentResolve)
+			this.pendingCatchFns.push(onCurrentReject)
+
+			this._resolvePendingOnNextTick()
+
+			return newPromise
+		}
+
+		catch(callback) {
+			const newPromise = new Promise2(() => {})
+
+			function onCurrentResolve(value) {
+				newPromise._resolve(value)
+			}
+			function onCurrentReject(error) {
+				try {
+					const nextValue = callback(error)
+					newPromise._resolve(nextValue)
+				}
+				catch(e) {
+					newPromise._reject(e)
+				}
+			}
+			this.pendingThenFns.push(onCurrentResolve)
+			this.pendingCatchFns.push(onCurrentReject)
+
+			this._resolvePendingOnNextTick()
+
+			return newPromise
+		}
+
+	}
+
+	const thenable = new Promise2((resolve, reject) => {
+		//setTimeout(() => {
+			console.log("Resolved");
+			throw new Error('Bad!')
+			resolve(12);
+		//}, 100);
+	});
+
+	console.log('1')
+
+	thenable
+		.then(v => {
+			console.log('then 1', v)
+		})
+		.catch(e => {
+			console.error('catch 1', e)
+			throw e
+		})
+		.then(v => {
+			console.log('then 2', v)
+		})
+		.catch(e => console.error('catch 2', e))
+
+</script>
