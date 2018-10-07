@@ -46,6 +46,7 @@ bundle and babel as a service https://bundle.sh/
 
 https://css-tricks.com/fitting-text-to-a-container/
 
+gantt https://github.com/guiqui/react-timeline-gantt
 
 animations https://github.com/madou/yubaba
 
