@@ -23,13 +23,13 @@ function listenForSafePostMessages({
 		) {
 			// no big deal, google apis client sends a postMessage to parents on load
 			logger.log(
-				`${debugId} - postMessage: Ignoring, unrecognized data format.`,
+				`${debugId} - 💌 postMessage: Ignoring, unrecognized data format.`,
 				event.data,
 			)
 			return
 		}
 
-		logger.log(`${debugId} - postMessage: received valid message:`, event.data)
+		logger.log(`${debugId} - 💌 postMessage: received valid message:`, event.data)
 
 		onMessage({
 			origin: event.origin,

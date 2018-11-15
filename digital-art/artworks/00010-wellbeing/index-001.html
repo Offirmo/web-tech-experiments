@@ -51,7 +51,6 @@
 			--color--2: #ffdede;
 			--color--3: #ffe8cf;
 			--color--4: #fdfdc4;
-			--color--5: #d1f4fa;
 
 			display: grid;
 			font-size: 33px;
@@ -62,7 +61,6 @@
 		.bg2 { background-color: var(--color--2); }
 		.bg3 { background-color: var(--color--3); }
 		.bg4 { background-color: var(--color--4); }
-		.bg5 { background-color: var(--color--5); }
 
 		.cell {
 			justify-self: stretch;
@@ -98,10 +96,6 @@
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 	}
-	function pick(it) {
-		const array = Array.from(it)
-		return array[getRandomInt(0, array.length)]
-	}
 	function get_cell_index({x, y}) {
 		if (x < 0 || y < 0 || x >= GRID_WIDTH || y >= GRID_HEIGHT)
 			return -1
@@ -112,31 +106,6 @@
 		const index = get_cell_index({x, y})
 
 		return index < 0 ? null :  state.cells[index]
-	}
-	function get_neighbours({x, y}) {
-		const index = get_cell_index({x, y})
-
-		return [
-			state.cells[index - GRID_WIDTH - 1 ],
-			state.cells[index - GRID_WIDTH     ],
-			state.cells[index - GRID_WIDTH + 1 ],
-			state.cells[index              - 1 ],
-			state.cells[index              + 1 ],
-			state.cells[index + GRID_WIDTH - 1 ],
-			state.cells[index + GRID_WIDTH     ],
-			state.cells[index + GRID_WIDTH + 1 ],
-		].filter(c => !!c)
-	}
-
-	function getRandomNotInNeighbours({ x, y, prop, choices, fallback}) {
-		const refined_choices = new Set(choices)
-		const neighbours = get_neighbours({x, y})
-		neighbours.forEach(n => {
-			refined_choices.delete(n[prop])
-		})
-		if (fallback === undefined && Array.from(refined_choices).length === 0)
-			throw new Error('No choices!')
-		return pick(refined_choices)
 	}
 
 	/////////////
@@ -152,31 +121,18 @@
 	}
 
 	// generate state
-	const bgcolors = [
-		'bg1',
-		'bg2',
-		'bg3',
-		'bg4',
-		'bg5',
-	]
-	function generate_cell({x, y, index}) {
-		return {
-			text: pick(['😺', '😸', '😹', '😻']),
-			bgcolor: getRandomNotInNeighbours({x, y, prop: 'bgcolor', choices: bgcolors, fallback: 'nobg'}),
-		}
-	}
-
 	for (let y = 0; y < GRID_HEIGHT; ++y) {
 		for (let x = 0; x < GRID_WIDTH; ++x) {
 			console.log(`generating (${x}, ${y})…`)
 			const index = get_cell_index({x, y})
-
-			state.cells[index] = {
-				...generate_cell({x, y, index}),
+			const cell = {
 				x,
 				y,
 				index,
 			}
+
+			// write
+			state.cells[index] = cell
 		}
 	}
 	console.log(state)
@@ -191,14 +147,14 @@
 💆 💆 💆♀️
 	 */
 	function render_cell(cell) {
-		const { x, y, index, text, bgcolor } = cell
+		const { x, y, index } = cell
 
 		let html = `
-			<span>${text}</span>
+			<span>${[' ', ' ', '😺', '😸', '😹', '😻'][getRandomIntInclusive(0, 5)]}</span>
 		`
 
 		let classes = []
-		classes.push(bgcolor)
+		classes.push(`bg${getRandomIntInclusive(1, 4)}`)
 
 		return [ html, classes ]
 	}
