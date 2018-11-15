@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=1613, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=1920, height=1080, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 	<title>ART</title>
 
@@ -38,31 +38,29 @@
 	</style>
 
 	<style type="text/css">
-		body {
-			/* https://colorhunt.co/palette/212 */
-			background-color: #543d46;
-			color: #ffebbc;
-			font-family: monospace;
-			overflow-wrap: break-word;
-			font-size: 1em;
-			line-height: 1em;
-		}
 	</style>
 </head>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.4.9/css-doodle.min.js"></script>
 <body>
-
+	<css-doodle>
+		:doodle {
+			@grid: 36 / 100vmax;
+			background: #0a0c27;
+		}
+		--hue: calc(180 + 1.5 * @row() * @col());
+		background: hsl(var(--hue), 50%, 70%);
+		margin: -.5px;
+		transition: @r(.5s) ease;
+		clip-path: polygon(@pick(
+			'0 0, 100% 0, 100% 100%',
+			'0 0, 100% 0, 0 100%',
+			'0 0, 100% 100%, 0 100%',
+			'100% 0, 100% 100%, 0 100%'
+		));
+	</css-doodle>
 </body>
-<script>
-	// https://dev.to/burningion/a-universe-in-one-line-of-code-with-10-print-2d1
-	// http://jrgraphix.net/r/Unicode/2500-257F
-	function generate_universe(length = 280) {
-		let values = []
-		for(let i = 0; i < length; ++i)
-			values.push(Math.round(Math.random()) === 0 ? '╱' : '╲')
-		//return String.fromCharCode(...values)
-		return values.join('')
-	}
 
-	document.body.innerHTML = generate_universe(10000)
+<script>
+
 </script>

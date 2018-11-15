@@ -18,6 +18,8 @@ full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
 maps              https://maptalks.org/
 colors            http://clrs.cc/
+                  https://github.com/Jam3/nice-color-palettes
+                  https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
 shortcuts         https://github.com/avocode/combokeys
@@ -73,14 +75,8 @@ Visualization
 * https://chrisbateman.github.io/webpack-visualizer/
 
 Effects:
-- http://hugoware.net/blog/lost-in-space
-- http://ykob.github.io/sketch-threejs/
-- https://github.com/byeolbit/translucent
-- https://yuanchuan.name/2018/05/06/unicode-patterns.html
-
-Nice / art
-- https://css-tricks.com/more-unicode-patterns/
-- http://theme-for-a-dream.com/
+- effet de vortex http://hugoware.net/blog/lost-in-space
+- bg translucide https://byeolbit.github.io/translucent/
 
 
 Concepts
@@ -133,10 +129,8 @@ https://hyperform.js.org/examples.html
 
 https://javascript30.com/
 
-http://omrelli.ug/g9/ drawing lib reactive
-
 http://all-animation.github.io/
-https://github.com/Jam3/nice-color-palettes
+
 https://www.microanimations.com/gif-collection/
 
 https://polyfill.io/v2/docs/
