@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////
 Best of:
 spinner simple    http://spin.js.org/
+loaders           https://loading.io/
 Base components   http://ui.toast.com/
 DOM               https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
 clipboard         http://zenorocha.github.io/clipboard.js/
@@ -13,14 +14,13 @@ player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
 animations        http://animejs.com/
-full screen       
+full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
 maps              https://maptalks.org/
 colors            http://clrs.cc/
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
 shortcuts         https://github.com/avocode/combokeys
-loaders           https://loading.io/
 components        https://frend.co/
 incredible viz    https://carrotsearch.com/foamtree/
                   https://isotope.metafizzy.co/

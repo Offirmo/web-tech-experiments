@@ -65,16 +65,27 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.3/screenfull.min.js" integrity="sha256-ULK0G2N+co+TT4C60EB0nElSM1e+tI2EFVa+bR/4juU=" crossorigin="anonymous"></script><!-- https://davidshimjs.github.io/qrcodejs/ -->
+<!--
 <script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha256-oFdxn7dhcB+zRMR6VdxPpQjrIELyW8AMr9FO6L+2FT4=" crossorigin="anonymous"></script>
+-->
 <script>
 	const ARTWORK_IFRAME_ID = 'artwork-iframe'
+
+	const ARTWORK_TEST = {
+		url: './art_101_viewport.html',
+		width_px: 1618,
+		height_px: 1000,
+	}
+	const ARTWORK_TILED_LINES = {
+		url: './art_110_tiled_lines.html',
+		width_px: 1613,
+		height_px: 1000,
+	}
 	let state = {
 		params: {
-			//artwork_url: './art_101_viewport.html',
-			artwork_url: './art_110_universe.html',
-			artwork_width_px: 1618,
-			artwork_height_px: 1000,
+			overscale: .95, // safe in case non-black borders
+			artwork: ARTWORK_TILED_LINES,
 		},
 		snapshot: {
 			is_full_screen: screenfull.isFullscreen,
@@ -112,13 +123,13 @@
 	}
 
 	function render(state) {
-		const { params: { artwork_url, artwork_width_px, artwork_height_px}, snapshot: { viewport_width_px, viewport_height_px }} = state
+		const { params: { overscale, artwork }, snapshot: { viewport_width_px, viewport_height_px }} = state
 		console.log('🔄 render', state)
-		const horizontal_ratio = viewport_width_px / artwork_width_px
-		const vertical_ratio = viewport_height_px / artwork_height_px
-		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio)
-		const position_y_px = (viewport_height_px - artwork_height_px * artwork_scale) / 2.
-		const position_x_px = (viewport_width_px - artwork_width_px * artwork_scale) / 2.
+		const horizontal_ratio = viewport_width_px / artwork.width_px
+		const vertical_ratio = viewport_height_px / artwork.height_px
+		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio) * overscale
+		const position_y_px = (viewport_height_px - artwork.height_px * artwork_scale) / 2.
+		const position_x_px = (viewport_width_px - artwork.width_px * artwork_scale) / 2.
 		//console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px})
 
 
@@ -127,11 +138,11 @@
 		//node.style.transform = `scale(${Math.min(horizontal_ratio, vertical_ratio)})`
 		document.body.innerHTML = `
 <iframe id="${ARTWORK_IFRAME_ID}"
-	src="${artwork_url}"
+	src="${artwork.url}"
 	class="hide autoscaled"
 	sandbox="allow-scripts allow-same-origin"
 	referrerpolicy="origin"
-	width="${artwork_width_px}px" height="${artwork_height_px}px"
+	width="${artwork.width_px}px" height="${artwork.height_px}px"
 	frameborder="0" scrolling="no"
 >
 	Problem. Iframe content should be here.
@@ -144,7 +155,7 @@
 		const artwork_element = document.getElementById(ARTWORK_IFRAME_ID)
 		artwork_element.style.transform = `
 		translate(${position_x_px}px,${position_y_px}px)
-		scale(${Math.min(horizontal_ratio, vertical_ratio)})
+		scale(${artwork_scale})
 		`
 		setTimeout(() => {
 			artwork_element.classList.remove('hide');
@@ -152,7 +163,7 @@
 
 			// TODO
 			//const qrcode = new QRCode("qrcode")
-			//qrcode.makeCode(artwork_url);
+			//qrcode.makeCode(artwork.url);
 		})
 	}
 	//render(state)
