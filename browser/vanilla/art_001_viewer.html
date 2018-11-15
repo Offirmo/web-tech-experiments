@@ -51,7 +51,6 @@
 		}
 		.hide {
 			opacity: 0;
-			xxtransition: opacity 2000ms;
 		}
 
 		.autoscaled {
@@ -84,31 +83,34 @@
 		width_px: 1613,
 		height_px: 1000,
 	}
-	const ARTWORK_CSSDOODLE_EXAMPLE_1 = {
-		name: 'CSS Doodle example 1',
-		url: './art_121_cssdoodle-ex1-refined.html',
-		width_px: 2000,
-		height_px: 1000,
-	}
-	const ARTWORK_CSSDOODLE_EXAMPLE_2 = {
-		name: 'CSS Doodle example 2',
-		url: './art_130_cssdoodle-ex2-refined.html',
-		width_px: 1920,
-		height_px: 1080,
-	}
-	const ARTWORK_CSSDOODLE_EXAMPLE_3 = {
-		name: 'CSS Doodle example 3',
-		url: './art_140_cssdoodle-ex3-refined.html',
-		width_px: 2000,
-		height_px: 2000,
-	}
 
 	const ARTWORKS_BY_ID = {
 		test: ARTWORK_TEST,
 		'tiled-lines': ARTWORK_TILED_LINES,
-		'cssdoodle-ex1': ARTWORK_CSSDOODLE_EXAMPLE_1,
-		'cssdoodle-ex2': ARTWORK_CSSDOODLE_EXAMPLE_2,
-		'cssdoodle-ex3': ARTWORK_CSSDOODLE_EXAMPLE_3,
+		'cssdoodle-ex1': {
+			name: 'CSS Doodle example 1',
+			url: './art_121_cssdoodle-ex1-refined.html',
+			width_px: 2000,
+			height_px: 1000,
+		},
+		'cssdoodle-ex2': {
+			name: 'CSS Doodle example 2',
+			url: './art_130_cssdoodle-ex2-refined.html',
+			width_px: 1920,
+			height_px: 1080,
+		},
+		'cssdoodle-ex3': {
+			name: 'CSS Doodle example 3',
+			url: './art_140_cssdoodle-ex3-refined.html',
+			width_px: 2000,
+			height_px: 2000,
+		},
+		'cssdoodle-ex4': {
+			name: 'CSS Doodle example 4',
+			url: './art_150_cssdoodle-ex4-refined.html',
+			width_px: 2000,
+			height_px: 2000,
+		},
 	}
 
 	const searchParams = new URLSearchParams(window.location.search);
