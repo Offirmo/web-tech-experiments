@@ -90,11 +90,18 @@
 		width_px: 1920,
 		height_px: 1080,
 	}
+	const ARTWORK_CSSDOODLE_EXAMPLE_2 = {
+		name: 'CSS Doodle example 2',
+		url: './art_130_cssdoodle-ex2.html',
+		width_px: 1920,
+		height_px: 1080,
+	}
 
 	const ARTWORKS_BY_ID = {
 		test: ARTWORK_TEST,
 		'tiled-lines': ARTWORK_TILED_LINES,
 		'cssdoodle-ex1': ARTWORK_CSSDOODLE_EXAMPLE_1,
+		'cssdoodle-ex2': ARTWORK_CSSDOODLE_EXAMPLE_2,
 	}
 
 	const searchParams = new URLSearchParams(window.location.search);
@@ -104,7 +111,7 @@
 	let state = {
 		params: {
 			overscale: .95, // safe in case non-black borders
-			artwork: ARTWORKS_BY_ID[artwork_id] || ARTWORK_TILED_LINES,
+			artwork: ARTWORKS_BY_ID[artwork_id] || ARTWORK_TEST,
 		},
 		snapshot: {
 			is_full_screen: screenfull.isFullscreen,

@@ -3,9 +3,9 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=1618, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=1920, height=1080, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-	<title>TEST VIEWPORT</title>
+	<title>ART</title>
 
 	<style type="text/css">
 		/* apply a natural box layout model to all elements, but allowing components to change
@@ -38,31 +38,25 @@
 	</style>
 
 	<style type="text/css">
-		body {
-			background-color: darkblue;
-			color: white;
-		}
-		table {
-			border: solid 3px #bede99;
-		}
-		#t1 {
-			position: absolute;
-			top: 0;
-			left: 0;
-			border: solid 3px #bce8f1;
-			width: 1618px;
-			height: 1000px;
-		}
 	</style>
 </head>
 
-<table>
-	<tbody>
-		<tr>
-			<td>Your art here</td>
-			<td>with two columns</td>
-		</tr>
-	</tbody>
-</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.4.9/css-doodle.min.js"></script>
+<body>
+	<css-doodle>
+		:doodle {
+			@grid: 20 / 100vmax;
+			background: #0a0c27;
+			font-family: sans-serif;
+		}
+		:after {
+			content: \@hex(@rand(0x2500, 0x257f));
+			color: hsla(@r(360), 70%, 70%, @r(.9));
+			font-size: 5vmax;
+		}
+	</css-doodle>
+</body>
 
-<div id="t1"></div>
+<script>
+
+</script>
