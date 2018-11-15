@@ -7,6 +7,8 @@ debug            https://github.com/GoogleChromeLabs/ndb
 
 ////////////////////////////////////////////////////////////////////////
 
+https://blog.apollographql.com/deploy-a-fullstack-apollo-app-with-netlify-45a7dfd51b0b
+
 https://github.com/GoogleChrome/puppeteer
 
 Lambdas:

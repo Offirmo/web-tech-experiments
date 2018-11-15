@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>HTML5 008 - HTML tests micro template</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+		html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			/* https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations */
+			scroll-behavior: smooth;
+
+			overflow-x: hidden;
+			overflow-y: hidden;
+		}
+
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			/* https://www.leejamesrobinson.com/blog/how-stripe-designs-beautiful-websites/ */
+			text-rendering: optimizeLegibility;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			background-color: black;
+			color: white;
+		}
+		img {
+			image-rendering: -webkit-optimize-contrast;
+		}
+
+		#qrcode {
+			width:160px;
+			height:160px;
+			margin-top:15px;
+		}
+
+		.show {
+			opacity: 1;
+			transition: opacity 2000ms;
+		}
+		.hide {
+			opacity: 0;
+			xxtransition: opacity 2000ms;
+		}
+
+		.autoscaled {
+			transform-origin: 0 0;
+		}
+	</style>
+</head>
+
+<body>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.3/screenfull.min.js" integrity="sha256-ULK0G2N+co+TT4C60EB0nElSM1e+tI2EFVa+bR/4juU=" crossorigin="anonymous"></script><!-- https://davidshimjs.github.io/qrcodejs/ -->
+<script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha256-oFdxn7dhcB+zRMR6VdxPpQjrIELyW8AMr9FO6L+2FT4=" crossorigin="anonymous"></script>
+<script>
+	const ARTWORK_IFRAME_ID = 'artwork-iframe'
+	let state = {
+		params: {
+			//artwork_url: './art_101_viewport.html',
+			artwork_url: './art_110_universe.html',
+			artwork_width_px: 1618,
+			artwork_height_px: 1000,
+		},
+		snapshot: {
+			is_full_screen: screenfull.isFullscreen,
+			viewport_width_px: document.documentElement.clientWidth,
+			viewport_height_px: document.documentElement.clientHeight,
+		}
+	}
+
+	// https://github.com/terkelg/facon/blob/master/src/index.js
+	function f(strings, ...args) {
+		let result = ``;
+		for(let i = 0; i < args.length; i++) result += strings[i] + args[i]
+		result += strings[strings.length - 1]
+
+		const template = document.createElement(`template`);
+		template.innerHTML = result;
+
+		const content = template.content;
+
+		content.collect = ({attr = 'ref', keepAttribute, assign = {}} = {}) => {
+			const refElements = content.querySelectorAll(`[${attr}]`);
+			return [...refElements].reduce((acc, element) => {
+				const propName = element.getAttribute(attr).trim();
+				!keepAttribute && (element.removeAttribute(attr));
+				acc[propName] = acc[propName]
+					? Array.isArray(acc[propName])
+						? [...acc[propName], element]
+						: [acc[propName], element]
+					: element;
+				return acc;
+			}, assign);
+		}
+
+		return content;
+	}
+
+	function render(state) {
+		const { params: { artwork_url, artwork_width_px, artwork_height_px}, snapshot: { viewport_width_px, viewport_height_px }} = state
+		console.log('🔄 render', state)
+		const horizontal_ratio = viewport_width_px / artwork_width_px
+		const vertical_ratio = viewport_height_px / artwork_height_px
+		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio)
+		const position_y_px = (viewport_height_px - artwork_height_px * artwork_scale) / 2.
+		const position_x_px = (viewport_width_px - artwork_width_px * artwork_scale) / 2.
+		//console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px})
+
+
+		//const node = f
+		//console.log(node)
+		//node.style.transform = `scale(${Math.min(horizontal_ratio, vertical_ratio)})`
+		document.body.innerHTML = `
+<iframe id="${ARTWORK_IFRAME_ID}"
+	src="${artwork_url}"
+	class="hide autoscaled"
+	sandbox="allow-scripts allow-same-origin"
+	referrerpolicy="origin"
+	width="${artwork_width_px}px" height="${artwork_height_px}px"
+	frameborder="0" scrolling="no"
+>
+	Problem. Iframe content should be here.
+</iframe>
+<div id="qrcode"></div>
+`
+		//document.body.appendChild(node);
+
+		//document.querySelector('h1').textContent = document.title
+		const artwork_element = document.getElementById(ARTWORK_IFRAME_ID)
+		artwork_element.style.transform = `
+		translate(${position_x_px}px,${position_y_px}px)
+		scale(${Math.min(horizontal_ratio, vertical_ratio)})
+		`
+		setTimeout(() => {
+			artwork_element.classList.remove('hide');
+			artwork_element.classList.add('show');
+
+			// TODO
+			//const qrcode = new QRCode("qrcode")
+			//qrcode.makeCode(artwork_url);
+		})
+	}
+	//render(state)
+
+	window.onresize = () => {
+		console.info('⚡ windows resized')
+		state = {
+			...state,
+			snapshot: {
+				...state.snapshot,
+				viewport_width_px: document.documentElement.clientWidth,
+				viewport_height_px: document.documentElement.clientHeight,
+			}
+		}
+		document.body.innerHTML = ''
+	}
+
+	let last_state = null
+	setInterval(() => {
+		if (last_state === state) return
+
+		console.log('❗ state change detected')
+		last_state = state
+		render(state)
+	}, 1000)
+
+	function update_fullscreen_state() {
+		console.info('⚡ fullscreen state changed: New state = ' + (screenfull.isFullscreen ? '' : 'NOT ') + 'in full screen');
+
+		state = {
+			...state,
+			snapshot: {
+				...state.snapshot,
+				is_full_screen: screenfull.isFullscreen,
+			}
+		}
+	}
+
+	if (screenfull.enabled) {
+		document.addEventListener(screenfull.raw.fullscreenchange, update_fullscreen_state);
+		document.addEventListener(screenfull.raw.fullscreenerror, function (event) {
+			console.error('Failed to enable fullscreen', event)
+		})
+	}
+
+	document.addEventListener('keyup', (event) => {
+		console.log('⚡ keyup', event)
+		if (event.code === "Space" || event.code === "Enter") {
+			if (screenfull.enabled) {
+				if (!state.snapshot.is_full_screen)
+					screenfull.request()
+				else
+					screenfull.exit()
+			}
+		}
+	})
+
+
+</script>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1618, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>TEST VIEWPORT</title>
+
+	<style type="text/css">
+		/* apply a natural box layout model to all elements, but allowing components to change
+		 * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+		 */
+		html                 { box-sizing: border-box; }
+		*, *:before, *:after { box-sizing: inherit; }
+
+		/*********************/
+
+		html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			overflow-x: hidden;
+			overflow-y: hidden;
+
+			/* https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations */
+			scroll-behavior: smooth;
+		}
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			background-color: black;
+			color: white;
+		}
+	</style>
+
+	<style type="text/css">
+		body {
+			background-color: darkblue;
+			color: white;
+		}
+		table {
+			border: solid 3px #bede99;
+		}
+		#t1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: solid 3px #bce8f1;
+			width: 1618px;
+			height: 1000px;
+		}
+	</style>
+</head>
+
+<table>
+	<tbody>
+		<tr>
+			<td>The table body</td>
+			<td>with two columns</td>
+		</tr>
+	</tbody>
+</table>
+
+<div id="t1"></div>

@@ -13,7 +13,7 @@ player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
 animations        http://animejs.com/
-full screen       https://github.com/Aqours/Fullscreen
+full screen       
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
 maps              https://maptalks.org/
 colors            http://clrs.cc/
@@ -25,10 +25,19 @@ components        https://frend.co/
 incredible viz    https://carrotsearch.com/foamtree/
                   https://isotope.metafizzy.co/
                   https://packery.metafizzy.co/
+                  https://www.dwitter.net/
 Audit             https://sonarwhal.com/
 hotkeys           https://github.com/jaywcjlove/hotkeys
 database          https://github.com/localForage/localForage
 isotope, packery  https://metafizzy.co/
+d&d truee         https://github.com/frontend-collective/react-sortable-tree
+fast client side DB  https://github.com/Nozbe/WatermelonDB
+flowcharts           http://flowchart.js.org/
+rich text editor     https://trix-editor.org/
+                     Atlaskit
+rich tables          https://github.com/ngduc/react-tabulator
+charts               https://github.com/naver/billboard.js
+
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js

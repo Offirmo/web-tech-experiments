@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1618, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>TEST VIEWPORT</title>
+
+	<style type="text/css">
+		/* apply a natural box layout model to all elements, but allowing components to change
+		 * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+		 */
+		html                 { box-sizing: border-box; }
+		*, *:before, *:after { box-sizing: inherit; }
+
+		/*********************/
+
+		html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			overflow-x: hidden;
+			overflow-y: hidden;
+
+			/* https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations */
+			scroll-behavior: smooth;
+		}
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			background-color: black;
+			color: white;
+
+			font-family: monospace;
+		}
+	</style>
+
+	<style type="text/css">
+		body {
+			background-color: darkblue;
+			color: white;
+			overflow-wrap: break-word;
+			line-height: 1em;
+		}
+	</style>
+</head>
+
+<body>
+
+</body>
+<script>
+	// https://dev.to/burningion/a-universe-in-one-line-of-code-with-10-print-2d1
+	// http://jrgraphix.net/r/Unicode/2500-257F
+	function generate_universe(length = 280) {
+		let values = []
+		for(let i = 0; i < length; ++i)
+			values.push(Math.round(Math.random()) === 0 ? '╱' : '╲')
+		//return String.fromCharCode(...values)
+		return values.join('')
+	}
+
+	document.body.innerHTML = generate_universe(10000)
+</script>
