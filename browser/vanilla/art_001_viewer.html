@@ -72,55 +72,60 @@
 	const ARTWORK_IFRAME_ID = 'artwork-iframe'
 
 	const ARTWORK_TEST = {
+		id: 'test',
 		name: 'Test',
 		url: './art_101_viewport.html',
 		width_px: 1618,
 		height_px: 1000,
 	}
-	const ARTWORK_TILED_LINES = {
-		name: 'Tiled Lines',
-		url: './art_111_tiled_lines.html',
-		width_px: 1613,
-		height_px: 1000,
-	}
 
-	const ARTWORKS_BY_ID = {
-		test: ARTWORK_TEST,
-		'tiled-lines': ARTWORK_TILED_LINES,
-		'cssdoodle-ex1': {
+	const ARTWORKS = [
+		{
+			id: 'tiled-lines',
+			name: 'Tiled Lines',
+			url: './art_111_tiled_lines.html',
+			width_px: 1613,
+			height_px: 1000,
+		},
+		{
+			id: 'cssdoodle-ex1',
 			name: 'CSS Doodle example 1',
 			url: './art_121_cssdoodle-ex1-refined.html',
 			width_px: 2000,
 			height_px: 1000,
 		},
-		'cssdoodle-ex2': {
+		{
+			id: 'cssdoodle-ex2',
 			name: 'CSS Doodle example 2',
 			url: './art_130_cssdoodle-ex2-refined.html',
 			width_px: 1920,
 			height_px: 1080,
 		},
-		'cssdoodle-ex3': {
+		{
+			id: 'cssdoodle-ex3',
 			name: 'CSS Doodle example 3',
 			url: './art_140_cssdoodle-ex3-refined.html',
 			width_px: 2000,
 			height_px: 2000,
 		},
-		'cssdoodle-ex4': {
+		{
+			id: 'cssdoodle-ex4',
 			name: 'CSS Doodle example 4',
 			url: './art_150_cssdoodle-ex4-refined.html',
 			width_px: 2000,
 			height_px: 2000,
 		},
-	}
+	]
 
 	const searchParams = new URLSearchParams(window.location.search);
 	const artwork_id = searchParams.get('artwork');
 	console.log({artwork_id})
 
+	const initial_artwork = ARTWORKS.find(a => a.id === artwork_id) || ARTWORK_TEST
 	let state = {
 		params: {
 			overscale: .95, // safe in case non-black borders
-			artwork: ARTWORKS_BY_ID[artwork_id] || ARTWORK_TEST,
+			artwork: initial_artwork,
 		},
 		snapshot: {
 			is_full_screen: screenfull.isFullscreen,
@@ -252,6 +257,18 @@
 					screenfull.request()
 				else
 					screenfull.exit()
+			}
+		}
+
+		if (event.code === "ArrowRight" || event.code === "ArrowLeft") {
+			const current_index = ARTWORKS.findIndex(a => a.id === state.params.artwork.id)
+			const new_artwork = ARTWORKS[(current_index + 1) % ARTWORKS.length]
+			state = {
+				...state,
+				params: {
+					...state.params,
+					artwork: new_artwork,
+				}
 			}
 		}
 	})
