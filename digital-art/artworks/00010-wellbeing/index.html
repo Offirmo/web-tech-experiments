@@ -45,55 +45,110 @@
 
 	<style type="text/css">
 		body {
-			display: flex;
+			/* https://colorhunt.co/palette/125778 */
+			--color--1: #ccffec;
+			--color--2: #ffdede;
+			--color--3: #ffe8cf;
+			--color--4: #fdfdc4;
+
+			display: grid
 		}
-		#doodle1, #doodle2 {
-			display: inline;
-		}
+
+		.bg1 { background-color: var(--color--1); }
+		.bg2 { background-color: var(--color--2); }
+		.bg3 { background-color: var(--color--3); }
+		.bg4 { background-color: var(--color--4); }
 	</style>
 </head>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.4.9/css-doodle.min.js"></script>
-<body>
-	<css-doodle id="doodle1">
-		:doodle {
-		@grid: 16 / 32;
-		background: #0a0c27;
-		font-family: sans-serif;
-		}
-		:after {
-		content: \@hex(@rand(0x2500, 0x257f));
-		color: hsla(@r(360), 70%, 70%, @r(.9));
-		font-size: 5vmax;
-		}
-	</css-doodle>
-	<css-doodle id="doodle2">
-		:doodle {
-		@grid: 32 / 16;
-		background: #0a0c27;
-		font-family: sans-serif;
-		}
-		:after {
-		content: \@hex(@rand(0x2500, 0x257f));
-		color: hsla(@r(360), 70%, 70%, @r(.9));
-		font-size: 5vmax;
-		}
-	</css-doodle>
-</body>
+<body></body>
 
 <script type="module">
 	import getOwnMetas from '../../common/get-own-meta.js'
 	import { sendMsgToViewer } from '../../viewer/client.js'
 
-	const metas = getOwnMetas()
-	//console.log(metas)
+	const METAS = getOwnMetas()
+	console.log(METAS)
+	const GRID_WIDTH = 26
+	const GRID_HEIGHT = 20
+	const CELL_WIDTH_PX = METAS.viewport.width * 1.0 / GRID_WIDTH
+	const CELL_HEIGHT_PX = METAS.viewport.height * 1.0 / GRID_HEIGHT
+	const state = {
+		cells: []
+	}
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values
+	function getRandomInt(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+	}
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
+	function getRandomIntInclusive(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+	}
+	function get_cell_index({x, y}) {
+		if (x < 0 || y < 0 || x >= GRID_WIDTH || y >= GRID_HEIGHT)
+			return -1
+
+		return y * GRID_WIDTH + x
+	}
+	function get_cell({x, y}) {
+		const index = get_cell_index({x, y})
+
+		return index < 0 ? null :  state.cells[index]
+	}
+
+	// build grid
+	document.body.style['grid-template-columns'] = `repeat(${GRID_WIDTH}, ${CELL_WIDTH_PX}px)`
+	document.body.style['grid-template-rows'] = `repeat(${GRID_HEIGHT}, ${CELL_HEIGHT_PX}px)`
+	//repeat(3, 20px [col-start])
+
+	// generate state
+	for (let y = 0; y < GRID_HEIGHT; ++y) {
+		for (let x = 0; x < GRID_WIDTH; ++x) {
+			console.log(`generating (${x}, ${y})…`)
+			const index = get_cell_index({x, y})
+			const cell = {
+				x,
+				y,
+				index,
+			}
+
+			// write
+			state.cells[index] = cell
+		}
+	}
+	console.log(state)
+
+	function render_cell(cell) {
+		const { x, y, index } = cell
+
+		let html = `
+			<span>(${x}, ${y})</span>
+		`
+
+		let classes = []
+		classes.push(`bg${getRandomIntInclusive(1, 4)}`)
+
+		return [ html, classes ]
+	}
+	// render
+	state.cells.forEach(cell => {
+		const div = document.createElement('div')
+		const [ html, classes ] = render_cell(cell)
+		div.innerHTML = html
+		div.classList.add(...classes)
+		document.body.appendChild(div)
+	})
+
 	sendMsgToViewer({
 		artwork: {
-			name: metas['og:title'],
-			width_px: metas.viewport.width,
-			height_px: metas.viewport.height,
+			name: METAS['og:title'],
+			width_px: METAS.viewport.width,
+			height_px: METAS.viewport.height,
 		},
 	})
 </script>
-
-
