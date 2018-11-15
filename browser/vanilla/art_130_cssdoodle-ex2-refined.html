@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=2000, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=1920, height=1080, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 	<title>ART</title>
 
@@ -44,14 +44,6 @@
 		#doodle1, #doodle2 {
 			display: inline;
 		}
-		#doodle2 {
-			-moz-transform: scaleX(-1);
-			-o-transform: scaleX(-1);
-			-webkit-transform: scaleX(-1);
-			transform: scaleX(-1);
-			filter: FlipH;
-			-ms-filter: "FlipH";
-		}
 	</style>
 </head>
 
@@ -59,35 +51,27 @@
 <body>
 	<css-doodle id="doodle1">
 		:doodle {
-			@grid: 32 / 50vmax;
+			@grid: 16 / 32;
 			background: #0a0c27;
+			font-family: sans-serif;
 		}
-		--hue: calc(180 + 1.5 * @row() * @col());
-		background: hsl(var(--hue), 50%, 70%);
-		margin: -.5px;
-		transition: @r(.5s) ease;
-		clip-path: polygon(@pick(
-			'0 0, 100% 0, 100% 100%',
-			'0 0, 100% 0, 0 100%',
-			'0 0, 100% 100%, 0 100%',
-			'100% 0, 100% 100%, 0 100%'
-		));
+		:after {
+			content: \@hex(@rand(0x2500, 0x257f));
+			color: hsla(@r(360), 70%, 70%, @r(.9));
+			font-size: 5vmax;
+		}
 	</css-doodle>
 	<css-doodle id="doodle2">
 		:doodle {
-		@grid: 32 / 50vmax;
+		@grid: 32 / 16;
 		background: #0a0c27;
+		font-family: sans-serif;
 		}
-		--hue: calc(180 + 1.5 * @row() * @col());
-		background: hsl(var(--hue), 50%, 70%);
-		margin: -.5px;
-		transition: @r(.5s) ease;
-		clip-path: polygon(@pick(
-		'0 0, 100% 0, 100% 100%',
-		'0 0, 100% 0, 0 100%',
-		'0 0, 100% 100%, 0 100%',
-		'100% 0, 100% 100%, 0 100%'
-		));
+		:after {
+		content: \@hex(@rand(0x2500, 0x257f));
+		color: hsla(@r(360), 70%, 70%, @r(.9));
+		font-size: 5vmax;
+		}
 	</css-doodle>
 </body>
 
