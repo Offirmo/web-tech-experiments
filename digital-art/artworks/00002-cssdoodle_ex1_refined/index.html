@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=1366, height=1024, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=1000, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 	<title>ART</title>
 
@@ -45,40 +45,35 @@
 
 	<style type="text/css">
 		/* https://codepen.io/metagrapher/pen/tgcLl */
-		/* https://colorhunt.co/palette/212 */
-		body {
-			animation: colorchange 30s ease-in-out infinite;
-			font-family: monospace;
-			overflow-wrap: break-word;
-			font-size: 1em;
-			line-height: 1em;
-		}
+		/* https://colorhunt.co/palette/15697 */
 		@keyframes colorchange
 		{
-			0%   {background: #292830; color: #5da7ae;}
-			50%   {background-color: #543d46; color: #ffebbc;}
-			100%   {background: #292830; color: #5da7ae;}
+			0%   {background-color: #311d3f;}
+			50%   {background-color: #88304e;}
+			100%   {background-color: #311d3f;}
 		}
 	</style>
 </head>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.4.9/css-doodle.min.js"></script>
 <body>
-
+	<css-doodle id="doodle1">
+		:doodle {
+			@grid: 32 / 100vh;
+			animation: colorchange 7s ease-in-out infinite;
+		}
+		background: #e23e57;
+		margin: -.5px;
+		transition: @r(.5s) ease;
+		clip-path: polygon(@pick(
+		'0 0, 100% 0, 100% 100%',
+		'0 0, 100% 0, 0 100%',
+		'0 0, 100% 100%, 0 100%',
+		'100% 0, 100% 100%, 0 100%'
+		));
+	</css-doodle>
 </body>
-
-<script type="module">
-	// https://dev.to/burningion/a-universe-in-one-line-of-code-with-10-print-2d1
-	// http://jrgraphix.net/r/Unicode/2500-257F
-	function generate_universe(length = 280) {
-		let values = []
-		for(let i = 0; i < length; ++i)
-			values.push(Math.round(Math.random()) === 0 ? '╱' : '╲')
-		//return String.fromCharCode(...values)
-		return values.join('')
-	}
-
-	document.body.innerHTML = generate_universe(10000)
-</script>
 
 <script type="module">
 	import getOwnMetas from '../../common/get-own-meta.js'
@@ -93,6 +88,11 @@
 			height_px: metas.viewport.height,
 		},
 	})
+
+	/*const doodle = document.querySelector('css-doodle');
+	setInterval(() => {
+		doodle.update();
+	}, 2400)*/
 </script>
 
 

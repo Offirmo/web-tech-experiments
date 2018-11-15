@@ -96,7 +96,8 @@
 	]
 
 	const searchParams = new URLSearchParams(window.location.search);
-	const initial_artwork_url = searchParams.get('artworkUrl');
+	let initial_artwork_url = searchParams.get('artworkUrl');
+	if (initial_artwork_url) initial_artwork_url = decodeURI(initial_artwork_url)
 	console.log({initial_artwork_url})
 
 	//const initial_artwork = ARTWORKS.find(a => a.id === initial_artwork_id) || ARTWORK_TEST
@@ -134,12 +135,12 @@
 			},
 		} = state
 
-		const horizontal_ratio = viewport_width_px / artwork.width_px
-		const vertical_ratio = viewport_height_px / artwork.height_px
+		const horizontal_ratio = 1.0 * viewport_width_px / artwork.width_px
+		const vertical_ratio = 1.0 * viewport_height_px / artwork.height_px
 		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio) * overscale
 		const position_y_px = (viewport_height_px - artwork.height_px * artwork_scale) / 2.
 		const position_x_px = (viewport_width_px - artwork.width_px * artwork_scale) / 2.
-		//console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px})
+		console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px, artwork_url})
 
 		if (!document.getElementById(ARTWORK_IFRAME_ID)) {
 			document.body.innerHTML = `
@@ -161,14 +162,23 @@
 			translate(${position_x_px}px,${position_y_px}px)
 			scale(${artwork_scale})
 		`
-		artwork_element.style.width = `${artwork.width_px}px`
-		artwork_element.style.height = `${artwork.height_px}px`
+		// * 1.0 due to a browser bug (Chrome) not resizing when artwork size === viewport size (integers)
+		artwork_element.style.width = `${artwork.width_px * 1.0}px`
+		artwork_element.style.height = `${artwork.height_px * 1.0}px`
 
 		setTimeout(() => {
 			if (is_loading) return
 
 			artwork_element.classList.add('show')
 			artwork_element.classList.remove('hide')
+
+			const content_url = `./index.html?artworkUrl=${encodeURI(artwork_url)}`
+			if (window.history.state.url !== content_url) {
+				console.log('url changed, pushing…', window.history.state.url, content_url)
+				history.pushState({
+					url: content_url,
+				}, "Art", content_url);
+			}
 
 			// TODO
 			//const qrcode = new QRCode("qrcode")
@@ -217,8 +227,12 @@
 		}
 
 		if (event.code === "ArrowRight" || event.code === "ArrowLeft") {
-			const current_index = KNOWN_ARTWORKS.findIndex(url => state.params.artwork_url === url)
-			const new_artwork_url = KNOWN_ARTWORKS[(current_index + event.code === "ArrowRight" ? 1 : -1) % KNOWN_ARTWORKS.length]
+			event.preventDefault()
+			event.stopPropagation()
+			const current_index = KNOWN_ARTWORKS.findIndex(url => url === state.params.artwork_url) || KNOWN_ARTWORKS.length
+			const next_index = (current_index + (event.code === "ArrowRight" ? 1 : -1)) % KNOWN_ARTWORKS.length
+			console.log(current_index, next_index)
+			const new_artwork_url = KNOWN_ARTWORKS[next_index]
 			state = {
 				...state,
 				is_loading: true,
@@ -227,6 +241,7 @@
 					artwork_url: new_artwork_url,
 				}
 			}
+			// need to reset
 			document.body.innerHTML = ''
 		}
 	})

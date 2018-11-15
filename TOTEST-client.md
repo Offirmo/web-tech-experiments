@@ -17,8 +17,9 @@ animations        http://animejs.com/
 full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
 maps              https://maptalks.org/
-colors            http://clrs.cc/
-                  https://github.com/Jam3/nice-color-palettes
+colors            basiques http://clrs.cc/
+                  palettes https://colorhunt.co/
+                  archive https://github.com/Jam3/nice-color-palettes
                   https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
