@@ -73,19 +73,31 @@
 	const ARTWORK_IFRAME_ID = 'artwork-iframe'
 
 	const ARTWORK_TEST = {
+		name: 'Test',
 		url: './art_101_viewport.html',
 		width_px: 1618,
 		height_px: 1000,
 	}
 	const ARTWORK_TILED_LINES = {
-		url: './art_110_tiled_lines.html',
+		name: 'Tiled Lines',
+		url: './art_111_tiled_lines.html',
 		width_px: 1613,
 		height_px: 1000,
 	}
+
+	const ARTWORKS_BY_ID = {
+		test: ARTWORK_TEST,
+		'tiled-lines': ARTWORK_TILED_LINES,
+	}
+
+	const searchParams = new URLSearchParams(window.location.search);
+	const artwork_id = searchParams.get('artwork');
+	console.log({artwork_id})
+
 	let state = {
 		params: {
 			overscale: .95, // safe in case non-black borders
-			artwork: ARTWORK_TILED_LINES,
+			artwork: ARTWORKS_BY_ID[artwork_id] || ARTWORK_TILED_LINES,
 		},
 		snapshot: {
 			is_full_screen: screenfull.isFullscreen,
