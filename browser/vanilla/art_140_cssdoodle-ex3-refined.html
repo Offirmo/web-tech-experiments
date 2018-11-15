@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=2000, height=2000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>ART</title>
+
+	<style type="text/css">
+		/* apply a natural box layout model to all elements, but allowing components to change
+		 * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+		 */
+		html                 { box-sizing: border-box; }
+		*, *:before, *:after { box-sizing: inherit; }
+
+		/*********************/
+
+		html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			overflow-x: hidden;
+			overflow-y: hidden;
+
+			/* https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations */
+			scroll-behavior: smooth;
+		}
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+
+			background-color: black;
+			color: white;
+		}
+	</style>
+
+	<style type="text/css">
+		body {
+			display: flex;
+			background-color: white;
+		}
+		#doodle1, #doodle2 {
+			display: inline;
+		}
+	</style>
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.4.9/css-doodle.min.js"></script>
+<body>
+	<css-doodle id="doodle1">
+		:doodle {
+			@grid: 12 / 100vh;
+		}
+
+		transition: .2s @r(.6s);
+		border-radius: @pick(100% 0, 0 100%);
+
+		will-change: transform;
+		transform: scale(@r(.25, 1.25));
+
+		background: hsla(
+		calc(240 - 2 * @row() * @col()),
+		70%, 68%, @r(.8)
+		);
+	</css-doodle>
+</body>
+
+<script>
+	const doodle = document.querySelector('css-doodle');
+
+	setInterval(() => {
+		doodle.update();
+	}, 2400)
+
+</script>
