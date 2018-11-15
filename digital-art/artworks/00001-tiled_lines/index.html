@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1366, height=1024, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>ART</title>
+
+	<!-- browser adjustments -->
+	<!-- https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color -->
+	<meta name="theme-color" content="#000">
+
+	<!-- favicon -->
+	<link rel="icon" href="../../common/favicon.png" type="image/png" />
+
+	<!-- https://developers.facebook.com/docs/sharing/webmasters#markup -->
+	<!-- https://developers.facebook.com/docs/sharing/best-practices#tags -->
+	<meta property="og:url"          content="./preview.png?cachebust=1"> <!-- canonical url -->
+	<meta property="og:type"         content="article"> <!-- ?? forced to website by facebook ? -->
+	<meta property="og:title"        content="Digital artwork">
+	<meta property="og:description"  content="A piece of digital art"> <!-- at least two sentences long -->
+	<meta property="og:image"        content="./preview.png?cachebust=1"> <!-- must be a full url -->
+	<meta property="og:image:alt"    content="An example of art you could see.">
+	<!-- https://developers.facebook.com/docs/opengraph/guides/internationalization?locale=fr_FR -->
+	<meta property="og:locale"       content="en_US">
+
+	<!-- https://dev.twitter.com/cards/overview -->
+	<!-- https://dev.twitter.com/cards/getting-started -->
+	<!-- https://dev.twitter.com/cards/types/summary-large-image -->
+	<!-- When the Twitter card processor looks for tags on a page,
+	     it first checks for the Twitter-specific property,
+	     and if not present, falls back to the supported Open Graph property. -->
+	<meta name="twitter:card"        content="summary_large_image">
+	<meta name="twitter:site"        content="@Offirmo"> <!-- twitter username -->
+	<meta name="twitter:creator"     content="@Offirmo"> <!-- twitter username -->
+	<!-- twitter:title and twitter:description will be reused from open graph -->
+	<meta name="twitter:image"       content="./preview.png?cachebust=1">
+	<meta name="twitter:image:alt"   content="An example of art you could see.">
+
+	<!-- LinkedIn is picking og title, description, url and meta -->
+	<!-- https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en -->
+
+	<link rel="stylesheet" type="text/css" href="../../common/reset.css" />
+
+	<style type="text/css">
+		/* https://codepen.io/metagrapher/pen/tgcLl */
+		/* https://colorhunt.co/palette/212 */
+		body {
+			animation: colorchange 30s infinite;
+			font-family: monospace;
+			overflow-wrap: break-word;
+			font-size: 1em;
+			line-height: 1em;
+		}
+		@keyframes colorchange
+		{
+			0%   {background: #292830; color: #5da7ae;}
+			50%   {background-color: #543d46; color: #ffebbc;}
+			100%   {background: #292830; color: #5da7ae;}
+		}
+	</style>
+</head>
+
+<body>
+
+</body>
+
+<script type="module">
+	// https://dev.to/burningion/a-universe-in-one-line-of-code-with-10-print-2d1
+	// http://jrgraphix.net/r/Unicode/2500-257F
+	function generate_universe(length = 280) {
+		let values = []
+		for(let i = 0; i < length; ++i)
+			values.push(Math.round(Math.random()) === 0 ? '╱' : '╲')
+		//return String.fromCharCode(...values)
+		return values.join('')
+	}
+
+	document.body.innerHTML = generate_universe(10000)
+</script>
+
+<script type="module">
+	import getOwnMetas from '../../common/get-own-meta.js'
+	import { sendMsgToViewer } from '../../viewer/client.js'
+
+	const metas = getOwnMetas()
+	//console.log(metas)
+	sendMsgToViewer({
+		artwork: {
+			name: metas['og:title'],
+			width_px: metas.viewport.width,
+			height_px: metas.viewport.height,
+		},
+	})
+</script>
+
+

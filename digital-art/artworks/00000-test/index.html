@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1618, height=1000, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>ART</title>
+
+	<!-- browser adjustments -->
+	<!-- https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color -->
+	<meta name="theme-color" content="#000">
+
+	<!-- favicon -->
+	<link rel="icon" href="../../common/favicon.png" type="image/png" />
+
+	<!-- https://developers.facebook.com/docs/sharing/webmasters#markup -->
+	<!-- https://developers.facebook.com/docs/sharing/best-practices#tags -->
+	<meta property="og:url"          content="./preview.png?cachebust=1"> <!-- canonical url -->
+	<meta property="og:type"         content="article"> <!-- ?? forced to website by facebook ? -->
+	<meta property="og:title"        content="Digital artwork">
+	<meta property="og:description"  content="A piece of digital art"> <!-- at least two sentences long -->
+	<meta property="og:image"        content="./preview.png?cachebust=1"> <!-- must be a full url -->
+	<meta property="og:image:alt"    content="An example of art you could see.">
+	<!-- https://developers.facebook.com/docs/opengraph/guides/internationalization?locale=fr_FR -->
+	<meta property="og:locale"       content="en_US">
+
+	<!-- https://dev.twitter.com/cards/overview -->
+	<!-- https://dev.twitter.com/cards/getting-started -->
+	<!-- https://dev.twitter.com/cards/types/summary-large-image -->
+	<!-- When the Twitter card processor looks for tags on a page,
+	     it first checks for the Twitter-specific property,
+	     and if not present, falls back to the supported Open Graph property. -->
+	<meta name="twitter:card"        content="summary_large_image">
+	<meta name="twitter:site"        content="@Offirmo"> <!-- twitter username -->
+	<meta name="twitter:creator"     content="@Offirmo"> <!-- twitter username -->
+	<!-- twitter:title and twitter:description will be reused from open graph -->
+	<meta name="twitter:image"       content="./preview.png?cachebust=1">
+	<meta name="twitter:image:alt"   content="An example of art you could see.">
+
+	<!-- LinkedIn is picking og title, description, url and meta -->
+	<!-- https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en -->
+
+	<link rel="stylesheet" type="text/css" href="../../common/reset.css" />
+
+	<style type="text/css">
+		body {
+			background-color: darkblue;
+			color: white;
+		}
+		table {
+			border: solid 3px #bede99;
+		}
+		#t1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: solid 3px #bce8f1;
+			width: 1618px;
+			height: 1000px;
+		}
+	</style>
+</head>
+
+<body>
+	<table>
+		<tbody>
+		<tr>
+			<td width="1000">Your art here</td>
+			<td>Your art here</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<div id="t1"></div>
+</body>
+
+<script type="module">
+	import getOwnMetas from '../../common/get-own-meta.js'
+	import { sendMsgToViewer } from '../../viewer/client.js'
+
+	const metas = getOwnMetas()
+	//console.log(metas)
+	sendMsgToViewer({
+		artwork: {
+			name: metas['og:title'],
+			width_px: metas.viewport.width,
+			height_px: metas.viewport.height,
+		},
+	})
+</script>

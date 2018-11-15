@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Digital Art Viewer</title>
+
+	<link rel="icon" href="../common/favicon.png" type="image/png" />
+	<link rel="stylesheet" type="text/css" href="../common/reset.css" />
+
+	<style type="text/css">
+		#qrcode {
+			width:160px;
+			height:160px;
+			margin-top:15px;
+		}
+
+		#artwork-iframe {
+			transform-origin: 0 0;
+		}
+
+		.hide {
+			opacity: 0;
+		}
+		.show {
+			opacity: 1;
+			transition: opacity 2000ms;
+		}
+	</style>
+</head>
+
+<body>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.3/screenfull.min.js" integrity="sha256-ULK0G2N+co+TT4C60EB0nElSM1e+tI2EFVa+bR/4juU=" crossorigin="anonymous"></script><!-- https://davidshimjs.github.io/qrcodejs/ -->
+<!--
+<script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha256-oFdxn7dhcB+zRMR6VdxPpQjrIELyW8AMr9FO6L+2FT4=" crossorigin="anonymous"></script>
+-->
+
+<script type="module">
+	const LIB = '[viewer]'
+	console.info(`${LIB} - 🆙 Starting…`)
+
+	import { listenForSafePostMessages } from './server.js'
+	import KNOWN_ARTWORKS from './known_artworks.js'
+
+	const ARTWORK_IFRAME_ID = 'artwork-iframe'
+	const ARTWORK_TEST = {
+		id: 'test',
+		name: 'Test',
+		url: './art_101_viewport.html',
+		width_px: 1618,
+		height_px: 1000,
+	}
+
+	const TODOARTWORKS = [
+		{
+			id: 'tiled-lines',
+			name: 'Tiled Lines',
+			url: './art_111_tiled_lines.html',
+			width_px: 1613,
+			height_px: 1000,
+		},
+		{
+			id: 'cssdoodle-ex1',
+			name: 'CSS Doodle example 1',
+			url: './art_121_cssdoodle-ex1-refined.html',
+			width_px: 2000,
+			height_px: 1000,
+		},
+		{
+			id: 'cssdoodle-ex2',
+			name: 'CSS Doodle example 2',
+			url: './art_130_cssdoodle-ex2-refined.html',
+			width_px: 1920,
+			height_px: 1080,
+		},
+		{
+			id: 'cssdoodle-ex3',
+			name: 'CSS Doodle example 3',
+			url: './art_140_cssdoodle-ex3-refined.html',
+			width_px: 2000,
+			height_px: 2000,
+		},
+		{
+			id: 'cssdoodle-ex4',
+			name: 'CSS Doodle example 4',
+			url: './art_150_cssdoodle-ex4-refined.html',
+			width_px: 2000,
+			height_px: 2000,
+		},
+	]
+
+	const searchParams = new URLSearchParams(window.location.search);
+	const initial_artwork_url = searchParams.get('artworkUrl');
+	console.log({initial_artwork_url})
+
+	//const initial_artwork = ARTWORKS.find(a => a.id === initial_artwork_id) || ARTWORK_TEST
+	let state = {
+		is_loading: true,
+		artwork: undefined,
+		params: { // given by user (somehow)
+			overscale: .95, // safe in case non-black borders
+			artwork_url: initial_artwork_url || '../artworks/00000-test/index.html',
+		},
+		snapshot: {
+			is_full_screen: screenfull.isFullscreen,
+			viewport_width_px: document.documentElement.clientWidth,
+			viewport_height_px: document.documentElement.clientHeight,
+		}
+	}
+
+	function render(state) {
+		console.log(`${LIB} - 🔄 render`, JSON.parse(JSON.stringify(state)))
+
+		const {
+			is_loading,
+			artwork = {
+				name: 'Loading…',
+				width_px: 1000,
+				height_px: 1000,
+			},
+			params: {
+				overscale,
+				artwork_url,
+			},
+			snapshot: {
+				viewport_width_px,
+				viewport_height_px,
+			},
+		} = state
+
+		const horizontal_ratio = viewport_width_px / artwork.width_px
+		const vertical_ratio = viewport_height_px / artwork.height_px
+		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio) * overscale
+		const position_y_px = (viewport_height_px - artwork.height_px * artwork_scale) / 2.
+		const position_x_px = (viewport_width_px - artwork.width_px * artwork_scale) / 2.
+		//console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px})
+
+		if (!document.getElementById(ARTWORK_IFRAME_ID)) {
+			document.body.innerHTML = `
+				<iframe id="${ARTWORK_IFRAME_ID}"
+					src="${artwork_url}"
+					class="hide"
+					sandbox="allow-scripts allow-same-origin"
+					referrerpolicy="origin"
+					frameborder="0" scrolling="no"
+				>
+					Problem. Artwork iframe content should be here.
+				</iframe>
+				<div id="qrcode"></div>
+			`
+		}
+
+		const artwork_element = document.getElementById(ARTWORK_IFRAME_ID)
+		artwork_element.style.transform = `
+			translate(${position_x_px}px,${position_y_px}px)
+			scale(${artwork_scale})
+		`
+		artwork_element.style.width = `${artwork.width_px}px`
+		artwork_element.style.height = `${artwork.height_px}px`
+
+		setTimeout(() => {
+			if (is_loading) return
+
+			artwork_element.classList.add('show')
+			artwork_element.classList.remove('hide')
+
+			// TODO
+			//const qrcode = new QRCode("qrcode")
+			//qrcode.makeCode(artwork.url)
+		})
+	}
+
+	// auto-refresh
+	let last_state = state
+	setInterval(() => {
+		if (last_state === state) return
+
+		console.log(`${LIB} - 🆕 state change detected, refreshing`)
+		last_state = state
+		render(state)
+	}, 1000)
+	render(state) // force immediate initial render
+
+	// conditions for refresh
+	window.onresize = () => {
+		console.info(`${LIB} - ⚡ windows resized`)
+		state = {
+			...state,
+			snapshot: {
+				...state.snapshot,
+				is_full_screen: screenfull.isFullscreen,
+				viewport_width_px: document.documentElement.clientWidth,
+				viewport_height_px: document.documentElement.clientHeight,
+			}
+		}
+		//document.body.innerHTML = ''
+	}
+
+	// keyboard controls
+	document.addEventListener('keyup', (event) => {
+		console.log(`${LIB} - ⚡ keyup`, event)
+
+		if (event.code === "Space" || event.code === "Enter") {
+			if (screenfull.enabled) {
+				if (!state.snapshot.is_full_screen)
+					screenfull.request()
+				else
+					screenfull.exit()
+				// changing fullscreen will trigger a resize, no need to refresh
+			}
+		}
+
+		if (event.code === "ArrowRight" || event.code === "ArrowLeft") {
+			const current_index = KNOWN_ARTWORKS.findIndex(url => state.params.artwork_url === url)
+			const new_artwork_url = KNOWN_ARTWORKS[(current_index + event.code === "ArrowRight" ? 1 : -1) % KNOWN_ARTWORKS.length]
+			state = {
+				...state,
+				is_loading: true,
+				params: {
+					...state.params,
+					artwork_url: new_artwork_url,
+				}
+			}
+			document.body.innerHTML = ''
+		}
+	})
+
+	listenForSafePostMessages({
+		window,
+		debugId: LIB,
+		isOriginAllowed: (origin) => true,
+		onMessage: ({ data }) => {
+			console.log(`${LIB} - received message from iframe:`, data)
+			state = {
+				...state,
+				is_loading: false,
+				artwork: {
+					name: '[Loading…]',
+					width_px: 1000,
+					height_px: 1000,
+					...(data.artwork || {}),
+				}
+			}
+		},
+	})
+</script>
