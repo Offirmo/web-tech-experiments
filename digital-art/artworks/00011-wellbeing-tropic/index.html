@@ -157,6 +157,8 @@
 	const bgcolors = [
 		'bg-sea',
 		'bg-sky',
+		'bg-sea',
+		'bg-sky',
 		'bg-sand',
 		'bg-nature',
 		'bg-stuff',
@@ -166,28 +168,29 @@
 	const tropical_fruits = ['🍉', '🍍', '🥥'/*, '🥭'*/]
 	const flying = ['🎈', '🦋','🐝', '🐞']
 	const growing = ['🌱', '🌴']
+	const treats = ['🍭', '🍦', '🍩', '🎂']
 	function generate_cell({x, y, index}) {
 		//const bgcolor = getRandomNotInNeighbours({x, y, prop: 'bgcolor', choices: bgcolors})
 		const bgcolor = pick(bgcolors)
 		let text = ''
 		switch(bgcolor) {
 			case 'bg-sea':
-				text = pick(['🏊', '🚣', '🏄', '🐳', '🐋', '🐬', '🐟', '🐠', '🐡', '🧜', '🦐', '🏝', '🏖'])
+				text = pick(['🏊', '🚣', '🏄', '🐳', '🐋', '🐬', '🐟', '🐠', '🐡', '🧜', '🦐'])
 				break
 			case 'bg-sky':
-				text = pick(['🌞', ...flying])
+				text = pick(['🌞', ...flying, '🏝', '🏖'])
 				break
 			case 'bg-sand':
-				text = pick(['🐚', '🦀', ...growing, ...tropical_fruits])
+				text = pick(['🐚', '🦀', '👙', '⛱', '🎶', ...growing, ...tropical_fruits])
 				break
 			case 'bg-nature':
 				text = pick([...growing, ...flying])
 				break
 			case 'bg-stuff':
-				text = pick([...tropical_fruits, '💐', '🍇', '🍭'])
+				text = pick([...tropical_fruits, '💐', '🍇', ...treats])
 				break
 			case 'bg-sunrise':
-				text = pick([...growing, '💘', '💬'])
+				text = pick([...growing, '💘', '💬', '🎶', '🎁', ...treats])
 				break
 			default:
 				throw new Error('!')
