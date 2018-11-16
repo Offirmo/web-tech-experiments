@@ -98,7 +98,7 @@
 	const searchParams = new URLSearchParams(window.location.search);
 	let initial_artwork_url = searchParams.get('artworkUrl');
 	if (initial_artwork_url) initial_artwork_url = decodeURI(initial_artwork_url)
-	console.log({initial_artwork_url})
+	//console.log({initial_artwork_url})
 
 	//const initial_artwork = ARTWORKS.find(a => a.id === initial_artwork_id) || ARTWORK_TEST
 	let state = {
@@ -140,7 +140,7 @@
 		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio) * overscale
 		const position_y_px = (viewport_height_px - artwork.height_px * artwork_scale) / 2.
 		const position_x_px = (viewport_width_px - artwork.width_px * artwork_scale) / 2.
-		console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px, artwork_url})
+		//console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px, artwork_url})
 
 		if (!document.getElementById(ARTWORK_IFRAME_ID)) {
 			document.body.innerHTML = `

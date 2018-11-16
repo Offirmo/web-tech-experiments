@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1366, height=1024, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>ART</title>
+
+	<!-- browser adjustments -->
+	<!-- https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color -->
+	<meta name="theme-color" content="#000">
+
+	<!-- favicon -->
+	<link rel="icon" href="../../common/favicon.png" type="image/png" />
+
+	<!-- https://developers.facebook.com/docs/sharing/webmasters#markup -->
+	<!-- https://developers.facebook.com/docs/sharing/best-practices#tags -->
+	<meta property="og:url"          content="./preview.png?cachebust=1"> <!-- canonical url -->
+	<meta property="og:type"         content="article"> <!-- ?? forced to website by facebook ? -->
+	<meta property="og:title"        content="Digital artwork">
+	<meta property="og:description"  content="A piece of digital art"> <!-- at least two sentences long -->
+	<meta property="og:image"        content="./preview.png?cachebust=1"> <!-- must be a full url -->
+	<meta property="og:image:alt"    content="An example of art you could see.">
+	<!-- https://developers.facebook.com/docs/opengraph/guides/internationalization?locale=fr_FR -->
+	<meta property="og:locale"       content="en_US">
+
+	<!-- https://dev.twitter.com/cards/overview -->
+	<!-- https://dev.twitter.com/cards/getting-started -->
+	<!-- https://dev.twitter.com/cards/types/summary-large-image -->
+	<!-- When the Twitter card processor looks for tags on a page,
+	     it first checks for the Twitter-specific property,
+	     and if not present, falls back to the supported Open Graph property. -->
+	<meta name="twitter:card"        content="summary_large_image">
+	<meta name="twitter:site"        content="@Offirmo"> <!-- twitter username -->
+	<meta name="twitter:creator"     content="@Offirmo"> <!-- twitter username -->
+	<!-- twitter:title and twitter:description will be reused from open graph -->
+	<meta name="twitter:image"       content="./preview.png?cachebust=1">
+	<meta name="twitter:image:alt"   content="An example of art you could see.">
+
+	<!-- LinkedIn is picking og title, description, url and meta -->
+	<!-- https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en -->
+
+	<link rel="stylesheet" type="text/css" href="../../common/reset.css" />
+
+	<style type="text/css">
+		body {
+			background-color: white;
+			/* https://colorhunt.co/palette/125778 */
+			--color--1: #ccffec;
+			--color--2: #ffdede;
+			--color--3: #ffe8cf;
+			--color--4: #fdfdc4;
+			--color--5: #d1f4fa;
+
+			display: grid;
+			font-size: 33px;
+			line-height: 1.8em;
+		}
+
+		.bg1 { background-color: var(--color--1); }
+		.bg2 { background-color: var(--color--2); }
+		.bg3 { background-color: var(--color--3); }
+		.bg4 { background-color: var(--color--4); }
+		.bg5 { background-color: var(--color--5); }
+
+		.cell {
+			justify-self: stretch;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body></body>
+
+<script type="module">
+	import getOwnMetas from '../../common/get-own-meta.js'
+	import { sendMsgToViewer } from '../../viewer/client.js'
+
+	const METAS = getOwnMetas()
+	console.log(METAS)
+	const GRID_WIDTH = 26
+	const GRID_HEIGHT = 20
+	const CELL_WIDTH_PX = METAS.viewport.width * 1.0 / GRID_WIDTH
+	const CELL_HEIGHT_PX = METAS.viewport.height * 1.0 / GRID_HEIGHT
+
+	/////////////
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values
+	function getRandomInt(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+	}
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive
+	function getRandomIntInclusive(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+	}
+	function pick(it) {
+		const array = Array.from(it)
+		return array[getRandomInt(0, array.length)]
+	}
+	function get_cell_index({x, y}) {
+		if (x < 0 || y < 0 || x >= GRID_WIDTH || y >= GRID_HEIGHT)
+			return -1
+
+		return y * GRID_WIDTH + x
+	}
+	function get_cell({x, y}) {
+		const index = get_cell_index({x, y})
+
+		return index < 0 ? null :  state.cells[index]
+	}
+	function get_neighbours({x, y}) {
+		const index = get_cell_index({x, y})
+
+		return [
+			state.cells[index - GRID_WIDTH - 1 ],
+			state.cells[index - GRID_WIDTH     ],
+			state.cells[index - GRID_WIDTH + 1 ],
+			state.cells[index              - 1 ],
+			state.cells[index              + 1 ],
+			state.cells[index + GRID_WIDTH - 1 ],
+			state.cells[index + GRID_WIDTH     ],
+			state.cells[index + GRID_WIDTH + 1 ],
+		].filter(c => !!c)
+	}
+
+	function getRandomNotInNeighbours({ x, y, prop, choices, fallback}) {
+		const refined_choices = new Set(choices)
+		const neighbours = get_neighbours({x, y})
+		neighbours.forEach(n => {
+			refined_choices.delete(n[prop])
+		})
+		if (fallback === undefined && Array.from(refined_choices).length === 0)
+			throw new Error('No choices!')
+		return pick(refined_choices)
+	}
+
+	/////////////
+
+	// build grid
+	document.body.style['grid-template-columns'] = `repeat(${GRID_WIDTH}, ${CELL_WIDTH_PX}px)`
+	document.body.style['grid-template-rows'] = `repeat(${GRID_HEIGHT}, ${CELL_HEIGHT_PX}px)`
+
+	/////////////
+
+	const state = {
+		cells: []
+	}
+
+	// generate state
+	const bgcolors = [
+		'bg1',
+		'bg2',
+		'bg3',
+		'bg4',
+		'bg5',
+	]
+	function generate_cell({x, y, index}) {
+		return {
+			text: pick(['😺', '😸', '😹', '😻']),
+			bgcolor: getRandomNotInNeighbours({x, y, prop: 'bgcolor', choices: bgcolors, fallback: 'nobg'}),
+		}
+	}
+
+	for (let y = 0; y < GRID_HEIGHT; ++y) {
+		for (let x = 0; x < GRID_WIDTH; ++x) {
+			console.log(`generating (${x}, ${y})…`)
+			const index = get_cell_index({x, y})
+
+			state.cells[index] = {
+				...generate_cell({x, y, index}),
+				x,
+				y,
+				index,
+			}
+		}
+	}
+	console.log(state)
+
+	const COOL_EMOJIS = '😀😃😄😁😆😅🤣😂🙂🙃😉😊😇🥰😍🤩😋🤗🤠🥳😎😺😸😹😻'
+	/*
+	😀😃😄😁😆😅🤣😂🙂🙃😉😊😇🥰😍🤩😋🤗🤠🥳😎
+	😺😸😹😻
+	💋
+❤🧡💛💚💙💜🖤💓💔💕💖💗
+🔵🔴⚫⚪
+💆
+🤸
+🧘
+👫
+🐱🐈
+🐹🐰🐇🐿🦔🐨🐼🐣🐥
+🌱🌲🌳🌴
+🍉🍍🥭
+🥥
+🥐
+🍦🍩🍪🎂🍰🧁🍫🍬🍭
+🌅
+🌞
+⛱
+🎈
+🎁
+🧸
+👙
+🎶
+🏴‍☠️
+	 */
+	function render_cell(cell) {
+		const { x, y, index, text, bgcolor } = cell
+
+		let html = `
+			<span>${text}</span>
+		`
+
+		let classes = []
+		classes.push(bgcolor)
+
+		return [ html, classes ]
+	}
+	// render
+	state.cells.forEach(cell => {
+		const div = document.createElement('div')
+		const [ html, classes ] = render_cell(cell)
+		div.innerHTML = html
+		div.classList.add('cell')
+		div.classList.add(...classes)
+		document.body.appendChild(div)
+	})
+
+	sendMsgToViewer({
+		artwork: {
+			name: METAS['og:title'],
+			width_px: METAS.viewport.width,
+			height_px: METAS.viewport.height,
+		},
+	})
+</script>

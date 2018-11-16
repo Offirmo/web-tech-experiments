@@ -46,23 +46,26 @@
 	<style type="text/css">
 		body {
 			background-color: white;
-			/* https://colorhunt.co/palette/125778 */
-			--color--1: #ccffec;
-			--color--2: #ffdede;
-			--color--3: #ffe8cf;
-			--color--4: #fdfdc4;
-			--color--5: #d1f4fa;
+			/* https://colorhunt.co/palette/43813 */
+			--color--sea: #82bbff;
+			--color--sky: #a3f3eb;
+			--color--sand: #ffe68d;
+			--color--sunrise: #ffdfc3;
+
+			--color--nature: #12ffb6;
+			--color--stuff: #f1ffab;
 
 			display: grid;
 			font-size: 33px;
 			line-height: 1.8em;
 		}
 
-		.bg1 { background-color: var(--color--1); }
-		.bg2 { background-color: var(--color--2); }
-		.bg3 { background-color: var(--color--3); }
-		.bg4 { background-color: var(--color--4); }
-		.bg5 { background-color: var(--color--5); }
+		.bg-sea { background-color: var(--color--sea); }
+		.bg-sky { background-color: var(--color--sky); }
+		.bg-sand { background-color: var(--color--sand); }
+		.bg-nature { background-color: var(--color--nature); }
+		.bg-stuff { background-color: var(--color--stuff); }
+		.bg-sunrise { background-color: var(--color--sunrise); }
 
 		.cell {
 			justify-self: stretch;
@@ -127,7 +130,6 @@
 			state.cells[index + GRID_WIDTH + 1 ],
 		].filter(c => !!c)
 	}
-
 	function getRandomNotInNeighbours({ x, y, prop, choices, fallback}) {
 		const refined_choices = new Set(choices)
 		const neighbours = get_neighbours({x, y})
@@ -153,16 +155,43 @@
 
 	// generate state
 	const bgcolors = [
-		'bg1',
-		'bg2',
-		'bg3',
-		'bg4',
-		'bg5',
+		'bg-sea',
+		'bg-sky',
+		'bg-sand',
+		'bg-nature',
+		'bg-stuff',
+		'bg-sunrise',
 	]
+
 	function generate_cell({x, y, index}) {
+		//const bgcolor = getRandomNotInNeighbours({x, y, prop: 'bgcolor', choices: bgcolors})
+		const bgcolor = pick(bgcolors)
+		let text = ''
+		switch(bgcolor) {
+			case 'bg-sea':
+				text = pick(['🏊', '🚣', '🏄', '🐳', '🐋', '🐬', '🐟', '🐠', '🐡', '🧜', '🦐', '🏝', '🏖'])
+				break
+			case 'bg-sky':
+				text = pick(['🎈', '🌞', '🦋','🐝', '🐞'])
+				break
+			case 'bg-sand':
+				text = pick(['🐚', '🌱', '🌴', '🍉', '🍍', '🦀'])
+				break
+			case 'bg-nature':
+				text = pick(['🌱', '🌴', '🦋','🐝', '🐞'])
+				break
+			case 'bg-stuff':
+				text = pick(['🍉', '🍍'/*, '🥭'*/, '💐', '🍇', '🍭'])
+				break
+			case 'bg-sunrise':
+				text = pick(['🌱', '🌴', '💘', '💬'])
+				break
+			default:
+				throw new Error('!')
+		}
 		return {
-			text: pick(['😺', '😸', '😹', '😻']),
-			bgcolor: getRandomNotInNeighbours({x, y, prop: 'bgcolor', choices: bgcolors, fallback: 'nobg'}),
+			text,
+			bgcolor,
 		}
 	}
 
@@ -188,7 +217,26 @@
 	💋
 ❤🧡💛💚💙💜🖤💓💔💕💖💗
 🔵🔴⚫⚪
-💆 💆 💆♀️
+💆
+🤸
+🧘
+👫
+🐱🐈
+🐹🐰🐇🐿🦔🐨🐼🐣🐥
+🌱🌲🌳🌴
+🍉🍍🥭
+🥥
+🥐
+🍦🍩🍪🎂🍰🧁🍫🍬🍭
+🌅
+🌞
+⛱
+🎈
+🎁
+🧸
+👙
+🎶
+🏴‍☠️
 	 */
 	function render_cell(cell) {
 		const { x, y, index, text, bgcolor } = cell
