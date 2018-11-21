@@ -6,4 +6,5 @@ export default [
 	'../artworks/00005-cssdoodle_ex4_refined/index.html',
 	'../artworks/00010-wellbeing-cats/index.html',
 	'../artworks/00011-wellbeing-tropic/index.html',
+	'../artworks/00012-wellbeing-atlassian/index.html',
 ]

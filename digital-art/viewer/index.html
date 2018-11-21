@@ -49,58 +49,12 @@
 	import KNOWN_ARTWORKS from './known_artworks.js'
 
 	const ARTWORK_IFRAME_ID = 'artwork-iframe'
-	const ARTWORK_TEST = {
-		id: 'test',
-		name: 'Test',
-		url: './art_101_viewport.html',
-		width_px: 1618,
-		height_px: 1000,
-	}
-
-	const TODOARTWORKS = [
-		{
-			id: 'tiled-lines',
-			name: 'Tiled Lines',
-			url: './art_111_tiled_lines.html',
-			width_px: 1613,
-			height_px: 1000,
-		},
-		{
-			id: 'cssdoodle-ex1',
-			name: 'CSS Doodle example 1',
-			url: './art_121_cssdoodle-ex1-refined.html',
-			width_px: 2000,
-			height_px: 1000,
-		},
-		{
-			id: 'cssdoodle-ex2',
-			name: 'CSS Doodle example 2',
-			url: './art_130_cssdoodle-ex2-refined.html',
-			width_px: 1920,
-			height_px: 1080,
-		},
-		{
-			id: 'cssdoodle-ex3',
-			name: 'CSS Doodle example 3',
-			url: './art_140_cssdoodle-ex3-refined.html',
-			width_px: 2000,
-			height_px: 2000,
-		},
-		{
-			id: 'cssdoodle-ex4',
-			name: 'CSS Doodle example 4',
-			url: './art_150_cssdoodle-ex4-refined.html',
-			width_px: 2000,
-			height_px: 2000,
-		},
-	]
 
 	const searchParams = new URLSearchParams(window.location.search);
 	let initial_artwork_url = searchParams.get('artworkUrl');
 	if (initial_artwork_url) initial_artwork_url = decodeURI(initial_artwork_url)
 	//console.log({initial_artwork_url})
 
-	//const initial_artwork = ARTWORKS.find(a => a.id === initial_artwork_id) || ARTWORK_TEST
 	let state = {
 		is_loading: true,
 		artwork: undefined,
@@ -140,7 +94,7 @@
 		const artwork_scale = Math.min(horizontal_ratio, vertical_ratio) * overscale
 		const position_y_px = (viewport_height_px - artwork.height_px * artwork_scale) / 2.
 		const position_x_px = (viewport_width_px - artwork.width_px * artwork_scale) / 2.
-		//console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px, artwork_url})
+		console.log({horizontal_ratio, vertical_ratio, artwork_scale, position_y_px, position_x_px, artwork_url})
 
 		if (!document.getElementById(ARTWORK_IFRAME_ID)) {
 			document.body.innerHTML = `
@@ -157,6 +111,7 @@
 			`
 		}
 
+		console.log('cfhanging style')
 		const artwork_element = document.getElementById(ARTWORK_IFRAME_ID)
 		artwork_element.style.transform = `
 			translate(${position_x_px}px,${position_y_px}px)

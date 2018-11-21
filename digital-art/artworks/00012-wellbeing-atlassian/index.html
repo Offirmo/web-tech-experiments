@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=1366, height=1024, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=2600, height=2000, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 	<title>ART</title>
 
@@ -48,24 +48,30 @@
 			background-color: white;
 			/* https://atlassian.design/guidelines/brand/color-1 */
 			--color--B400: #0052CC;
+			--color--B50:  #DEEBFF;
 			--color--N800: #172B4D;
-			--color--N0: #FFFFFF;
+			--color--N0:   #FFFFFF;
 			--color--R300: #FF5630;
+			--color--R50:  #FFEBE6;
 			--color--Y300: #FFAB00;
+			--color--Y50:  #FFFAE6;
 			--color--G300: #36B37E;
+			--color--G50:  #E3FCEF;
 			--color--T300: #00B8D9;
+			--color--T50:  #E6FCFF;
 			--color--P300: #6554C0;
+			--color--P50:  #EAE6FF;
 
 			display: grid;
 			font-size: 27px;
 		}
 
-		.bg-sea { background-color: var(--color--sea); }
-		.bg-sky { background-color: var(--color--sky); }
-		.bg-sand { background-color: var(--color--sand); }
-		.bg-nature { background-color: var(--color--nature); }
-		.bg-stuff { background-color: var(--color--stuff); }
-		.bg-sunrise { background-color: var(--color--sunrise); }
+		.bg1 { background-color: var(--color--B50); }
+		.bg2 { background-color: var(--color--R50); }
+		.bg3 { background-color: var(--color--Y50); }
+		.bg4 { background-color: var(--color--G50); }
+		.bg5 { background-color: var(--color--T50); }
+		.bg6 { background-color: var(--color--P50); }
 
 		.cell {
 			justify-self: stretch;
@@ -144,6 +150,7 @@
 	/////////////
 
 	// build grid
+	console.log({ GRID_WIDTH, GRID_HEIGHT, CELL_WIDTH_PX, CELL_HEIGHT_PX })
 	document.body.style['grid-template-columns'] = `repeat(${GRID_WIDTH}, ${CELL_WIDTH_PX}px)`
 	document.body.style['grid-template-rows'] = `repeat(${GRID_HEIGHT}, ${CELL_HEIGHT_PX}px)`
 	document.body.style['line-height'] = `${CELL_HEIGHT_PX}px`
@@ -156,43 +163,17 @@
 
 	// generate state
 	const bgcolors = [
-		'bg-sea',
-		'bg-sky',
-		'bg-sand',
-		'bg-nature',
-		'bg-stuff',
-		'bg-sunrise',
+		'bg1',
+		'bg2',
+		'bg3',
+		'bg4',
+		'bg5',
+		'bg6',
 	]
-
-	const tropical_fruits = ['🍉', '🍍', '🥥'/*, '🥭'*/]
-	const flying = ['🎈', '🦋','🐝', '🐞']
-	const growing = ['🌱', '🌴']
 	function generate_cell({x, y, index}) {
 		//const bgcolor = getRandomNotInNeighbours({x, y, prop: 'bgcolor', choices: bgcolors})
 		const bgcolor = pick(bgcolors)
 		let text = ''
-		switch(bgcolor) {
-			case 'bg-sea':
-				text = pick(['🏊', '🚣', '🏄', '🐳', '🐋', '🐬', '🐟', '🐠', '🐡', '🧜', '🦐', '🏝', '🏖'])
-				break
-			case 'bg-sky':
-				text = pick(['🌞', ...flying])
-				break
-			case 'bg-sand':
-				text = pick(['🐚', '🦀', ...growing, ...tropical_fruits])
-				break
-			case 'bg-nature':
-				text = pick([...growing, ...flying])
-				break
-			case 'bg-stuff':
-				text = pick([...tropical_fruits, '💐', '🍇', '🍭'])
-				break
-			case 'bg-sunrise':
-				text = pick([...growing, '💘', '💬'])
-				break
-			default:
-				throw new Error('!')
-		}
 		return {
 			text,
 			bgcolor,
@@ -201,7 +182,7 @@
 
 	for (let y = 0; y < GRID_HEIGHT; ++y) {
 		for (let x = 0; x < GRID_WIDTH; ++x) {
-			console.log(`generating (${x}, ${y})…`)
+			//console.log(`generating (${x}, ${y})…`)
 			const index = get_cell_index({x, y})
 
 			state.cells[index] = {
@@ -214,8 +195,15 @@
 	}
 	console.log(state)
 
-	const COOL_EMOJIS = '😀😃😄😁😆😅🤣😂🙂🙃😉😊😇🥰😍🤩😋🤗🤠🥳😎😺😸😹😻'
 	/*
+	🧘
+	💆
+	🧕🤰🤱
+	👳
+	👨‍💼👩‍💼
+	👨‍💻👩‍💻
+	🙋‍♂️
+
 	😀😃😄😁😆😅🤣😂🙂🙃😉😊😇🥰😍🤩😋🤗🤠🥳😎
 	😺😸😹😻
 	💋
@@ -240,8 +228,9 @@
 🧸
 👙
 🎶
-🏴‍☠️
+🏴☠️
 	 */
+
 	function render_cell(cell) {
 		const { x, y, index, text, bgcolor } = cell
 
