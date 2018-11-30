@@ -2,6 +2,9 @@
 Best of:
 images           https://github.com/sindresorhus/terminal-image
 ansi colors      https://github.com/lukeed/kleur
+terminal charts  https://www.chunqiuyiyu.com/ervy/
+prompts++        https://github.com/enquirer/enquirer
+
 ////////////////////////////////////////////////////////////////////////
 
 

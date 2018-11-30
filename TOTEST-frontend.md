@@ -38,9 +38,13 @@ fast client side DB  https://github.com/Nozbe/WatermelonDB
 flowcharts           http://flowchart.js.org/
 rich text editor     https://trix-editor.org/
                      Atlaskit
+                     https://www.slatejs.org/
 rich tables          https://github.com/ngduc/react-tabulator
 charts               https://github.com/naver/billboard.js
-
+viz                  https://nivo.rocks/
+prototyping          https://github.com/Heydon/bruck
+audio                https://howlerjs.com/
+audit                https://web.dev/fast
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -53,6 +57,9 @@ https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
 ////////////////////////////////////////////////////////////////////////
+
+web components https://hacks.mozilla.org/2018/11/the-power-of-web-components/
+               with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/
 
 bundle and babel as a service https://bundle.sh/
 
