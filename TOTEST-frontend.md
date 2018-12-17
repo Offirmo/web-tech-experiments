@@ -16,6 +16,7 @@ browser versions  http://browser-update.org/
 animations        http://animejs.com/
 full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
+                  https://github.com/Grsmto/simplebar
 maps              https://maptalks.org/
 colors            basiques http://clrs.cc/
                   palettes https://colorhunt.co/
@@ -45,6 +46,7 @@ viz                  https://nivo.rocks/
 prototyping          https://github.com/Heydon/bruck
 audio                https://howlerjs.com/
 audit                https://web.dev/fast
+keyboard             https://github.com/hodgef/simple-keyboard
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
