@@ -48,6 +48,8 @@ audio                https://howlerjs.com/
 audit                https://web.dev/fast
 keyboard             https://github.com/hodgef/simple-keyboard
 pdf gen              https://parall.ax/products/jspdf
+time                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
+calendar             https://github.com/nhnent/tui.calendar
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js

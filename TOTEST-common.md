@@ -15,6 +15,9 @@ next tick         https://github.com/jamiebuilds/tickedoff
 immutable state   https://github.com/jamiebuilds/bey
 currency          https://sarahdayan.github.io/dinero.js/module-Dinero.html
 typed ORM         https://github.com/typeorm/typeorm
+analytics         https://github.com/segmentio/analytics-node
+                  https://segment.com/docs/sources/server/node/quickstart/
+
 --- libs
 https://github.com/dleitee/walletjs lib décimal <-- dinero?
 https://github.com/brockwhittaker/BitArray.js lib bits
