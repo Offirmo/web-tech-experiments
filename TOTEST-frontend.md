@@ -60,11 +60,15 @@ https://unpkg.com/    https://unpkg.com/package@version/file
 http://getlibs.com/
 https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
+speed comparison      https://www.atlanticbt.com/insights/which-cdn-delivers-the-fastest-performance/
 
 ////////////////////////////////////////////////////////////////////////
 
+Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
+
 web components https://hacks.mozilla.org/2018/11/the-power-of-web-components/
                with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/
+               https://css-tricks.com/styling-a-web-component/
 
 bundle and babel as a service https://bundle.sh/
 
