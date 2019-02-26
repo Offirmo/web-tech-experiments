@@ -34,13 +34,14 @@ Audit             https://sonarwhal.com/
 hotkeys           https://github.com/jaywcjlove/hotkeys
 database          https://github.com/localForage/localForage
 isotope, packery  https://metafizzy.co/
-d&d truee         https://github.com/frontend-collective/react-sortable-tree
+d&d tree          https://github.com/frontend-collective/react-sortable-tree
 fast client side DB  https://github.com/Nozbe/WatermelonDB
 flowcharts           http://flowchart.js.org/
 rich text editor     https://trix-editor.org/
                      Atlaskit
                      https://www.slatejs.org/
 rich tables          https://github.com/ngduc/react-tabulator
+                     https://myliang.github.io/x-spreadsheet/
 charts               https://github.com/naver/billboard.js
 viz                  https://nivo.rocks/
 prototyping          https://github.com/Heydon/bruck
@@ -50,7 +51,9 @@ keyboard             https://github.com/hodgef/simple-keyboard
 pdf gen              https://parall.ax/products/jspdf
 time                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
 calendar             https://github.com/nhnent/tui.calendar
-
+UI components React  https://www.primefaces.org/primereact/#/
+immortal db          https://github.com/gruns/ImmortalDB
+input - formatting   https://nosir.github.io/cleave.js/
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
 https://unpkg.com/floating.js@2.6.3/floating.js
@@ -62,14 +65,26 @@ https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 speed comparison      https://www.atlanticbt.com/insights/which-cdn-delivers-the-fastest-performance/
 
+Tools:
+https://frontarm.com/demoboard/
+
 ////////////////////////////////////////////////////////////////////////
 
 Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
 
+https://quasar-framework.org/
+
+https://instant.page/
+
+The most annoying website https://www.youtube.com/watch?v=QFZ-pwErSl4
+
 web components https://hacks.mozilla.org/2018/11/the-power-of-web-components/
                with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/
                https://css-tricks.com/styling-a-web-component/
-
+               https://github.com/mikeal/distjs
+               https://dev.to/bennypowers/lets-build-web-components-part-8-mythbusters-edition-3la
+               
+               
 bundle and babel as a service https://bundle.sh/
 
 https://css-tricks.com/fitting-text-to-a-container/
@@ -113,8 +128,6 @@ https://github.com/shankariyerr/tinyreset
 
 https://github.com/mikeal/markdown-element
 
-web components https://github.com/mikeal/distjs
-
 https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
 amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
@@ -133,8 +146,6 @@ https://github.com/jakiestfu/Medium.js
 https://html5boilerplate.com/
 
 https://github.com/css-modules/css-modules
-
-Format your <input/> content when you are typing https://nosir.github.io/cleave.js/
 
 https://www.boxfactura.com/pulltorefresh.js/
 
@@ -239,7 +250,6 @@ https://alertifyjs.org/ Simple browser dialogs
 
 https://github.com/mailcheck/mailcheck  Reduce misspelled email addresses in your web apps.
 https://zingchart.github.io/zingtouch/  a JavaScript gesture detection library for the modern web
-http://nosir.github.io/cleave.js/ Format your <input/> content when you are typing
 https://howlerjs.com/ Audio library for the modern web
 https://jets.js.org/ Native CSS search engine
 
