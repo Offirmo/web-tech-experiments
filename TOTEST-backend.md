@@ -6,6 +6,8 @@ debug            https://github.com/GoogleChromeLabs/ndb
                  https://github.com/zeeshanu/dumper.js
 reverse proxy    https://github.com/OptimalBits/redbird
 uptime check     https://venturebeat.com/2019/01/07/pingdom-will-kill-its-free-website-monitoring-plan-on-february-6/
+very simple      https://zeroserver.io/
+DB diagram       https://dbdiagram.io/home
 ////////////////////////////////////////////////////////////////////////
 
 https://blog.apollographql.com/deploy-a-fullstack-apollo-app-with-netlify-45a7dfd51b0b

@@ -70,7 +70,9 @@ https://frontarm.com/demoboard/
 
 ////////////////////////////////////////////////////////////////////////
 
-Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
+Layout
+* https://www.smashingmagazine.com/2019/01/css-multiple-column-layout-multicol/
+* Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
 
 https://quasar-framework.org/
 
@@ -83,7 +85,7 @@ web components https://hacks.mozilla.org/2018/11/the-power-of-web-components/
                https://css-tricks.com/styling-a-web-component/
                https://github.com/mikeal/distjs
                https://dev.to/bennypowers/lets-build-web-components-part-8-mythbusters-edition-3la
-               
+               https://css-tricks.com/extracting-text-from-content-using-html-slot-html-template-and-shadow-dom/
                
 bundle and babel as a service https://bundle.sh/
 
