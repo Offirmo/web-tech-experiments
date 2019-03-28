@@ -19,6 +19,7 @@ scroll bar        https://idiotwu.github.io/smooth-scrollbar/
                   https://github.com/Grsmto/simplebar
 maps              https://maptalks.org/
 colors            basiques http://clrs.cc/
+                  générateur https://geenes.app/
                   palettes https://colorhunt.co/
                   archive https://github.com/Jam3/nice-color-palettes
                   https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
@@ -80,12 +81,14 @@ https://instant.page/
 
 The most annoying website https://www.youtube.com/watch?v=QFZ-pwErSl4
 
-web components https://hacks.mozilla.org/2018/11/the-power-of-web-components/
-               with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/
-               https://css-tricks.com/styling-a-web-component/
-               https://github.com/mikeal/distjs
-               https://dev.to/bennypowers/lets-build-web-components-part-8-mythbusters-edition-3la
-               https://css-tricks.com/extracting-text-from-content-using-html-slot-html-template-and-shadow-dom/
+web components 
+	https://css-tricks.com/an-introduction-to-web-components/
+	https://hacks.mozilla.org/2018/11/the-power-of-web-components/
+	with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/
+	https://css-tricks.com/styling-a-web-component/
+	https://github.com/mikeal/distjs
+	https://dev.to/bennypowers/lets-build-web-components-part-8-mythbusters-edition-3la
+	https://css-tricks.com/extracting-text-from-content-using-html-slot-html-template-and-shadow-dom/
                
 bundle and babel as a service https://bundle.sh/
 
