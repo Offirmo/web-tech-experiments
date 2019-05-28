@@ -38,7 +38,8 @@ isotope, packery  https://metafizzy.co/
 d&d tree          https://github.com/frontend-collective/react-sortable-tree
 fast client side DB  https://github.com/Nozbe/WatermelonDB
 flowcharts           http://flowchart.js.org/
-rich text editor     https://trix-editor.org/
+rich text editor     https://editorjs.io/
+                     https://trix-editor.org/
                      Atlaskit
                      https://www.slatejs.org/
 rich tables          https://github.com/ngduc/react-tabulator

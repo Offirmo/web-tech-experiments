@@ -3,7 +3,9 @@
 //////////// isomorphic ////////////
 https://github.com/azu/localstorage-ponyfill
 state machine     https://github.com/jakesgordon/javascript-state-machine
-network           https://github.com/matthew-andrews/isomorphic-fetch
+network           https://github.com/qubyte/fetch-ponyfill
+                    https://github.com/wheresrhys/fetch-mock
+                    https://github.com/gakimball/chai-fetch-mock
                   axios
                   https://github.com/visionmedia/superagent
                   https://github.com/typicode/fetchival
