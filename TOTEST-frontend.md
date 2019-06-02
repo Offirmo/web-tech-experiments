@@ -32,6 +32,7 @@ incredible viz    https://carrotsearch.com/foamtree/
                   https://packery.metafizzy.co/
                   https://www.dwitter.net/
 Audit             https://sonarwhal.com/
+                  https://web.dev/fast
 hotkeys           https://github.com/jaywcjlove/hotkeys
 database          https://github.com/localForage/localForage
 isotope, packery  https://metafizzy.co/
@@ -48,7 +49,6 @@ charts               https://github.com/naver/billboard.js
 viz                  https://nivo.rocks/
 prototyping          https://github.com/Heydon/bruck
 audio                https://howlerjs.com/
-audit                https://web.dev/fast
 keyboard             https://github.com/hodgef/simple-keyboard
 pdf gen              https://parall.ax/products/jspdf
 time                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
