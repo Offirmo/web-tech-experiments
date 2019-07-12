@@ -9,6 +9,7 @@ uptime check      https://venturebeat.com/2019/01/07/pingdom-will-kill-its-free-
 very simple       https://zeroserver.io/
 DB diagram        https://dbdiagram.io/home
 DOM sanitizer     https://github.com/cure53/DOMPurify
+DOM parser        https://cheerio.js.org/
 ////////////////////////////////////////////////////////////////////////
 
 https://blog.apollographql.com/deploy-a-fullstack-apollo-app-with-netlify-45a7dfd51b0b
