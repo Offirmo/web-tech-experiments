@@ -15,6 +15,7 @@ player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
 animations        http://animejs.com/
+                  (react) https://www.framer.com/api/motion/
 full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
                   https://github.com/Grsmto/simplebar
