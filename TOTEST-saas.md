@@ -46,6 +46,8 @@ get avatar         --> https://unavatar.now.sh
 
 ecommerce           -> https://www.producthunt.com/posts/webflow-ecommerce-2
 
+phone num test      -> https://numverify.com/
+
 
 http://ifconfig.me/
 http://whatismyip.akamai.com/
