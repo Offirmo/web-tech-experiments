@@ -47,7 +47,8 @@ rich text editor     https://editorjs.io/
                      https://www.slatejs.org/
 rich tables          https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
-charts               https://github.com/naver/billboard.js
+charts               https://github.com/Ajaxy/lovely-chart
+                     https://github.com/naver/billboard.js
 viz                  https://nivo.rocks/
 prototyping          https://github.com/Heydon/bruck
 audio                https://howlerjs.com/
@@ -58,6 +59,10 @@ calendar             https://github.com/nhnent/tui.calendar
 UI components React  https://www.primefaces.org/primereact/#/
 immortal db          https://github.com/gruns/ImmortalDB
 input - formatting   https://nosir.github.io/cleave.js/
+ebook viewer         https://johnfactotum.github.io/foliate/
+progress tracker     https://nigelotoole.github.io/progress-tracker/
+
+
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
 https://unpkg.com/floating.js@2.6.3/floating.js

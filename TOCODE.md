@@ -1,6 +1,7 @@
 
 Idées
 
+https://vorpus.org/blog/timeouts-and-cancellation-for-humans/
 
 browser support table https://confluence.atlassian.com/cloud/supported-browsers-744721663.html
 
