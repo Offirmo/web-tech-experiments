@@ -27,37 +27,40 @@ colors            basiques http://clrs.cc/
                   https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
-shortcuts         https://github.com/avocode/combokeys
 components        https://frend.co/
 incredible viz    https://carrotsearch.com/foamtree/
                   https://isotope.metafizzy.co/
                   https://packery.metafizzy.co/
                   https://www.dwitter.net/
+                  https://nivo.rocks/
 Audit             https://sonarwhal.com/
                   https://web.dev/fast
 hotkeys           https://github.com/jaywcjlove/hotkeys
+                  https://github.com/avocode/combokeys
+                  https://github.com/hodgef/simple-keyboard
 database          https://github.com/localForage/localForage
+                  https://github.com/gruns/ImmortalDB
+                  https://github.com/anywhichway/reasondb
 isotope, packery  https://metafizzy.co/
 d&d tree          https://github.com/frontend-collective/react-sortable-tree
 fast client side DB  https://github.com/Nozbe/WatermelonDB
 flowcharts           http://flowchart.js.org/
+                     https://github.com/guiqui/react-timeline-gantt
 rich text editor     https://editorjs.io/
                      https://trix-editor.org/
                      Atlaskit
                      https://www.slatejs.org/
+                     https://jaredreich.com/pell   wisiwig editor no dependencies
 rich tables          https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
 charts               https://github.com/Ajaxy/lovely-chart
                      https://github.com/naver/billboard.js
-viz                  https://nivo.rocks/
 prototyping          https://github.com/Heydon/bruck
 audio                https://howlerjs.com/
-keyboard             https://github.com/hodgef/simple-keyboard
 pdf gen              https://parall.ax/products/jspdf
 time                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
 calendar             https://github.com/nhnent/tui.calendar
 UI components React  https://www.primefaces.org/primereact/#/
-immortal db          https://github.com/gruns/ImmortalDB
 input - formatting   https://nosir.github.io/cleave.js/
 ebook viewer         https://johnfactotum.github.io/foliate/
 progress tracker     https://nigelotoole.github.io/progress-tracker/
@@ -75,13 +78,27 @@ https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 speed comparison      https://www.atlanticbt.com/insights/which-cdn-delivers-the-fastest-performance/
 
 Tools:
-https://frontarm.com/demoboard/
+* https://frontarm.com/demoboard/
 
 ////////////////////////////////////////////////////////////////////////
 
 Layout
 * https://www.smashingmagazine.com/2019/01/css-multiple-column-layout-multicol/
 * Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
+
+REACT
+anims https://medium.com/@drcmda/why-react-needed-yet-another-animation-library-introducing-react-spring-8212e424c5ce
+https://github.com/react-map/react-magic cools anims
+https://shopify.github.io/draggable/
+http://blueprintjs.com/
+https://github.com/stelatech/react-anime
+https://github.com/zalmoxisus/redux-remotedev
+https://github.com/jxnblk/reline
+https://github.com/reactotron/reactotron
+import CloseOnEscape from 'react-close-on-escape'
+import onClickOutside from 'react-onclickoutside'
+https://github.com/jchiatt/react-chaos
+
 
 https://quasar-framework.org/
 
@@ -102,8 +119,6 @@ bundle and babel as a service https://bundle.sh/
 
 https://css-tricks.com/fitting-text-to-a-container/
 
-gantt https://github.com/guiqui/react-timeline-gantt
-
 animations https://github.com/madou/yubaba
 
 outil de dev mobile? https://medium.com/@ericsimons/introducing-teleport-over-the-air-hot-reloading-debugging-for-pwas-%EF%B8%8F-efd1e2b1c64c
@@ -116,7 +131,6 @@ https://github.com/thedaviddias/Front-End-Checklist
 analytics inblocables https://github.com/jbtronics/CrookedStyleSheets
 
 Visualization
-* https://carrotsearch.com/foamtree/ (via https://github.com/webpack-contrib/webpack-bundle-analyzer)
 * https://chrisbateman.github.io/webpack-visualizer/
 
 Effects:
@@ -133,8 +147,6 @@ pure css modal https://hunzaboy.github.io/Light-Modal/#
 color manipulation http://gka.github.io/chroma.js/
 gradients https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 
-https://jaredreich.com/pell   wisiwig editor no dependencies
-
 https://github.com/tunnckoCore/gibon   simple routing
 https://github.com/hyperapp/hyperapp   simple tout
 https://github.com/shankariyerr/tinyreset
@@ -144,10 +156,7 @@ https://github.com/mikeal/markdown-element
 https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
 amazing design https://codepen.io/rrenula/pen/LzLXYJ
 
-REACT
-anims https://medium.com/@drcmda/why-react-needed-yet-another-animation-library-introducing-react-spring-8212e424c5ce
-https://github.com/react-map/react-magic cools anims
-https://shopify.github.io/draggable/
+
 
 https://techblog.badoo.com/blog/2017/03/23/webRTC-making-a-peer-to-peer-game-using-javascript/
 
@@ -178,8 +187,6 @@ https://polyfill.io/v2/docs/
 https://philipwalton.com/articles/loading-polyfills-only-when-needed/
 
 https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html
-https://github.com/facebookincubator/create-react-app
-https://github.com/mxstbr/react-boilerplate
 
 http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 
@@ -232,7 +239,6 @@ email https://litmus.com/lp/dotcss
 
 https://philipwalton.com/articles/learning-how-to-set-up-automated-cross-browser-javascript-unit-testing/
 
-https://github.com/anywhichway/reasondb client-side DB
 https://github.com/sourcelair/xterm.js 
 http://cesiumjs.org/ world-class 3D globes and maps
 
@@ -245,14 +251,7 @@ https://github.com/dollarshaveclub/reframe.js make it responsive
 https://wideckop.github.io/mocassin.css/ animations
 https://github.com/stevenmhunt/badgerly badges
 
-React:
-http://blueprintjs.com/
-https://github.com/stelatech/react-anime
-https://github.com/zalmoxisus/redux-remotedev
-https://github.com/jxnblk/reline
-https://github.com/reactotron/reactotron
-import CloseOnEscape from 'react-close-on-escape'
-import onClickOutside from 'react-onclickoutside'
+
 
 
 Lib viewport https://github.com/pyrsmk/W

@@ -2,26 +2,29 @@
 
 //////////// isomorphic ////////////
 https://github.com/azu/localstorage-ponyfill
-state machine     https://github.com/jakesgordon/javascript-state-machine
-network           https://github.com/qubyte/fetch-ponyfill
+state machine       https://github.com/jakesgordon/javascript-state-machine
+network             https://github.com/qubyte/fetch-ponyfill
                     https://github.com/wheresrhys/fetch-mock
                     https://github.com/gakimball/chai-fetch-mock
-                  axios
-                  https://github.com/visionmedia/superagent
-                  https://github.com/typicode/fetchival
-validation        https://github.com/hapijs/joi
-                  https://github.com/ianstormtaylor/superstruct
-uuid              https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
-event emitter     https://github.com/ai/nanoevents  <-- emiterry?
-next tick         https://github.com/jamiebuilds/tickedoff
-immutable state   https://github.com/jamiebuilds/bey
-currency          https://sarahdayan.github.io/dinero.js/module-Dinero.html
-typed ORM         https://github.com/typeorm/typeorm
-analytics         https://github.com/segmentio/analytics-node
-                  https://segment.com/docs/sources/server/node/quickstart/
+                    axios
+                    https://github.com/visionmedia/superagent
+                    https://github.com/typicode/fetchival
+validation          https://github.com/hapijs/joi
+                    https://github.com/ianstormtaylor/superstruct
+uuid                https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
+event emitter       https://github.com/ai/nanoevents  <-- emiterry?
+next tick           https://github.com/jamiebuilds/tickedoff
+immutable state     https://github.com/jamiebuilds/bey
+currency            https://sarahdayan.github.io/dinero.js/module-Dinero.html
+typed ORM           https://github.com/typeorm/typeorm
+analytics           https://github.com/segmentio/analytics-node
+                    https://segment.com/docs/sources/server/node/quickstart/
+lib décimal         https://github.com/dleitee/walletjs
+                    dinero
+io validation       https://github.com/gcanti/io-ts
 
---- libs
-https://github.com/dleitee/walletjs lib décimal <-- dinero?
+---
+
 https://github.com/brockwhittaker/BitArray.js lib bits
 
 https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-node-and-the-browser/

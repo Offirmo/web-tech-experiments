@@ -107,20 +107,6 @@ Tab spaces
 
 
 
-## Jenkins en node
-* open source
-* pipelines, throttling intégrés
-* API
-* git
-* auth
-* notifs
-* slaves
-* docker
-* task runner
-* ...
-
-
-
 ## Appli d'assistance à l'écriture de conventions de codage
 -> autogen de fichiers de conf pour des outils
 
