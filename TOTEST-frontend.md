@@ -55,6 +55,7 @@ rich tables          https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
 charts               https://github.com/Ajaxy/lovely-chart
                      https://github.com/naver/billboard.js
+                     https://blog.usejournal.com/bridging-the-gap-between-low-level-and-high-level-charting-libraries-a8f6c1819ba5
 prototyping          https://github.com/Heydon/bruck
 audio                https://howlerjs.com/
 pdf gen              https://parall.ax/products/jspdf
@@ -64,7 +65,9 @@ UI components React  https://www.primefaces.org/primereact/#/
 input - formatting   https://nosir.github.io/cleave.js/
 ebook viewer         https://johnfactotum.github.io/foliate/
 progress tracker     https://nigelotoole.github.io/progress-tracker/
-
+iframes              https://github.com/krakenjs/zoid
+                     https://www.npmjs.com/package/simple-xdm
+misc                 https://github.com/victorqribeiro/radialMenu
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
