@@ -19,6 +19,7 @@ animations        http://animejs.com/
 full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
                   https://github.com/Grsmto/simplebar
+                  https://www.filamentgroup.com/lab/scrollbars/
 maps              https://maptalks.org/
 colors            basiques http://clrs.cc/
                   générateur https://geenes.app/
@@ -53,6 +54,7 @@ rich text editor     https://editorjs.io/
                      https://jaredreich.com/pell   wisiwig editor no dependencies
 rich tables          https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
+                     https://bossanova.uk/jexcel/v3/
 charts               https://github.com/Ajaxy/lovely-chart
                      https://github.com/naver/billboard.js
                      https://blog.usejournal.com/bridging-the-gap-between-low-level-and-high-level-charting-libraries-a8f6c1819ba5
@@ -68,6 +70,7 @@ progress tracker     https://nigelotoole.github.io/progress-tracker/
 iframes              https://github.com/krakenjs/zoid
                      https://www.npmjs.com/package/simple-xdm
 misc                 https://github.com/victorqribeiro/radialMenu
+plugin system        https://www.figma.com/blog/how-we-built-the-figma-plugin-system/
 
 CDNs:
 https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
@@ -101,7 +104,7 @@ https://github.com/reactotron/reactotron
 import CloseOnEscape from 'react-close-on-escape'
 import onClickOutside from 'react-onclickoutside'
 https://github.com/jchiatt/react-chaos
-
+focus https://github.com/theKashey/react-focus-lock
 
 https://quasar-framework.org/
 

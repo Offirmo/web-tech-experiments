@@ -1,6 +1,11 @@
 
 Idées
 
+repo of bite-sized programming concepts
+* https://lethain.com/distributed-systems-vocabulary/
+* https://github.com/labs42io/clean-code-typescript
+
+
 https://vorpus.org/blog/timeouts-and-cancellation-for-humans/
 
 browser support table https://confluence.atlassian.com/cloud/supported-browsers-744721663.html

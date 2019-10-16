@@ -3,6 +3,7 @@ https://babeljs.io/blog/2016/08/30/babili
 
 generic build tool     https://bazel.build/
 
+watcher https://facebook.github.io/watchman/
 
 icones  http://brandmark.io/logo-crunch/
 
@@ -15,3 +16,5 @@ http://www.hygen.io/quick-start/
 
 
 https://archivebox.io/ archive static sites
+
+https://animateit.online/ create GIF and animations
