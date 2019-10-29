@@ -48,6 +48,7 @@ fast client side DB  https://github.com/Nozbe/WatermelonDB
 flowcharts           http://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
 rich text editor     https://editorjs.io/
+                     https://quilljs.com/
                      https://trix-editor.org/
                      Atlaskit
                      https://www.slatejs.org/
@@ -71,15 +72,15 @@ iframes              https://github.com/krakenjs/zoid
                      https://www.npmjs.com/package/simple-xdm
 misc                 https://github.com/victorqribeiro/radialMenu
 plugin system        https://www.figma.com/blog/how-we-built-the-figma-plugin-system/
+emojis               https://github.com/joypixels/emoji-toolkit
 
 CDNs:
-https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/src/js/alertify.js
+https://www.jsdelivr.com/rawgit
 https://unpkg.com/floating.js@2.6.3/floating.js
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
 
 https://unpkg.com/    https://unpkg.com/package@version/file
 http://getlibs.com/
-https://rawgit.com/   https://cdn.rawgit.com/user/repo/tag/file
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 speed comparison      https://www.atlanticbt.com/insights/which-cdn-delivers-the-fastest-performance/
 
@@ -87,6 +88,11 @@ Tools:
 * https://frontarm.com/demoboard/
 
 ////////////////////////////////////////////////////////////////////////
+
+movable draggable resizable https://daybrush.com/moveable/
+
+Old school Windows UI https://ash.ms/
+
 
 Layout
 * https://www.smashingmagazine.com/2019/01/css-multiple-column-layout-multicol/
@@ -106,6 +112,7 @@ import onClickOutside from 'react-onclickoutside'
 https://github.com/jchiatt/react-chaos
 focus https://github.com/theKashey/react-focus-lock
 3D https://github.com/react-spring/react-three-fiber
+adapting size of buttons https://codesandbox.io/s/7o41xvwq0
 
 https://quasar-framework.org/
 
