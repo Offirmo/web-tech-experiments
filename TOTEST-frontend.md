@@ -76,8 +76,8 @@ emojis               https://github.com/joypixels/emoji-toolkit
 
 CDNs:
 https://www.jsdelivr.com/rawgit
+pick: https://www.jsdelivr.com/package/npm/prismjs?path=themes
 https://unpkg.com/floating.js@2.6.3/floating.js
-	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.11/dist/css/alertify.css" />
 
 https://unpkg.com/    https://unpkg.com/package@version/file
 http://getlibs.com/
@@ -88,6 +88,8 @@ Tools:
 * https://frontarm.com/demoboard/
 
 ////////////////////////////////////////////////////////////////////////
+
+placeholders https://dev.to/xtrp/possibly-the-most-useful-css-trick-jl3
 
 movable draggable resizable https://daybrush.com/moveable/
 
