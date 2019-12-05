@@ -1,4 +1,6 @@
 
+badges             https://badgen.net/
+                   https://shields.io/
 GraphQL CMS        -> https://graphcms.com/
 contentless CMS    -> https://www.contentful.com/
 

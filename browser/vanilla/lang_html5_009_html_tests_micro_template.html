@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <!-- html5_008 : WTE micro template -->
-
+<!-- maximun hints at english to prevent Chrome from incorrectly suggesting a translation -->
+<html lang="en" xml:lang="en" class="o⋄top-container">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Language" content="en" />
 	<!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 	<title>HTML5 008 - HTML tests micro template</title>
 	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
@@ -51,7 +52,7 @@
 	<button>click me!</button>
 </p>
 
-<script>
+<script type="module">
 	document.querySelector('h1').textContent = document.title
 	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text)

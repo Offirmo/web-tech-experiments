@@ -13,6 +13,7 @@ validation          https://github.com/hapijs/joi
                     https://github.com/ianstormtaylor/superstruct
 uuid                https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
 event emitter       https://github.com/ai/nanoevents  <-- emiterry?
+                    https://github.com/developit/mitt
 next tick           https://github.com/jamiebuilds/tickedoff
 immutable state     https://github.com/jamiebuilds/bey
 currency            https://sarahdayan.github.io/dinero.js/module-Dinero.html
@@ -22,6 +23,7 @@ analytics           https://github.com/segmentio/analytics-node
 lib décimal         https://github.com/dleitee/walletjs
                     dinero
 io validation       https://github.com/gcanti/io-ts
+basic               https://github.com/angus-c/just
 
 ---
 

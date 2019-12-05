@@ -1,0 +1,10 @@
+{
+	"unlisted": [
+		".DS_Store",
+		".git",
+		"node_modules"
+	],
+	"cleanUrls": [
+		"/app/**"
+	]
+}

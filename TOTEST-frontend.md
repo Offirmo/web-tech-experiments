@@ -14,18 +14,24 @@ countdown         https://github.com/objectivehtml/FlipClock
 player            https://github.com/Bilibili/flv.js
 tooltips          https://popper.js.org/
 browser versions  http://browser-update.org/
-animations        http://animejs.com/
-                  (react) https://www.framer.com/api/motion/
+animations        https://greensock.com/3/  https://tympanus.net/codrops/2019/11/14/the-new-features-of-gsap-3/
+                    http://animejs.com/
+                    (react) https://www.framer.com/api/motion/
 full screen       screenfull
 scroll bar        https://idiotwu.github.io/smooth-scrollbar/
-                  https://github.com/Grsmto/simplebar
-                  https://www.filamentgroup.com/lab/scrollbars/
-maps              https://maptalks.org/
-colors            basiques http://clrs.cc/
-                  générateur https://geenes.app/
-                  palettes https://colorhunt.co/
-                  archive https://github.com/Jam3/nice-color-palettes
-                  https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
+                    https://github.com/Grsmto/simplebar
+                    https://www.filamentgroup.com/lab/scrollbars/
+maps                https://leafletjs.com/ (requires tiles, for ex. openstreetmap or mapbox)
+                    https://developers.google.com/maps/documentation/javascript/elevation
+                    https://openlayers.org/
+                    https://www.mapbox.com/maps/
+                    https://maptalks.org/
+                    https://github.com/tmcw/mapmakers-cheatsheet
+colors              a basic palette http://clrs.cc/
+                    générateur https://geenes.app/
+                    palettes https://colorhunt.co/
+                    archive https://github.com/Jam3/nice-color-palettes
+                    https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 tree view         https://github.com/elbywan/bosket
 simple icons      https://icongr.am/simple
 components        https://frend.co/
@@ -34,6 +40,11 @@ incredible viz    https://carrotsearch.com/foamtree/
                   https://packery.metafizzy.co/
                   https://www.dwitter.net/
                   https://nivo.rocks/
+diagrams          https://github.com/mermaid-js/mermaid
+                  https://www.diagram.codes/  
+                  https://github.com/alyssaxuu/flowy
+                  https://bramp.github.io/js-sequence-diagrams/
+Graphs            https://github.com/leeoniya/uPlot
 Audit             https://sonarwhal.com/
                   https://web.dev/fast
 hotkeys           https://github.com/jaywcjlove/hotkeys
@@ -42,9 +53,9 @@ hotkeys           https://github.com/jaywcjlove/hotkeys
 database          https://github.com/localForage/localForage
                   https://github.com/gruns/ImmortalDB
                   https://github.com/anywhichway/reasondb
-isotope, packery  https://metafizzy.co/
-d&d tree          https://github.com/frontend-collective/react-sortable-tree
-fast client side DB  https://github.com/Nozbe/WatermelonDB
+                  fast client side DB  https://github.com/Nozbe/WatermelonDB
+isotope, packery     https://metafizzy.co/
+drag&drop tree       https://github.com/frontend-collective/react-sortable-tree
 flowcharts           http://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
 rich text editor     https://editorjs.io/
@@ -59,6 +70,8 @@ rich tables          https://github.com/ngduc/react-tabulator
 charts               https://github.com/Ajaxy/lovely-chart
                      https://github.com/naver/billboard.js
                      https://blog.usejournal.com/bridging-the-gap-between-low-level-and-high-level-charting-libraries-a8f6c1819ba5
+                     http://www.chartjs.org/
+                     http://plottablejs.org/components/
 prototyping          https://github.com/Heydon/bruck
 audio                https://howlerjs.com/
 pdf gen              https://parall.ax/products/jspdf
@@ -73,15 +86,24 @@ iframes              https://github.com/krakenjs/zoid
 misc                 https://github.com/victorqribeiro/radialMenu
 plugin system        https://www.figma.com/blog/how-we-built-the-figma-plugin-system/
 emojis               https://github.com/joypixels/emoji-toolkit
+e2e test             Cypress https://mtlynch.io/painless-web-app-testing/
+CSS in JS            https://css-blocks.com/
+                     emotion
+                     styled-components
+Speed test:
+- https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
 
 CDNs:
 https://www.jsdelivr.com/rawgit
 pick: https://www.jsdelivr.com/package/npm/prismjs?path=themes
-https://unpkg.com/floating.js@2.6.3/floating.js
 
 https://unpkg.com/    https://unpkg.com/package@version/file
+https://unpkg.com/floating.js@2.6.3/floating.js
+
 http://getlibs.com/
+
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
+
 speed comparison      https://www.atlanticbt.com/insights/which-cdn-delivers-the-fastest-performance/
 
 Tools:
@@ -101,6 +123,7 @@ Layout
 * Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
 
 REACT
+big list https://applibslist.xyz/
 anims https://medium.com/@drcmda/why-react-needed-yet-another-animation-library-introducing-react-spring-8212e424c5ce
 https://github.com/react-map/react-magic cools anims
 https://shopify.github.io/draggable/
@@ -187,9 +210,7 @@ https://github.com/css-modules/css-modules
 
 https://www.boxfactura.com/pulltorefresh.js/
 
-Graphs:
-http://www.chartjs.org/
-http://plottablejs.org/components/
+
 
 https://hyperform.js.org/examples.html
 
@@ -278,7 +299,6 @@ https://alertifyjs.org/ Simple browser dialogs
 
 https://github.com/mailcheck/mailcheck  Reduce misspelled email addresses in your web apps.
 https://zingchart.github.io/zingtouch/  a JavaScript gesture detection library for the modern web
-https://howlerjs.com/ Audio library for the modern web
 https://jets.js.org/ Native CSS search engine
 
 https://github.com/nojvek/chrome-remote-debug-protocol
@@ -332,7 +352,6 @@ JSS = JSON CSS https://medium.com/@oleg008/the-important-parts-131dda7f6f6f
 
 http://kumailht.com/gridforms/
 http://tympanus.net/Development/TextInputEffects/
-https://github.com/knsv/mermaid graphs
 
 http://mango.github.io/slideout/
 https://github.com/spite/THREE.AugmentedConsole.js/blob/master/src/THREE.AugmentedConsole.js
@@ -345,9 +364,6 @@ http://usablica.github.io/intro.js/
 http://scotch.io/tutorials/building-interactive-scrolling-websites-with-scrollmagic-js
 
 easings http://canvasquery.com/playground-ease#inQuart
-
--- Thèmes dynamiques !
-http://scotch.io/tutorials/javascript/use-angularjs-and-nghref-to-grab-css-dynamically
 
 -- to read
 http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1

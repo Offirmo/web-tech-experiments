@@ -8,6 +8,7 @@
   "scripts": {
     "start": "npm run puer",
     "puer": "puer --exclude 'bower_components|node_modules|jspm_packages' --port $PORT",
+    "serve": "serve -l 1987",
     "lint": "eslint .",
     "webpack": "webpack --progress --colors",
     "bower-install": "bower update --config.interactive=false",
@@ -22,7 +23,7 @@
     "mocha2b": "mocha --colors --check-leaks --harmony_modules nodejs/mod_chai_002_comparison/chai_expect.js"
   },
   "engines": {
-    "node": "^6"
+    "node": "^13"
   },
   "dependencies": {
     "@atlaskit/analytics": "^2.3.4",
