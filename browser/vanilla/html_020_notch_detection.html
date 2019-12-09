@@ -39,6 +39,7 @@
 		4 <a>https://stackoverflow.com/questions/46318395/detecting-mobile-device-notch</a>
 	</p>
 
+		<p>Renders: <span id="render_count">?</span></p>
 	<ul>
 		<li>Safe area inset top: <span id="sait"></span></li>
 		<li>Safe area inset right: <span id="sair"></span></li>
@@ -53,11 +54,15 @@
 			el.href || (el.href = el.text)
 		})
 
+		let render_count = 0
 		function render() {
+			render_count++
           ;['sait', 'sair', 'saib', 'sail'].forEach(id => {
               document.querySelector(`#${id}`).textContent = getComputedStyle(document.documentElement).getPropertyValue(`--${id}`)
           })
+			document.querySelector(`#render_count`).textContent = render_count
 		}
 
       window.addEventListener("resize", render)
+		render()
 	</script>
