@@ -90,6 +90,8 @@ e2e test             Cypress https://mtlynch.io/painless-web-app-testing/
 CSS in JS            https://css-blocks.com/
                      emotion
                      styled-components
+                     https://github.com/callstack/linaria
+                     https://github.com/css-modules/icss
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
 
@@ -123,6 +125,8 @@ Layout
 * Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
 
 REACT
+data fetchnig https://swr.now.sh/
+modal https://github.com/dielduarte/usemodal-portal
 big list https://applibslist.xyz/
 anims https://medium.com/@drcmda/why-react-needed-yet-another-animation-library-introducing-react-spring-8212e424c5ce
 https://github.com/react-map/react-magic cools anims
