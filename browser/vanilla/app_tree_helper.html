@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<!-- html5_008 : WTE micro template -->
+<!-- maximun hints at english to prevent Chrome from incorrectly suggesting a translation -->
+<html lang="en" xml:lang="en" class="o⋄top-container">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>…</title>
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+	</style>
+</head>
+
+<form>
+	<label>
+		Title
+		<input id="title" type="text" onblur="window.update({title: this.value})">
+	</label>
+	<label>
+		Color
+		<input id="color" type="text" onblur="window.update({color: this.value})">
+	</label>
+</form>
+
+<script type="module">
+	const current_url = new URL(window.location.href)
+	const current_search_params = current_url.searchParams
+	current_search_params.sort()
+
+	let state = {
+		existing_search: [...current_search_params.keys()].reduce((acc, k) => {
+			acc[k] = current_search_params.get(k)
+			return acc
+		}, {}),
+		title: current_search_params.get('title') || '…',
+		color: current_search_params.get('color') || '#F00',
+	}
+
+	console.log('start', { current_url, state })
+
+	function render() {
+		console.group('render')
+		console.log({state})
+
+		const search_data = {
+			...state.existing_search,
+			title: state.title,
+			color: state.color,
+		};
+		const searchParams = new URLSearchParams(search_data)
+		searchParams.sort()
+
+		const target_url = current_url.origin + current_url.pathname + '?' + searchParams.toString()
+		console.log({target_url})
+		if (target_url !== current_url.href)
+			window.location = target_url
+
+		document.title = state.title
+		document.querySelector('#title').value = state.title
+
+		document.querySelector('#color').value = state.color
+
+		const canvas = document.createElement("canvas")
+		canvas.width = 16
+		canvas.height = 16
+		const context = canvas.getContext("2d")
+		context.fillStyle = state.color
+		context.fillRect(0, 0, 16, 16)
+		context.fill();
+
+		let link = document.querySelector("link[rel~='icon']");
+		if (!link) {
+			link = document.createElement("link");
+			link.setAttribute("rel", "shortcut icon");
+			document.head.appendChild(link);
+		}
+		link.type = "image/x-icon"
+		link.href = canvas.toDataURL()
+
+		console.groupEnd()
+	}
+	render()
+
+	window.update = (partial) => {
+		console.log({partial})
+		state = {
+			...state,
+			...partial,
+		}
+
+		render()
+	}
+</script>

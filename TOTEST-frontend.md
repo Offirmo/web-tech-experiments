@@ -150,6 +150,7 @@ https://instant.page/
 The most annoying website https://www.youtube.com/watch?v=QFZ-pwErSl4
 
 web components 
+    https://lit-element.polymer-project.org/
 	https://css-tricks.com/an-introduction-to-web-components/
 	https://hacks.mozilla.org/2018/11/the-power-of-web-components/
 	with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/

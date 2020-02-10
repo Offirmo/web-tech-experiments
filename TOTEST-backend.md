@@ -1,6 +1,7 @@
 
 ////////////////////////////////////////////////////////////////////////
 Best of:
+architecture      https://github.com/fpereiro/backendlore
 config file       https://github.com/davidtheclark/cosmiconfig
 debug             https://github.com/GoogleChromeLabs/ndb
                   https://github.com/zeeshanu/dumper.js
