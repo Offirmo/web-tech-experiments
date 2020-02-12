@@ -64,6 +64,7 @@
 
 		document.querySelector('#color').value = state.color
 
+		// https://blog.roomanna.com/09-24-2011/dynamically-coloring-a-favicon
 		const canvas = document.createElement("canvas")
 		canvas.width = 16
 		canvas.height = 16
@@ -71,7 +72,6 @@
 		context.fillStyle = state.color
 		context.fillRect(0, 0, 16, 16)
 		context.fill();
-
 		let link = document.querySelector("link[rel~='icon']");
 		if (!link) {
 			link = document.createElement("link");
