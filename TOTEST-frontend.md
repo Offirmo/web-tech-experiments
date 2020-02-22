@@ -54,7 +54,6 @@ database          https://github.com/localForage/localForage
                   https://github.com/gruns/ImmortalDB
                   https://github.com/anywhichway/reasondb
                   fast client side DB  https://github.com/Nozbe/WatermelonDB
-isotope, packery     https://metafizzy.co/
 drag&drop tree       https://github.com/frontend-collective/react-sortable-tree
 flowcharts           http://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
@@ -315,7 +314,6 @@ http://devlucky.github.io/kakapo-js
 
 https://github.com/davidmerfield/randomColor
 https://github.com/dantrain/react-stonecutter
-https://github.com/kadirahq/react-storybook
 http://interactjs.io/ drag & drop touch
 http://sigmajs.org/ graph drawing
 https://github.com/helion3/inspire-tree tree UI
@@ -374,7 +372,6 @@ easings http://canvasquery.com/playground-ease#inQuart
 http://fr.slideshare.net/jbmoelker/voorhoede-frontend-architecture?next_slideshow=1
 https://developers.google.com/web/fundamentals/performance/
 
-http://myclabs.github.io/jquery.confirm/
 http://bankfacil.github.io/vanilla-masker/
 https://github.com/eloone/symbol-typer
 http://hammerjs.github.io/touch-emulator/
