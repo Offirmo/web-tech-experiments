@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- html5_009 : WTE micro template -->
+<!-- maximum hints at english to prevent Chrome from incorrectly suggesting a translation -->
+<html lang="en" xml:lang="en" class="o⋄top-container">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>HTML 100 - Web Components</title>
+
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+	<style type="text/css">
+
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://devdocs.io/dom/customelementregistry/define</a>
+	<a>https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements</a>
+</p>
+<OhMyRPG-Foo>Hello</OhMyRPG-Foo>
+
+<script type="module">
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	class Foo extends HTMLElement {
+		constructor() {
+			// Always call super first in constructor
+			super()
+
+			console.log('Hello from Foo constructor')
+
+			// Element functionality written in here
+		}
+
+		connectedCallback() {
+			this.innerHTML = `<h3>Hello world</h3>`
+		}
+	}
+	customElements.define('OhMyRPG-Foo'.toLowerCase(), Foo);
+</script>
