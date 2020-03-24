@@ -86,6 +86,7 @@ misc                 https://github.com/victorqribeiro/radialMenu
 plugin system        https://www.figma.com/blog/how-we-built-the-figma-plugin-system/
 emojis               https://github.com/joypixels/emoji-toolkit
 e2e test             Cypress https://mtlynch.io/painless-web-app-testing/
+                     https://www.cypress.io/blog/2020/02/06/introducing-firefox-and-edge-support-in-cypress-4-0/
 CSS in JS            https://css-blocks.com/
                      emotion
                      styled-components
