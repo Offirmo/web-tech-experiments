@@ -24,7 +24,9 @@ lib décimal         https://github.com/dleitee/walletjs
                     dinero
 io validation       https://github.com/gcanti/io-ts
 basic               https://github.com/angus-c/just
-
+dates               https://moment.github.io/luxon/
+                    https://github.com/date-fns/date-fns
+                    https://github.com/iamkun/dayjs
 ---
 
 https://github.com/brockwhittaker/BitArray.js lib bits
@@ -37,7 +39,6 @@ Promises:
 - https://github.com/sindresorhus/p-progress
 
 
-https://github.com/date-fns/date-fns
 
 
 https://yarnpkg.com/en/compare

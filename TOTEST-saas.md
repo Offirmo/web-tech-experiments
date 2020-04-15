@@ -7,7 +7,8 @@ contentless CMS    -> https://www.contentful.com/
 Auth               -> https://www.okta.com/developer/signup/stormpath/
 SMS                -> https://www.twilio.com/
 
-mobile payment     -> http://www.jaimelesstartups.fr/lemon-way/
+payment            -> http://www.jaimelesstartups.fr/lemon-way/
+                      https://www.fatzebra.com.au
 
 device testing     -> http://nativetap.io/
 
@@ -53,7 +54,9 @@ phone num test      -> https://numverify.com/
 
 P2P videos     -> https://news.slashdot.org/story/19/09/30/2311224/ask-slashdot-will-p2p-video-sites-someday-replace-youtube
 
-payment    https://www.fatzebra.com.au
+images          -> https://sirv.com/
+
+typos           --> https://mistape.com
 
 
 http://ifconfig.me/
