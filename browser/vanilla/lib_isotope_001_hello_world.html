@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<!-- html5_010 : WTE micro template -->
+
+<!-- maximum language hints to prevent Chrome from incorrectly suggesting a translation -->
+<html lang="en" xml:lang="en" class="o⋄top-container">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+
+	<!-- TODO explanation link -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>Isotope</title>
+
+	<!-- TODO better -->
+	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+
+
+	<style type="text/css">
+		/* super early styles while the page is loading */
+		:root {
+			--bg: black;
+			--fg: hsl(0, 0%, 98%);
+			--font: -apple-system, BlinkMacSystemFont, "lucida grande", roboto, noto, ubuntu, sans-serif;
+		}
+
+		html, body {
+			background-color: var(--bg);
+			color: var(--fg);
+			font-family: var(--font);
+		}
+
+		.progressive {
+			display: none;
+		}
+	</style>
+
+	https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
+</head>
+
+<h1>...</h1>
+<p>
+	<a>https://isotope.metafizzy.co/</a>
+	<button onclick="console.log('clicked', Date.now())">click me!</button>
+</p>
+
+<script type="module">
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>
+
+<!-- https://perfops.net/rum -->
+<script async src="https://cdn.jsdelivr.net/npm/perfops-rom"></script>

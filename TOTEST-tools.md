@@ -18,3 +18,5 @@ https://archivebox.io/ archive static sites
 https://animateit.online/ create GIF and animations
 
 summary https://deepai.org/machine-learning-model/summarization
+
+https://github.com/loeffel-io/ls-lint An extremely fast file and directory name linter - Bring some structure to your file and directory names 

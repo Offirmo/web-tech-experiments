@@ -10,6 +10,9 @@ SMS                -> https://www.twilio.com/
 payment            -> http://www.jaimelesstartups.fr/lemon-way/
                       https://www.fatzebra.com.au
 
+placeholders       -> https://placekitten.com/
+                      https://placeholder.com/
+
 device testing     -> http://nativetap.io/
 
 dependencies       -> https://libraries.io/about
@@ -57,6 +60,9 @@ P2P videos     -> https://news.slashdot.org/story/19/09/30/2311224/ask-slashdot-
 images          -> https://sirv.com/
 
 typos           --> https://mistape.com
+
+
+speed test https://support.google.com/websearch/answer/6283840?p=speedtest&visit_id=637189753010659443-726442618&rd=1
 
 
 http://ifconfig.me/

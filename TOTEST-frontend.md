@@ -47,7 +47,8 @@ diagrams          https://github.com/mermaid-js/mermaid
 Graphs            https://github.com/leeoniya/uPlot
 Audit             https://sonarwhal.com/
                   https://web.dev/fast
-hotkeys           https://github.com/jaywcjlove/hotkeys
+hotkeys           https://github.com/reasonink/clack
+                  https://github.com/jaywcjlove/hotkeys
                   https://github.com/avocode/combokeys
                   https://github.com/hodgef/simple-keyboard
 database          https://github.com/localForage/localForage
@@ -66,6 +67,7 @@ rich text editor     https://editorjs.io/
 rich tables          https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
                      https://bossanova.uk/jexcel/v3/
+                     https://www.activewidgets.com/
 charts               https://github.com/Ajaxy/lovely-chart
                      https://github.com/naver/billboard.js
                      https://blog.usejournal.com/bridging-the-gap-between-low-level-and-high-level-charting-libraries-a8f6c1819ba5
@@ -104,8 +106,6 @@ pick: https://www.jsdelivr.com/package/npm/prismjs?path=themes
 
 https://unpkg.com/    https://unpkg.com/package@version/file
 https://unpkg.com/floating.js@2.6.3/floating.js
-
-http://getlibs.com/
 
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
