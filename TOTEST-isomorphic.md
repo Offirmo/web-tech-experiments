@@ -1,8 +1,9 @@
 
 
 //////////// isomorphic ////////////
-https://github.com/azu/localstorage-ponyfill
+storage             https://github.com/azu/localstorage-ponyfill
 state machine       https://github.com/jakesgordon/javascript-state-machine
+                    https://egghead.io/courses/introduction-to-state-machines-using-xstate
 network             https://github.com/qubyte/fetch-ponyfill
                     https://github.com/wheresrhys/fetch-mock
                     https://github.com/gakimball/chai-fetch-mock

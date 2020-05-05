@@ -66,7 +66,7 @@ rich text editor     https://editorjs.io/
                      https://jaredreich.com/pell   wisiwig editor no dependencies
 rich tables          https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
-                     https://bossanova.uk/jexcel/v3/
+                     https://bossanova.uk/jexcel/v3/  https://github.com/paulhodel/jexcel
                      https://www.activewidgets.com/
 charts               https://github.com/Ajaxy/lovely-chart
                      https://github.com/naver/billboard.js
