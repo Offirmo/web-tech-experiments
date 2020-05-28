@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+	<title>HTML 008 curated unicode chars for variable names</title>
+
+	<style>
+		body {
+			font-family: 'Open Sans', 'Segoe UI', 'Open Sans', Helvetica, Arial, sans-serif;
+			font-size: 16px;
+		}
+		.o∙rotated⁚45deg {
+			display: inline-block;
+			transform-origin: 50% 50% 0;
+			transform: rotate(45deg) translate3d( 0, 0, 0);
+		}
+	</style>
+</head>
+<body>
+
+<h1>...</h1>
+<ul>
+	<li><a>https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols</a>
+	<li><a>www.amp-what.com/</a>
+	<li><a>https://mothereff.in/js-variables</a>
+	<li><a>https://codepoints.net/</a> <a>https://codepoints.net/search?q=lisu</a>
+	<li><a>https://graphemica.com/categories/modifier-letter/page/3</a>
+</ul>
+
+
+<p class="o∙rotated⁚45deg">test</p>
+
+<pre>
+
+////////////////////////////////////
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+ϟbestↆofᝍaᝍᝍb
+bar𝝣fooǃfooːfoo𖾚foo
+fooꜛbarꜜfoo
+too wide
+foo﹍bar
+too thin
+ꓽfoo𐅛barᐧfooꓺbar
+
+_-_-_-_-_-_-_-_-_-_
+o∙rotated⁚45deg
+o⋄rotated⁚45deg
+
+https://codepoints.net/search?IDC=1&Dia=0&page=49
+                width CSS, HTML, JS, Jetbrains (incl. width), iTerm, Terminal, Firefox ESR, chrome
+                │   │
+modifier        │ꜛꜜ │            ✔✔
+math XI         │𝝣  │            ✔✔
+latin dental    │ǀ  │            ✔✔
+latin lateral   │ǁ  │            ✔✔
+buhid ra        │ᝍ  │            ✔✔
+macron          │ˉ  │            ✔✔
+latin retroflex │ǃ  │            ✔✔
+greek koppa     │ϟ  │            ✔✔
+JIHVAMULIYA     │ೱ  │            ✔✔
+roman fifty     │ↆ  │            ✔✔
+lisu mia cia    │ꓺ  │            ✔✔
+lisu letter I   │ꓲ  │            ✔✔
+runic yr        │ᛨ  │            ✔✔
+MYANMAR THA     │ထ  │            ✔✔
+CHIKI PHAARKAA  │ᱼ  │
+TIFINAGH YO     │ⵧ  │            ✔✔
+TIFINAGH yaq    │ⵈ  │            ✔✔
+TIFINAGH yas    │ⵙ  │            ✔✔
+TIFINAGH yay    │ⵢ  │            ✔✔
+                │   │
+coptic esh      │Ⳇ  │           ✔✔
+coptic esh small│ⳇ  │           ✔✔
+JUNGSEONG EU    │ᅳ  │           ✔✔
+HANGUL ARAEA    │ㆍ  │           ✔✔
+middle dot      │ᐧ   │ ✔         ✔✔
+double          │ꓽ   │ ✔         ✔✔
+two dots ponct  │⁚  │✔    ✔     ❌
+diamond op      │⋄  │     ✔    ✔    ❌
+DEVANAGARI spacing dot  │ॱ  │
+
+𖽦          ❌    ✔                  it's a spacing mark!
+ꘌⳮⳇ𐍊        ✔     ✔         ❌
+
+
+fun
+MALAYALAM LETTER VOCALIC RR          ൠ    https://codepoints.net/U+0D60
+U+0F8A TIBETAN SIGN GRU CAN RGYINGS   ྊ
+U+1050 MYANMAR LETTER SHA            ၐ
+U+1105 HANGUL CHOSEONG RIEUL         ᄅ
+U+1106 HANGUL CHOSEONG MIEUM         ᄆ
+U+16DC RUNIC LETTER INGWAZ           ᛜ
+U+1A11 BUGINESE LETTER RA            ᨑ
+U+1BE4 BATAK LETTER I                ᯤ
+U+1BE3 BATAK LETTER MBA              ᯣ
+U+1D25 LATIN LETTER AIN              ᴥ
+U+2139 INFORMATION SOURCE            ℹ
+U+2D3B TIFINAGH LETTER YEY           ⴻ
+U+2D41 TIFINAGH LETTER BERBER ACADEMY YAH  ⵁ
+U+2D46 TIFINAGH LETTER TUAREG YAKH   ⵆ
+U+303C MASU MARK                     〼
+U+3403 CJK UNIFIED IDEOGRAPH-3403    㐃
+U+047B CYRILLIC SMALL LETTER ROUND OMEGA ѻ
+U+1610 CANADIAN SYLLABICS CARRIER YE ᘐ
+U+1613 CANADIAN SYLLABICS CARRIER YA ᘓ
+U+1743 BUHID LETTER KA               ᝃ
+U+02BB MODIFIER LETTER TURNED COMMA  ʻ
+U+02BC MODIFIER LETTER APOSTROPHE    ʼ
+
+canadian stroke aᐨaᐧa
+runicᛌa
+
+</pre>
+<script type="module">
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>
+</body>
+</html>

@@ -103,13 +103,8 @@ Speed test:
 CDNs:
 https://www.jsdelivr.com/rawgit
 pick: https://www.jsdelivr.com/package/npm/prismjs?path=themes
-
-https://unpkg.com/    https://unpkg.com/package@version/file
-https://unpkg.com/floating.js@2.6.3/floating.js
-
 https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
 
-speed comparison      https://www.atlanticbt.com/insights/which-cdn-delivers-the-fastest-performance/
 
 Tools:
 * https://frontarm.com/demoboard/
