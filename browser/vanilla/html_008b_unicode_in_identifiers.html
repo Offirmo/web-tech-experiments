@@ -10,13 +10,18 @@
 
 	<style>
 		body {
-			font-family: 'Open Sans', 'Segoe UI', 'Open Sans', Helvetica, Arial, sans-serif;
+			font-family: sans-serif;
 			font-size: 16px;
 		}
 		.o∙rotated⁚45deg {
 			display: inline-block;
 			transform-origin: 50% 50% 0;
 			transform: rotate(45deg) translate3d( 0, 0, 0);
+		}
+		.ϟbestↆofꘌall {
+			display: inline-block;
+			transform-origin: 50% 50% 0;
+			transform: rotate(-45deg) translate3d( 0, 0, 0);
 		}
 	</style>
 </head>
@@ -29,16 +34,18 @@
 	<li><a>https://mothereff.in/js-variables</a>
 	<li><a>https://codepoints.net/</a> <a>https://codepoints.net/search?q=lisu</a>
 	<li><a>https://graphemica.com/categories/modifier-letter/page/3</a>
+	<li><a>https://stackoverflow.com/questions/448981/which-characters-are-valid-in-css-class-names-selectors</a>
 </ul>
 
 
 <p class="o∙rotated⁚45deg">test</p>
+<p class="ϟbestↆofꘌall">ϟbestↆofꘌall</p>
 
 <pre>
 
 ////////////////////////////////////
 _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-ϟbestↆofᝍaᝍᝍb
+ϟbestↆofꓺaꘌb
 bar𝝣fooǃfooːfoo𖾚foo
 fooꜛbarꜜfoo
 too wide
@@ -49,43 +56,41 @@ too thin
 _-_-_-_-_-_-_-_-_-_
 o∙rotated⁚45deg
 o⋄rotated⁚45deg
+_-_-_-_-_-_-_-_-_-_
 
 https://codepoints.net/search?IDC=1&Dia=0&page=49
-                width CSS, HTML, JS, Jetbrains (incl. width), iTerm, Terminal, Firefox ESR, chrome
+                width HTML, JS, Jet, iTerm, Terminal, ESR, chrome
                 │   │
-modifier        │ꜛꜜ │            ✔✔
-math XI         │𝝣  │            ✔✔
-latin dental    │ǀ  │            ✔✔
-latin lateral   │ǁ  │            ✔✔
-buhid ra        │ᝍ  │            ✔✔
-macron          │ˉ  │            ✔✔
-latin retroflex │ǃ  │            ✔✔
-greek koppa     │ϟ  │            ✔✔
-JIHVAMULIYA     │ೱ  │            ✔✔
-roman fifty     │ↆ  │            ✔✔
-lisu mia cia    │ꓺ  │            ✔✔
-lisu letter I   │ꓲ  │            ✔✔
-runic yr        │ᛨ  │            ✔✔
-MYANMAR THA     │ထ  │            ✔✔
-CHIKI PHAARKAA  │ᱼ  │
-TIFINAGH YO     │ⵧ  │            ✔✔
-TIFINAGH yaq    │ⵈ  │            ✔✔
-TIFINAGH yas    │ⵙ  │            ✔✔
-TIFINAGH yay    │ⵢ  │            ✔✔
+greek koppa     │ϟ  │  ✔     ✔✔  ✔    ✔                ✔            ✔
+buhid ra        │ᝍ  │        ✔✔  ✔    ✔                ✔            ❌❌
+roman fifty     │ↆ  │  ✔     ✔✔  ✔    ✔                 ✔            ✔
+modifier        │ꜛꜜ │        ✔✔  ✔    ✔                 ✔            ✔
+math XI         │𝝣  │        ✔✔  ✔    ✔                 ✔            ✔
+latin dental    │ǀ  │        ✔✔  ✔    ✔                 ✔            ✔
+latin lateral   │ǁ  │        ✔✔  ✔    ✔                 ✔            ✔
+latin retroflex │ǃ  │        ✔✔  ✔    ✔                 ✔            ✔
+JIHVAMULIYA     │ೱ  │        ✔✔  ✔    ✔                 ✔            ✔
+lisu mia cia    │ꓺ  │        ✔✔  ✔    ✔                 ✔            ✔
+lisu letter I   │ꓲ  │        ✔✔  ✔     ✔                ✔             ✔
+runic yr        │ᛨ  │        ✔✔  ✔    ✔                 ✔            ✔
+MYANMAR THA     │ထ  │       ✔✔  𖾚   ✔                  ✔             ✔
+CHIKI PHAARKAA  │ᱼ  │        ✔✔  𖾚     ✔                 ✔             ❌
                 │   │
-coptic esh      │Ⳇ  │           ✔✔
-coptic esh small│ⳇ  │           ✔✔
-JUNGSEONG EU    │ᅳ  │           ✔✔
-HANGUL ARAEA    │ㆍ  │           ✔✔
-middle dot      │ᐧ   │ ✔         ✔✔
-double          │ꓽ   │ ✔         ✔✔
-two dots ponct  │⁚  │✔    ✔     ❌
-diamond op      │⋄  │     ✔    ✔    ❌
-DEVANAGARI spacing dot  │ॱ  │
-
-𖽦          ❌    ✔                  it's a spacing mark!
-ꘌⳮⳇ𐍊        ✔     ✔         ❌
-
+TIFINAGH yay    │ⵢ  │        ✔✔  𖾚     ✔                ✔            ❌
+TIFINAGH YO     │ⵧ  │        ✔✔  𖾚    ✔                 ✔             ❌
+TIFINAGH yaq    │ⵈ  │        ✔✔  𖾚    ✔                 ✔             ❌
+TIFINAGH yas    │ⵙ  │        ✔✔  𖾚    ✔                 ✔             ❌
+VAI LENGTHENER  │ꘌ  │  ✔     ✔✔  ✔    ✔                 ✔             ❌❌
+                │   │
+macron          │ˉ  │        ✔✔        ✔                 ✔            ✔
+coptic esh      │Ⳇ  │        ✔✔  𖾚     ✔                 ✔            ❌
+coptic esh small│ⳇ  │        ✔✔  𖾚     ✔                 ✔            ❌
+JUNGSEONG EU    │ᅳ  │       ✔✔  𖾚     ✔      𖾚          ✔            ✔
+HANGUL ARAEA    │ㆍ  │       ✔✔  𖾚     𖾚      𖾚          ✔            ✔
+middle dot      │ᐧ   │       ✔✔  𖾚     𖾚      𖾚          ✔            ✔
+double          │ꓽ   │       ✔✔  𖾚     𖾚      𖾚          ✔            ✔
+DEVANAGARI dot  │ॱ  │
+                │   │
 
 fun
 MALAYALAM LETTER VOCALIC RR          ൠ    https://codepoints.net/U+0D60
