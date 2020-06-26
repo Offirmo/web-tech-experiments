@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="152.99001"
+   inkscape:export-xdpi="152.99001"
+   inkscape:export-filename="/Users/yjutard/work/src/off/web-tech-experiments/tosort/sankey.png"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="sankey.svg"
+   version="1.1"
+   width="500"
+   height="300"
+   id="sankey_svg">
+  <metadata
+     id="metadata108">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs106" />
+  <sodipodi:namedview
+     inkscape:current-layer="g99"
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="1680"
+     inkscape:cy="150"
+     inkscape:cx="289.69033"
+     inkscape:zoom="2.106"
+     showgrid="false"
+     id="namedview104"
+     inkscape:window-height="1058"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <title
+     id="title10">Your Diagram Title
+	</title>
+  <!-- Generated with SankeyMATIC on Wed Jun 24 2020 11:25:46 GMT+1000 (Australian Eastern Standard Time)-->
+  <rect
+     width="100%"
+     height="100%"
+     fill="#ffffff"
+     id="rect12"
+     x="0"
+     y="0" />
+  <g
+     id="g99">
+    <g
+       id="g46">
+      <path
+         class="link"
+         d="M 10,84.518716 C 178,84.518716 322,79.2 490,79.2"
+         style="fill:none;stroke:#6baed6;stroke-width:158.4;stroke-opacity:0.5"
+         id="path16">
+        <title
+           id="title14">All Users → not-enrolled:
+						60
+					</title>
+      </path>
+      <path
+         class="link"
+         d="m 10,216.51872 c 53.666667,0 99.66667,3.15857 153.33333,3.15857"
+         style="fill:none;stroke:#9ecae1;stroke-width:105.6;stroke-opacity:0.5"
+         id="path20">
+        <title
+           id="title18">All Users → experiment bucket:
+						40
+					</title>
+      </path>
+      <path
+         class="link"
+         d="M 173.33333,193.27729 C 227,193.27729 273,197.0387 326.66667,197.0387"
+         style="fill:none;stroke:#c6dbef;stroke-width:52.8;stroke-opacity:0.5"
+         id="path24">
+        <title
+           id="title22">experiment bucket → control (early):
+						20
+					</title>
+      </path>
+      <path
+         class="link"
+         d="M 173.33333,246.07729 C 227,246.07729 273,267.8387 326.66667,267.8387"
+         style="fill:none;stroke:#e6550d;stroke-width:52.8;stroke-opacity:0.5"
+         id="path28">
+        <title
+           id="title26">experiment bucket → variation (early):
+						20
+					</title>
+      </path>
+      <path
+         class="link"
+         d="M 336.66667,183.8387 C 390.33333,183.8387 436.33333,171.6 490,171.6"
+         style="fill:none;stroke:#6baed6;stroke-width:26.4;stroke-opacity:0.5"
+         id="path32">
+        <title
+           id="title30">control (early) → not-enrolled:
+						10
+					</title>
+      </path>
+      <path
+         class="link"
+         d="M 336.66667,210.2387 C 390.33333,210.2387 436.33333,242.4 490,242.4"
+         style="fill:none;stroke:#c6dbef;stroke-width:26.4;stroke-opacity:0.5"
+         id="path36">
+        <title
+           id="title34">control (early) → control (final):
+						10
+					</title>
+      </path>
+      <path
+         class="link"
+         d="M 336.66667,254.6387 C 390.33333,254.6387 436.33333,198 490,198"
+         style="fill:none;stroke:#6baed6;stroke-width:26.4;stroke-opacity:0.5"
+         id="path40">
+        <title
+           id="title38">variation (early) → not-enrolled:
+						10
+					</title>
+      </path>
+      <path
+         class="link"
+         d="m 336.66667,281.0387 c 53.66666,0 99.66666,5.7613 153.33333,5.7613"
+         style="fill:none;stroke:#e6550d;stroke-width:26.4;stroke-opacity:0.5"
+         id="path44">
+        <title
+           id="title42">variation (early) → variation (final):
+						10
+					</title>
+      </path>
+    </g>
+    <g
+       id="g53"
+       transform="translate(0,5.318716)"
+       class="node">
+      <rect
+         y="0"
+         x="0"
+         style="fill:#3182bd;fill-opacity:0.8;stroke:#183f5c;stroke-width:2"
+         shape-rendering="crispEdges"
+         id="r0"
+         width="10"
+         height="264">
+        <title
+           id="title48">All Users:
+							100
+						</title>
+      </rect>
+      <text
+         id="text51"
+         style="font-weight:400;font-size:15px;font-family:sans-serif;fill:#000000;stroke-width:0"
+         text-anchor="start"
+         dy="0.34999999em"
+         y="132"
+         x="16">All Users: 100</text>
+    </g>
+    <g
+       id="g60"
+       transform="translate(490)"
+       class="node">
+      <rect
+         y="0"
+         x="0"
+         style="fill:#6baed6;fill-opacity:0.8;stroke:#345568;stroke-width:2"
+         shape-rendering="crispEdges"
+         id="r1"
+         width="10"
+         height="211.2">
+        <title
+           id="title55">not-enrolled:
+							80
+						</title>
+      </rect>
+      <text
+         id="text58"
+         style="font-weight:400;font-size:15px;font-family:sans-serif;fill:#000000;stroke-width:0"
+         text-anchor="end"
+         dy="0.34999999em"
+         y="105.6"
+         x="-6">not-enrolled: 80</text>
+    </g>
+    <rect
+       height="105.6"
+       width="10"
+       id="r2"
+       shape-rendering="crispEdges"
+       style="fill:#9ecae1;fill-opacity:0.8;stroke:#4d626e;stroke-width:2"
+       x="163.33333"
+       y="166.87729">
+      <title
+         id="title62">experiment bucket:
+							40
+						</title>
+    </rect>
+    <text
+       x="73.278244"
+       y="208.28128"
+       dy="4.1999998"
+       text-anchor="start"
+       style="font-weight:400;font-size:15px;font-family:sans-serif;fill:#000000;stroke-width:0"
+       id="text65"><tspan
+         y="208.28128"
+         x="73.278244"
+         id="tspan1028"
+         sodipodi:role="line">experiment</tspan><tspan
+         y="227.03128"
+         x="73.278244"
+         id="tspan1030"
+         sodipodi:role="line">bucket: 40</tspan></text>
+    <rect
+       height="52.799999"
+       width="10"
+       id="r3"
+       shape-rendering="crispEdges"
+       style="fill:#c6dbef;fill-opacity:0.8;stroke:#616b75;stroke-width:2"
+       x="326.66666"
+       y="170.6387">
+      <title
+         id="title69">control (early):
+							20
+						</title>
+    </rect>
+    <text
+       x="324.94016"
+       y="197.0387"
+       dy="4.1999998"
+       text-anchor="end"
+       style="font-weight:400;font-size:13.3333px;font-family:sans-serif;fill:#000000;stroke-width:0"
+       id="text72">control (early): 20</text>
+    <rect
+       height="52.799999"
+       width="10"
+       id="r4"
+       shape-rendering="crispEdges"
+       style="fill:#e6550d;fill-opacity:0.8;stroke:#702906;stroke-width:2"
+       x="326.66666"
+       y="241.43871">
+      <title
+         id="title76">variation (early):
+							20
+						</title>
+    </rect>
+    <text
+       x="325.41501"
+       y="267.83871"
+       dy="4.1999998"
+       text-anchor="end"
+       style="font-weight:400;font-size:13.3333px;font-family:sans-serif;fill:#000000;stroke-width:0"
+       id="text79">variation (early): 20</text>
+    <g
+       id="g88"
+       transform="translate(490,229.2)"
+       class="node">
+      <rect
+         y="0"
+         x="0"
+         style="fill:#c6dbef;fill-opacity:0.8;stroke:#616b75;stroke-width:2"
+         shape-rendering="crispEdges"
+         id="r5"
+         width="10"
+         height="26.4">
+        <title
+           id="title83">control (final):
+							10
+						</title>
+      </rect>
+      <text
+         id="text86"
+         style="font-weight:400;font-size:13.3333px;font-family:sans-serif;fill:#000000;stroke-width:0"
+         text-anchor="end"
+         dy="0.34999999em"
+         y="13.2"
+         x="-6">control (final): 10</text>
+    </g>
+    <g
+       id="g95"
+       transform="translate(490,273.6)"
+       class="node">
+      <rect
+         y="0"
+         x="0"
+         style="fill:#e6550d;fill-opacity:0.8;stroke:#702906;stroke-width:2"
+         shape-rendering="crispEdges"
+         id="r6"
+         width="10"
+         height="26.4">
+        <title
+           id="title90">variation (final):
+							10
+						</title>
+      </rect>
+      <text
+         id="text93"
+         style="font-weight:400;font-size:13.3333px;font-family:sans-serif;fill:#000000;stroke-width:0"
+         text-anchor="end"
+         dy="0.34999999em"
+         y="13.2"
+         x="-6">variation (final): 10</text>
+    </g>
+  </g>
+</svg>

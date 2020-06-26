@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<!-- html5_005 : html_tests micro template -->
+
+<head>
+	<meta charset="utf-8" />
+	<title>JS service worker 002</title>
+	<style type="text/css">
+		body {
+			margin: 40px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+
+<h1>...</h1>
+<p>
+	Hello with service worker
+	<img src="./placeholder-120x60.png">
+</p>
+
+<script>
+	console.log('Hello from page')
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+
+	// https://developers.google.com/web/fundamentals/primers/service-workers/registration
+	if ('serviceWorker' in navigator) {
+		const options = undefined
+		navigator.serviceWorker.register('./lang_js_service_worker_002.js', options)
+			.then(
+				serviceWorkerRegistration => {
+					console.log('Service worker registration succeeded', { serviceWorkerRegistration })
+				},
+				err => {
+					console.error('Service worker registration failed:', { err });
+				}
+			)
+	} else {
+		console.warn('Service workers are not supported!');
+	}
+	console.log('Bye from page')
+</script>

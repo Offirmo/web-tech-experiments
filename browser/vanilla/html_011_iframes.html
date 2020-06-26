@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+
+	<title>HTML 011 iframes</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="https://rawgit.com/Offirmo/offirmo-monorepo/master/2-advanced/view-css/dist/offirmo-reset%2Butils.css" />
+	<style>
+	</style>
+</head>
+
+<body>
+
+	<h1>...</h1>
+	<p>
+		<a>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe</a>
+	</p>
+
+	<!-- iframe using the strongest possible security -->
+	<iframe src="https://www.offirmo.net/web-tech-experiments/browser/vanilla/saas_015_google_apis.html"
+			sandbox="allow-scripts allow-same-origin allow-popups"
+			referrerpolicy="origin"
+			width="500px" height="300px"
+			frameborder="0" scrolling="no">
+		Problem. Iframe content should be here.
+	</iframe>
+
+	<div id="content"></div>
+
+	<script>
+		document.querySelector('h1').textContent = document.title;
+		Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+			el.href || (el.href = el.text);
+		});
+
+		console.info(`[${document.title}] loading!`, {
+			'document.referrer': document.referrer,
+			'window.parent': window.parent,
+			'window.self': window.self,
+			'window.top': window.top,
+			in_iframe: window.self !== window.top,
+		})
+		window.addEventListener("message", receiveMessage, false);
+		function receiveMessage(event) {
+			console.info(`[${document.title}] received message:`, event)
+
+			if (event.origin === 'https://www.offirmo.net' && event.data.startsWith('[{')) {
+				const contacts = JSON.parse(event.data)
+				console.info(`[${document.title}] got contacts:`, contacts)
+				const p = document.createElement('p');
+				p.appendChild(document.createTextNode(`${contacts.length} contacts loaded`));
+				document.getElementById('content').appendChild(p);
+			}
+		}
+	</script>
