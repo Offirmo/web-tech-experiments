@@ -87,7 +87,8 @@ iframes              https://github.com/krakenjs/zoid
 misc                 https://github.com/victorqribeiro/radialMenu
 plugin system        https://www.figma.com/blog/how-we-built-the-figma-plugin-system/
 emojis               https://github.com/joypixels/emoji-toolkit
-e2e test             Cypress https://mtlynch.io/painless-web-app-testing/
+e2e test             https://medium.com/@arjunattam/fast-and-reliable-cross-browser-testing-with-playwright-155c0e8a821f
+                     Cypress https://mtlynch.io/painless-web-app-testing/
                      https://www.cypress.io/blog/2020/02/06/introducing-firefox-and-edge-support-in-cypress-4-0/
 CSS in JS            https://css-blocks.com/
                      emotion
@@ -95,16 +96,13 @@ CSS in JS            https://css-blocks.com/
                      https://github.com/callstack/linaria
                      https://github.com/css-modules/icss
 finder               https://markmatyas.dev/finderjs/
-
+material             https://dev.to/sasidharan/free-illustrations-for-developers-35hl
+                     https://generated.photos/
 
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
 
 CDNs:
-https://www.jsdelivr.com/rawgit
-pick: https://www.jsdelivr.com/package/npm/prismjs?path=themes
-https://gitcdn.xyz/   https://gitcdn.xyz/user/repo/master/file
-
 
 Tools:
 * https://frontarm.com/demoboard/

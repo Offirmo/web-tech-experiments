@@ -66,7 +66,7 @@ bugs            --> https://usegripeless.com/  https://github.com/nikersify/pico
 
 speed test https://support.google.com/websearch/answer/6283840?p=speedtest&visit_id=637189753010659443-726442618&rd=1
 
-
+https://dev.to/aumayeung/free-and-fake-apis-you-can-use-to-practice-front-end-development-4eck
 http://ifconfig.me/
 http://whatismyip.akamai.com/
 https://github.com/sindresorhus/is-up
