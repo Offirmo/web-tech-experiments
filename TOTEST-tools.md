@@ -1,3 +1,11 @@
+
+
+GitHub - JaidedAI/EasyOCR: Ready-to-use OCR with 40+ languages supported including Chinese, Japanese, Korean and Thai
+https://github.com/JaidedAI/EasyOCR
+
+
+
+
 https://babeljs.io/blog/2016/08/30/babili
 
 
