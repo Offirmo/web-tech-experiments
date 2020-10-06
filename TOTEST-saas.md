@@ -81,3 +81,4 @@ http://placehold.it/
 http://playphrase.me
 https://opbeat.com/
 http://www.mangopay.com/
+https://hasura.io/pricing/

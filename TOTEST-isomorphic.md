@@ -23,6 +23,7 @@ analytics           https://github.com/segmentio/analytics-node
                     https://segment.com/docs/sources/server/node/quickstart/
 lib décimal         https://github.com/dleitee/walletjs
                     dinero
+                    https://github.com/MikeMcl/big.js/wiki
 io validation       https://github.com/gcanti/io-ts
 basic               https://github.com/angus-c/just
 dates               https://moment.github.io/luxon/

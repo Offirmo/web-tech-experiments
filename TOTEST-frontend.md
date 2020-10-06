@@ -2,59 +2,60 @@
 
 ////////////////////////////////////////////////////////////////////////
 Best of:
-site builder      https://medium.com/@wordpress_articles/website-builder-tools-you-should-try-at-least-once-73f5d4c4efd1
-spinner simple    http://spin.js.org/
-loaders           https://loading.io/
-Base components   http://ui.toast.com/
-DOM               https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
-clipboard         http://zenorocha.github.io/clipboard.js/
-full page design  https://github.com/alvarotrigo/fullPage.js
-bg patterns       http://www.heropatterns.com/
-countdown         https://github.com/objectivehtml/FlipClock
-player            https://github.com/Bilibili/flv.js
-tooltips          https://popper.js.org/
-browser versions  http://browser-update.org/
-animations        https://greensock.com/3/  https://tympanus.net/codrops/2019/11/14/the-new-features-of-gsap-3/
-                    http://animejs.com/
-                    (react) https://www.framer.com/api/motion/
-full screen       screenfull
-scroll bar        https://idiotwu.github.io/smooth-scrollbar/
-                    https://github.com/Grsmto/simplebar
-                    https://www.filamentgroup.com/lab/scrollbars/
-maps                https://leafletjs.com/ (requires tiles, for ex. openstreetmap or mapbox)
-                    https://developers.google.com/maps/documentation/javascript/elevation
-                    https://openlayers.org/
-                    https://www.mapbox.com/maps/
-                    https://maptalks.org/
-                    https://github.com/tmcw/mapmakers-cheatsheet
-colors              a basic palette http://clrs.cc/
-                    générateur https://geenes.app/
-                    palettes https://colorhunt.co/
-                    archive https://github.com/Jam3/nice-color-palettes
-                    https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
-tree view         https://github.com/elbywan/bosket
-simple icons      https://icongr.am/simple
-components        https://frend.co/
-incredible viz    https://carrotsearch.com/foamtree/
-                  https://isotope.metafizzy.co/
-                  https://packery.metafizzy.co/
-                  https://www.dwitter.net/
-                  https://nivo.rocks/
-diagrams          https://github.com/mermaid-js/mermaid
-                  https://www.diagram.codes/  
-                  https://github.com/alyssaxuu/flowy
-                  https://bramp.github.io/js-sequence-diagrams/
-Graphs            https://github.com/leeoniya/uPlot
-Audit             https://sonarwhal.com/
-                  https://web.dev/fast
-hotkeys           https://github.com/reasonink/clack
-                  https://github.com/jaywcjlove/hotkeys
-                  https://github.com/avocode/combokeys
-                  https://github.com/hodgef/simple-keyboard
-database          https://github.com/localForage/localForage
-                  https://github.com/gruns/ImmortalDB
-                  https://github.com/anywhichway/reasondb
-                  fast client side DB  https://github.com/Nozbe/WatermelonDB
+site builder         https://medium.com/@wordpress_articles/website-builder-tools-you-should-try-at-least-once-73f5d4c4efd1
+spinner simple       http://spin.js.org/
+loaders              https://loading.io/
+Base components      http://ui.toast.com/
+DOM                  https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
+clipboard            http://zenorocha.github.io/clipboard.js/
+full page design     https://github.com/alvarotrigo/fullPage.js
+bg patterns          http://www.heropatterns.com/
+countdown            https://github.com/objectivehtml/FlipClock
+player               https://github.com/Bilibili/flv.js
+tooltips             https://popper.js.org/
+browser versions     http://browser-update.org/
+animations           https://greensock.com/3/  https://tympanus.net/codrops/2019/11/14/the-new-features-of-gsap-3/
+                     http://animejs.com/
+                     (react) https://www.framer.com/api/motion/
+full screen          screenfull
+scroll bar           https://idiotwu.github.io/smooth-scrollbar/
+                     https://github.com/Grsmto/simplebar
+                     https://www.filamentgroup.com/lab/scrollbars/
+cartography          https://leafletjs.com/ (requires tiles, for ex. openstreetmap or mapbox)
+                     https://developers.google.com/maps/documentation/javascript/elevation
+                     https://openlayers.org/
+                     https://www.mapbox.com/maps/
+                     https://maptalks.org/
+                     https://github.com/tmcw/mapmakers-cheatsheet
+                     http://www.targomo.com/developers/
+colors               a basic palette http://clrs.cc/
+                     générateur https://geenes.app/
+                     palettes https://colorhunt.co/
+                     archive https://github.com/Jam3/nice-color-palettes
+                     https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
+tree view            https://github.com/elbywan/bosket
+simple icons         https://icongr.am/simple
+components           https://frend.co/
+incredible viz       https://carrotsearch.com/foamtree/
+                     https://isotope.metafizzy.co/
+                     https://packery.metafizzy.co/
+                     https://www.dwitter.net/
+                     https://nivo.rocks/
+diagrams             https://github.com/mermaid-js/mermaid
+                     https://www.diagram.codes/  
+                     https://github.com/alyssaxuu/flowy
+                     https://bramp.github.io/js-sequence-diagrams/
+Graphs               https://github.com/leeoniya/uPlot
+Audit                https://sonarwhal.com/
+                     https://web.dev/fast
+hotkeys              https://github.com/reasonink/clack
+                     https://github.com/jaywcjlove/hotkeys
+                     https://github.com/avocode/combokeys
+                     https://github.com/hodgef/simple-keyboard
+database             https://github.com/localForage/localForage
+                     https://github.com/gruns/ImmortalDB
+                     https://github.com/anywhichway/reasondb
+                     fast client side DB  https://github.com/Nozbe/WatermelonDB
 drag&drop tree       https://github.com/frontend-collective/react-sortable-tree
 flowcharts           http://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
@@ -73,7 +74,7 @@ charts               https://github.com/Ajaxy/lovely-chart
                      https://blog.usejournal.com/bridging-the-gap-between-low-level-and-high-level-charting-libraries-a8f6c1819ba5
                      http://www.chartjs.org/
                      http://plottablejs.org/components/
-prototyping          https://github.com/Heydon/bruck
+prototyping          https://wiredjs.com/   https://github.com/rough-stuff/wired-elements
 audio                https://howlerjs.com/
 pdf gen              https://parall.ax/products/jspdf
 time                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
@@ -96,7 +97,7 @@ CSS in JS            https://css-blocks.com/
                      https://github.com/callstack/linaria
                      https://github.com/css-modules/icss
 finder               https://markmatyas.dev/finderjs/
-material             https://dev.to/sasidharan/free-illustrations-for-developers-35hl
+stock content        https://dev.to/sasidharan/free-illustrations-for-developers-35hl
                      https://generated.photos/
 
 Speed test:
@@ -109,8 +110,6 @@ Tools:
 
 ////////////////////////////////////////////////////////////////////////
 
-placeholders https://dev.to/xtrp/possibly-the-most-useful-css-trick-jl3
-
 movable draggable resizable https://daybrush.com/moveable/
 
 Old school Windows UI https://ash.ms/
@@ -121,7 +120,7 @@ Layout
 * Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
 
 REACT
-data fetchnig https://swr.now.sh/
+data fetching https://swr.now.sh/
 modal https://github.com/dielduarte/usemodal-portal
 big list https://applibslist.xyz/
 anims https://medium.com/@drcmda/why-react-needed-yet-another-animation-library-introducing-react-spring-8212e424c5ce
@@ -129,7 +128,6 @@ https://github.com/react-map/react-magic cools anims
 https://shopify.github.io/draggable/
 http://blueprintjs.com/
 https://github.com/stelatech/react-anime
-https://github.com/zalmoxisus/redux-remotedev
 https://github.com/jxnblk/reline
 https://github.com/reactotron/reactotron
 import CloseOnEscape from 'react-close-on-escape'
@@ -138,8 +136,6 @@ https://github.com/jchiatt/react-chaos
 focus https://github.com/theKashey/react-focus-lock
 3D https://github.com/react-spring/react-three-fiber
 adapting size of buttons https://codesandbox.io/s/7o41xvwq0
-
-https://quasar-framework.org/
 
 https://instant.page/
 
@@ -223,8 +219,6 @@ https://www.microanimations.com/gif-collection/
 
 https://polyfill.io/v2/docs/
 https://philipwalton.com/articles/loading-polyfills-only-when-needed/
-
-https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html
 
 http://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
 
@@ -437,10 +431,9 @@ https://github.com/zendesk/cross-storage
 
 -- content
 embeds http://oembed.com/
-bandeau qui disparaît https://github.com/antris/sneakpeek
 
 --- cartes
-http://www.targomo.com/developers/
+
 
 -- effets
 scroll mobile sur tilt http://vodkabears.github.io/interdimensional/
