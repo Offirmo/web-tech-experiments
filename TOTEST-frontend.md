@@ -52,6 +52,7 @@ hotkeys              https://github.com/reasonink/clack
                      https://github.com/jaywcjlove/hotkeys
                      https://github.com/avocode/combokeys
                      https://github.com/hodgef/simple-keyboard
+                     https://craig.is/killing/mice
 database             https://github.com/localForage/localForage
                      https://github.com/gruns/ImmortalDB
                      https://github.com/anywhichway/reasondb

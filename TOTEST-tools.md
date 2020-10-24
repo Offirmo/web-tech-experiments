@@ -5,6 +5,9 @@ https://github.com/JaidedAI/EasyOCR
 
 
 
+https://smooth-doc.com/
+
+
 
 https://babeljs.io/blog/2016/08/30/babili
 
