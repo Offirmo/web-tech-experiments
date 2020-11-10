@@ -34,6 +34,7 @@ colors               a basic palette http://clrs.cc/
                      archive https://github.com/Jam3/nice-color-palettes
                      https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 tree view            https://github.com/elbywan/bosket
+                     https://github.com/frontend-collective/react-sortable-tree
 simple icons         https://icongr.am/simple
 components           https://frend.co/
 incredible viz       https://carrotsearch.com/foamtree/
