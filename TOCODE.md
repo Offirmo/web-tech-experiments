@@ -16,6 +16,21 @@ achievements
 https://pixelbuddha.net/ballicons3/
 
 
+Better social network
+- highly moderated
+- not based on email
+- need ID
+- text / bite size
+- edit allowed (history)
+- content would never be removed, just not accessible
+- access depending on country and laws
+- ability to run on-premise / by government?
+- ability to be run by third party?
+- date in the URL
+- report to police
+https://tech.slashdot.org/story/20/12/11/2229258/key-people-are-leaving-facebook-and-torching-the-company-in-departure-notes
+
+
 Compta
 https://bws.bankin.com/dashboard/signup
 
