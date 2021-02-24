@@ -10,7 +10,8 @@ network             https://github.com/qubyte/fetch-ponyfill
                     axios
                     https://github.com/visionmedia/superagent
                     https://github.com/typicode/fetchival
-validation          https://github.com/hapijs/joi
+validation          https://github.com/typeofweb/schema
+                    https://github.com/hapijs/joi
                     https://github.com/ianstormtaylor/superstruct
 uuid                https://github.com/ai/nanoid  <-- beware of webpack pulling node stuff!
 event emitter       https://github.com/ai/nanoevents  <-- emiterry?

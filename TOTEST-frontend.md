@@ -113,6 +113,9 @@ Tools:
 * https://bundlephobia.com/
 * https://frontarm.com/demoboard/
 
+Preact https://github.com/preactjs/preact
+* https://github.com/molefrog/wouter
+
 ////////////////////////////////////////////////////////////////////////
 
 movable draggable resizable https://daybrush.com/moveable/
@@ -141,6 +144,7 @@ https://github.com/jchiatt/react-chaos
 focus https://github.com/theKashey/react-focus-lock
 3D https://github.com/react-spring/react-three-fiber
 adapting size of buttons https://codesandbox.io/s/7o41xvwq0
+tables https://react-table.tanstack.com/
 
 https://instant.page/
 
