@@ -12,7 +12,8 @@ full page design     https://github.com/alvarotrigo/fullPage.js
 bg patterns          http://www.heropatterns.com/
 countdown            https://github.com/objectivehtml/FlipClock
 player               https://github.com/Bilibili/flv.js
-tooltips             https://popper.js.org/
+tooltips             https://atomiks.github.io/tippyjs/
+                     https://popper.js.org/
 browser versions     http://browser-update.org/
 animations           https://greensock.com/3/  https://tympanus.net/codrops/2019/11/14/the-new-features-of-gsap-3/
                      http://animejs.com/
@@ -103,6 +104,7 @@ finder               https://markmatyas.dev/finderjs/
 stock content        https://dev.to/sasidharan/free-illustrations-for-developers-35hl
                      https://generated.photos/
 gamedev              http://dragonbones.com/
+tags                 https://github.com/jcubic/tagger
 
 
 Speed test:
