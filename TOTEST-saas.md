@@ -7,7 +7,8 @@ contentless CMS    -> https://www.contentful.com/
 Auth               -> https://www.okta.com/developer/signup/stormpath/
 SMS                -> https://www.twilio.com/
 
-payment            -> http://www.jaimelesstartups.fr/lemon-way/
+payment            -> stripe
+                      http://www.jaimelesstartups.fr/lemon-way/
                       https://www.fatzebra.com.au
 
 placeholders       -> https://placekitten.com/
@@ -65,6 +66,7 @@ bugs            --> https://usegripeless.com/  https://github.com/nikersify/pico
 
 gamedev         https://xsolla.com/pricing
 
+embeds          https://iframely.com/plans
 
 
 speed test https://support.google.com/websearch/answer/6283840?p=speedtest&visit_id=637189753010659443-726442618&rd=1
