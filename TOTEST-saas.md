@@ -5,6 +5,8 @@ GraphQL CMS        -> https://graphcms.com/
 contentless CMS    -> https://www.contentful.com/
 
 Auth               -> https://www.okta.com/developer/signup/stormpath/
+                      https://docs.osohq.com/index.html
+
 SMS                -> https://www.twilio.com/
 
 payment            -> stripe
