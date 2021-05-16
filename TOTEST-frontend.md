@@ -6,6 +6,8 @@ site builder         https://medium.com/@wordpress_articles/website-builder-tool
 spinner simple       http://spin.js.org/
 loaders              https://loading.io/
 Base components      http://ui.toast.com/
+                     https://mantine.dev/
+                     https://www.primefaces.org/primereact/#/
 DOM                  https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
 clipboard            http://zenorocha.github.io/clipboard.js/
 full page design     https://github.com/alvarotrigo/fullPage.js
@@ -83,7 +85,6 @@ audio                https://howlerjs.com/
 pdf gen              https://parall.ax/products/jspdf
 time                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
 calendar             https://github.com/nhnent/tui.calendar
-UI components React  https://www.primefaces.org/primereact/#/
 input - formatting   https://nosir.github.io/cleave.js/
 ebook viewer         https://johnfactotum.github.io/foliate/
 progress tracker     https://nigelotoole.github.io/progress-tracker/
@@ -105,7 +106,7 @@ stock content        https://dev.to/sasidharan/free-illustrations-for-developers
                      https://generated.photos/
 gamedev              http://dragonbones.com/
 tags                 https://github.com/jcubic/tagger
-
+window manager       https://github.com/nextapps-de/winbox
 
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
@@ -130,6 +131,7 @@ Layout
 * Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
 
 REACT
+https://github.com/theKashey/react-focus-lock
 data fetching https://swr.now.sh/
 modal https://github.com/dielduarte/usemodal-portal
 big list https://applibslist.xyz/
@@ -153,7 +155,7 @@ https://instant.page/
 The most annoying website https://www.youtube.com/watch?v=QFZ-pwErSl4
 
 web components 
-    https://lit-element.polymer-project.org/
+	https://lit-element.polymer-project.org/
 	https://css-tricks.com/an-introduction-to-web-components/
 	https://hacks.mozilla.org/2018/11/the-power-of-web-components/
 	with react https://css-tricks.com/a-guide-to-custom-elements-for-react-developers/
