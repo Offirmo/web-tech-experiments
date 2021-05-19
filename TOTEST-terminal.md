@@ -5,12 +5,15 @@ ansi colors      https://github.com/lukeed/kleur
 terminal charts  https://www.chunqiuyiyu.com/ervy/
 prompts++        https://github.com/enquirer/enquirer
 CLI              https://oclif.io/ The Open CLI Framework
+UI (react)       https://github.com/vadimdemedes/ink
+shell            https://github.com/google/zx
+                 https://github.com/shelljs/shelljs
+
 ////////////////////////////////////////////////////////////////////////
 
 
 https://github.com/js-cli/js-liftoff
 
-React for CLI https://github.com/vadimdemedes/ink
 
 
 Terminals:
