@@ -39,7 +39,7 @@ function listenForSafePostMessages({
 	}
 
 	const listenerOptions = {
-		capture: false, // http://devdocs.io/dom/window/postmessage
+		capture: false, // https://devdocs.io/dom/window/postmessage
 	}
 
 	window.addEventListener('message', onMessageInternal, listenerOptions)

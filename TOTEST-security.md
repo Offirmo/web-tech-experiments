@@ -56,10 +56,10 @@ https://github.com/sindresorhus/clipboardy
 ## fake identity
 * setup a ring to cross auth ?
 Most reputable countries
-* http://uk.businessinsider.com/the-top-20-countries-ranked-by-reputation-2015-7
+* https://uk.businessinsider.com/the-top-20-countries-ranked-by-reputation-2015-7
   * chosen: sweden (same continent)
-  * most common names http://www.behindthename.com/top/list.php?region=sweden&year=1998&sort=&name=max
-  * most common family names http://surnames.behindthename.com/top/list.php?region=sweden&year=2005&sort=name&display=max
+  * most common names https://www.behindthename.com/top/list.php?region=sweden&year=1998&sort=&name=max
+  * most common family names https://surnames.behindthename.com/top/list.php?region=sweden&year=2005&sort=name&display=max
     * chosen: (won't tell ;)
 * pretend to be a nomad (explain ip loc)
 * pretend to be young and inexperienced
@@ -96,7 +96,7 @@ popular js problems
 
 new framework: be the 1st to propose classic modules
 
-http://news.softpedia.com/news/node-js-package-manager-vulnerable-to-malicious-worm-packages-502216.shtml
+https://news.softpedia.com/news/node-js-package-manager-vulnerable-to-malicious-worm-packages-502216.shtml
 https://medium.com/friendship-dot-js/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558#.ajjpdc7yg
 
 stealth: detect ENV and do nothing in stealth mode
@@ -117,7 +117,7 @@ command and control with GPG signing
 
 https://fr.wikipedia.org/wiki/Botnet
 
-http://stackoverflow.com/questions/27279359/how-to-make-git-work-to-push-commits-to-github-via-tor
+https://stackoverflow.com/questions/27279359/how-to-make-git-work-to-push-commits-to-github-via-tor
 https://nodesource.com/blog/nine-security-tips-to-keep-express-from-getting-pwned/
 
 https://blog.liftsecurity.io/2015/01/27/a-malicious-module-on-npm
@@ -139,7 +139,7 @@ encrypt JSON, hack bcrypt
 
 https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing
 
-http://macbidouille.com/news/2016/12/31/2016-a-battu-de-nouveaux-records-dinsecurite-sur-la-toile
+https://macbidouille.com/news/2016/12/31/2016-a-battu-de-nouveaux-records-dinsecurite-sur-la-toile
 
 https://github.com/theori-io/chakra-2016-11
 https://blog.malwarebytes.com/threat-analysis/2017/01/new-mac-backdoor-using-antiquated-code/
@@ -157,7 +157,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning
 https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning
 
 brick a website
-http://bitsup.blogspot.fr/2016/05/cache-control-immutable.html
+https://bitsup.blogspot.fr/2016/05/cache-control-immutable.html
 
 leak
-http://codegolf.stackexchange.com/questions/110485/leak-memory-in-as-few-bytes-as-possible
+https://codegolf.stackexchange.com/questions/110485/leak-memory-in-as-few-bytes-as-possible

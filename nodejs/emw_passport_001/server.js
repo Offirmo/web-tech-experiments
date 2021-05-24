@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-// http://offirmo.net/wiki/index.php?title=Express.js
-// http://expressjs.com/4x/api.html
+// https://offirmo.net/wiki/index.php?title=Express.js
+// https://expressjs.com/4x/api.html
 
 console.log('Hello world !');
 
@@ -13,8 +13,8 @@ var passport = require('passport');
 
 var LISTENING_PORT = 3000;
 
-// http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
-// http://nodejs.org/api/os.html#os_os_networkinterfaces
+// https://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
+// https://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
 	.values()
 	.flatten()
@@ -90,6 +90,6 @@ app.listen(LISTENING_PORT);
 /////////////////////////////////////////////
 
 _.forEach(local_ips, (ip) => {
-	console.log('Listening on http://' + ip + ':' + LISTENING_PORT);
+	console.log('Listening on https://' + ip + ':' + LISTENING_PORT);
 });
 console.log('(Ctrl+C to stop)');

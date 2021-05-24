@@ -7,10 +7,10 @@ let _ = require('lodash');
 
 ///////////////////////////////////////////////////////////////////////////
 
-// http://reyesr.github.io/fullproof/
-// http://kornr.net/prez/paris.js22/#/
+// https://reyesr.github.io/fullproof/
+// https://kornr.net/prez/paris.js22/#/
 // https://github.com/reyesr/fullproof
-// http://reyesr.github.io/fullproof/tutorial.html
+// https://reyesr.github.io/fullproof/tutorial.html
 let lunr = require('lunr');
 
 

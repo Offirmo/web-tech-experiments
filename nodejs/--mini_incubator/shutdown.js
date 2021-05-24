@@ -5,7 +5,7 @@
  * - https://github.com/mathrawka/express-graceful-exit
  *
  * TOREAD
- * http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
+ * https://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
  * https://github.com/davepacheco/node-verror
  */
 'use strict';

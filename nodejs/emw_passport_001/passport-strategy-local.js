@@ -15,7 +15,7 @@ var local_strategy = module.exports = new PassportLocalStrategy(
 
 /////////////////////////////////////////////
 
-// http://passportjs.org/docs/username-password
+// https://passportjs.org/docs/username-password
 
 const DB = {
 	users: [{

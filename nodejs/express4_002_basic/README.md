@@ -6,7 +6,7 @@ nodemon server
 
 
 base : (important client experience)
-- [ ] base security http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
+- [ ] base security https://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
 - [x] all UTF-8
 - [x] static files
 - [x] root page (~index.html)
@@ -27,7 +27,7 @@ advanced :
 - [ ] localization +++ "speak style" (alternative localizations for the same language)
 - [ ] safari / mobile icons
 - [ ] facebook preview / graph
-- [ ] utility pages http://www.simpleentrepreneur.com/2007/07/10/les-pages-a-ne-pas-oublier-lorsquon-cree-un-site/
+- [ ] utility pages https://www.simpleentrepreneur.com/2007/07/10/les-pages-a-ne-pas-oublier-lorsquon-cree-un-site/
 - [ ] request / domain uuid for easier logging / tracing https://github.com/appsattic/connect-uuid
 - [ ] test routes (ping, errors...)
 - [x] no cookies (fatten requests, outdated)
@@ -64,34 +64,34 @@ advanced :
 - [ ] authentif
 - [ ] X-Response-Time header
 - [ ] detect too busy https://hacks.mozilla.org/2013/01/building-a-node-js-server-that-wont-melt-a-node-js-holiday-season-part-5/
-- [ ] checklist http://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
+- [ ] checklist https://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
 - [ ] unit tests
-http://javascriptplayground.com/blog/2014/07/testing-express-routes/
+https://javascriptplayground.com/blog/2014/07/testing-express-routes/
 https://www.joyent.com/blog/risingstack-writing-testable-apis-the-basics
 
-http://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
-http://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
-http://runnable.com/express
+https://runnable.com/UTlPPF-f2W1TAAEU/error-handling-with-express-for-node-js
+https://runnable.com/UTlPPV-f2W1TAAEf/custom-error-pages-in-express-for-node-js
+https://runnable.com/express
 
 TODO
-relire entièrement Reference http://expressjs.com/4x/api.html
+relire entièrement Reference https://expressjs.com/4x/api.html
 https://github.com/strongloop/express/wiki/New-features-in-4.x
 
 à relire pour valider : https://github.com/ClintH/kattegat
 
 
 -- important, with list of unbundled MW :
-http://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
+https://webapplog.com/migrating-express-js-3-x-to-4-x-middleware-route-and-other-changes/
 
 TOTEST
 https://github.com/moudy/project-router
 https://github.com/michaelleeallen/reducto
-http://scotch.io/tutorials/javascript/upgrading-our-easy-node-authentication-series-to-expressjs-4-0
+https://scotch.io/tutorials/javascript/upgrading-our-easy-node-authentication-series-to-expressjs-4-0
 //app.use(require('express-slash')()); // https://github.com/ericf/express-slash
 
 
 
-Reference http://expressjs.com/4x/api.html
+Reference https://expressjs.com/4x/api.html
  + interesting middlewares
 https://github.com/senchalabs/connect/blob/master/Readme.md#middleware
 https://github.com/visionmedia/express/wiki
@@ -111,24 +111,24 @@ Notes :
   Just wait a bit, refresh the page a second time and it should work.
 
 https://github.com/jed/locale
-http://slexaxton.github.io/Jed/
+https://slexaxton.github.io/Jed/
 https://hacks.mozilla.org/2013/04/localize-your-node-js-service-part-1-of-3-a-node-js-holiday-season-part-9/
-http://ejohn.org/blog/a-strategy-for-i18n-and-node/
+https://ejohn.org/blog/a-strategy-for-i18n-and-node/
 
 
-http://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
-http://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
-http://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
-http://blog.risingstack.com/node-js-security-tips/
+https://blog.izs.me/post/65712662830/restart-node-js-servers-on-domain-errors-sensible-fud
+https://www.lighthouselogic.com/use-domain-dispose/#/using-a-new-domain-for-each-async-function-in-node/
+https://blog.argteam.com/coding/hardening-node-js-for-production-part-3-zero-downtime-deployments-with-nginx/
+https://blog.risingstack.com/node-js-security-tips/
 https://github.com/neoziro/express-err
 
 
-http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
+https://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
 
 
-http://thejackalofjavascript.com/architecting-a-restful-node-js-app/
+https://thejackalofjavascript.com/architecting-a-restful-node-js-app/
 
-http://offirmo.net/wiki/index.php?title=Check-list_d%27un_site_web
+https://offirmo.net/wiki/index.php?title=Check-list_d%27un_site_web
 
-http://scottksmith.com/blog/2014/10/05/twitatron-building-a-production-web-app-with-node/
+https://scottksmith.com/blog/2014/10/05/twitatron-building-a-production-web-app-with-node/
 

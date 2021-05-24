@@ -3,7 +3,7 @@
 
 console.log('Hello world !');
 
-// http://forums.devshed.com/javascript-development-115/convert-string-hex-674138.html
+// https://forums.devshed.com/javascript-development-115/convert-string-hex-674138.html
 function toHex(str) {
 	var hex = '';
 	for(var i=0; i<str.length; i++) {

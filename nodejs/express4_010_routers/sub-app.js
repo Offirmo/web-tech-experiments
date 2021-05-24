@@ -1,6 +1,6 @@
 'use strict';
 
-// http://expressjs.com/4x/api.html#app
+// https://expressjs.com/4x/api.html#app
 
 var _ = require('lodash');
 var express = require('express');

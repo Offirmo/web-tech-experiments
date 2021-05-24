@@ -4,8 +4,8 @@
 console.log('Hello world !')
 
 // https://github.com/ReactiveX/RxJS
-// http://reactivex.io/rxjs/
-// http://reactivex.io/rxjs/manual/tutorial.html
+// https://reactivex.io/rxjs/
+// https://reactivex.io/rxjs/manual/tutorial.html
 const Rx = require('rxjs')
 
 

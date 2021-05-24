@@ -1,5 +1,5 @@
-@import           url(http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700);
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic);
+@import           url(https://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic);
 
 /*--------------------------------
   Typography
@@ -18,7 +18,7 @@ h5                { font-size: 0.78em; text-transform: uppercase; letter-spacing
 h6                { font-size: 0.67em; text-transform: uppercase; letter-spacing: 0.15em; }
 h1, h2, h3,
 h4, h5, h6        { margin-bottom: 1em; color: #222; font-weight: bold; }
-p, ul, pre, 
+p, ul, pre,
 table, dl         { color: #777; margin-top: 0; margin-bottom: 1em; }
 code, pre         { font-size: 16px; color: #444;}
 blockquote        { border-left: 1px solid #eeeeee; padding: 0 1.5em; margin: 0;}
@@ -35,7 +35,7 @@ th                { border-bottom: 1px solid #ddd;
                     }
 td                { color: #888; }
 hr                { border: 0;
-                    height: 1px; 
+                    height: 1px;
                     display: block;
                     margin: 4em auto;
                     width: 80px;
@@ -69,13 +69,13 @@ a.btn:active {
   Layout
 --------------------------------*/
 
-#wrapper { 
+#wrapper {
   width: 100%;
   margin: 0 auto;
 }
 
-header { 
-  /* Background pattern from Lea Verou (modified): http://lea.verou.me/css3patterns/) */
+header {
+  /* Background pattern from Lea Verou (modified): https://lea.verou.me/css3patterns/) */
 background-color:#a3bcc6;
 background-image: linear-gradient(white 1px, transparent 1px),
 linear-gradient(90deg, white 1px, transparent 1px),
@@ -92,7 +92,7 @@ background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
   transition: 0.15s ease-in-out;
 }
 
-header hgroup { 
+header hgroup {
   background: #fff;
   color: #222;
   padding:4px;
@@ -103,12 +103,12 @@ header hgroup {
   margin: 0 auto;
 }
 
-header div { 
+header div {
   border: 2px solid #ccc;
-  padding: 2em 3em; 
+  padding: 2em 3em;
 }
 
-header h1 { 
+header h1 {
   font-size: 2.5em;
   line-height: 1.15em;
   text-transform: uppercase;
@@ -127,9 +127,9 @@ header h2 {
   line-height: 1.33em;
 }
 
-header hr { 
+header hr {
   border: 0;
-  height: 1px; 
+  height: 1px;
   display: block;
   margin: 0 auto;
   width: 80px;
@@ -143,20 +143,20 @@ header hr {
 }
 
 .downloads {
-  width: 100%; 
+  width: 100%;
   background: #f5f4f1;
-  padding: 1.5em 0; 
+  padding: 1.5em 0;
 }
 
-.downloads ul li { 
+.downloads ul li {
   display: inline-block;
   width: 29.5%;
   margin-right: 5%;
   text-align: center;
 }
 
-.downloads ul li:last-child { 
-  margin-right: 0; 
+.downloads ul li:last-child {
+  margin-right: 0;
 }
 
 .downloads a {
@@ -169,7 +169,7 @@ header hr {
   padding-bottom: 0.5em;
 }
 
-.content h1:first-child { 
+.content h1:first-child {
   margin-top: 0;
 }
 

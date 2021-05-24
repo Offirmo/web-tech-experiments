@@ -1,6 +1,6 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
-// http://massalabs.com/dev/2013/10/17/handling-errors-in-nodejs.html
+// https://massalabs.com/dev/2013/10/17/handling-errors-in-nodejs.html
 
 // TODO https://github.com/adamschwartz/log
 

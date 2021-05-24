@@ -10,7 +10,7 @@
       {
         "template": {
           "method": "GET",
-          "url": "http://maps.googleapis.com/maps/api/geocode/{format=json}",
+          "url": "https://maps.googleapis.com/maps/api/geocode/{format=json}",
           "headers": {
             "accepts": "application/json",
             "content-type": "application/json"

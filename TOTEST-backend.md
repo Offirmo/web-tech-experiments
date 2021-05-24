@@ -32,7 +32,7 @@ spawn
 
 pdf https://github.com/RelaxedJS/ReLaXed
 
-logs http://adpushup.github.io/woodlot/
+logs https://adpushup.github.io/woodlot/
 
 https://github.com/dthree/mailit A tiny drop-in REST API to send emails 
 
@@ -54,7 +54,7 @@ https://keymetrics.io/2016/08/24/pm2-v2-released/
 // DB
 https://github.com/EventStore/EventStore
 
-a microservices toolkit http://senecajs.org/
+a microservices toolkit https://senecajs.org/
 typescript Rest API framework https://github.com/zorend/cloverjs
 
 https://www.sitepoint.com/horizon-a-scalable-backend-perfect-for-javascript-mobile-apps/
@@ -71,7 +71,7 @@ https://github.com/reactjs/react-router-tutorial/tree/master/lessons/11-producti
 
 shebang
 #!/bin/sh
-':' //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --es_staging --harmony_modules --harmony_regexps --harmony_sloppy_function --harmony_sloppy_let --harmony_unicode_regexps --harmony_destructuring --harmony_default_parameters "$0" "$@"
+':' //# https://sambal.org/?p=1014 ; exec /usr/bin/env node --es_staging --harmony_modules --harmony_regexps --harmony_sloppy_function --harmony_sloppy_let --harmony_unicode_regexps --harmony_destructuring --harmony_default_parameters "$0" "$@"
 
 https://zeit.co/now
 
@@ -79,7 +79,7 @@ feature toggling   https://github.com/FredKSchott/fflip
 data exploration platform designed to be visual, intuitive, and interactive https://github.com/airbnb/caravel
 
 Modern HTTP benchmarking tool https://github.com/wg/wrk
-siege http://www.joedog.org/siege-manual/
+siege https://www.joedog.org/siege-manual/
 Linux: Get IP Address on Command Line/Shell https://coderwall.com/p/fjtqcq
 https://github.com/Mashape/kong
 
@@ -87,11 +87,11 @@ https://github.com/Mashape/kong
 https://doclets.io/
 https://nodesource.com/blog/blacklisting-node-js-core-modules-and-bindings-to-enhance-application-security/
 
-http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://github.com/tjmehta/coworkers RabbitMQ
 
 Manipulating git repositories with Node.js
-http://radek.io/2015/10/27/nodegit/
+https://radek.io/2015/10/27/nodegit/
 https://github.com/creationix/js-git
 
 https://github.com/dylang/shortid
@@ -102,7 +102,7 @@ https://github.com/dylang/changelog
 parser HTML5
 https://github.com/inikulin/parse5
 
-http://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
+https://www.sitepoint.com/getting-started-emscripten-transpiling-c-c-javascript-html5/
 
 https://github.com/jwagner/smartcrop.js
 
@@ -112,14 +112,14 @@ https://developers.google.com/web/fundamentals/performance/optimizing-content-ef
 
 https://medium.com/all-about-feathersjs/using-feathersjs-as-an-open-source-alternative-to-firebase-b5d93c200cee
 
-list http://www.sitepoint.com/5-easy-performance-tweaks-node-js-express/
+list https://www.sitepoint.com/5-easy-performance-tweaks-node-js-express/
 
-http://httpbin.org/
+https://httpbin.org/
 
 https://blog.risingstack.com/nodejs-production-environment-for-startups/
-http://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
+https://www.fsjohnny.com/fun-with-node-passport-and-json-web-tokens-part-1/
 https://blog.nraboy.com/2015/11/using-passportjs-in-your-node-js-couchbase-web-application/
-http://mziccard.me/2015/08/10/node-timsort-fast-sorting-nodejs/
+https://mziccard.me/2015/08/10/node-timsort-fast-sorting-nodejs/
 
 https://github.com/kabab/qr-cairo QR codes
 
@@ -128,45 +128,45 @@ https://github.com/jwalton/node-promise-breaker Helps you write libraries that a
 
 incredibly fast & reliable filewriter https://github.com/leeluolee/fstorm
 
-http://prose.io/
+https://prose.io/
 
-http://tech.blog.box.com/2014/10/introducing-leche-a-javascript-testing-utility-for-mocha-and-sinon/
+https://tech.blog.box.com/2014/10/introducing-leche-a-javascript-testing-utility-for-mocha-and-sinon/
 A simple, safe, ElasticSearch Query compiler https://github.com/abeisgreat/FiltrES.js
-http://compositecode.com/2014/03/15/configuring-node-js-web-applications/
+https://compositecode.com/2014/03/15/configuring-node-js-web-applications/
 
 generators
 https://github.com/shes/comws
 
 https://51degrees.com/products/device-detection/cloud
-http://radek.io/2015/10/27/nodegit/ Manipulating git repositories with Node.js
+https://radek.io/2015/10/27/nodegit/ Manipulating git repositories with Node.js
 
 -- ops
 https://deadmanssnitch.com/
 
 -- node advocacy
-http://codecondo.com/state-of-node-js/
+https://codecondo.com/state-of-node-js/
 
-validation JSON http://gilesbowkett.blogspot.co.uk/2015/01/why-panda-strike-wrote-fastest-json.html
+validation JSON https://gilesbowkett.blogspot.co.uk/2015/01/why-panda-strike-wrote-fastest-json.html
 
-http://dailyjs.com/2015/03/03/excel-material-refresh/
+https://dailyjs.com/2015/03/03/excel-material-refresh/
 
 --to read
-http://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/
-http://googlecloudplatform.blogspot.fr/2014/08/click-to-deploy-mean-development-stack-on-google-compute-engine.html
-http://www.binpress.com/tutorial/create-a-mobile-rpg-for-beginners/1
+https://nodeexamples.com/2014/08/16/checking-for-vulnerable-node-js-modules/
+https://googlecloudplatform.blogspot.fr/2014/08/click-to-deploy-mean-development-stack-on-google-compute-engine.html
+https://www.binpress.com/tutorial/create-a-mobile-rpg-for-beginners/1
 https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript
-http://www.truevalhalla.com/blog/ebook/
+https://www.truevalhalla.com/blog/ebook/
 
 ** APIs
-http://www.infoq.com/articles/hypermedia-api-tutorial-part-one
-http://jsonapi.org/ json apis
+https://www.infoq.com/articles/hypermedia-api-tutorial-part-one
+https://jsonapi.org/ json apis
 https://github.com/interagent/http-api-design
 --- loopback
-http://strongloop.com/node-js/loopback-framework/
-http://compositecode.com/2014/08/20/framework-strongloops-loopback/
+https://strongloop.com/node-js/loopback-framework/
+https://compositecode.com/2014/08/20/framework-strongloops-loopback/
 
 
-http://jekyllrb.com/
+https://jekyllrb.com/
 
 okay https://github.com/brianc/node-okay
 
@@ -187,7 +187,7 @@ https://github.com/visionmedia/node-progress
 https://github.com/substack/comandante
 
 https://datahero.com/blog/2014/05/22/node-js-preserving-data-across-async-callbacks/
-http://nodejs.org/api/stdio.html
+https://nodejs.org/api/stdio.html
 
 
 https://www.npmjs.org/package/bcrypt
@@ -197,7 +197,7 @@ job queue https://github.com/verbling/kickq
 https://github.com/primus/primus
 https://github.com/primus/fortress-maximus
 
-http://www.pintjs.com/ wrapper around grunt
+https://www.pintjs.com/ wrapper around grunt
 
 https://github.com/sahat/hackathon-starter
 
@@ -205,7 +205,7 @@ https://github.com/suguru03/neo-async
 
 https://www.ejabberd.im/
 
-http://www.html5rocks.com/en/tutorials/appcache/beginner/
+https://www.html5rocks.com/en/tutorials/appcache/beginner/
 
 https://github.com/dominictarr/scuttlebutt
 https://github.com/Floby/shi-flo-by
@@ -216,62 +216,62 @@ https://github.com/isaacs/node-graceful-fs
 
 https://github.com/tholman/giflinks
 
-jeu 3D http://www.jsdb.io/view/babylon-js
+jeu 3D https://www.jsdb.io/view/babylon-js
 
 
 - log gratuit en ligne ? Moyen de faire qq chose ?
 https://data.sparkfun.com/
 
-scrapper http://dailyjs.com/2015/02/05/xray/
-Interactive Push Notifications for SaaS http://horntell.com/
+scrapper https://dailyjs.com/2015/02/05/xray/
+Interactive Push Notifications for SaaS https://horntell.com/
 
 -- REST --
-http://feathersjs.com/
-http://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
-http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
+https://feathersjs.com/
+https://scottksmith.com/blog/2014/05/29/beer-locker-building-a-restful-api-with-node-passport/
+https://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
 https://github.com/mikaa123/catnap
-http://avoidwork.github.io/tenso/
-+++ http://blog.octo.com/designer-une-api-rest/
-pratique avec SQL http://codeforgeek.com/2015/03/restful-api-node-and-express-4/
+https://avoidwork.github.io/tenso/
++++ https://blog.octo.com/designer-une-api-rest/
+pratique avec SQL https://codeforgeek.com/2015/03/restful-api-node-and-express-4/
 
 --- client REST
-client http://node-modules.com/search?q=rest+client
+client https://node-modules.com/search?q=rest+client
 https://github.com/mgonto/restangular  <-- for angular
 https://github.com/ttezel/unio    <-- node
 https://github.com/natevw/fermata  <-- node + browser
 https://github.com/cujojs/rest
 https://www.npmjs.org/package/node-rest-client
-http://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-node-js-any-curl/5643366#5643366
-http://angularplasmid.vixis.com/index.php
-http://square.github.io/crossfilter/
-http://dailyjs.com/2014/07/17/cash/ replace jq
-http://lincolnloop.com/blog/introducing-amygdala-javascript-rest-client/
+https://stackoverflow.com/questions/5643321/how-to-make-remote-rest-call-inside-node-js-any-curl/5643366#5643366
+https://angularplasmid.vixis.com/index.php
+https://square.github.io/crossfilter/
+https://dailyjs.com/2014/07/17/cash/ replace jq
+https://lincolnloop.com/blog/introducing-amygdala-javascript-rest-client/
 
 -- procédures --
 https://github.com/geddski/grunt-release
 https://github.com/ajoslin/conventional-changelog
 
 -- outils --
-http://eslint.org/docs/rules/valid-jsdoc.html
-http://arqex.com/874/reusing-require-js-modules-node-js
+https://eslint.org/docs/rules/valid-jsdoc.html
+https://arqex.com/874/reusing-require-js-modules-node-js
 https://github.com/gerhard/deliver
-http://www.lorem-accents.com/
+https://www.lorem-accents.com/
 
 -- debug --
 https://github.com/hansineffect/Dogerr
 https://www.npmjs.org/package/doge-debug
 npm debug
-http://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-function-in-node-js
-http://stackoverflow.com/questions/16697791/nodejs-get-filename-of-caller-function
+https://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-function-in-node-js
+https://stackoverflow.com/questions/16697791/nodejs-get-filename-of-caller-function
 https://github.com/equiet/recognizer à intégrer !
 
 -- npm --
-http://mixu.net/npm_lazy/
+https://mixu.net/npm_lazy/
 npm pkgr
-http://stackoverflow.com/questions/10232192/exec-display-stdout-live
+https://stackoverflow.com/questions/10232192/exec-display-stdout-live
 
 -- misc
-http://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents
+https://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents
 https://github.com/M6Web/HttpToStatsd
 
 https://github.com/dshaw/repl-client
@@ -284,4 +284,4 @@ https://github.com/fanatid/error-system
 
 
 --- ORM
-http://www.craigkerstiens.com/2015/11/30/massive-node-postgres-an-overview-and-intro/
+https://www.craigkerstiens.com/2015/11/30/massive-node-postgres-an-overview-and-intro/

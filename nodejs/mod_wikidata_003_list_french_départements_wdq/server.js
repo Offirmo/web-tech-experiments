@@ -19,11 +19,11 @@ const fetch = require('node-fetch');
 ////////////////////////////////////////////////////////////
 
 const WDQ_endpoint = 'https://wdq.wmflabs.org/api/';
-const Wikidata_endpoint = 'http://www.wikidata.org/wiki/Special:EntityData/';
+const Wikidata_endpoint = 'https://www.wikidata.org/wiki/Special:EntityData/';
 
 let query = 'CLAIM[31:6465] AND NOCLAIM[576]';
 
-// http://stackoverflow.com/a/3608791/587407
+// https://stackoverflow.com/a/3608791/587407
 let url = WDQ_endpoint + '?q=' + encodeURIComponent(query);
 
 console.log('* query : ' + query);

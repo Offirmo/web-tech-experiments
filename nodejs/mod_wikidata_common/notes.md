@@ -1,8 +1,8 @@
 https://medium.com/p/e8ba34282dc1/edit
 
-http://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent/3608791#3608791
+https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent/3608791#3608791
 
-// http://wdq.wmflabs.org/wdq/
+// https://wdq.wmflabs.org/wdq/
 
 // CLAIM[31:6465]  P31 + Q6465 = instance_of department_of_France
 // + NOT dissolved_or_abolished

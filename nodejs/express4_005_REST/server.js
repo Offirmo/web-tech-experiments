@@ -9,8 +9,8 @@ var _ = require('lodash');
 
 var listening_port = process.env.PORT || 3000;
 
-// http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
-// http://nodejs.org/api/os.html#os_os_networkinterfaces
+// https://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
+// https://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
 	.flatten()
 	.filter(function(val){
@@ -21,7 +21,7 @@ var local_ips = _.chain(require('os').networkInterfaces())
 
 
 
-// http://expressjs.com/4x/api.html
+// https://expressjs.com/4x/api.html
 
 var express = require('express');
 // + interesting modules
@@ -66,7 +66,7 @@ app.get('/', function(req, res){
 
 app.listen(listening_port, function() {
 	_.forEach(local_ips, function(ip) {
-		console.log('Listening on http://' + ip + ':' + listening_port);
+		console.log('Listening on https://' + ip + ':' + listening_port);
 	});
 	console.log('(Ctrl+C to stop)');
 });

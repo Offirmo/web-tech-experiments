@@ -35,8 +35,8 @@ npm
 
 
 
-http://instantlogosearch.com/
+https://instantlogosearch.com/
 
-http://90seconds.tv/ mini vidéos ?
+https://90seconds.tv/ mini vidéos ?
 
 

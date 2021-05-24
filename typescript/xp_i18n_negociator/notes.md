@@ -1,9 +1,9 @@
 
-http://stackoverflow.com/questions/1043339/javascript-for-detecting-browser-language-preference
+https://stackoverflow.com/questions/1043339/javascript-for-detecting-browser-language-preference
 
-http://gu.illau.me/posts/the-problem-of-user-language-lists-in-javascript/
+https://gu.illau.me/posts/the-problem-of-user-language-lists-in-javascript/
 
-http://patricklenz.co/blog/2012/2/14/proper-language-detection-on-the-web
+https://patricklenz.co/blog/2012/2/14/proper-language-detection-on-the-web
 
 https://help.localizejs.com/docs/detecting-language-of-a-visitor
 
@@ -20,5 +20,5 @@ http://127.0.0.1:7000/set-locale
 
 
 
-http://expressjs.com/fr/advanced/best-practice-security.html
+https://expressjs.com/fr/advanced/best-practice-security.html
 

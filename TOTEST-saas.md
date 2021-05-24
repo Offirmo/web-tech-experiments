@@ -10,13 +10,13 @@ Auth               -> https://www.okta.com/developer/signup/stormpath/
 SMS                -> https://www.twilio.com/
 
 payment            -> stripe
-                      http://www.jaimelesstartups.fr/lemon-way/
+                      https://www.jaimelesstartups.fr/lemon-way/
                       https://www.fatzebra.com.au
 
 placeholders       -> https://placekitten.com/
                       https://placeholder.com/
 
-device testing     -> http://nativetap.io/
+device testing     -> https://nativetap.io/
 
 dependencies       -> https://libraries.io/about
 
@@ -26,15 +26,15 @@ big file sharing   -> https://www.myairbridge.com/en/
 
 saas microservices -> https://hook.io/new
 
-Générateur de QR Codes -> http://www.unitag.fr/qrcode
+Générateur de QR Codes -> https://www.unitag.fr/qrcode
 
 Specs for selling a SAAS -> https://www.enterpriseready.io/
 
-admin ?            -> http://www.forestadmin.com/product
+admin ?            -> https://www.forestadmin.com/product
 
 GeoIP              -> https://ipinfo.io/developers
 
-test               -> http://rem-rest-api.herokuapp.com/
+test               -> https://rem-rest-api.herokuapp.com/
 
 chat bot infos     -> https://collect.chat/
 
@@ -74,18 +74,18 @@ embeds          https://iframely.com/plans
 speed test https://support.google.com/websearch/answer/6283840?p=speedtest&visit_id=637189753010659443-726442618&rd=1
 
 https://dev.to/aumayeung/free-and-fake-apis-you-can-use-to-practice-front-end-development-4eck
-http://ifconfig.me/
-http://whatismyip.akamai.com/
+https://ifconfig.me/
+https://whatismyip.akamai.com/
 https://github.com/sindresorhus/is-up
 https://github.com/sindresorhus/public-ip
-http://pusher.com/
-http://orteil.dashnet.org/randomgen/?gen=corvophraser.txt
-http://context.io/how-it-works/connecting-mailboxes
-http://shoutcloud.io/
-http://foaas.com/
+https://pusher.com/
+https://orteil.dashnet.org/randomgen/?gen=corvophraser.txt
+https://context.io/how-it-works/connecting-mailboxes
+https://shoutcloud.io/
+https://foaas.com/
 https://www.imgix.com/
-http://placehold.it/
-http://playphrase.me
+https://placehold.it/
+https://playphrase.me
 https://opbeat.com/
-http://www.mangopay.com/
+https://www.mangopay.com/
 https://hasura.io/pricing/

@@ -20,7 +20,7 @@ console.log('Hello from node.js : is tty ?', process.stdin.isTTY);
 
 ///////////////////////////////////////////////
 
-// http://stackoverflow.com/a/18087021/587407
+// https://stackoverflow.com/a/18087021/587407
 function patchEmitterForDebug(event_emitter, event_emitter_name) {
 	/*var oldEmit = event_emitter.emit;
 	event_emitter_name = event_emitter_name || '?';

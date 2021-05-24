@@ -11,7 +11,7 @@ It's just a few responsive email patterns that go a long way. The code blocks ar
 
 There are two templates, one that relies media queries and one that does not.
 
-I wrote [a blog post](http://www.tedgoas.com/blog/cerberus-responsive-email-templates/) that goes into more detail on why I made this. Cerberus is [Responsive Email XX](https://github.com/TedGoas/Responsive-Email-XX)'s successor.
+I wrote [a blog post](https://www.tedgoas.com/blog/cerberus-responsive-email-templates/) that goes into more detail on why I made this. Cerberus is [Responsive Email XX](https://github.com/TedGoas/Responsive-Email-XX)'s successor.
 
 ***
 
@@ -34,12 +34,12 @@ I wrote [a blog post](http://www.tedgoas.com/blog/cerberus-responsive-email-temp
 ***
 
 ### Tools and Resources
-* [Guide to CSS Support](http://www.campaignmonitor.com/css) from Campaign Monitor.
-* [HTML Email Boilerplate](http://htmlemailboilerplate.com/) from Sean Powell.
-* [Bulletproof Email Background Images](http://backgrounds.cm/) from Stig Morten Myre.
-* [Image-Less Buttons](http://codepen.io/Omgitsonlyalex/pen/cKEyx) from Alex Ilhan.
-* [Placeholder Images](http://placehold.it/) by Brent Spore.
-* [Responsive HTML Emails: a Different Strategy](http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/) by Fog Creek.
+* [Guide to CSS Support](https://www.campaignmonitor.com/css) from Campaign Monitor.
+* [HTML Email Boilerplate](https://htmlemailboilerplate.com/) from Sean Powell.
+* [Bulletproof Email Background Images](https://backgrounds.cm/) from Stig Morten Myre.
+* [Image-Less Buttons](https://codepen.io/Omgitsonlyalex/pen/cKEyx) from Alex Ilhan.
+* [Placeholder Images](https://placehold.it/) by Brent Spore.
+* [Responsive HTML Emails: a Different Strategy](https://blog.fogcreek.com/responsive-html-emails-a-different-strategy/) by Fog Creek.
 
 ### Download, Fork, Commit.
 If you can make this better, please download, fork, and submit a pull request. I'd love to work on this with a few folks and get it as solid as can be.

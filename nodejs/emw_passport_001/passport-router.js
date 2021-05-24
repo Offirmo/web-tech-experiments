@@ -11,7 +11,7 @@ var router = module.exports = new express.Router();
 
 /////////////////////////////////////////////
 
-// http://passportjs.org/docs/overview
+// https://passportjs.org/docs/overview
 
 passport.use(passport_strategy_local); // "local"
 
@@ -94,14 +94,14 @@ router.post('/login-custom', (req, res, next) => {
 		// strategy, options, callback
 		'local',
 		{
-			//session: false, XXX no effect, see http://stackoverflow.com/a/26744089/587407
+			//session: false, XXX no effect, see https://stackoverflow.com/a/26744089/587407
 			successRedirect: '/profile',
 			failureRedirect: '/login',
 			//failureFlash: true, XXX no effect when using a post_auth_custom_callback
 			//successFlash: true // 'Welcome!'
 		},
 		function post_auth_custom_callback(err, user, info) {
-			// http://passportjs.org/docs/authenticate
+			// https://passportjs.org/docs/authenticate
 			console.log('post_auth_custom_callback', err, user, info);
 
 			if (err) return next(err);

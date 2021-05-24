@@ -10,7 +10,7 @@ console.error('test');
 
 ///////////////////////////////////////////////
 
-// http://stackoverflow.com/a/18087021/587407
+// https://stackoverflow.com/a/18087021/587407
 function patchEmitterForDebug(event_emitter, event_emitter_name) {
 	var oldEmit = event_emitter.emit;
 	event_emitter_name = event_emitter_name || '?';
@@ -47,8 +47,8 @@ installDebugEventWatcher(process, 'removeListener', 'process');
 installDebugEventWatcher(process, 'exit', 'process');
 installDebugEventWatcher(process, 'uncaughtException', 'process');
 
-// unix signals, list taken from http://man7.org/linux/man-pages/man7/signal.7.html
-// node infos http://nodejs.org/api/process.html#process_signal_events
+// unix signals, list taken from https://man7.org/linux/man-pages/man7/signal.7.html
+// node infos https://nodejs.org/api/process.html#process_signal_events
 // 1 SIGHUP "Hangup", terminate
 installDebugEventWatcher(process, 'SIGHUP', 'process');
 // 2 SIGINT Interrupt from keyboard, terminate

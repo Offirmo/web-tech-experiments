@@ -126,7 +126,7 @@ function status() {
 	var memoryUsage = process.memoryUsage();
 	console.log('Node memory usage: ',
 		// REM : RSS = resident set size
-		// http://stackoverflow.com/a/12023436/587407
+		// https://stackoverflow.com/a/12023436/587407
 		'RSS ' + bytes(memoryUsage.rss) + ' (' +
 		'+' + bytes(memoryUsage.rss - last_memoryUsage.rss) + '/' +
 		'+' + bytes(memoryUsage.rss - START_MEMORY_USAGE.rss) + ')',

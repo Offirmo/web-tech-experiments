@@ -61,8 +61,8 @@ var _ = require('lodash');
 var listening_port = process.env.PORT || 4000;
 
 
-// http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
-// http://nodejs.org/api/os.html#os_os_networkinterfaces
+// https://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
+// https://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
 	.flatten()
 	.filter(function(val){
@@ -74,7 +74,7 @@ var local_ips = _.chain(require('os').networkInterfaces())
 
 
 /************************************************************************/
-// Reference http://expressjs.com/4x/api.html
+// Reference https://expressjs.com/4x/api.html
 // + interesting middlewares
 // https://github.com/senchalabs/connect/blob/master/Readme.md#middleware
 // https://github.com/visionmedia/express/wiki
@@ -104,12 +104,12 @@ var onFinished = require('finished'); // https://github.com/expressjs/finished
 // templating
 var templates = require('consolidate'); // always needed
 // now require all templating engines we wish to use
-var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
+var dust = require('dustjs-linkedin'); // https://dejanglozic.com/2014/01/27/dust-js-such-templating/
 
 
 
 /************ Settings ************************************************************/
-// http://expressjs.com/4x/api.html
+// https://expressjs.com/4x/api.html
 var app = express();
 
 // defaul template engine
@@ -230,7 +230,7 @@ function isInternalRequest(req) {
 // error handling at the end
 // "Though not mandatory error-handling middleware are typically defined very last,
 //  below any other app.use() calls"
-// http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+// https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 app.use(function (err, req, res, next) {
 	console.log('1st error handler');
 
@@ -298,7 +298,7 @@ process.on('uncaughtException', function(err){
 /************************************************************************/
 server = app.listen(listening_port, function() {
 	_.forEach(local_ips, function(ip) {
-		console.log('Listening on http://' + ip + ':' + listening_port);
+		console.log('Listening on https://' + ip + ':' + listening_port);
 	});
 	console.log('(Ctrl+C to stop)');
 });

@@ -3,7 +3,7 @@
 
 console.log('Hello world !');
 
-// http://akdubya.github.io/dustjs/#guide
+// https://akdubya.github.io/dustjs/#guide
 
 var dust = require('dustjs-linkedin');
 

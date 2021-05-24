@@ -14,7 +14,7 @@ requirejs.config({
 	// NOTE 3 : "self" stuff is for handling web workers
 	baseUrl: (self ? self.requirejs_baseurl : undefined) || '..',
 
-	// http://requirejs.org/docs/api.html#config-enforceDefine
+	// https://requirejs.org/docs/api.html#config-enforceDefine
 	enforceDefine: false,
 
 	// require.js extensions (plugins)
@@ -210,14 +210,14 @@ requirejs.config({
 		},
 		'bootstrap': {
 			deps: [
-				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+				// bootstrap js needs jQuery https://getbootstrap.com/getting-started/#whats-included
 				'jquery',
 				'css!bower_components/bootstrap-css/css/bootstrap'
 			]
 		},
 		'bootstrap-with-cyborg-theme': {
 			deps: [
-				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+				// bootstrap js needs jQuery https://getbootstrap.com/getting-started/#whats-included
 				'jquery',
 				'css!client/other_components/bootswatch/cyborg/cyborg-bootstrap.min'
 			]
@@ -287,7 +287,7 @@ requirejs.config({
 				'jquery'
 			],
 			init: function ($) {
-				// http://jpanelmenu.com/
+				// https://jpanelmenu.com/
 				var jPM = $.jPanelMenu();
 				return jPM;
 			}

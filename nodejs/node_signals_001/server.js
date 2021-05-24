@@ -9,7 +9,7 @@ console.log('Hello world !');
 
 
 // Interesting reads :
-//   http://dailyjs.com/2012/03/15/unix-node-signals/
+//   https://dailyjs.com/2012/03/15/unix-node-signals/
 // Another test close to this one :
 //  https://gist.github.com/coltrane/2599899
 // just run me with `node server`
@@ -18,7 +18,7 @@ console.log('Hello world !');
 // "Another convention is to listen for SIGTERM to perform a graceful shutdown."
 
 // pid file :
-// http://blog.fgribreau.com/2012/02/snippet-cross-platform-pid-management.html
+// https://blog.fgribreau.com/2012/02/snippet-cross-platform-pid-management.html
 
 
 var _ = require('lodash');

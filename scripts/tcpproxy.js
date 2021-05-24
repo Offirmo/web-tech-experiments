@@ -1,24 +1,24 @@
-// cf. http://www.jetbrains.com/webstorm/webhelp/run-debug-configuration-node-js-remote-debug.html#comment-900670787
+// cf. https://www.jetbrains.com/webstorm/webhelp/run-debug-configuration-node-js-remote-debug.html#comment-900670787
 
 
 var util = require('util');
 var net = require("net");
- 
+
 process.on("uncaughtException", function(e) {
     console.log(e);
 });
- 
+
 if (process.argv.length != 5) {
   console.log("Require the following command line arguments:" +
     " proxy_port service_host service_port");
     console.log(" e.g. 9001 www.google.com 80");
   process.exit();
 }
- 
+
 var proxyPort = process.argv[2];
 var serviceHost = process.argv[3];
 var servicePort = process.argv[4];
- 
+
 net.createServer(function (proxySocket) {
   var connected = false;
   var buffers = new Array();

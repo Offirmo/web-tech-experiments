@@ -24,7 +24,7 @@ console.log('[web server] config =', config);
 /************************************************************************/
 // manual creation of the http server
 // in order to use domainMiddleware
-// cf. http://expressjs.com/4x/api.html#app.listen
+// cf. https://expressjs.com/4x/api.html#app.listen
 var server = require('http').createServer(app);
 
 var onflight_count = 0;
@@ -134,7 +134,7 @@ app.use(routes);
 // error handling at the end
 // "Though not mandatory error-handling middleware are typically defined very last,
 //  below any other app.use() calls"
-// http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+// https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 app.use(function (err, req, res, next) {
 	console.log('1st error handler', err, err['stack']);
 	//logger.exception(err);
@@ -179,7 +179,7 @@ app.use(function (err, req, res, next) {
 server.listen(config.listening_port, function() {
 	console.log('* Now listening on :');
 	_.forEach(utils.get_local_ips(), function(ip) {
-		console.log('  http://' + ip + ':' + config.listening_port);
+		console.log('  https://' + ip + ':' + config.listening_port);
 	});
 	console.log('(Ctrl+C to stop)');
 });

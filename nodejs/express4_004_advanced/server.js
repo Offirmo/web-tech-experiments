@@ -17,7 +17,7 @@ compressible('text/html') // => true
 // https://github.com/expressjs/serve-index
 // https://github.com/expressjs/domain-middleware
 // https://github.com/brianc/node-okay
-// http://stackoverflow.com/questions/14080887/centralizing-error-handling-in-an-express-js-based-app
+// https://stackoverflow.com/questions/14080887/centralizing-error-handling-in-an-express-js-based-app
 // https://github.com/expressjs/restful-router
 // https://github.com/expressjs/timeout
 // https://github.com/floatdrop/express-error-with-sources

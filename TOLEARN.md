@@ -1,7 +1,7 @@
 - [x] HTML
 - [x] docker 2015/03/02
 - [x] CSS
-      http://www.sitepoint.com/12-little-known-css-facts-the-sequel/
+      https://www.sitepoint.com/12-little-known-css-facts-the-sequel/
 - [x] ECMA5
 - [x] Bootstrap
 - [x] AngularJS
@@ -32,8 +32,8 @@
 - [x] mandrill
 - [x] ES6
 - [x] webpack 2016/02/17
-      http://webpack.github.io/
-      http://rosenfeld.herokuapp.com/en/articles/2016-02-29-getting-an-spa-to-load-the-fastest-possible-way-and-how-webpack-can-help-you
+      https://webpack.github.io/
+      https://rosenfeld.herokuapp.com/en/articles/2016-02-29-getting-an-spa-to-load-the-fastest-possible-way-and-how-webpack-can-help-you
       https://gist.github.com/sokra/27b24881210b56bbaff7
 - [x] Angular
 - [x] Angular ui.router
@@ -51,17 +51,17 @@
 - [x] React 19/02/2016 18/04/2016
 		https://www.youtube.com/watch?v=KYzlpRvWZ6c "Making your app fast with high-performance components"
 		https://react.rocks/blog/post/propTypes_React_Flow/
-		http://airbnb.io/enzyme/
+		https://airbnb.io/enzyme/
 		https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.91olh3ndc
 		https://github.com/eanplatter/enclave
 - [-] node on Windows
       - [x] vm-windows https://github.com/coreybutler/nvm-windows 2016/03/07
-      - [ ] http://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
-      http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
+      - [ ] https://blogs.msdn.com/b/emargraff/archive/2015/11/24/d-233-buguer-node-js-avec-vs-code.aspx
+      https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code
 - [x] Jekyll i18n
 - [x] Npm install en un clin d'œil avec Nexus / pnpm / ied / yarn
 - [x] google spreadsheet
-      http://tutorials.pluralsight.com/review/using-a-spreadsheet-to-power-charts-in-angularjs-apps
+      https://tutorials.pluralsight.com/review/using-a-spreadsheet-to-power-charts-in-angularjs-apps
 - [x] fullpage.js 2016/10/12
 - [x] flipclock 2016/10/15
 - [x] js-yaml 2016/10/16
@@ -70,12 +70,12 @@
 - [ ] JSON-schema with complex validation
 - [ ] BEM
 - [ ] https://github.com/handsontable/handsontable
-- [ ] JSDoc http://usejsdoc.org/
+- [ ] JSDoc https://usejsdoc.org/
 - [-] Cordova
        In progress !
 - [ ] https://microsoft.github.io/code-push/
 - [ ] ionic
-- [ ] OAuth2 http://passportjs.org/docs
+- [ ] OAuth2 https://passportjs.org/docs
 - [ ] GitHub login
 - [ ] http**S**
       https://letsencrypt.org/
@@ -90,7 +90,7 @@
       https://medium.freecodecamp.org/service-workers-the-little-heroes-behind-progressive-web-apps-431cc22d0f16
 - [ ] Stormpath
 - [ ] GraphQL
-       http://graphql.org/
+       https://graphql.org/
 - [ ] Hosting gratuit
        heroku
 - [ ] tokens
@@ -99,12 +99,12 @@
 - [ ] connect-flash https://github.com/jaredhanson/connect-flash
 - [ ] RabbitMQ
 - [ ] Twitter bot https://medium.com/@DebashisBarman/creating-a-twitter-bot-with-node-js-bea760b80bd5
-- [ ] reverse shell http://security.stackexchange.com/questions/113416/how-does-reverse-shell-behave
+- [ ] reverse shell https://security.stackexchange.com/questions/113416/how-does-reverse-shell-behave
 - [ ] RDF
-- [ ] http://www.jeremy-dutheil.fr/un-champ-dadresse-avec-auto-completion-grace-google-maps-api/
+- [ ] https://www.jeremy-dutheil.fr/un-champ-dadresse-avec-auto-completion-grace-google-maps-api/
 - [ ] https://auth0.com/learn/json-web-tokens/
-- [ ] http://stackshare.io/posts/top-50-developer-tools-and-services-of-2015
-- [ ] http://blogs.technet.com/b/devops/archive/2016/01/12/vorlonjs-a-journey-to-devops-introducing-the-blog-post-series.aspx
+- [ ] https://stackshare.io/posts/top-50-developer-tools-and-services-of-2015
+- [ ] https://blogs.technet.com/b/devops/archive/2016/01/12/vorlonjs-a-journey-to-devops-introducing-the-blog-post-series.aspx
 - [ ] modern modules
       https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/
 - [ ] Kong https://github.com/Mashape/kong
@@ -116,12 +116,12 @@
       https://logentries.com/
 - [ ] animations web
       - [ ] animation API https://github.com/web-animations/web-animations-js
-      http://danielcwilson.com/blog/2015/07/animations-intro/
-      http://mojs.io/ https://github.com/codrops/Animocons
+      https://danielcwilson.com/blog/2015/07/animations-intro/
+      https://mojs.io/ https://github.com/codrops/Animocons
 - [ ] DOM events https://medium.com/@pierreda/things-you-should-know-about-js-events-4ab474312736
 - [ ] PostGresQL
-      http://schinckel.net/2014/05/25/querying-json-in-postgres/
-      http://michael.otacoo.com/postgresql-2/postgres-9-5-feature-highlight-new-jsonb-functions/
+      https://schinckel.net/2014/05/25/querying-json-in-postgres/
+      https://michael.otacoo.com/postgresql-2/postgres-9-5-feature-highlight-new-jsonb-functions/
 - [ ] spectacle
       https://github.com/thejameskyle/spectacle-code-slide
 - [ ] https://github.com/testdouble/scripty
@@ -138,10 +138,10 @@
 - [ ] https://stdlib.com/
 - [ ] https://hyperterm.org/#installation
 - [ ] desktop apps
-      http://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition
+      https://tangiblejs.com/posts/nw-js-and-electron-compared-2016-edition
       https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build
 - [ ] Angular 2
-       http://blog.thoughtram.io/angular/2016/09/15/angular-2-final-is-out.html
+       https://blog.thoughtram.io/angular/2016/09/15/angular-2-final-is-out.html
 - [ ] No code
        https://www.producthunt.com/@jurica87/collections/without-coding
 - [ ] progressive web app

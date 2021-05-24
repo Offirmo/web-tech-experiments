@@ -10,7 +10,7 @@ var iconv = require('iconv-lite');
 
 
 
-// http://forums.devshed.com/javascript-development-115/convert-string-hex-674138.html
+// https://forums.devshed.com/javascript-development-115/convert-string-hex-674138.html
 function toSemiHex(str) {
 	var hex = '';
 	for(var i=0; i<str.length; i++) {

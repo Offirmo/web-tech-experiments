@@ -27,7 +27,7 @@ CLI https://github.com/dominictarr/subarg
 CLI https://github.com/mattallty/Caporal.js
 
 
-http://developer.telerik.com/featured/creating-node-js-command-line-utilities-improve-workflow/
+https://developer.telerik.com/featured/creating-node-js-command-line-utilities-improve-workflow/
 https://github.com/dylang/grunt-attention
 https://github.com/dylang/observatory
 

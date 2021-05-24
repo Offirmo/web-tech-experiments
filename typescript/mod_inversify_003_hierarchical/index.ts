@@ -1,7 +1,7 @@
 #!/bin/sh
-':' //# http://sambal.org/?p=1014 ; exec `dirname $0`/../../node_modules/.bin/ts-node "$0" "$@"
+':' //# https://sambal.org/?p=1014 ; exec `dirname $0`/../../node_modules/.bin/ts-node "$0" "$@"
 
-// http://inversify.io/
+// https://inversify.io/
 // https://github.com/inversify/InversifyJS/blob/master/wiki/value_injection.md
 
 console.log('hello')

@@ -1,7 +1,7 @@
 'use strict';
 
-// http://offirmo.net/wiki/index.php?title=Express.js
-// http://expressjs.com/4x/api.html
+// https://offirmo.net/wiki/index.php?title=Express.js
+// https://expressjs.com/4x/api.html
 
 var _ = require('lodash');
 var express = require('express');

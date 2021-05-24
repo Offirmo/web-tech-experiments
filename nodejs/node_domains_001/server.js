@@ -7,9 +7,9 @@ process.on('uncaughtException', function(err){
 	console.error('uncaught exception !', err);
 });
 
-// http://nodejs.org/api/domain.html#domain_domain
+// https://nodejs.org/api/domain.html#domain_domain
 // interesting reads :
-// http://stackoverflow.com/questions/19461234/domains-not-properly-catching-errors-while-testing-nodejs-in-mocha
+// https://stackoverflow.com/questions/19461234/domains-not-properly-catching-errors-while-testing-nodejs-in-mocha
 var domain = require('domain');
 
 

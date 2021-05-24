@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!-- html_004 template -->
 <!-- js_005 template -->
-<html lang="{lang}" xmlns:ng="http://angularjs.org" ng-controller="LandingCtrl">
+<html lang="{lang}" xmlns:ng="https://angularjs.org" ng-controller="LandingCtrl">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
-	<meta name="fragment" content="!" /><!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><!-- https://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+	<meta name="fragment" content="!" /><!-- https://code.google.com/web/ajaxcrawling/docs/specification.html -->
 
 	<title>{title}</title>
 
@@ -42,7 +42,7 @@
 
 <noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
 	<!--[if lt IE 7]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
 <script>

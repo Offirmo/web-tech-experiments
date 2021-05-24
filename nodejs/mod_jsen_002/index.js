@@ -10,7 +10,7 @@ const jsen = require('jsen')
 
 const schema = require('./weapon-component.schema.json')
 
-const is_schema_valid = jsen({'$ref': 'http://json-schema.org/draft-04/schema#'})(schema);
+const is_schema_valid = jsen({'$ref': 'https://json-schema.org/draft-04/schema#'})(schema);
 if (! is_schema_valid) throw new Error('WeaponComponent model : internal schema is invalid !');
 
 const _validate = jsen(schema, {

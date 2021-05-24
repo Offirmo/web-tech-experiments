@@ -17,13 +17,13 @@ generic build tool     https://bazel.build/
 
 watcher  https://facebook.github.io/watchman/
 
-icones  http://brandmark.io/logo-crunch/
+icones  https://brandmark.io/logo-crunch/
 
 
-http://download.wallabyjs.com/47256d31-477d-4449-81b4-a443009972aa
+https://download.wallabyjs.com/47256d31-477d-4449-81b4-a443009972aa
 https://github.com/wallabyjs/public
 
-http://www.hygen.io/quick-start/
+https://www.hygen.io/quick-start/
 
 https://archivebox.io/ archive static sites
 

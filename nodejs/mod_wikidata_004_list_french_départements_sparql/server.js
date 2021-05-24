@@ -21,10 +21,10 @@ const _ = require('lodash');
 ////////////////////////////////////////////////////////////
 
 const WDQS_endpoint = 'https://query.wikidata.org/sparql';
-const Wikidata_endpoint = 'http://www.wikidata.org/wiki/Special:EntityData/';
+const Wikidata_endpoint = 'https://www.wikidata.org/wiki/Special:EntityData/';
 
-let query = `prefix wdt: <http://www.wikidata.org/prop/direct/>
-prefix wd: <http://www.wikidata.org/entity/>
+let query = `prefix wdt: <https://www.wikidata.org/prop/direct/>
+prefix wd: <https://www.wikidata.org/entity/>
 SELECT ?item WHERE {
   ?item wdt:P31 wd:Q6465 .
   OPTIONAL { ?item wdt:P576 ?dummy0 }

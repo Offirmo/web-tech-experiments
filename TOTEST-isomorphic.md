@@ -60,11 +60,11 @@ https://github.com/jezen/is-thirteen
 https://github.com/bevacqua/trunc-html
 https://github.com/teamweek/instadate A minimal high performance date library for Node.js and Browser 
 
-macros    http://sweetjs.org/
+macros    https://sweetjs.org/
 
 Rx
-http://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
-http://reactivex.io/intro.html
+https://fr.slideshare.net/stefanmayer13/functional-reactive-programming-with-rxjs (29)
+https://reactivex.io/intro.html
 https://github.com/Reactive-Extensions/RxJS
 
 Immutability
@@ -77,10 +77,10 @@ https://github.com/paularmstrong/normalizr
 
 https://github.com/VerbalExpressions/JSVerbalExpressions
 
-TOBLOG dev fonts http://sourcefoundry.org/hack/
-TOBLOG AngularJS speed trick, updated http://www.alexkras.com/11-tips-to-improve-angularjs-performance/
+TOBLOG dev fonts https://sourcefoundry.org/hack/
+TOBLOG AngularJS speed trick, updated https://www.alexkras.com/11-tips-to-improve-angularjs-performance/
 
-http://welchcanavan.com/styleguide-roundup/
+https://welchcanavan.com/styleguide-roundup/
 
 -- markdown
 https://github.com/showdownjs/showdown parser
@@ -88,7 +88,7 @@ https://github.com/npm/marky-markdown
 https://www.npmjs.com/package/sanitize-html
 https://github.com/bevacqua/megamark
 https://fiddle.md
-http://mdast.js.org/
+https://mdast.js.org/
 
 https://github.com/yoshuawuyts/fsm-event
 https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
@@ -104,9 +104,9 @@ https://github.com/metaraine/shackles
 
 
 -- mails
-http://zurb.com/ink/templates.php
+https://zurb.com/ink/templates.php
 
 
 -- work
-http://www.groupahead.com/
-http://www.drawattention.co/
+https://www.groupahead.com/
+https://www.drawattention.co/

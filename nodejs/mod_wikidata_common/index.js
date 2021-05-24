@@ -23,7 +23,7 @@ const Item = {
 
 const Endpoint = {
 	Wikidata: {
-		url: 'http://www.wikidata.org/wiki/Special:EntityData/'
+		url: 'https://www.wikidata.org/wiki/Special:EntityData/'
 	},
 
 	WDQS: {

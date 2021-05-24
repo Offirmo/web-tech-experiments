@@ -2,8 +2,8 @@ console.log('hello from migrate.js');
 
 module.exports = function(app, cb) {
 
-  // http://docs.strongloop.com/display/public/LB/Connect+your+API+to+a+data+source
-  // http://docs.strongloop.com/display/public/LB/Creating+a+database+schema+from+models
+  // https://docs.strongloop.com/display/public/LB/Connect+your+API+to+a+data+source
+  // https://docs.strongloop.com/display/public/LB/Creating+a+database+schema+from+models
 
   app.dataSources.pg.isActual(function(err, actual) {
     console.log(actual);

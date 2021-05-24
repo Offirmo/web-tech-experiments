@@ -7,7 +7,7 @@ let _ = require('lodash');
 
 ///////////////////////////////////////////////////////////////////////////
 
-// http://lunrjs.com/
+// https://lunrjs.com/
 // https://www.new-bamboo.co.uk/blog/2013/02/26/full-text-search-in-your-browser/
 // https://github.com/olivernn/lunr.js
 let lunr = require('lunr');

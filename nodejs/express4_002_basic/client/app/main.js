@@ -22,7 +22,7 @@ window.main = function()
 	});
 
 
-	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
+	// thank you https://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
 	console.log('\n\n' +
 		' _____ _                  ___      _   _                        _ _         _                \n' +
 		'| __  |_|___ ___      ___|  _|    | |_| |_ ___      ___ ___ ___| |_|___ ___| |_ ___ ___ ___  \n' +
@@ -72,7 +72,7 @@ window.main = function()
 			});
 
 			// angular manual initialisation since we use a script loader
-			// cf. http://docs.angularjs.org/guide/bootstrap
+			// cf. https://docs.angularjs.org/guide/bootstrap
 			console.log('Bootstrapping angular...');
 			angular.element(document).ready(function() {
 				angular.bootstrap(document, ['global_ng_module']);

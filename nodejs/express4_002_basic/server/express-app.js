@@ -2,7 +2,7 @@
 
 var express = require('express');
 
-// http://expressjs.com/4x/api.html
+// https://expressjs.com/4x/api.html
 var app = express();
 
 module.exports = app;
@@ -11,7 +11,7 @@ module.exports = app;
 // templating
 var consolidated_templates = require('consolidate'); // always needed
 // now require all templating engines we wish to use
-var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
+var dust = require('dustjs-linkedin'); // https://dejanglozic.com/2014/01/27/dust-js-such-templating/
 dust.optimizers.format = function(ctx, node) { return node }; // https://github.com/linkedin/dustjs/wiki/Dust-Tutorial#controlling-whitespace-suppression
 app.engine('dust', consolidated_templates.dust); // .dust will be rendered with...
 

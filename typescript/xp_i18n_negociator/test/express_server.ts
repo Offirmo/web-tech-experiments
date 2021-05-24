@@ -1,5 +1,5 @@
 #!/bin/sh
-':' //# http://sambal.org/?p=1014 ; exec `dirname $0`/../../../node_modules/.bin/ts-node "$0" "$@"
+':' //# https://sambal.org/?p=1014 ; exec `dirname $0`/../../../node_modules/.bin/ts-node "$0" "$@"
 'use strict'
 
 ////////////////////////////////////
@@ -62,8 +62,8 @@ app.get('/set-locale', (req, res) => {
 
 ////////////////////////////////////
 
-// http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
-// http://nodejs.org/api/os.html#os_os_networkinterfaces
+// https://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
+// https://nodejs.org/api/os.html#os_os_networkinterfaces
 var local_ips = _.chain(require('os').networkInterfaces())
 	.values()
 	.flatten()

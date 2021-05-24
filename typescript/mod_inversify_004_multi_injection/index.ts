@@ -1,11 +1,11 @@
 #!/bin/sh
-':' //# http://sambal.org/?p=1014 ; exec `dirname $0`/../../node_modules/.bin/ts-node "$0" "$@"
+':' //# https://sambal.org/?p=1014 ; exec `dirname $0`/../../node_modules/.bin/ts-node "$0" "$@"
 
 /// <reference path="../../node_modules/inversify-dts/inversify/inversify.d.ts" />
 
 console.log('hello')
 
-// http://inversify.io/
+// https://inversify.io/
 import { Kernel, interfaces } from 'inversify'
 
 interface IIntl {

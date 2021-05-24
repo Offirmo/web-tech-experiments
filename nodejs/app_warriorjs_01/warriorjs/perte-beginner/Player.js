@@ -18,7 +18,7 @@ function prettify_obj(x) {
 			']',
 		].join('')
 
-	// http://devdocs.io/javascript/operators/typeof
+	// https://devdocs.io/javascript/operators/typeof
 	switch(typeof x) {
 		case 'string':
 			return `'${x}'`

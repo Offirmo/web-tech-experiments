@@ -83,7 +83,7 @@ router.get('/toto/', function (req, res) {
 
 // "catch all" = default / 404 for a webapp
 // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode
-// http://briantford.com/blog/angular-express
+// https://briantford.com/blog/angular-express
 // Several cases :
 // - a 404
 //   - manual, visible (user mistyped a page url, old address...)

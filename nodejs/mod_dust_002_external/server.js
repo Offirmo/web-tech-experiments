@@ -7,7 +7,7 @@ var log = require('../logger')('test');
 var when = require('when');
 var when_node = require('when/node');
 
-// http://akdubya.github.io/dustjs/#guide
+// https://akdubya.github.io/dustjs/#guide
 var dust = require('dustjs-linkedin');
 
 // Lift all of the fs methods, but name them with a 'P' suffix

@@ -14,7 +14,7 @@ var app_secret = '...';
 var client_short_lived_access_token = '...';
 var client_long_lived_access_token = '...';
 // generated from app + user + page + rights
-// cf. http://offirmo.net/wiki/index.php?title=Facebook#Obtention_d.27un_token_de_publication_.C3.A0_dur.C3.A9e_illimit.C3.A9e
+// cf. https://offirmo.net/wiki/index.php?title=Facebook#Obtention_d.27un_token_de_publication_.C3.A0_dur.C3.A9e_illimit.C3.A9e
 //var page_access_token = '...';
 
 FB.setAccessToken(page_access_token);
@@ -65,7 +65,7 @@ FB.api('oauth/access_token', {
 FB.api('oauth/access_token', {
 	client_id: app_id,
 	client_secret: app_secret,
-	redirect_uri: 'http://yoururl.com/callback',
+	redirect_uri: 'https://yoururl.com/callback',
 	code: 'code'
 }, function (res) {
 	if(!res || res.error) {
@@ -111,7 +111,7 @@ FB.api(
 	'/' + page_id + '/feed',
 	'post',
 	{
-		link: 'http://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
+		link: 'https://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
 		message: 'Meow from node.js !'
 	},
 	function (res) {
@@ -131,8 +131,8 @@ FB.napi(
 	'post',
 	{
 		icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/6985-200.png',
-		picture: 'http://colourfulrebel.com/en/wp-content/uploads/2015/06/Cute-Kittens-1-Wallpaper-HD.jpg',
-		link: 'http://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
+		picture: 'https://colourfulrebel.com/en/wp-content/uploads/2015/06/Cute-Kittens-1-Wallpaper-HD.jpg',
+		link: 'https://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
 		message: 'status message',
 		caption: 'caption',
 		description: 'description',
@@ -161,7 +161,7 @@ FB.napi(
 	'/' + page_id + '/feed',
 	'post',
 	{
-		link: 'http://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
+		link: 'https://www.metronews.fr/blog/bigbugblog/2011/05/09/votez-pour-le-chaton-le-plus-mignon/',
 		message: 'a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong status message',
 		// limit 1000 bytes 2015/06/24
 		caption: 'a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong caption',

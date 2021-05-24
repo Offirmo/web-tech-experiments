@@ -12,7 +12,7 @@ Design principles
 Tech
 * a python helper lib for semver ?
 * https://en.wikipedia.org/wiki/DOT_(graph_description_language)
-  * http://rise4fun.com/agl
+  * https://rise4fun.com/agl
 * https://fr.wikipedia.org/wiki/Uniform_Resource_Name
 
 - already installed ?
@@ -50,7 +50,7 @@ provider
 Real use case
 
 URN
-http://
+https://
 
 require postgresql-server@~9.3
 require redis-server@^2

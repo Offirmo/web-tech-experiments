@@ -60,7 +60,7 @@ module.exports = function(RentalLocation) {
           description: 'max distance in miles'}
       ],
       returns: {arg: 'locations', root: true},
-      http: { verb: 'GET' }
+      https: { verb: 'GET' }
     });
   };
 

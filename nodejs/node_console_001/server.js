@@ -5,7 +5,7 @@
 
 console.log('Hello world !');
 
-// node.js console http://nodejs.org/api/stdio.html
+// node.js console https://nodejs.org/api/stdio.html
 
 console.time('timing example');
 

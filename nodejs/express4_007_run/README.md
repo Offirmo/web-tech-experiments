@@ -17,15 +17,15 @@ I found those tools : (in order of layer)
 foreman
 =======
 used at heroku, so mandatory use.
-http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
-http://ddollar.github.io/foreman/
+https://blog.daviddollar.org/2011/05/06/introducing-foreman.html
+https://ddollar.github.io/foreman/
 
 gem install foreman
 
-Procfile       http://ddollar.github.io/foreman/#PROCFILE
+Procfile       https://ddollar.github.io/foreman/#PROCFILE
    ou npm start (package.json:main ou package.json:scripts.start)
-.env           http://ddollar.github.io/foreman/#ENVIRONMENT
-.foreman       http://ddollar.github.io/foreman/#DEFAULT-OPTIONS
+.env           https://ddollar.github.io/foreman/#ENVIRONMENT
+.foreman       https://ddollar.github.io/foreman/#DEFAULT-OPTIONS
 
 sends SIGTERM
 convert SIGIN (CtrlC) to SIGTERM
@@ -55,7 +55,7 @@ app.json      https://devcenter.heroku.com/articles/app-json-schema
 nodemon
 =======
 https://github.com/remy/nodemon/
-http://www.benjiegillam.com/2011/08/node-js-clean-restart-and-faster-development-with-nodemon/
+https://www.benjiegillam.com/2011/08/node-js-clean-restart-and-faster-development-with-nodemon/
 
 config :
 https://github.com/remy/nodemon/blob/master/doc/cli/config.txt

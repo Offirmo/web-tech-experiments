@@ -8,8 +8,8 @@ console.log('Hello world !');
 const fetch = require('node-fetch')
 const async = require('async')
 
-const ADDRESS = 'http://raphaelwa.ch/secfail'
-//const ADDRESS = 'http://10.1.38.74'
+const ADDRESS = 'https://raphaelwa.ch/secfail'
+//const ADDRESS = 'https://10.1.38.74'
 
 ////////////////////////////////////////////////////////////
 
