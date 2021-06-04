@@ -18,25 +18,32 @@
 			--sail: env(safe-area-inset-left);
 		}
 
+		html {
+			background-color: red;
+		}
 		body {
-			background-color: black;
+			background-color: yellow;
+			padding-top: env(safe-area-inset-top);
+			padding-right: env(safe-area-inset-right);
+			padding-bottom: env(safe-area-inset-bottom);
+			padding-left: env(safe-area-inset-left);
 		}
 		main {
 			background-color: #d9edf7;
 			/*margin-top: env(safe-area-inset-top);
 			margin-right: env(safe-area-inset-right);
 			margin-bottom: env(safe-area-inset-bottom);
-			margin-left: env(safe-area-inset-left);*/
-			border-radius: 25px;
+			margin-left: env(safe-area-inset-left);
+			xxborder-radius: 25px;*/
 		}
 	</style>
 </head>
 
-<body class="o⋄top-container o⋄body⁚full-viewport">
-	<main class="o⋄top-container">
+<body class="xo⋄body⁚full-viewport">
+	<main class="xo⋄overflow-y⁚auto">
 	<h1>...</h1>
 	<p>
-		4 <a>https://stackoverflow.com/questions/46318395/detecting-mobile-device-notch</a>
+		<a>https://stackoverflow.com/questions/46318395/detecting-mobile-device-notch</a>
 	</p>
 
 		<p>Renders: <span id="render_count">?</span></p>
@@ -46,6 +53,36 @@
 		<li>Safe area inset bottom: <span id="saib"></span></li>
 		<li>Safe area inset left: <span id="sail"></span></li>
 	</ul>
+
+		<button onclick="document.body.requestFullscreen()">Fullscreen</button>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id augue ante. Aliquam tristique viverra tellus sed ullamcorper. Vivamus velit ipsum, tempus et sapien sit amet, luctus ultricies est. Phasellus ac ipsum vulputate, volutpat libero non, dictum ligula. Cras tincidunt justo urna, nec consequat lectus luctus vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia sed nisi nec viverra.
+		</p>
+		<p>
+			Maecenas in laoreet est. Morbi blandit enim magna, a semper orci facilisis quis. In vehicula sagittis turpis vel eleifend. Nullam aliquet feugiat cursus. Mauris orci purus, pellentesque vitae interdum eu, blandit sed ligula. Cras eu mattis quam, vel ornare ante. Duis molestie eros dui, at varius odio viverra in. In rhoncus, ante eget fermentum eleifend, massa eros tincidunt purus, quis maximus sapien odio ut enim. Suspendisse ex purus, aliquet sed velit porta, tempus sodales lorem.
+		</p>
+		<h3>Pack my box with five dozen liquor jugs!</h3>
+		<p>
+			Pellentesque gravida tincidunt risus sit amet varius. Cras ac luctus mauris. Aliquam erat volutpat. In hac habitasse platea dictumst. Aliquam metus sapien, suscipit vel dapibus a, convallis nec lorem. Suspendisse ac rhoncus urna, nec ornare metus. Sed at porttitor nisl. Curabitur vestibulum tempus mattis.
+		</p>
+		<ul>
+			<li>Foo</li>
+			<li>Bar</li>
+		</ul>
+		<p>
+			Nullam euismod massa neque, vitae sollicitudin diam tincidunt non. Phasellus interdum felis congue, semper libero et, efficitur mauris. Aenean velit leo, egestas dignissim enim ut, tincidunt facilisis velit. Aliquam orci augue, facilisis nec mauris quis, finibus sagittis quam. Morbi orci libero, consequat in placerat sit amet, dignissim at elit. Curabitur lobortis neque vel aliquet ultrices. Mauris efficitur auctor pulvinar. In finibus nunc quis nisl interdum fermentum sit amet at odio. Suspendisse vitae lorem vulputate, eleifend nunc nec, scelerisque enim. Aliquam vulputate venenatis porttitor. In hac habitasse platea dictumst.
+		</p>
+		<ol>
+			<li>Foo</li>
+			<li>Bar</li>
+		</ol>
+		<p>
+			Vestibulum varius nisl a ante vehicula, eu euismod justo ornare. Praesent purus velit, finibus at varius sed, malesuada et orci. Integer vel accumsan enim, sit amet elementum lorem. Fusce tincidunt urna vitae ligula vehicula, consectetur sagittis orci bibendum. Praesent quis velit in massa aliquam commodo in ut elit. Nulla viverra lectus in nibh semper, id ultricies est vehicula. Phasellus fermentum eget augue vitae consequat. Praesent bibendum fringilla ullamcorper. Praesent luctus ultrices enim, dapibus pretium tortor hendrerit vel. Fusce ultrices, risus vitae iaculis vehicula, ipsum dui tincidunt lacus, eu volutpat nibh magna vitae nisi. Aliquam quis nibh in erat faucibus cursus sit amet nec nisi. Sed bibendum diam ut eros pharetra tempus.
+		</p>
+		<q>[Quoted text] Vestibulum varius nisl a ante vehicula, eu euismod justo ornare. Praesent purus velit, finibus at varius sed, malesuada et orci.</q> <cite>— Author Name</cite>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at varius eros. Curabitur pulvinar metus diam, nec aliquet felis pellentesque et. Ut iaculis aliquam augue, sed vestibulum lacus varius at. Mauris et facilisis massa. Sed vehicula placerat convallis. Sed dui magna, semper non neque non, semper dapibus lacus.
+		</p>
 	</main>
 
 	<script>
@@ -57,9 +94,9 @@
 		let render_count = 0
 		function render() {
 			render_count++
-          ;['sait', 'sair', 'saib', 'sail'].forEach(id => {
-              document.querySelector(`#${id}`).textContent = getComputedStyle(document.documentElement).getPropertyValue(`--${id}`)
-          })
+			;['sait', 'sair', 'saib', 'sail'].forEach(id => {
+				document.querySelector(`#${id}`).textContent = getComputedStyle(document.documentElement).getPropertyValue(`--${id}`)
+			})
 			document.querySelector(`#render_count`).textContent = render_count
 		}
 
