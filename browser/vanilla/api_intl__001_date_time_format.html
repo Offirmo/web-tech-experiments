@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8" />
+
+	<title>Intl 001 -- DateTimeFormat</title>
+</head>
+
+<h1>...</h1>
+<p>Activate the JS console and look at it.</p>
+<p>https://developers.google.com/web/tools/chrome-devtools/debug/console/console-reference?hl=en</p>
+
+<script>
+
+	function demo(date, options = {}) {
+		const date_formatter = new Intl.DateTimeFormat(undefined, options)
+
+		const _date = new Date(date)
+
+		console.group(JSON.stringify(options))
+		console.log(_date)
+		console.log(date_formatter.format(_date))
+		console.groupEnd()
+	}
+
+	const now = +(new Date())
+
+	demo(now)
+	demo(now, {
+		calendar: 'buddhist',
+	})
+	demo(now, {
+		dateStyle: 'full', // "full"	"long"	"medium"	"short"
+		timeStyle: 'full', // "full"	"long"	"medium"	"short"
+		hourCycle: 'h23', // "h11", "h12", "h23", or "h24"
+	})
+	demo(now, {
+		dateStyle: 'long',
+		timeStyle: 'long',
+		hourCycle: 'h23',
+	})
+	demo(now, {
+		dateStyle: 'medium',
+		timeStyle: 'medium',
+		hourCycle: 'h23',
+	})
+	demo(now, {
+		dateStyle: 'short',
+		timeStyle: 'short',
+		hourCycle: 'h23',
+	})
+	demo(now, {
+		dateStyle: 'short',
+		timeStyle: 'long',
+		hourCycle: 'h23',
+	})
+
+</script>
