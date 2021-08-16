@@ -2,96 +2,185 @@
 <!-- html5_008 : WTE micro template -->
 <!-- maximun hints at english to prevent Chrome from incorrectly suggesting a translation -->
 <html lang="en" xml:lang="en" class="o⋄top-container">
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Language" content="en" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-	<title>…</title>
-	<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
+		<title>…</title>
+		<link rel="icon" href="../assets/favicon_16x16.png" type="image/png" />
 
-	<style type="text/css">
-	</style>
-</head>
+		<style>
+		</style>
+	</head>
 
-<form>
-	<label>
-		Title
-		<input id="title" type="text" onblur="window.update({title: this.value})">
-	</label>
-	<label>
-		Color
-		<input id="color" type="text" onblur="window.update({color: this.value})">
-	</label>
-</form>
+	<h1>Tabs Tree Helper</h1>
+	<form>
+		<label>
+			Tab title:
+			<input name="title" type="text">
+		</label>
+		<label>
+			Favicon color:
+			<input name="color" type="color">
+		</label>
+	</form>
 
-<script type="module">
-	const current_url = new URL(window.location.href)
-	const current_search_params = current_url.searchParams
-	current_search_params.sort()
+	<script type="module">
+		console.info('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+		console.log('starting up…')
 
-	let state = {
-		existing_search: [...current_search_params.keys()].reduce((acc, k) => {
-			acc[k] = current_search_params.get(k)
-			return acc
-		}, {}),
-		title: current_search_params.get('title') || '…',
-		color: current_search_params.get('color') || '#F00',
-	}
+		////////////////////////////////////
+		// State
 
-	console.log('start', { current_url, state })
-
-	function render() {
-		console.group('render')
-		console.log({state})
-
-		const search_data = {
-			...state.existing_search,
-			title: state.title,
-			color: state.color,
-		};
-		const searchParams = new URLSearchParams(search_data)
-		searchParams.sort()
-
-		const target_url = current_url.origin + current_url.pathname + '?' + searchParams.toString()
-		console.log({target_url})
-		if (target_url !== current_url.href)
-			window.location = target_url
-
-		document.title = state.title
-		document.querySelector('#title').value = state.title
-
-		document.querySelector('#color').value = state.color
-
-		// https://blog.roomanna.com/09-24-2011/dynamically-coloring-a-favicon
-		const canvas = document.createElement("canvas")
-		canvas.width = 16
-		canvas.height = 16
-		const context = canvas.getContext("2d")
-		context.fillStyle = state.color
-		context.fillRect(0, 0, 16, 16)
-		context.fill();
-		let link = document.querySelector("link[rel~='icon']");
-		if (!link) {
-			link = document.createElement("link");
-			link.setAttribute("rel", "shortcut icon");
-			document.head.appendChild(link);
-		}
-		link.type = "image/x-icon"
-		link.href = canvas.toDataURL()
-
-		console.groupEnd()
-	}
-	render()
-
-	window.update = (partial) => {
-		console.log({partial})
-		state = {
-			...state,
-			...partial,
+		let state = {
+			title: '…',
+			color: '#FF0000',
 		}
 
-		render()
-	}
-</script>
+		function set_state(partial) {
+			console.log('set_state() before', {
+				state: JSON.parse(JSON.stringify(state)),
+				partial,
+			})
+			state = {
+				...state,
+				...partial,
+			}
+			console.log('set_state() after', {
+				state: JSON.parse(JSON.stringify(state)),
+			})
+		}
+
+		////////////////////////////////////
+		// persistence
+
+		function enrich_state_from_query_parameters(state) {
+			const url = new URL(window.location.href)
+			const search_params = url.searchParams
+
+			if (search_params.get('title')) {
+				state = {
+					...state,
+					title: search_params.get('title'),
+				}
+			}
+			if (search_params.get('color')) {
+				state = {
+					...state,
+					color: search_params.get('color'),
+				}
+			}
+
+			return state
+		}
+
+		function get_canonical_url(state) {
+			const search_data = {
+				title: state.title,
+				color: state.color,
+			}
+			const search_params = new URLSearchParams(search_data)
+			//search_params.sort()
+
+			const current_url = new URL(window.location.href)
+			const canonical_url = current_url.origin + current_url.pathname + '?' + search_params.toString()
+
+			return canonical_url
+		}
+
+		////////////////////////////////////
+		// render
+
+		function render(state) {
+			console.group('rendering…')
+			console.log({ state: JSON.parse(JSON.stringify(state)) })
+
+			document.title = state.title
+
+			document.querySelector('input[name="title"]').value = state.title
+			document.querySelector('input[name="color"]').value = state.color
+
+			// https://blog.roomanna.com/09-24-2011/dynamically-coloring-a-favicon
+			const canvas = document.createElement("canvas")
+			canvas.width = 16
+			canvas.height = 16
+			const context = canvas.getContext("2d")
+			context.fillStyle = state.color
+			context.fillRect(0, 0, 16, 16)
+			context.fill();
+			let link = document.querySelector("link[rel~='icon']");
+			if (!link) {
+				link = document.createElement("link");
+				link.setAttribute("rel", "shortcut icon");
+				document.head.appendChild(link);
+			}
+			link.type = "image/x-icon"
+			link.href = canvas.toDataURL()
+
+			console.groupEnd()
+		}
+
+		function ensure_canonical_url(state) {
+			const canonical_url = get_canonical_url(state)
+			console.log('ensure_canonical_url()', {
+				state,
+				expected_url: canonical_url,
+				actual_url: location.href,
+				is_valid: location.href === canonical_url
+			})
+			if (location.href !== canonical_url) {
+				console.warn('About to navigate to canonical URL…')
+				location.replace(canonical_url)
+			}
+		}
+
+		////////////////////////////////////
+		// interactivity
+
+		function on_key_up(event) {
+			if (event.code !== 'Enter')
+				return
+
+			console.group('UI event: keyup "enter"')
+			console.log({event})
+
+			if (event.target?.localName === 'input') {
+				on_input_change(event.target)
+			}
+
+			console.groupEnd()
+		}
+
+		function on_focus_out(event) {
+			console.group('UI event: focus out of input')
+			console.log({event})
+
+			if (event.target?.localName === 'input')
+				on_input_change(event.target)
+
+			console.groupEnd()
+		}
+
+		function on_input_change(input) {
+			console.info('handling input change…', {
+				input,
+				value: input.value,
+				name: input.name,
+			})
+
+			set_state({[input.name]: input.value})
+			ensure_canonical_url(state)
+			render(state)
+		}
+
+		////////////////////////////////////
+		// final
+
+		state = enrich_state_from_query_parameters(state)
+		render(state)
+
+		document.addEventListener('keyup', on_key_up)
+		document.addEventListener('focusout', on_focus_out)
+	</script>
