@@ -70,6 +70,7 @@ gamedev         https://xsolla.com/pricing
 
 embeds          https://iframely.com/plans
 
+changelog       https://headwayapp.co/#pricing
 
 speed test https://support.google.com/websearch/answer/6283840?p=speedtest&visit_id=637189753010659443-726442618&rd=1
 
