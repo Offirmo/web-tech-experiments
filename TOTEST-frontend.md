@@ -50,6 +50,7 @@ diagrams             https://github.com/mermaid-js/mermaid
                      https://github.com/alyssaxuu/flowy
                      https://bramp.github.io/js-sequence-diagrams/
 Graphs               https://github.com/leeoniya/uPlot
+                     graph viz https://www.sigmajs.org/
 Audit                https://sonarwhal.com/
                      https://web.dev/fast
 hotkeys              https://github.com/reasonink/clack
@@ -451,6 +452,3 @@ embeds https://oembed.com/
 -- effets
 scroll mobile sur tilt https://vodkabears.github.io/interdimensional/
 mappemonde 3D https://echarts.baidu.com/x/doc/example.html#map3d
-
-
-

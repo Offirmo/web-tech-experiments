@@ -2,7 +2,8 @@
 
 //////////// isomorphic ////////////
 storage             https://github.com/azu/localstorage-ponyfill
-state machine       https://github.com/statelyai/xstate
+state machine       https://stately.ai/
+                    https://github.com/statelyai/xstate
                     https://github.com/jakesgordon/javascript-state-machine
                     https://egghead.io/courses/introduction-to-state-machines-using-xstate
 network             https://github.com/qubyte/fetch-ponyfill
@@ -31,6 +32,8 @@ basic               https://github.com/angus-c/just
 dates               https://moment.github.io/luxon/
                     https://github.com/date-fns/date-fns
                     https://github.com/iamkun/dayjs
+compression         https://engineering.fb.com/2016/08/31/core-data/smaller-and-faster-data-compression-with-zstandard/
+
 ---
 
 https://github.com/brockwhittaker/BitArray.js lib bits
