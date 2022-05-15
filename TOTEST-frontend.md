@@ -66,12 +66,14 @@ drag&drop tree       https://github.com/frontend-collective/react-sortable-tree
 flowcharts           https://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
 rich text editor     https://editorjs.io/
+                     https://lexical.dev/
                      https://quilljs.com/
                      https://trix-editor.org/
                      Atlaskit
                      https://www.slatejs.org/
                      https://jaredreich.com/pell   wisiwig editor no dependencies
-rich tables          https://github.com/mengshukeji/Luckysheet
+rich tables          https://handsontable.com/
+                     https://github.com/mengshukeji/Luckysheet
                      https://github.com/ngduc/react-tabulator
                      https://myliang.github.io/x-spreadsheet/
                      https://bossanova.uk/jexcel/v3/  https://github.com/paulhodel/jexcel
