@@ -124,11 +124,13 @@ Preact https://github.com/preactjs/preact
 
 ////////////////////////////////////////////////////////////////////////
 
+https://www.sumcumo.com/en/html-optimization-a-standard-config-for-htmlminifier
+
 movable draggable resizable https://daybrush.com/moveable/
 
 Old school Windows UI https://ash.ms/
 
-
+beacon etc. https://css-tricks.com/send-an-http-request-on-page-exit/
 Layout
 * https://www.smashingmagazine.com/2019/01/css-multiple-column-layout-multicol/
 * Grid Css train ticket https://codepen.io/oliviale/full/MZZYyO
