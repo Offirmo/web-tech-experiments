@@ -6,7 +6,7 @@ contentless CMS    -> https://www.contentful.com/
 
 Auth               -> https://www.okta.com/developer/signup/stormpath/
                       https://docs.osohq.com/index.html
-
+notifications         https://www.courier.com/blog/series-b-make-notifications-delightful/
 SMS                -> https://www.twilio.com/
 
 payment            -> stripe
@@ -50,7 +50,8 @@ push -> https://pushjs.org/#
 
 fanout ? -> https://www.ably.io/compare
 
-group chat         -> https://tlk.io/ 
+group chat         -> https://tlk.io/
+https://getstream.io/maker-account/
 
 get avatar         --> https://unavatar.now.sh
 

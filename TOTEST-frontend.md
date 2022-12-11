@@ -122,6 +122,8 @@ Tools:
 Preact https://github.com/preactjs/preact
 * https://github.com/molefrog/wouter
 
+web components https://tonicframework.dev/
+
 ////////////////////////////////////////////////////////////////////////
 
 https://www.sumcumo.com/en/html-optimization-a-standard-config-for-htmlminifier
