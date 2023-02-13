@@ -13,6 +13,7 @@ DOM sanitizer     https://github.com/cure53/DOMPurify
 DOM parser        https://cheerio.js.org/
 DB                https://github.com/brianc/node-postgres
 CLI tools         https://github.com/75lb/walk-back
+sound             https://github.com/tropicbliss/symphonia
 
 
 https://leerob.io/blog/backend
