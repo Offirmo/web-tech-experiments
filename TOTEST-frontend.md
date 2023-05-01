@@ -65,7 +65,8 @@ database             https://github.com/localForage/localForage
 drag&drop tree       https://github.com/frontend-collective/react-sortable-tree
 flowcharts           https://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
-rich text editor     https://editorjs.io/
+rich text editor     https://prosemirror.net/
+                     https://editorjs.io/
                      https://lexical.dev/
                      https://quilljs.com/
                      https://trix-editor.org/
