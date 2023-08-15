@@ -1,35 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<!-- https://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-	<title>HTML 008 curated unicode chars</title>
+## curated unicode chars
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+* https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols
+* www.amp-what.com/Discover your character
 
-	<style>
-		body {
-			font-family: 'Open Sans', 'Segoe UI', 'Open Sans', Helvetica, Arial, sans-serif;
-			font-size: 33px;
-		}
-		input {
-			color: teal;
-			width: 100%;
-		}
-	</style>
-</head>
-<body>
-
-<h1>Unicode symbols !</h1>
-<a>https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols</a>
-<a href="www.amp-what.com/"> &what; Discover your character</a>
-
-<pre>
-////////////////////////////////////
-/////////////////////
 
 ’ doesn’t ☑☐ … “
 Offirmo’s Online Adventures
@@ -202,8 +176,6 @@ https://jrgraphix.net/r/Unicode/10100-1013F
 𐄢𐄣𐄤𐄥𐄦𐄧𐄨𐄩𐄪
 𐄫𐄬𐄭𐄮𐄯𐄰𐄱𐄲𐄳
 
-Old italic (stylized)
-https://jrgraphix.net/r/Unicode/10300-1032F
 
 𝇇
 1d1c7
@@ -211,189 +183,13 @@ https://jrgraphix.net/r/Unicode/10300-1032F
 1d1c8
 𝇉
 
-https://jrgraphix.net/r/Unicode/1D400-1D7FF
-𝐀𝐁𝐂𝐃𝐚𝐛𝐜𝐝
-𝐴𝐵𝐶𝐷
-𝑨𝑩𝑪𝑫
-𝒜𝒝𝒞𝒟
-𝓐𝓑𝓒𝓓
-𝔞𝔟𝔠𝔡
-𝔸𝔹𝔺𝔻
-𝖠𝖡𝖢𝖣
-𝗔𝗕𝗖𝗗
-𝘈𝘉𝘊𝘋
-𝘼𝘽𝘾𝘿
-𝙰𝙱𝙲𝙳
-𝟎𝟏𝟐
-𝟘𝟙𝟚
-𝟢𝟣𝟤
-𝟬𝟭𝟮
-𝟶𝟷𝟸
-
 ⚿
 
 
-Open/close
-
-
-parenthesis
-
-﹝FOO﹞ // small tortoise shell https://codepoints.net/U+FE5D
-(FOO)
-⁽FOO⁾  //https://codepoints.net/U+207D
-₍FOO₎  https://codepoints.net/U+208E
-⁽FOO₎
-﹙FOO﹚ https://codepoints.net/U+FE59
-⸨FOO⸩  https://codepoints.net/supplemental_punctuation
-
-
-﹛FOO
-<FOO>
-«FOO»
-⋘FOO⋙
-≮Foo≯
-⋖Foo⋗
-⋘Foo⋙
-᚜FOO᚛
-ᐊFOOᐅ
-ᗕFOOᗒ
-⧼FOO⧽
-⟨FOO⟩
-〈FOO〉
-《FOO》
-
-
-[FOO]
-{FOO}
-=FOO=
-*FOO*
-/FOO\
-+FOO+
--FOO-
-—FOO—
-:FOO:
-https://jrgraphix.net/r/Unicode/0530-058F
-֍FOO֎
-https://jrgraphix.net/r/Unicode/0B00-0B7F
-୧FOO୨
-https://jrgraphix.net/r/Unicode/0F00-0FFF
-༺FOO༻
-༼ FOO ༽
-https://jrgraphix.net/r/Unicode/25A0-25FF
-◀Foo▶
-◄Foo►
-◂Foo▸
-◖Foo◗
-https://jrgraphix.net/r/Unicode/1400-167F
-ᐊFooᐅ
-ᐈ
-ᐉ
-ᐘFooᐒ
-ᐗFooᐓ
-ᑢFooᑝ
-(and plenty of others...)
-https://jrgraphix.net/r/Unicode/1680-169F
-᚜FOO᚛
-https://jrgraphix.net/r/Unicode/2200-22FF
-...
-ɿFOOɾ
-ᄽFOOᄿ
-ᄼFOOᄾ
-ᅧFOOᅣ
-ᅣFOOᅧ
-፤FOO፤
-ᒧFOOᒪ
-ᓬFOO
-ᔪFOOᔭ
-ᕮFOOᕭ
-ᖧFOOᖨ
-ᗧFOOᗤ
-ᗴFOOᗱ
-ᘔFOOᘕ
-ᘛFOOᘚ
-ᙣFOOᙦ
-‖FOO‖
-⁅FOO⁆
-⁌FOO⁍
-⊢FOO⊣
-⊰FOO⊱
-⋌FOO⋋
-⌉FOO⌈
-⎛FOO⎞
-⎨FOO⎬
-⎰FOO⎱
-╣FOO╠
-⟬FOO⟭
-⟦FOO⟧
-⟢FOO⟣
-⟥FOO⟤
-⟈FOO⟉
-⟨FOO⟩
-⤪FOO⤮
-⥢FOO⥤
-⦕FOO⦖
-⦤FOO⦥
-⧕FOO⧔
-⧛FOO⧚
-⫎FOO⫍
-⪦FOO⪧
-https://jrgraphix.net/r/Unicode/25A0-25FF
-◭FOO◮
-(and plenty of others...)
-
-ꬨFOOꬨ
-ꫮFOOꫯ
-ꫧFOOꫧ
-
-[FOO]
-{FOO}
-
-﹛FOO﹜
-﹝FOO﹞
-https://codepoints.net/cjk_symbols_and_punctuation
-「FOO」
-『FOO』
-【FOO】
-〔FOO〕
-〖FOO〗
-〘FOO〙
-〚FOO〛
-
-≺FOO≻  https://codepoints.net/U+227A
-⊣FOO⊢ https://codepoints.net/U+22A2
-◂Foo▸
-◖Foo◗
-᚜FOO᚛
-⋌FOO⋋
-⎛FOO⎞
-⎨FOO⎬
-⎰FOO⎱
-⟦FOO⟧
-⤪FOO⤮
-⦕FOO⦖
-◭FOO◮
-﹁FOO
-⧼FOO⧽
-⊰FOO⊱
-⪦FOO⪧
-⋖Foo⋗
-⟢FOO⟣
-ꬨFOOꬨ
-ꫮFOOꫯ
-ꫧFOOꫧ
-꩜ ꩙ https://codepoints.net/cham
-꧁FOO꧂ ꧞ https://codepoints.net/U+A9C1
-꥟ ꥃ https://codepoints.net/rejang
 ꡳ https://codepoints.net/phags-pa
-https://codepoints.net/supplemental_punctuation
-⸀FOO
-⸂FOO⸃
-⸄FOO⸅
-⸉FOO⸊
+꥟ ꥃ https://codepoints.net/rejang
+꩜ ꩙ https://codepoints.net/cham
+꧞ https://codepoints.net/U+A9C1
 
-
-⚞FOO⚟
-⛦FOO⛥
 https://en.wikipedia.org/wiki/Combining_character
 |●͞●͞○͞○͞|  heͦlͬlᷝoͩ
-</pre>
