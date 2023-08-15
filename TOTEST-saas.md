@@ -73,6 +73,9 @@ embeds          https://iframely.com/plans
 
 changelog       https://headwayapp.co/#pricing
 
+feature toggling   https://www.statsig.com/
+                   https://github.com/FredKSchott/fflip
+
 SSO SAML SCIM https://workos.com/
 
 speed test https://support.google.com/websearch/answer/6283840?p=speedtest&visit_id=637189753010659443-726442618&rd=1

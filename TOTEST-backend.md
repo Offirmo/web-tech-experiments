@@ -77,7 +77,7 @@ shebang
 
 https://zeit.co/now
 
-feature toggling   https://github.com/FredKSchott/fflip
+
 data exploration platform designed to be visual, intuitive, and interactive https://github.com/airbnb/caravel
 
 Modern HTTP benchmarking tool https://github.com/wg/wrk
