@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<!-- maximum language hints to prevent Chrome from incorrectly suggesting a translation -->
+<html lang="en" xml:lang="en">
+<head>
+	<!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML -->
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>Viewport Inspector 01</title>
+
+
+	<style>
+		/* super early styles while the page is loading */
+		/* apply a natural box layout model to all elements, but allowing components to change
+		 * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+		 * https://github.com/mike-engel/a11y-css-reset/pull/12#issuecomment-516582884
+		 */
+		:root                  { box-sizing: border-box; }
+		*, *::before, *::after { box-sizing: inherit; }
+
+		:root {
+			--font: -apple-system, BlinkMacSystemFont, "lucida grande", roboto, noto, ubuntu, sans-serif;
+			--color--bg: cyan;
+			font-family: var(--font);
+			padding: 0;
+		}
+
+		:root, .with-clear-bg-and-border {
+			/*--color--bg: cyan;*/
+			--color--bg--border: dimgray;
+			background-color: var(--color--bg, red);
+			border: dashed 10px var(--color--bg--border);
+		}
+
+		@supports (color: rgb(from white r g b)) {
+
+			:root, .with-clear-bg-and-border {
+				--color--bg--border: oklch(from var(--color--bg, red) calc(l - 0.2) c h);
+			}
+		}
+
+		.fullviewport {
+			isolation: isolate;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			xpadding: 10px;
+
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.fullviewport.large {
+			width: 100lvw;
+			height: 100lvh;
+		}
+
+		.fullviewport.small {
+			width: 100svw;
+			height: 100svh;
+		}
+	</style>
+</head>
+
+<p>Hello from the body...</p>
+
+
+<div class="fullviewport large with-clear-bg-and-border" style="--color--bg: yellow">
+	<div style="position: absolute; bottom: 0; left:0;">LARGE viewport</div>
+</div>
+
+<div class="fullviewport normal with-clear-bg-and-border" style="--color--bg: orange">
+	normal
+</div>
+
+<div class="fullviewport small with-clear-bg-and-border" style="--color--bg: lawngreen">
+	SMALL VIEWPORT
+</div>
+
+<script type="module">
+	document.querySelector('h1').textContent = document.title
+	Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})
+</script>

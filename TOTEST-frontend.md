@@ -459,3 +459,6 @@ embeds https://oembed.com/
 -- effets
 scroll mobile sur tilt https://vodkabears.github.io/interdimensional/
 mappemonde 3D https://echarts.baidu.com/x/doc/example.html#map3d
+
+
+https://www.canva.dev/blog/engineering/how-canva-makes-content-embeddable-and-why-you-should-too/
