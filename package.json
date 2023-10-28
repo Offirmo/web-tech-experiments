@@ -8,7 +8,7 @@
 
   "scripts": {
     "serve": "serve --listen 1987 --debug",
-    "serve--pub": "ngrok http 1987"
+    "serve--pub": "ngrok http 1987 --domain=national-rat-supreme.ngrok-free.app"
   },
 
   "devDependencies": {

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<!-- maximum language hints to prevent Chrome from incorrectly suggesting a translation -->
+<html lang="en" xml:lang="en">
+<head>
+	<!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML -->
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<!-- https://developer.mozilla.org/en-US/docs/Web/CSS/env#usage
+		user-scalable=no is now ignored by Safari -> better prompt the user to install as app!
+		-->
+	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>Viewport Inspector 02</title>
+	<!--
+		+++ https://www.quirksmode.org/mobile/viewports.html
+		https://developer.mozilla.org/en-US/docs/Glossary/Viewport
+		https://developer.mozilla.org/en-US/docs/Web/CSS/env
+		https://developer.chrome.com/blog/url-bar-resizing/
+
+		"screen"
+		"viewport" aka. "layout viewport" https://developer.mozilla.org/en-US/docs/Glossary/Layout_viewport
+		"visual viewport" = The portion of the viewport that is currently visible https://developer.mozilla.org/en-US/docs/Glossary/Visual_Viewport  https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API
+	-->
+
+
+	<style>
+		/* super early styles while the page is loading */
+
+		/* apply a natural box layout model to all elements, but allowing components to change
+		 * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+		 * https://github.com/mike-engel/a11y-css-reset/pull/12#issuecomment-516582884
+		 */
+		:root                  { box-sizing: border-box; }
+		*, *::before, *::after { box-sizing: inherit; }
+
+		:root {
+			shape-inside: display; /* https://drafts.csswg.org/css-round-display/?ref=stephenradford.me#shape-inside-property */
+			border-boundary: display; /* https://drafts.csswg.org/css-round-display/?ref=stephenradford.me#border-boundary-property */
+
+			/* transfer the env() to variables so that
+			 * - we can programmatically read them
+			 * - we can override them (carefully)
+			 * Of course only the var() version must be used in the framework.
+			 */
+			--safe-area-inset-top:    env(safe-area-inset-top,    10px);
+			--safe-area-inset-right:  env(safe-area-inset-right,  20px);
+			--safe-area-inset-bottom: env(safe-area-inset-bottom, 30px);
+			--safe-area-inset-left:   env(safe-area-inset-left,   40px);
+		}
+
+		:root {
+			--font: -apple-system, BlinkMacSystemFont, "lucida grande", roboto, noto, ubuntu, sans-serif;
+			--color--bg: cyan;
+			font-family: var(--font);
+			xxpadding: 12px;
+			xxborder: solid 3px violet;
+		}
+
+		.with-clear-bg-and-border {
+			/*--color--bg: cyan;*/
+			--color--bg--border: dimgray;
+			background-color: var(--color--bg, red);
+			border: dashed 10px var(--color--bg--border);
+		}
+
+		@supports (color: rgb(from white r g b)) {
+
+			:root, .with-clear-bg-and-border {
+				background-color: var(--color--bg, red);
+				--color--bg--border: oklch(from var(--color--bg, red) calc(l - 0.2) c h);
+			}
+		}
+
+		.fullviewport {
+			isolation: isolate;
+			position: fixed; /* fixed = laid out against that Layout Viewport
+			??? MUST be absolute and not fixed, or else lvh = svh??
+			 */
+			top: 0;
+			left: 0;
+			shape-inside: display; /* https://drafts.csswg.org/css-round-display/?ref=stephenradford.me#shape-inside-property */
+			border-boundary: display; /* https://drafts.csswg.org/css-round-display/?ref=stephenradford.me#border-boundary-property */
+
+			padding: 5px;
+
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.fullviewport.large {
+			width: 100lvw;
+			height: 100lvh;
+		}
+
+		.fullviewport.normal {
+		}
+
+		.fullviewport.small {
+			width: 100svw;
+			height: 100svh;
+		}
+
+		.fullviewport.dynamic {
+			width: 100dvw;
+			height: 100dvh;
+		}
+
+		.fullviewport.centered-visible {
+			background-color: red;
+			inset: 25%;
+			width: 200px;
+			height: 50px;
+		}
+
+		.safe-area {
+			isolation: isolate;
+			position: absolute;
+
+			background-color: rgba(0, 128, 0, 50%);
+			/*
+			width: calc(100dvw - var(--safe-area-inset-right) - var(--safe-area-inset-left));
+			height: calc(100dvh - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+			*/
+			top:    var(--safe-area-inset-top);
+			right:  var(--safe-area-inset-right);
+			bottom: var(--safe-area-inset-bottom);
+			left:   var(--safe-area-inset-left);
+		}
+
+	</style>
+</head>
+
+<p>Hello from the body...</p>
+
+
+<div class="fullviewport large with-clear-bg-and-border" style="--color--bg: yellow">
+	<div style="position: absolute; bottom: 0; left:0;">
+		LARGE Viewport
+	</div>
+</div>
+
+<div class="fullviewport normal with-clear-bg-and-border" style="--color--bg: orange">
+	NORMAL Viewport
+</div>
+
+<div class="fullviewport small with-clear-bg-and-border" style="--color--bg: lawngreen">
+	SMALL Viewport
+
+	<p style="position: absolute; bottom: 0;">
+		IF MOBILE: try double-tapping at the bottom, it should scroll. Then double-tap at the top.
+	</p>
+
+	<div style="position: absolute; inset: 15%; background: deeppink;">
+		<strong>Viewport size</strong>
+		<ul id="list--viewport-size"></ul>
+	</div>
+</div>
+
+<div class="fullviewport dynamic" style="--color--bg: rgba(128, 0, 0, 50%)">
+	DYNAMIC Viewport
+</div>
+
+<div class="safe-area">
+	safe area
+</div>
+
+<div style="position: absolute">
+	<button id="goFS">go fullscreen</button>
+</div>
+
+<script type="module">
+	const viewport_debug_element = document.querySelector('#list--viewport-size')
+	const fullviewport_elementⵧsmall = document.querySelector('.fullviewport.small')
+	const fullviewport_elementⵧnormal = document.querySelector('.fullviewport.normal')
+	const fullviewport_elementⵧlarge = document.querySelector('.fullviewport.large')
+	const fullviewport_elementⵧdynamic = document.querySelector('.fullviewport.dynamic')
+
+
+	function on_viewport_change() {
+		console.group('on_viewport_change()')
+		console.log({
+			'window.document.documentElement.clientWidth': window.document.documentElement.clientWidth,
+			'window.document.documentElement.clientHeight': window.document.documentElement.clientHeight,
+			'window.screen': window.screen, // https://developer.mozilla.org/en-US/docs/Web/API/Screen/width
+			// window.pageXOffset and window.pageYOffset,
+			'segments': window.getWindowSegments(),
+			'window.visualViewport': window.visualViewport, // https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API
+			'viewportⵧsmall': [ fullviewport_elementⵧsmall.offsetWidth, fullviewport_elementⵧsmall.offsetHeight ],
+			'viewportⵧnormal': [ fullviewport_elementⵧnormal.offsetWidth, fullviewport_elementⵧnormal.offsetHeight ],
+			'viewportⵧlarge': [ fullviewport_elementⵧlarge.offsetWidth, fullviewport_elementⵧlarge.offsetHeight ],
+			'viewportⵧdynamic': [ fullviewport_elementⵧdynamic.offsetWidth, fullviewport_elementⵧdynamic.offsetHeight ],
+		})
+		const are_large_and_small_different = (fullviewport_elementⵧlarge.offsetWidth !== fullviewport_elementⵧsmall.offsetWidth)
+			|| (fullviewport_elementⵧlarge.offsetHeight !== fullviewport_elementⵧsmall.offsetHeight)
+
+		viewport_debug_element.innerHTML = [
+			`<li><code><small>documentElement.clientWidth =</small> ${window.document.documentElement.clientWidth}</code></li>`,
+			`<li><code><small>documentElement.clientHeight =</small> ${window.document.documentElement.clientHeight}</code></li>`,
+			`<li><code><small>visualViewport =</small> ${[window.visualViewport.width, window.visualViewport.height]}</code></li>`,
+			`<li><code><small>svh =</small> ${[ fullviewport_elementⵧsmall.offsetWidth, fullviewport_elementⵧsmall.offsetHeight ]}</code></li>`,
+			`<li><code><small>dvh =</small> ${[ fullviewport_elementⵧdynamic.offsetWidth, fullviewport_elementⵧdynamic.offsetHeight ]}</code></li>`,
+			`<li><code><small>lvh =</small> ${[ fullviewport_elementⵧlarge.offsetWidth, fullviewport_elementⵧlarge.offsetHeight ]}</code></li>`,
+			...(are_large_and_small_different ? [
+				`<li>MOBILE DETECTED!</li>`,
+			] : []),
+		].join('\n')
+		console.groupEnd()
+	}
+
+	;(new ResizeObserver((entries, observer) => {
+		for (const entry of entries) {
+			console.log("Viewport changed:", entry);
+			if (entry.target === document.documentElement) {
+				on_viewport_change()
+			}
+		}
+	})).observe(document.documentElement)
+
+	const goFS = document.getElementById("goFS");
+	goFS.addEventListener("click", function() {
+		const elem = document.documentElement;
+		if (elem.requestFullscreen) {elem.requestFullscreen()}
+	}, false);
+
+	window.addEventListener('resize', () => {
+		// segments we initially retrieved are no longer
+		// update with latest information representing segments the 2 when the fold is horizontal
+		segments = window.getWindowSegments();
+	});
+
+	// https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/How_to/Create_a_standalone_app#customize_your_app_depending_on_the_display_mode
+	function isStandaloneApp() {
+		return window.matchMedia("(display-mode: standalone)").matches;
+	}
+
+
+	//document.querySelector('h1').textContent = document.title
+	/*Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
+		el.href || (el.href = el.text)
+	})*/
+</script>

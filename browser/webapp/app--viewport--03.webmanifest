@@ -1,0 +1,17 @@
+{
+	"name": "Webapp Viewport tests 03",
+	"short_name": "Viewport 3",
+	"lang": "en-US",
+	"icons": [
+		{
+			"src": "../assets/apple-touch-icon_57x57.png",
+			"sizes": "57x57",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#543d46",
+	"background_color": "#543d46",
+	"start_url": "https://national-rat-supreme.ngrok-free.app/browser/webapp/app--viewport--03.html?pinned=true",
+	"display": "fullscreen",
+	"orientation": "portrait"
+}

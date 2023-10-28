@@ -10,6 +10,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 	<title>Viewport Inspector 01</title>
+	<!--
+		https://developer.mozilla.org/en-US/docs/Glossary/Viewport
+		https://developer.mozilla.org/en-US/docs/Web/CSS/env
+	-->
 
 
 	<style>
@@ -26,10 +30,11 @@
 			--font: -apple-system, BlinkMacSystemFont, "lucida grande", roboto, noto, ubuntu, sans-serif;
 			--color--bg: cyan;
 			font-family: var(--font);
-			padding: 0;
+			xxpadding: 12px;
+			xxborder: solid 3px violet;
 		}
 
-		:root, .with-clear-bg-and-border {
+		.with-clear-bg-and-border {
 			/*--color--bg: cyan;*/
 			--color--bg--border: dimgray;
 			background-color: var(--color--bg, red);
@@ -39,6 +44,7 @@
 		@supports (color: rgb(from white r g b)) {
 
 			:root, .with-clear-bg-and-border {
+				background-color: var(--color--bg, red);
 				--color--bg--border: oklch(from var(--color--bg, red) calc(l - 0.2) c h);
 			}
 		}
@@ -49,7 +55,7 @@
 			top: 0;
 			left: 0;
 
-			xpadding: 10px;
+			padding: 5px;
 
 			width: 100vw;
 			height: 100vh;
@@ -60,9 +66,17 @@
 			height: 100lvh;
 		}
 
+		.fullviewport.normal {
+		}
+
 		.fullviewport.small {
 			width: 100svw;
 			height: 100svh;
+		}
+
+		.fullviewport.dynamic {
+			width: 100dvw;
+			height: 100dvh;
 		}
 	</style>
 </head>
@@ -71,22 +85,64 @@
 
 
 <div class="fullviewport large with-clear-bg-and-border" style="--color--bg: yellow">
-	<div style="position: absolute; bottom: 0; left:0;">LARGE viewport</div>
+	<div style="position: absolute; bottom: 0; left:0;">
+		LARGE Viewport
+	</div>
 </div>
 
 <div class="fullviewport normal with-clear-bg-and-border" style="--color--bg: orange">
-	normal
+	NORMAL Viewport
 </div>
 
 <div class="fullviewport small with-clear-bg-and-border" style="--color--bg: lawngreen">
-	SMALL VIEWPORT
+	SMALL Viewport
 
 	<p style="position: absolute; bottom: 0;">
-		IF MOBILE: try double-tapping at the bottom, it should scroll. Then double-tap at the top.</p>
+		IF MOBILE: try double-tapping at the bottom, it should scroll. Then double-tap at the top.
+	</p>
+
+	<div style="position: absolute; inset: 25%; background: deeppink;">
+		<strong>Viewport size</strong>
+		<ul id="list--viewport-size"></ul>
+	</div>
 </div>
 
+<div class="fullviewport dynamic" style="--color--bg: transparent">
+	DYNAMIC Viewport
+</div>
+-->
+
 <script type="module">
-	document.querySelector('h1').textContent = document.title
+	const viewport_debug_element = document.querySelector('#list--viewport-size')
+
+
+	function on_viewport_change() {
+		console.group('on_viewport_change()')
+		console.log({
+			'window.document.documentElement.clientWidth': window.document.documentElement.clientWidth,
+			'window.document.documentElement.clientHeight': window.document.documentElement.clientHeight,
+			'window.visualViewport': window.visualViewport,
+		})
+		viewport_debug_element.innerHTML = [
+			`<li><code><small>documentElement.clientWidth =</small> ${window.document.documentElement.clientWidth}</code></li>`,
+			`<li><code><small>documentElement.clientHeight =</small> ${window.document.documentElement.clientHeight}</code></li>`,
+			`<li><code><small>visualViewport.width =</small> ${window.visualViewport.width}</code></li>`,
+			`<li><code><small>visualViewport.height =</small> ${window.visualViewport.height}</code></li>`,
+		].join('\n')
+		console.groupEnd()
+	}
+
+	;(new ResizeObserver((entries, observer) => {
+		for (const entry of entries) {
+			console.log("Viewport changed:", entry);
+			if (entry.target === document.documentElement) {
+				on_viewport_change()
+			}
+		}
+	})).observe(document.documentElement)
+
+
+	//document.querySelector('h1').textContent = document.title
 	/*Array.prototype.forEach.call(document.querySelectorAll('a'), function(el) {
 		el.href || (el.href = el.text)
 	})*/
