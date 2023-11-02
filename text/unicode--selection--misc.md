@@ -6,6 +6,7 @@
 
 ➤ 
 
+
 ’ doesn’t ☑☐ … “
 Offirmo’s Online Adventures
 }&≠
@@ -24,18 +25,26 @@ Arrows and supplemental
 ⬅   ⮕  https://jrgraphix.net/r/Unicode/2B00-2BFF
  ⇣⇩⬇
 ↭ ↔ ⇄ ⇌ — →
-↶ ↷ ↻ ↺
 
 ★ ☆
 ∎ 220E, END OF PROOF
-● •
+●
+∴ 2234, THEREFORE , there4, therefore, Therefore
+∵ 2235, BECAUSE
+
+♠ ♥ ♦ ♣
+♤ ♡ ♢ ♧
+J♠ Q♥ K♦ A♣
+J♥ J♦ K♣ Q♠
+A♦ Q♣ A♠ K♥
+J♣ Q♠ J♥ K♦
 
 https://emojipedia.org/symbols/
 https://en.wikipedia.org/wiki/Media_controls
 ⏮⏪⏯⏸▶️⏩⏭
 🔄
-
-
+↶ ↷
+↻ ↺
 
 ⋮ 22EE vellip, vertical ellipsis
 ⋯ 22EF hellip, horizontal ellipsis
@@ -44,6 +53,13 @@ https://en.wikipedia.org/wiki/Media_controls
 ⟨ 27E8, left angle bracket
 ⟩ 27E9, right angle bracket
 
+
+
+﹊ FE4A overline dashes
+﹎ FE4E underline dashes
+
+📈 1F4C8 chart with upward trend
+📉 1F4C9 chart with downward trend
 
 □
 ☐ ☑ ☒ ballot boxes
@@ -118,27 +134,30 @@ https://jrgraphix.net/r/Unicode/2070-209F super and sub
 ⁺⁸
 
 
-Enclosed alphanumerics
-https://jrgraphix.net/r/Unicode/2460-24FF
-ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ
-⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳
-⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾
+Dingbats
+https://jrgraphix.net/r/Unicode/2700-27BF
 
-Box drawing
-https://jrgraphix.net/r/Unicode/2500-257F
-┌─╌┐┏━╍┓╔╕╭╮╳
-│┼ ┆┃╋ ┇╠╡╰╯
-└┴┄┘┗┻┅┛╚╛
-
-Block elements
-https://jrgraphix.net/r/Unicode/2580-259F
-▐▔▕▖▗▘▙▚▛▜▝▞▟▀
-
-▁▂▃▄▅▆▇█   ▉▊▋▍▎▏   ░▒▓  ▌
+Braille
+https://jrgraphix.net/r/Unicode/2800-28FF
+⢀ ⣀ ⣄ ⣤ ⣦ ⣶ ⣷ ⣿
 
 
+Aegean numbers !
+https://jrgraphix.net/r/Unicode/10100-1013F
+𐄙𐄚𐄛𐄜𐄝𐄞𐄟𐄠𐄡
+𐄐𐄑𐄒𐄓𐄔𐄕𐄖𐄗𐄘
+𐄢𐄣𐄤𐄥𐄦𐄧𐄨𐄩𐄪
+𐄫𐄬𐄭𐄮𐄯𐄰𐄱𐄲𐄳
 
-ꡳ https://codepoints.net/phags-pa
-꥟ ꥃ https://codepoints.net/rejang
-꩜ ꩙ https://codepoints.net/cham
-꧞ https://codepoints.net/U+A9C1
+
+𝇇
+1d1c7
+𝇈
+1d1c8
+𝇉
+
+⚿
+
+
+https://en.wikipedia.org/wiki/Combining_character
+|●͞●͞○͞○͞|  heͦlͬlᷝoͩ

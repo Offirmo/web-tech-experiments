@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="en">
+<head>
+	<meta charset="utf-8" />
+
+	<title>SVG 01</title>
+
+	<style>
+		/* critical CSS */
+		:root {
+			--color--bg: white;
+			--color--fg: brown;
+			--font: -apple-system, ui-sans-serif, sans-serif;
+
+			color: var(--color--fg);
+			background-color: var(--color--bg);
+			font-family: var(--font);
+		}
+	</style>
+
+	<script>
+		/* critical JS */
+	</script>
+</head>
+
+<body>
+
+<h1>...</h1>
+<p>
+	<a>https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg</a>
+</p>
+
+<p lang="fr">
+	Test 0: ⟨img⟩ direct embed
+
+	<img width="100%" height="200" src="../assets/icon--no-size.svg" />
+
+	Hello world!
+</p>
+
+<p lang="fr">
+	Test 1: ⟨svg⟩ + ⟨image⟩ <a>https://developer.mozilla.org/en-US/docs/Web/SVG/Element/image</a><br>
+	SVG files displayed with ⟨image⟩ are treated as an image: external resources aren't loaded, :visited styles aren't applied, and they cannot be interactive<br>
+	XXX use pattern? <a>https://stackoverflow.com/a/25230680/587407</a>
+
+	<svg width="100%" height="200" fill="red" viewBox="0 0 255 255" preserveAspectRatio="xMidYMid meet">
+		<style>
+			:root {
+				--fg: lightgreen;
+			}
+		</style>
+
+		<rect x="0" y="0" width="100%" height="100%" fill="red"/>
+
+		<image x="0" y="0" width="128" height="128" href="../assets/icon--no-size.svg" />
+
+		<foreignObject x="0" y="0" width="255" height="255">
+			Hi!
+		</foreignObject>
+	</svg>
+	Hello world!
+</p>
+
+<p lang="fr">
+	Test 2: ⟨svg⟩ + ⟨use⟩ <a>https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use</a><br>
+	NEEDS A ROOT ELEMENT WITH AN ID + REFER THE ID <a>https://stackoverflow.com/a/72140723/587407</a>
+
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="200" fill="red" viewBox="0 0 255 255" preserveAspectRatio="xMidYMid meet">
+		<style>
+			:root {
+				--fg: lightgreen;
+			}
+		</style>
+
+		<rect x="0" y="0" width="100%" height="100%" fill="red"/>
+
+		<use href="../assets/icon--no-size.svg#root" x="0" y="0" width="128" height="128" />
+
+		<foreignObject x="0" y="0" width="255" height="255">
+			Hi!
+		</foreignObject>
+	</svg>
+	Hello world!
+</p>
+
+<p lang="fr">
+	Test 3: ⟨svg⟩ + ⟨foreignObject⟩<br>
+	To include SVG files and run scripts inside them, try ⟨object⟩ inside of ⟨foreignObject⟩.<br>
+	XXX the SVG should have NO explicit width/height, otherwise it will be clipped!
+
+	<svg width="100%" height="200" fill="red" viewBox="0 0 255 255" preserveAspectRatio="xMidYMid meet">
+		<style>
+			:root {
+				--fg: lightgreen;
+			}
+		</style>
+
+		<rect x="0" y="0" width="100%" height="100%" fill="red"/>
+
+		<foreignObject x="0" y="0" width="128" height="128">
+			<object type="image/svg+xml" data="../assets/icon--no-size.svg" width="128" height="128"></object>
+		</foreignObject>
+
+		<foreignObject x="0" y="0" width="255" height="255">
+			Hi!
+		</foreignObject>
+	</svg>
+	Hello world!
+</p>
+
+
+<script type='module'>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), (elt) => {
+		elt.href || (elt.href = elt.text);
+	});
+
+</script>
+
+
+</body>
+</html>
