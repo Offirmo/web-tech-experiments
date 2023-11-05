@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="fr" xml:lang="en">
+<head>
+	<meta charset="utf-8" />
+
+	<title>Overflow 01</title>
+
+	<style>
+		/* critical CSS */
+		:root {
+			--color--bg: white;
+			--color--fg: brown;
+			--font: -apple-system, ui-sans-serif, sans-serif;
+
+			color: var(--color--fg);
+			background-color: var(--color--bg);
+			font-family: var(--font);
+
+			--bd: 20px;
+		}
+
+		.test {
+			position: relative;
+			border: solid 1px red;
+			width: 220px; /* On macOs: max to wrap = 249px, min to fit = 220px */
+			overflow: hidden;
+			text-overflow: ellipsis;
+			xxshape-outside: polygon(0 0, 0 100%, calc(100% - var(--bd)) 100%, calc(100% - var(--bd)) calc(100% - var(--bd)), 100% calc(100% - var(--bd)), 100% 0, 0 0);
+			xxclip-path: polygon(0 0, 0 100%, calc(100% - var(--bd)) 100%, calc(100% - var(--bd)) calc(100% - var(--bd)), 100% calc(100% - var(--bd)), 100% 0, 0 0);
+			background-color: cyan;
+		}
+
+		.edit {
+			background-color: rgba(50, 50, 50, 1);
+			border-radius: 5px;
+
+			xdisplay: inline;
+
+			xheight: 1lh;
+			xfloat: inline-end;
+
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			box-shadow: -3px -2px 15px 3px rgba(0,0,0,0.75);
+		}
+	</style>
+
+	<script>
+		/* critical JS */
+	</script>
+</head>
+
+<body>
+
+<h1>...</h1>
+
+<div class="test">
+	LoadReimbursementExpenses and LoadReimbursementExpenses
+</div>
+<br>
+<div class="test">
+	LoadReimbursementExpenses and LoadReimbursementExpenses
+	<div class="edit">✏️</div>
+</div>
+
+
+<script type='module'>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), (elt) => {
+		elt.href || (elt.href = elt.text);
+	});
+
+</script>
+
+
+</body>
+</html>
