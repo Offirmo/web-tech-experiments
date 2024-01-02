@@ -111,6 +111,7 @@ stock content        https://dev.to/sasidharan/free-illustrations-for-developers
 gamedev              https://dragonbones.com/
 tags                 https://github.com/jcubic/tagger
 window manager       https://github.com/nextapps-de/winbox
+forms                https://final-form.org/
 
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
