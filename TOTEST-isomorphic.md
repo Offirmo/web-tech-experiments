@@ -33,6 +33,7 @@ dates               https://moment.github.io/luxon/
                     https://github.com/date-fns/date-fns
                     https://github.com/iamkun/dayjs
 compression         https://engineering.fb.com/2016/08/31/core-data/smaller-and-faster-data-compression-with-zstandard/
+json                https://jsonjoy.com/libs/json-joy-js
 
 ---
 

@@ -45,7 +45,8 @@ incredible viz       https://carrotsearch.com/foamtree/
                      https://packery.metafizzy.co/
                      https://www.dwitter.net/
                      https://nivo.rocks/
-diagrams             https://github.com/mermaid-js/mermaid
+diagrams             https://reactflow.dev
+                     https://github.com/mermaid-js/mermaid
                      https://www.diagram.codes/  
                      https://github.com/alyssaxuu/flowy
                      https://bramp.github.io/js-sequence-diagrams/
@@ -112,6 +113,9 @@ gamedev              https://dragonbones.com/
 tags                 https://github.com/jcubic/tagger
 window manager       https://github.com/nextapps-de/winbox
 forms                https://final-form.org/
+stacks               https://redwoodjs.com/
+                     https://create.t3.gg/
+
 
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/

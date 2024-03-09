@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="fr" xml:lang="en">
+<head>
+	<meta charset="utf-8" />
+
+	<title>Overflow 01</title>
+
+	<style>
+		/* critical CSS */
+
+		:root {
+			--color--bg: white;
+			--color--fg: brown;
+		}
+
+		:root {
+			color: var(--color--fg);
+			background-color: var(--color--bg);
+		}
+
+		:root {
+			--color--bg: black;
+			--color--fg: lightgreen;
+		}
+	</style>
+
+	<script>
+		/* critical JS */
+	</script>
+</head>
+
+<body>
+
+<h1>...</h1>
+
+Hello, tokens!
+
+<script type='module'>
+	document.querySelector('h1').textContent = document.title;
+	Array.prototype.forEach.call(document.querySelectorAll('a'), (elt) => {
+		elt.href || (elt.href = elt.text);
+	});
+
+</script>
+
+
+</body>
+</html>

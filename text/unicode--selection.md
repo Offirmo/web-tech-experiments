@@ -3,6 +3,7 @@
 
 * https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols
 * www.amp-what.com/Discover your character
+* * see also [html_008_unicode_in_identifiers.html](../browser/html/html_008_unicode_in_identifiers.html)
 
 ➤ 
 
@@ -13,18 +14,27 @@ Offirmo’s Online Adventures
 ♠ ♥ ♦ ♣ ✔ ✖ ☐ ☑ ★ ⚠
 ✅✔✓✔️ ❎ ⚠️⚠ ✖✗❌❓
 
-↖ ↑ ↗  ↳
-← ↻ →  ⭅ ⭆
-  ↓
-
 Arrows and supplemental
- ⇡⇧⬆    https://jrgraphix.net/r/Unicode/2190-21FF
+https://jrgraphix.net/r/Unicode/2190-21FF
+   ↰ ↱
+⇱ ↖ ↑ ↗
+  ← ↻ → ↴ ⭅ ⭆
+  ↙ ↓ ↘ ⇲
+   ↵ ↳
+  ⮐ ⮑
+
+⤴⤷⤶
+⤵⤹⤵
+
+💬🗨💬💭
+
+ ⇡⇧⬆    
 ⇠   ⇢   https://jrgraphix.net/r/Unicode/27F0-27FF
 ⇦   ⇨   https://jrgraphix.net/r/Unicode/2900-297F
 ⬅   ⮕  https://jrgraphix.net/r/Unicode/2B00-2BFF
  ⇣⇩⬇
 ↭ ↔ ⇄ ⇌ — →
-↶ ↷ ↻ ↺
+↶ ↷ ↻ ↺  https://jrgraphix.net/r/Unicode/2190-21FF
 
 ★ ☆
 ∎ 220E, END OF PROOF

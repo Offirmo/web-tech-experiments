@@ -111,3 +111,5 @@ https://en.wikipedia.org/wiki/Media_controls
 
 ᚡ ᚵ Runes !
 https://jrgraphix.net/r/Unicode/16A0-16FF
+
+👤👥🗣️💬
