@@ -137,7 +137,8 @@ https://jrgraphix.net/r/Unicode/2460-24FF
 Box drawing
 https://jrgraphix.net/r/Unicode/2500-257F
 ┌─╌┐┏━╍┓╔╕╭╮╳
-│┼ ┆┃╋ ┇╠╡╰╯
+│
+├┼ ┆┃╋ ┇╠╡╰╯
 └┴┄┘┗┻┅┛╚╛
 
 Block elements

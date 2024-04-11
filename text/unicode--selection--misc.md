@@ -4,34 +4,6 @@
 * https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols
 * www.amp-what.com/Discover your character
 
-➤ 
-
-
-’ doesn’t ☑☐ … “
-Offirmo’s Online Adventures
-}&≠
-ϟbestↆofꓺaꘌb
-♠ ♥ ♦ ♣ ✔ ✖ ☐ ☑ ★ ⚠
-✅✔✓✔️ ❎ ⚠️⚠ ✖✗❌❓
-
-↖ ↑ ↗  ↳
-← ↻ →  ⭅ ⭆
-  ↓
-
-Arrows and supplemental
- ⇡⇧⬆    https://jrgraphix.net/r/Unicode/2190-21FF
-⇠   ⇢   https://jrgraphix.net/r/Unicode/27F0-27FF
-⇦   ⇨   https://jrgraphix.net/r/Unicode/2900-297F
-⬅   ⮕  https://jrgraphix.net/r/Unicode/2B00-2BFF
- ⇣⇩⬇
-↭ ↔ ⇄ ⇌ — →
-
-★ ☆
-∎ 220E, END OF PROOF
-●
-∴ 2234, THEREFORE , there4, therefore, Therefore
-∵ 2235, BECAUSE
-
 ♠ ♥ ♦ ♣
 ♤ ♡ ♢ ♧
 J♠ Q♥ K♦ A♣
