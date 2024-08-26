@@ -64,7 +64,8 @@ database             https://github.com/localForage/localForage
                      https://github.com/anywhichway/reasondb
                      fast client side DB  https://github.com/Nozbe/WatermelonDB
 drag&drop tree       https://github.com/frontend-collective/react-sortable-tree
-flowcharts           https://flowchart.js.org/
+flowcharts           https://www.xyflow.com/blog/react-flow-12-release
+                     https://flowchart.js.org/
                      https://github.com/guiqui/react-timeline-gantt
 rich text editor     https://prosemirror.net/
                      https://editorjs.io/
@@ -115,7 +116,9 @@ window manager       https://github.com/nextapps-de/winbox
 forms                https://final-form.org/
 stacks               https://redwoodjs.com/
                      https://create.t3.gg/
-
+QR codes / barcodes  https://github.com/metafloor/bwip-js
+terminal UI          https://github.com/MarketingPipeline/Termino.js
+canvas SVG           https://github.com/fabricjs/fabric.js
 
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
@@ -124,6 +127,9 @@ Speed test:
 Tools:
 * https://bundlephobia.com/
 * https://frontarm.com/demoboard/
+* https://github.com/andreadev-it/stacking-contexts-inspector
+* https://gist.github.com/OrionReed/4c3778ebc2b5026d2354359ca49077ca
+* https://cssstats.com/
 
 Preact https://github.com/preactjs/preact
 * https://github.com/molefrog/wouter

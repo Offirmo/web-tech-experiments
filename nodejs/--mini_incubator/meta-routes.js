@@ -88,7 +88,7 @@ router.get('/timeout/:durationInSec', function (req, res) {
 	}
 	else {
 		setTimeout(function() {
-			res.send('I waited ' + req.params.durationInSec + ' second(s).');
+			res.send('I waited ' + timeout + ' second(s).');
 		}, timeout * 1000);
 	}
 });

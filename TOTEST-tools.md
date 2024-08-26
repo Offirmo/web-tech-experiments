@@ -1,10 +1,12 @@
 
 
+bruno, alt to postman and insomnia https://github.com/usebruno/bruno
+
+
 GitHub - JaidedAI/EasyOCR: Ready-to-use OCR with 40+ languages supported including Chinese, Japanese, Korean and Thai
 https://github.com/JaidedAI/EasyOCR
 
 https://www.remove.bg/upload
-
 
 https://smooth-doc.com/
 

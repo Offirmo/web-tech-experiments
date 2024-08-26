@@ -8,7 +8,7 @@ CLI              https://oclif.io/ The Open CLI Framework
 UI (react)       https://github.com/vadimdemedes/ink
 shell            https://github.com/google/zx
                  https://github.com/shelljs/shelljs
-
+packaging        https://www.npmjs.com/package/@yao-pkg/pkg
 ////////////////////////////////////////////////////////////////////////
 
 
@@ -36,4 +36,3 @@ https://github.com/Javascipt/Jsome
 https://github.com/beatfreaker/text-meme-cli
 
 https://github.com/sindresorhus/npm-home
-

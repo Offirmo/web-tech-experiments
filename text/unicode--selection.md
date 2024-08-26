@@ -47,10 +47,10 @@ https://en.wikipedia.org/wiki/Media_controls
 
 
 
-⋮ 22EE vellip, vertical ellipsis
-⋯ 22EF hellip, horizontal ellipsis
-⋰ 22F0 utdot, rising dots, up right diagonal ellipsis
-⋱ 22F1 dtdot, falling dots, down right diagonal ellipsis
+⋮ 22EE vertical ellipsis
+⋯ 22EF horizontal ellipsis
+⋰ 22F0 rising dots, up right diagonal ellipsis
+⋱ 22F1 falling dots, down right diagonal ellipsis
 ⟨ 27E8, left angle bracket
 ⟩ 27E9, right angle bracket
 
