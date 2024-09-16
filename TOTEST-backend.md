@@ -19,6 +19,8 @@ sound             https://github.com/tropicbliss/symphonia
 https://leerob.io/blog/backend
 ////////////////////////////////////////////////////////////////////////
 
+https://theoephraim.github.io/node-google-spreadsheet/#/
+
 https://blog.apollographql.com/deploy-a-fullstack-apollo-app-with-netlify-45a7dfd51b0b
 
 https://github.com/GoogleChrome/puppeteer

@@ -37,6 +37,8 @@ json                https://jsonjoy.com/libs/json-joy-js
 
 ---
 
+search https://github.com/askorama/orama
+
 https://github.com/brockwhittaker/BitArray.js lib bits
 
 https://nolanlawson.com/2017/01/09/how-to-write-a-javascript-package-for-both-node-and-the-browser/
