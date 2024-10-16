@@ -119,6 +119,9 @@ stacks               https://redwoodjs.com/
 QR codes / barcodes  https://github.com/metafloor/bwip-js
 terminal UI          https://github.com/MarketingPipeline/Termino.js
 canvas SVG           https://github.com/fabricjs/fabric.js
+player               https://player.style/
+tables https://tabulator.info/
+spreadsheet https://ruilisi.github.io/fortune-sheet-docs/guide/
 
 Speed test:
 - https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
