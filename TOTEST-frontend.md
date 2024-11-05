@@ -39,7 +39,8 @@ colors               a basic palette https://clrs.cc/
 tree view            https://github.com/elbywan/bosket
                      https://github.com/frontend-collective/react-sortable-tree
 simple icons         https://icongr.am/simple
-components           https://frend.co/
+components           https://shoelace.style/ (recommended  + follow up)
+                     https://frend.co/
 incredible viz       https://carrotsearch.com/foamtree/
                      https://isotope.metafizzy.co/
                      https://packery.metafizzy.co/
