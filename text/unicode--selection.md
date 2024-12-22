@@ -153,3 +153,24 @@ https://jrgraphix.net/r/Unicode/2580-259F
 ꥟ ꥃ https://codepoints.net/rejang
 ꩜ ꩙ https://codepoints.net/cham
 ꧞ https://codepoints.net/U+A9C1
+𑗊 𐲱
+🮰
+
+stars
+°ʘ֍֎܀܁܍
+
+https://jrgraphix.net/r/Unicode/0F00-0FFF
+༚
+0f1a
+༛
+0f1b
+༜
+0f1c
+༝
+0f1d
+༞
+0f1e
+༟
+༒
+0f12
+༓
