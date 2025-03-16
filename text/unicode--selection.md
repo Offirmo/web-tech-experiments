@@ -12,7 +12,7 @@ Offirmo’s Online Adventures
 }&≠
 ϟbestↆofꓺaꘌb
 ♠ ♥ ♦ ♣ ✔ ✖ ☐ ☑ ★ ⚠
-✅✔✓✔️ ❎ ⚠️⚠ ✖✗❌❓
+✅✔✓✔️ ❎ ⚠️⚠ ✖✗❌❓⭐️🌟
 
 Arrows and supplemental
 https://jrgraphix.net/r/Unicode/2190-21FF
