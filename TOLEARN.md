@@ -65,11 +65,10 @@
 - [x] fullpage.js 2016/10/12
 - [x] flipclock 2016/10/15
 - [x] js-yaml 2016/10/16
-- [ ] Web components
+- [x] Web components
 - [ ] JSON-schema with links
 - [ ] JSON-schema with complex validation
-- [ ] BEM
-- [ ] https://github.com/handsontable/handsontable
+- [x] BEM
 - [ ] JSDoc https://usejsdoc.org/
 - [-] Cordova
        In progress !
@@ -91,8 +90,6 @@
 - [ ] Stormpath
 - [ ] GraphQL
        https://graphql.org/
-- [ ] Hosting gratuit
-       heroku
 - [ ] tokens
 - [ ] geolocation API
 - [ ] geolocation DB
@@ -105,7 +102,7 @@
 - [ ] https://auth0.com/learn/json-web-tokens/
 - [ ] https://stackshare.io/posts/top-50-developer-tools-and-services-of-2015
 - [ ] https://blogs.technet.com/b/devops/archive/2016/01/12/vorlonjs-a-journey-to-devops-introducing-the-blog-post-series.aspx
-- [ ] modern modules
+- [x] modern modules
       https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/
 - [ ] Kong https://github.com/Mashape/kong
 - [ ] git

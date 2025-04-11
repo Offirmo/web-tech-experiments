@@ -27,6 +27,7 @@ Réactions
 💾 persistence
 🕴 analytics
 📡 remote
+💣 error
 
 
 ## avatars
