@@ -43,7 +43,7 @@ https://jrgraphix.net/r/Unicode/2190-21FF
 https://emojipedia.org/symbols/
 https://en.wikipedia.org/wiki/Media_controls
 ⏮⏪⏯⏸▶️⏩⏭
-🔄
+🔄🔃
 
 
 
@@ -136,10 +136,10 @@ https://jrgraphix.net/r/Unicode/2460-24FF
 
 Box drawing
 https://jrgraphix.net/r/Unicode/2500-257F
-┌─╌┐┏━╍┓╔╕╭╮╳
-│
-├┼ ┆┃╋ ┇╠╡╰╯
-└┴┄┘┗┻┅┛╚╛
+┌─┯╌┐┏━╍┯┓╔╕╭╮╳
+│   │┃
+├┼  ┆┣╋ ┇╠╡╰╯
+└┴─┄┘┗┻┅┛╚╛
 
 Block elements
 https://jrgraphix.net/r/Unicode/2580-259F

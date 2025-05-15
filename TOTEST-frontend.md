@@ -215,65 +215,41 @@ Concepts
 - https://tympanus.net/Development/SearchUIEffects/index10.html
 - https://github.com/codrops/TooltipAnimations/
 
+amazing design https://codepen.io/rrenula/pen/LzLXYJ
+color manipulation https://gka.github.io/chroma.js/
+good, simple libs https://markapp.io/
+gradients https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
+https://all-animation.github.io/
+https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
+https://git.hust.cc/ribbon.js/ a ribbon for site
+https://github.com/css-modules/css-modules
+https://github.com/hyperapp/hyperapp   simple tout
+https://github.com/jakiestfu/Medium.js
+https://github.com/mikeal/markdown-element
+https://github.com/shankariyerr/tinyreset
+https://github.com/tunnckoCore/gibon   simple routing
+https://hyperform.js.org/examples.html
+https://javascript30.com/
+https://leaverou.github.io/stretchy/
+https://philipwalton.com/articles/loading-polyfills-only-when-needed/
+https://polyfill.io/v2/docs/
+https://robertnyman.com/2010/03/22/css-pointer-events-to-allow-clicks-on-underlying-elements/
+https://safi.me.uk/typewriterjs/ typewriter effect
+https://techblog.badoo.com/blog/2017/03/23/webRTC-making-a-peer-to-peer-game-using-javascript/
+https://www.boxfactura.com/pulltorefresh.js/
+https://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
+https://www.microanimations.com/gif-collection/
+https://www.stucox.com/blog/you-cant-detect-a-touchscreen/
 pure css modal https://hunzaboy.github.io/Light-Modal/#
 
-color manipulation https://gka.github.io/chroma.js/
-gradients https://uxplanet.org/the-secret-of-great-gradient-2f2c49ef3968
 
-https://github.com/tunnckoCore/gibon   simple routing
-https://github.com/hyperapp/hyperapp   simple tout
-https://github.com/shankariyerr/tinyreset
-
-https://github.com/mikeal/markdown-element
-
-https://codepen.io/Kseso/full/ZJbEMe/  masonry demo cards different sizes
-amazing design https://codepen.io/rrenula/pen/LzLXYJ
-
-
-
-https://techblog.badoo.com/blog/2017/03/23/webRTC-making-a-peer-to-peer-game-using-javascript/
-
-
-https://safi.me.uk/typewriterjs/ typewriter effect
-
-https://www.stucox.com/blog/you-cant-detect-a-touchscreen/
-https://github.com/jakiestfu/Medium.js
-https://html5boilerplate.com/
-
-https://github.com/css-modules/css-modules
-
-https://www.boxfactura.com/pulltorefresh.js/
-
-
-
-https://hyperform.js.org/examples.html
-
-https://javascript30.com/
-
-https://all-animation.github.io/
-
-https://www.microanimations.com/gif-collection/
-
-https://polyfill.io/v2/docs/
-https://philipwalton.com/articles/loading-polyfills-only-when-needed/
-
-https://www.graphicsjs.org/ A lightweight JavaScript graphics library (galaxy !)
-
-https://git.hust.cc/ribbon.js/ a ribbon for site
-
-good, simple libs https://markapp.io/
-https://leaverou.github.io/stretchy/
-
-https://robertnyman.com/2010/03/22/css-pointer-events-to-allow-clicks-on-underlying-elements/
-
-
-~~~ visual testing ~~~
+visual testing
 https://github.com/SC5/sc5-styleguide-visualtest
 https://github.com/SC5/sc5-styleguide
 https://varya.me/dotcss-2016/examples/visual-tests/index.html
 
 
-~~~ Ultimate typo ~~~
+Ultimate typo
 https://github.com/wentin/underlineJS
 https://github.com/sindresorhus/emoj
 https://kerningjs.com/ advanced web typography
@@ -282,7 +258,7 @@ typographie       https://github.com/davatron5000/Lettering.js
 typographie bien contrôlée ! https://txtjs.com/
 
 
-~~~ website P ~~~
+website P
 https://pepper.swat.io/#builder
 https://speakerdeck.com/talento90
 https://github.com/positionly/Typist effet de frappe
@@ -292,7 +268,7 @@ vanilla, framework, bookmarklet, extensions de navigateur, phonegap app, desktop
 https://ceejbot.github.io/
 
 
-~~~ website M ~~~
+website M
 https://www.heropatterns.com/
 https://github.com/krasimir/navigo simple router
 https://adioma.com/dashboard/4041/edit
@@ -432,30 +408,14 @@ https://github.com/lipis/flag-icon-css
 https://github.com/lafeber/world-flags-sprite
 https://www.flag-sprites.com/
 https://github.com/gosquared/flags
--- super fonte
-https://github.com/googlei18n/noto-fonts
 
 
 https://github.com/typicode/pegasus optim chargement 
 
 
-
-
-
--------------------------------------------------------------------------
-
--- offline first
-https://jakearchibald.com/2014/offline-cookbook/
-
---- service worker
-https://jakearchibald.github.io/isserviceworkerready/index.html
-https://www.html5rocks.com/en/tutorials/service-worker/introduction/
-
-
 --- persistence
 pouchdb https://www.sitepoint.com/building-offline-first-app-pouchdb/
 in-memory https://github.com/js-data/js-data
-firebase https://scotch.io/tutorials/javascript/build-a-real-time-scheduling-app-using-angularjs-and-firebase
 in-memory https://dailyjs.com/2014/11/06/alasql/
 ---- JSON database
 https://github.com/louischatriot/nedb
