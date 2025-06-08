@@ -1,0 +1,15 @@
+meta {
+  name: /users
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://reqres.in/api/users/?per_page=4
+  body: none
+  auth: inherit
+}
+
+params:query {
+  per_page: 4
+}

@@ -15,9 +15,10 @@ DB                https://github.com/brianc/node-postgres
 CLI tools         https://github.com/75lb/walk-back
 sound             https://github.com/tropicbliss/symphonia
 DBaaS             https://supabase.com/pricing
+ORM               https://www.prisma.io/
+                  https://orm.drizzle.team/
 
 
-https://leerob.io/blog/backend
 ////////////////////////////////////////////////////////////////////////
 
 https://theoephraim.github.io/node-google-spreadsheet/#/
@@ -30,10 +31,6 @@ Lambdas:
 * https://zeit.co/oss
 
 pubsub https://www.pubnub.com/pricing/
-
-spawn
-* https://github.com/jamiebuilds/spawndamnit
-
 
 pdf https://github.com/RelaxedJS/ReLaXed
 
