@@ -13,9 +13,6 @@ payment            -> stripe
                       https://www.jaimelesstartups.fr/lemon-way/
                       https://www.fatzebra.com.au
 
-placeholders       -> https://placekitten.com/
-                      https://placeholder.com/
-
 device testing     -> https://nativetap.io/
 
 dependencies       -> https://libraries.io/about
@@ -91,7 +88,6 @@ https://context.io/how-it-works/connecting-mailboxes
 https://shoutcloud.io/
 https://foaas.com/
 https://www.imgix.com/
-https://placehold.it/
 https://playphrase.me
 https://opbeat.com/
 https://www.mangopay.com/
